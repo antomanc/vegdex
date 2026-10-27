@@ -67,20 +67,23 @@ button { cursor: pointer; }
 .pills.wrap { flex-wrap: wrap; overflow: visible; padding: 0; }
 .pill {
   flex: none; border: 1px solid transparent; background: var(--green-soft); color: var(--ink);
-  border-radius: 999px; padding: 7px 14px; font-size: 0.92rem; white-space: nowrap;
+  border-radius: 999px; min-height: 40px; padding: 0 16px; font-size: 0.92rem; white-space: nowrap;
 }
-.pill.outline { background: transparent; border-color: var(--line); font-size: 0.85rem; padding: 5px 12px; }
+.pill.outline { background: transparent; border-color: var(--line); font-size: 0.88rem; padding: 0 14px; }
 .pill.on { background: var(--green); color: var(--bg); border-color: var(--green); }
 .divider { flex: none; width: 1px; background: var(--line); margin: 4px 2px; }
 
-.more { max-width: 1200px; margin: 10px auto 4px; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); display: grid; gap: 10px; }
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .label { font-size: 0.85rem; color: var(--muted); min-width: 72px; }
-.row input, .row select { flex: 1; min-width: 140px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); }
-.small { padding: 7px 12px; border-radius: 10px; border: 0; background: var(--green); color: var(--bg); font-size: 0.85rem; }
-.small.ghost { background: transparent; color: var(--tomato); }
-.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-left: 80px; }
-.chip { border: 0; border-radius: 999px; padding: 4px 10px; font-size: 0.82rem; }
+.field { border: 0; margin: 0 0 20px; padding: 0; display: grid; gap: 8px; }
+.field .label { padding: 0; font-weight: 600; }
+.input-row { display: flex; gap: 8px; }
+.field input, .field select, .row select {
+  flex: 1; min-width: 0; min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg);
+}
+.btn-sm { min-height: 44px; padding: 0 18px; border-radius: 10px; border: 0; background: var(--green); color: var(--bg); font-size: 0.9rem; font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 0; border-radius: 999px; min-height: 32px; padding: 4px 12px; font-size: 0.85rem; }
 .chip.have { background: var(--green-soft); }
 .chip.avoid { background: color-mix(in srgb, var(--tomato) 18%, transparent); }
 
@@ -109,9 +112,11 @@ main { max-width: 1200px; margin: 0 auto; padding: 12px 12px 40px; }
 .card .meta { margin: 0 2px; }
 .meta { color: var(--muted); font-size: 0.8rem; }
 .heart {
-  position: absolute; top: 8px; right: 8px; width: 34px; height: 34px; border-radius: 50%;
-  border: 0; background: rgb(255 255 255 / 0.85); color: #9aa39c; font-size: 1rem; line-height: 1;
+  position: absolute; top: 3px; right: 3px; width: 44px; height: 44px; display: grid; place-items: center;
+  border: 0; padding: 0; background: none; color: #6f7a72; font-size: 1rem; line-height: 1;
 }
+.heart::before { content: ''; position: absolute; inset: 5px; border-radius: 50%; background: rgb(255 255 255 / 0.88); z-index: -1; }
+.heart { isolation: isolate; }
 .heart.on { color: var(--tomato); }
 .sentinel { height: 1px; }
 .credits { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: 40px; line-height: 1.5; }
@@ -124,7 +129,16 @@ main { max-width: 1200px; margin: 0 auto; padding: 12px 12px 40px; }
 @media (min-width: 700px) { .sheet { margin: auto; border-radius: 20px; } }
 .sheet::backdrop { background: rgb(10 15 12 / 0.55); }
 .sheet-body { padding: 20px 20px 28px; position: relative; }
-.close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: var(--bg); font-size: 1.4rem; line-height: 1; z-index: 1; }
+.sheet-top { position: sticky; top: 20px; height: 0; z-index: 2; }
+.close {
+  position: absolute; top: -10px; right: -10px; width: 44px; height: 44px; border-radius: 50%; border: 0;
+  background: var(--bg); box-shadow: 0 1px 4px rgb(0 0 0 / 0.15); font-size: 1.4rem; line-height: 1;
+}
+.sheet-footer {
+  position: sticky; bottom: 0; margin: 8px -20px -28px; padding: 12px 20px calc(16px + env(safe-area-inset-bottom));
+  display: flex; gap: 10px; align-items: center; justify-content: flex-end; background: var(--surface); border-top: 1px solid var(--line);
+}
+.sheet-footer .cta { flex: 1; border: 0; min-height: 48px; font-size: 1rem; }
 .hero { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); margin-bottom: 14px; }
 .sheet h2 { font-family: var(--display); font-size: 1.5rem; line-height: 1.2; margin: 0 40px 6px 0; }
 .sheet h3 { font-family: var(--display); font-size: 1.1rem; margin: 22px 0 8px; }

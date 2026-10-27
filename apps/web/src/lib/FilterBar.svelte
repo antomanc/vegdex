@@ -3,7 +3,14 @@
   import { FREE, MEAL_LABELS, SORTS, TIMES } from './labels'
   import { activeCount, clearFilters, filters, moreCount } from './state.svelte'
 
+  let { count }: { count: number } = $props()
+
   let more = $state(false)
+  let dialog = $state<HTMLDialogElement>()
+
+  $effect(() => {
+    dialog?.showModal()
+  })
   let have = $state('')
   let avoid = $state('')
 
@@ -38,7 +45,7 @@
 </nav>
 
 <div class="pills secondary">
-  <button class="pill outline" class:on={more} aria-expanded={more} onclick={() => (more = !more)}>
+  <button class="pill outline" class:on={moreCount() > 0} aria-haspopup="dialog" onclick={() => (more = true)}>
     More filters{moreCount() ? ` · ${moreCount()}` : ''}
   </button>
   {#each TIMES as t (t)}
@@ -50,54 +57,66 @@
 </div>
 
 {#if more}
-  <section class="more" aria-label="More filters">
-    <div class="row">
-      <span class="label">Free from</span>
-      <div class="pills wrap">
-        {#each FREE as [f, label] (f)}
-          <button class="pill outline" class:on={filters.freeFrom.includes(f)} aria-pressed={filters.freeFrom.includes(f)}
-            onclick={() => toggleFree(f)}>{label}</button>
-        {/each}
+  <dialog bind:this={dialog} class="sheet" aria-labelledby="more-title" onclose={() => (more = false)}
+    onclick={(e) => e.target === dialog && dialog?.close()}>
+    <div class="sheet-body">
+      <div class="sheet-top"><button class="close" onclick={() => dialog?.close()} aria-label="Close">×</button></div>
+      <h2 id="more-title">More filters</h2>
+
+      <fieldset class="field">
+        <legend class="label">Free from</legend>
+        <div class="pills wrap">
+          {#each FREE as [f, label] (f)}
+            <button class="pill outline" class:on={filters.freeFrom.includes(f)} aria-pressed={filters.freeFrom.includes(f)}
+              onclick={() => toggleFree(f)}>{label}</button>
+          {/each}
+        </div>
+      </fieldset>
+
+      <form class="field" onsubmit={(e) => addTo('include', e)}>
+        <label class="label" for="have">I have</label>
+        <div class="input-row">
+          <input id="have" bind:value={have} placeholder="e.g. tofu, spinach" autocomplete="off" enterkeyhint="done" />
+          <button class="btn-sm">Add</button>
+        </div>
+        {#if filters.include.length}
+          <div class="chips">
+            {#each filters.include as v (v)}
+              <button class="chip have" onclick={() => remove('include', v)} aria-label="Remove {v}">{v} <span aria-hidden="true">×</span></button>
+            {/each}
+          </div>
+        {/if}
+      </form>
+
+      <form class="field" onsubmit={(e) => addTo('exclude', e)}>
+        <label class="label" for="avoid">Avoid</label>
+        <div class="input-row">
+          <input id="avoid" bind:value={avoid} placeholder="e.g. mushrooms, coconut" autocomplete="off" enterkeyhint="done" />
+          <button class="btn-sm">Add</button>
+        </div>
+        {#if filters.exclude.length}
+          <div class="chips">
+            {#each filters.exclude as v (v)}
+              <button class="chip avoid" onclick={() => remove('exclude', v)} aria-label="Remove {v}">no {v} <span aria-hidden="true">×</span></button>
+            {/each}
+          </div>
+        {/if}
+      </form>
+
+      <div class="field">
+        <label class="label" for="sort">Sort</label>
+        <select id="sort" bind:value={filters.sort}>
+          <option value={null}>Top rated (best match when searching)</option>
+          {#each SORTS as [s, label] (s)}
+            <option value={s}>{label}</option>
+          {/each}
+        </select>
+      </div>
+
+      <div class="sheet-footer">
+        {#if activeCount()}<button class="text-btn" onclick={clearFilters}>Clear all</button>{/if}
+        <button class="cta" onclick={() => dialog?.close()}>Show {count.toLocaleString()} {count === 1 ? 'recipe' : 'recipes'}</button>
       </div>
     </div>
-
-    <form class="row" onsubmit={(e) => addTo('include', e)}>
-      <label class="label" for="have">I have</label>
-      <input id="have" bind:value={have} placeholder="e.g. tofu, spinach" autocomplete="off" />
-      <button class="small">Add</button>
-    </form>
-    {#if filters.include.length}
-      <div class="chips">
-        {#each filters.include as v (v)}
-          <button class="chip have" onclick={() => remove('include', v)} aria-label="Remove {v}">{v} ×</button>
-        {/each}
-      </div>
-    {/if}
-
-    <form class="row" onsubmit={(e) => addTo('exclude', e)}>
-      <label class="label" for="avoid">Avoid</label>
-      <input id="avoid" bind:value={avoid} placeholder="e.g. mushrooms, coconut" autocomplete="off" />
-      <button class="small">Add</button>
-    </form>
-    {#if filters.exclude.length}
-      <div class="chips">
-        {#each filters.exclude as v (v)}
-          <button class="chip avoid" onclick={() => remove('exclude', v)} aria-label="Remove {v}">no {v} ×</button>
-        {/each}
-      </div>
-    {/if}
-
-    <div class="row">
-      <label class="label" for="sort">Sort</label>
-      <select id="sort" bind:value={filters.sort}>
-        <option value={null}>Default</option>
-        {#each SORTS as [s, label] (s)}
-          <option value={s}>{label}</option>
-        {/each}
-      </select>
-      {#if activeCount()}
-        <button class="small ghost" onclick={clearFilters}>Clear all</button>
-      {/if}
-    </div>
-  </section>
+  </dialog>
 {/if}

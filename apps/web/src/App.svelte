@@ -79,7 +79,7 @@
       enterkeyhint="search"
     />
   </label>
-  {#if !filters.saved}<FilterBar />{/if}
+  {#if !filters.saved}<FilterBar count={results.length} />{/if}
 </header>
 
 <main>

@@ -24,7 +24,7 @@
 
 <dialog bind:this={dialog} class="sheet" onclose={onclose} onclick={(e) => e.target === dialog && dialog?.close()} aria-labelledby="grocery-title">
   <div class="sheet-body">
-    <button class="close" onclick={() => dialog?.close()} aria-label="Close">×</button>
+    <div class="sheet-top"><button class="close" onclick={() => dialog?.close()} aria-label="Close">×</button></div>
     <h2 id="grocery-title">Shopping list</h2>
     <p class="meta">For {recipes.length} saved {recipes.length === 1 ? 'recipe' : 'recipes'}</p>
     <div class="row">

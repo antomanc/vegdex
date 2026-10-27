@@ -27,7 +27,7 @@
 
 <dialog bind:this={dialog} class="sheet" onclose={onclose} onclick={(e) => e.target === dialog && dialog?.close()} aria-labelledby="sheet-title">
   <div class="sheet-body">
-    <button class="close" onclick={() => dialog?.close()} aria-label="Close">×</button>
+    <div class="sheet-top"><button class="close" onclick={() => dialog?.close()} aria-label="Close">×</button></div>
     {#if recipe.image}
       <img class="hero" src={recipe.image} alt="" referrerpolicy="no-referrer" />
     {/if}
