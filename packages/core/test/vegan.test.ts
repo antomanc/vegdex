@@ -17,7 +17,9 @@ describe('findNonVegan', () => {
     '1/2 cup dairy-free yogurt',
     '1 cup milk of choice',
     '1 butternut squash',
-    '1 cup nutritional yeast'
+    '1 cup nutritional yeast',
+    '10.053 oz oyster mushrooms',
+    'vanilla ice cream or whipped topping'
   ])('accepts %s', (line) => {
     expect(findNonVegan([line])).toEqual([]);
   });

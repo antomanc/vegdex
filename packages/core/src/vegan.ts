@@ -33,9 +33,11 @@ const PLANT_QUALIFIER = new RegExp(
       'seasoning', 'seaweed', 'nori', 'kelp', 'banana blossom', 'coconut', 'cashew', 'almond', 'oat',
       'soy(?:milk)?', 'rice', 'hemp', 'pea', 'macadamia', 'hazelnut', 'pistachio', 'walnut', 'pecan', 'peanut',
       'sunflower', 'sesame', 'tahini', 'pumpkin', 'seed', 'nut', 'cocoa', 'cacao', 'shea', 'apple', 'cookie',
-      'biscoff', 'butternut', 'vegetable', 'veggie', 'maple', 'agave', 'date', 'nice', 'cream of tartar'
+      'biscoff', 'butternut', 'vegetable', 'veggie', 'maple', 'agave', 'date', 'nice', 'cream of tartar',
+      // All sources are vegan blogs: a serving suggestion of ice cream there is vegan ice cream.
+      'ice cream', 'whipped topping'
     ].join('|') +
-    String.raw`)\b`
+    String.raw`)s?\b`
 );
 
 /** Lines that are headings or tips rather than ingredients. */

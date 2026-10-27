@@ -253,7 +253,8 @@ export function canonicalName(phrase: string): string {
   s = s.replace(/[^a-z0-9&'\- ]/g, ' ');
   const kept = s.split(/\s+/).filter((w) => w && !DESCRIPTORS.has(w) && !/^\d/.test(w));
   let name = kept.join(' ').trim();
-  if (SYNONYMS[name]) return SYNONYMS[name];
+  const direct = SYNONYMS[name];
+  if (direct) return direct;
   const words = name.split(' ');
   if (words.length > 0) words[words.length - 1] = singularize(words[words.length - 1]!);
   name = words.join(' ');

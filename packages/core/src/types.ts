@@ -18,7 +18,6 @@ export interface Recipe {
   keywords: string[];
   /** Ingredient lines as published, entity-decoded. */
   ingredients: string[];
-  tags: Tag[];
 }
 
 export const MEALS = [
@@ -90,4 +89,13 @@ export interface FullDataset {
   generatedAt: string;
   sources: Source[];
   recipes: FullRecipe[];
+}
+
+/** Detail shards: the web app loads one small file per opened recipe, not all lines. */
+export const DETAIL_SHARDS = 64;
+
+export function shardOf(id: string): number {
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+  return h % DETAIL_SHARDS;
 }

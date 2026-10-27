@@ -6,6 +6,8 @@ AI-first web project configured with `aginit` (Web, node).
 - Keep changes small, focused, and test-verified.
 - Prefer native language & platform capabilities over heavy external frameworks.
 - Never commit broken builds, failed typechecks, or unverified changes.
+- Tests: Playwright e2e covers the user flows (`e2e/`, run against the fixture dataset in `e2e/fixtures/`); Vitest covers domain logic (`packages/*/test/`). Skip unit tests that just mirror the implementation. Never delete or weaken a test to make it pass; delete one only together with the behavior it covers.
+- Vegan only: every source must be an all-vegan publisher, and recipes flagged by `findNonVegan` are never published.
 
 ## Essential Commands
 - Package Manager: `pnpm`

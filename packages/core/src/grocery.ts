@@ -91,7 +91,7 @@ export function compileGroceryList(inputs: GroceryInput[]): GroceryItem[] {
     for (const line of input.ingredients) {
       const p = parseIngredient(line);
       if (!p.name) continue;
-      const acc =
+      const acc: Acc =
         groups.get(p.name) ??
         { volume: 0, mass: 0, count: 0, other: new Map(), toTaste: false, recipeIds: new Set(), lines: [] };
       groups.set(p.name, acc);
