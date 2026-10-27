@@ -22,3 +22,14 @@ test('empty saved view explains what to do', async ({ page }) => {
   await page.goto('/?view=saved');
   await expect(page.getByText('Nothing saved yet')).toBeVisible();
 });
+
+test('browse filters never hide saved recipes', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: 'Desserts', exact: true }).click();
+  await expect(page.getByTestId('result-count')).toHaveText(/1 recipe$/);
+
+  await page.getByRole('button', { name: /Saved · 1/ }).click();
+  await expect(page.getByTestId('result-count')).toHaveText(/1 recipe saved/);
+  await expect(page.getByTestId('recipe-card')).toHaveText([/Spinach Tofu Curry/]);
+});

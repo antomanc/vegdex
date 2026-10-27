@@ -23,10 +23,10 @@ test('flavor and meal pills narrow the grid', async ({ page }) => {
 });
 
 test('time and high-protein filters', async ({ page }) => {
-  await page.getByRole('button', { name: '≤ 15 min' }).click();
+  await page.getByRole('button', { name: '≤ 15 min', exact: true }).click();
   await expect(cards(page)).toHaveText([/Lemony Quinoa Salad/]);
-  await page.getByRole('button', { name: '≤ 15 min' }).click();
-  await page.getByRole('button', { name: 'High protein' }).click();
+  await page.getByRole('button', { name: '≤ 15 min', exact: true }).click();
+  await page.getByRole('button', { name: 'High protein', exact: true }).click();
   await expect(cards(page)).toHaveText([/Spinach Tofu Curry/]);
 });
 
@@ -60,4 +60,25 @@ test('opening a recipe shows ingredients and links to the creator', async ({ pag
   await expect(sheet.getByRole('link', { name: /Cook it on ElaVegan/ })).toHaveAttribute('href', 'https://example.com/lentil-soup/');
   await sheet.getByRole('button', { name: 'Close' }).click();
   await expect(sheet).toBeHidden();
+});
+
+test('active filters stay visible and can be removed one by one', async ({ page }) => {
+  await page.getByRole('button', { name: 'Sweet', exact: true }).click();
+  await page.getByRole('button', { name: 'Desserts', exact: true }).click();
+  const active = page.getByRole('list', { name: 'Active filters' });
+  await expect(active.getByRole('button', { name: /^Remove/ })).toHaveCount(2);
+
+  await active.getByRole('button', { name: 'Remove Desserts' }).click();
+  await expect(count(page)).toHaveText(/2 recipes/);
+  await active.getByRole('button', { name: 'Remove Sweet' }).click();
+  await expect(count(page)).toHaveText(/6 recipes/);
+  await expect(active).toHaveCount(0);
+});
+
+test('an empty result offers a way back', async ({ page }) => {
+  await page.getByRole('searchbox').fill('lentil');
+  await page.getByRole('button', { name: 'Desserts', exact: true }).click();
+  await expect(page.getByText('No recipes match “lentil” with these filters.')).toBeVisible();
+  await page.getByRole('button', { name: 'Clear filters' }).click();
+  await expect(cards(page)).toHaveText([/Red Lentil Soup/]);
 });

@@ -1,32 +1,7 @@
 <script lang="ts">
   import type { FreeFrom, Meal } from '@vegdex/core'
-  import { activeCount, clearFilters, filters, type Sort } from './state.svelte'
-
-  const MEAL_LABELS: [Meal, string][] = [
-    ['breakfast', 'Breakfast'],
-    ['main', 'Mains'],
-    ['soup', 'Soups'],
-    ['salad', 'Salads'],
-    ['side', 'Sides'],
-    ['snack', 'Snacks'],
-    ['dessert', 'Desserts'],
-    ['baking', 'Baking'],
-    ['drink', 'Drinks'],
-    ['sauce', 'Sauces & dips']
-  ]
-  const TIMES = [15, 30, 45, 60]
-  const FREE: [FreeFrom, string][] = [
-    ['gluten-free', 'Gluten-free'],
-    ['nut-free', 'Nut-free'],
-    ['soy-free', 'Soy-free'],
-    ['oil-free', 'Oil-free']
-  ]
-  const SORTS: [Sort, string][] = [
-    ['rating', 'Top rated'],
-    ['newest', 'Newest'],
-    ['fastest', 'Fastest'],
-    ['relevance', 'Best match']
-  ]
+  import { FREE, MEAL_LABELS, SORTS, TIMES } from './labels'
+  import { activeCount, clearFilters, filters, moreCount } from './state.svelte'
 
   let more = $state(false)
   let have = $state('')
@@ -64,7 +39,7 @@
 
 <div class="pills secondary">
   <button class="pill outline" class:on={more} aria-expanded={more} onclick={() => (more = !more)}>
-    More filters{activeCount() ? ` · ${activeCount()}` : ''}
+    More filters{moreCount() ? ` · ${moreCount()}` : ''}
   </button>
   {#each TIMES as t (t)}
     <button class="pill outline" class:on={filters.maxMinutes === t} aria-pressed={filters.maxMinutes === t}

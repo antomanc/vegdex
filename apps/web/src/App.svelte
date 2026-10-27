@@ -1,8 +1,9 @@
 <script lang="ts">
   import { searchRecipes, type Catalog, type CatalogRecipe } from '@vegdex/core'
   import { loadCatalog } from './lib/data'
-  import { filters, readUrl, saved, toQuery, writeUrl } from './lib/state.svelte'
+  import { activeCount, clearFilters, filters, readUrl, saved, toQuery, writeUrl } from './lib/state.svelte'
   import FilterBar from './lib/FilterBar.svelte'
+  import ActiveFilters from './lib/ActiveFilters.svelte'
   import RecipeCard from './lib/RecipeCard.svelte'
   import RecipeSheet from './lib/RecipeSheet.svelte'
   import GrocerySheet from './lib/GrocerySheet.svelte'
@@ -16,9 +17,16 @@
   let limit = $state(PAGE)
   let sentinel = $state<HTMLElement>()
 
-  loadCatalog()
-    .then((c) => (catalog = c))
-    .catch((e: Error) => (error = e.message))
+  function load() {
+    error = null
+    loadCatalog()
+      .then((c) => (catalog = c))
+      .catch((e: Error) => {
+        console.error(e)
+        error = "Couldn't load the recipes. Check your connection and try again."
+      })
+  }
+  load()
 
   const sourceNames = $derived(new Map(catalog?.sources.map((s) => [s.id, s.name]) ?? []))
   const results = $derived<CatalogRecipe[]>(catalog ? searchRecipes(catalog.recipes, toQuery(saved.ids)) : [])
@@ -65,23 +73,26 @@
     <span class="visually-hidden">Search recipes</span>
     <input
       type="search"
-      placeholder="Search vegan recipes: curry, brownies, tofu…"
+      placeholder={filters.saved ? 'Search your saved recipes' : 'Search vegan recipes: curry, brownies, tofu…'}
       bind:value={filters.text}
       autocomplete="off"
       enterkeyhint="search"
     />
   </label>
-  <FilterBar />
+  {#if !filters.saved}<FilterBar />{/if}
 </header>
 
 <main>
   {#if error}
-    <p class="status">{error}</p>
+    <div class="status">
+      <p>{error}</p>
+      <button class="text-btn" onclick={load}>Try again</button>
+    </div>
   {:else if !catalog}
     <p class="status">Loading recipes…</p>
   {:else}
     <div class="summary">
-      <p data-testid="result-count">
+      <p data-testid="result-count" role="status">
         {`${results.length.toLocaleString()} ${results.length === 1 ? 'recipe' : 'recipes'}${filters.saved ? ' saved' : ''}`}
       </p>
       {#if filters.saved && savedRecipes.length}
@@ -89,10 +100,20 @@
       {/if}
     </div>
 
+    {#if !filters.saved}<ActiveFilters />{/if}
+
     {#if results.length === 0}
-      <p class="status">
-        {filters.saved ? 'Nothing saved yet. Tap ♥ on a recipe to keep it here.' : 'No recipes match. Try removing a filter.'}
-      </p>
+      <div class="status">
+        {#if filters.saved && !saved.ids.length}
+          <p>Nothing saved yet. Tap the heart on a recipe to keep it here.</p>
+        {:else}
+          <p>
+            {filters.saved ? 'None of your saved recipes match' : 'No recipes match'}{filters.text.trim() ? ` “${filters.text.trim()}”` : ''}{!filters.saved && activeCount() ? ' with these filters' : ''}.
+          </p>
+          {#if filters.text.trim()}<button class="text-btn" onclick={() => (filters.text = '')}>Clear search</button>{/if}
+          {#if !filters.saved && activeCount()}<button class="text-btn" onclick={clearFilters}>Clear filters</button>{/if}
+        {/if}
+      </div>
     {/if}
 
     <ul class="grid">

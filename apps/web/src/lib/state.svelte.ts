@@ -17,6 +17,8 @@ export const filters = $state({
 })
 
 export function toQuery(savedIds: string[]): RecipeQuery {
+  // The saved view is a list the user built by hand: browse filters never hide its recipes.
+  if (filters.saved) return { text: filters.text.trim() || undefined, sort: filters.sort ?? undefined, ids: savedIds }
   return {
     text: filters.text.trim() || undefined,
     meals: filters.meals,
@@ -26,8 +28,7 @@ export function toQuery(savedIds: string[]): RecipeQuery {
     highProtein: filters.highProtein,
     include: filters.include,
     exclude: filters.exclude,
-    sort: filters.sort ?? undefined,
-    ids: filters.saved ? savedIds : undefined
+    sort: filters.sort ?? undefined
   }
 }
 
@@ -41,6 +42,11 @@ export function activeCount(): number {
     filters.include.length +
     filters.exclude.length
   )
+}
+
+/** Filters that live behind "More filters" (the quick pills show their own state). */
+export function moreCount(): number {
+  return filters.freeFrom.length + filters.include.length + filters.exclude.length
 }
 
 export function clearFilters() {
