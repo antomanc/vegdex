@@ -1,0 +1,74 @@
+name: Daily ingest and deploy
+
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['apps/web/**', 'packages/core/**', 'packages/ingest/**']
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: write
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      # The crawl state lives in a release asset, not in git, so history stays small.
+      - name: Restore store
+        run: gh release download data --pattern store.json.gz --dir .data || echo "no store yet, starting fresh"
+
+      - name: Crawl new recipes (scheduled runs only)
+        if: github.event_name != 'push'
+        run: pnpm ingest crawl
+
+      - name: Emit dataset
+        run: pnpm ingest emit
+
+      - name: Save store
+        if: github.event_name != 'push'
+        run: |
+          gh release view data >/dev/null 2>&1 || gh release create data --title "Crawl state" --notes "Ingest store used by the daily workflow. Not a software release."
+          gh release upload data .data/store.json.gz .data/excluded.json --clobber
+
+      - name: Build site
+        run: pnpm build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: apps/web/dist
+
+      # Scheduled workflows stop after 60 days without commits; re-enabling keeps this one alive.
+      - name: Keep schedule alive
+        run: gh api -X PUT repos/${{ github.repository }}/actions/workflows/daily.yml/enable
+
+  deploy:
+    needs: ingest
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
