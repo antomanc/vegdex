@@ -168,7 +168,10 @@
       <button class="text-btn" onclick={load}>Try again</button>
     </div>
   {:else if !catalog}
-    <p class="status">Loading recipes…</p>
+    <p class="visually-hidden" role="status">Loading recipes…</p>
+    <ul class="grid skeleton" aria-hidden="true">
+      {#each Array(6) as _, i (i)}<li><div class="thumb"></div><div class="bar"></div><div class="bar short"></div></li>{/each}
+    </ul>
   {:else}
     {#if filters.saved}
       <div class="view-head">

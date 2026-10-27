@@ -8,6 +8,7 @@
 
   let { recipe, sourceName, onclose }: { recipe: CatalogRecipe; sourceName: string; onclose: () => void } = $props()
 
+  let broken = $state(false)
   const ingredients = $derived(loadIngredients(recipe.id))
   const isSaved = $derived(saved.ids.includes(recipe.id))
 
@@ -28,8 +29,8 @@
   <div class="sheet-body">
     <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label="Close"><Icon name="close" size={20} /></button></div>
     <div class="recipe-head">
-    {#if recipe.image}
-      <img class="hero" src={recipe.image} alt="" referrerpolicy="no-referrer" />
+    {#if recipe.image && !broken}
+      <img class="hero" src={recipe.image} alt="" referrerpolicy="no-referrer" onerror={() => (broken = true)} />
     {/if}
     <h2 id="sheet-title">{recipe.title}</h2>
     <p class="meta">
