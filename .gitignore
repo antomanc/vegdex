@@ -15,3 +15,5 @@ dist/
 # Ingest store and generated dataset
 .data/
 apps/web/public/data/
+test-results/
+playwright-report/
