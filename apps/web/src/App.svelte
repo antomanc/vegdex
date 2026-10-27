@@ -4,6 +4,7 @@
   import { activeCount, clearFilters, filters, readUrl, saved, toQuery, writeUrl } from './lib/state.svelte'
   import FilterBar from './lib/FilterBar.svelte'
   import ActiveFilters from './lib/ActiveFilters.svelte'
+  import Icon from './lib/Icon.svelte'
   import RecipeCard from './lib/RecipeCard.svelte'
   import RecipeSheet from './lib/RecipeSheet.svelte'
   import GrocerySheet from './lib/GrocerySheet.svelte'
@@ -57,7 +58,7 @@
 
 <header class="top">
   <div class="brand-row">
-    <button class="brand" onclick={() => (filters.saved = false)} aria-label="All recipes">
+    <button class="brand" onclick={() => (filters.saved = false)} aria-label="vegdex, all recipes">
       <img class="logo" src="{import.meta.env.BASE_URL}favicon.svg" alt="" width="28" height="28" /> vegdex
     </button>
     <button
@@ -66,7 +67,7 @@
       aria-pressed={filters.saved}
       onclick={() => (filters.saved = !filters.saved)}
     >
-      ♥ Saved{saved.ids.length ? ` · ${saved.ids.length}` : ''}
+      <Icon name="heart" size={16} filled /> Saved{saved.ids.length ? ` · ${saved.ids.length}` : ''}
     </button>
   </div>
   <label class="search">

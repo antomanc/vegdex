@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { FreeFrom, Meal } from '@vegdex/core'
+  import Icon from './Icon.svelte'
   import { FREE, MEAL_LABELS, SORTS, TIMES } from './labels'
   import { activeCount, clearFilters, filters, moreCount } from './state.svelte'
 
@@ -60,7 +61,7 @@
   <dialog bind:this={dialog} class="sheet" aria-labelledby="more-title" onclose={() => (more = false)}
     onclick={(e) => e.target === dialog && dialog?.close()}>
     <div class="sheet-body">
-      <div class="sheet-top"><button class="close" onclick={() => dialog?.close()} aria-label="Close">×</button></div>
+      <div class="sheet-top"><button class="close" onclick={() => dialog?.close()} aria-label="Close"><Icon name="close" size={20} /></button></div>
       <h2 id="more-title">More filters</h2>
 
       <fieldset class="field">
@@ -82,7 +83,7 @@
         {#if filters.include.length}
           <div class="chips">
             {#each filters.include as v (v)}
-              <button class="chip have" onclick={() => remove('include', v)} aria-label="Remove {v}">{v} <span aria-hidden="true">×</span></button>
+              <button class="chip have" onclick={() => remove('include', v)} aria-label="Remove {v}">{v} <Icon name="close" size={12} /></button>
             {/each}
           </div>
         {/if}
@@ -97,7 +98,7 @@
         {#if filters.exclude.length}
           <div class="chips">
             {#each filters.exclude as v (v)}
-              <button class="chip avoid" onclick={() => remove('exclude', v)} aria-label="Remove {v}">no {v} <span aria-hidden="true">×</span></button>
+              <button class="chip avoid" onclick={() => remove('exclude', v)} aria-label="Remove {v}">no {v} <Icon name="close" size={12} /></button>
             {/each}
           </div>
         {/if}

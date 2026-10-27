@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { CatalogRecipe } from '@vegdex/core'
   import { loadIngredients } from './data'
+  import Icon from './Icon.svelte'
+  import { formatMinutes } from './labels'
   import { saved, toggleSaved } from './state.svelte'
 
   let { recipe, sourceName, onclose }: { recipe: CatalogRecipe; sourceName: string; onclose: () => void } = $props()
@@ -27,16 +29,16 @@
 
 <dialog bind:this={dialog} class="sheet" onclose={onclose} onclick={(e) => e.target === dialog && dialog?.close()} aria-labelledby="sheet-title">
   <div class="sheet-body">
-    <div class="sheet-top"><button class="close" onclick={() => dialog?.close()} aria-label="Close">×</button></div>
+    <div class="sheet-top"><button class="close" onclick={() => dialog?.close()} aria-label="Close"><Icon name="close" size={20} /></button></div>
     {#if recipe.image}
       <img class="hero" src={recipe.image} alt="" referrerpolicy="no-referrer" />
     {/if}
     <h2 id="sheet-title">{recipe.title}</h2>
     <p class="meta">
       by {sourceName}
-      {#if recipe.minutes}· {recipe.minutes} min{/if}
+      {#if recipe.minutes}· {formatMinutes(recipe.minutes)}{/if}
       {#if recipe.servings}· serves {recipe.servings}{/if}
-      {#if recipe.rating && recipe.ratingCount}· ★ {recipe.rating.toFixed(1)} ({recipe.ratingCount}){/if}
+      {#if recipe.rating && recipe.ratingCount}· <Icon name="star" size={13} filled /><span class="visually-hidden">Rated</span> {recipe.rating.toFixed(1)} ({recipe.ratingCount.toLocaleString()} ratings){/if}
     </p>
     {#if recipe.calories || recipe.protein}
       <p class="meta">
@@ -52,9 +54,9 @@
     {/if}
 
     <div class="actions">
-      <a class="cta" href={recipe.url} target="_blank" rel="noopener">Cook it on {sourceName} ↗</a>
+      <a class="cta" href={recipe.url} target="_blank" rel="noopener">Cook it on {sourceName} <Icon name="external" size={16} /></a>
       <button class="save" class:on={isSaved} aria-pressed={isSaved} onclick={() => toggleSaved(recipe.id)}>
-        {isSaved ? '♥ Saved' : '♡ Save'}
+        <Icon name="heart" size={18} filled={isSaved} /> {isSaved ? 'Saved' : 'Save'}
       </button>
     </div>
 

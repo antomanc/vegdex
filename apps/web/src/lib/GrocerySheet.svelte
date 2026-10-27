@@ -1,6 +1,7 @@
 <script lang="ts">
   import { compileGroceryList, type CatalogRecipe, type GroceryItem } from '@vegdex/core'
   import { loadIngredients } from './data'
+  import Icon from './Icon.svelte'
 
   let { recipes, onclose }: { recipes: CatalogRecipe[]; onclose: () => void } = $props()
 
@@ -41,7 +42,7 @@
 
 <dialog bind:this={dialog} class="sheet" onclose={onclose} onclick={(e) => e.target === dialog && dialog?.close()} aria-labelledby="grocery-title">
   <div class="sheet-body">
-    <div class="sheet-top"><button class="close" onclick={() => dialog?.close()} aria-label="Close">×</button></div>
+    <div class="sheet-top"><button class="close" onclick={() => dialog?.close()} aria-label="Close"><Icon name="close" size={20} /></button></div>
     <h2 id="grocery-title">Shopping list</h2>
     <p class="meta">For {recipes.length} saved {recipes.length === 1 ? 'recipe' : 'recipes'}</p>
     <div class="row">

@@ -26,3 +26,14 @@ export const SORTS: [Sort, string][] = [
   ['fastest', 'Fastest'],
   ['relevance', 'Best match']
 ]
+
+/** "25 min", "1 h 30 min", "9 h": long bakes read at a glance. */
+export function formatMinutes(m: number): string {
+  if (m < 60) return `${m} min`
+  const h = Math.floor(m / 60)
+  const rest = m % 60
+  return rest ? `${h} h ${rest} min` : `${h} h`
+}
+
+const compact = new Intl.NumberFormat(undefined, { notation: 'compact' })
+export const formatCount = (n: number) => compact.format(n)
