@@ -1,0 +1,22 @@
+{
+  "name": "vegdex",
+  "private": true,
+  "type": "module",
+  "description": "A free, zero-backend index of vegan recipes from the best vegan food blogs: mobile web app + MCP server.",
+  "scripts": {
+    "dev": "pnpm --filter @vegdex/web dev",
+    "build": "pnpm --filter @vegdex/web build",
+    "ingest": "pnpm --filter @vegdex/ingest ingest",
+    "typecheck": "pnpm -r typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.11",
+    "@playwright/test": "^1.63.0"
+  }
+}
