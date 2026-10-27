@@ -20,6 +20,7 @@
     "vite-plugin-pwa": "^2.0.0"
   },
   "dependencies": {
+    "@fontsource-variable/besley": "^5.3.0",
     "@vegdex/core": "workspace:*"
   }
 }

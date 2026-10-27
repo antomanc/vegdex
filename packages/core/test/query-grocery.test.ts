@@ -47,4 +47,25 @@ describe('compileGroceryList', () => {
     ]);
     expect(list[0]?.amounts).toEqual(['1 ⅔ cups (390 ml)']);
   });
+
+  it('walks the store: produce first, other last', () => {
+    const list = compileGroceryList([
+      { recipeId: 'a', multiplier: 1, ingredients: ['1 tsp cumin', '2 cups rice', '1 onion', '1 tbsp mystery powder blend'] }
+    ]);
+    const aisles = [...new Set(list.map((i) => i.aisle))];
+    expect(aisles[0]).toBe('produce');
+    expect(aisles.at(-1)).toBe('other');
+    expect(aisles.indexOf('grains & pasta')).toBeLessThan(aisles.indexOf('spices'));
+  });
+
+  it('files dried spices and canned produce where they are sold', () => {
+    const list = compileGroceryList([
+      { recipeId: 'a', multiplier: 1, ingredients: ['black pepper to taste', '1 tsp chili powder', '1 can diced tomatoes', '1 tsp garlic powder'] }
+    ]);
+    const aisle = Object.fromEntries(list.map((i) => [i.name, i.aisle]));
+    expect(aisle['black pepper']).toBe('spices');
+    expect(aisle['chili powder']).toBe('spices');
+    expect(aisle['garlic powder']).toBe('spices');
+    expect(aisle.tomato).toBe('canned & jarred');
+  });
 });

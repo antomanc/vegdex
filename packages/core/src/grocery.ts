@@ -19,6 +19,8 @@ export interface GroceryItem {
 }
 
 const AISLES: [string, RegExp][] = [
+  // Dried spices named after produce ("garlic powder", "black pepper") are sold with the spices.
+  ['spices', /\b(?:black pepper|white pepper|peppercorn|cayenne|paprika|(?:chili|chilli|chile|garlic|onion|ginger|curry|chipotle|mustard) powder|(?:chili|chilli|pepper) flake)/],
   ['produce', /\b(?:onion|garlic|ginger|lemon|lime|orange|apple|banana|berr|tomato|potato|carrot|celery|spinach|kale|lettuce|cabbage|broccoli|cauliflower|zucchini|squash|pumpkin|pepper(?!corn)|chili|jalape|cucumber|avocado|mushroom|herb|cilantro|parsley|basil|mint|dill|thyme|rosemary|green onion|leek|shallot|eggplant|corn|pea\b|bean sprout|beet|radish|fruit|grape|mango|pineapple|peach|pear|plum|cherry|date|fig|sweet potato|arugula|chard|bok choy|fennel|asparagus|okra|green bean|edamame|sprout)/],
   ['tofu & alternatives', /\b(?:tofu|tempeh|seitan|vegan (?:butter|cheese|yogurt|sausage)|plant[\s-]based|yogurt|soy curl|jackfruit)/],
   ['plant milk & cream', /(?<!coconut )\b(?:milk|cream|creamer)\b/],
@@ -29,6 +31,21 @@ const AISLES: [string, RegExp][] = [
   ['baking & sweeteners', /\b(?:sugar|maple|agave|syrup|chocolate|cocoa|cacao|molasses|cornstarch|starch|arrowroot|xanthan)/],
   ['oils, vinegars & sauces', /\b(?:oil|vinegar|soy sauce|tamari|miso|sauce|paste|ketchup|mustard|mayo|sriracha|broth|stock|bouillon|liquid smoke|nutritional yeast)/],
   ['canned & jarred', /\b(?:canned|can|jar|coconut milk|tomato sauce|crushed tomato|olive|caper|pickle)/]
+];
+
+/** The order you walk a typical store in; "other" always comes last. */
+const STORE_WALK = [
+  'produce',
+  'tofu & alternatives',
+  'grains & pasta',
+  'beans & legumes',
+  'canned & jarred',
+  'nuts & seeds',
+  'oils, vinegars & sauces',
+  'spices',
+  'baking & sweeteners',
+  'plant milk & cream',
+  'other'
 ];
 
 export function aisleFor(name: string): string {
@@ -86,6 +103,7 @@ export function compileGroceryList(inputs: GroceryInput[]): GroceryItem[] {
     lines: string[];
   }
   const groups = new Map<string, Acc>();
+  const CANNED = new Set(['can', 'jar']);
 
   for (const input of inputs) {
     for (const line of input.ingredients) {
@@ -121,14 +139,17 @@ export function compileGroceryList(inputs: GroceryInput[]): GroceryItem[] {
     if (acc.volume) amounts.push(formatVolume(acc.volume));
     if (acc.count) amounts.push(fmt(acc.count));
     for (const [unit, q] of acc.other) amounts.push(`${fmt(q)} ${plural(unit, q)}`);
+    // "1 can diced tomatoes" is bought canned, not from the produce aisle.
+    const onlyCanned = !acc.mass && !acc.volume && !acc.count && acc.other.size > 0 && [...acc.other.keys()].every((u) => CANNED.has(u));
+    const aisle = aisleFor(name);
     items.push({
       name,
-      aisle: aisleFor(name),
+      aisle: aisle === 'produce' && onlyCanned ? 'canned & jarred' : aisle,
       amounts,
       toTaste: acc.toTaste && amounts.length === 0,
       recipeIds: [...acc.recipeIds],
       lines: acc.lines
     });
   }
-  return items.sort((a, b) => a.aisle.localeCompare(b.aisle) || a.name.localeCompare(b.name));
+  return items.sort((a, b) => STORE_WALK.indexOf(a.aisle) - STORE_WALK.indexOf(b.aisle) || a.name.localeCompare(b.name));
 }

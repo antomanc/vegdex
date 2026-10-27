@@ -19,8 +19,8 @@ export default defineConfig({
         name: 'vegdex: vegan recipes',
         short_name: 'vegdex',
         description: 'Thousands of tested vegan recipes from the best vegan food blogs, filtered in a tap.',
-        theme_color: '#1f3d2b',
-        background_color: '#f6f3ec',
+        theme_color: '#1d4a31',
+        background_color: '#f8f8f4',
         display: 'standalone',
         start_url: base,
         scope: base,
@@ -31,7 +31,7 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
         globIgnores: ['data/**'],
         navigateFallbackDenylist: [/\/data\//],
         runtimeCaching: [
