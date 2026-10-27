@@ -38,7 +38,8 @@ const UNIT_ALIASES: [string[], UnitDef][] = [
   [['inches', 'inch', 'in.', '"'], { unit: 'inch', dimension: 'other', factor: 1 }],
   [['jars', 'jar'], { unit: 'jar', dimension: 'other', factor: 1 }],
   [['bags', 'bag'], { unit: 'bag', dimension: 'other', factor: 1 }],
-  [['scoops', 'scoop'], { unit: 'scoop', dimension: 'other', factor: 1 }]
+  [['scoops', 'scoop'], { unit: 'scoop', dimension: 'other', factor: 1 }],
+  [['pieces', 'piece'], { unit: 'piece', dimension: 'other', factor: 1 }]
 ];
 
 const UNIT_LOOKUP = new Map<string, UnitDef>();
@@ -72,6 +73,18 @@ const NUMBER_WORDS: Record<string, number> = {
 
 const NUM = String.raw`\d+\s+\d+\/\d+|\d+\/\d+|\d+(?:[.,]\d+)?`;
 const QTY_RE = new RegExp(String.raw`^(${NUM})(?:\s*(?:-|–|to|or)\s*(${NUM}))?\s*`);
+/** "1 and 1/2", "1/4 + 1/8": a fraction added to the quantity before the unit. */
+const AND_FRACTION_RE = /^(?:and|\+)\s*(\d+\/\d+)\s*/;
+/** "60 ml / ¼ cup": the second, alternative measure of a dual measure. */
+const ALT_MEASURE_RE = new RegExp(String.raw`^\/\s*(?:(?:heaped|heaping|packed|scant|generous|level)\s+)?(?:${NUM})(?:\s*(?:-|–|to)\s*(?:${NUM}))?\s*`, 'i');
+/** "½ cup + 2 tbsp": a second amount added to the first. */
+const PLUS_MEASURE_RE = new RegExp(String.raw`^\+\s*(${NUM})\s*`);
+/** How full the spoon or cup is: says nothing about what to buy. */
+const MEASURE_WORDS_RE = /^(?:(?:heaped|heaping|packed|loosely|lightly|firmly|scant|generous|rounded|level|approx\.?|approximately|about|around)\s+)+/i;
+/** "3-inch piece", "2 cm piece": the size of a piece, kept as a note. */
+const PIECE_SIZE_RE = /^(\d+(?:[.,]\d+)?\s*-?\s*(?:inch|in\.|cm|"|”))\s*/i;
+/** "1 15 oz can": the size of the can, jar or block, kept as a note. */
+const PACK_SIZE_RE = /^(\d+(?:[.,]\d+)?(?:\s*[-–]\s*\d+(?:[.,]\d+)?)?\s*(?:oz\.?|ounces?|g|grams?|ml))\s*(?=(?:cans?|tins?|jars?|blocks?|bags?|packages?|packs?|cartons?|canned)\b)/i;
 
 function parseNumber(text: string): number {
   const t = text.trim().replace(',', '.');
@@ -134,7 +147,8 @@ const DESCRIPTORS = new Set([
   'mellow', 'ground', 'cracked', 'freshly-ground', 'firm', 'extra-firm', 'super-firm', 'silken', 'virgin',
   'extra-virgin', 'light', 'lite', 'full-fat', 'reduced', 'low-sodium', 'sodium', 'low', 'no-salt-added',
   'smooth', 'creamy', 'natural', 'runny', 'regular', 'plain', 'strong', 'brewed', 'filtered', 'tap', 'and', 'or',
-  'some', 'few', 'handful', 'bunch', 'container', 'pack', 'heaping', 'rounded', 'dry', 'sprinkle', 'for'
+  'some', 'few', 'handful', 'bunch', 'container', 'pack', 'heaping', 'rounded', 'dry', 'sprinkle', 'for', 'dark',
+  'piece', 'pieces'
 ]);
 
 /** Plural or alternate names → canonical shopping names. Keys are post-singularization. */
@@ -244,11 +258,28 @@ export function singularize(word: string): string {
 
 /** Reduce an ingredient phrase to what you would put on a shopping list. */
 export function canonicalName(phrase: string): string {
-  let s = phrase.toLowerCase();
-  s = s.replace(/\([^)]*\)?/g, ' ');
-  s = s.split(/,|;|\s[-–—]\s|:/)[0] ?? s;
-  // Alternatives: keep the first ("tapioca flour or cornstarch" → "tapioca flour").
-  s = s.split(/\s(?:or|\/)\s/)[0] ?? s;
+  const segments = phrase.toLowerCase().replace(/\([^)]*\)?/g, ' ').split(/,|;|\s[-–—]\s|:/);
+  const first = reduceSegment(segments[0] ?? '');
+  // "plain, unsweetened non-dairy milk": the first segment only described the second.
+  if (!first && segments[1] && isOnlyDescriptors(segments[0]!)) return reduceSegment(segments[1]);
+  return first;
+}
+
+function isOnlyDescriptors(segment: string): boolean {
+  const words = segment.split(/\s+/).filter(Boolean);
+  return words.length > 0 && words.every((w) => DESCRIPTORS.has(w) && w !== 'optional' && w !== 'for');
+}
+
+function reduceSegment(segment: string): string {
+  // Alternatives: keep the first that names something ("tapioca flour or cornstarch" → "tapioca flour"),
+  // or the last when the first only describes it ("fresh or frozen peas" → "peas").
+  const alternatives = segment.split(/\s(?:or|\/)\s/);
+  const named = reduceAlternative(alternatives[0]!);
+  return named || (alternatives.length > 1 ? reduceAlternative(alternatives.at(-1)!) : '');
+}
+
+function reduceAlternative(text: string): string {
+  let s = text;
   s = s.replace(/\b(to taste|as needed|for (?:serving|garnish|topping|frying|the pan|greasing|drizzling)|if needed|optional)\b.*$/, '');
   s = s.replace(/[^a-z0-9&'\- ]/g, ' ');
   const kept = s.split(/\s+/).filter((w) => w && !DESCRIPTORS.has(w) && !/^\d/.test(w));
@@ -265,6 +296,7 @@ export function canonicalName(phrase: string): string {
 export function parseIngredient(raw: string): ParsedIngredient {
   let s = normalizeLine(raw);
   const optional = /\boptional\b/i.test(s);
+  s = s.replace(MEASURE_WORDS_RE, '');
   let quantity: number | null = null;
   let quantityMax: number | null = null;
   let unit: string | null = null;
@@ -275,6 +307,11 @@ export function parseIngredient(raw: string): ParsedIngredient {
     quantity = parseNumber(q[1]!);
     quantityMax = q[2] ? parseNumber(q[2]) : null;
     s = s.slice(q[0].length);
+    const more = s.match(AND_FRACTION_RE);
+    if (more) {
+      quantity += parseNumber(more[1]!);
+      s = s.slice(more[0].length);
+    }
   } else if (word) {
     quantity = NUMBER_WORDS[word[1]!.toLowerCase()] ?? null;
     s = s.slice(word[0].length);
@@ -282,7 +319,8 @@ export function parseIngredient(raw: string): ParsedIngredient {
 
   // "1 (15-ounce) can chickpeas": the parenthetical size belongs to the can.
   let sizeNote = '';
-  const size = s.match(/^\(([^)]*)\)\s*/);
+  s = s.replace(MEASURE_WORDS_RE, '');
+  const size = s.match(/^\(([^)]*)\)\s*/) ?? s.match(PIECE_SIZE_RE) ?? s.match(PACK_SIZE_RE);
   if (size) {
     sizeNote = size[1]!;
     s = s.slice(size[0].length);
@@ -294,6 +332,19 @@ export function parseIngredient(raw: string): ParsedIngredient {
     if (def) {
       unit = def.unit;
       s = s.slice(u[0].length);
+      s = skipAltMeasure(s);
+      const plus = s.match(PLUS_MEASURE_RE);
+      const plusUnit = plus ? s.slice(plus[0].length).match(UNIT_RE) : null;
+      const plusDef = plusUnit ? lookupUnit(plusUnit[1]!) : undefined;
+      if (plus && plusUnit && plusDef) {
+        // Only same-dimension amounts add up; anything else is dropped rather than misread as the name.
+        if (plusDef.dimension === def.dimension && def.dimension !== 'other') {
+          const extra = (parseNumber(plus[1]!) * plusDef.factor) / def.factor;
+          quantity += extra;
+          if (quantityMax !== null) quantityMax += extra;
+        }
+        s = s.slice(plus[0].length + plusUnit[0].length);
+      }
     }
   } else if (u && /^(pinch|dash|handful|splash)/i.test(u[1]!)) {
     unit = lookupUnit(u[1]!)?.unit ?? null;
@@ -311,9 +362,17 @@ export function parseIngredient(raw: string): ParsedIngredient {
   if (unit && (unit === 'ml' || unit === 'l') && quantity !== null)
     metric = { quantity: quantity * (unit === 'l' ? 1000 : 1), unit: 'ml' };
 
-  s = s.replace(/^\([^)]*\)\s*/, '').replace(/^of\s+/i, '');
+  s = s.replace(/^\([^)]*\)\s*/, '').replace(/^of\s+(?:an?\s+)?/i, '');
   const commaAt = s.search(/,|\(/);
-  const head = commaAt >= 0 ? s.slice(0, commaAt) : s;
   const note = [sizeNote, commaAt >= 0 ? s.slice(commaAt) : ''].filter(Boolean).join(' ').replace(/^[,\s]+/, '');
-  return { raw: cleanText(raw), quantity, quantityMax, unit, metric, name: canonicalName(head), note, optional };
+  return { raw: cleanText(raw), quantity, quantityMax, unit, metric, name: canonicalName(s), note, optional };
+}
+
+/** Drop the alternative side of "60 ml / ¼ cup"; the first measure is the one kept. */
+function skipAltMeasure(s: string): string {
+  const alt = s.match(ALT_MEASURE_RE);
+  if (!alt) return s;
+  const rest = s.slice(alt[0].length).replace(MEASURE_WORDS_RE, '');
+  const u = rest.match(UNIT_RE);
+  return u && lookupUnit(u[1]!) ? rest.slice(u[0].length) : s;
 }
