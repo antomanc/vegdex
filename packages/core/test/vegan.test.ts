@@ -29,7 +29,12 @@ describe('findNonVegan', () => {
     '2 cups chicken flavor broth',
     'optional shredded parmesan (i used violife)',
     '1 (10 oz.) bag oyster crackers',
-    '1 (14 ounce or 400 ml) can full-fat coconut milk'
+    '1 (14 ounce or 400 ml) can full-fat coconut milk',
+    "6 cup lamb's lettuce",
+    '2 beef tomatoes (diced)',
+    '1 cup mock chicken pieces',
+    '2 tsp chicken spice mix',
+    '1/4 cup vegan mayo'
   ])('accepts %s', (line) => {
     expect(findNonVegan([line])).toEqual([]);
   });
@@ -46,7 +51,9 @@ describe('findNonVegan', () => {
     ['1/2 cup greek yogurt', 'yogurt'],
     ['1 cup heavy cream', 'cream'],
     ['1/4 cup shredded parmesan cheese', 'cheese'],
-    ['2 eggs, or 2 flax eggs', 'egg']
+    ['2 eggs, or 2 flax eggs', 'egg'],
+    ['1/2 cup kewpie mayonnaise', 'egg'],
+    ['1 large egg (wilcox organic cage free)', 'egg']
   ])('flags %s', (line, term) => {
     expect(findNonVegan([line])[0]?.term).toBe(term);
   });

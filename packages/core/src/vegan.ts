@@ -6,7 +6,7 @@ import { normalizeLine } from './ingredients';
  * recipe; false negatives would show a non-vegan one, so this errs strict.
  */
 const ANIMAL_TERMS: [string, RegExp][] = [
-  ['egg', /\beggs?\b|\begg (?:yolks?|whites?)\b|\byolks?\b/],
+  ['egg', /\beggs?\b|\begg (?:yolks?|whites?)\b|\byolks?\b|\bmayo(?:nnaise)?\b|\bkewpie\b|\bladyfingers?\b|\bsavoiardi\b|\baioli\b/],
   ['butter', /\bbutter\b(?![\s-]?(?:beans?|lettuce|extract|flavou?r))/],
   ['ghee', /\bghee\b/],
   ['milk', /\b(?:whole |skim |cow'?s |dairy |condensed |evaporated |powdered )?milk\b(?!\s?(?:of choice|alternative|substitute))/],
@@ -39,7 +39,8 @@ const PLANT_QUALIFIER = new RegExp(
       // German-language recipes (ElaVegan publishes both).
       'veganer?', 'veganen?', 'veganes',
       'flavou?r(?:ed)?', 'oatly', 'egg[\\s-]?like', 'egg roll', 'egg[\\s-]?sized', 'kala namak', 'black salt', 'bits',
-      'butter lettuce', 'oyster (?:crackers?|mushrooms?)', 'cream (?:of )?tartar', 'bread (?:&|and) butter',
+      'butter lettuce', "lamb'?s lettuce", 'beef(?:steak)? tomato(?:e?s)?', 'mock', 'faux', 'tofurkey', 'spice (?:mix|blend)',
+      'golden milk', 'milk bag', 'starter', 'easter egg', 'stabili[sz]er', 'oyster (?:crackers?|mushrooms?)', 'cream (?:of )?tart[ae]r', 'bread (?:&|and) butter',
       // References to a component made earlier in the same recipe.
       'from above', 'recipe', 'mixture', 'batter', 'powder from'
     ].join('|') +

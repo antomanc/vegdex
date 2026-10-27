@@ -13,7 +13,8 @@ const { values, positionals } = parseArgs({
     store: { type: 'string', default: path.join(root, '.data/store.json.gz') },
     out: { type: 'string', default: path.join(root, 'apps/web/public/data') },
     sources: { type: 'string' },
-    'max-per-source': { type: 'string', default: '100000' },
+    // Small daily batches stay under the rate limits that blogs' firewalls enforce.
+    'max-per-source': { type: 'string', default: '400' },
     'gap-ms': { type: 'string', default: '1000' },
     concurrency: { type: 'string', default: '8' }
   }

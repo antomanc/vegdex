@@ -29,6 +29,7 @@ export interface SourceResult {
   note?: string;
 }
 
+const BLOCKED = new Set([403, 429, 503]);
 const today = () => new Date().toISOString().slice(0, 10);
 
 async function discover(source: CrawlSource, robots: Robots, queue: HostQueue): Promise<SitemapEntry[]> {
@@ -86,6 +87,7 @@ export async function crawlSource(source: CrawlSource, store: Store, opts: Crawl
     .sort((a, b) => (b.lastmod ?? '').localeCompare(a.lastmod ?? ''))
     .slice(0, opts.maxPerSource);
 
+  let blockedInARow = 0;
   for (const e of todo) {
     if (!robots.allowed(e.url)) {
       store.urls[e.url] = { s: 'b', lm: e.lastmod, at: today() };
@@ -94,6 +96,17 @@ export async function crawlSource(source: CrawlSource, store: Store, opts: Crawl
     result.fetched++;
     try {
       const res = await queue.run(() => fetchText(e.url));
+      // Rate limits and bot walls are the site saying "not now": stop for this run,
+      // leave the URL untouched so the next run retries it.
+      if (BLOCKED.has(res.status)) {
+        result.fetched--;
+        if (++blockedInARow >= 3) {
+          result.note = `site answered HTTP ${res.status} ${blockedInARow} times in a row; resuming next run`;
+          break;
+        }
+        continue;
+      }
+      blockedInARow = 0;
       if (res.status !== 200) throw new Error(`HTTP ${res.status}`);
       const recipe = extractRecipe(res.text, res.url || e.url, source.id);
       if (recipe) {
