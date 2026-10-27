@@ -21,7 +21,7 @@ export interface GroceryItem {
 const AISLES: [string, RegExp][] = [
   ['produce', /\b(?:onion|garlic|ginger|lemon|lime|orange|apple|banana|berr|tomato|potato|carrot|celery|spinach|kale|lettuce|cabbage|broccoli|cauliflower|zucchini|squash|pumpkin|pepper(?!corn)|chili|jalape|cucumber|avocado|mushroom|herb|cilantro|parsley|basil|mint|dill|thyme|rosemary|green onion|leek|shallot|eggplant|corn|pea\b|bean sprout|beet|radish|fruit|grape|mango|pineapple|peach|pear|plum|cherry|date|fig|sweet potato|arugula|chard|bok choy|fennel|asparagus|okra|green bean|edamame|sprout)/],
   ['tofu & alternatives', /\b(?:tofu|tempeh|seitan|vegan (?:butter|cheese|yogurt|sausage)|plant[\s-]based|yogurt|soy curl|jackfruit)/],
-  ['plant milk & cream', /\b(?:milk|cream|creamer)\b/],
+  ['plant milk & cream', /(?<!coconut )\b(?:milk|cream|creamer)\b/],
   ['grains & pasta', /\b(?:rice|quinoa|oats?|pasta|spaghetti|noodle|couscous|bulgur|farro|barley|bread|tortilla|pita|wrap|bun|flour|polenta|cornmeal|panko|breadcrumb)/],
   ['beans & legumes', /\b(?:bean|chickpea|lentil|split pea)/],
   ['nuts & seeds', /\b(?:almond|cashew|walnut|pecan|peanut|hazelnut|pistachio|seed|tahini|nut butter|coconut flake|shredded coconut)/],

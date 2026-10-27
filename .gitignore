@@ -17,3 +17,4 @@ dist/
 apps/web/public/data/
 test-results/
 playwright-report/
+packages/mcp/dist/

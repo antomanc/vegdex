@@ -1,0 +1,40 @@
+{
+  "name": "@antomanc/vegdex",
+  "version": "0.1.0",
+  "description": "Vegan recipes from the best vegan food blogs for AI agents: MCP server + CLI with search, ingredients and shopping lists.",
+  "type": "module",
+  "bin": {
+    "vegdex": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "esbuild src/cli.ts --bundle --platform=node --format=esm --target=node22 --outfile=dist/cli.js --banner:js=\"#!/usr/bin/env node\" --packages=external --alias:@vegdex/core=../core/src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "prepack": "pnpm build"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "vegan",
+    "recipes",
+    "model-context-protocol",
+    "ai-agents"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@vegdex/core": "workspace:*",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
