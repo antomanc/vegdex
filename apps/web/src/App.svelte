@@ -15,6 +15,8 @@
   import GrocerySheet from './lib/GrocerySheet.svelte'
 
   const PAGE = 48
+  // Past this many, more recipes load on request, so the credits at the bottom can be reached.
+  const AUTO_LIMIT = PAGE * 4
 
   const initial = readUrl()
   let catalog = $state<Catalog | null>(null)
@@ -47,6 +49,7 @@
   const open = $derived(openId && catalog ? catalog.recipes.find((r) => r.id === openId) ?? null : null)
   const savedRecipes = $derived(catalog ? catalog.recipes.filter((r) => saved.ids.includes(r.id)) : [])
   const countText = $derived(`${resultCount.toLocaleString()} ${resultCount === 1 ? 'recipe' : 'recipes'}${filters.saved ? ' saved' : ''}`)
+  const blogCount = $derived(new Set(results.map((r) => r.source)).size)
   const sorts = $derived(SORTS.filter(([s]) => s !== 'relevance' || filters.text.trim()))
 
   /** At zero results, the one change that brings back the most recipes. */
@@ -184,7 +187,9 @@
 
     {#if results.length}
       <div class="summary">
-        <p data-testid="result-count">{countText}</p>
+        <p>
+          <span data-testid="result-count">{countText}</span>{#if !filters.saved}<span class="from">{' '}from {blogCount} vegan {blogCount === 1 ? 'blog' : 'blogs'}</span>{/if}
+        </p>
         <label class="sort">
           <span class="visually-hidden">Sort by</span>
           <select value={filters.sort ?? defaultSort()} onchange={(e) => setSort(e.currentTarget.value as Sort)}>
@@ -229,7 +234,14 @@
       {/each}
     </ul>
     {#if visible.length < results.length}
-      <div bind:this={sentinel} class="sentinel" aria-hidden="true"></div>
+      {#if limit < AUTO_LIMIT}
+        <div bind:this={sentinel} class="sentinel" aria-hidden="true"></div>
+      {:else}
+        <div class="more">
+          <button class="pill outline" onclick={() => (limit += PAGE)}>Show more recipes</button>
+          <p class="meta">Showing {visible.length.toLocaleString()} of {results.length.toLocaleString()}</p>
+        </div>
+      {/if}
     {/if}
 
     <footer class="credits">

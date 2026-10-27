@@ -131,3 +131,9 @@ test('an empty result names the filter to remove', async ({ page }) => {
   await page.getByRole('button', { name: /Remove “Desserts”/ }).click();
   await expect(cards(page)).toHaveText([/Red Lentil Soup/]);
 });
+
+test('the count credits the blogs and the credits stay on screen', async ({ page }) => {
+  await expect(page.getByText(/6 recipes from \d+ vegan blogs/)).toBeVisible();
+  await page.getByRole('searchbox').fill('nothing matches this');
+  await expect(page.getByText(/^Recipes from \d+ vegan blogs/)).toBeInViewport();
+});

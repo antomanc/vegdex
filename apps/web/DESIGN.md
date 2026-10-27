@@ -12,6 +12,9 @@ colors:
   tomato-rule: "#b23f2a"
   tomato-wash: "#f6e3de"
   star-gold: "#a8741c"
+  heart-disc: "rgb(255 255 255 / 0.9)"
+  shadow: "rgb(0 0 0 / 0.16)"
+  scrim: "rgb(10 15 12 / 0.55)"
   dark-paper: "#121814"
   dark-surface: "#1a221d"
   dark-ink: "#edf0ea"
@@ -21,6 +24,7 @@ colors:
   dark-green-wash: "#233528"
   dark-tomato-rule: "#f08a6c"
   dark-star-gold: "#e0b252"
+  dark-heart-disc: "rgb(18 24 20 / 0.82)"
 typography:
   wordmark:
     fontFamily: "Besley Variable, Besley, Clarendon, Georgia, serif"
@@ -33,6 +37,10 @@ typography:
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "-0.01em"
+  subhead:
+    fontFamily: "Besley Variable, Besley, Clarendon, Georgia, serif"
+    fontSize: "1.25rem"
+    fontWeight: 700
   title:
     fontFamily: "Besley Variable, Besley, Clarendon, Georgia, serif"
     fontSize: "1rem"
@@ -45,6 +53,15 @@ typography:
   label:
     fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
     fontSize: "0.88rem"
+    fontFeature: "tnum"
+  meta:
+    fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+    fontSize: "0.8rem"
+    fontFeature: "tnum"
+  tag:
+    fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+    fontSize: "0.75rem"
+    fontWeight: 600
     fontFeature: "tnum"
   aisle:
     fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
@@ -133,9 +150,12 @@ Two families with separate jobs. Besley, a Clarendon revival self-hosted through
 ### Hierarchy
 - **Wordmark** (Besley 700, 1.6rem, -0.02em): "vegdex", always lowercase.
 - **Headline** (Besley 600, 1.5rem, 1.2): sheet titles and the "Saved recipes" view title. Balanced wrapping.
+- **Subhead** (Besley 700, 1.25rem): "Ingredients" inside the recipe sheet.
 - **Title** (Besley 600, 1rem, 1.25): card titles, clamped to two lines, balanced, with the first letter uppercased to absorb publisher casing.
 - **Body** (system sans 400, 1rem, 1.55): ingredient lines (`text-wrap: pretty`, 65ch max) and copy.
-- **Label** (system sans, 0.8 to 0.92rem, tabular numerals): pills, metadata, counts, times, amounts.
+- **Label** (system sans, 0.88rem, tabular numerals): pills, buttons, chips, counts, amounts, form labels.
+- **Meta** (system sans, 0.8rem, tabular numerals): card source and rating, hints, footnotes, credits.
+- **Tag** (system sans 600, 0.75rem, tabular numerals): the time tag on a photo.
 - **Aisle** (system sans 700, 0.8rem, 0.06em, uppercase, tomato): shopping-list aisle headings, the only uppercase text.
 
 ### Named Rules
@@ -157,13 +177,13 @@ Mobile first, with a 1200px max container. The sticky header holds only the bran
 Flat by default, with tonal layering (paper → surface). Shadows appear only where something sits physically on top of something else.
 
 ### Shadow Vocabulary
-- **Tag** (`box-shadow: 0 1px 3px rgb(0 0 0 / 0.18)`): time tags stuck on a photo.
-- **Floating control** (`box-shadow: 0 1px 4px rgb(0 0 0 / 0.15)`): the sheet close button.
-- **Backdrop** (`rgb(10 15 12 / 0.55)`): behind modal sheets.
+- **Tag** (`box-shadow: 0 1px 3px var(--shadow)`): time tags stuck on a photo.
+- **Floating control** (`box-shadow: 0 1px 4px var(--shadow)`): the sheet close button.
+- **Backdrop** (`var(--scrim)`): behind modal sheets.
 
 ## Shapes
 
-Soft rectangles for content, full pills for small controls, near-square tags for labels stuck on photos. Card photos are 1:1 at 14px radius. Sheets round only their top corners on phones (20px). Buttons use 12px, fields 10px.
+Soft rectangles for content, full pills for small controls, near-square tags for labels stuck on photos. Radii come only from the scale: 6px (tags, logo, skeleton bars), 10px (fields, sort select), 12px (buttons), 14px (cards), 20px (sheets), full pill. Card photos are 1:1 at 14px radius. Sheets round only their top corners on phones (20px). Buttons use 12px, fields 10px.
 
 ## Components
 
