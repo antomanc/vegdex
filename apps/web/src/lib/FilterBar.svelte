@@ -1,17 +1,13 @@
 <script lang="ts">
   import type { FreeFrom, Meal } from '@vegdex/core'
   import Icon from './Icon.svelte'
-  import { FREE, MEAL_LABELS, SORTS, TIMES } from './labels'
-  import { activeCount, clearFilters, filters, moreCount } from './state.svelte'
+  import { FREE, MEAL_LABELS, TIMES } from './labels'
+  import { sheet } from './sheet'
+  import { activeCount, clearFilters, filters, isTonight, moreCount, toggleTonight } from './state.svelte'
 
   let { count }: { count: number } = $props()
 
   let more = $state(false)
-  let dialog = $state<HTMLDialogElement>()
-
-  $effect(() => {
-    dialog?.showModal()
-  })
   let have = $state('')
   let avoid = $state('')
 
@@ -21,19 +17,33 @@
   function toggleFree(f: FreeFrom) {
     filters.freeFrom = filters.freeFrom.includes(f) ? filters.freeFrom.filter((x) => x !== f) : [...filters.freeFrom, f]
   }
-  function addTo(kind: 'include' | 'exclude', e: SubmitEvent) {
-    e.preventDefault()
-    const value = (kind === 'include' ? have : avoid).trim().toLowerCase()
-    if (value && !filters[kind].includes(value)) filters[kind] = [...filters[kind], value]
+  /** "tofu, spinach" adds two ingredients. */
+  function commit(kind: 'include' | 'exclude') {
+    const values = (kind === 'include' ? have : avoid).split(',').map((v) => v.trim().toLowerCase()).filter(Boolean)
+    filters[kind] = [...new Set([...filters[kind], ...values])]
     if (kind === 'include') have = ''
     else avoid = ''
+  }
+  function add(kind: 'include' | 'exclude', e: SubmitEvent) {
+    e.preventDefault()
+    commit(kind)
   }
   function remove(kind: 'include' | 'exclude', v: string) {
     filters[kind] = filters[kind].filter((x) => x !== v)
   }
+  // Text typed but not added still counts when the sheet closes.
+  function closed() {
+    commit('include')
+    commit('exclude')
+    more = false
+  }
 </script>
 
-<nav class="pills" aria-label="Quick filters">
+<nav class="pills quick" aria-label="Quick filters">
+  <button class="pill tonight" class:on={isTonight()} aria-pressed={isTonight()} onclick={toggleTonight}>
+    <Icon name="clock" size={16} /> Tonight
+  </button>
+  <span class="divider" aria-hidden="true"></span>
   <button class="pill" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
     onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>Savory</button>
   <button class="pill" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
@@ -47,26 +57,27 @@
 
 <div class="pills secondary">
   <button class="pill outline" class:on={moreCount() > 0} aria-haspopup="dialog" onclick={() => (more = true)}>
-    More filters{moreCount() ? ` · ${moreCount()}` : ''}
+    <Icon name="sliders" size={16} /> More filters{moreCount() ? ` · ${moreCount()}` : ''}
   </button>
-  {#each TIMES as t (t)}
-    <button class="pill outline" class:on={filters.maxMinutes === t} aria-pressed={filters.maxMinutes === t}
-      onclick={() => (filters.maxMinutes = filters.maxMinutes === t ? null : t)}>≤ {t} min</button>
-  {/each}
+  <div class="segmented" role="group" aria-label="Ready in">
+    {#each TIMES as t (t)}
+      <button class="seg" class:on={filters.maxMinutes === t} aria-pressed={filters.maxMinutes === t}
+        onclick={() => (filters.maxMinutes = filters.maxMinutes === t ? null : t)}>≤ {t} min</button>
+    {/each}
+  </div>
   <button class="pill outline" class:on={filters.highProtein} aria-pressed={filters.highProtein}
     onclick={() => (filters.highProtein = !filters.highProtein)}>High protein</button>
 </div>
 
 {#if more}
-  <dialog bind:this={dialog} class="sheet" aria-labelledby="more-title" onclose={() => (more = false)}
-    onclick={(e) => e.target === dialog && dialog?.close()}>
+  <dialog use:sheet class="sheet" aria-labelledby="more-title" onclose={closed}>
     <div class="sheet-body">
-      <div class="sheet-top"><button class="close" onclick={() => dialog?.close()} aria-label="Close"><Icon name="close" size={20} /></button></div>
+      <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label="Close"><Icon name="close" size={20} /></button></div>
       <h2 id="more-title">More filters</h2>
 
       <fieldset class="field">
         <legend class="label">Free from</legend>
-        <div class="pills wrap">
+        <div class="choice-grid">
           {#each FREE as [f, label] (f)}
             <button class="pill outline" class:on={filters.freeFrom.includes(f)} aria-pressed={filters.freeFrom.includes(f)}
               onclick={() => toggleFree(f)}>{label}</button>
@@ -74,10 +85,11 @@
         </div>
       </fieldset>
 
-      <form class="field" onsubmit={(e) => addTo('include', e)}>
-        <label class="label" for="have">I have</label>
+      <form class="field" onsubmit={(e) => add('include', e)}>
+        <label class="label" for="have">Must include</label>
+        <p class="hint" id="have-hint">Recipes that use every ingredient you add.</p>
         <div class="input-row">
-          <input id="have" bind:value={have} placeholder="e.g. tofu, spinach" autocomplete="off" enterkeyhint="done" />
+          <input id="have" bind:value={have} placeholder="e.g. tofu, spinach" autocomplete="off" enterkeyhint="done" aria-describedby="have-hint" />
           <button class="btn-sm">Add</button>
         </div>
         {#if filters.include.length}
@@ -89,7 +101,7 @@
         {/if}
       </form>
 
-      <form class="field" onsubmit={(e) => addTo('exclude', e)}>
+      <form class="field" onsubmit={(e) => add('exclude', e)}>
         <label class="label" for="avoid">Avoid</label>
         <div class="input-row">
           <input id="avoid" bind:value={avoid} placeholder="e.g. mushrooms, coconut" autocomplete="off" enterkeyhint="done" />
@@ -104,19 +116,11 @@
         {/if}
       </form>
 
-      <div class="field">
-        <label class="label" for="sort">Sort</label>
-        <select id="sort" bind:value={filters.sort}>
-          <option value={null}>Top rated (best match when searching)</option>
-          {#each SORTS as [s, label] (s)}
-            <option value={s}>{label}</option>
-          {/each}
-        </select>
-      </div>
-
       <div class="sheet-footer">
         {#if activeCount()}<button class="text-btn" onclick={clearFilters}>Clear all</button>{/if}
-        <button class="cta" onclick={() => dialog?.close()}>Show {count.toLocaleString()} {count === 1 ? 'recipe' : 'recipes'}</button>
+        <button class="cta" class:none={count === 0} onclick={(e) => e.currentTarget.closest('dialog')?.close()}>
+          {count === 0 ? 'No matches. Loosen a filter' : `Show ${count.toLocaleString()} ${count === 1 ? 'recipe' : 'recipes'}`}
+        </button>
       </div>
     </div>
   </dialog>

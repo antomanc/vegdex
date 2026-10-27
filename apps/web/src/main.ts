@@ -1,4 +1,5 @@
 import { mount } from 'svelte'
+import '@fontsource-variable/besley/wght.css'
 import './app.css'
 import App from './App.svelte'
 

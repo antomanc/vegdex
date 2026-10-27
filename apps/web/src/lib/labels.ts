@@ -37,3 +37,16 @@ export function formatMinutes(m: number): string {
 
 const compact = new Intl.NumberFormat(undefined, { notation: 'compact' })
 export const formatCount = (n: number) => compact.format(n)
+
+/** Publisher ingredient text, minus scraping leftovers: "((note))", "(, peeled)", stray asterisks. */
+export function tidyLine(line: string): string {
+  return line
+    .replace(/\(\(/g, '(')
+    .replace(/\)\)/g, ')')
+    .replace(/\(\s*[,;]?\s*/g, '(')
+    .replace(/,\s*\(/g, ' (')
+    .replace(/\*+/g, '')
+    .replace(/\s+([,)])/g, '$1')
+    .replace(/\s{2,}/g, ' ')
+    .trim()
+}

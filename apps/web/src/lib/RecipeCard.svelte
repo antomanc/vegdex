@@ -7,10 +7,12 @@
   let { recipe, sourceName, onopen }: { recipe: CatalogRecipe; sourceName: string; onopen: () => void } = $props()
   let broken = $state(false)
   const isSaved = $derived(saved.ids.includes(recipe.id))
+  const justUnsaved = $derived(saved.unsaved.includes(recipe.id))
+  const id = $derived(`card-${recipe.id}`)
 </script>
 
-<article class="card" data-testid="recipe-card">
-  <button class="card-open" onclick={onopen} aria-label="Open {recipe.title}">
+<article class="card" class:unsaved={justUnsaved} data-testid="recipe-card">
+  <button class="card-open" onclick={onopen} aria-labelledby="{id}-title" aria-describedby="{id}-meta">
     <div class="thumb">
       {#if recipe.image && !broken}
         <img src={recipe.image} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror={() => (broken = true)} />
@@ -19,8 +21,9 @@
       {/if}
       {#if recipe.minutes}<span class="time">{formatMinutes(recipe.minutes)}</span>{/if}
     </div>
-    <h2>{recipe.title}</h2>
-    <p class="meta">
+    <h2 id="{id}-title">{recipe.title}</h2>
+    <p class="meta" id="{id}-meta">
+      {#if recipe.minutes}<span class="visually-hidden">{formatMinutes(recipe.minutes)}, </span>{/if}
       <span class="source">{sourceName}</span>
       {#if recipe.rating && recipe.ratingCount}<span class="rating"><Icon name="star" size={12} filled /><span class="visually-hidden">Rated</span> {recipe.rating.toFixed(1)} <span class="count">({formatCount(recipe.ratingCount)})</span></span>{/if}
     </p>

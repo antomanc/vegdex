@@ -49,3 +49,50 @@ test('shopping list check-offs survive closing the list', async ({ page }) => {
   await page.getByRole('dialog').getByRole('button', { name: 'Uncheck all' }).click();
   await expect(page.getByRole('dialog').getByRole('checkbox', { name: /garlic/ })).not.toBeChecked();
 });
+
+test('unsaving in the saved view can be undone until you leave it', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: 'Save Red Lentil Soup' }).click();
+  await page.getByRole('button', { name: /Saved · 2/ }).click();
+
+  await page.getByRole('button', { name: 'Unsave Spinach Tofu Curry' }).click();
+  await expect(page.getByTestId('result-count')).toHaveText(/1 recipe saved/);
+  await expect(page.getByTestId('recipe-card')).toHaveCount(2);
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  await expect(page.getByTestId('result-count')).toHaveText(/2 recipes saved/);
+});
+
+test('shopping list ticks belong to that list', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: /Saved · 1/ }).click();
+  await page.getByRole('button', { name: 'Shopping list' }).click();
+  await page.getByRole('dialog').getByRole('checkbox', { name: /spinach/i }).check();
+  await page.getByRole('dialog').getByRole('button', { name: 'Close' }).click();
+
+  // Swap the curry for the soup: spinach leaves the list and takes its tick with it.
+  await page.getByRole('button', { name: 'Unsave Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: 'vegdex, all recipes' }).click();
+  await page.getByRole('button', { name: 'Save Red Lentil Soup' }).click();
+  await page.getByRole('button', { name: /Saved · 1/ }).click();
+  await page.getByRole('button', { name: 'Shopping list' }).click();
+  await expect(page.getByRole('dialog').getByRole('checkbox', { name: /garlic/i })).toBeVisible();
+  await page.getByRole('dialog').getByRole('button', { name: 'Close' }).click();
+
+  await page.getByRole('button', { name: 'vegdex, all recipes' }).click();
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: /Saved · 2/ }).click();
+  await page.getByRole('button', { name: 'Shopping list' }).click();
+  await expect(page.getByRole('dialog').getByRole('checkbox', { name: /spinach/i })).not.toBeChecked();
+});
+
+test('the shopping list has its own address', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Save Red Lentil Soup' }).click();
+  await page.getByRole('button', { name: /Saved · 1/ }).click();
+  await page.getByRole('button', { name: 'Shopping list' }).click();
+  await expect(page).toHaveURL(/list=1/);
+  await page.reload();
+  await expect(page.getByRole('dialog').getByRole('heading', { name: 'Shopping list' })).toBeVisible();
+});

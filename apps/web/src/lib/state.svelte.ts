@@ -1,4 +1,5 @@
 import type { Flavor, FreeFrom, Meal, RecipeQuery } from '@vegdex/core'
+import { FREE, MEAL_LABELS } from './labels'
 
 export type Sort = NonNullable<RecipeQuery['sort']>
 
@@ -16,20 +17,49 @@ export const filters = $state({
   saved: false
 })
 
-export function toQuery(savedIds: string[]): RecipeQuery {
+export type Filters = typeof filters
+
+export function toQuery(savedIds: string[], f: Filters = filters): RecipeQuery {
   // The saved view is a list the user built by hand: browse filters never hide its recipes.
-  if (filters.saved) return { text: filters.text.trim() || undefined, sort: filters.sort ?? undefined, ids: savedIds }
+  if (f.saved) return { text: f.text.trim() || undefined, sort: f.sort ?? undefined, ids: savedIds }
   return {
-    text: filters.text.trim() || undefined,
-    meals: filters.meals,
-    flavor: filters.flavor ?? undefined,
-    maxMinutes: filters.maxMinutes ?? undefined,
-    freeFrom: filters.freeFrom,
-    highProtein: filters.highProtein,
-    include: filters.include,
-    exclude: filters.exclude,
-    sort: filters.sort ?? undefined
+    text: f.text.trim() || undefined,
+    meals: f.meals,
+    flavor: f.flavor ?? undefined,
+    maxMinutes: f.maxMinutes ?? undefined,
+    freeFrom: f.freeFrom,
+    highProtein: f.highProtein,
+    include: f.include,
+    exclude: f.exclude,
+    sort: f.sort ?? undefined
   }
+}
+
+/** One removable filter: its chip label and the change that removes it. */
+export interface ActiveFilter {
+  label: string
+  patch: Partial<Filters>
+}
+
+export function activeFilters(): ActiveFilter[] {
+  const meal = new Map(MEAL_LABELS)
+  const free = new Map(FREE)
+  const without = <T,>(list: T[], v: T) => list.filter((x) => x !== v)
+  const tonight = isTonight()
+  return [
+    ...(tonight ? [{ label: 'Tonight', patch: { meals: [], maxMinutes: null } }] : []),
+    ...(filters.flavor ? [{ label: filters.flavor === 'sweet' ? 'Sweet' : 'Savory', patch: { flavor: null } }] : []),
+    ...(tonight ? [] : filters.meals.map((m) => ({ label: meal.get(m) ?? m, patch: { meals: without(filters.meals, m) } }))),
+    ...(filters.maxMinutes && !tonight ? [{ label: `≤ ${filters.maxMinutes} min`, patch: { maxMinutes: null } }] : []),
+    ...(filters.highProtein ? [{ label: 'High protein', patch: { highProtein: false } }] : []),
+    ...filters.freeFrom.map((f) => ({ label: free.get(f) ?? f, patch: { freeFrom: without(filters.freeFrom, f) } })),
+    ...filters.include.map((v) => ({ label: `with ${v}`, patch: { include: without(filters.include, v) } })),
+    ...filters.exclude.map((v) => ({ label: `no ${v}`, patch: { exclude: without(filters.exclude, v) } }))
+  ]
+}
+
+export function removeFilter(f: ActiveFilter) {
+  Object.assign(filters, f.patch)
 }
 
 export function activeCount(): number {
@@ -47,6 +77,24 @@ export function activeCount(): number {
 /** Filters that live behind "More filters" (the quick pills show their own state). */
 export function moreCount(): number {
   return filters.freeFrom.length + filters.include.length + filters.exclude.length
+}
+
+/** "Tonight": a weeknight main, on the table within 45 minutes. */
+export const TONIGHT = { meal: 'main' as Meal, maxMinutes: 45 }
+
+export function isTonight(): boolean {
+  return filters.meals.length === 1 && filters.meals[0] === TONIGHT.meal && filters.maxMinutes === TONIGHT.maxMinutes
+}
+
+export function toggleTonight() {
+  const on = isTonight()
+  filters.meals = on ? [] : [TONIGHT.meal]
+  filters.maxMinutes = on ? null : TONIGHT.maxMinutes
+}
+
+/** Sort used when none is picked: best match while searching, top rated otherwise. */
+export function defaultSort(): Sort {
+  return filters.text.trim() ? 'relevance' : 'rating'
 }
 
 export function clearFilters() {
@@ -75,10 +123,10 @@ export function readUrl() {
   filters.exclude = list(p.get('avoid'))
   filters.sort = (p.get('sort') as Sort | null) ?? null
   filters.saved = p.get('view') === 'saved'
-  return p.get('r')
+  return { openId: p.get('r'), listOpen: filters.saved && p.get('list') === '1' }
 }
 
-export function writeUrl(openId: string | null) {
+export function writeUrl(openId: string | null, listOpen = false) {
   const p = new URLSearchParams()
   if (filters.text) p.set('q', filters.text)
   if (filters.meals.length) p.set('meal', filters.meals.join(','))
@@ -90,10 +138,11 @@ export function writeUrl(openId: string | null) {
   if (filters.exclude.length) p.set('avoid', filters.exclude.join(','))
   if (filters.sort) p.set('sort', filters.sort)
   if (filters.saved) p.set('view', 'saved')
+  if (filters.saved && listOpen) p.set('list', '1')
   if (openId) p.set('r', openId)
   const qs = p.toString()
   const url = location.pathname + (qs ? `?${qs}` : '')
-  if (url !== location.pathname + location.search) history.replaceState(null, '', url)
+  if (url !== location.pathname + location.search) history.replaceState(history.state, '', url)
 }
 
 const SAVED_KEY = 'vegdex:saved'
@@ -107,9 +156,12 @@ function loadSaved(): string[] {
   }
 }
 
-export const saved = $state({ ids: loadSaved() })
+/** `unsaved`: removed during this visit to the saved view, kept on screen so a mis-tap can be undone. */
+export const saved = $state({ ids: loadSaved(), unsaved: [] as string[] })
 
 export function toggleSaved(id: string) {
-  saved.ids = saved.ids.includes(id) ? saved.ids.filter((x) => x !== id) : [id, ...saved.ids]
+  const was = saved.ids.includes(id)
+  saved.ids = was ? saved.ids.filter((x) => x !== id) : [id, ...saved.ids]
+  saved.unsaved = was ? [...saved.unsaved, id] : saved.unsaved.filter((x) => x !== id)
   localStorage.setItem(SAVED_KEY, JSON.stringify(saved.ids))
 }

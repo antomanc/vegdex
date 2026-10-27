@@ -37,8 +37,8 @@ test('search matches titles and ingredients', async ({ page }) => {
 
 test('have / avoid ingredients', async ({ page }) => {
   await page.getByRole('button', { name: /More filters/ }).click();
-  await page.getByLabel('I have').fill('tofu');
-  await page.getByLabel('I have').press('Enter');
+  await page.getByLabel('Must include').fill('tofu');
+  await page.getByLabel('Must include').press('Enter');
   await expect(count(page)).toHaveText(/2 recipes/);
   await page.getByLabel('Avoid').fill('mushrooms');
   await page.getByLabel('Avoid').press('Enter');
@@ -53,7 +53,7 @@ test('filters survive a reload through the URL', async ({ page }) => {
 });
 
 test('opening a recipe shows ingredients and links to the creator', async ({ page }) => {
-  await page.getByRole('button', { name: 'Open Red Lentil Soup' }).click();
+  await page.getByRole('button', { name: 'Red Lentil Soup', exact: true }).click();
   const sheet = page.getByRole('dialog');
   await expect(sheet.getByRole('heading', { name: 'Red Lentil Soup' })).toBeVisible();
   await expect(sheet.getByTestId('ingredients').locator('li')).toHaveCount(6);
@@ -80,5 +80,54 @@ test('an empty result offers a way back', async ({ page }) => {
   await page.getByRole('button', { name: 'Desserts', exact: true }).click();
   await expect(page.getByText('No recipes match “lentil” with these filters.')).toBeVisible();
   await page.getByRole('button', { name: 'Clear filters' }).click();
+  await expect(cards(page)).toHaveText([/Red Lentil Soup/]);
+});
+
+test('back closes the recipe sheet instead of leaving the app', async ({ page }) => {
+  await page.getByRole('button', { name: 'Red Lentil Soup', exact: true }).click();
+  await expect(page).toHaveURL(/r=lentil-soup/);
+  await page.goBack();
+  await expect(page.getByRole('dialog')).toBeHidden();
+  await expect(count(page)).toHaveText(/6 recipes/);
+  await expect(page).not.toHaveURL(/r=/);
+});
+
+test('back closes More filters and keeps what was chosen in it', async ({ page }) => {
+  await page.getByRole('button', { name: /More filters/ }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Gluten-free', exact: true }).click();
+  await page.goBack();
+  await expect(page.getByRole('dialog')).toBeHidden();
+  await expect(count(page)).toHaveText(/2 recipes/);
+  await expect(page).toHaveURL(/free=gluten-free/);
+});
+
+test('ingredients typed but not added still apply when More filters closes', async ({ page }) => {
+  await page.getByRole('button', { name: /More filters/ }).click();
+  await page.getByLabel('Must include').fill('tofu, spinach');
+  await page.getByRole('dialog').getByRole('button', { name: 'Close' }).click();
+  await expect(cards(page)).toHaveText([/Spinach Tofu Curry/]);
+  const active = page.getByRole('list', { name: 'Active filters' });
+  await expect(active.getByRole('button', { name: 'Remove with spinach' })).toBeVisible();
+});
+
+test('Tonight is one tap to a weeknight main', async ({ page }) => {
+  await page.getByRole('button', { name: 'Tonight', exact: true }).click();
+  await expect(count(page)).toHaveText(/2 recipes/);
+  await expect(page).toHaveURL(/meal=main/);
+  await expect(page).toHaveURL(/max=45/);
+  await page.getByRole('list', { name: 'Active filters' }).getByRole('button', { name: 'Remove Tonight' }).click();
+  await expect(count(page)).toHaveText(/6 recipes/);
+});
+
+test('sort sits with the results', async ({ page }) => {
+  await page.getByLabel('Sort by').selectOption('fastest');
+  await expect(cards(page).first()).toContainText('Lemony Quinoa Salad');
+  await expect(page).toHaveURL(/sort=fastest/);
+});
+
+test('an empty result names the filter to remove', async ({ page }) => {
+  await page.getByRole('searchbox').fill('lentil');
+  await page.getByRole('button', { name: 'Desserts', exact: true }).click();
+  await page.getByRole('button', { name: /Remove “Desserts”/ }).click();
   await expect(cards(page)).toHaveText([/Red Lentil Soup/]);
 });

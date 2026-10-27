@@ -148,7 +148,7 @@ const DESCRIPTORS = new Set([
   'extra-virgin', 'light', 'lite', 'full-fat', 'reduced', 'low-sodium', 'sodium', 'low', 'no-salt-added',
   'smooth', 'creamy', 'natural', 'runny', 'regular', 'plain', 'strong', 'brewed', 'filtered', 'tap', 'and', 'or',
   'some', 'few', 'handful', 'bunch', 'container', 'pack', 'heaping', 'rounded', 'dry', 'sprinkle', 'for', 'dark',
-  'piece', 'pieces'
+  'piece', 'pieces', 'x-large', 'extra-large', 'xl', 'jumbo'
 ]);
 
 /** Plural or alternate names → canonical shopping names. Keys are post-singularization. */
@@ -353,7 +353,7 @@ export function parseIngredient(raw: string): ParsedIngredient {
   }
 
   // "garlic cloves" written name-first.
-  if (!unit && quantity !== null && /^garlic cloves?\b/i.test(s)) unit = 'clove';
+  if (!unit && quantity !== null && /^(?:(?:x-large|extra-large|large|medium|small|big|fat)\s+)?garlic cloves?\b/i.test(s)) unit = 'clove';
 
   const metricSource = (s.match(/^\(([^)]*)\)/)?.[1] ?? '') || (unit && ['cup', 'tbsp', 'tsp', 'oz', 'lb'].includes(unit) ? sizeNote : '');
   let metric = metricSource ? extractMetric(metricSource) : null;

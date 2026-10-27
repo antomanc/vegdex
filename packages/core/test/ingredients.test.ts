@@ -58,7 +58,8 @@ describe('parseIngredient', () => {
     ['three 15 oz cans black beans', 3, 'can', 'black bean'],
     ['2 inch piece of fresh ginger (coarsely chopped)', 2, 'inch', 'ginger'],
     ['40 g / heaped 1/3 cup cocoa powder', 40, 'g', 'cocoa powder'],
-    ['4 loosely packed cups (50g) fresh basil leaves', 4, 'cup', 'basil leaf']
+    ['4 loosely packed cups (50g) fresh basil leaves', 4, 'cup', 'basil leaf'],
+    ['4 x-large garlic cloves', 4, 'clove', 'garlic']
   ])('%s', (line, quantity, unit, name) => {
     const p = parseIngredient(line);
     expect(p.quantity).toBeCloseTo(quantity);
