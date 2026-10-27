@@ -26,7 +26,7 @@ const PLANT_QUALIFIER = new RegExp(
     [
       'vegan', 'plant[\\s-]?based', 'plant', 'dairy[\\s-]?free', 'non[\\s-]?dairy', 'nondairy', 'meatless',
       'meat[\\s-]?free', 'egg[\\s-]?free', 'eggless', 'flax(?:seed)?', 'chia', 'aquafaba', 'just egg',
-      'egg replacer', 'substitute', 'alternative', 'imitation', 'beyond', 'impossible', 'gardein', 'tofurky',
+      'egg replacer', 'egg replace\\w*', 'substitute', 'alternative', 'imitation', 'beyond', 'impossible', 'gardein', 'tofurky',
       'violife', 'daiya', "miyoko'?s?", 'kite hill', 'follow your heart', 'tofutti', 'earth balance',
       'country crock', 'chickpea', 'jackfruit', 'seitan', 'tofu', 'tempeh', 'mushroom', 'soy curls?', 'tvp',
       'no[\\s-]?chicken', 'no[\\s-]?beef', 'not[\\s-]?chicken', "chick'?n", 'chik', '[a-z]+-style', 'bouillon',
@@ -35,7 +35,13 @@ const PLANT_QUALIFIER = new RegExp(
       'sunflower', 'sesame', 'tahini', 'pumpkin', 'seed', 'nut', 'cocoa', 'cacao', 'shea', 'apple', 'cookie',
       'biscoff', 'butternut', 'vegetable', 'veggie', 'maple', 'agave', 'date', 'nice', 'cream of tartar',
       // All sources are vegan blogs: a serving suggestion of ice cream there is vegan ice cream.
-      'ice cream', 'whipped topping'
+      'ice cream', 'whipped topping',
+      // German-language recipes (ElaVegan publishes both).
+      'veganer?', 'veganen?', 'veganes',
+      'flavou?r(?:ed)?', 'oatly', 'egg[\\s-]?like', 'egg roll', 'egg[\\s-]?sized', 'kala namak', 'black salt', 'bits',
+      'butter lettuce', 'oyster (?:crackers?|mushrooms?)', 'cream (?:of )?tartar', 'bread (?:&|and) butter',
+      // References to a component made earlier in the same recipe.
+      'from above', 'recipe', 'mixture', 'batter', 'powder from'
     ].join('|') +
     String.raw`)s?\b`
 );
@@ -49,8 +55,14 @@ export function findNonVegan(lines: string[]): { term: string; line: string }[] 
   for (const raw of lines) {
     const line = normalizeLine(raw).toLowerCase();
     if (!line || NON_INGREDIENT.test(line)) continue;
-    const term = ANIMAL_TERMS.find(([, re]) => re.test(line))?.[0];
-    if (term && !PLANT_QUALIFIER.test(line)) hits.push({ term, line });
+    // Only the ingredient itself counts, not asides like "(omit for unsalted butter)" or "or more milk".
+    const item = line.replace(/\([^)]*\)?/g, ' ').split(/,|;|\s(?:or|oder|bzw\.?)\s/)[0]!;
+    const term = ANIMAL_TERMS.find(([, re]) => re.test(item))?.[0];
+    // Qualifiers count anywhere in the same option ("parmesan, optional (i used violife)"),
+    // but not in an alternative: "2 eggs, or 2 flax eggs" is still eggs.
+    const outside = line.replace(/\([^)]*\)?/g, (m) => m.replace(/\s(?:or|oder|bzw\.?)\s/g, ' / '));
+    const option = outside.split(/\s(?:or|oder|bzw\.?)\s/)[0]!;
+    if (term && !PLANT_QUALIFIER.test(option)) hits.push({ term, line });
   }
   return hits;
 }

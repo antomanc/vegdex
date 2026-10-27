@@ -19,7 +19,17 @@ describe('findNonVegan', () => {
     '1 butternut squash',
     '1 cup nutritional yeast',
     '10.053 oz oyster mushrooms',
-    'vanilla ice cream or whipped topping'
+    'vanilla ice cream or whipped topping',
+    '3/4 teaspoon salt (omit for unsalted butter)',
+    '1/4 cup club soda (or use more milk)',
+    '60 g veganer parmesan käse',
+    '1 el öl (oder vegane butter)',
+    '1 tablespoon of the butter sauce from above',
+    '1/4 tsp salt (black salt for an egg flavor)',
+    '2 cups chicken flavor broth',
+    'optional shredded parmesan (i used violife)',
+    '1 (10 oz.) bag oyster crackers',
+    '1 (14 ounce or 400 ml) can full-fat coconut milk'
   ])('accepts %s', (line) => {
     expect(findNonVegan([line])).toEqual([]);
   });
@@ -34,7 +44,9 @@ describe('findNonVegan', () => {
     ['1 tbsp fish sauce', 'fish'],
     ['1 packet gelatin', 'gelatin'],
     ['1/2 cup greek yogurt', 'yogurt'],
-    ['1 cup heavy cream', 'cream']
+    ['1 cup heavy cream', 'cream'],
+    ['1/4 cup shredded parmesan cheese', 'cheese'],
+    ['2 eggs, or 2 flax eggs', 'egg']
   ])('flags %s', (line, term) => {
     expect(findNonVegan([line])[0]?.term).toBe(term);
   });

@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '17 3 * * *'
   workflow_dispatch:
+    inputs:
+      crawl:
+        description: Crawl the blogs before deploying (off = redeploy from the saved store)
+        type: boolean
+        default: true
   push:
     branches: [main]
     paths: ['apps/web/**', 'packages/core/**', 'packages/ingest/**']
@@ -37,15 +42,15 @@ jobs:
       - name: Restore store
         run: gh release download data --pattern store.json.gz --dir .data || echo "no store yet, starting fresh"
 
-      - name: Crawl new recipes (scheduled runs only)
-        if: github.event_name != 'push'
+      - name: Crawl new recipes
+        if: github.event_name == 'schedule' || inputs.crawl
         run: pnpm ingest crawl
 
       - name: Emit dataset
         run: pnpm ingest emit
 
       - name: Save store
-        if: github.event_name != 'push'
+        if: github.event_name == 'schedule' || inputs.crawl
         run: |
           gh release view data >/dev/null 2>&1 || gh release create data --title "Crawl state" --notes "Ingest store used by the daily workflow. Not a software release."
           gh release upload data .data/store.json.gz .data/excluded.json --clobber
