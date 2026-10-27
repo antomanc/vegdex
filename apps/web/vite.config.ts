@@ -7,8 +7,9 @@ const base = process.env.BASE_PATH ?? '/'
 
 export default defineConfig({
   base,
-  server: { host: '0.0.0.0', port: 5173 },
-  preview: { host: '0.0.0.0', port: 4173 },
+  // Reachable over Tailscale as http://home-server:<port>.
+  server: { host: '0.0.0.0', port: 5173, allowedHosts: ['home-server', '.ts.net'] },
+  preview: { host: '0.0.0.0', port: 4173, allowedHosts: ['home-server', '.ts.net'] },
   plugins: [
     svelte(),
     VitePWA({
