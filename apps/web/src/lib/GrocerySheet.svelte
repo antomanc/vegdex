@@ -6,7 +6,23 @@
 
   let dialog = $state<HTMLDialogElement>()
   let multiplier = $state(1)
-  let checked = $state<Record<string, boolean>>({})
+  // Check-offs survive closing the sheet: the list is used aisle by aisle in the store.
+  const CHECKED_KEY = 'vegdex:grocery-checked'
+  let checked = $state<Record<string, boolean>>(loadChecked())
+  const anyChecked = $derived(Object.values(checked).some(Boolean))
+
+  function loadChecked(): Record<string, boolean> {
+    try {
+      const v = JSON.parse(localStorage.getItem(CHECKED_KEY) ?? '{}')
+      return v && typeof v === 'object' ? v : {}
+    } catch {
+      return {}
+    }
+  }
+
+  $effect(() => {
+    localStorage.setItem(CHECKED_KEY, JSON.stringify(checked))
+  })
 
   const lines = $derived(Promise.all(recipes.map(async (r) => ({ id: r.id, lines: await loadIngredients(r.id) }))))
 
@@ -14,7 +30,8 @@
     const items = compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier })))
     const byAisle = new Map<string, GroceryItem[]>()
     for (const item of items) byAisle.set(item.aisle, [...(byAisle.get(item.aisle) ?? []), item])
-    return [...byAisle]
+    // Checked items sink to the bottom of their aisle, so what's left to grab stays on top.
+    return [...byAisle].map(([aisle, list]) => [aisle, [...list].sort((a, b) => Number(!!checked[a.name]) - Number(!!checked[b.name]))])
   }
 
   $effect(() => {
@@ -34,6 +51,7 @@
           <button class="pill outline" class:on={multiplier === m} aria-pressed={multiplier === m} onclick={() => (multiplier = m)}>×{m}</button>
         {/each}
       </div>
+      {#if anyChecked}<button class="text-btn" onclick={() => (checked = {})}>Uncheck all</button>{/if}
     </div>
     {#await lines}
       <p class="muted">Loading ingredients…</p>

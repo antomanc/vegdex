@@ -33,3 +33,19 @@ test('browse filters never hide saved recipes', async ({ page }) => {
   await expect(page.getByTestId('result-count')).toHaveText(/1 recipe saved/);
   await expect(page.getByTestId('recipe-card')).toHaveText([/Spinach Tofu Curry/]);
 });
+
+test('shopping list check-offs survive closing the list', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: /Saved · 1/ }).click();
+  await page.getByRole('button', { name: 'Shopping list' }).click();
+
+  const list = page.getByRole('dialog');
+  await list.getByRole('checkbox', { name: /garlic/ }).check();
+  await list.getByRole('button', { name: 'Close' }).click();
+  await page.getByRole('button', { name: 'Shopping list' }).click();
+  await expect(page.getByRole('dialog').getByRole('checkbox', { name: /garlic/ })).toBeChecked();
+
+  await page.getByRole('dialog').getByRole('button', { name: 'Uncheck all' }).click();
+  await expect(page.getByRole('dialog').getByRole('checkbox', { name: /garlic/ })).not.toBeChecked();
+});

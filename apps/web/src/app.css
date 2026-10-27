@@ -156,7 +156,8 @@ main { max-width: 1200px; margin: 0 auto; padding: 12px 12px 40px; }
 p.small { margin-top: 18px; }
 .aisle { text-transform: capitalize; font-size: 0.95rem !important; color: var(--muted); }
 .grocery { list-style: none; padding: 0; margin: 0; }
-.grocery label { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.grocery label { display: flex; gap: 12px; align-items: center; min-height: 52px; padding: 8px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+.grocery input { width: 22px; height: 22px; margin: 0; flex: none; accent-color: var(--green); }
 .grocery .name { flex: 1; text-transform: capitalize; }
 .grocery .amount { color: var(--muted); font-size: 0.88rem; text-align: right; }
 .grocery label.done .name, .grocery label.done .amount { text-decoration: line-through; opacity: 0.5; }
