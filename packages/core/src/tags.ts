@@ -30,7 +30,8 @@ const TITLE_MEALS: [RegExp, Meal][] = [
   [/soup|stew|chowder|bisque|ramen|pho|minestrone|dal|daal|dahl|chili\b/, 'soup'],
   [/salad|slaw/, 'salad'],
   [/smoothie|latte|juice|lemonade|milkshake|shake|hot chocolate|chai|cocktail|mocktail|horchata|\bmilk\b/, 'drink'],
-  [/cake|cookie|brownie|blondie|pie\b|tart\b|fudge|truffle|ice cream|nice cream|pudding|mousse|cheesecake|cupcake|crumble|cobbler|donut|doughnut|cinnamon roll|frosting|caramel|bark|sorbet|tiramisu|macaron|bonbon/, 'dessert'],
+  // Savory look-alikes stay out: crab cakes, pot pie, taco crumbles, caramelized onions.
+  [/(?<!(?:crab|fish|potato|corn|rice) )cake|cookie|brownie|blondie|(?<!(?:pot|shepherd'?s|cottage|tamale|onion) )pie\b|tart\b|fudge|truffle|ice cream|nice cream|pudding|mousse|cheesecake|cupcake|crumble\b|cobbler|donut|doughnut|cinnamon roll|frosting|caramel\b|bark|sorbet|tiramisu|macaron|bonbon/, 'dessert'],
   [/bread|muffin|scone|bagel|focaccia|biscuit|rolls?\b|loaf|naan|tortilla|pretzel/, 'baking'],
   [/sauce|dressing|dip\b|hummus|pesto|gravy|vinaigrette|salsa|spread|butter\b|cheese sauce|mayo|aioli|ketchup|jam\b|chutney|seasoning|spice blend|marinade/, 'sauce'],
   [/energy balls?|bites|bars?\b|chips|popcorn|crackers|trail mix|roasted chickpeas|snack/, 'snack'],
@@ -64,8 +65,8 @@ export function classify(input: TagInput): Tag[] {
   let meals = firstMeals(CATEGORY_MEALS, categories);
   const fromTitle = firstMeals(TITLE_MEALS, title);
   if (meals.length === 0) meals = fromTitle.slice(0, 1);
-  // A title like "Chocolate Chip Cookies" outranks a vague "Snack" category.
-  else if (fromTitle[0] === 'dessert' && !meals.includes('dessert')) meals.push('dessert');
+  // A title like "Chocolate Chip Cookies" outranks a vague "Snack" category, never a savory course.
+  else if (fromTitle[0] === 'dessert' && !meals.some((m) => ['dessert', 'main', 'soup', 'salad', 'side'].includes(m))) meals.push('dessert');
   if (meals.length === 0) meals = ['main'];
 
   const tags: Tag[] = meals.map((m) => `meal:${m}` as const);
