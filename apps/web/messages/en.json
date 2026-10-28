@@ -1,0 +1,15 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "meta_title": "vegdex: find vegan recipes by ingredient and time",
+  "meta_description": "Find vegan recipes from all-vegan food blogs. Filter by ingredients, meal and cooking time, then visit the original creator for the recipe.",
+  "meal_breakfast": "Breakfast",
+  "meal_main": "Mains",
+  "meal_soup": "Soups",
+  "meal_salad": "Salads",
+  "meal_side": "Sides",
+  "meal_snack": "Snacks",
+  "meal_dessert": "Desserts",
+  "meal_baking": "Baking",
+  "meal_drink": "Drinks",
+  "meal_sauce": "Sauces & dips"
+}
