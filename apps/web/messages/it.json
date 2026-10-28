@@ -4,6 +4,7 @@
   "language_available": "Disponibile in italiano",
   "dismiss_language_suggestion": "Nascondi il suggerimento della lingua",
   "meta_title": "vegdex: trova ricette vegane per ingrediente e tempo",
+  "manifest_name": "vegdex: ricette vegane",
   "meta_description": "Trova ricette vegane dai blog di cucina interamente vegani. Filtra per ingredienti, pasto e tempo di cottura, poi vai dall'autore originale per la ricetta.",
   "meal_breakfast": "Colazione",
   "meal_main": "Piatti principali",
@@ -174,7 +175,7 @@
   "cook_on": "Cucina la ricetta su {source}",
   "units": "Unità",
   "units_us": "USA",
-  "units_metric": "Metriche",
+  "units_metric": "Metrico",
   "rating_count": [
     {
       "declarations": [
@@ -287,7 +288,7 @@
   "aisle_nuts": "Frutta a guscio e semi",
   "aisle_oils": "Oli, aceti e salse",
   "aisle_spices": "Spezie",
-  "aisle_baking": "Dolci e dolcificanti",
+  "aisle_baking": "Pasticceria e dolcificanti",
   "aisle_plant_milk": "Latte e panna vegetali",
   "aisle_other": "Altro",
   "unit_cup": [

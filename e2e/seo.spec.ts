@@ -83,7 +83,7 @@ test('installing from Italian uses an Italian manifest and starts in Italian', a
   expect(response.status()).toBe(200);
   const manifest = await response.json();
   expect(manifest).toMatchObject({
-    name: 'vegdex: trova ricette vegane per ingrediente e tempo',
+    name: 'vegdex: ricette vegane',
     short_name: 'vegdex',
     description: "Trova ricette vegane dai blog di cucina interamente vegani. Filtra per ingredienti, pasto e tempo di cottura, poi vai dall'autore originale per la ricetta.",
     lang: 'it', start_url: '/it/', scope: '/it/', display: 'standalone'
@@ -97,6 +97,14 @@ test('installing from Italian uses an Italian manifest and starts in Italian', a
   await page.goto(new URL(manifest.start_url, manifestUrl).href);
   await expect(page.locator('html')).toHaveAttribute('lang', 'it');
   await expect(page.getByRole('button', { name: 'Altri filtri', exact: true })).toBeVisible();
+});
+
+test('the English manifest keeps its name and scope', async ({ request }) => {
+  const response = await request.get('/manifest.webmanifest');
+  expect(response.status()).toBe(200);
+  expect(await response.json()).toMatchObject({
+    name: 'vegdex: vegan recipes', short_name: 'vegdex', lang: 'en', start_url: '/', scope: '/', display: 'standalone'
+  });
 });
 
 test('offline navigation keeps the UI language selected by the path', async ({ browser, baseURL }) => {

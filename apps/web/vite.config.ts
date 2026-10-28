@@ -11,7 +11,7 @@ const base = process.env.BASE_PATH ?? '/'
 // Preferred public origin. The canonical, Open Graph tags, JSON-LD, robots.txt and sitemap.xml all derive from it.
 const siteUrl = 'https://vegdex.antomanc.com/'
 
-type Messages = Record<string, unknown> & { meta_title: string; meta_description: string }
+type Messages = Record<string, unknown> & { meta_title: string; meta_description: string; manifest_name: string }
 const messages = (code: string): Messages => JSON.parse(readFileSync(`messages/${code}.json`, 'utf8'))
 
 // Paraglide compiles from project.inlang, which lists the same languages as the registry.
@@ -73,7 +73,7 @@ const seo = (): Plugin => ({
           type: 'asset',
           fileName: `${locale.prefix ? `${locale.prefix}/` : ''}manifest.webmanifest`,
           source: JSON.stringify({
-            name: text.meta_title,
+            name: text.manifest_name,
             short_name: 'vegdex',
             description: text.meta_description,
             lang: locale.code,
