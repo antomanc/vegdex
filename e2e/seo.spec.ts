@@ -31,7 +31,7 @@ for (const { path, language, ogLocale } of [
   });
 }
 
-test('crawl discovery files advertise the canonical homepage', async ({ request }) => {
+test('crawl discovery files advertise both canonical pages with reciprocal alternatives', async ({ request, page }) => {
   const robots = await request.get('/robots.txt');
   expect(robots.status()).toBe(200);
   expect(robots.headers()['content-type']).toContain('text/plain');
@@ -43,6 +43,15 @@ test('crawl discovery files advertise the canonical homepage', async ({ request 
   const sitemapXml = await sitemap.text();
   expect(sitemapXml).toContain(`<loc>${canonical}</loc>`);
   expect(sitemapXml).not.toMatch(/<loc>[^<]*[?#]/);
+  const entries = await page.evaluate((xml) => {
+    const doc = new DOMParser().parseFromString(xml, 'application/xml');
+    return [...doc.getElementsByTagName('url')].map((entry) => ({
+      url: entry.getElementsByTagName('loc')[0]?.textContent,
+      alternates: [...entry.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'link')].map((link) => [link.getAttribute('rel'), link.getAttribute('hreflang'), link.getAttribute('href')])
+    }));
+  }, sitemapXml);
+  const alternates = [['alternate', 'en', canonical], ['alternate', 'it', `${canonical}it/`], ['alternate', 'x-default', canonical]];
+  expect(entries).toEqual([{ url: canonical, alternates }, { url: `${canonical}it/`, alternates }]);
 });
 
 test('initial HTML identifies the site and filtered views keep its canonical', async ({ page, request }) => {
@@ -62,4 +71,30 @@ test('initial HTML identifies the site and filtered views keep its canonical', a
 
   const schema = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent() ?? 'null');
   expect(schema).toMatchObject({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'vegdex', url: canonical, inLanguage: 'en' });
+});
+
+test('installing from Italian uses an Italian manifest and starts in Italian', async ({ page, request }) => {
+  await page.goto('/it/');
+  const manifestLink = page.locator('link[rel="manifest"]');
+  await expect(manifestLink).toHaveCount(1);
+  await expect(manifestLink).toHaveAttribute('href', '/it/manifest.webmanifest');
+  const manifestUrl = new URL(await manifestLink.getAttribute('href') ?? '', page.url());
+  const response = await request.get(manifestUrl.href);
+  expect(response.status()).toBe(200);
+  const manifest = await response.json();
+  expect(manifest).toMatchObject({
+    name: 'vegdex: trova ricette vegane per ingrediente e tempo',
+    short_name: 'vegdex',
+    description: "Trova ricette vegane dai blog di cucina interamente vegani. Filtra per ingredienti, pasto e tempo di cottura, poi vai dall'autore originale per la ricetta.",
+    lang: 'it', start_url: '/it/', scope: '/it/', display: 'standalone'
+  });
+  expect(manifest.icons).toHaveLength(3);
+  for (const icon of manifest.icons) {
+    const image = await request.get(new URL(icon.src, manifestUrl).href);
+    expect(image.status()).toBe(200);
+    expect(image.headers()['content-type']).toBe('image/png');
+  }
+  await page.goto(new URL(manifest.start_url, manifestUrl).href);
+  await expect(page.locator('html')).toHaveAttribute('lang', 'it');
+  await expect(page.getByRole('button', { name: 'Altri filtri', exact: true })).toBeVisible();
 });

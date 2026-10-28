@@ -30,6 +30,7 @@ for (const { code, text } of translations) {
 
 const escapeHtml = (s: string) => s.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;')
 const pageUrl = (locale: Locale) => new URL(locale.prefix ? `${locale.prefix}/` : '', siteUrl).href
+const localePath = (locale: Locale) => `${base}${locale.prefix ? `${locale.prefix}/` : ''}`
 const alternates = [...LOCALES.map((locale) => ({ language: locale.hreflang, url: pageUrl(locale) })),
   { language: 'x-default', url: pageUrl(BASE_LOCALE) }]
 
@@ -40,6 +41,7 @@ const localize = (html: string, locale: Locale) => {
     .replaceAll('%LANG%', locale.code)
     .replaceAll('%PAGE_URL%', pageUrl(locale))
     .replaceAll('%OG_LOCALE%', locale.ogLocale)
+    .replaceAll('%MANIFEST%', `${localePath(locale)}manifest.webmanifest`)
     .replaceAll('%ALTERNATES%', alternates.map(({ language, url }) => `<link rel="alternate" hreflang="${language}" href="${url}" />`).join('\n    '))
     .replaceAll('%TITLE%', escapeHtml(text.meta_title!))
     .replaceAll('%DESCRIPTION%', escapeHtml(text.meta_description!))
@@ -66,6 +68,27 @@ const seo = (): Plugin => ({
         const source = localize(template, locale)
         if (locale === BASE_LOCALE) page.source = source
         else this.emitFile({ type: 'asset', fileName: `${locale.prefix}/index.html`, source })
+        const text = messages(locale.code)
+        this.emitFile({
+          type: 'asset',
+          fileName: `${locale.prefix ? `${locale.prefix}/` : ''}manifest.webmanifest`,
+          source: JSON.stringify({
+            name: text.meta_title,
+            short_name: 'vegdex',
+            description: text.meta_description,
+            lang: locale.code,
+            theme_color: '#1d4a31',
+            background_color: '#eef0e9',
+            display: 'standalone',
+            start_url: localePath(locale),
+            scope: localePath(locale),
+            icons: [
+              { src: `${base}icon-192.png`, sizes: '192x192', type: 'image/png' },
+              { src: `${base}icon-512.png`, sizes: '512x512', type: 'image/png' },
+              { src: `${base}icon-512.png`, sizes: '512x512', type: 'image/png', purpose: 'maskable' }
+            ]
+          })
+        })
       }
       this.emitFile({
         type: 'asset',
@@ -75,7 +98,7 @@ const seo = (): Plugin => ({
       this.emitFile({
         type: 'asset',
         fileName: 'sitemap.xml',
-        source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${siteUrl}</loc>\n  </url>\n</urlset>\n`
+        source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${LOCALES.map((locale) => `  <url>\n    <loc>${pageUrl(locale)}</loc>\n${alternates.map(({ language, url }) => `    <xhtml:link rel="alternate" hreflang="${language}" href="${url}" />`).join('\n')}\n  </url>`).join('\n')}\n</urlset>\n`
       })
     }
   }
@@ -97,21 +120,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
-      manifest: {
-        name: 'vegdex: vegan recipes',
-        short_name: 'vegdex',
-        description: 'Find vegan recipes from all-vegan food blogs. Filter by ingredients, meal and cooking time, then visit the original creator for the recipe.',
-        theme_color: '#1d4a31',
-        background_color: '#eef0e9',
-        display: 'standalone',
-        start_url: base,
-        scope: base,
-        icons: [
-          { src: 'icon-192.png', sizes: '192x192', type: 'image/png' },
-          { src: 'icon-512.png', sizes: '512x512', type: 'image/png' },
-          { src: 'icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
-        ]
-      },
+      manifest: false,
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
         globIgnores: ['data/**'],
