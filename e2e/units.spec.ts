@@ -26,9 +26,12 @@ test('the shopping list adds up in grams', async ({ page }) => {
 
   const list = page.getByRole('dialog');
   await list.getByRole('button', { name: 'Metric' }).click();
-  await expect(list.locator('li', { hasText: 'red lentil' })).toContainText('≈ 190 g');
-  await list.getByRole('button', { name: '×2' }).click();
-  await expect(list.locator('li', { hasText: 'red lentil' })).toContainText('≈ 380 g');
+  const lentils = list.getByTestId('grocery-list').locator('li', { hasText: 'red lentil' });
+  await expect(lentils).toContainText('≈ 190 g');
+  await list.getByText('For 1 saved recipe').click();
+  await list.getByRole('button', { name: 'More servings of Red Lentil Soup' }).click();
+  await list.getByRole('button', { name: 'More servings of Red Lentil Soup' }).click();
+  await expect(lentils).toContainText('≈ 380 g');
 });
 
 test.describe('outside the US', () => {

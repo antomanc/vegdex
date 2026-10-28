@@ -3,12 +3,14 @@
   import { loadIngredients } from './data'
   import Icon from './Icon.svelte'
   import { sheet } from './sheet'
-  import { prefs } from './state.svelte'
+  import { amounts, prefs, saved, setAmount } from './state.svelte'
   import UnitsToggle from './UnitsToggle.svelte'
 
   let { recipes, onclose }: { recipes: CatalogRecipe[]; onclose: () => void } = $props()
 
-  let multiplier = $state(1)
+  // Newest saved first, like the saved view.
+  const rows = $derived([...recipes].sort((a, b) => saved.ids.indexOf(a.id) - saved.ids.indexOf(b.id)))
+  const adjusted = $derived(recipes.filter((r) => (amounts[r.id] ?? 1) !== 1).length)
   // Check-offs survive closing the sheet: the list is used aisle by aisle in the store.
   const CHECKED_KEY = 'vegdex:grocery-checked'
   let checked = $state<Record<string, boolean>>(loadChecked())
@@ -38,8 +40,27 @@
     })
   })
 
+  /** A recipe with a yield steps by whole servings, up to four batches; one without steps by half batches. */
+  function step(r: CatalogRecipe) {
+    return r.servings ? 1 / r.servings : 0.5
+  }
+
+  function amountLabel(r: CatalogRecipe, m: number): string {
+    if (r.servings) {
+      const n = Math.round(m * r.servings)
+      return `${n} ${n === 1 ? 'serving' : 'servings'}`
+    }
+    return `×${Math.floor(m) || ''}${m % 1 ? '½' : ''}`
+  }
+
+  function nudge(r: CatalogRecipe, by: number) {
+    const unit = step(r)
+    const n = Math.min(Math.max(Math.round((amounts[r.id] ?? 1) / unit) + by, 1), Math.round(4 / unit))
+    setAmount(r.id, n * unit)
+  }
+
   function compile(all: { id: string; lines: string[] }[]): [string, GroceryItem[]][] {
-    const items = compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier })), { units: prefs.units })
+    const items = compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier: amounts[r.id] ?? 1 })), { units: prefs.units })
     const byAisle = new Map<string, GroceryItem[]>()
     for (const item of items) byAisle.set(item.aisle, [...(byAisle.get(item.aisle) ?? []), item])
     // Checked items sink to the bottom of their aisle, so what's left to grab stays on top.
@@ -51,19 +72,26 @@
   <div class="sheet-body">
     <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label="Close"><Icon name="close" size={20} /></button></div>
     <h2 id="grocery-title">Shopping list</h2>
-    <p class="meta">For {recipes.length} saved {recipes.length === 1 ? 'recipe' : 'recipes'}</p>
-    <div class="row scale">
-      <span class="label">Scale all recipes</span>
-      <div class="pills wrap">
-        {#each [0.5, 1, 2, 3] as m (m)}
-          <button class="pill outline" class:on={multiplier === m} aria-pressed={multiplier === m} onclick={() => (multiplier = m)}>×{m === 0.5 ? "½" : m}</button>
+    <details class="amounts">
+      <summary class="meta">For {recipes.length} saved {recipes.length === 1 ? 'recipe' : 'recipes'}{adjusted ? ` · ${adjusted} adjusted` : ''}</summary>
+      <ul>
+        {#each rows as r (r.id)}
+          {@const m = amounts[r.id] ?? 1}
+          <li>
+            <span class="title">{r.title}</span>
+            <span class="stepper">
+              <button disabled={m <= step(r) + 1e-9} onclick={() => nudge(r, -1)} aria-label="Fewer servings of {r.title}">−</button>
+              <span class="value" aria-live="polite">{amountLabel(r, m)}</span>
+              <button disabled={m >= 4 - 1e-9} onclick={() => nudge(r, 1)} aria-label="More servings of {r.title}">+</button>
+            </span>
+          </li>
         {/each}
-      </div>
-      <button class="text-btn uncheck" disabled={!anyChecked} onclick={() => (checked = {})}>Uncheck all</button>
-    </div>
+      </ul>
+    </details>
     <div class="row units-row">
       <span class="label">Units</span>
       <UnitsToggle />
+      <button class="text-btn uncheck" disabled={!anyChecked} onclick={() => (checked = {})}>Uncheck all</button>
     </div>
     {#await lines}
       <p class="muted">Loading ingredients…</p>

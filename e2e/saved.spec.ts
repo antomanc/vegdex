@@ -14,8 +14,67 @@ test('saved recipes persist and build a combined shopping list', async ({ page }
   // Garlic appears in both recipes (3 + 2 cloves) and is merged into one line.
   await expect(list.getByText('garlic', { exact: true })).toHaveCount(1);
   await expect(list.locator('li', { hasText: 'garlic' })).toContainText('5 cloves');
-  await list.getByRole('button', { name: '×2' }).click();
-  await expect(list.locator('li', { hasText: 'garlic' })).toContainText('10 cloves');
+});
+
+test('each saved recipe has its own amount on the shopping list', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: 'Save Red Lentil Soup' }).click();
+  await page.getByRole('button', { name: /Saved · 2/ }).click();
+  await page.getByRole('button', { name: 'Shopping list' }).click();
+
+  const list = page.getByRole('dialog');
+  const garlic = list.locator('li', { hasText: 'garlic' });
+  // Nobody has to touch the amounts: they start collapsed, at ×1.
+  await expect(list.getByText('For 2 saved recipes', { exact: true })).toBeVisible();
+  await expect(list.getByRole('button', { name: 'More servings of Spinach Tofu Curry' })).toBeHidden();
+  await list.getByText('For 2 saved recipes').click();
+
+  // The curry serves 4 and steps by servings: 8 servings doubles its 3 cloves.
+  const curry = list.getByRole('button', { name: 'More servings of Spinach Tofu Curry' });
+  for (let i = 0; i < 4; i++) await curry.click();
+  await expect(list.getByText('8 servings')).toBeVisible();
+  // The soup has no yield, so it steps by half batches: ×1½ of its 2 cloves.
+  await list.getByRole('button', { name: 'More servings of Red Lentil Soup' }).click();
+  await expect(list.getByText('×1½')).toBeVisible();
+  await expect(garlic).toContainText('9 cloves');
+
+  await page.reload();
+  await expect(list.getByText('For 2 saved recipes · 2 adjusted')).toBeVisible();
+  await expect(garlic).toContainText('9 cloves');
+
+  await list.getByText('For 2 saved recipes').click();
+  const fewer = list.getByRole('button', { name: 'Fewer servings of Red Lentil Soup' });
+  await fewer.click();
+  await fewer.click();
+  await expect(fewer).toBeDisabled();
+  await expect(garlic).toContainText('7 cloves');
+});
+
+test('a recipe saved again starts at one batch', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: /Saved · 1/ }).click();
+  await page.getByRole('button', { name: 'Shopping list' }).click();
+  const list = page.getByRole('dialog');
+  await list.getByText('For 1 saved recipe').click();
+  await list.getByRole('button', { name: 'More servings of Spinach Tofu Curry' }).click();
+  await list.getByRole('button', { name: 'Close' }).click();
+
+  // Undoing a mis-tap in the saved view keeps the amount…
+  await page.getByRole('button', { name: 'Unsave Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: 'Shopping list' }).click();
+  await expect(list.getByText('For 1 saved recipe · 1 adjusted')).toBeVisible();
+  await list.getByRole('button', { name: 'Close' }).click();
+
+  // …but once the unsave is final, saving it again starts over.
+  await page.getByRole('button', { name: 'Unsave Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: 'vegdex, all recipes' }).click();
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: /Saved · 1/ }).click();
+  await page.getByRole('button', { name: 'Shopping list' }).click();
+  await expect(list.getByText('For 1 saved recipe', { exact: true })).toBeVisible();
 });
 
 test('empty saved view explains what to do', async ({ page }) => {

@@ -177,6 +177,33 @@ export function toggleSaved(id: string) {
   localStorage.setItem(SAVED_KEY, JSON.stringify(saved.ids))
 }
 
+const AMOUNTS_KEY = 'vegdex:grocery-amounts'
+
+function loadAmounts(): Record<string, number> {
+  try {
+    const v = JSON.parse(localStorage.getItem(AMOUNTS_KEY) ?? '{}')
+    if (!v || typeof v !== 'object') return {}
+    return Object.fromEntries(Object.entries(v).filter(([id, m]) => saved.ids.includes(id) && typeof m === 'number' && m > 0)) as Record<string, number>
+  } catch {
+    return {}
+  }
+}
+
+/** How much of each saved recipe goes on the shopping list, as a multiplier; a recipe with no entry is ×1. */
+export const amounts = $state<Record<string, number>>(loadAmounts())
+
+export function setAmount(id: string, multiplier: number) {
+  if (multiplier === 1) delete amounts[id]
+  else amounts[id] = multiplier
+  localStorage.setItem(AMOUNTS_KEY, JSON.stringify(amounts))
+}
+
+/** Unsaves are final: their amounts go too, so saving a recipe again starts at ×1. */
+export function forgetUnsavedAmounts() {
+  for (const id of Object.keys(amounts)) if (!saved.ids.includes(id)) delete amounts[id]
+  localStorage.setItem(AMOUNTS_KEY, JSON.stringify(amounts))
+}
+
 const UNITS_KEY = 'vegdex:units'
 
 /** US kitchens measure in cups; everyone else weighs. An explicit choice sticks. */
