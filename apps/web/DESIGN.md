@@ -242,7 +242,7 @@ Soft rectangles for content, full pills for small controls, near-square tags for
 
 ### Recipe card
 - **Character:** a filed card: the photo mounted on card stock, the facts ruled underneath, nothing more.
-- Surface card, 6px mount, card shadow. 1:1 photo at 8px, label-style time tag bottom-left, heart top-right on a paper disc (dark disc in dark mode). Then the Besley title, then a hairline rule and source with gold-star rating and a compact count. The rule sits at the same height on every card in a row. The open button's accessible name is the title, and its description is time, source and rating.
+- Surface card, 6px mount, card shadow. 1:1 photo at 8px, label-style time tag bottom-left, heart top-right on a paper disc (dark disc in dark mode). Then the Besley title, then a hairline rule, the source, and under it the gold star with how many cooks rated it ("★ 1.2K ratings"). Most recipes average 5.0, so the card leads with the count; the average shows only below 4.5 ("★ 4.3 · 12 ratings"), and the sheet always shows both. The rule sits at the same height on every card in a row. The open button's accessible name is the title, and its description is time, source and rating.
 
 ### Recipe sheet (the open card)
 - Photo, Besley title, then "From the kitchen of <blog>" with the rating. The blog name is an underlined button that opens the blog's shelf: the grid filtered to that source, headed by the blog's name in Besley and a "Visit <site>" link, with a removable "From <blog>" chip. Under that, the red line and the printed fields (Time, Serves, Per serving) in cells split by hairlines: field labels above, values in tabular numerals.

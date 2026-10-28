@@ -217,7 +217,7 @@ main {
 .card h2 { font-family: var(--display); font-size: 1rem; line-height: 1.25; margin: 9px 4px 8px; font-weight: 600; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .card h2::first-letter, .sheet h2::first-letter { text-transform: uppercase; }
 /* The rule sits at the same height on every card in a row, one-line title or two. */
-.card .meta { margin: auto 4px 0; padding-top: 6px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; column-gap: 6px; }
+.card .meta { margin: auto 4px 0; padding-top: 6px; border-top: 1px solid var(--line); display: flex; flex-direction: column; }
 .card .source { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
 .meta { color: var(--muted); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
 .rating { white-space: nowrap; }
