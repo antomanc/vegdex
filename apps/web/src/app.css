@@ -1,10 +1,12 @@
 /*
- * vegdex: an index card in a home kitchen. Card-stock paper, green ink, one tomato rule.
+ * vegdex: a recipe box in a home kitchen. White card stock for savory, rose for sweet, green ink, one tomato rule per card.
  * Besley (a Clarendon) for the wordmark and recipe titles; the system sans for everything you operate.
  */
 :root {
-  --paper: #f8f8f4;
+  --paper: #eef0e9;
   --surface: #ffffff;
+  --rose: #fbedef;
+  --rose-line: #f0d5da;
   --ink: #18271d;
   --muted: #56635a;
   --line: #e3e2da;
@@ -33,6 +35,8 @@
   :root {
     --paper: #121814;
     --surface: #1a221d;
+    --rose: #2a1f23;
+    --rose-line: #46333a;
     --ink: #edf0ea;
     --muted: #a1aca4;
     --line: #2c3830;
@@ -111,6 +115,9 @@ input { caret-color: var(--tomato); }
 }
 .pill.outline { background: transparent; border-color: var(--line); font-size: 0.88rem; padding: 0 14px; }
 .pill.on { background: var(--green); color: var(--paper); border-color: var(--green); }
+/* The page's one solid action: pull a card from the box. */
+.pill.pick { background: var(--green); border-color: var(--green); color: var(--paper); font-weight: 600; }
+.pill.pick:disabled { opacity: 0.45; }
 .pill.tonight:not(.on) { background: var(--surface); border-color: var(--green); color: var(--green); font-weight: 600; }
 
 /* Divider tabs: the recipe box's sections stand on the edge of the card stack. */
@@ -123,6 +130,8 @@ input { caret-color: var(--tomato); }
   background: var(--green-soft); color: var(--ink);
   transition: background-color 0.15s ease-out, color 0.15s ease-out;
 }
+.tab.savory:not(.on) { background: var(--surface); }
+.tab.sweet:not(.on) { background: var(--rose); border-color: var(--rose-line); }
 .tab.on { background: var(--green); border-color: var(--green); color: var(--paper); font-weight: 600; }
 .tab-gap { flex: none; width: 10px; }
 
@@ -183,6 +192,9 @@ main {
 .active-filters .text-btn { min-height: 32px; padding: 4px 8px; font-size: 0.88rem; }
 .grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 @media (min-width: 700px) { .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; } }
+
+/* Sweet recipes are filed on rose card stock, savory on white. */
+.sweet { --surface: var(--rose); --line: var(--rose-line); }
 
 /* A filed card: the publisher's photo mounted on card stock, the facts ruled underneath. */
 .card, .skeleton li {
@@ -249,7 +261,16 @@ main {
 
 /* The open recipe is the card itself: title above the red line, printed fields below it. */
 .kitchen { margin: 0; font-size: 0.88rem; color: var(--muted); font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; column-gap: 10px; }
-.kitchen-name { color: var(--ink); font-weight: 600; }
+.kitchen-name {
+  border: 0; background: none; padding: 10px 0; margin: -10px 0; font-size: inherit; font-weight: 600; color: var(--ink);
+  text-decoration: underline; text-decoration-color: var(--muted); text-decoration-thickness: 1px; text-underline-offset: 3px;
+}
+.kitchen-name:hover { text-decoration-color: currentColor; }
+
+/* One blog's shelf: its name, and the way to its site. */
+.kitchen-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; padding: 4px 4px 0; }
+.kitchen-head h2 { font-family: var(--display); font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+.kitchen-head a { color: var(--green); font-size: 0.88rem; font-weight: 600; text-underline-offset: 3px; }
 .card-fields { display: flex; margin: 12px 0 0; border-top: 2px solid var(--tomato); border-bottom: 1px solid var(--line); }
 .card-fields > div { flex: 1 1 0; padding: 8px 10px 9px; min-width: 0; }
 .card-fields > div:first-child { padding-left: 0; }
@@ -305,7 +326,8 @@ p.small { margin-top: 18px; }
   .text-btn:not(:disabled):hover { text-decoration: underline; text-underline-offset: 3px; }
   .loosen:hover { background: var(--green-soft); }
   .heart:hover { color: var(--tomato); }
-  .tab:not(.on):hover { background: var(--surface); }
+  .tab:not(.on):hover { border-color: var(--green); }
+  .pill.pick:not(:disabled):hover { filter: brightness(1.12); }
   .card:has(.card-open:hover) { box-shadow: 0 2px 4px var(--card-shadow), 0 8px 20px var(--card-shadow); }
 }
 

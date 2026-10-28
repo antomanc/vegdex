@@ -5,7 +5,8 @@
   import { sheet } from './sheet'
   import { activeCount, clearFilters, filters, isTonight, moreCount, toggleTonight } from './state.svelte'
 
-  let { count }: { count: number } = $props()
+  /** `onpick`: open one recipe at random from the best matches. */
+  let { count, onpick }: { count: number; onpick: () => void } = $props()
 
   let more = $state(false)
   let have = $state('')
@@ -43,6 +44,9 @@
   <button class="pill tonight" class:on={isTonight()} aria-pressed={isTonight()} onclick={toggleTonight}>
     <Icon name="clock" size={16} /> Tonight
   </button>
+  <button class="pill pick" disabled={count === 0} onclick={onpick}>
+    <Icon name="shuffle" size={16} /> Pick for me
+  </button>
   <button class="pill outline" class:on={moreCount() > 0} aria-haspopup="dialog" onclick={() => (more = true)}>
     <Icon name="sliders" size={16} /> More filters{moreCount() ? ` · ${moreCount()}` : ''}
   </button>
@@ -59,9 +63,9 @@
 <!-- The recipe box's dividers: their tabs stand on the edge of the card stack below. -->
 <nav class="tabs" aria-label="Categories">
   <div class="tab-row">
-    <button class="tab" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
+    <button class="tab savory" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
       onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>Savory</button>
-    <button class="tab" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
+    <button class="tab sweet" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
       onclick={() => (filters.flavor = filters.flavor === 'sweet' ? null : 'sweet')}>Sweet</button>
     <span class="tab-gap" aria-hidden="true"></span>
     {#each MEAL_LABELS as [meal, label] (meal)}

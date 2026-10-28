@@ -2,8 +2,10 @@
 name: vegdex
 description: Vegan recipes from the best vegan blogs, filtered in a tap.
 colors:
-  paper: "#f8f8f4"
+  paper: "#eef0e9"
   surface: "#ffffff"
+  rose-stock: "#fbedef"
+  rose-line: "#f0d5da"
   ink: "#18271d"
   muted: "#56635a"
   line: "#e3e2da"
@@ -18,6 +20,8 @@ colors:
   scrim: "rgb(10 15 12 / 0.55)"
   dark-paper: "#121814"
   dark-surface: "#1a221d"
+  dark-rose-stock: "#2a1f23"
+  dark-rose-line: "#46333a"
   dark-ink: "#edf0ea"
   dark-muted: "#a1aca4"
   dark-line: "#2c3830"
@@ -97,6 +101,11 @@ components:
     textColor: "{colors.ink}"
     rounded: "{rounded.pill}"
     height: "40px"
+  pick:
+    backgroundColor: "{colors.ink-green}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.pill}"
+    height: "40px"
   pill-on:
     backgroundColor: "{colors.ink-green}"
     textColor: "{colors.paper}"
@@ -127,9 +136,9 @@ components:
 
 ## Overview
 
-**Creative North Star: the recipe index card.** vegdex is a card file for a home kitchen: card-stock paper, green ink, a single red rule across the top. The photos supply the appetite. The interface supplies the facts a cook needs to choose (time, rating, source, ingredients) and gets out of the way. It is an Operate surface used on a phone in short sessions, so precision and familiar controls come before expression.
+**Creative North Star: the recipe index card.** vegdex is a recipe box for a home kitchen: cards on a sage-grey ground, white card stock for savory and rose for sweet, green ink, one red line per card. The photos supply the appetite. The interface supplies the facts a cook needs to choose (time, rating, source, ingredients) and gets out of the way. It is an Operate surface used on a phone in short sessions, so precision and familiar controls come before expression.
 
-The card file is visible, not only described: categories are divider tabs standing on the edge of the stack, every recipe is a card with the publisher's photo mounted on card stock and its facts ruled underneath, and an open recipe is a recipe card (title above the red line, printed fields below it, ingredients on ruled lines, "From the kitchen of" the blog). The mount frame also evens out photos from 24 blogs with 24 different styles. The other details: the Clarendon titles, label-style time tags and tabular numerals.
+The card file is visible, not only described: categories are divider tabs standing on the edge of the stack, every recipe is a card with the publisher's photo mounted on card stock and its facts ruled underneath, and an open recipe is a recipe card (title above the red line, printed fields below it, ingredients on ruled lines, "From the kitchen of" the blog). The mount frame also evens out photos from 24 blogs with 24 different styles. The box also behaves like one: "Pick for me" pulls a card at random from the best matches, and every card's "From the kitchen of" opens that blog's shelf. The other details: the Clarendon titles, label-style time tags and tabular numerals.
 
 Anti-references: beige "organic" palettes, wellness-brand softness, recipe-blog clutter, and any "verified vegan" badge (the guarantee stays implicit; see PRODUCT.md).
 
@@ -148,9 +157,12 @@ The palette is restrained. Neutrals carry the page, ink green carries action and
 ### Tertiary
 - **Star Gold** (#a8741c; dark #e0b252): rating stars, everywhere they appear.
 
+### Card stock
+- **Rose Stock** (#fbedef; dark #2a1f23) with **Rose Line** (#f0d5da; dark #46333a): sweet recipes are filed on rose card stock, in the grid and in their open sheet; the Sweet tab rests on it, so the tab row is the legend. Set by the `.sweet` class, which swaps `--surface` and `--line`. Color is never the only signal: the Sweet filter and the recipe itself say it too.
+
 ### Neutral
-- **Paper** (#f8f8f4; dark #121814): page background. Near-neutral card stock, not beige.
-- **Surface** (#ffffff; dark #1a221d): sheets, search field, time tags, raised controls.
+- **Paper** (#eef0e9; dark #121814): the page ground the cards rest on, a cool sage-grey so white card stock reads as cards. Not beige.
+- **Surface** (#ffffff; dark #1a221d): savory card stock, sheets, search field, time tags, raised controls.
 - **Ink** (#18271d; dark #edf0ea): body text and titles.
 - **Muted** (#56635a; dark #a1aca4): metadata, counts, hints, placeholders. 4.5:1 or better on paper and surface.
 - **Line** (#e3e2da; dark #2c3830): hairlines, outline pills, list rules.
@@ -158,7 +170,9 @@ The palette is restrained. Neutrals carry the page, ink green carries action and
 ### Named Rules
 **The One Rule Rule.** Tomato appears as a line once per card: under the header (the app's own card) and under the head of an open recipe or shopping list, the way an index card has one red line. Never on grid cards, never as a border around anything, never as a decorative stripe.
 
-**The Ink Means Act Rule.** Solid ink green marks the thing you can act on or the choice you made. Don't use it for decoration.
+**The Ink Means Act Rule.** Solid ink green marks the thing you can act on or the choice you made. Don't use it for decoration. On the browse screen, "Pick for me" is the one solid action at rest.
+
+**The Two Stocks Rule.** Card stock color means flavor: white is savory, rose is sweet. No other card colors, and no stock color on controls except the Savory and Sweet tabs.
 
 ## Typography
 
@@ -215,6 +229,7 @@ Soft rectangles for content, full pills for small controls, near-square tags for
 
 ### Pills and segments
 - **Quick pill:** green wash at rest, ink green when on, 40px tall.
+- **Pick for me:** solid ink green with a shuffle icon, beside Tonight. Opens a random recipe from the top 120 of the current matches; the sheet it opens adds "Another" to its footer to draw again in place. Disabled at zero matches.
 - **Tonight:** the first quick pill, outlined in ink green with a clock icon at rest. It sets Mains and 45 minutes or less, and shows as one "Tonight" chip.
 - **Outline pill:** transparent with a line border (More filters, High protein, free-from).
 - **Time segments:** one joined control (≤ 15, 30, 45, 60 min); picking one replaces the last.
@@ -230,7 +245,7 @@ Soft rectangles for content, full pills for small controls, near-square tags for
 - Surface card, 6px mount, card shadow. 1:1 photo at 8px, label-style time tag bottom-left, heart top-right on a paper disc (dark disc in dark mode). Then the Besley title, then a hairline rule and source with gold-star rating and a compact count. The rule sits at the same height on every card in a row. The open button's accessible name is the title, and its description is time, source and rating.
 
 ### Recipe sheet (the open card)
-- Photo, Besley title, then "From the kitchen of <blog>" with the rating. Under that, the red line and the printed fields (Time, Serves, Per serving) in cells split by hairlines: field labels above, values in tabular numerals.
+- Photo, Besley title, then "From the kitchen of <blog>" with the rating. The blog name is an underlined button that opens the blog's shelf: the grid filtered to that source, headed by the blog's name in Besley and a "Visit <site>" link, with a removable "From <blog>" chip. Under that, the red line and the printed fields (Time, Serves, Per serving) in cells split by hairlines: field labels above, values in tabular numerals.
 - Ingredients sit on ruled hairlines, no bullets, with the leading amount in bold (`splitAmount` in `labels.ts`).
 
 ### Inputs
@@ -248,5 +263,5 @@ Soft rectangles for content, full pills for small controls, near-square tags for
 - **Do** keep the main action of a sheet pinned in a footer.
 - **Don't** set buttons, pills or labels in Besley.
 - **Don't** add a "verified vegan" mark, badge or headline claim.
-- **Don't** return to a beige or cream page background; paper stays near-neutral (#f8f8f4).
+- **Don't** return to a beige or cream page background; paper stays cool sage-grey (#eef0e9).
 - **Don't** use colored side borders, gradient text or decorative glass.

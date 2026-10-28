@@ -11,7 +11,7 @@
   const id = $derived(`card-${recipe.id}`)
 </script>
 
-<article class="card" class:unsaved={justUnsaved} data-testid="recipe-card">
+<article class="card" class:unsaved={justUnsaved} class:sweet={recipe.tags.includes('flavor:sweet')} data-testid="recipe-card">
   <button class="card-open" onclick={onopen} aria-labelledby="{id}-title" aria-describedby="{id}-meta">
     <div class="thumb">
       {#if recipe.image && !broken}
