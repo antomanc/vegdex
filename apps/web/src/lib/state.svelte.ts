@@ -1,4 +1,4 @@
-import type { Flavor, FreeFrom, Meal, RecipeQuery } from '@vegdex/core'
+import type { Flavor, FreeFrom, Meal, RecipeQuery, Units } from '@vegdex/core'
 import { FREE, MEAL_LABELS } from './labels'
 
 export type Sort = NonNullable<RecipeQuery['sort']>
@@ -175,4 +175,21 @@ export function toggleSaved(id: string) {
   saved.ids = was ? saved.ids.filter((x) => x !== id) : [id, ...saved.ids]
   saved.unsaved = was ? [...saved.unsaved, id] : saved.unsaved.filter((x) => x !== id)
   localStorage.setItem(SAVED_KEY, JSON.stringify(saved.ids))
+}
+
+const UNITS_KEY = 'vegdex:units'
+
+/** US kitchens measure in cups; everyone else weighs. An explicit choice sticks. */
+function loadUnits(): Units {
+  const v = localStorage.getItem(UNITS_KEY)
+  if (v === 'us' || v === 'metric') return v
+  return navigator.language === 'en-US' ? 'us' : 'metric'
+}
+
+/** One setting for the recipe sheet and the shopping list. */
+export const prefs = $state({ units: loadUnits() })
+
+export function setUnits(units: Units) {
+  prefs.units = units
+  localStorage.setItem(UNITS_KEY, units)
 }

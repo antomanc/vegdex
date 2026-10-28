@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
+import { parseIngredient } from '@vegdex/core';
 import { crawlAll, type CrawlSource } from './crawl';
 import { emitDataset } from './emit';
 import { loadStore, saveStore } from './store';
@@ -58,12 +59,36 @@ function emit() {
   log(Object.entries(report.bySource).sort((a, b) => b[1] - a[1]).map(([s, n]) => `  ${s}: ${n}`).join('\n'));
 }
 
+/**
+ * Snapshot the published catalog's cup-measured lines for the weight tests in packages/core:
+ * how often each ingredient is measured by volume, and every line where the blog also gave grams.
+ */
+function weights() {
+  const { recipes } = JSON.parse(fs.readFileSync(path.join(values.out!, 'recipes.full.json'), 'utf8')) as { recipes: { ingredients: string[] }[] };
+  const names = new Map<string, number>();
+  const withGrams = new Set<string>();
+  for (const r of recipes)
+    for (const line of r.ingredients) {
+      const p = parseIngredient(line);
+      if (!p.unit || !VOLUME_UNITS.has(p.unit) || p.quantity === null || !p.name) continue;
+      if (p.metric?.unit === 'g') withGrams.add(p.raw);
+      else names.set(p.name, (names.get(p.name) ?? 0) + 1);
+    }
+  const file = path.join(root, 'packages/core/test/fixtures/volume-lines.json');
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  const snapshot = { names: [...names].sort((a, b) => b[1] - a[1]), withGrams: [...withGrams].sort() };
+  fs.writeFileSync(file, JSON.stringify(snapshot, null, 0).replace(/\],\[/g, '],\n[').replace(/","/g, '",\n"') + '\n');
+  log(`${names.size} names measured by volume, ${withGrams.size} lines with the blog's own grams → ${path.relative(root, file)}`);
+}
+const VOLUME_UNITS = new Set(['cup', 'fl oz', 'pint', 'quart']);
+
 if (command === 'crawl') await crawl();
+else if (command === 'weights') weights();
 else if (command === 'emit') emit();
 else if (command === 'run') {
   await crawl();
   emit();
 } else {
-  console.error(`unknown command ${command}; use crawl | emit | run`);
+  console.error(`unknown command ${command}; use crawl | emit | run | weights`);
   process.exit(1);
 }

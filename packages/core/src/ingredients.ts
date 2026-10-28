@@ -100,8 +100,10 @@ export interface ParsedIngredient {
   quantity: number | null;
   quantityMax: number | null;
   unit: string | null;
-  /** Metric weight or volume from a parenthetical like "(240 g)". */
+  /** Metric weight or volume from a parenthetical like "(240 g)" or a dual measure like "1 cup / 240 ml". */
   metric: { quantity: number; unit: 'g' | 'ml' } | null;
+  /** When the line has a unit: the text after its amount, unit and any metric equivalent ("flour, sifted"). */
+  afterMeasure: string | null;
   /** Canonical, singular, lowercase name used for matching and aggregation. */
   name: string;
   note: string;
@@ -120,6 +122,8 @@ export function normalizeLine(raw: string): string {
   return s.replace(/\s+/g, ' ').trim();
 }
 
+/** "(280g)", "(packed – 150g)": a metric amount closing a parenthetical whose words carry no other number. */
+const LATE_METRIC_RE = /\(([^()\d]{0,30}?)[\s,;:–—-]*(?:~|about\s+)?(\d+(?:[.,]\d+)?\s*(?:g|grams?|kg|ml|mL|milliliters?|l|liters?))\s*\)/i;
 const METRIC_RE = /(\d+(?:[.,]\d+)?)\s*(g|grams?|kg|ml|mL|milliliters?|l|liters?)\b/i;
 
 function extractMetric(text: string): ParsedIngredient['metric'] {
@@ -300,6 +304,7 @@ export function parseIngredient(raw: string): ParsedIngredient {
   let quantity: number | null = null;
   let quantityMax: number | null = null;
   let unit: string | null = null;
+  let altMeasure = '';
 
   const word = s.match(/^(a|an|one|two|three|four|five|six|seven|eight|nine|ten|twelve|half)\s+/i);
   const q = s.match(QTY_RE);
@@ -332,7 +337,9 @@ export function parseIngredient(raw: string): ParsedIngredient {
     if (def) {
       unit = def.unit;
       s = s.slice(u[0].length);
-      s = skipAltMeasure(s);
+      const alt = skipAltMeasure(s);
+      altMeasure = s.slice(0, s.length - alt.length);
+      s = alt;
       const plus = s.match(PLUS_MEASURE_RE);
       const plusUnit = plus ? s.slice(plus[0].length).match(UNIT_RE) : null;
       const plusDef = plusUnit ? lookupUnit(plusUnit[1]!) : undefined;
@@ -355,8 +362,19 @@ export function parseIngredient(raw: string): ParsedIngredient {
   // "garlic cloves" written name-first.
   if (!unit && quantity !== null && /^(?:(?:x-large|extra-large|large|medium|small|big|fat)\s+)?garlic cloves?\b/i.test(s)) unit = 'clove';
 
-  const metricSource = (s.match(/^\(([^)]*)\)/)?.[1] ?? '') || (unit && ['cup', 'tbsp', 'tsp', 'oz', 'lb'].includes(unit) ? sizeNote : '');
-  let metric = metricSource ? extractMetric(metricSource) : null;
+  const paren = s.match(/^\(([^)]*)\)\s*/);
+  const parenMetric = paren ? extractMetric(paren[1]!) : null;
+  const metricSource = altMeasure || (unit && ['cup', 'tbsp', 'tsp', 'oz', 'lb'].includes(unit) ? sizeNote : '');
+  let metric = parenMetric ?? (metricSource ? extractMetric(metricSource) : null);
+  let afterMeasure = unit ? (parenMetric ? s.slice(paren![0].length) : s) : null;
+  // "2 cups flour (280g)": a parenthetical that is only a metric amount, after the name.
+  const dim = unit ? unitDef(unit)?.dimension : undefined;
+  const lateMetric = !metric && afterMeasure && (dim === 'volume' || dim === 'mass') ? afterMeasure.match(LATE_METRIC_RE) : null;
+  if (lateMetric) {
+    metric = extractMetric(lateMetric[2]!);
+    const words = lateMetric[1]!.replace(/^\s*(?:about|approx\.?|~)?\s*$/i, '').trim();
+    afterMeasure = afterMeasure!.replace(lateMetric[0], words ? `(${words})` : ' ').replace(/\s+([,)])/g, '$1').replace(/\s{2,}/g, ' ').trim();
+  }
   if (unit && (unit === 'g' || unit === 'kg') && quantity !== null)
     metric = { quantity: quantity * (unit === 'kg' ? 1000 : 1), unit: 'g' };
   if (unit && (unit === 'ml' || unit === 'l') && quantity !== null)
@@ -365,7 +383,7 @@ export function parseIngredient(raw: string): ParsedIngredient {
   s = s.replace(/^\([^)]*\)\s*/, '').replace(/^of\s+(?:an?\s+)?/i, '');
   const commaAt = s.search(/,|\(/);
   const note = [sizeNote, commaAt >= 0 ? s.slice(commaAt) : ''].filter(Boolean).join(' ').replace(/^[,\s]+/, '');
-  return { raw: cleanText(raw), quantity, quantityMax, unit, metric, name: canonicalName(s), note, optional };
+  return { raw: cleanText(raw), quantity, quantityMax, unit, metric, afterMeasure, name: canonicalName(s), note, optional };
 }
 
 /** Drop the alternative side of "60 ml / ¼ cup"; the first measure is the one kept. */

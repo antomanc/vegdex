@@ -35,7 +35,7 @@ that are new or changed. Sites that block it are dropped, not worked around.
 
 | Path | What |
 | --- | --- |
-| `packages/core` | Types, ingredient parser, vegan check, tagger, search, grocery-list math. Shared by everything. |
+| `packages/core` | Types, ingredient parser, vegan check, tagger, search, grocery-list math, metric weights. Shared by everything. |
 | `packages/ingest` | Crawler and dataset emitter. Sources are in `packages/ingest/sources.json`. |
 | `apps/web` | Svelte 5 + Vite PWA. |
 | `packages/mcp` | `@antomanc/vegdex`: MCP server and CLI. |
@@ -52,10 +52,21 @@ pnpm dev                        # web app on http://0.0.0.0:5173
 pnpm test                       # unit + MCP integration tests (Vitest)
 pnpm test:e2e                   # Playwright, mobile + desktop
 pnpm fixtures                   # rebuild e2e/fixtures/data after changing the fixture store
+pnpm ingest weights             # snapshot cup-measured lines for the metric weight tests
 ```
 
 The crawl state (`.data/store.json.gz`) is kept as a release asset named `data`, not in git.
 Vegan-check rejections are written to `.data/excluded.json` for review.
+
+## Metric weights
+
+The web app's Metric switch turns cups, ounces and inches into grams and centimeters; spoons and
+whole items stay as written. A blog's own grams win. Otherwise grams come from a table of grams per
+cup in `packages/core/src/weights.ts`, built from USDA FoodData Central (SR Legacy, public domain)
+and the King Arthur Baking ingredient weight chart. Those amounts show with `≈`. The tests in
+`packages/core/test/weights.test.ts` check the table against the catalog: it must know 98% of
+cup-measured lines and agree with the grams blogs wrote next to their cups. After a big crawl, run
+`pnpm ingest weights` and rerun `pnpm test`.
 
 ## Adding a source
 
