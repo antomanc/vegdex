@@ -16,6 +16,7 @@ function summary(data: FullDataset, r: FullRecipe) {
   return {
     id: r.id,
     title: r.title,
+    contentLanguage: r.contentLanguage ?? 'en',
     source: source?.name ?? r.source,
     url: r.url,
     minutes: r.minutes,
@@ -32,7 +33,7 @@ function summary(data: FullDataset, r: FullRecipe) {
 
 export function search(data: FullDataset, args: SearchArgs) {
   const { limit = 10, ...query } = args
-  const all = searchRecipes(data.recipes, query)
+  const all = searchRecipes(data.recipes, query, data.lookup)
   return {
     total: all.length,
     recipes: all.slice(0, Math.min(Math.max(limit, 1), 50)).map((r) => summary(data, r))

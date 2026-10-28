@@ -82,7 +82,8 @@
     "8 oz cremini mushrooms",
     "2 tbsp soy sauce",
     "2 cloves garlic",
-    "1 tbsp sesame oil"
+    "1 tbsp sesame oil",
+    "1 cup pumpkin"
    ]
   },
   "brownies": {
@@ -118,7 +119,7 @@
    "url": "https://example.com/lentil-soup/",
    "image": null,
    "minutes": 35,
-   "servings": 4,
+   "servings": null,
    "rating": 4.6,
    "ratingCount": 80,
    "calories": 400,
@@ -165,7 +166,9 @@
     "1 cucumber",
     "1 lemon, juiced",
     "2 tbsp olive oil",
-    "1/4 cup parsley"
+    "1/4 cup parsley",
+    "400 g chickpeas, drained and rinsed",
+    "1 cup pumpkin"
    ]
   },
   "honey-carrots": {
