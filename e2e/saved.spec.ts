@@ -75,6 +75,17 @@ test('a recipe saved again starts at one batch', async ({ page }) => {
   await page.getByRole('button', { name: /Saved · 1/ }).click();
   await page.getByRole('button', { name: 'Shopping list' }).click();
   await expect(list.getByText('For 1 saved recipe', { exact: true })).toBeVisible();
+
+  // Outside the saved view there's no undo, so an unsave there is final straight away.
+  await list.getByText('For 1 saved recipe').click();
+  await list.getByRole('button', { name: 'More servings of Spinach Tofu Curry' }).click();
+  await list.getByRole('button', { name: 'Close' }).click();
+  await page.getByRole('button', { name: 'vegdex, all recipes' }).click();
+  await page.getByRole('button', { name: 'Unsave Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: /Saved · 1/ }).click();
+  await page.getByRole('button', { name: 'Shopping list' }).click();
+  await expect(list.getByText('For 1 saved recipe', { exact: true })).toBeVisible();
 });
 
 test('empty saved view explains what to do', async ({ page }) => {

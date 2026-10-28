@@ -330,17 +330,16 @@ p.small { margin-top: 18px; }
 .grocery .amount { color: var(--muted); font-size: 0.88rem; text-align: right; font-variant-numeric: tabular-nums; }
 .grocery label.done .name, .grocery label.done .amount { text-decoration: line-through; opacity: 0.5; }
 .uncheck { margin-left: auto; }
-.amounts summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; gap: 6px; width: fit-content; }
+.amounts summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; gap: 6px; width: fit-content; list-style: none; }
 .amounts summary::-webkit-details-marker { display: none; }
-.amounts summary { list-style: none; }
-.amounts summary::after { content: '▸'; transition: rotate 0.15s; }
+.amounts summary::after { content: '▸'; content: '▸' / ''; transition: rotate 0.15s; }
 .amounts[open] summary::after { rotate: 90deg; }
 .amounts ul { list-style: none; padding: 0; margin: 0 0 4px; }
 .amounts li { display: flex; align-items: center; gap: 12px; min-height: 52px; border-bottom: 1px solid var(--line); }
 .amounts .title { flex: 1; min-width: 0; }
 .stepper { display: flex; align-items: center; flex: none; }
 .stepper button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); font-size: 1.25rem; line-height: 1; padding: 0; }
-.stepper button:disabled { opacity: 0.35; }
+.stepper button[aria-disabled='true'] { opacity: 0.35; cursor: default; }
 .stepper .value { min-width: 6.5em; text-align: center; font-size: 0.88rem; font-variant-numeric: tabular-nums; }
 .grocery-sheet .units-row { margin-top: 10px; padding-bottom: 12px; border-bottom: 2px solid var(--tomato); }
 .grocery-sheet .aisle { margin-top: 20px !important; }
@@ -351,7 +350,7 @@ p.small { margin-top: 18px; }
 .skeleton .bar.short { width: 55%; margin-top: 6px; }
 
 @media (hover: hover) {
-  .pill:not(.on):hover, .stepper button:not(:disabled):hover, .seg:not(.on):hover, .saved-toggle:not(.on):hover, .night:hover { border-color: var(--green); }
+  .pill:not(.on):hover, .stepper button:not([aria-disabled='true']):hover, .seg:not(.on):hover, .saved-toggle:not(.on):hover, .night:hover { border-color: var(--green); }
   .seg:not(.on):hover { background: var(--green-soft); }
   .cta:hover, .btn-sm:hover, .grocery-btn:hover { filter: brightness(1.12); }
   .text-btn:not(:disabled):hover { text-decoration: underline; text-underline-offset: 3px; }

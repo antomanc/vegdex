@@ -175,6 +175,8 @@ export function toggleSaved(id: string) {
   saved.ids = was ? saved.ids.filter((x) => x !== id) : [id, ...saved.ids]
   saved.unsaved = was ? [...saved.unsaved, id] : saved.unsaved.filter((x) => x !== id)
   localStorage.setItem(SAVED_KEY, JSON.stringify(saved.ids))
+  // Only the saved view offers an undo; anywhere else an unsave is final straight away.
+  if (was && !filters.saved) forgetUnsavedAmounts()
 }
 
 const AMOUNTS_KEY = 'vegdex:grocery-amounts'

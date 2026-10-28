@@ -10,7 +10,7 @@
 
   // Newest saved first, like the saved view.
   const rows = $derived([...recipes].sort((a, b) => saved.ids.indexOf(a.id) - saved.ids.indexOf(b.id)))
-  const adjusted = $derived(recipes.filter((r) => (amounts[r.id] ?? 1) !== 1).length)
+  const adjusted = $derived(recipes.filter((r) => steps(r) !== perBatch(r)).length)
   // Check-offs survive closing the sheet: the list is used aisle by aisle in the store.
   const CHECKED_KEY = 'vegdex:grocery-checked'
   let checked = $state<Record<string, boolean>>(loadChecked())
@@ -40,27 +40,30 @@
     })
   })
 
-  /** A recipe with a yield steps by whole servings, up to four batches; one without steps by half batches. */
-  function step(r: CatalogRecipe) {
-    return r.servings ? 1 / r.servings : 0.5
+  /** Steps in one batch: whole servings for a recipe with a yield, half batches for one without. */
+  const perBatch = (r: CatalogRecipe) => r.servings || 2
+  const MAX_BATCHES = 4
+
+  /** The stored amount in steps, snapped to the grid: a recipe's yield can change between crawls. */
+  function steps(r: CatalogRecipe, by = 0): number {
+    return Math.min(Math.max(Math.round((amounts[r.id] ?? 1) * perBatch(r)) + by, 1), MAX_BATCHES * perBatch(r))
   }
 
-  function amountLabel(r: CatalogRecipe, m: number): string {
-    if (r.servings) {
-      const n = Math.round(m * r.servings)
-      return `${n} ${n === 1 ? 'serving' : 'servings'}`
-    }
-    return `×${Math.floor(m) || ''}${m % 1 ? '½' : ''}`
+  function amountLabel(r: CatalogRecipe): string {
+    const n = steps(r)
+    if (r.servings) return `${n} ${n === 1 ? 'serving' : 'servings'}`
+    return `×${Math.floor(n / 2) || ''}${n % 2 ? '½' : ''}`
   }
 
-  function nudge(r: CatalogRecipe, by: number) {
-    const unit = step(r)
-    const n = Math.min(Math.max(Math.round((amounts[r.id] ?? 1) / unit) + by, 1), Math.round(4 / unit))
-    setAmount(r.id, n * unit)
-  }
+  const nudge = (r: CatalogRecipe, by: number) => setAmount(r.id, steps(r, by) / perBatch(r))
 
   function compile(all: { id: string; lines: string[] }[]): [string, GroceryItem[]][] {
-    const items = compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier: amounts[r.id] ?? 1 })), { units: prefs.units })
+    const byId = new Map(recipes.map((r) => [r.id, r]))
+    const multiplier = (id: string) => {
+      const r = byId.get(id)
+      return r ? steps(r) / perBatch(r) : 1
+    }
+    const items = compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier: multiplier(r.id) })), { units: prefs.units })
     const byAisle = new Map<string, GroceryItem[]>()
     for (const item of items) byAisle.set(item.aisle, [...(byAisle.get(item.aisle) ?? []), item])
     // Checked items sink to the bottom of their aisle, so what's left to grab stays on top.
@@ -76,13 +79,13 @@
       <summary class="meta">For {recipes.length} saved {recipes.length === 1 ? 'recipe' : 'recipes'}{adjusted ? ` · ${adjusted} adjusted` : ''}</summary>
       <ul>
         {#each rows as r (r.id)}
-          {@const m = amounts[r.id] ?? 1}
+          {@const n = steps(r)}
           <li>
             <span class="title">{r.title}</span>
             <span class="stepper">
-              <button disabled={m <= step(r) + 1e-9} onclick={() => nudge(r, -1)} aria-label="Fewer servings of {r.title}">−</button>
-              <span class="value" aria-live="polite">{amountLabel(r, m)}</span>
-              <button disabled={m >= 4 - 1e-9} onclick={() => nudge(r, 1)} aria-label="More servings of {r.title}">+</button>
+              <button aria-disabled={n === 1} onclick={() => nudge(r, -1)} aria-label="Fewer servings of {r.title}">−</button>
+              <span class="value" aria-live="polite">{amountLabel(r)}</span>
+              <button aria-disabled={n === MAX_BATCHES * perBatch(r)} onclick={() => nudge(r, 1)} aria-label="More servings of {r.title}">+</button>
             </span>
           </li>
         {/each}
