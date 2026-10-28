@@ -11,5 +11,128 @@
   "meal_dessert": "Dolci",
   "meal_baking": "Da forno",
   "meal_drink": "Bevande",
-  "meal_sauce": "Salse e dip"
+  "meal_sauce": "Salse e dip",
+  "free_gluten": "Senza glutine",
+  "free_nut": "Senza frutta a guscio e arachidi",
+  "free_soy": "Senza soia",
+  "free_oil": "Senza olio",
+  "sort_rating": "Più votate",
+  "sort_newest": "Più recenti",
+  "sort_fastest": "Più veloci",
+  "sort_relevance": "Più pertinenti",
+  "minutes": "{count} min",
+  "hours": "{count} h",
+  "hours_minutes": "{hours} h {minutes} min",
+  "time_limit": "≤ {count} min",
+  "tonight": "Stasera",
+  "pick": "Scegli per me",
+  "more_filters": "Altri filtri",
+  "ready_in": "Pronte in",
+  "high_protein": "Ricche di proteine",
+  "categories": "Categorie",
+  "savory": "Salato",
+  "sweet": "Dolce",
+  "close": "Chiudi",
+  "free_from": "Senza",
+  "must_include": "Deve contenere",
+  "include_hint": "Ricette con tutti gli ingredienti che aggiungi.",
+  "include_example": "es. tofu, quinoa",
+  "avoid": "Da evitare",
+  "avoid_example": "es. avocado, tempeh",
+  "add": "Aggiungi",
+  "remove": "Rimuovi {label}",
+  "without": "senza {ingredient}",
+  "with": "con {ingredient}",
+  "clear_all": "Cancella tutto",
+  "no_matches_filter": "Nessun risultato. Prova a togliere un filtro",
+  "active_filters": "Filtri attivi",
+  "from_source": "Da {source}",
+  "load_error": "Non riesco a caricare le ricette. Controlla la connessione e riprova.",
+  "remove_suggestion": "Togli “{label}”",
+  "clear_the_search": "Cancella la ricerca",
+  "all_recipes": "vegdex, tutte le ricette",
+  "filters": "Filtri",
+  "night_mode": "Modalità notte",
+  "saved": "Salvate",
+  "search_recipes": "Cerca ricette",
+  "search_saved": "Cerca tra le ricette salvate",
+  "search_placeholder": "Cerca ricette o ingredienti",
+  "try_again": "Riprova",
+  "loading_recipes": "Caricamento ricette…",
+  "saved_recipes": "Ricette salvate",
+  "shopping_list": "Lista della spesa",
+  "visit": "Visita {host}",
+  "sort_by": "Ordina per",
+  "saved_empty": "Non hai ancora salvato ricette. Tocca il cuore su una ricetta per ritrovarla qui.",
+  "browse": "Sfoglia le ricette",
+  "no_saved_match": "Nessuna ricetta salvata corrisponde{search}{filters}.",
+  "no_match": "Nessuna ricetta corrisponde{search}{filters}.",
+  "search_term": " a “{text}”",
+  "with_filters": " con questi filtri",
+  "clear_search": "Cancella ricerca",
+  "clear_filters": "Cancella filtri",
+  "show_more": "Mostra altre ricette",
+  "showing": "Mostrate {visible} su {total}",
+  "credits": "Ricette da {count} blog vegani. vegdex mostra gli ingredienti e rimanda al blog per il procedimento.",
+  "credits_updated": "Aggiornato il {date}. I pesi in grammi si basano su USDA FoodData Central.",
+  "recipe_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} ricetta",
+        "plural=*": "{count} ricette"
+      }
+    }
+  ],
+  "saved_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} ricetta salvata",
+        "plural=*": "{count} ricette salvate"
+      }
+    }
+  ],
+  "show_recipes": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "Mostra {count} ricetta",
+        "plural=*": "Mostra {count} ricette"
+      }
+    }
+  ],
+  "blog_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "da {count} blog vegano",
+        "plural=*": "da {count} blog vegani"
+      }
+    }
+  ]
 }

@@ -1,5 +1,5 @@
 import { metricLine, type FreeFrom, type Meal, type Units } from '@vegdex/core'
-import { m } from './i18n'
+import { m, formatNumber, pageLocale } from './i18n'
 import type { Sort } from './state.svelte'
 
 export const MEAL_LABELS: [Meal, string][] = [
@@ -16,27 +16,27 @@ export const MEAL_LABELS: [Meal, string][] = [
 ]
 export const TIMES = [15, 30, 45, 60]
 export const FREE: [FreeFrom, string][] = [
-  ['gluten-free', 'Gluten-free'],
-  ['nut-free', 'Nut-free'],
-  ['soy-free', 'Soy-free'],
-  ['oil-free', 'Oil-free']
+  ['gluten-free', m.free_gluten()],
+  ['nut-free', m.free_nut()],
+  ['soy-free', m.free_soy()],
+  ['oil-free', m.free_oil()]
 ]
 export const SORTS: [Sort, string][] = [
-  ['rating', 'Top rated'],
-  ['newest', 'Newest'],
-  ['fastest', 'Fastest'],
-  ['relevance', 'Best match']
+  ['rating', m.sort_rating()],
+  ['newest', m.sort_newest()],
+  ['fastest', m.sort_fastest()],
+  ['relevance', m.sort_relevance()]
 ]
 
 /** "25 min", "1 h 30 min", "9 h": long bakes read at a glance. */
-export function formatMinutes(m: number): string {
-  if (m < 60) return `${m} min`
-  const h = Math.floor(m / 60)
-  const rest = m % 60
-  return rest ? `${h} h ${rest} min` : `${h} h`
+export function formatMinutes(minutes: number): string {
+  if (minutes < 60) return m.minutes({ count: formatNumber(minutes) })
+  const h = Math.floor(minutes / 60)
+  const rest = minutes % 60
+  return rest ? m.hours_minutes({ hours: formatNumber(h), minutes: formatNumber(rest) }) : m.hours({ count: formatNumber(h) })
 }
 
-const compact = new Intl.NumberFormat(undefined, { notation: 'compact' })
+const compact = new Intl.NumberFormat(pageLocale.intl, { notation: 'compact' })
 export const formatCount = (n: number) => compact.format(n)
 
 /** Publisher ingredient text, minus scraping leftovers: "((note))", "(, peeled)", stray asterisks. */

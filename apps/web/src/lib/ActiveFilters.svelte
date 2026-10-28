@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { m } from './i18n'
   import Icon from './Icon.svelte'
   import { activeFilters, clearFilters, removeFilter } from './state.svelte'
 
@@ -9,16 +10,16 @@
 </script>
 
 {#if active.length}
-  <ul class="active-filters" aria-label="Active filters">
+  <ul class="active-filters" aria-label={m.active_filters()}>
     {#each active as f (f.label)}
       <li>
-        <button class="chip" class:avoid={f.label.startsWith('no ')} onclick={() => removeFilter(f)} aria-label="Remove {f.label}">
+        <button class="chip" class:avoid={!!f.patch.exclude} onclick={() => removeFilter(f)} aria-label={m.remove({ label: f.label })}>
           {f.label} <Icon name="close" size={12} />
         </button>
       </li>
     {/each}
     {#if showClear && active.length > 1}
-      <li><button class="text-btn" onclick={clearFilters}>Clear all</button></li>
+      <li><button class="text-btn" onclick={clearFilters}>{m.clear_all()}</button></li>
     {/if}
   </ul>
 {/if}
