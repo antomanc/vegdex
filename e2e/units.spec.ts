@@ -5,7 +5,7 @@ test('metric weighs the ingredients and the choice sticks', async ({ page }) => 
   await page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true }).click();
   const sheet = page.getByRole('dialog');
   const flour = sheet.getByTestId('ingredients').locator('li', { hasText: 'all-purpose flour' });
-  // An en-US browser starts in cups.
+  // The English page starts in cups, regardless of browser language.
   await expect(flour).toHaveText('2 cups all-purpose flour');
 
   await sheet.getByRole('button', { name: 'Metric' }).click();
@@ -34,12 +34,34 @@ test('the shopping list adds up in grams', async ({ page }) => {
   await expect(lentils).toContainText('≈ 380 g');
 });
 
-test.describe('outside the US', () => {
-  test.use({ locale: 'it-IT' });
+for (const locale of ['en-US', 'it-IT', 'en-GB']) {
+  test.describe(`page defaults with a ${locale} browser`, () => {
+    test.use({ locale });
 
-  test('starts in metric', async ({ page }) => {
-    await page.goto('/');
-    await page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true }).click();
-    await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText('≈ 250 g all-purpose flour');
+    test('English starts in cups and Italian starts in metric', async ({ page }) => {
+      for (const [path, expected] of [['/', '2 cups all-purpose flour'], ['/it/', '≈ 250 g all-purpose flour']]) {
+        await page.goto(path);
+        await page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true }).click();
+        await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText(expected);
+      }
+    });
   });
-});
+}
+
+for (const { path, other, choice, amount } of [
+  { path: '/', other: '/it/', choice: 'Metric', amount: '≈ 250 g all-purpose flour' },
+  { path: '/it/', other: '/', choice: 'USA', amount: '2 cups all-purpose flour' }
+]) {
+  test(`a ${choice} choice on ${path} holds in both languages`, async ({ page }) => {
+    await page.goto(path);
+    await page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true }).click();
+    await page.getByRole('dialog').getByRole('button', { name: choice, exact: true }).click();
+    for (const language of [other, path]) {
+      await page.goto(language);
+      await page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true }).click();
+      await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText(amount);
+      await page.reload();
+      await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText(amount);
+    }
+  });
+}
