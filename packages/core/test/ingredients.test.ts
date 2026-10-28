@@ -3,6 +3,15 @@ import { parseIngredient } from '../src';
 
 describe('parseIngredient', () => {
   it.each([
+    'Serve with my Vegan Lemon Cream Sauce',
+    'I make my own homemade almond milk very creamy',
+    'Pumpkin pie spice is a blend of cinnamon',
+    "If you are using cashews and you don't have a high-powered blender"
+  ])('preserves original text for the recipe sheet: %s', (line) => {
+    expect(parseIngredient(line).raw).toBe(line);
+  });
+
+  it.each([
     ['1/2 cup (~60g) raw cashews, soaked in cool water overnight', 0.5, 'cup', 'cashew', { quantity: 60, unit: 'g' }],
     ['1 ½ teaspoons kosher salt + more to taste', 1.5, 'tsp', 'salt', null],
     ['&#189; Tbsp fine sea salt', 0.5, 'tbsp', 'salt', null],
@@ -40,6 +49,7 @@ describe('parseIngredient', () => {
     ['60 ml / ¼ cup water', 60, 'ml', 'water'],
     ['130 g / 1 cup raw cashews*', 130, 'g', 'cashew'],
     ['1 and 1/2 tbsp olive oil', 1.5, 'tbsp', 'olive oil'],
+    ['1 and 1/2 tbsp chipotle peppers in adobo sauce (finely chopped)', 1.5, 'tbsp', 'chipotle peppers in adobo sauce'],
     ['1/4 + 1/8 teaspoon salt', 0.375, 'tsp', 'salt'],
     ['heaped ¼ tsp baking soda', 0.25, 'tsp', 'baking soda'],
     ['1/3 heaped cup sunflower seeds', 1 / 3, 'cup', 'sunflower seed'],

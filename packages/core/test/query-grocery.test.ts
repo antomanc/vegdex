@@ -28,6 +28,32 @@ describe('searchRecipes', () => {
 });
 
 describe('compileGroceryList', () => {
+  it('omits explanatory sentences but keeps unquantified ingredients and long names', () => {
+    const list = compileGroceryList([{
+      recipeId: 'notes', multiplier: 1,
+      ingredients: [
+        'Serve with my Vegan Lemon Cream Sauce',
+        'I make my own homemade almond milk very creamy',
+        'Pumpkin pie spice is a blend of cinnamon',
+        "If you are using cashews and you don't have a high-powered blender",
+        'salt to taste',
+        'Indian long grain white basmati rice',
+        'Pumpkin pie spice (this is a blend of cinnamon)',
+        '1 tsp pumpkin pie spice'
+      ]
+    }]);
+    expect(list.map((item) => item.name).sort()).toEqual(['indian long grain white basmati rice', 'pumpkin pie spice', 'salt']);
+    expect(list.find((item) => item.name === 'salt')?.toTaste).toBe(true);
+  });
+
+  it.each([[1, '1 ½ tbsp'], [2, '3 tbsp']])('scales a mixed-number chipotle amount by %s', (multiplier, amount) => {
+    const list = compileGroceryList([{
+      recipeId: 'chipotle', multiplier,
+      ingredients: ['1 and 1/2 tbsp chipotle peppers in adobo sauce (finely chopped)']
+    }]);
+    expect(list).toMatchObject([{ name: 'chipotle peppers in adobo sauce', amounts: [amount] }]);
+  });
+
   it('sums same ingredients across recipes and scales', () => {
     const list = compileGroceryList([
       { recipeId: 'a', multiplier: 2, ingredients: ['1/2 cup (60g) raw cashews', '2 cloves garlic, minced', 'salt to taste'] },

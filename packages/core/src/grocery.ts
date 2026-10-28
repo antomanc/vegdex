@@ -119,6 +119,8 @@ export function compileGroceryList(inputs: GroceryInput[], { units = 'us' }: { u
     for (const line of input.ingredients) {
       const p = parseIngredient(line);
       if (!p.name) continue;
+      // Sentence-like notes are not purchases; unquantified ingredients still are.
+      if (p.quantity === null && /^(?:serve with|i|if you)\b|\bis a\b/.test(p.name)) continue;
       const acc: Acc =
         groups.get(p.name) ??
         { volume: 0, mass: 0, estimate: false, count: 0, other: new Map(), toTaste: false, recipeIds: new Set(), lines: [] };
