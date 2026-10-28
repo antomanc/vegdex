@@ -24,7 +24,8 @@ Guaranteed vegan. Every source is an all-vegan publisher, and a second check dro
 
 ## Capabilities and Constraints
 - Search by text; quick filters for savory/sweet and meal type; time (≤15/30/45/60 min); high protein; "free from" (gluten, nut, soy, oil); "I have" and "avoid" ingredient lists; sort (top rated, newest, fastest, best match).
-- Recipe sheet: photo, meta, nutrition, diet badges, ingredient list, "Cook it on <blog>" link, save.
+- "Pick for me": a random recipe from the best current matches, with "Another" to draw again.
+- Recipe sheet: photo, meta, nutrition, diet badges, ingredient list, "Cook it on <blog>" link, save. The blog name opens that blog's shelf (all its recipes, plus a link to the site).
 - Saved view with a combined shopping list built from saved recipes.
 - Filter state lives in the URL; data is a static catalog refreshed daily by GitHub Actions and deployed to GitHub Pages.
 - vegdex never stores or shows the method or the blogger's writing. Images load directly from the publisher.
@@ -37,6 +38,7 @@ Guaranteed vegan. Every source is an all-vegan publisher, and a second check dro
 
 ## Evidence on Hand
 - Real catalog data in `apps/web/public/data` (recipes from ~25 vegan blogs); a fixed fixture dataset in `e2e/fixtures/`.
+- English only: translated editions of a blog (a `/de/`-style path) are never crawled or published, because the tagger and the vegan check read English ingredient names. Translation is out of scope.
 - No testimonials, user counts, or press exist. Do not invent them.
 
 ## Product Principles

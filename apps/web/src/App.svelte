@@ -2,7 +2,7 @@
   import { searchRecipes, type Catalog, type CatalogRecipe } from '@vegdex/core'
   import { loadCatalog } from './lib/data'
   import {
-    activeCount, activeFilters, clearFilters, defaultSort, filters, readUrl, removeFilter, saved, toQuery, writeUrl,
+    activeCount, activeFilters, clearFilters, defaultSort, filters, readUrl, removeFilter, saved, sourceNames, toQuery, writeUrl,
     type Sort
   } from './lib/state.svelte'
   import { SORTS } from './lib/labels'
@@ -22,6 +22,8 @@
   let catalog = $state<Catalog | null>(null)
   let error = $state<string | null>(null)
   let openId = $state<string | null>(initial.openId)
+  // Opened by "Pick for me": the sheet offers another draw.
+  let drawn = $state(false)
   let groceryOpen = $state(initial.listOpen)
   let limit = $state(PAGE)
   let sentinel = $state<HTMLElement>()
@@ -32,7 +34,10 @@
   function load() {
     error = null
     loadCatalog()
-      .then((c) => (catalog = c))
+      .then((c) => {
+        for (const s of c.sources) sourceNames.set(s.id, s.name)
+        catalog = c
+      })
       .catch((e: Error) => {
         console.error(e)
         error = "Couldn't load the recipes. Check your connection and try again."
@@ -40,7 +45,7 @@
   }
   load()
 
-  const sourceNames = $derived(new Map(catalog?.sources.map((s) => [s.id, s.name]) ?? []))
+  const kitchen = $derived(filters.from && !filters.saved ? catalog?.sources.find((s) => s.id === filters.from) ?? null : null)
   // Recipes unsaved in this visit to the saved view stay listed, so a mis-tap on the heart can be undone.
   const listedIds = $derived([...saved.ids, ...saved.unsaved])
   const results = $derived<CatalogRecipe[]>(catalog ? searchRecipes(catalog.recipes, toQuery(listedIds)) : [])
@@ -119,6 +124,22 @@
     scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'instant' })
   }
 
+  // Draw from the best of the current matches, never the card already open.
+  const DRAW_POOL = 120
+  function pick() {
+    const pool = results.slice(0, DRAW_POOL).filter((r) => r.id !== openId)
+    if (!pool.length) return
+    openId = pool[Math.floor(Math.random() * pool.length)]!.id
+    drawn = true
+  }
+
+  function showKitchen(id: string) {
+    openId = null
+    filters.saved = false
+    filters.from = id
+    scrollTo({ top: 0 })
+  }
+
   function setSort(value: Sort) {
     filters.sort = value === defaultSort() ? null : value
   }
@@ -162,7 +183,7 @@
 
 <main>
   {#if !filters.saved}
-    <div class="filters" bind:this={filterBox}><FilterBar count={results.length} /></div>
+    <div class="filters" bind:this={filterBox}><FilterBar count={results.length} onpick={pick} /></div>
   {/if}
 
   {#if error}
@@ -185,10 +206,17 @@
       </div>
     {/if}
 
+    {#if kitchen}
+      <div class="kitchen-head">
+        <h2>{kitchen.name}</h2>
+        <a href={kitchen.url} target="_blank" rel="noopener">Visit {new URL(kitchen.url).hostname.replace(/^www\./, '')}&nbsp;<Icon name="external" size={14} /></a>
+      </div>
+    {/if}
+
     {#if results.length}
       <div class="summary">
         <p>
-          <span data-testid="result-count">{countText}</span>{#if !filters.saved}<span class="from">{' '}from {blogCount} vegan {blogCount === 1 ? 'blog' : 'blogs'}</span>{/if}
+          <span data-testid="result-count">{countText}</span>{#if !filters.saved && !kitchen}<span class="from">{' '}from {blogCount} vegan {blogCount === 1 ? 'blog' : 'blogs'}</span>{/if}
         </p>
         <label class="sort">
           <span class="visually-hidden">Sort by</span>
@@ -252,7 +280,13 @@
 </main>
 
 {#if open}
-  <RecipeSheet recipe={open} sourceName={sourceNames.get(open.source) ?? open.source} onclose={() => (openId = null)} />
+  <RecipeSheet
+    recipe={open}
+    sourceName={sourceNames.get(open.source) ?? open.source}
+    onclose={() => ((openId = null), (drawn = false))}
+    onkitchen={() => showKitchen(open.source)}
+    ondraw={drawn ? pick : undefined}
+  />
 {/if}
 
 {#if groceryOpen && catalog}

@@ -9,9 +9,10 @@
   const isSaved = $derived(saved.ids.includes(recipe.id))
   const justUnsaved = $derived(saved.unsaved.includes(recipe.id))
   const id = $derived(`card-${recipe.id}`)
+  const LOW_AVERAGE = 4.5
 </script>
 
-<article class="card" class:unsaved={justUnsaved} data-testid="recipe-card">
+<article class="card" class:unsaved={justUnsaved} class:sweet={recipe.tags.includes('flavor:sweet')} data-testid="recipe-card">
   <button class="card-open" onclick={onopen} aria-labelledby="{id}-title" aria-describedby="{id}-meta">
     <div class="thumb">
       {#if recipe.image && !broken}
@@ -25,7 +26,10 @@
     <p class="meta" id="{id}-meta">
       {#if recipe.minutes}<span class="visually-hidden">{formatMinutes(recipe.minutes)}, </span>{/if}
       <span class="source">{sourceName}</span>
-      {#if recipe.rating && recipe.ratingCount}<span class="rating"><Icon name="star" size={12} filled /><span class="visually-hidden">Rated</span> {recipe.rating.toFixed(1)} <span class="count">({formatCount(recipe.ratingCount)})</span></span>{/if}
+      {#if recipe.rating && recipe.ratingCount}
+        <!-- Most recipes average 5.0, so the card shows how many cooks rated it; a low average still shows. -->
+        <span class="rating"><Icon name="star" size={12} filled />{' '}{#if recipe.rating < LOW_AVERAGE}{recipe.rating.toFixed(1)} · {/if}{formatCount(recipe.ratingCount)} {recipe.ratingCount === 1 ? 'rating' : 'ratings'}<span class="visually-hidden">, average {recipe.rating.toFixed(1)}</span></span>
+      {/if}
     </p>
   </button>
   <button

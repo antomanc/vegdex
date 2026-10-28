@@ -45,12 +45,12 @@
   }
 </script>
 
-<dialog use:sheet class="sheet" {onclose} aria-labelledby="grocery-title">
+<dialog use:sheet class="sheet grocery-sheet" {onclose} aria-labelledby="grocery-title">
   <div class="sheet-body">
     <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label="Close"><Icon name="close" size={20} /></button></div>
     <h2 id="grocery-title">Shopping list</h2>
     <p class="meta">For {recipes.length} saved {recipes.length === 1 ? 'recipe' : 'recipes'}</p>
-    <div class="row">
+    <div class="row scale">
       <span class="label">Scale all recipes</span>
       <div class="pills wrap">
         {#each [0.5, 1, 2, 3] as m (m)}

@@ -12,6 +12,7 @@ import {
 } from '@vegdex/core';
 import fs from 'node:fs';
 import path from 'node:path';
+import { isOtherLanguage } from './sitemap';
 
 function toCatalog(r: Recipe): CatalogRecipe {
   const ing = [...new Set(r.ingredients.map((line) => parseIngredient(line).name).filter(Boolean))];
@@ -36,6 +37,8 @@ function toCatalog(r: Recipe): CatalogRecipe {
 export interface EmitReport {
   published: number;
   excluded: { id: string; title: string; url: string; hits: { term: string; line: string }[] }[];
+  /** Stored recipes from a translated edition of a blog, left out. */
+  otherLanguage: number;
   bySource: Record<string, number>;
   bytes: number;
 }
@@ -45,14 +48,19 @@ export interface EmitReport {
  * - catalog.json: everything the grid and filters need
  * - details/NN.json: raw ingredient lines, loaded when a recipe is opened
  * - recipes.full.json: catalog + ingredient lines in one file, for the MCP server
- * Recipes the vegan check flags are left out and listed in the report.
+ * Recipes the vegan check flags are left out and listed in the report; so are translated editions.
  */
 export function emitDataset(all: Recipe[], sources: Source[], outDir: string): EmitReport {
   const excluded: EmitReport['excluded'] = [];
   const recipes: Recipe[] = [];
   const sourceIds = new Set(sources.map((s) => s.id));
+  let otherLanguage = 0;
   for (const r of all) {
     if (!sourceIds.has(r.sourceId)) continue;
+    if (isOtherLanguage(r.url)) {
+      otherLanguage++;
+      continue;
+    }
     const hits = findNonVegan(r.ingredients);
     if (hits.length) excluded.push({ id: r.id, title: r.title, url: r.url, hits });
     else recipes.push(r);
@@ -89,5 +97,5 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string): E
 
   const bySource: Record<string, number> = {};
   for (const r of rows) bySource[r.source] = (bySource[r.source] ?? 0) + 1;
-  return { published: rows.length, excluded, bySource, bytes };
+  return { published: rows.length, excluded, otherLanguage, bySource, bytes };
 }

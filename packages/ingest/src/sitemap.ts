@@ -32,10 +32,19 @@ export function isContentSitemap(url: string): boolean {
   return !/(?:^|[-_])(?:page|category|categories|post_tag|tag|author|users?|attachment|taxonomies|product|web-?stor(?:y|ies)|wprm_[a-z]+|course|cuisine|keyword|ingredient|video|image|news|local)[-_.\d]/.test(name);
 }
 
+/**
+ * A translated edition of a blog ("/de/", "/fr-ca/"). vegdex is English-only: the tagger and the
+ * vegan check read English, so a German "Mandeln" line would pass as nut-free.
+ */
+export function isOtherLanguage(url: string): boolean {
+  return /^\/(?!en(?:-[a-z]{2})?\/)[a-z]{2}(?:-[a-z]{2})?\//i.test(new URL(url).pathname);
+}
+
 /** Page URLs that are never recipes. */
 export function isCandidateUrl(url: string, siteUrl: string): boolean {
   const u = new URL(url);
   if (u.hostname.replace(/^www\./, '') !== new URL(siteUrl).hostname.replace(/^www\./, '')) return false;
   if (u.pathname === '/' || u.pathname === '') return false;
+  if (isOtherLanguage(url)) return false;
   return !/\/(?:category|tag|author|page|wp-content|feed|about|contact|privacy|shop|cart|resources?|start-here|newsletter|recipes?\/?$|recipe-index)(?:\/|$)/i.test(u.pathname);
 }

@@ -137,3 +137,30 @@ test('the count credits the blogs and the credits stay on screen', async ({ page
   await page.getByRole('searchbox').fill('nothing matches this');
   await expect(page.getByText(/^Recipes from \d+ vegan blogs/)).toBeInViewport();
 });
+
+test('Pick for me opens one of the matches, and Another draws a different one', async ({ page }) => {
+  await page.getByRole('button', { name: 'Soups', exact: true }).click();
+  await page.getByRole('button', { name: 'Pick for me' }).click();
+  const sheet = page.getByRole('dialog');
+  await expect(sheet.getByRole('heading', { name: 'Red Lentil Soup' })).toBeVisible();
+
+  await sheet.getByRole('button', { name: 'Close' }).click();
+  await page.getByRole('list', { name: 'Active filters' }).getByRole('button', { name: 'Remove Soups' }).click();
+  await page.getByRole('button', { name: 'Pick for me' }).click();
+  const first = await sheet.getByRole('heading', { level: 2 }).textContent();
+  await sheet.getByRole('button', { name: 'Another' }).click();
+  await expect(sheet.getByRole('heading', { level: 2 })).not.toHaveText(first!);
+});
+
+test("a recipe's blog opens that blog's shelf, with a way to its site", async ({ page }) => {
+  await page.getByRole('button', { name: 'Red Lentil Soup', exact: true }).click();
+  await page.getByRole('dialog').getByRole('button', { name: /^ElaVegan/ }).click();
+  await expect(page.getByRole('dialog')).toBeHidden();
+  await expect(page.getByRole('heading', { name: 'ElaVegan' })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Visit elavegan\.com/ })).toBeVisible();
+  await expect(cards(page)).toHaveText([/Red Lentil Soup/]);
+  await expect(page).toHaveURL(/from=elavegan/);
+
+  await page.getByRole('list', { name: 'Active filters' }).getByRole('button', { name: 'Remove From ElaVegan' }).click();
+  await expect(count(page)).toHaveText(/6 recipes/);
+});

@@ -1,5 +1,5 @@
 <script lang="ts">
-  type Name = 'heart' | 'close' | 'star' | 'external' | 'search' | 'sliders' | 'clock' | 'list'
+  type Name = 'heart' | 'close' | 'star' | 'external' | 'search' | 'sliders' | 'clock' | 'list' | 'shuffle'
   let { name, size = 18, filled = false }: { name: Name; size?: number; filled?: boolean } = $props()
 </script>
 
@@ -19,6 +19,8 @@
     <circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" />
   {:else if name === 'list'}
     <path d="M9 6.5h11M9 12h11M9 17.5h11" /><path d="M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01" stroke-width="3" />
+  {:else if name === 'shuffle'}
+    <path d="M3.5 7h2.8c2.6 0 4 1.6 5.2 5s2.6 5 5.2 5h3.8M3.5 17h2.8c1.3 0 2.3-.4 3.1-1.2M14.4 8.2c.8-.8 1.8-1.2 3.1-1.2h3M18 4l3 3-3 3M18 14l3 3-3 3" />
   {:else}
     <path d="M14 5h5v5M19 5l-8 8M17 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4" />
   {/if}

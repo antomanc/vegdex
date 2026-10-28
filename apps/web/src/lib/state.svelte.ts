@@ -13,6 +13,8 @@ export const filters = $state({
   highProtein: false,
   include: [] as string[],
   exclude: [] as string[],
+  /** One blog's recipes only ("From the kitchen of …"): a source id. */
+  from: null as string | null,
   sort: null as Sort | null,
   saved: false
 })
@@ -31,6 +33,7 @@ export function toQuery(savedIds: string[], f: Filters = filters): RecipeQuery {
     highProtein: f.highProtein,
     include: f.include,
     exclude: f.exclude,
+    sources: f.from ? [f.from] : undefined,
     sort: f.sort ?? undefined
   }
 }
@@ -41,12 +44,16 @@ export interface ActiveFilter {
   patch: Partial<Filters>
 }
 
+/** Source id → blog name, filled once the catalog loads. */
+export const sourceNames = new Map<string, string>()
+
 export function activeFilters(): ActiveFilter[] {
   const meal = new Map(MEAL_LABELS)
   const free = new Map(FREE)
   const without = <T,>(list: T[], v: T) => list.filter((x) => x !== v)
   const tonight = isTonight()
   return [
+    ...(filters.from ? [{ label: `From ${sourceNames.get(filters.from) ?? filters.from}`, patch: { from: null } }] : []),
     ...(tonight ? [{ label: 'Tonight', patch: { meals: [], maxMinutes: null } }] : []),
     ...(filters.flavor ? [{ label: filters.flavor === 'sweet' ? 'Sweet' : 'Savory', patch: { flavor: null } }] : []),
     ...(tonight ? [] : filters.meals.map((m) => ({ label: meal.get(m) ?? m, patch: { meals: without(filters.meals, m) } }))),
@@ -70,7 +77,8 @@ export function activeCount(): number {
     filters.freeFrom.length +
     (filters.highProtein ? 1 : 0) +
     filters.include.length +
-    filters.exclude.length
+    filters.exclude.length +
+    (filters.from ? 1 : 0)
   )
 }
 
@@ -105,7 +113,8 @@ export function clearFilters() {
     freeFrom: [],
     highProtein: false,
     include: [],
-    exclude: []
+    exclude: [],
+    from: null
   })
 }
 
@@ -121,6 +130,7 @@ export function readUrl() {
   filters.highProtein = p.get('protein') === '1'
   filters.include = list(p.get('have'))
   filters.exclude = list(p.get('avoid'))
+  filters.from = p.get('from')
   filters.sort = (p.get('sort') as Sort | null) ?? null
   filters.saved = p.get('view') === 'saved'
   return { openId: p.get('r'), listOpen: filters.saved && p.get('list') === '1' }
@@ -136,6 +146,7 @@ export function writeUrl(openId: string | null, listOpen = false) {
   if (filters.highProtein) p.set('protein', '1')
   if (filters.include.length) p.set('have', filters.include.join(','))
   if (filters.exclude.length) p.set('avoid', filters.exclude.join(','))
+  if (filters.from) p.set('from', filters.from)
   if (filters.sort) p.set('sort', filters.sort)
   if (filters.saved) p.set('view', 'saved')
   if (filters.saved && listOpen) p.set('list', '1')

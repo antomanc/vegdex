@@ -20,7 +20,7 @@ export default defineConfig({
         short_name: 'vegdex',
         description: 'Thousands of tested vegan recipes from the best vegan food blogs, filtered in a tap.',
         theme_color: '#1d4a31',
-        background_color: '#f8f8f4',
+        background_color: '#eef0e9',
         display: 'standalone',
         start_url: base,
         scope: base,

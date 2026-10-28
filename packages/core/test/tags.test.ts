@@ -41,4 +41,23 @@ describe('classify', () => {
     });
     expect(tags).toEqual(expect.arrayContaining(['meal:breakfast', 'flavor:savory', 'high-protein']));
   });
+
+  it('keeps a main a savory main when its title only sounds like a dessert', () => {
+    const lines = ['1 block firm tofu', '1 tbsp chili powder', '1 tsp cumin', '1/2 cup salsa'];
+    for (const title of ['Vegan Taco Crumbles', 'Caramelized Onion Pasta', 'Vegan Crab Cakes']) {
+      const tags = classify({ ...base, title, ingredients: lines });
+      expect(tags, title).not.toContain('meal:dessert');
+      expect(tags, title).toContain('flavor:savory');
+    }
+    const pie = classify({ ...base, title: "Vegan Shepherd's Pie", categories: ['Main Course'], ingredients: lines });
+    expect(pie).toEqual(expect.arrayContaining(['meal:main', 'flavor:savory']));
+    expect(pie).not.toContain('meal:dessert');
+  });
+
+  it('still files an apple crumble and salted caramel as desserts', () => {
+    for (const title of ['Apple Crumble', 'Salted Caramel Sauce Brownies']) {
+      const tags = classify({ ...base, title, categories: ['Snack'], ingredients: ['2 apples', '1/2 cup oats', '1/4 cup maple syrup'] });
+      expect(tags, title).toEqual(expect.arrayContaining(['meal:dessert', 'flavor:sweet']));
+    }
+  });
 });
