@@ -11,12 +11,21 @@ const base = process.env.BASE_PATH ?? '/'
 // Preferred public origin. The canonical, Open Graph tags, JSON-LD, robots.txt and sitemap.xml all derive from it.
 const siteUrl = 'https://vegdex.antomanc.com/'
 
-const messages = (code: string): Record<string, string> => JSON.parse(readFileSync(`messages/${code}.json`, 'utf8'))
+type Messages = Record<string, unknown> & { meta_title: string; meta_description: string }
+const messages = (code: string): Messages => JSON.parse(readFileSync(`messages/${code}.json`, 'utf8'))
 
 // Paraglide compiles from project.inlang, which lists the same languages as the registry.
 const declared: string[] = JSON.parse(readFileSync('project.inlang/settings.json', 'utf8')).locales
 if (declared.join() !== LOCALES.map((l) => l.code).join()) {
   throw new Error(`project.inlang/settings.json locales (${declared}) must match src/lib/locales.ts`)
+}
+
+// Paraglide silently falls back to English. Require every language, including English, to have every key.
+const translations = LOCALES.map((locale) => ({ code: locale.code, text: messages(locale.code) }))
+const keys = new Set(translations.flatMap(({ text }) => Object.keys(text).filter((key) => key !== '$schema')))
+for (const { code, text } of translations) {
+  const missing = [...keys].filter((key) => !Object.hasOwn(text, key))
+  if (missing.length) throw new Error(`messages/${code}.json is missing: ${missing.join(', ')}`)
 }
 
 const escapeHtml = (s: string) => s.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;')
