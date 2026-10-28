@@ -245,7 +245,7 @@ main {
 .heart.on { color: var(--tomato); }
 .sentinel { height: 1px; }
 .credits { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: auto; padding-top: 40px; line-height: 1.5; text-wrap: balance; }
-.credits a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 8px; }
+.credits a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 8px; color: var(--green); text-underline-offset: 3px; }
 
 /* Sheets */
 .sheet {

@@ -30,5 +30,5 @@
 
 <style>
   .language-suggestion { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 0.88rem; }
-  a { display: flex; align-items: center; min-height: 40px; }
+  a { display: flex; align-items: center; min-height: 40px; color: var(--green); text-underline-offset: 3px; }
 </style>
