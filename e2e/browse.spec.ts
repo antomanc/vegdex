@@ -164,3 +164,16 @@ test("a recipe's blog opens that blog's shelf, with a way to its site", async ({
   await page.getByRole('list', { name: 'Active filters' }).getByRole('button', { name: 'Remove From ElaVegan' }).click();
   await expect(count(page)).toHaveText(/6 recipes/);
 });
+
+test('night mode follows the system until switched, then stays switched', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'light' });
+  const html = page.locator('html');
+  await expect(html).toHaveAttribute('data-theme', 'light');
+  const night = page.getByRole('button', { name: 'Night mode' });
+  await expect(night).toHaveAttribute('aria-pressed', 'false');
+  await night.click();
+  await expect(html).toHaveAttribute('data-theme', 'dark');
+  await page.reload();
+  await expect(html).toHaveAttribute('data-theme', 'dark');
+  await expect(night).toHaveAttribute('aria-pressed', 'true');
+});

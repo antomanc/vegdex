@@ -7,6 +7,7 @@
   } from './lib/state.svelte'
   import { SORTS } from './lib/labels'
   import { onSheetPop } from './lib/sheet'
+  import { theme, toggleTheme } from './lib/theme.svelte'
   import FilterBar from './lib/FilterBar.svelte'
   import ActiveFilters from './lib/ActiveFilters.svelte'
   import Icon from './lib/Icon.svelte'
@@ -158,13 +159,17 @@
           <Icon name="sliders" size={16} /> Filters{activeCount() ? ` · ${activeCount()}` : ''}
         </button>
       {/if}
+      <button class="night" aria-pressed={theme.dark} aria-label="Night mode" title="Night mode" onclick={toggleTheme}>
+        <Icon name={theme.dark ? 'sun' : 'moon'} size={18} />
+      </button>
       <button
         class="saved-toggle"
         class:on={filters.saved}
         aria-pressed={filters.saved}
         onclick={() => (filters.saved = !filters.saved)}
       >
-        <Icon name="heart" size={16} filled /> Saved{saved.ids.length ? ` · ${saved.ids.length}` : ''}
+        <Icon name="heart" size={16} filled />
+        <span class="tight-hide">Saved{saved.ids.length ? ' · ' : ''}</span>{saved.ids.length || ''}
       </button>
     </div>
   </div>

@@ -248,6 +248,11 @@ Soft rectangles for content, full pills for small controls, near-square tags for
 - Photo, Besley title, then "From the kitchen of <blog>" with the rating. The blog name is an underlined button that opens the blog's shelf: the grid filtered to that source, headed by the blog's name in Besley and a "Visit <site>" link, with a removable "From <blog>" chip. Under that, the red line and the printed fields (Time, Serves, Per serving) in cells split by hairlines: field labels above, values in tabular numerals.
 - Ingredients sit on ruled hairlines, no bullets, with the leading amount in bold (`splitAmount` in `labels.ts`).
 
+### Night mode
+- A 40px round key in the header, left of Saved, labelled "Night mode" (`aria-pressed`). The icon shows where a tap goes: moon by day, sun by night.
+- Follows the system until tapped, then remembers the pick on the device (`lib/theme.svelte.ts`, `vegdex:theme`). An inline script in `index.html` sets `data-theme` before first paint. Dark tokens live once, under `:root[data-theme='dark']`. The switch cross-fades with a view transition unless reduced motion is on.
+- Under 420px, Saved shows "♥ 3" (still named "Saved · 3") so the header row holds Filters, Night mode and Saved on one line down to 360px.
+
 ### Inputs
 - **Search:** pill on surface with a muted search icon, green border and ring on focus, a themed clear icon, and a tomato caret.
 - **Sheet fields:** 44px, paper fill, 10px radius, with an Add button beside them. Comma-separated entries split into separate chips, and text left in a field applies when the sheet closes.

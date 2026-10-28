@@ -7,6 +7,14 @@
     <meta name="description" content="Thousands of tested vegan recipes from the best vegan food blogs. Filter by meal, time, flavor and ingredients in a tap." />
     <meta name="theme-color" content="#1d4a31" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
+    <script>
+      // Before first paint, so a night-mode choice never flashes light. Mirrors lib/theme.svelte.ts.
+      try {
+        var t = localStorage.getItem('vegdex:theme')
+        document.documentElement.dataset.theme =
+          t === 'dark' || t === 'light' ? t : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      } catch (e) {}
+    </script>
     <title>vegdex: vegan recipes from the best vegan blogs</title>
   </head>
   <body>
