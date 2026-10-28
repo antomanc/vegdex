@@ -3,6 +3,8 @@
   import { loadIngredients } from './data'
   import Icon from './Icon.svelte'
   import { sheet } from './sheet'
+  import { prefs } from './state.svelte'
+  import UnitsToggle from './UnitsToggle.svelte'
 
   let { recipes, onclose }: { recipes: CatalogRecipe[]; onclose: () => void } = $props()
 
@@ -37,7 +39,7 @@
   })
 
   function compile(all: { id: string; lines: string[] }[]): [string, GroceryItem[]][] {
-    const items = compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier })))
+    const items = compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier })), { units: prefs.units })
     const byAisle = new Map<string, GroceryItem[]>()
     for (const item of items) byAisle.set(item.aisle, [...(byAisle.get(item.aisle) ?? []), item])
     // Checked items sink to the bottom of their aisle, so what's left to grab stays on top.
@@ -58,6 +60,10 @@
         {/each}
       </div>
       <button class="text-btn uncheck" disabled={!anyChecked} onclick={() => (checked = {})}>Uncheck all</button>
+    </div>
+    <div class="row units-row">
+      <span class="label">Units</span>
+      <UnitsToggle />
     </div>
     {#await lines}
       <p class="muted">Loading ingredients…</p>

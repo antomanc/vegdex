@@ -1,4 +1,5 @@
 import { parseIngredient, unitDef } from './ingredients';
+import { formatMetric, toMetric, type Units } from './metric';
 
 export interface GroceryInput {
   recipeId: string;
@@ -83,6 +84,13 @@ function formatVolume(ml: number): string {
   return `${fmt(ml / 5)} tsp`;
 }
 
+/** Metric lists keep spoons for small amounts, like the recipe sheet, and give ml past a quarter cup. */
+function formatMetricVolume(ml: number): string {
+  if (ml >= 60) return formatMetric({ quantity: ml, quantityMax: null, unit: 'ml', estimate: false });
+  if (ml >= 15) return `${fmt(ml / 15)} tbsp`;
+  return `${fmt(ml / 5)} tsp`;
+}
+
 function formatMass(g: number): string {
   if (g >= 1000) return `${Math.round(g / 100) / 10} kg`;
   return `${Math.round(g)} g`;
@@ -92,10 +100,12 @@ function formatMass(g: number): string {
  * Combine ingredient lines from several recipes into one shopping list:
  * same canonical name → one row, quantities summed per dimension.
  */
-export function compileGroceryList(inputs: GroceryInput[]): GroceryItem[] {
+export function compileGroceryList(inputs: GroceryInput[], { units = 'us' }: { units?: Units } = {}): GroceryItem[] {
   interface Acc {
     volume: number;
     mass: number;
+    /** Some of the mass was weighed through the density table. */
+    estimate: boolean;
     count: number;
     other: Map<string, number>;
     toTaste: boolean;
@@ -111,7 +121,7 @@ export function compileGroceryList(inputs: GroceryInput[]): GroceryItem[] {
       if (!p.name) continue;
       const acc: Acc =
         groups.get(p.name) ??
-        { volume: 0, mass: 0, count: 0, other: new Map(), toTaste: false, recipeIds: new Set(), lines: [] };
+        { volume: 0, mass: 0, estimate: false, count: 0, other: new Map(), toTaste: false, recipeIds: new Set(), lines: [] };
       groups.set(p.name, acc);
       acc.recipeIds.add(input.recipeId);
       acc.lines.push(p.raw);
@@ -122,6 +132,16 @@ export function compileGroceryList(inputs: GroceryInput[]): GroceryItem[] {
       // Use the upper end of ranges: better to buy slightly too much.
       const q = (p.quantityMax ?? p.quantity) * input.multiplier;
       const def = p.unit ? unitDef(p.unit) : undefined;
+      const metric = units === 'metric' ? toMetric(p) : null;
+      if (metric) {
+        // toMetric already scaled by the line's quantity; take the same end of the range.
+        const amount = (metric.quantityMax ?? metric.quantity) * input.multiplier;
+        if (metric.unit === 'g') acc.mass += amount;
+        else if (metric.unit === 'ml') acc.volume += amount;
+        else acc.other.set('cm', (acc.other.get('cm') ?? 0) + amount);
+        acc.estimate ||= metric.estimate;
+        continue;
+      }
       if (!def) acc.count += q;
       else if (def.dimension === 'volume') {
         // Grams in parentheses are more precise than cups for solids; prefer them.
@@ -135,10 +155,12 @@ export function compileGroceryList(inputs: GroceryInput[]): GroceryItem[] {
   const items: GroceryItem[] = [];
   for (const [name, acc] of groups) {
     const amounts: string[] = [];
-    if (acc.mass) amounts.push(formatMass(acc.mass));
-    if (acc.volume) amounts.push(formatVolume(acc.volume));
+    const metric = units === 'metric';
+    if (acc.mass) amounts.push(metric ? formatMetric({ quantity: acc.mass, quantityMax: null, unit: 'g', estimate: acc.estimate }) : formatMass(acc.mass));
+    if (acc.volume) amounts.push(metric ? formatMetricVolume(acc.volume) : formatVolume(acc.volume));
     if (acc.count) amounts.push(fmt(acc.count));
-    for (const [unit, q] of acc.other) amounts.push(`${fmt(q)} ${plural(unit, q)}`);
+    for (const [unit, q] of acc.other)
+      amounts.push(unit === 'cm' ? formatMetric({ quantity: q, quantityMax: null, unit: 'cm', estimate: false }) : `${fmt(q)} ${plural(unit, q)}`);
     // "1 can diced tomatoes" is bought canned, not from the produce aisle.
     const onlyCanned = !acc.mass && !acc.volume && !acc.count && acc.other.size > 0 && [...acc.other.keys()].every((u) => CANNED.has(u));
     const aisle = aisleFor(name);

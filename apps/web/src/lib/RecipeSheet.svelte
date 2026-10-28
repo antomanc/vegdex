@@ -2,9 +2,10 @@
   import type { CatalogRecipe } from '@vegdex/core'
   import { loadIngredients } from './data'
   import Icon from './Icon.svelte'
-  import { formatMinutes, splitAmount } from './labels'
+  import { formatMinutes, splitLine } from './labels'
   import { sheet } from './sheet'
-  import { saved, toggleSaved } from './state.svelte'
+  import { prefs, saved, toggleSaved } from './state.svelte'
+  import UnitsToggle from './UnitsToggle.svelte'
 
   let {
     recipe, sourceName, onclose, onkitchen, ondraw
@@ -76,13 +77,17 @@
     </div>
 
     <div class="recipe-ingredients">
-    <h3>Ingredients</h3>
+    <div class="ingredients-head"><h3>Ingredients</h3><UnitsToggle /></div>
     {#await ingredients}
       <p class="muted">Loading…</p>
     {:then lines}
+      {@const split = lines.map((line) => splitLine(line, prefs.units))}
       <ul class="ingredients" data-testid="ingredients">
-        {#each lines.map(splitAmount) as [amount, rest], i (i)}<li>{#if amount}<span class="amount">{amount}</span>{' '}{/if}{rest}</li>{/each}
+        {#each split as [amount, rest], i (i)}<li>{#if amount}<span class="amount">{amount}</span>{' '}{/if}{rest}</li>{/each}
       </ul>
+      {#if split.some(([amount]) => amount.startsWith('≈'))}
+        <p class="muted small">≈ Weighed from cups with typical weights per ingredient. Results vary with how you fill the cup.</p>
+      {/if}
     {:catch}
       <p class="muted">Ingredients are unavailable offline. Open the recipe on {sourceName}.</p>
     {/await}

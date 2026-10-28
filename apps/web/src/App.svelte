@@ -274,7 +274,7 @@
 
     <footer class="credits">
       Recipes from {catalog.sources.length} vegan blogs. vegdex shows ingredients and links to the creator for the method.
-      Updated {new Date(catalog.generatedAt).toLocaleDateString()}.
+      Updated {new Date(catalog.generatedAt).toLocaleDateString()}. Metric weights use USDA FoodData Central.
     </footer>
   {/if}
 </main>

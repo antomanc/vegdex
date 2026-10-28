@@ -288,6 +288,9 @@ main {
 .ingredients { list-style: none; padding: 0; margin: 0; line-height: 1.45; max-width: 65ch; border-top: 1px solid var(--line); }
 .ingredients li { padding: 9px 0 8px; border-bottom: 1px solid var(--line); text-wrap: pretty; }
 .ingredients .amount { font-weight: 650; font-variant-numeric: tabular-nums; }
+/* The units switch sits on the Ingredients heading's line, like a note in the card's margin. */
+.ingredients-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 26px 0 8px; }
+.ingredients-head h3 { margin: 0; }
 .muted { color: var(--muted); }
 .small { font-size: 0.8rem; }
 p.small { margin-top: 18px; }
@@ -297,7 +300,8 @@ p.small { margin-top: 18px; }
   .recipe-sheet { max-width: 920px; }
   .recipe-sheet .sheet-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 32px; }
   .recipe-sheet .sheet-top, .recipe-sheet .sheet-footer { grid-column: 1 / -1; }
-  .recipe-sheet .recipe-ingredients h3 { margin-top: 0; }
+  /* The close button floats over this column's top right corner: keep the units switch clear of it. */
+  .recipe-sheet .recipe-ingredients .ingredients-head { margin-top: 0; padding-right: 56px; }
   .recipe-sheet .recipe-head { position: sticky; top: 0; align-self: start; }
 }
 
@@ -311,7 +315,8 @@ p.small { margin-top: 18px; }
 .grocery .amount { color: var(--muted); font-size: 0.88rem; text-align: right; font-variant-numeric: tabular-nums; }
 .grocery label.done .name, .grocery label.done .amount { text-decoration: line-through; opacity: 0.5; }
 .uncheck { margin-left: auto; }
-.grocery-sheet .scale { margin-top: 12px; padding-bottom: 12px; border-bottom: 2px solid var(--tomato); }
+.grocery-sheet .scale { margin-top: 12px; }
+.grocery-sheet .units-row { margin-top: 10px; padding-bottom: 12px; border-bottom: 2px solid var(--tomato); }
 .grocery-sheet .aisle { margin-top: 20px !important; }
 
 /* Loading: the shape of the grid, still, so nothing jumps when recipes arrive. */

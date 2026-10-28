@@ -1,4 +1,4 @@
-import type { FreeFrom, Meal } from '@vegdex/core'
+import { metricLine, type FreeFrom, type Meal, type Units } from '@vegdex/core'
 import type { Sort } from './state.svelte'
 
 export const MEAL_LABELS: [Meal, string][] = [
@@ -56,4 +56,10 @@ export function splitAmount(line: string): [string, string] {
   const tidy = tidyLine(line)
   const m = /^([\d½⅓⅔¼¾⅛⅜⅝⅞][\d½⅓⅔¼¾⅛⅜⅝⅞ ./,–-]{0,7}?)\s+(\D.*)$/.exec(tidy)
   return m ? [m[1]!, m[2]!] : ['', tidy]
+}
+
+/** splitAmount in the chosen units: metric rewrites cups, ounces and inches, and leaves spoons and whole items as written. */
+export function splitLine(line: string, units: Units): [string, string] {
+  const metric = units === 'metric' ? metricLine(line) : null
+  return metric ? [metric[0], tidyLine(metric[1])] : splitAmount(line)
 }
