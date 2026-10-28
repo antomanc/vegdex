@@ -1,17 +1,18 @@
 import { metricLine, type FreeFrom, type Meal, type Units } from '@vegdex/core'
+import { m } from './i18n'
 import type { Sort } from './state.svelte'
 
 export const MEAL_LABELS: [Meal, string][] = [
-  ['breakfast', 'Breakfast'],
-  ['main', 'Mains'],
-  ['soup', 'Soups'],
-  ['salad', 'Salads'],
-  ['side', 'Sides'],
-  ['snack', 'Snacks'],
-  ['dessert', 'Desserts'],
-  ['baking', 'Baking'],
-  ['drink', 'Drinks'],
-  ['sauce', 'Sauces & dips']
+  ['breakfast', m.meal_breakfast()],
+  ['main', m.meal_main()],
+  ['soup', m.meal_soup()],
+  ['salad', m.meal_salad()],
+  ['side', m.meal_side()],
+  ['snack', m.meal_snack()],
+  ['dessert', m.meal_dessert()],
+  ['baking', m.meal_baking()],
+  ['drink', m.meal_drink()],
+  ['sauce', m.meal_sauce()]
 ]
 export const TIMES = [15, 30, 45, 60]
 export const FREE: [FreeFrom, string][] = [

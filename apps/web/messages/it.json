@@ -1,0 +1,15 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "meta_title": "vegdex: trova ricette vegane per ingrediente e tempo",
+  "meta_description": "Trova ricette vegane dai blog di cucina interamente vegani. Filtra per ingredienti, pasto e tempo di cottura, poi vai dall'autore originale per la ricetta.",
+  "meal_breakfast": "Colazione",
+  "meal_main": "Piatti principali",
+  "meal_soup": "Zuppe",
+  "meal_salad": "Insalate",
+  "meal_side": "Contorni",
+  "meal_snack": "Spuntini",
+  "meal_dessert": "Dolci",
+  "meal_baking": "Da forno",
+  "meal_drink": "Bevande",
+  "meal_sauce": "Salse e dip"
+}
