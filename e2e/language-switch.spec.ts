@@ -50,6 +50,33 @@ test.describe('an Italian browser on the English page', () => {
   });
 });
 
+test.describe('on a 360px phone', () => {
+  test.use({ locale: 'it-IT', viewport: { width: 360, height: 800 } });
+
+  test('the one-time link and the footer link fit and leave the header row alone', async ({ page }) => {
+    await page.goto('/');
+    const suggestion = page.getByRole('link', { name: 'Disponibile in italiano', exact: true });
+    await expect(suggestion).toBeVisible();
+    const header = page.locator('.top');
+    const withLink = await header.boundingBox();
+    const box = await suggestion.boundingBox();
+    expect(box!.x).toBeGreaterThanOrEqual(0);
+    expect(box!.x + box!.width).toBeLessThanOrEqual(360);
+    await page.getByRole('button', { name: 'Dismiss language suggestion', exact: true }).click();
+    expect((await header.boundingBox())!.height).toBe(withLink!.height);
+    for (const path of ['/', '/it/']) {
+      await page.goto(path);
+      const footerLink = page.locator('footer').getByRole('link', { name: path === '/' ? 'Italiano' : 'English', exact: true });
+      await footerLink.scrollIntoViewIfNeeded();
+      const link = await footerLink.boundingBox();
+      expect(link!.x).toBeGreaterThanOrEqual(0);
+      expect(link!.x + link!.width).toBeLessThanOrEqual(360);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+      expect(await page.locator('.brand-row').evaluate((row) => row.scrollWidth <= row.clientWidth)).toBe(true);
+    }
+  });
+});
+
 for (const locale of ['en-US', 'en-GB', 'fr-FR', 'de-DE']) {
   test.describe(`a ${locale} browser`, () => {
     test.use({ locale });
@@ -93,7 +120,7 @@ test('saved recipes, shopping amounts and check-offs survive switching languages
   await expect(list.getByText('×1½', { exact: true })).toBeVisible();
   await expect(groceries.locator('li', { hasText: 'garlic' })).toContainText('9 spicchi');
   await expect(groceries.getByRole('checkbox', { name: /garlic/ })).toBeChecked();
-  await expect(list.getByRole('button', { name: 'Metriche', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(list.getByRole('button', { name: 'Metrico', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await page.reload();
   await expect(groceries.locator('li', { hasText: 'garlic' })).toContainText('9 spicchi');
 });
