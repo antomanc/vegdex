@@ -7,6 +7,8 @@
     type Sort
   } from './lib/state.svelte'
   import { m, countArgs, formatNumber, pageLocale } from './lib/i18n'
+  import { LOCALES } from './lib/locales'
+  import { isLocale } from './paraglide/runtime'
   import { SORTS } from './lib/labels'
   import { onSheetPop } from './lib/sheet'
   import { theme, toggleTheme } from './lib/theme.svelte'
@@ -16,6 +18,7 @@
   import RecipeCard from './lib/RecipeCard.svelte'
   import RecipeSheet from './lib/RecipeSheet.svelte'
   import GrocerySheet from './lib/GrocerySheet.svelte'
+  import LanguageSuggestion from './lib/LanguageSuggestion.svelte'
 
   const PAGE = 48
   // Past this many, more recipes load on request, so the credits at the bottom can be reached.
@@ -33,6 +36,7 @@
   let headerHeight = $state(0)
   let filterBox = $state<HTMLElement>()
   let filtersOutOfView = $state(false)
+  let queryString = $state(location.search)
 
   function load() {
     error = null
@@ -88,7 +92,10 @@
     limit = PAGE
   })
 
-  $effect(() => writeUrl(openId, groceryOpen))
+  $effect(() => {
+    writeUrl(openId, groceryOpen)
+    queryString = location.search
+  })
   onSheetPop(() => writeUrl(openId, groceryOpen))
 
   // Leaving the saved view makes its unsaves final.
@@ -192,6 +199,7 @@
 </header>
 
 <main>
+  <LanguageSuggestion {queryString} />
   {#if !filters.saved}
     <div class="filters" bind:this={filterBox}><FilterBar count={results.length} onpick={pick} /></div>
   {/if}
@@ -285,6 +293,13 @@
     <footer class="credits">
       {m.credits(countArgs(catalog.sources.length))}
       {m.credits_updated({ date: new Date(catalog.generatedAt).toLocaleDateString(pageLocale.intl) })}
+      <div class="row center">
+        {#each LOCALES.filter((locale) => locale.code !== pageLocale.code) as locale (locale.code)}
+          {#if isLocale(locale.code)}
+            <a href="{import.meta.env.BASE_URL}{locale.prefix ? `${locale.prefix}/` : ''}{queryString}" lang={locale.code} hreflang={locale.hreflang}>{m.language_name({}, { locale: locale.code })}</a>
+          {/if}
+        {/each}
+      </div>
     </footer>
   {/if}
 </main>

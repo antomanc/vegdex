@@ -1,5 +1,5 @@
 import type { Flavor, FreeFrom, Meal, RecipeQuery, Units } from '@vegdex/core'
-import { m, formatNumber } from './i18n'
+import { m, formatNumber, pageLocale } from './i18n'
 import { FREE, MEAL_LABELS } from './labels'
 
 export type Sort = NonNullable<RecipeQuery['sort']>
@@ -209,11 +209,11 @@ export function forgetUnsavedAmounts() {
 
 const UNITS_KEY = 'vegdex:units'
 
-/** US kitchens measure in cups; everyone else weighs. An explicit choice sticks. */
+/** Use the page's default until the cook makes a choice shared across languages. */
 function loadUnits(): Units {
   const v = localStorage.getItem(UNITS_KEY)
   if (v === 'us' || v === 'metric') return v
-  return navigator.language === 'en-US' ? 'us' : 'metric'
+  return pageLocale.units
 }
 
 /** One setting for the recipe sheet and the shopping list. */
