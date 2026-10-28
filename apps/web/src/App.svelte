@@ -1,8 +1,9 @@
 <script lang="ts">
+  import { untrack } from 'svelte'
   import { searchRecipes, type Catalog, type CatalogRecipe } from '@vegdex/core'
   import { loadCatalog } from './lib/data'
   import {
-    activeCount, activeFilters, clearFilters, defaultSort, filters, readUrl, removeFilter, saved, sourceNames, toQuery, writeUrl,
+    activeCount, activeFilters, clearFilters, defaultSort, filters, forgetUnsavedAmounts, readUrl, removeFilter, saved, sourceNames, toQuery, writeUrl,
     type Sort
   } from './lib/state.svelte'
   import { SORTS } from './lib/labels'
@@ -91,7 +92,10 @@
 
   // Leaving the saved view makes its unsaves final.
   $effect(() => {
-    if (!filters.saved) saved.unsaved = []
+    if (!filters.saved) {
+      saved.unsaved = []
+      untrack(forgetUnsavedAmounts)
+    }
   })
 
   // Keyboard focus and in-page jumps land below the sticky header, not under it.
