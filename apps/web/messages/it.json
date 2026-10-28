@@ -11,7 +11,7 @@
   "meal_dessert": "Dolci",
   "meal_baking": "Da forno",
   "meal_drink": "Bevande",
-  "meal_sauce": "Salse e dip",
+  "meal_sauce": "Salse e creme",
   "free_gluten": "Senza glutine",
   "free_nut": "Senza frutta a guscio e arachidi",
   "free_soy": "Senza soia",
@@ -65,15 +65,29 @@
   "sort_by": "Ordina per",
   "saved_empty": "Non hai ancora salvato ricette. Tocca il cuore su una ricetta per ritrovarla qui.",
   "browse": "Sfoglia le ricette",
-  "no_saved_match": "Nessuna ricetta salvata corrisponde{search}{filters}.",
-  "no_match": "Nessuna ricetta corrisponde{search}{filters}.",
-  "search_term": " a “{text}”",
+  "no_saved_match": "Nessuna ricetta salvata trovata{search}{filters}.",
+  "no_match": "Nessuna ricetta trovata{search}{filters}.",
+  "search_term": " per “{text}”",
   "with_filters": " con questi filtri",
   "clear_search": "Cancella ricerca",
   "clear_filters": "Cancella filtri",
   "show_more": "Mostra altre ricette",
   "showing": "Mostrate {visible} su {total}",
-  "credits": "Ricette da {count} blog vegani. vegdex mostra gli ingredienti e rimanda al blog per il procedimento.",
+  "credits": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "Ricette da {count} blog vegano. vegdex mostra gli ingredienti e rimanda al blog per il procedimento.",
+        "plural=*": "Ricette da {count} blog vegani. vegdex mostra gli ingredienti e rimanda al blog per il procedimento."
+      }
+    }
+  ],
   "credits_updated": "Aggiornato il {date}. I pesi in grammi si basano su USDA FoodData Central.",
   "recipe_count": [
     {
@@ -132,6 +146,459 @@
       "match": {
         "plural=one": "da {count} blog vegano",
         "plural=*": "da {count} blog vegani"
+      }
+    }
+  ],
+  "from_kitchen": "Dalla cucina di",
+  "source_recipes": "{source}: tutte le ricette",
+  "rated": "Voto",
+  "average": ", media {rating}",
+  "time": "Tempo",
+  "serves": "Porzioni",
+  "per_serving": "Per porzione",
+  "calories": "{count} kcal",
+  "protein": "{count} g di proteine",
+  "ingredients": "Ingredienti",
+  "loading": "Caricamento…",
+  "metric_note": "≈ Quantità in grammi ricavate dal peso medio di ogni ingrediente in una tazza. Il peso varia in base a quanto la riempi.",
+  "ingredients_offline": "Gli ingredienti non sono disponibili senza connessione. Apri la ricetta su {source}.",
+  "creator_credit": "Procedimento, foto e consigli sono su {source}. Visitare il blog sostiene chi crea le ricette.",
+  "saved_recipe": "Salvata",
+  "save": "Salva",
+  "save_recipe": "Salva {title}",
+  "unsave_recipe": "Rimuovi dalle salvate: {title}",
+  "another": "Un’altra",
+  "cook_on": "Cucina la ricetta su {source}",
+  "units": "Unità",
+  "units_us": "USA",
+  "units_metric": "Metriche",
+  "rating_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} valutazione",
+        "plural=*": "{count} valutazioni"
+      }
+    }
+  ],
+  "rating_total": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} valutazione",
+        "plural=*": "{count} valutazioni"
+      }
+    }
+  ],
+  "cuisine_american": "Americana",
+  "cuisine_asian": "Asiatica",
+  "cuisine_british": "Britannica",
+  "cuisine_chinese": "Cinese",
+  "cuisine_ethiopian": "Etiope",
+  "cuisine_french": "Francese",
+  "cuisine_german": "Tedesca",
+  "cuisine_greek": "Greca",
+  "cuisine_indian": "Indiana",
+  "cuisine_indonesian": "Indonesiana",
+  "cuisine_italian": "Italiana",
+  "cuisine_japanese": "Giapponese",
+  "cuisine_korean": "Coreana",
+  "cuisine_lebanese": "Libanese",
+  "cuisine_mediterranean": "Mediterranea",
+  "cuisine_mexican": "Messicana",
+  "cuisine_middle_eastern": "Mediorientale",
+  "cuisine_moroccan": "Marocchina",
+  "cuisine_spanish": "Spagnola",
+  "cuisine_thai": "Thailandese",
+  "cuisine_turkish": "Turca",
+  "cuisine_vietnamese": "Vietnamita",
+  "fewer_servings": "Riduci le porzioni di {title}",
+  "more_servings": "Aumenta le porzioni di {title}",
+  "uncheck": "Deseleziona tutto",
+  "loading_ingredients": "Caricamento ingredienti…",
+  "to_taste": "q.b.",
+  "grocery_note": "Le quantità vengono sommate automaticamente. Controlla le singole ricette in caso di dubbi.",
+  "grocery_error": "Non riesco a caricare gli ingredienti. Controlla la connessione.",
+  "servings_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} porzione",
+        "plural=*": "{count} porzioni"
+      }
+    }
+  ],
+  "list_recipes": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "Per {count} ricetta salvata",
+        "plural=*": "Per {count} ricette salvate"
+      }
+    }
+  ],
+  "adjusted_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": " · {count} modificata",
+        "plural=*": " · {count} modificate"
+      }
+    }
+  ],
+  "aisle_produce": "Frutta e verdura",
+  "aisle_tofu": "Tofu e alternative vegetali",
+  "aisle_grains": "Cereali e pasta",
+  "aisle_legumes": "Legumi",
+  "aisle_canned": "Scatole e conserve",
+  "aisle_nuts": "Frutta a guscio e semi",
+  "aisle_oils": "Oli, aceti e salse",
+  "aisle_spices": "Spezie",
+  "aisle_baking": "Dolci e dolcificanti",
+  "aisle_plant_milk": "Latte e panna vegetali",
+  "aisle_other": "Altro",
+  "unit_cup": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "tazza",
+        "plural=*": "tazze"
+      }
+    }
+  ],
+  "unit_tbsp": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "cucchiaio",
+        "plural=*": "cucchiai"
+      }
+    }
+  ],
+  "unit_tsp": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "cucchiaino",
+        "plural=*": "cucchiaini"
+      }
+    }
+  ],
+  "unit_clove": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "spicchio",
+        "plural=*": "spicchi"
+      }
+    }
+  ],
+  "unit_can": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "scatola",
+        "plural=*": "scatole"
+      }
+    }
+  ],
+  "unit_package": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "confezione",
+        "plural=*": "confezioni"
+      }
+    }
+  ],
+  "unit_block": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "panetto",
+        "plural=*": "panetti"
+      }
+    }
+  ],
+  "unit_bunch": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "mazzetto",
+        "plural=*": "mazzetti"
+      }
+    }
+  ],
+  "unit_handful": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "manciata",
+        "plural=*": "manciate"
+      }
+    }
+  ],
+  "unit_sprig": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "rametto",
+        "plural=*": "rametti"
+      }
+    }
+  ],
+  "unit_stalk": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "gambo",
+        "plural=*": "gambi"
+      }
+    }
+  ],
+  "unit_head": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "cespo",
+        "plural=*": "cespi"
+      }
+    }
+  ],
+  "unit_slice": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "fetta",
+        "plural=*": "fette"
+      }
+    }
+  ],
+  "unit_sheet": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "foglio",
+        "plural=*": "fogli"
+      }
+    }
+  ],
+  "unit_pinch": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "pizzico",
+        "plural=*": "pizzichi"
+      }
+    }
+  ],
+  "unit_dash": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "goccio",
+        "plural=*": "gocci"
+      }
+    }
+  ],
+  "unit_inch": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "pollice",
+        "plural=*": "pollici"
+      }
+    }
+  ],
+  "unit_jar": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "barattolo",
+        "plural=*": "barattoli"
+      }
+    }
+  ],
+  "unit_bag": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "sacchetto",
+        "plural=*": "sacchetti"
+      }
+    }
+  ],
+  "unit_scoop": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "misurino",
+        "plural=*": "misurini"
+      }
+    }
+  ],
+  "unit_piece": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "pezzo",
+        "plural=*": "pezzi"
       }
     }
   ]

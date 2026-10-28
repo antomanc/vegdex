@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { CatalogRecipe } from '@vegdex/core'
+  import { m, countArgs, formatRating } from './i18n'
   import Icon from './Icon.svelte'
   import { formatCount, formatMinutes } from './labels'
   import { saved, toggleSaved } from './state.svelte'
@@ -28,7 +29,7 @@
       <span class="source">{sourceName}</span>
       {#if recipe.rating && recipe.ratingCount}
         <!-- Most recipes average 5.0, so the card shows how many cooks rated it; a low average still shows. -->
-        <span class="rating"><Icon name="star" size={12} filled />{' '}{#if recipe.rating < LOW_AVERAGE}{recipe.rating.toFixed(1)} · {/if}{formatCount(recipe.ratingCount)} {recipe.ratingCount === 1 ? 'rating' : 'ratings'}<span class="visually-hidden">, average {recipe.rating.toFixed(1)}</span></span>
+        <span class="rating"><Icon name="star" size={12} filled />{' '}{#if recipe.rating < LOW_AVERAGE}{formatRating(recipe.rating)} · {/if}{m.rating_count({ ...countArgs(recipe.ratingCount), count: formatCount(recipe.ratingCount) })}<span class="visually-hidden">{m.average({ rating: formatRating(recipe.rating) })}</span></span>
       {/if}
     </p>
   </button>
@@ -36,7 +37,7 @@
     class="heart"
     class:on={isSaved}
     aria-pressed={isSaved}
-    aria-label={isSaved ? `Unsave ${recipe.title}` : `Save ${recipe.title}`}
+    aria-label={isSaved ? m.unsave_recipe({ title: recipe.title }) : m.save_recipe({ title: recipe.title })}
     onclick={() => toggleSaved(recipe.id)}><Icon name="heart" size={18} filled={isSaved} /></button
   >
 </article>

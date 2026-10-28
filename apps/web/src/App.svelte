@@ -283,7 +283,7 @@
     {/if}
 
     <footer class="credits">
-      {m.credits({ count: formatNumber(catalog.sources.length) })}
+      {m.credits(countArgs(catalog.sources.length))}
       {m.credits_updated({ date: new Date(catalog.generatedAt).toLocaleDateString(pageLocale.intl) })}
     </footer>
   {/if}
