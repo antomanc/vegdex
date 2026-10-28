@@ -1,4 +1,5 @@
 import type { Flavor, FreeFrom, Meal, RecipeQuery, Units } from '@vegdex/core'
+import { m, formatNumber } from './i18n'
 import { FREE, MEAL_LABELS } from './labels'
 
 export type Sort = NonNullable<RecipeQuery['sort']>
@@ -53,15 +54,15 @@ export function activeFilters(): ActiveFilter[] {
   const without = <T,>(list: T[], v: T) => list.filter((x) => x !== v)
   const tonight = isTonight()
   return [
-    ...(filters.from ? [{ label: `From ${sourceNames.get(filters.from) ?? filters.from}`, patch: { from: null } }] : []),
-    ...(tonight ? [{ label: 'Tonight', patch: { meals: [], maxMinutes: null } }] : []),
-    ...(filters.flavor ? [{ label: filters.flavor === 'sweet' ? 'Sweet' : 'Savory', patch: { flavor: null } }] : []),
+    ...(filters.from ? [{ label: m.from_source({ source: sourceNames.get(filters.from) ?? filters.from }), patch: { from: null } }] : []),
+    ...(tonight ? [{ label: m.tonight(), patch: { meals: [], maxMinutes: null } }] : []),
+    ...(filters.flavor ? [{ label: filters.flavor === 'sweet' ? m.sweet() : m.savory(), patch: { flavor: null } }] : []),
     ...(tonight ? [] : filters.meals.map((m) => ({ label: meal.get(m) ?? m, patch: { meals: without(filters.meals, m) } }))),
-    ...(filters.maxMinutes && !tonight ? [{ label: `≤ ${filters.maxMinutes} min`, patch: { maxMinutes: null } }] : []),
-    ...(filters.highProtein ? [{ label: 'High protein', patch: { highProtein: false } }] : []),
+    ...(filters.maxMinutes && !tonight ? [{ label: m.time_limit({ count: formatNumber(filters.maxMinutes) }), patch: { maxMinutes: null } }] : []),
+    ...(filters.highProtein ? [{ label: m.high_protein(), patch: { highProtein: false } }] : []),
     ...filters.freeFrom.map((f) => ({ label: free.get(f) ?? f, patch: { freeFrom: without(filters.freeFrom, f) } })),
-    ...filters.include.map((v) => ({ label: `with ${v}`, patch: { include: without(filters.include, v) } })),
-    ...filters.exclude.map((v) => ({ label: `no ${v}`, patch: { exclude: without(filters.exclude, v) } }))
+    ...filters.include.map((v) => ({ label: m.with({ ingredient: v }), patch: { include: without(filters.include, v) } })),
+    ...filters.exclude.map((v) => ({ label: m.without({ ingredient: v }), patch: { exclude: without(filters.exclude, v) } }))
   ]
 }
 

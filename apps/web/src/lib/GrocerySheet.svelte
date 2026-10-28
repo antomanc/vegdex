@@ -1,6 +1,8 @@
 <script lang="ts">
   import { compileGroceryList, type CatalogRecipe, type GroceryItem } from '@vegdex/core'
   import { loadIngredients } from './data'
+  import { m, countArgs, formatNumber } from './i18n'
+  import { AISLE_LABELS, formatGroceryAmount } from './labels'
   import Icon from './Icon.svelte'
   import { sheet } from './sheet'
   import { amounts, prefs, saved, setAmount } from './state.svelte'
@@ -51,8 +53,8 @@
 
   function amountLabel(r: CatalogRecipe): string {
     const n = steps(r)
-    if (r.servings) return `${n} ${n === 1 ? 'serving' : 'servings'}`
-    return `×${Math.floor(n / 2) || ''}${n % 2 ? '½' : ''}`
+    if (r.servings) return m.servings_count(countArgs(n))
+    return `×${Math.floor(n / 2) ? formatNumber(Math.floor(n / 2)) : ''}${n % 2 ? '½' : ''}`
   }
 
   const nudge = (r: CatalogRecipe, by: number) => setAmount(r.id, steps(r, by) / perBatch(r))
@@ -73,49 +75,49 @@
 
 <dialog use:sheet class="sheet grocery-sheet" {onclose} aria-labelledby="grocery-title">
   <div class="sheet-body">
-    <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label="Close"><Icon name="close" size={20} /></button></div>
-    <h2 id="grocery-title">Shopping list</h2>
+    <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
+    <h2 id="grocery-title">{m.shopping_list()}</h2>
     <details class="amounts">
-      <summary class="meta">For {recipes.length} saved {recipes.length === 1 ? 'recipe' : 'recipes'}{adjusted ? ` · ${adjusted} adjusted` : ''}</summary>
+      <summary class="meta">{m.list_recipes(countArgs(recipes.length))}{adjusted ? m.adjusted_count(countArgs(adjusted)) : ''}</summary>
       <ul>
         {#each rows as r (r.id)}
           {@const n = steps(r)}
           <li>
             <span class="title">{r.title}</span>
             <span class="stepper">
-              <button aria-disabled={n === 1} onclick={() => nudge(r, -1)} aria-label="Fewer servings of {r.title}">−</button>
+              <button aria-disabled={n === 1} onclick={() => nudge(r, -1)} aria-label={m.fewer_servings({ title: r.title })}>−</button>
               <span class="value" aria-live="polite">{amountLabel(r)}</span>
-              <button aria-disabled={n === MAX_BATCHES * perBatch(r)} onclick={() => nudge(r, 1)} aria-label="More servings of {r.title}">+</button>
+              <button aria-disabled={n === MAX_BATCHES * perBatch(r)} onclick={() => nudge(r, 1)} aria-label={m.more_servings({ title: r.title })}>+</button>
             </span>
           </li>
         {/each}
       </ul>
     </details>
     <div class="row units-row">
-      <span class="label">Units</span>
+      <span class="label">{m.units()}</span>
       <UnitsToggle />
-      <button class="text-btn uncheck" disabled={!anyChecked} onclick={() => (checked = {})}>Uncheck all</button>
+      <button class="text-btn uncheck" disabled={!anyChecked} onclick={() => (checked = {})}>{m.uncheck()}</button>
     </div>
     {#await lines}
-      <p class="muted">Loading ingredients…</p>
+      <p class="muted">{m.loading_ingredients()}</p>
     {:then all}
       {#each compile(all) as [aisle, items] (aisle)}
-        <h3 class="aisle">{aisle}</h3>
+        <h3 class="aisle">{AISLE_LABELS[aisle]?.() ?? m.aisle_other()}</h3>
         <ul class="grocery" data-testid="grocery-list">
           {#each items as item (item.name)}
             <li>
               <label class:done={checked[item.name]}>
                 <input type="checkbox" bind:checked={checked[item.name]} />
                 <span class="name">{item.name}</span>
-                <span class="amount">{item.toTaste ? 'to taste' : item.amounts.join(' + ')}</span>
+                <span class="amount">{item.toTaste ? m.to_taste() : item.amounts.map(formatGroceryAmount).join(' + ')}</span>
               </label>
             </li>
           {/each}
         </ul>
       {/each}
-      <p class="muted small">Amounts are added up automatically. Check the recipes for anything unusual.</p>
+      <p class="muted small">{m.grocery_note()}</p>
     {:catch}
-      <p class="muted">Could not load ingredients. Are you offline?</p>
+      <p class="muted">{m.grocery_error()}</p>
     {/await}
   </div>
 </dialog>

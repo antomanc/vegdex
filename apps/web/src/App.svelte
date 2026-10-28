@@ -6,6 +6,7 @@
     activeCount, activeFilters, clearFilters, defaultSort, filters, forgetUnsavedAmounts, readUrl, removeFilter, saved, sourceNames, toQuery, writeUrl,
     type Sort
   } from './lib/state.svelte'
+  import { m, countArgs, formatNumber, pageLocale } from './lib/i18n'
   import { SORTS } from './lib/labels'
   import { onSheetPop } from './lib/sheet'
   import { theme, toggleTheme } from './lib/theme.svelte'
@@ -42,7 +43,7 @@
       })
       .catch((e: Error) => {
         console.error(e)
-        error = "Couldn't load the recipes. Check your connection and try again."
+        error = m.load_error()
       })
   }
   load()
@@ -55,7 +56,7 @@
   const visible = $derived(results.slice(0, limit))
   const open = $derived(openId && catalog ? catalog.recipes.find((r) => r.id === openId) ?? null : null)
   const savedRecipes = $derived(catalog ? catalog.recipes.filter((r) => saved.ids.includes(r.id)) : [])
-  const countText = $derived(`${resultCount.toLocaleString()} ${resultCount === 1 ? 'recipe' : 'recipes'}${filters.saved ? ' saved' : ''}`)
+  const countText = $derived(filters.saved ? m.saved_count(countArgs(resultCount)) : m.recipe_count(countArgs(resultCount)))
   const blogCount = $derived(new Set(results.map((r) => r.source)).size)
   const sorts = $derived(SORTS.filter(([s]) => s !== 'relevance' || filters.text.trim()))
 
@@ -63,8 +64,8 @@
   const loosen = $derived.by(() => {
     if (!catalog || results.length || filters.saved) return null
     const active = activeFilters()
-    const options = active.map((f) => ({ label: `Remove “${f.label}”`, apply: () => removeFilter(f), patch: f.patch, isSearch: false }))
-    if (filters.text.trim()) options.push({ label: 'Clear the search', apply: () => (filters.text = ''), patch: { text: '' }, isSearch: true })
+    const options = active.map((f) => ({ label: m.remove_suggestion({ label: f.label }), apply: () => removeFilter(f), patch: f.patch, isSearch: false }))
+    if (filters.text.trim()) options.push({ label: m.clear_the_search(), apply: () => (filters.text = ''), patch: { text: '' }, isSearch: true })
     let best: { label: string; apply: () => void; n: number; isSearch: boolean } | null = null
     for (const o of options) {
       const n = searchRecipes(catalog.recipes, toQuery([], { ...filters, ...o.patch })).length
@@ -153,17 +154,17 @@
 <header class="top" bind:offsetHeight={headerHeight}>
   <div class="brand-row">
     <h1 class="brand-h">
-      <button class="brand" onclick={() => (filters.saved = false)} aria-label="vegdex, all recipes">
+      <button class="brand" onclick={() => (filters.saved = false)} aria-label={m.all_recipes()}>
         <img class="logo" src="{import.meta.env.BASE_URL}favicon.svg" alt="" width="28" height="28" /> vegdex
       </button>
     </h1>
     <div class="top-actions">
       {#if filtersOutOfView && !filters.saved}
         <button class="pill outline jump" onclick={toFilters}>
-          <Icon name="sliders" size={16} /> Filters{activeCount() ? ` · ${activeCount()}` : ''}
+          <Icon name="sliders" size={16} /> {m.filters()}{activeCount() ? ` · ${formatNumber(activeCount())}` : ''}
         </button>
       {/if}
-      <button class="night" aria-pressed={theme.dark} aria-label="Night mode" title="Night mode" onclick={toggleTheme}>
+      <button class="night" aria-pressed={theme.dark} aria-label={m.night_mode()} title={m.night_mode()} onclick={toggleTheme}>
         <Icon name={theme.dark ? 'sun' : 'moon'} size={18} />
       </button>
       <button
@@ -173,16 +174,16 @@
         onclick={() => (filters.saved = !filters.saved)}
       >
         <Icon name="heart" size={16} filled />
-        <span class="tight-hide">Saved{saved.ids.length ? ' · ' : ''}</span>{saved.ids.length || ''}
+        <span class="tight-hide">{m.saved()}{saved.ids.length ? ' · ' : ''}</span>{saved.ids.length ? formatNumber(saved.ids.length) : ''}
       </button>
     </div>
   </div>
   <label class="search">
-    <span class="visually-hidden">Search recipes</span>
+    <span class="visually-hidden">{m.search_recipes()}</span>
     <Icon name="search" size={18} />
     <input
       type="search"
-      placeholder={filters.saved ? 'Search your saved recipes' : 'Search recipes or ingredients'}
+      placeholder={filters.saved ? m.search_saved() : m.search_placeholder()}
       bind:value={filters.text}
       autocomplete="off"
       enterkeyhint="search"
@@ -198,19 +199,19 @@
   {#if error}
     <div class="status">
       <p>{error}</p>
-      <button class="text-btn" onclick={load}>Try again</button>
+      <button class="text-btn" onclick={load}>{m.try_again()}</button>
     </div>
   {:else if !catalog}
-    <p class="visually-hidden" role="status">Loading recipes…</p>
+    <p class="visually-hidden" role="status">{m.loading_recipes()}</p>
     <ul class="grid skeleton" aria-hidden="true">
       {#each Array(6) as _, i (i)}<li><div class="thumb"></div><div class="bar"></div><div class="bar short"></div></li>{/each}
     </ul>
   {:else}
     {#if filters.saved}
       <div class="view-head">
-        <h2>Saved recipes</h2>
+        <h2>{m.saved_recipes()}</h2>
         {#if savedRecipes.length}
-          <button class="grocery-btn" onclick={() => (groceryOpen = true)}><Icon name="list" size={16} /> Shopping list</button>
+          <button class="grocery-btn" onclick={() => (groceryOpen = true)}><Icon name="list" size={16} /> {m.shopping_list()}</button>
         {/if}
       </div>
     {/if}
@@ -218,17 +219,17 @@
     {#if kitchen}
       <div class="kitchen-head">
         <h2>{kitchen.name}</h2>
-        <a href={kitchen.url} target="_blank" rel="noopener">Visit {new URL(kitchen.url).hostname.replace(/^www\./, '')}&nbsp;<Icon name="external" size={14} /></a>
+        <a href={kitchen.url} target="_blank" rel="noopener">{m.visit({ host: new URL(kitchen.url).hostname.replace(/^www\./, '') })}&nbsp;<Icon name="external" size={14} /></a>
       </div>
     {/if}
 
     {#if results.length}
       <div class="summary">
         <p>
-          <span data-testid="result-count">{countText}</span>{#if !filters.saved && !kitchen}<span class="from">{' '}from {blogCount} vegan {blogCount === 1 ? 'blog' : 'blogs'}</span>{/if}
+          <span data-testid="result-count">{countText}</span>{#if !filters.saved && !kitchen}<span class="from">{' '}{m.blog_count(countArgs(blogCount))}</span>{/if}
         </p>
         <label class="sort">
-          <span class="visually-hidden">Sort by</span>
+          <span class="visually-hidden">{m.sort_by()}</span>
           <select value={filters.sort ?? defaultSort()} onchange={(e) => setSort(e.currentTarget.value as Sort)}>
             {#each sorts as [s, label] (s)}<option value={s}>{label}</option>{/each}
           </select>
@@ -244,20 +245,20 @@
     {#if results.length === 0}
       <div class="status empty">
         {#if filters.saved && !saved.ids.length}
-          <p>Nothing saved yet. Tap the heart on a recipe to keep it here.</p>
-          <button class="text-btn" onclick={() => (filters.saved = false)}>Browse recipes</button>
+          <p>{m.saved_empty()}</p>
+          <button class="text-btn" onclick={() => (filters.saved = false)}>{m.browse()}</button>
         {:else}
           <p>
-            {filters.saved ? 'None of your saved recipes match' : 'No recipes match'}{filters.text.trim() ? ` “${filters.text.trim()}”` : ''}{!filters.saved && activeCount() ? ' with these filters' : ''}.
+            {(filters.saved ? m.no_saved_match : m.no_match)({ search: filters.text.trim() ? m.search_term({ text: filters.text.trim() }) : '', filters: !filters.saved && activeCount() ? m.with_filters() : '' })}
           </p>
           {#if loosen}
             <button class="loosen" onclick={loosen.apply}>
-              {loosen.label} <span class="n">{loosen.n.toLocaleString()} {loosen.n === 1 ? 'recipe' : 'recipes'}</span>
+              {loosen.label} <span class="n">{m.recipe_count(countArgs(loosen.n))}</span>
             </button>
           {/if}
           <div class="row center">
-            {#if filters.text.trim() && !loosen?.isSearch}<button class="text-btn" onclick={() => (filters.text = '')}>Clear search</button>{/if}
-            {#if !filters.saved && activeCount()}<button class="text-btn" onclick={clearFilters}>Clear filters</button>{/if}
+            {#if filters.text.trim() && !loosen?.isSearch}<button class="text-btn" onclick={() => (filters.text = '')}>{m.clear_search()}</button>{/if}
+            {#if !filters.saved && activeCount()}<button class="text-btn" onclick={clearFilters}>{m.clear_filters()}</button>{/if}
           </div>
         {/if}
       </div>
@@ -275,15 +276,15 @@
         <div bind:this={sentinel} class="sentinel" aria-hidden="true"></div>
       {:else}
         <div class="more">
-          <button class="pill outline" onclick={() => (limit += PAGE)}>Show more recipes</button>
-          <p class="meta">Showing {visible.length.toLocaleString()} of {results.length.toLocaleString()}</p>
+          <button class="pill outline" onclick={() => (limit += PAGE)}>{m.show_more()}</button>
+          <p class="meta">{m.showing({ visible: formatNumber(visible.length), total: formatNumber(results.length) })}</p>
         </div>
       {/if}
     {/if}
 
     <footer class="credits">
-      Recipes from {catalog.sources.length} vegan blogs. vegdex shows ingredients and links to the creator for the method.
-      Updated {new Date(catalog.generatedAt).toLocaleDateString()}. Metric weights use USDA FoodData Central.
+      {m.credits(countArgs(catalog.sources.length))}
+      {m.credits_updated({ date: new Date(catalog.generatedAt).toLocaleDateString(pageLocale.intl) })}
     </footer>
   {/if}
 </main>
