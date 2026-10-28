@@ -54,7 +54,7 @@ function emit() {
   fs.mkdirSync(values.out!, { recursive: true });
   const report = emitDataset(Object.values(store.recipes), allSources, values.out!);
   fs.writeFileSync(path.join(path.dirname(values.store!), 'excluded.json'), JSON.stringify(report.excluded, null, 1));
-  log(`published ${report.published} recipes (${(report.bytes / 1e6).toFixed(1)} MB raw), excluded ${report.excluded.length} by the vegan check`);
+  log(`published ${report.published} recipes (${(report.bytes / 1e6).toFixed(1)} MB raw), excluded ${report.excluded.length} by the vegan check and ${report.otherLanguage} not in English`);
   log(Object.entries(report.bySource).sort((a, b) => b[1] - a[1]).map(([s, n]) => `  ${s}: ${n}`).join('\n'));
 }
 

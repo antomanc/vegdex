@@ -38,6 +38,7 @@ Guaranteed vegan. Every source is an all-vegan publisher, and a second check dro
 
 ## Evidence on Hand
 - Real catalog data in `apps/web/public/data` (recipes from ~25 vegan blogs); a fixed fixture dataset in `e2e/fixtures/`.
+- English only: translated editions of a blog (a `/de/`-style path) are never crawled or published, because the tagger and the vegan check read English ingredient names. Translation is out of scope.
 - No testimonials, user counts, or press exist. Do not invent them.
 
 ## Product Principles
