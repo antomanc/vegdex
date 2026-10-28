@@ -1,5 +1,8 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
+  "language_name": "English",
+  "language_available": "Available in English",
+  "dismiss_language_suggestion": "Dismiss language suggestion",
   "meta_title": "vegdex: find vegan recipes by ingredient and time",
   "meta_description": "Find vegan recipes from all-vegan food blogs. Filter by ingredients, meal and cooking time, then visit the original creator for the recipe.",
   "meal_breakfast": "Breakfast",

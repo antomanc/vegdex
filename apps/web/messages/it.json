@@ -1,5 +1,8 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
+  "language_name": "Italiano",
+  "language_available": "Disponibile in italiano",
+  "dismiss_language_suggestion": "Nascondi il suggerimento della lingua",
   "meta_title": "vegdex: trova ricette vegane per ingrediente e tempo",
   "meta_description": "Trova ricette vegane dai blog di cucina interamente vegani. Filtra per ingredienti, pasto e tempo di cottura, poi vai dall'autore originale per la ricetta.",
   "meal_breakfast": "Colazione",
