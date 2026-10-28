@@ -38,7 +38,7 @@ Guaranteed vegan. Every source is an all-vegan publisher, and a second check dro
 
 ## Evidence on Hand
 - Real catalog data in `apps/web/public/data` (recipes from ~25 vegan blogs); a fixed fixture dataset in `e2e/fixtures/`.
-- Currently English only: translated editions of a blog (a `/de/`-style path) are never crawled or published, because the tagger and the vegan check read English ingredient names. Language expansion will be designed separately; SEO and URL decisions must leave room for it.
+- Currently English only: translated editions of a blog (a `/de/`-style path) are never crawled or published, because the tagger and the vegan check read English ingredient names. Multi-language support is designed but not built: UI languages under path prefixes (`/it/` first) and recipes translated through language-neutral concepts. See `docs/adr/0002`–`0004`.
 - No testimonials, user counts, or press exist. Do not invent them.
 
 ## Product Principles
@@ -46,3 +46,4 @@ Guaranteed vegan. Every source is an all-vegan publisher, and a second check dro
 2. Get to "tonight's recipe" in as few taps as possible on a phone.
 3. Send the cook to the creator: the blog link is the success path, not a leak.
 4. Facts, not prose: show what helps a choice, leave the writing to the blogger.
+5. Every recipe in every language, the original one tap away: when no safe translation exists, show the source's own words, never a guess.
