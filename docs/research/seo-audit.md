@@ -30,11 +30,12 @@ These are HTTP observations, not evidence of Google's indexing or rankings. Requ
 
 ## Implemented foundations
 
-- Updated the homepage title and description to describe ingredient/time discovery and the visit to the creator. Added matching Open Graph metadata.
+- Updated the homepage title and description to describe ingredient/time discovery and the visit to the creator. Added matching Open Graph metadata, including the 512px app icon as `og:image`, and a `summary` Twitter card. The PWA manifest description uses the same copy.
 - Added the HTTPS homepage canonical in the original HTML. Current app-state URLs share this entry document and keep that canonical. This is an explicit preference for the homepage, not a guarantee Google will consolidate every filtered view. A future collection with materially different content must have its own canonical. [Google's canonical guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls).
 - Added `WebSite` JSON-LD with the existing name, homepage URL, and current English language. Google documents this markup as a site-name preference. It does not create recipe rich results. [Google's site-name guidance](https://developers.google.com/search/docs/appearance/site-names).
+- The preferred origin is defined once in [`vite.config.ts`](../../apps/web/vite.config.ts). A small build plugin fills it into `index.html` and emits `robots.txt` and `sitemap.xml`, so a domain change is a one-line edit.
 - Added a permissive robots.txt advertising the sitemap. Catalog data, scripts, and styles remain crawlable so renderers can load the app.
-- Added a sitemap containing only the current canonical homepage. Omitted query variants, nonexistent collections, fake update dates, and unsupported language alternatives. Sitemap omission does not prevent crawling or indexing of other URLs.
+- Added a sitemap (also emitted by that plugin; the service worker's navigation fallback skips both files) containing only the current canonical homepage. Omitted query variants, nonexistent collections, fake update dates, and unsupported language alternatives. Sitemap omission does not prevent crawling or indexing of other URLs.
 - Added E2E checks for the actual built crawl-discovery files, metadata in the initial response, and canonical consistency while filtering and opening a recipe.
 
 These foundations do not resolve the JavaScript shell or create discovery landing pages. They require no new dependency, paid tool, build service, or runtime server.
