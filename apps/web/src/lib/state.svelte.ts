@@ -209,11 +209,12 @@ export function forgetUnsavedAmounts() {
 
 const UNITS_KEY = 'vegdex:units'
 
-/** Use the page's default until the cook makes a choice shared across languages. */
+/** US kitchens measure in cups; everyone else weighs. The page language can fix the default; an explicit choice sticks in every language. */
 function loadUnits(): Units {
   const v = localStorage.getItem(UNITS_KEY)
   if (v === 'us' || v === 'metric') return v
-  return pageLocale.units
+  if (pageLocale.units !== 'region') return pageLocale.units
+  return navigator.language === 'en-US' ? 'us' : 'metric'
 }
 
 /** One setting for the recipe sheet and the shopping list. */
