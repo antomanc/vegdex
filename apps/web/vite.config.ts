@@ -118,30 +118,15 @@ export default defineConfig({
     svelte(),
     seo(),
     VitePWA({
+      strategies: 'injectManifest',
+      srcDir: 'src',
+      filename: 'sw.ts',
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: false,
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
-        globIgnores: ['data/**'],
-        navigateFallbackDenylist: [/\/data\//, /\/(robots\.txt|sitemap\.xml)$/],
-        runtimeCaching: [
-          {
-            // The dataset changes once a day: serve the cached copy, refresh in the background.
-            urlPattern: ({ url }) => url.pathname.includes('/data/'),
-            handler: 'StaleWhileRevalidate',
-            options: { cacheName: 'vegdex-data', expiration: { maxEntries: 80 } }
-          },
-          {
-            urlPattern: ({ request }) => request.destination === 'image',
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'vegdex-images',
-              expiration: { maxEntries: 400, maxAgeSeconds: 60 * 60 * 24 * 30 },
-              cacheableResponse: { statuses: [0, 200] }
-            }
-          }
-        ]
+      injectManifest: {
+        globPatterns: ['**/*.{js,css,html,svg,png,woff2,webmanifest}'],
+        globIgnores: ['data/**']
       }
     })
   ]

@@ -1,4 +1,4 @@
-import { expect, test } from './fixtures';
+import { expect, fixtureData, test } from './fixtures';
 
 const canonical = 'https://vegdex.antomanc.com/';
 
@@ -97,4 +97,42 @@ test('installing from Italian uses an Italian manifest and starts in Italian', a
   await page.goto(new URL(manifest.start_url, manifestUrl).href);
   await expect(page.locator('html')).toHaveAttribute('lang', 'it');
   await expect(page.getByRole('button', { name: 'Altri filtri', exact: true })).toBeVisible();
+});
+
+test('offline navigation keeps the UI language selected by the path', async ({ browser, baseURL }) => {
+  // The normal fixture blocks workers for page.route; this context exercises the real production worker.
+  const context = await browser.newContext({ baseURL, serviceWorkers: 'allow' });
+  try {
+    await context.route('**/data/**', fixtureData);
+    const page = await context.newPage();
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    await page.goto('/');
+    await page.evaluate(async () => {
+      await navigator.serviceWorker.ready;
+      if (!navigator.serviceWorker.controller) {
+        await new Promise<void>((resolve) => navigator.serviceWorker.addEventListener('controllerchange', () => resolve(), { once: true }));
+      }
+    });
+    // Reload under worker control so the fixture catalog enters its runtime cache.
+    await page.reload();
+    await expect(page.getByTestId('recipe-card')).toHaveCount(6);
+    await context.unroute('**/data/**', fixtureData);
+    await context.setOffline(true);
+    // Neither path has been visited: a cached navigation response cannot hide the wrong fallback.
+    for (const { path, language, button } of [
+      { path: '/it/offline-check?meal=soup', language: 'it', button: 'Altri filtri' },
+      { path: '/offline-check?meal=soup', language: 'en', button: 'More filters' }
+    ]) {
+      const response = await page.goto(path);
+      expect(response?.fromServiceWorker()).toBe(true);
+      expect(response?.status()).toBe(200);
+      await expect(page.locator('html')).toHaveAttribute('lang', language);
+      await expect(page.getByRole('button', { name: button, exact: true })).toBeVisible();
+      await expect(page.getByTestId('recipe-card')).toHaveText([/Red Lentil Soup/]);
+    }
+    expect(errors).toEqual([]);
+  } finally {
+    await context.close();
+  }
 });
