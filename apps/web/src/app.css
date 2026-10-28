@@ -31,24 +31,25 @@
   scroll-padding-top: calc(var(--header-h, 0px) + 12px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #121814;
-    --surface: #1a221d;
-    --rose: #2a1f23;
-    --rose-line: #46333a;
-    --ink: #edf0ea;
-    --muted: #a1aca4;
-    --line: #2c3830;
-    --green: #9fd29a;
-    --green-soft: #233528;
-    --tomato: #f08a6c;
-    --tomato-soft: #3a2621;
-    --on-tomato: #121814;
-    --gold: #e0b252;
-    --heart-disc: rgb(18 24 20 / 0.82);
-    --card-shadow: rgb(0 0 0 / 0.3);
-  }
+/* Night: set by data-theme (lib/theme.svelte.ts), which follows the system until the cook picks. */
+:root[data-theme='light'] { color-scheme: light; }
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #121814;
+  --surface: #1a221d;
+  --rose: #2a1f23;
+  --rose-line: #46333a;
+  --ink: #edf0ea;
+  --muted: #a1aca4;
+  --line: #2c3830;
+  --green: #9fd29a;
+  --green-soft: #233528;
+  --tomato: #f08a6c;
+  --tomato-soft: #3a2621;
+  --on-tomato: #121814;
+  --gold: #e0b252;
+  --heart-disc: rgb(18 24 20 / 0.82);
+  --card-shadow: rgb(0 0 0 / 0.3);
 }
 
 * { box-sizing: border-box; }
@@ -85,9 +86,23 @@ input { caret-color: var(--tomato); }
 .top-actions { display: flex; gap: 8px; align-items: center; }
 .saved-toggle { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 0 14px; font-size: 0.88rem; font-variant-numeric: tabular-nums; }
 .saved-toggle .icon { color: var(--tomato); }
+.saved-toggle, .pill.jump { white-space: nowrap; }
+/* Narrow phones: the header row keeps its four controls on one line; Saved reads "♥ 3", still named "Saved · 3". */
+@media (max-width: 420px) {
+  .tight-hide { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .saved-toggle { padding: 0 11px; }
+  .pill.jump { padding: 0 11px; }
+  .top-actions { gap: 6px; }
+  .top { padding-inline: 12px; }
+}
 .saved-toggle.on { background: var(--tomato); border-color: var(--tomato); color: var(--on-tomato); }
 .saved-toggle.on .icon { color: inherit; }
 .pill.jump { background: var(--surface); }
+/* Night mode: a quiet round key beside Saved; the icon shows where a tap takes you. */
+.night {
+  flex: none; display: grid; place-items: center; width: 40px; height: 40px; padding: 0;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink);
+}
 
 .search { position: relative; display: block; max-width: 1200px; margin: 0 auto; }
 .search .icon { position: absolute; left: 14px; top: 50%; translate: 0 -50%; color: var(--muted); pointer-events: none; }
@@ -320,7 +335,7 @@ p.small { margin-top: 18px; }
 .skeleton .bar.short { width: 55%; margin-top: 6px; }
 
 @media (hover: hover) {
-  .pill:not(.on):hover, .seg:not(.on):hover, .saved-toggle:not(.on):hover { border-color: var(--green); }
+  .pill:not(.on):hover, .seg:not(.on):hover, .saved-toggle:not(.on):hover, .night:hover { border-color: var(--green); }
   .seg:not(.on):hover { background: var(--green-soft); }
   .cta:hover, .btn-sm:hover, .grocery-btn:hover { filter: brightness(1.12); }
   .text-btn:not(:disabled):hover { text-decoration: underline; text-underline-offset: 3px; }
