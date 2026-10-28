@@ -16,6 +16,7 @@
   --gold: #a8741c;
   --heart-disc: rgb(255 255 255 / 0.9);
   --shadow: rgb(0 0 0 / 0.16);
+  --card-shadow: rgb(24 39 29 / 0.07);
   --scrim: rgb(10 15 12 / 0.55);
   --radius: 14px;
   --display: 'Besley Variable', 'Besley', 'Clarendon', Georgia, serif;
@@ -42,6 +43,7 @@
     --on-tomato: #121814;
     --gold: #e0b252;
     --heart-disc: rgb(18 24 20 / 0.82);
+    --card-shadow: rgb(0 0 0 / 0.3);
   }
 }
 
@@ -99,9 +101,8 @@ input { caret-color: var(--tomato); }
 .filters { margin: 0 -12px 6px; }
 .pills { display: flex; gap: 8px; align-items: center; overflow-x: auto; padding: 4px 16px 2px; max-width: 1200px; margin: 0 auto; scrollbar-width: none; }
 .pills::-webkit-scrollbar { display: none; }
-/* The quick row scrolls sideways: fade the edge so the clipped pill reads as "more this way". */
-.pills.quick, .pills.secondary { mask-image: linear-gradient(to right, var(--ink) calc(100% - 28px), transparent); }
-.pills.secondary { padding-top: 8px; }
+/* Rows that scroll sideways fade at the edge, so the clipped control reads as "more this way". */
+.pills.controls, .tab-row { mask-image: linear-gradient(to right, var(--ink) calc(100% - 28px), transparent); }
 .pills.wrap { flex-wrap: wrap; overflow: visible; padding: 0; margin: 0; }
 .pill {
   flex: none; display: inline-flex; align-items: center; gap: 6px;
@@ -111,7 +112,19 @@ input { caret-color: var(--tomato); }
 .pill.outline { background: transparent; border-color: var(--line); font-size: 0.88rem; padding: 0 14px; }
 .pill.on { background: var(--green); color: var(--paper); border-color: var(--green); }
 .pill.tonight:not(.on) { background: var(--surface); border-color: var(--green); color: var(--green); font-weight: 600; }
-.divider { flex: none; align-self: stretch; width: 1px; background: var(--line); margin: 6px 2px; }
+
+/* Divider tabs: the recipe box's sections stand on the edge of the card stack. */
+.tabs { margin-top: 14px; box-shadow: inset 0 -1px var(--line); }
+.tab-row { display: flex; gap: 4px; align-items: end; overflow-x: auto; padding: 0 16px; max-width: 1200px; margin: 0 auto; scrollbar-width: none; }
+.tab-row::-webkit-scrollbar { display: none; }
+.tab {
+  flex: none; min-height: 40px; padding: 0 15px; white-space: nowrap; font-size: 0.88rem;
+  border: 1px solid var(--line); border-bottom: 0; border-radius: 10px 10px 0 0;
+  background: var(--green-soft); color: var(--ink);
+  transition: background-color 0.15s ease-out, color 0.15s ease-out;
+}
+.tab.on { background: var(--green); border-color: var(--green); color: var(--paper); font-weight: 600; }
+.tab-gap { flex: none; width: 10px; }
 
 /* Time is one choice: four joined segments. */
 .segmented { flex: none; display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
@@ -146,7 +159,7 @@ main {
 .more .meta { margin: 0; }
 .view-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 4px 0; }
 .view-head h2 { font-family: var(--display); font-size: 1.5rem; margin: 0; letter-spacing: -0.01em; }
-.summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0 4px; margin: 6px 0 10px; }
+.summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0 4px; margin: 6px 0 12px; }
 .summary p { color: var(--muted); font-size: 0.88rem; margin: 0; font-variant-numeric: tabular-nums; }
 .sort select {
   appearance: none; border: 0; background: transparent; color: var(--ink); font-size: 0.88rem; font-weight: 600;
@@ -168,13 +181,18 @@ main {
 .text-btn:disabled { color: var(--muted); opacity: 0.6; }
 .active-filters { list-style: none; margin: 0 0 14px; padding: 0 4px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .active-filters .text-btn { min-height: 32px; padding: 4px 8px; font-size: 0.88rem; }
-.grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px 10px; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-@media (min-width: 700px) { .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px 16px; } }
+.grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+@media (min-width: 700px) { .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; } }
 
-.card { position: relative; transition: opacity 0.2s ease-out; }
+/* A filed card: the publisher's photo mounted on card stock, the facts ruled underneath. */
+.card, .skeleton li {
+  position: relative; height: 100%; padding: 6px 6px 10px; border-radius: var(--radius);
+  background: var(--surface); box-shadow: 0 1px 2px var(--card-shadow), 0 2px 8px var(--card-shadow);
+}
+.card { transition: opacity 0.2s ease-out, box-shadow 0.2s ease-out; }
 .card.unsaved { opacity: 0.55; }
-.card-open { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 0; }
-.thumb { position: relative; aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; background: var(--green-soft); }
+.card-open { display: flex; flex-direction: column; width: 100%; height: 100%; text-align: left; background: none; border: 0; padding: 0; border-radius: 8px; }
+.thumb { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; background: var(--green-soft); }
 .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease-out; }
 .card-open:hover img { transform: scale(1.03); }
 .placeholder { display: block; width: 40%; height: 100%; margin: 0 auto; color: var(--green); opacity: 0.35; }
@@ -184,15 +202,16 @@ main {
   font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; padding: 3px 7px; border-radius: 6px;
   box-shadow: 0 1px 3px var(--shadow);
 }
-.card h2 { font-family: var(--display); font-size: 1rem; line-height: 1.25; margin: 8px 2px 2px; font-weight: 600; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card h2 { font-family: var(--display); font-size: 1rem; line-height: 1.25; margin: 9px 4px 8px; font-weight: 600; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .card h2::first-letter, .sheet h2::first-letter { text-transform: uppercase; }
-.card .meta { margin: 0 2px; display: flex; flex-wrap: wrap; column-gap: 6px; }
+/* The rule sits at the same height on every card in a row, one-line title or two. */
+.card .meta { margin: auto 4px 0; padding-top: 6px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; column-gap: 6px; }
 .card .source { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
 .meta { color: var(--muted); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
 .rating { white-space: nowrap; }
 .rating .icon { color: var(--gold); vertical-align: -0.1em; }
 .heart {
-  position: absolute; top: 3px; right: 3px; width: 44px; height: 44px; display: grid; place-items: center; isolation: isolate;
+  position: absolute; top: 9px; right: 9px; width: 44px; height: 44px; display: grid; place-items: center; isolation: isolate;
   border: 0; padding: 0; background: none; color: var(--muted); font-size: 1rem; line-height: 1;
 }
 .heart::before { content: ''; position: absolute; inset: 5px; border-radius: 50%; background: var(--heart-disc); z-index: -1; }
@@ -207,6 +226,9 @@ main {
 }
 @media (min-width: 700px) { .sheet { margin: auto; border-radius: 20px; } }
 .sheet::backdrop { background: var(--scrim); }
+/* A sheet slides up into place, like a card pulled from the box. */
+.sheet[open] { transition: translate 0.32s cubic-bezier(0.16, 1, 0.3, 1); }
+@starting-style { .sheet[open] { translate: 0 48px; } }
 .sheet-body { padding: 20px 20px 28px; position: relative; }
 .sheet-top { position: sticky; top: 20px; height: 0; z-index: 2; }
 .close {
@@ -224,6 +246,16 @@ main {
 #more-title { margin-bottom: 20px; }
 .sheet h3 { font-family: var(--display); font-size: 1.25rem; margin: 26px 0 8px; }
 .sheet .meta { margin: 2px 0; font-size: 0.88rem; }
+
+/* The open recipe is the card itself: title above the red line, printed fields below it. */
+.kitchen { margin: 0; font-size: 0.88rem; color: var(--muted); font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; column-gap: 10px; }
+.kitchen-name { color: var(--ink); font-weight: 600; }
+.card-fields { display: flex; margin: 12px 0 0; border-top: 2px solid var(--tomato); border-bottom: 1px solid var(--line); }
+.card-fields > div { flex: 1 1 0; padding: 8px 10px 9px; min-width: 0; }
+.card-fields > div:first-child { padding-left: 0; }
+.card-fields > div + div { border-left: 1px solid var(--line); }
+.card-fields dt { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.card-fields dd { margin: 2px 0 0; font-size: 1rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.35; }
 .badges { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .badges li { background: var(--green-soft); border: 1px solid transparent; border-radius: 999px; padding: 3px 10px; font-size: 0.8rem; }
 .badges li.cuisine { background: transparent; border-color: var(--line); color: var(--muted); }
@@ -231,9 +263,10 @@ main {
 .cta span { text-wrap: balance; }
 .save { display: inline-flex; align-items: center; gap: 6px; flex: none; min-height: 48px; border: 1px solid var(--line); background: transparent; border-radius: 12px; padding: 0 16px; }
 .save.on { color: var(--tomato); border-color: var(--tomato); }
-.ingredients { padding-left: 1.1rem; margin: 0; line-height: 1.55; max-width: 65ch; }
-.ingredients li { padding: 3px 0; text-wrap: pretty; }
-.ingredients li::marker { color: var(--muted); }
+/* Ingredients sit on the card's ruled lines, the amount first and in bold. */
+.ingredients { list-style: none; padding: 0; margin: 0; line-height: 1.45; max-width: 65ch; border-top: 1px solid var(--line); }
+.ingredients li { padding: 9px 0 8px; border-bottom: 1px solid var(--line); text-wrap: pretty; }
+.ingredients .amount { font-weight: 650; font-variant-numeric: tabular-nums; }
 .muted { color: var(--muted); }
 .small { font-size: 0.8rem; }
 p.small { margin-top: 18px; }
@@ -257,9 +290,11 @@ p.small { margin-top: 18px; }
 .grocery .amount { color: var(--muted); font-size: 0.88rem; text-align: right; font-variant-numeric: tabular-nums; }
 .grocery label.done .name, .grocery label.done .amount { text-decoration: line-through; opacity: 0.5; }
 .uncheck { margin-left: auto; }
+.grocery-sheet .scale { margin-top: 12px; padding-bottom: 12px; border-bottom: 2px solid var(--tomato); }
+.grocery-sheet .aisle { margin-top: 20px !important; }
 
 /* Loading: the shape of the grid, still, so nothing jumps when recipes arrive. */
-.skeleton li { list-style: none; }
+.skeleton li { list-style: none; box-shadow: none; }
 .skeleton .bar { height: 14px; margin: 10px 2px 0; border-radius: 6px; background: var(--green-soft); }
 .skeleton .bar.short { width: 55%; margin-top: 6px; }
 
@@ -270,6 +305,8 @@ p.small { margin-top: 18px; }
   .text-btn:not(:disabled):hover { text-decoration: underline; text-underline-offset: 3px; }
   .loosen:hover { background: var(--green-soft); }
   .heart:hover { color: var(--tomato); }
+  .tab:not(.on):hover { background: var(--surface); }
+  .card:has(.card-open:hover) { box-shadow: 0 2px 4px var(--card-shadow), 0 8px 20px var(--card-shadow); }
 }
 
 @media (prefers-reduced-motion: reduce) {

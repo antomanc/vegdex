@@ -2,7 +2,7 @@
   import type { CatalogRecipe } from '@vegdex/core'
   import { loadIngredients } from './data'
   import Icon from './Icon.svelte'
-  import { formatMinutes, tidyLine } from './labels'
+  import { formatMinutes, splitAmount } from './labels'
   import { sheet } from './sheet'
   import { saved, toggleSaved } from './state.svelte'
 
@@ -33,19 +33,23 @@
       <img class="hero" src={recipe.image} alt="" referrerpolicy="no-referrer" onerror={() => (broken = true)} />
     {/if}
     <h2 id="sheet-title">{recipe.title}</h2>
-    <p class="meta">
-      by {sourceName}
-      {#if recipe.minutes}· {formatMinutes(recipe.minutes)}{/if}
-      {#if recipe.servings}· serves {recipe.servings}{/if}
-      {#if recipe.rating && recipe.ratingCount}· <span class="rating"><Icon name="star" size={13} filled /><span class="visually-hidden">Rated</span> {recipe.rating.toFixed(1)} ({recipe.ratingCount.toLocaleString()} ratings)</span>{/if}
+    <p class="kitchen">
+      <span>From the kitchen of <span class="kitchen-name">{sourceName}</span></span>
+      {#if recipe.rating && recipe.ratingCount}<span class="rating"><Icon name="star" size={13} filled /><span class="visually-hidden">Rated</span> {recipe.rating.toFixed(1)} <span class="muted">({recipe.ratingCount.toLocaleString()} ratings)</span></span>{/if}
     </p>
-    {#if recipe.calories || recipe.protein}
-      <p class="meta">
-        {#if recipe.calories}{Math.round(recipe.calories)} kcal{/if}
-        {#if recipe.calories && recipe.protein}·{/if}
-        {#if recipe.protein}{Math.round(recipe.protein)} g protein{/if} per serving
-      </p>
-    {/if}
+    <!-- The printed fields of a recipe card, under its red line. -->
+    <dl class="card-fields">
+      {#if recipe.minutes}<div><dt>Time</dt><dd>{formatMinutes(recipe.minutes)}</dd></div>{/if}
+      {#if recipe.servings}<div><dt>Serves</dt><dd>{recipe.servings}</dd></div>{/if}
+      {#if recipe.calories || recipe.protein}
+        <div>
+          <dt>Per serving</dt>
+          <dd>
+            {#if recipe.calories}{Math.round(recipe.calories)} kcal{/if}{#if recipe.calories && recipe.protein}<br />{/if}{#if recipe.protein}{Math.round(recipe.protein)} g protein{/if}
+          </dd>
+        </div>
+      {/if}
+    </dl>
     {#if diet.length || cuisines.length}
       <ul class="badges">
         {#each diet as b (b)}<li>{b}</li>{/each}
@@ -60,7 +64,7 @@
       <p class="muted">Loading…</p>
     {:then lines}
       <ul class="ingredients" data-testid="ingredients">
-        {#each lines as line, i (i)}<li>{tidyLine(line)}</li>{/each}
+        {#each lines.map(splitAmount) as [amount, rest], i (i)}<li>{#if amount}<span class="amount">{amount}</span>{' '}{/if}{rest}</li>{/each}
       </ul>
     {:catch}
       <p class="muted">Ingredients are unavailable offline. Open the recipe on {sourceName}.</p>

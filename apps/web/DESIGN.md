@@ -14,6 +14,7 @@ colors:
   star-gold: "#a8741c"
   heart-disc: "rgb(255 255 255 / 0.9)"
   shadow: "rgb(0 0 0 / 0.16)"
+  card-shadow: "rgb(24 39 29 / 0.07)"
   scrim: "rgb(10 15 12 / 0.55)"
   dark-paper: "#121814"
   dark-surface: "#1a221d"
@@ -63,6 +64,11 @@ typography:
     fontSize: "0.75rem"
     fontWeight: 600
     fontFeature: "tnum"
+  field-label:
+    fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+    fontSize: "0.75rem"
+    fontWeight: 600
+    letterSpacing: "0.06em"
   aisle:
     fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
     fontSize: "0.8rem"
@@ -70,6 +76,7 @@ typography:
     letterSpacing: "0.06em"
 rounded:
   tag: "6px"
+  photo: "8px"
   field: "10px"
   button: "12px"
   card: "14px"
@@ -98,6 +105,14 @@ components:
     backgroundColor: "{colors.tomato-rule}"
     textColor: "{colors.surface}"
     rounded: "{rounded.pill}"
+  tab:
+    backgroundColor: "{colors.green-wash}"
+    textColor: "{colors.ink}"
+    rounded: "10px 10px 0 0"
+    height: "40px"
+  tab-on:
+    backgroundColor: "{colors.ink-green}"
+    textColor: "{colors.paper}"
   time-tag:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.ink}"
@@ -112,7 +127,9 @@ components:
 
 ## Overview
 
-**Creative North Star: the recipe index card.** vegdex is a card file for a home kitchen: card-stock paper, green ink, a single red rule across the top. The photos supply the appetite. The interface supplies the facts a cook needs to choose (time, rating, source, ingredients) and gets out of the way. It is an Operate surface used on a phone in short sessions, so precision and familiar controls come before expression. The identity lives in a few exact details: the Clarendon titles, the tomato rule, label-style time tags and tabular numerals.
+**Creative North Star: the recipe index card.** vegdex is a card file for a home kitchen: card-stock paper, green ink, a single red rule across the top. The photos supply the appetite. The interface supplies the facts a cook needs to choose (time, rating, source, ingredients) and gets out of the way. It is an Operate surface used on a phone in short sessions, so precision and familiar controls come before expression.
+
+The card file is visible, not only described: categories are divider tabs standing on the edge of the stack, every recipe is a card with the publisher's photo mounted on card stock and its facts ruled underneath, and an open recipe is a recipe card (title above the red line, printed fields below it, ingredients on ruled lines, "From the kitchen of" the blog). The mount frame also evens out photos from 24 blogs with 24 different styles. The other details: the Clarendon titles, label-style time tags and tabular numerals.
 
 Anti-references: beige "organic" palettes, wellness-brand softness, recipe-blog clutter, and any "verified vegan" badge (the guarantee stays implicit; see PRODUCT.md).
 
@@ -125,7 +142,7 @@ The palette is restrained. Neutrals carry the page, ink green carries action and
 - **Green Wash** (#e4ede2; dark #233528): resting quick pills, active-filter chips, diet badges, image placeholders.
 
 ### Secondary
-- **Tomato Rule** (#b23f2a; dark #f08a6c): the 2px rule under the sticky header, the Saved toggle when on, filled hearts, text buttons (Clear, Try again), aisle headings in the shopping list.
+- **Tomato Rule** (#b23f2a; dark #f08a6c): the 2px rule under the sticky header, the red line of an open card (recipe sheet, shopping list), the Saved toggle when on, filled hearts, text buttons (Clear, Try again), aisle headings in the shopping list.
 - **Tomato Wash** (#f6e3de; dark #3a2621): "avoid" chips only.
 
 ### Tertiary
@@ -139,7 +156,7 @@ The palette is restrained. Neutrals carry the page, ink green carries action and
 - **Line** (#e3e2da; dark #2c3830): hairlines, outline pills, list rules.
 
 ### Named Rules
-**The One Rule Rule.** Tomato appears as a line exactly once per screen, under the header. Never use it as a card border or a decorative stripe.
+**The One Rule Rule.** Tomato appears as a line once per card: under the header (the app's own card) and under the head of an open recipe or shopping list, the way an index card has one red line. Never on grid cards, never as a border around anything, never as a decorative stripe.
 
 **The Ink Means Act Rule.** Solid ink green marks the thing you can act on or the choice you made. Don't use it for decoration.
 
@@ -156,7 +173,8 @@ Two families with separate jobs. Besley, a Clarendon revival self-hosted through
 - **Label** (system sans, 0.88rem, tabular numerals): pills, buttons, chips, counts, amounts, form labels.
 - **Meta** (system sans, 0.8rem, tabular numerals): card source and rating, hints, footnotes, credits.
 - **Tag** (system sans 600, 0.75rem, tabular numerals): the time tag on a photo.
-- **Aisle** (system sans 700, 0.8rem, 0.06em, uppercase, tomato): shopping-list aisle headings, the only uppercase text.
+- **Field label** (system sans 600, 0.75rem, 0.06em, uppercase, muted): the printed labels on an open recipe card (Time, Serves, Per serving).
+- **Aisle** (system sans 700, 0.8rem, 0.06em, uppercase, tomato): shopping-list aisle headings. Field labels and aisles are the only uppercase text.
 
 ### Named Rules
 **The Numbers Line Up Rule.** Times, ratings, counts and amounts use tabular numerals.
@@ -167,7 +185,8 @@ Two families with separate jobs. Besley, a Clarendon revival self-hosted through
 
 Mobile first, with a 1200px max container. The sticky header holds only the brand row and search (about 120px on a phone) and closes with the tomato rule. Quick filters scroll with the page. Once they are out of view, a "Filters" button in the header jumps back to them. Horizontal pill rows fade at the right edge to show there is more.
 
-- **Grid:** `repeat(auto-fill, minmax(160px, 1fr))` (two columns on a phone). At 700px and up, `minmax(220px, 1fr)` with 24px by 16px gaps.
+- **Filters:** a controls row first (Tonight, More filters, time, High protein), then the divider tabs (Savory, Sweet, then meals) standing on a hairline that heads the results. The tabs sit next to the cards they sort.
+- **Grid:** `repeat(auto-fill, minmax(160px, 1fr))` with 10px gaps (two columns on a phone). At 700px and up, `minmax(220px, 1fr)` with 16px gaps.
 - **Sheets:** bottom sheets on phones (max 640px, 92dvh). Centred dialogs from 700px. The recipe sheet becomes two columns at 900px (920px wide): photo and facts stick on the left, ingredients scroll on the right.
 - **Sticky footers:** any sheet with a primary action pins it to the bottom (Save + "Cook it on…", Clear all + "Show N recipes").
 - `scroll-padding-top` follows the measured header height, so focus never lands under it.
@@ -177,13 +196,14 @@ Mobile first, with a 1200px max container. The sticky header holds only the bran
 Flat by default, with tonal layering (paper → surface). Shadows appear only where something sits physically on top of something else.
 
 ### Shadow Vocabulary
+- **Card** (`0 1px 2px var(--card-shadow), 0 2px 8px var(--card-shadow)`): recipe cards resting on the paper; deepens on hover. No border with it.
 - **Tag** (`box-shadow: 0 1px 3px var(--shadow)`): time tags stuck on a photo.
 - **Floating control** (`box-shadow: 0 1px 4px var(--shadow)`): the sheet close button.
 - **Backdrop** (`var(--scrim)`): behind modal sheets.
 
 ## Shapes
 
-Soft rectangles for content, full pills for small controls, near-square tags for labels stuck on photos. Radii come only from the scale: 6px (tags, logo, skeleton bars), 10px (fields, sort select), 12px (buttons), 14px (cards), 20px (sheets), full pill. Card photos are 1:1 at 14px radius. Sheets round only their top corners on phones (20px). Buttons use 12px, fields 10px.
+Soft rectangles for content, full pills for small controls, near-square tags for labels stuck on photos. Radii come only from the scale: 6px (tags, logo, skeleton bars), 8px (photos mounted in a card: 14px minus the 6px mount), 10px (fields, sort select, the top corners of divider tabs), 12px (buttons), 14px (cards), 20px (sheets), full pill. Card photos are 1:1. Sheets round only their top corners on phones (20px). Buttons use 12px, fields 10px.
 
 ## Components
 
@@ -199,23 +219,31 @@ Soft rectangles for content, full pills for small controls, near-square tags for
 - **Outline pill:** transparent with a line border (More filters, High protein, free-from).
 - **Time segments:** one joined control (≤ 15, 30, 45, 60 min); picking one replaces the last.
 
+### Divider tabs
+- Savory, Sweet, then the meals, as recipe-box divider tabs: 40px tall, top corners rounded, green wash with a hairline edge at rest, ink green when on. They stand on a full-width hairline. They are toggles (several can be on), so they keep `aria-pressed` and are not an ARIA tablist.
+
 ### Chips
 - Removable active-filter chips: green wash (tomato wash for "no X"), 32px, with a close icon.
 
 ### Recipe card
-- **Character:** a photo with the facts underneath, nothing more.
-- 1:1 photo, label-style time tag bottom-left, heart top-right on a paper disc (dark disc in dark mode). Then the Besley title, then source and gold-star rating with a compact count. The open button's accessible name is the title, and its description is time, source and rating.
+- **Character:** a filed card: the photo mounted on card stock, the facts ruled underneath, nothing more.
+- Surface card, 6px mount, card shadow. 1:1 photo at 8px, label-style time tag bottom-left, heart top-right on a paper disc (dark disc in dark mode). Then the Besley title, then a hairline rule and source with gold-star rating and a compact count. The rule sits at the same height on every card in a row. The open button's accessible name is the title, and its description is time, source and rating.
+
+### Recipe sheet (the open card)
+- Photo, Besley title, then "From the kitchen of <blog>" with the rating. Under that, the red line and the printed fields (Time, Serves, Per serving) in cells split by hairlines: field labels above, values in tabular numerals.
+- Ingredients sit on ruled hairlines, no bullets, with the leading amount in bold (`splitAmount` in `labels.ts`).
 
 ### Inputs
 - **Search:** pill on surface with a muted search icon, green border and ring on focus, a themed clear icon, and a tomato caret.
 - **Sheet fields:** 44px, paper fill, 10px radius, with an Add button beside them. Comma-separated entries split into separate chips, and text left in a field applies when the sheet closes.
 
 ### Shopping list
+- The header (title, count, Scale all recipes) closes with the red line.
 - Aisles in store-walk order, each with an uppercase tomato heading. Rows are 52px full-width labels ruled by hairlines, in sentence case. Checked items sink to the bottom of their aisle and get a strike-through.
 
 ## Do's and Don'ts
 
-- **Do** spend tomato on the header rule, saved state and hearts only.
+- **Do** spend tomato on the header rule, an open card's red line, saved state and hearts only.
 - **Do** use tabular numerals for every time, rating, count and amount.
 - **Do** keep the main action of a sheet pinned in a footer.
 - **Don't** set buttons, pills or labels in Besley.

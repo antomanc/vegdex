@@ -39,23 +39,10 @@
   }
 </script>
 
-<nav class="pills quick" aria-label="Quick filters">
+<div class="pills controls">
   <button class="pill tonight" class:on={isTonight()} aria-pressed={isTonight()} onclick={toggleTonight}>
     <Icon name="clock" size={16} /> Tonight
   </button>
-  <span class="divider" aria-hidden="true"></span>
-  <button class="pill" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
-    onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>Savory</button>
-  <button class="pill" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
-    onclick={() => (filters.flavor = filters.flavor === 'sweet' ? null : 'sweet')}>Sweet</button>
-  <span class="divider" aria-hidden="true"></span>
-  {#each MEAL_LABELS as [meal, label] (meal)}
-    <button class="pill" class:on={filters.meals.includes(meal)} aria-pressed={filters.meals.includes(meal)}
-      onclick={() => toggleMeal(meal)}>{label}</button>
-  {/each}
-</nav>
-
-<div class="pills secondary">
   <button class="pill outline" class:on={moreCount() > 0} aria-haspopup="dialog" onclick={() => (more = true)}>
     <Icon name="sliders" size={16} /> More filters{moreCount() ? ` · ${moreCount()}` : ''}
   </button>
@@ -68,6 +55,21 @@
   <button class="pill outline" class:on={filters.highProtein} aria-pressed={filters.highProtein}
     onclick={() => (filters.highProtein = !filters.highProtein)}>High protein</button>
 </div>
+
+<!-- The recipe box's dividers: their tabs stand on the edge of the card stack below. -->
+<nav class="tabs" aria-label="Categories">
+  <div class="tab-row">
+    <button class="tab" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
+      onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>Savory</button>
+    <button class="tab" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
+      onclick={() => (filters.flavor = filters.flavor === 'sweet' ? null : 'sweet')}>Sweet</button>
+    <span class="tab-gap" aria-hidden="true"></span>
+    {#each MEAL_LABELS as [meal, label] (meal)}
+      <button class="tab" class:on={filters.meals.includes(meal)} aria-pressed={filters.meals.includes(meal)}
+        onclick={() => toggleMeal(meal)}>{label}</button>
+    {/each}
+  </div>
+</nav>
 
 {#if more}
   <dialog use:sheet class="sheet" aria-labelledby="more-title" onclose={closed}>

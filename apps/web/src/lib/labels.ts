@@ -50,3 +50,10 @@ export function tidyLine(line: string): string {
     .replace(/\s{2,}/g, ' ')
     .trim()
 }
+
+/** "2½ cup vegetable broth" → ["2½", "cup vegetable broth"]: the amount is set in bold on the card. */
+export function splitAmount(line: string): [string, string] {
+  const tidy = tidyLine(line)
+  const m = /^([\d½⅓⅔¼¾⅛⅜⅝⅞][\d½⅓⅔¼¾⅛⅜⅝⅞ ./,–-]{0,7}?)\s+(\D.*)$/.exec(tidy)
+  return m ? [m[1]!, m[2]!] : ['', tidy]
+}
