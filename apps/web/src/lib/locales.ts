@@ -11,11 +11,13 @@ export interface Locale {
   /** Units used until the cook picks a system. */
   units: 'us' | 'metric'
   hreflang: string
+  /** Open Graph language and territory. */
+  ogLocale: string
 }
 
 export const LOCALES: readonly Locale[] = [
-  { code: 'en', prefix: '', intl: 'en', units: 'us', hreflang: 'en' },
-  { code: 'it', prefix: 'it', intl: 'it-IT', units: 'metric', hreflang: 'it' }
+  { code: 'en', prefix: '', intl: 'en', units: 'us', hreflang: 'en', ogLocale: 'en_US' },
+  { code: 'it', prefix: 'it', intl: 'it-IT', units: 'metric', hreflang: 'it', ogLocale: 'it_IT' }
 ]
 
 /** The source language: every message exists here first. */

@@ -29,12 +29,18 @@ for (const { code, text } of translations) {
 }
 
 const escapeHtml = (s: string) => s.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;')
+const pageUrl = (locale: Locale) => new URL(locale.prefix ? `${locale.prefix}/` : '', siteUrl).href
+const alternates = [...LOCALES.map((locale) => ({ language: locale.hreflang, url: pageUrl(locale) })),
+  { language: 'x-default', url: pageUrl(BASE_LOCALE) }]
 
 /** The page's own words: <html lang>, title, description and JSON-LD language. */
 const localize = (html: string, locale: Locale) => {
   const text = messages(locale.code)
   return html
     .replaceAll('%LANG%', locale.code)
+    .replaceAll('%PAGE_URL%', pageUrl(locale))
+    .replaceAll('%OG_LOCALE%', locale.ogLocale)
+    .replaceAll('%ALTERNATES%', alternates.map(({ language, url }) => `<link rel="alternate" hreflang="${language}" href="${url}" />`).join('\n    '))
     .replaceAll('%TITLE%', escapeHtml(text.meta_title!))
     .replaceAll('%DESCRIPTION%', escapeHtml(text.meta_description!))
 }

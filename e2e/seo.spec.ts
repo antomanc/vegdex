@@ -2,6 +2,35 @@ import { expect, test } from './fixtures';
 
 const canonical = 'https://vegdex.antomanc.com/';
 
+for (const { path, language, ogLocale } of [
+  { path: '/', language: 'en', ogLocale: 'en_US' },
+  { path: '/it/', language: 'it', ogLocale: 'it_IT' }
+]) {
+  test(`${language} initial HTML identifies its language and reciprocal alternatives`, async ({ page, request }) => {
+    const response = await request.get(`${path}?meal=soup`);
+    expect(response.status()).toBe(200);
+    const html = await response.text();
+    const metadata = await page.evaluate((html) => {
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      return {
+        language: doc.documentElement.lang,
+        canonical: doc.querySelector('link[rel="canonical"]')?.getAttribute('href'),
+        url: doc.querySelector('meta[property="og:url"]')?.getAttribute('content'),
+        ogLocale: doc.querySelector('meta[property="og:locale"]')?.getAttribute('content'),
+        alternates: [...doc.querySelectorAll('link[rel="alternate"][hreflang]')].map((link) => [link.getAttribute('hreflang'), link.getAttribute('href')]),
+        schema: JSON.parse(doc.querySelector('script[type="application/ld+json"]')?.textContent ?? 'null')
+      };
+    }, html);
+    const url = `${canonical}${path.slice(1)}`;
+    expect(metadata).toEqual({
+      language, canonical: url, url, ogLocale,
+      alternates: [['en', canonical], ['it', `${canonical}it/`], ['x-default', canonical]],
+      schema: { '@context': 'https://schema.org', '@type': 'WebSite', name: 'vegdex', url, inLanguage: language }
+    });
+    expect(html).not.toMatch(/%[A-Z_]+%/);
+  });
+}
+
 test('crawl discovery files advertise the canonical homepage', async ({ request }) => {
   const robots = await request.get('/robots.txt');
   expect(robots.status()).toBe(200);
