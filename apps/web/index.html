@@ -1,16 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="%LANG%">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="description" content="Find vegan recipes from all-vegan food blogs. Filter by ingredients, meal and cooking time, then visit the original creator for the recipe." />
-    <link rel="canonical" href="%SITE_URL%" />
+    <meta name="description" content="%DESCRIPTION%" />
+    <link rel="canonical" href="%PAGE_URL%" />
+    %ALTERNATES%
+    <link rel="manifest" href="%MANIFEST%" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="vegdex" />
-    <meta property="og:title" content="vegdex: find vegan recipes by ingredient and time" />
-    <meta property="og:description" content="Find vegan recipes from all-vegan food blogs. Filter by ingredients, meal and cooking time, then visit the original creator for the recipe." />
-    <meta property="og:url" content="%SITE_URL%" />
+    <meta property="og:locale" content="%OG_LOCALE%" />
+    <meta property="og:title" content="%TITLE%" />
+    <meta property="og:description" content="%DESCRIPTION%" />
+    <meta property="og:url" content="%PAGE_URL%" />
     <meta property="og:image" content="%SITE_URL%icon-512.png" />
     <meta name="twitter:card" content="summary" />
     <script type="application/ld+json">
@@ -18,8 +21,8 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "vegdex",
-        "url": "%SITE_URL%",
-        "inLanguage": "en"
+        "url": "%PAGE_URL%",
+        "inLanguage": "%LANG%"
       }
     </script>
     <meta name="theme-color" content="#1d4a31" />
@@ -32,7 +35,7 @@
           t === 'dark' || t === 'light' ? t : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
       } catch (e) {}
     </script>
-    <title>vegdex: find vegan recipes by ingredient and time</title>
+    <title>%TITLE%</title>
   </head>
   <body>
     <div id="app"></div>

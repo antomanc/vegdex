@@ -1,0 +1,609 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "language_name": "English",
+  "language_available": "Available in English",
+  "dismiss_language_suggestion": "Dismiss language suggestion",
+  "meta_title": "vegdex: find vegan recipes by ingredient and time",
+  "manifest_name": "vegdex: vegan recipes",
+  "meta_description": "Find vegan recipes from all-vegan food blogs. Filter by ingredients, meal and cooking time, then visit the original creator for the recipe.",
+  "meal_breakfast": "Breakfast",
+  "meal_main": "Mains",
+  "meal_soup": "Soups",
+  "meal_salad": "Salads",
+  "meal_side": "Sides",
+  "meal_snack": "Snacks",
+  "meal_dessert": "Desserts",
+  "meal_baking": "Baking",
+  "meal_drink": "Drinks",
+  "meal_sauce": "Sauces & dips",
+  "free_gluten": "Gluten-free",
+  "free_nut": "Nut-free",
+  "free_soy": "Soy-free",
+  "free_oil": "Oil-free",
+  "sort_rating": "Top rated",
+  "sort_newest": "Newest",
+  "sort_fastest": "Fastest",
+  "sort_relevance": "Best match",
+  "minutes": "{count} min",
+  "hours": "{count} h",
+  "hours_minutes": "{hours} h {minutes} min",
+  "time_limit": "≤ {count} min",
+  "tonight": "Tonight",
+  "pick": "Pick for me",
+  "more_filters": "More filters",
+  "ready_in": "Ready in",
+  "high_protein": "High protein",
+  "categories": "Categories",
+  "savory": "Savory",
+  "sweet": "Sweet",
+  "close": "Close",
+  "free_from": "Free from",
+  "must_include": "Must include",
+  "include_hint": "Recipes that use every ingredient you add.",
+  "include_example": "e.g. tofu, spinach",
+  "avoid": "Avoid",
+  "avoid_example": "e.g. mushrooms, coconut",
+  "add": "Add",
+  "remove": "Remove {label}",
+  "without": "no {ingredient}",
+  "with": "with {ingredient}",
+  "clear_all": "Clear all",
+  "no_matches_filter": "No matches. Loosen a filter",
+  "active_filters": "Active filters",
+  "from_source": "From {source}",
+  "load_error": "Couldn't load the recipes. Check your connection and try again.",
+  "remove_suggestion": "Remove “{label}”",
+  "clear_the_search": "Clear the search",
+  "all_recipes": "vegdex, all recipes",
+  "filters": "Filters",
+  "night_mode": "Night mode",
+  "saved": "Saved",
+  "search_recipes": "Search recipes",
+  "search_saved": "Search your saved recipes",
+  "search_placeholder": "Search recipes or ingredients",
+  "try_again": "Try again",
+  "loading_recipes": "Loading recipes…",
+  "saved_recipes": "Saved recipes",
+  "shopping_list": "Shopping list",
+  "visit": "Visit {host}",
+  "sort_by": "Sort by",
+  "saved_empty": "Nothing saved yet. Tap the heart on a recipe to keep it here.",
+  "browse": "Browse recipes",
+  "no_saved_match": "None of your saved recipes match{search}{filters}.",
+  "no_match": "No recipes match{search}{filters}.",
+  "search_term": " “{text}”",
+  "with_filters": " with these filters",
+  "clear_search": "Clear search",
+  "clear_filters": "Clear filters",
+  "show_more": "Show more recipes",
+  "showing": "Showing {visible} of {total}",
+  "credits": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "Recipes from {count} vegan blogs. vegdex shows ingredients and links to the creator for the method.",
+        "plural=*": "Recipes from {count} vegan blogs. vegdex shows ingredients and links to the creator for the method."
+      }
+    }
+  ],
+  "credits_updated": "Updated {date}. Metric weights use USDA FoodData Central.",
+  "recipe_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} recipe",
+        "plural=*": "{count} recipes"
+      }
+    }
+  ],
+  "saved_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} recipe saved",
+        "plural=*": "{count} recipes saved"
+      }
+    }
+  ],
+  "show_recipes": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "Show {count} recipe",
+        "plural=*": "Show {count} recipes"
+      }
+    }
+  ],
+  "blog_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "from {count} vegan blog",
+        "plural=*": "from {count} vegan blogs"
+      }
+    }
+  ],
+  "from_kitchen": "From the kitchen of",
+  "source_recipes": "{source}: all its recipes",
+  "rated": "Rated",
+  "average": ", average {rating}",
+  "time": "Time",
+  "serves": "Serves",
+  "per_serving": "Per serving",
+  "calories": "{count} kcal",
+  "protein": "{count} g protein",
+  "ingredients": "Ingredients",
+  "loading": "Loading…",
+  "metric_note": "≈ Weighed from cups with typical weights per ingredient. Results vary with how you fill the cup.",
+  "ingredients_offline": "Ingredients are unavailable offline. Open the recipe on {source}.",
+  "creator_credit": "Method, photos and tips are on {source}. Visiting supports the creator.",
+  "saved_recipe": "Saved",
+  "save": "Save",
+  "save_recipe": "Save {title}",
+  "unsave_recipe": "Unsave {title}",
+  "another": "Another",
+  "cook_on": "Cook it on {source}",
+  "units": "Units",
+  "units_us": "US",
+  "units_metric": "Metric",
+  "rating_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} rating",
+        "plural=*": "{count} ratings"
+      }
+    }
+  ],
+  "rating_total": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} ratings",
+        "plural=*": "{count} ratings"
+      }
+    }
+  ],
+  "cuisine_american": "American",
+  "cuisine_asian": "Asian",
+  "cuisine_british": "British",
+  "cuisine_chinese": "Chinese",
+  "cuisine_ethiopian": "Ethiopian",
+  "cuisine_french": "French",
+  "cuisine_german": "German",
+  "cuisine_greek": "Greek",
+  "cuisine_indian": "Indian",
+  "cuisine_indonesian": "Indonesian",
+  "cuisine_italian": "Italian",
+  "cuisine_japanese": "Japanese",
+  "cuisine_korean": "Korean",
+  "cuisine_lebanese": "Lebanese",
+  "cuisine_mediterranean": "Mediterranean",
+  "cuisine_mexican": "Mexican",
+  "cuisine_middle_eastern": "Middle Eastern",
+  "cuisine_moroccan": "Moroccan",
+  "cuisine_spanish": "Spanish",
+  "cuisine_thai": "Thai",
+  "cuisine_turkish": "Turkish",
+  "cuisine_vietnamese": "Vietnamese",
+  "fewer_servings": "Fewer servings of {title}",
+  "more_servings": "More servings of {title}",
+  "uncheck": "Uncheck all",
+  "loading_ingredients": "Loading ingredients…",
+  "to_taste": "to taste",
+  "grocery_note": "Amounts are added up automatically. Check the recipes for anything unusual.",
+  "grocery_error": "Could not load ingredients. Are you offline?",
+  "servings_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} serving",
+        "plural=*": "{count} servings"
+      }
+    }
+  ],
+  "list_recipes": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "For {count} saved recipe",
+        "plural=*": "For {count} saved recipes"
+      }
+    }
+  ],
+  "adjusted_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": " · {count} adjusted",
+        "plural=*": " · {count} adjusted"
+      }
+    }
+  ],
+  "aisle_produce": "produce",
+  "aisle_tofu": "tofu & alternatives",
+  "aisle_grains": "grains & pasta",
+  "aisle_legumes": "beans & legumes",
+  "aisle_canned": "canned & jarred",
+  "aisle_nuts": "nuts & seeds",
+  "aisle_oils": "oils, vinegars & sauces",
+  "aisle_spices": "spices",
+  "aisle_baking": "baking & sweeteners",
+  "aisle_plant_milk": "plant milk & cream",
+  "aisle_other": "other",
+  "unit_cup": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "cup",
+        "plural=*": "cups"
+      }
+    }
+  ],
+  "unit_tbsp": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "tbsp",
+        "plural=*": "tbsp"
+      }
+    }
+  ],
+  "unit_tsp": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "tsp",
+        "plural=*": "tsp"
+      }
+    }
+  ],
+  "unit_clove": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "clove",
+        "plural=*": "cloves"
+      }
+    }
+  ],
+  "unit_can": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "can",
+        "plural=*": "cans"
+      }
+    }
+  ],
+  "unit_package": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "package",
+        "plural=*": "packages"
+      }
+    }
+  ],
+  "unit_block": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "block",
+        "plural=*": "blocks"
+      }
+    }
+  ],
+  "unit_bunch": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "bunch",
+        "plural=*": "bunches"
+      }
+    }
+  ],
+  "unit_handful": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "handful",
+        "plural=*": "handfuls"
+      }
+    }
+  ],
+  "unit_sprig": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "sprig",
+        "plural=*": "sprigs"
+      }
+    }
+  ],
+  "unit_stalk": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "stalk",
+        "plural=*": "stalks"
+      }
+    }
+  ],
+  "unit_head": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "head",
+        "plural=*": "heads"
+      }
+    }
+  ],
+  "unit_slice": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "slice",
+        "plural=*": "slices"
+      }
+    }
+  ],
+  "unit_sheet": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "sheet",
+        "plural=*": "sheets"
+      }
+    }
+  ],
+  "unit_pinch": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "pinch",
+        "plural=*": "pinches"
+      }
+    }
+  ],
+  "unit_dash": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "dash",
+        "plural=*": "dashes"
+      }
+    }
+  ],
+  "unit_inch": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "inch",
+        "plural=*": "inches"
+      }
+    }
+  ],
+  "unit_jar": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "jar",
+        "plural=*": "jars"
+      }
+    }
+  ],
+  "unit_bag": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "bag",
+        "plural=*": "bags"
+      }
+    }
+  ],
+  "unit_scoop": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "scoop",
+        "plural=*": "scoops"
+      }
+    }
+  ],
+  "unit_piece": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "piece",
+        "plural=*": "pieces"
+      }
+    }
+  ]
+}

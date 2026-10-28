@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { FreeFrom, Meal } from '@vegdex/core'
+  import { m, countArgs, formatNumber } from './i18n'
   import Icon from './Icon.svelte'
   import { FREE, MEAL_LABELS, TIMES } from './labels'
   import { sheet } from './sheet'
@@ -42,31 +43,31 @@
 
 <div class="pills controls">
   <button class="pill tonight" class:on={isTonight()} aria-pressed={isTonight()} onclick={toggleTonight}>
-    <Icon name="clock" size={16} /> Tonight
+    <Icon name="clock" size={16} /> {m.tonight()}
   </button>
   <button class="pill pick" disabled={count === 0} onclick={onpick}>
-    <Icon name="shuffle" size={16} /> Pick for me
+    <Icon name="shuffle" size={16} /> {m.pick()}
   </button>
   <button class="pill outline" class:on={moreCount() > 0} aria-haspopup="dialog" onclick={() => (more = true)}>
-    <Icon name="sliders" size={16} /> More filters{moreCount() ? ` · ${moreCount()}` : ''}
+    <Icon name="sliders" size={16} /> {m.more_filters()}{moreCount() ? ` · ${formatNumber(moreCount())}` : ''}
   </button>
-  <div class="segmented" role="group" aria-label="Ready in">
+  <div class="segmented" role="group" aria-label={m.ready_in()}>
     {#each TIMES as t (t)}
       <button class="seg" class:on={filters.maxMinutes === t} aria-pressed={filters.maxMinutes === t}
-        onclick={() => (filters.maxMinutes = filters.maxMinutes === t ? null : t)}>≤ {t} min</button>
+        onclick={() => (filters.maxMinutes = filters.maxMinutes === t ? null : t)}>{m.time_limit({ count: formatNumber(t) })}</button>
     {/each}
   </div>
   <button class="pill outline" class:on={filters.highProtein} aria-pressed={filters.highProtein}
-    onclick={() => (filters.highProtein = !filters.highProtein)}>High protein</button>
+    onclick={() => (filters.highProtein = !filters.highProtein)}>{m.high_protein()}</button>
 </div>
 
 <!-- The recipe box's dividers: their tabs stand on the edge of the card stack below. -->
-<nav class="tabs" aria-label="Categories">
+<nav class="tabs" aria-label={m.categories()}>
   <div class="tab-row">
     <button class="tab savory" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
-      onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>Savory</button>
+      onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>{m.savory()}</button>
     <button class="tab sweet" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
-      onclick={() => (filters.flavor = filters.flavor === 'sweet' ? null : 'sweet')}>Sweet</button>
+      onclick={() => (filters.flavor = filters.flavor === 'sweet' ? null : 'sweet')}>{m.sweet()}</button>
     <span class="tab-gap" aria-hidden="true"></span>
     {#each MEAL_LABELS as [meal, label] (meal)}
       <button class="tab" class:on={filters.meals.includes(meal)} aria-pressed={filters.meals.includes(meal)}
@@ -78,11 +79,11 @@
 {#if more}
   <dialog use:sheet class="sheet" aria-labelledby="more-title" onclose={closed}>
     <div class="sheet-body">
-      <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label="Close"><Icon name="close" size={20} /></button></div>
-      <h2 id="more-title">More filters</h2>
+      <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
+      <h2 id="more-title">{m.more_filters()}</h2>
 
       <fieldset class="field">
-        <legend class="label">Free from</legend>
+        <legend class="label">{m.free_from()}</legend>
         <div class="choice-grid">
           {#each FREE as [f, label] (f)}
             <button class="pill outline" class:on={filters.freeFrom.includes(f)} aria-pressed={filters.freeFrom.includes(f)}
@@ -92,40 +93,40 @@
       </fieldset>
 
       <form class="field" onsubmit={(e) => add('include', e)}>
-        <label class="label" for="have">Must include</label>
-        <p class="hint" id="have-hint">Recipes that use every ingredient you add.</p>
+        <label class="label" for="have">{m.must_include()}</label>
+        <p class="hint" id="have-hint">{m.include_hint()}</p>
         <div class="input-row">
-          <input id="have" bind:value={have} placeholder="e.g. tofu, spinach" autocomplete="off" enterkeyhint="done" aria-describedby="have-hint" />
-          <button class="btn-sm">Add</button>
+          <input id="have" bind:value={have} placeholder={m.include_example()} autocomplete="off" enterkeyhint="done" aria-describedby="have-hint" />
+          <button class="btn-sm">{m.add()}</button>
         </div>
         {#if filters.include.length}
           <div class="chips">
             {#each filters.include as v (v)}
-              <button class="chip have" onclick={() => remove('include', v)} aria-label="Remove {v}">{v} <Icon name="close" size={12} /></button>
+              <button class="chip have" onclick={() => remove('include', v)} aria-label={m.remove({ label: v })}>{v} <Icon name="close" size={12} /></button>
             {/each}
           </div>
         {/if}
       </form>
 
       <form class="field" onsubmit={(e) => add('exclude', e)}>
-        <label class="label" for="avoid">Avoid</label>
+        <label class="label" for="avoid">{m.avoid()}</label>
         <div class="input-row">
-          <input id="avoid" bind:value={avoid} placeholder="e.g. mushrooms, coconut" autocomplete="off" enterkeyhint="done" />
-          <button class="btn-sm">Add</button>
+          <input id="avoid" bind:value={avoid} placeholder={m.avoid_example()} autocomplete="off" enterkeyhint="done" />
+          <button class="btn-sm">{m.add()}</button>
         </div>
         {#if filters.exclude.length}
           <div class="chips">
             {#each filters.exclude as v (v)}
-              <button class="chip avoid" onclick={() => remove('exclude', v)} aria-label="Remove {v}">no {v} <Icon name="close" size={12} /></button>
+              <button class="chip avoid" onclick={() => remove('exclude', v)} aria-label={m.remove({ label: v })}>{m.without({ ingredient: v })} <Icon name="close" size={12} /></button>
             {/each}
           </div>
         {/if}
       </form>
 
       <div class="sheet-footer">
-        {#if activeCount()}<button class="text-btn" onclick={clearFilters}>Clear all</button>{/if}
+        {#if activeCount()}<button class="text-btn" onclick={clearFilters}>{m.clear_all()}</button>{/if}
         <button class="cta" class:none={count === 0} onclick={(e) => e.currentTarget.closest('dialog')?.close()}>
-          {count === 0 ? 'No matches. Loosen a filter' : `Show ${count.toLocaleString()} ${count === 1 ? 'recipe' : 'recipes'}`}
+          {count === 0 ? m.no_matches_filter() : m.show_recipes(countArgs(count))}
         </button>
       </div>
     </div>
