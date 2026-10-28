@@ -1,5 +1,6 @@
 /** A recipe as stored by the ingest pipeline. Only facts: no instructions prose. */
 export interface Recipe {
+  contentLanguage?: string;
   id: string;
   title: string;
   sourceId: string;
@@ -48,6 +49,7 @@ export type Tag =
   | `cuisine:${string}`;
 
 export interface Source {
+  contentLanguage?: string;
   id: string;
   name: string;
   url: string;
@@ -55,6 +57,9 @@ export interface Source {
 
 /** One row of the published catalog: everything the grid and filters need. */
 export interface CatalogRecipe {
+  /** Optional only for datasets emitted before ingredient concepts. */
+  contentLanguage?: string;
+  concepts?: string[];
   id: string;
   title: string;
   source: string;
@@ -73,6 +78,7 @@ export interface CatalogRecipe {
 }
 
 export interface Catalog {
+  dictionary?: Record<string, string>;
   version: 1;
   generatedAt: string;
   sources: Source[];
@@ -82,9 +88,13 @@ export interface Catalog {
 /** Full records (catalog row + raw ingredient lines), used by the MCP server. */
 export interface FullRecipe extends CatalogRecipe {
   ingredients: string[];
+  parsedIngredients?: import('./ingredients').ParsedIngredient[];
 }
 
 export interface FullDataset {
+  dictionary?: Record<string, string>;
+  /** English aliases, limited to concepts used by this dataset. */
+  lookup?: import('./concepts').IngredientLookup;
   version: 1;
   generatedAt: string;
   sources: Source[];

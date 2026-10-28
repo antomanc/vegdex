@@ -1,0 +1,79 @@
+[
+  {
+    "id": "veg:0001",
+    "names": {
+      "en": [
+        "vegan butter",
+        "plant-based butter",
+        "dairy-free butter",
+        "non-dairy butter"
+      ],
+      "it": [
+        "burro vegano",
+        "burro vegetale"
+      ]
+    },
+    "parents": []
+  },
+  {
+    "id": "veg:0002",
+    "names": {
+      "en": [
+        "plant milk",
+        "plant-based milk",
+        "vegan milk",
+        "non-dairy milk",
+        "nondairy milk",
+        "dairy-free milk"
+      ],
+      "it": [
+        "latte vegetale",
+        "bevanda vegetale"
+      ]
+    },
+    "parents": []
+  },
+  {
+    "id": "veg:0003",
+    "names": {
+      "en": [
+        "vegan parmesan",
+        "vegan parmesan cheese",
+        "plant-based parmesan",
+        "dairy-free parmesan"
+      ],
+      "it": [
+        "parmigiano vegano",
+        "grattugiato vegetale"
+      ]
+    },
+    "parents": []
+  },
+  {
+    "id": "off:5ef2c394d5b63e41",
+    "names": {
+      "en": [],
+      "it": [
+        "funghi"
+      ]
+    },
+    "parents": []
+  },
+  {
+    "id": "off:895f1f6184a69a8c",
+    "names": {
+      "en": [
+        "cremini mushroom",
+        "cremini mushrooms",
+        "crimini mushroom",
+        "crimini mushrooms",
+        "baby bella mushroom",
+        "baby bella mushrooms"
+      ],
+      "it": [
+        "funghi cremini"
+      ]
+    },
+    "parents": []
+  }
+]

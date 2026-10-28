@@ -10,8 +10,9 @@
     "typecheck": "pnpm -r typecheck",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test",
-    "fixtures": "pnpm --filter @vegdex/ingest ingest emit --store ../../e2e/fixtures/store.json --out ../../e2e/fixtures/data"
+    "test:e2e": "pnpm fixtures && playwright test",
+    "fixtures": "pnpm --filter @vegdex/ingest ingest emit --store ../../e2e/fixtures/store.json --out ../../e2e/fixtures/data",
+    "seed:concepts": "pnpm --filter @vegdex/ingest exec tsx scripts/seed-concepts.ts"
   },
   "engines": {
     "node": ">=22.12.0"

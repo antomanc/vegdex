@@ -39,6 +39,14 @@ describe('vegdex MCP server', () => {
     expect(res.recipes[0]).toMatchObject({ id: 'tofu-curry', source: 'Vegan Richa', url: 'https://example.com/tofu-curry/' })
   })
 
+  it('searches English synonyms in emitted data and reports original content language', async () => {
+    const res = await call('search_vegan_recipes', { text: 'garbanzo' })
+    expect(res.total).toBe(1)
+    expect(res.recipes[0]).toMatchObject({ id: 'quinoa-salad', title: 'Lemony Quinoa Salad', contentLanguage: 'en' })
+    const detail = await call('get_vegan_recipes', { ids: ['quinoa-salad'] })
+    expect(detail[0].ingredients).toContain('400 g chickpeas, drained and rinsed')
+  })
+
   it('returns exact ingredient lines and flags unknown ids', async () => {
     const res = await call('get_vegan_recipes', { ids: ['lentil-soup', 'nope'] })
     expect(res[0].ingredients).toContain('4 cups vegetable broth')

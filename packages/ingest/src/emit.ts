@@ -8,15 +8,19 @@ import {
   type CatalogRecipe,
   type FullDataset,
   type Recipe,
+  type ParsedIngredient,
   type Source
 } from '@vegdex/core';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isOtherLanguage } from './sitemap';
+import { conceptFamily, englishLookup, seed, usedLookup } from './concepts';
 
-function toCatalog(r: Recipe): CatalogRecipe {
-  const ing = [...new Set(r.ingredients.map((line) => parseIngredient(line).name).filter(Boolean))];
+function toCatalog(r: Recipe, parsed: ParsedIngredient[]): CatalogRecipe {
+  const ing = [...new Set(parsed.map((p) => p.name).filter(Boolean))];
   return {
+    contentLanguage: r.contentLanguage ?? 'en',
+    concepts: conceptFamily(parsed.flatMap((p) => p.concept ? [p.concept] : [])),
     id: r.id,
     title: r.title,
     source: r.sourceId,
@@ -46,7 +50,7 @@ export interface EmitReport {
 /**
  * Write the public dataset:
  * - catalog.json: everything the grid and filters need
- * - details/NN.json: raw ingredient lines, loaded when a recipe is opened
+ * - details/NN.json: original lines and parsed ingredients, loaded when a recipe is opened
  * - recipes.full.json: catalog + ingredient lines in one file, for the MCP server
  * Recipes the vegan check flags are left out and listed in the report; so are translated editions.
  */
@@ -67,23 +71,37 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string): E
   }
 
   const generatedAt = new Date().toISOString();
-  const usedSources = sources.filter((s) => recipes.some((r) => r.sourceId === s.id));
+  const usedSources = sources.filter((s) => recipes.some((r) => r.sourceId === s.id)).map((s) => ({ ...s, contentLanguage: s.contentLanguage ?? 'en' }));
   const sorted = recipes.sort((a, b) => a.id.localeCompare(b.id));
-  const rows = sorted.map(toCatalog);
+  const parsed = sorted.map((r) => r.ingredients.map((line) => parseIngredient(line, englishLookup)));
+  const rows = sorted.map((r, i) => toCatalog(r, parsed[i]!));
+  const used = new Set(rows.flatMap((r) => r.concepts ?? []));
+  const lookup = usedLookup('en', used);
+  const unmapped: Record<string, number> = Object.create(null);
+  let mapped = 0;
+  for (const lines of parsed) for (const p of lines) {
+    if (p.concept) mapped++;
+    else unmapped[p.name || p.raw] = (unmapped[p.name || p.raw] ?? 0) + 1;
+  }
+  const coverage = { lines: parsed.flat().length, mapped, unmapped: Object.fromEntries(Object.entries(unmapped).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))) };
 
   fs.rmSync(path.join(outDir, 'details'), { recursive: true, force: true });
   fs.mkdirSync(path.join(outDir, 'details'), { recursive: true });
+  fs.rmSync(path.join(outDir, 'lookup'), { recursive: true, force: true });
+  fs.mkdirSync(path.join(outDir, 'lookup'), { recursive: true });
 
-  const catalog: Catalog = { version: 1, generatedAt, sources: usedSources, recipes: rows };
+  const catalog: Catalog = { version: 1, generatedAt, dictionary: seed.provenance, sources: usedSources, recipes: rows };
   const full: FullDataset = {
     version: 1,
     generatedAt,
+    dictionary: seed.provenance,
     sources: usedSources,
-    recipes: rows.map((row, i) => ({ ...row, ingredients: sorted[i]!.ingredients }))
+    lookup,
+    recipes: rows.map((row, i) => ({ ...row, ingredients: sorted[i]!.ingredients, parsedIngredients: parsed[i]! }))
   };
 
-  const shards: Record<string, string[]>[] = Array.from({ length: DETAIL_SHARDS }, () => ({}));
-  for (const r of sorted) shards[shardOf(r.id)]![r.id] = r.ingredients;
+  const shards: Record<string, { ingredients: string[]; parsedIngredients: ParsedIngredient[] }>[] = Array.from({ length: DETAIL_SHARDS }, () => ({}));
+  sorted.forEach((r, i) => { shards[shardOf(r.id)]![r.id] = { ingredients: r.ingredients, parsedIngredients: parsed[i]! }; });
 
   let bytes = 0;
   const write = (name: string, value: unknown) => {
@@ -91,6 +109,9 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string): E
     bytes += json.length;
     fs.writeFileSync(path.join(outDir, name), json);
   };
+  write('concept-coverage.json', coverage);
+  write('dictionary.json', { provenance: seed.provenance, concepts: seed.concepts.filter((c) => used.has(c.id)) });
+  for (const language of ['en', 'it'] as const) write(`lookup/${language}.json`, { provenance: seed.provenance, aliases: usedLookup(language, used) });
   write('catalog.json', catalog);
   write('recipes.full.json', full);
   shards.forEach((shard, i) => write(`details/${String(i).padStart(2, '0')}.json`, shard));
