@@ -57,3 +57,15 @@ it('retains originals for cached parsed data without proof that the source wordi
   const { conceptExact: _, ...legacy } = parseIngredient('400 g chickpeas, drained and rinsed', lookup);
   expect(renderIngredient(legacy, tables, 'it', 'metric')).toBeNull();
 });
+
+it('keeps original can-size units when a cached translated note changes the measurement', () => {
+  const parsed = parseIngredient('1 (15 ounce) can chickpeas, drained', lookup);
+  const complete = { ...tables, units: { ...tables.units, can: ['barattolo', 'barattoli'] as [string, string], oz: ['oncia', 'once'] as [string, string] }, notes: { [parsed.note]: '15 kg, scolati' } };
+  expect(renderIngredient(parsed, complete, 'it', 'us')).toBeNull();
+  expect(renderIngredient(parsed, { ...complete, notes: { [parsed.note]: '15 once, scolati' } }, 'it', 'us')).toEqual(['1 barattolo', 'ceci, 15 once, scolati']);
+});
+
+it('rejects a cached note that introduces a bare measurement unit', () => {
+  const parsed = parseIngredient('1 can chickpeas, drained and rinsed', lookup);
+  expect(renderIngredient(parsed, { ...tables, notes: { 'drained and rinsed': 'kg, scolati e sciacquati' } }, 'it', 'us')).toBeNull();
+});

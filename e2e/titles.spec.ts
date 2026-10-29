@@ -38,19 +38,21 @@ test('Italian titles preserve source titles and appear in saved recipes and the 
   await expect(page.getByRole('dialog').getByText('Pancake vegani soffici', { exact: true })).toBeVisible();
 });
 
-test('unsafe title translations fall back to originals at display time', async ({ page }) => {
-  await page.route('**/data/overlay/it.json', (route) => route.fulfill({ json: {
-    language: 'it', titles: { 'Fluffy Vegan Pancakes': 'Pancake al burro' }
-  } }));
-  await page.goto('/it/?q=pancakes');
-  await expect(page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true }).click();
-  await expect(page.getByRole('dialog').getByRole('heading', { name: 'Fluffy Vegan Pancakes', exact: true })).toBeVisible();
-  await expect(page.getByText('Pancake al burro', { exact: true })).toHaveCount(0);
-  await page.getByRole('button', { name: 'Chiudi', exact: true }).click();
-  await page.getByRole('searchbox').fill('Pancake al burro');
-  await expect(page.getByTestId('recipe-card')).toHaveCount(0);
-});
+for (const unsafe of ['Pancake al burro', 'Pasta al cheddar', 'Pasta al gorgonzola']) {
+  test(`unsafe title ${unsafe} falls back to originals at display time`, async ({ page }) => {
+    await page.route('**/data/overlay/it.json', (route) => route.fulfill({ json: {
+      language: 'it', titles: { 'Fluffy Vegan Pancakes': unsafe }
+    } }));
+    await page.goto('/it/?q=pancakes');
+    await expect(page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true })).toBeVisible();
+    await page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true }).click();
+    await expect(page.getByRole('dialog').getByRole('heading', { name: 'Fluffy Vegan Pancakes', exact: true })).toBeVisible();
+    await expect(page.getByText(unsafe, { exact: true })).toHaveCount(0);
+    await page.getByRole('button', { name: 'Chiudi', exact: true }).click();
+    await page.getByRole('searchbox').fill(unsafe);
+    await expect(page.getByTestId('recipe-card')).toHaveCount(0);
+  });
+}
 
 test('unavailable overlays keep the catalog browsable and missing titles retain originals', async ({ page }) => {
   await page.route('**/data/overlay/it.json', (route) => route.fulfill({ status: 404 }));

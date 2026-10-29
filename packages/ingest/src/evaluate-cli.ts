@@ -29,7 +29,8 @@ async function main() {
   if (!values.label || !/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$/.test(values.label) || !values.identity?.trim() || !values['server-version']?.trim()) throw new Error('Missing evaluation identity');
   const config = modelConfig();
   if (config.apiKey && [values.label, values.identity, values['server-version'], config.model, config.baseURL].some((value) => value?.includes(config.apiKey!))) throw new Error('Secret in report metadata');
-  const directory = values['report-dir'] ?? path.resolve(import.meta.dirname, '../../../.data/evaluation');
+  const root = path.resolve(import.meta.dirname, '../../..');
+  const directory = path.resolve(root, values['report-dir'] ?? '.data/evaluation');
   const reportFile = path.join(directory, `${values.label}.eval.json`);
   if (fs.existsSync(reportFile)) throw new Error('Report already exists');
   // Record only the origin and pathname; modelConfig rejects embedded credentials and queries.

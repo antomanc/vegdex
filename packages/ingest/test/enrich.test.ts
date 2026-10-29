@@ -6,7 +6,7 @@ import { promisify } from 'node:util';
 import { createServer, type Server } from 'node:http';
 import type { AddressInfo } from 'node:net';
 import { afterEach, expect, it } from 'vitest';
-import { renderIngredient, type FullDataset } from '@vegdex/core';
+import { ingredientNote, parseIngredient, renderIngredient, type FullDataset } from '@vegdex/core';
 import { emitDataset } from '../src/emit';
 import { englishLookup } from '../src/concepts';
 import { loadStore } from '../src/store';
@@ -232,4 +232,53 @@ it('rejects a translated full ingredient line offered in place of an ingredient 
   const fake = await endpoint(() => ({ language: 'it', conceptId: null, text: '400 g fagioli' }));
   expect(await runLocalEnrich({ ...state, model: fake.model })).toMatchObject({ accepted: 0, remaining: 1, failed: [{ id: 'introduced-amount', reason: 'quantity-changed' }] });
   expect(readLearnedData(state.learnedFile)).toEqual(emptyLearnedData());
+});
+
+it('rejects changed can-size units and accepts only the curated localized equivalent', async () => {
+  for (const [translation, accepted] of [['15 kg, scolati', false], ['15 once, scolati', true]] as const) {
+    const base = loadStore(path.resolve('e2e/fixtures/store.json')).recipes.pancakes!;
+    const recipe = { ...base, ingredients: ['1 (15 ounce) can chickpeas, drained'] };
+    const source = { id: base.sourceId, name: 'Nora Cooks', url: 'https://noracooks.com' };
+    const state = files([]);
+    const out = path.join(path.dirname(state.queueFile), 'public');
+    const initial = emitDataset([recipe], [source], out);
+    const entry = initial.queue.tasks.find((task) => task.kind === 'note')!;
+    writeJSONAtomic(state.queueFile, { ...initial.queue, tasks: [entry] });
+    const fake = await endpoint(() => ({ language: 'it', text: translation }));
+    const report = await runLocalEnrich({ ...state, model: fake.model });
+    expect(report.accepted).toBe(accepted ? 1 : 0);
+    expect(report.remaining).toBe(accepted ? 0 : 1);
+    if (!accepted) expect(report.failed).toEqual([{ id: entry.id, reason: 'unit-changed' }]);
+    emitDataset([recipe], [source], out, { learnedData: readLearnedData(state.learnedFile) });
+    const full = JSON.parse(fs.readFileSync(path.join(out, 'recipes.full.json'), 'utf8')) as FullDataset;
+    const overlay = JSON.parse(fs.readFileSync(path.join(out, 'overlay/it.json'), 'utf8'));
+    expect(overlay.ingredients.units.oz).toEqual(['oncia', 'once']);
+    const rendered = renderIngredient(full.recipes[0]!.parsedIngredients![0]!, overlay.ingredients, 'it', 'us');
+    expect(rendered).toEqual(accepted ? ['1 lattina', 'ceci, 15 once, scolati'] : null);
+  }
+});
+
+it('refuses model titles naming unqualified newly covered cheeses', async () => {
+  for (const cheese of ['cheddar', 'gorgonzola']) {
+    const state = files([task('title', 'Weeknight Chickpea Bowl')]);
+    const fake = await endpoint(() => ({ language: 'it', text: `Pasta al ${cheese}` }));
+    expect(await runLocalEnrich({ ...state, model: fake.model })).toMatchObject({ accepted: 0, remaining: 1, failed: [{ reason: 'unsafe-translation' }] });
+  }
+});
+
+it('requeues cached notes with changed units and excludes them from emitted overlays', () => {
+  const base = loadStore(path.resolve('e2e/fixtures/store.json')).recipes.pancakes!;
+  const recipe = { ...base, ingredients: ['1 (15 ounce) can chickpeas, drained'] };
+  const state = files([]);
+  const out = path.join(path.dirname(state.queueFile), 'public');
+  const learned = emptyLearnedData();
+  const originalNote = ingredientNote(parseIngredient(recipe.ingredients[0]!, englishLookup));
+  learned.ingredientTables.it = { names: {}, notes: { [originalNote]: '15 kg, scolati' }, units: {} };
+  const result = emitDataset([recipe], [{ id: base.sourceId, name: 'Nora Cooks', url: 'https://noracooks.com' }], out, { learnedData: learned });
+  expect(result.queue.tasks).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'note', original: originalNote })]));
+  const overlay = JSON.parse(fs.readFileSync(path.join(out, 'overlay/it.json'), 'utf8'));
+  expect(overlay.ingredients.notes).not.toHaveProperty(originalNote);
+  const full = JSON.parse(fs.readFileSync(path.join(out, 'recipes.full.json'), 'utf8')) as FullDataset;
+  expect(full.recipes[0]!.ingredients).toEqual(recipe.ingredients);
+  expect(renderIngredient(full.recipes[0]!.parsedIngredients![0]!, overlay.ingredients, 'it', 'us')).toBeNull();
 });

@@ -94,7 +94,8 @@ Any endpoint supporting nonstreaming OpenAI-compatible chat completions can be e
 endpoint will receive 14 requests per run, so set its own spending limit first.
 
 Results go to `.data/evaluation/<label>.eval.json`. `--report-dir <directory>` selects an isolated
-report directory; reports always use the `.eval.json` suffix and existing labels are refused.
+report directory, with relative paths resolved from the project root. Reports always use the
+`.eval.json` suffix and existing labels are refused.
 The command never reads or writes the production queue or learned data. Keep the git revision,
 server startup flags, model-file checksum (`sha256sum /path/to/model.gguf`), desktop GPU/memory
 observations and report together when comparing runs. Reports record model identity, server version,

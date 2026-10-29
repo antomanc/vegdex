@@ -15,7 +15,7 @@ afterEach(async () => {
   dirs.splice(0).forEach((dir) => fs.rmSync(dir, { recursive: true, force: true }));
 });
 
-it('evaluates real catalog cases through the public command without modifying learned data', async () => {
+it('evaluates catalog cases with project-relative report paths without modifying learned data', async () => {
   const answers: Record<string, object> = {
     'Chana Masala (Quick + Easy)': { text: 'Chana masala (facile e veloce)' },
     'Vegan Pumpkin Mac and Cheese (One Skillet)': { text: 'Pasta con zucca e formaggio vegano in una padella' },
@@ -30,7 +30,9 @@ it('evaluates real catalog cases through the public command without modifying le
     'cannellini beans': { conceptId: 'off:76299b83f7ce63ae', text: 'fagioli cannellini' },
     'panko': { conceptId: 'off:2c9bf62209dfea1e', text: 'pangrattato panko' }
   };
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'vegdex-eval-'));
+  const root = path.resolve('.');
+  fs.mkdirSync(path.join(root, '.data'), { recursive: true });
+  const dir = fs.mkdtempSync(path.join(root, '.data', 'vegdex-eval-'));
   dirs.push(dir);
   const learnedFile = path.join(dir, 'enrichment.json');
   fs.writeFileSync(learnedFile, 'leave learned entries untouched');
@@ -44,7 +46,8 @@ it('evaluates real catalog cases through the public command without modifying le
   });
   servers.push(server);
   await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
-  const result = await run('pnpm', ['--filter', '@vegdex/ingest', 'exec', 'tsx', 'src/evaluate-cli.ts', '--label', 'fake-good', '--identity', 'fixture/revision:q4', '--server-version', 'fake/1', '--report-dir', dir], {
+  const result = await run('pnpm', ['--filter', '@vegdex/ingest', 'exec', 'tsx', 'src/evaluate-cli.ts', '--label', 'fake-good', '--identity', 'fixture/revision:q4', '--server-version', 'fake/1', '--report-dir', path.relative(root, dir)], {
+    cwd: root,
     env: { ...process.env, ENRICH_BASE_URL: `http://127.0.0.1:${(server.address() as AddressInfo).port}/v1`, ENRICH_MODEL: 'fake-model', ENRICH_API_KEY: '' }
   }).catch((error) => { throw new Error(error.stdout + error.stderr + fs.readFileSync(path.join(dir, "fake-good.eval.json"), "utf8")); });
   const report = JSON.parse(fs.readFileSync(path.join(dir, 'fake-good.eval.json'), 'utf8'));

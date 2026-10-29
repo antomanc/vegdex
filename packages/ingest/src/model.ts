@@ -1,4 +1,4 @@
-import { findUnsafeRenderedTerms, ingredientKey, isQualifiedIngredient, safeTranslation } from '@vegdex/core';
+import { findUnsafeRenderedTerms, ingredientKey, isQualifiedIngredient, safeTranslation, sameMeasurements } from '@vegdex/core';
 import { seedIngredientTables, seedTranslations } from './emit';
 import { emptyLearnedData, learnedConceptId, mergeEnrichment, type LearnedData, type QueueTask } from './enrichment';
 
@@ -9,7 +9,7 @@ export interface ModelConfig {
   apiKey?: string;
   timeoutMs?: number;
 }
-export type FailureReason = 'http-error' | 'request-failed' | 'incomplete-response' | 'malformed-response' | 'wrong-language' | 'unsafe-translation' | 'unknown-concept' | 'qualification-lost' | 'unfaithful-mapping' | 'secret-in-response' | 'abstained' | 'quantity-changed';
+export type FailureReason = 'http-error' | 'request-failed' | 'incomplete-response' | 'malformed-response' | 'wrong-language' | 'unsafe-translation' | 'unknown-concept' | 'qualification-lost' | 'unfaithful-mapping' | 'secret-in-response' | 'abstained' | 'quantity-changed' | 'unit-changed';
 export type EnrichmentProposal = { kind: 'title'; text: string } | { kind: 'note'; text: string } | { kind: 'ingredient'; conceptId: string | null; text?: string };
 export type ModelResult = { ok: true; proposal: EnrichmentProposal } | { ok: false; reason: FailureReason };
 const record = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v);
@@ -114,6 +114,7 @@ export async function proposeEnrichment(task: QueueTask, config: ModelConfig, le
     if (task.kind !== 'ingredient') {
       if (!text(value.text)) return { ok: false, reason: 'malformed-response' };
       if (numbers(task.original) !== numbers(value.text)) return { ok: false, reason: 'quantity-changed' };
+      if (task.kind === 'note' && !sameMeasurements(task.original, value.text, seedIngredientTables[task.targetLanguage]?.units ?? {})) return { ok: false, reason: 'unit-changed' };
       if (!languageMatches(task, value.text, merged.ingredientTables[task.targetLanguage]?.names ?? {})) return { ok: false, reason: 'wrong-language' };
       if (findUnsafeRenderedTerms(value.text, task.targetLanguage).length) return { ok: false, reason: 'unsafe-translation' };
       return accepted(task, { kind: task.kind, text: value.text.trim() }, learned);
@@ -128,6 +129,7 @@ export async function proposeEnrichment(task: QueueTask, config: ModelConfig, le
     const name = text(value.text) ? value.text.trim() : concept && merged.ingredientTables[task.targetLanguage]?.names[concept.id];
     if (!name) return { ok: false, reason: 'malformed-response' };
     if (numbers(task.original) !== numbers(name)) return { ok: false, reason: 'quantity-changed' };
+    if (!sameMeasurements(task.original, name, seedIngredientTables[task.targetLanguage]?.units ?? {})) return { ok: false, reason: 'unit-changed' };
     if (!languageMatches(task, name, merged.ingredientTables[task.targetLanguage]?.names ?? {})) return { ok: false, reason: 'wrong-language' };
     if (findUnsafeRenderedTerms(name, task.targetLanguage).length) return { ok: false, reason: 'unsafe-translation' };
     if (qualified && !isQualifiedIngredient(name)) return { ok: false, reason: 'qualification-lost' };
