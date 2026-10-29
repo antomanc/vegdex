@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { recipeTitle } from './translations.svelte'
   import type { CatalogRecipe } from '@vegdex/core'
   import { m, countArgs, formatRating } from './i18n'
   import Icon from './Icon.svelte'
@@ -23,7 +24,7 @@
       {/if}
       {#if recipe.minutes}<span class="time">{formatMinutes(recipe.minutes)}</span>{/if}
     </div>
-    <h2 id="{id}-title">{recipe.title}</h2>
+    <h2 id="{id}-title">{recipeTitle(recipe)}</h2>
     <p class="meta" id="{id}-meta">
       {#if recipe.minutes}<span class="visually-hidden">{formatMinutes(recipe.minutes)}, </span>{/if}
       <span class="source">{sourceName}</span>
@@ -37,7 +38,7 @@
     class="heart"
     class:on={isSaved}
     aria-pressed={isSaved}
-    aria-label={isSaved ? m.unsave_recipe({ title: recipe.title }) : m.save_recipe({ title: recipe.title })}
+    aria-label={isSaved ? m.unsave_recipe({ title: recipeTitle(recipe) }) : m.save_recipe({ title: recipeTitle(recipe) })}
     onclick={() => toggleSaved(recipe.id)}><Icon name="heart" size={18} filled={isSaved} /></button
   >
 </article>

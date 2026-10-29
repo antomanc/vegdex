@@ -1,4 +1,4 @@
-import { shardOf, type Catalog, type GroceryConcepts, type IngredientLookup } from '@vegdex/core'
+import { shardOf, type Catalog, type GroceryConcepts, type IngredientLookup, type LanguageOverlay } from '@vegdex/core'
 import { BASE_LOCALE } from './locales'
 
 const base = import.meta.env.BASE_URL
@@ -44,4 +44,17 @@ export async function loadIngredients(id: string): Promise<string[]> {
   }
   const detail = (await shard)[id]
   return Array.isArray(detail) ? detail : detail?.ingredients ?? []
+}
+
+/** Display overlays are optional: older builds and offline visits retain original text. */
+export async function loadOverlay(language: string): Promise<LanguageOverlay | null> {
+  try {
+    const res = await fetch(`${base}data/overlay/${language}.json`)
+    if (!res.ok) return null
+    const value = await res.json()
+    return value?.language === language && value.titles && typeof value.titles === 'object'
+      && !Array.isArray(value.titles) && Object.values(value.titles).every((title) => typeof title === 'string') ? value : null
+  } catch {
+    return null
+  }
 }

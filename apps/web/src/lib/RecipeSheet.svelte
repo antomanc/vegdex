@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { recipeTitle } from './translations.svelte'
   import type { CatalogRecipe } from '@vegdex/core'
   import { loadIngredients } from './data'
   import Icon from './Icon.svelte'
@@ -48,7 +49,8 @@
     {#if recipe.image && !broken}
       <img class="hero" src={recipe.image} alt="" referrerpolicy="no-referrer" onerror={() => (broken = true)} />
     {/if}
-    <h2 id="sheet-title">{recipe.title}</h2>
+    <h2 id="sheet-title">{recipeTitle(recipe)}</h2>
+    {#if recipeTitle(recipe) !== recipe.title}<p class="muted original-title" lang={recipe.contentLanguage ?? 'en'}>{recipe.title}</p>{/if}
     <p class="kitchen">
       <span>{m.from_kitchen()} <button class="kitchen-name" onclick={onkitchen} aria-label={m.source_recipes({ source: sourceName })}>{sourceName}</button></span>
       {#if recipe.rating && recipe.ratingCount}<span class="rating"><Icon name="star" size={13} filled /><span class="visually-hidden">{m.rated()}</span> {formatRating(recipe.rating)} <span class="muted">({m.rating_total(countArgs(recipe.ratingCount))})</span></span>{/if}

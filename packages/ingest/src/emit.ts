@@ -1,5 +1,7 @@
 import {
   classify,
+  safeTranslation,
+  type TranslationMemory,
   DETAIL_SHARDS,
   findNonVegan,
   findNonVeganConcepts,
@@ -17,6 +19,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { isOtherLanguage } from './sitemap';
 import { conceptFamily, conceptVegan, englishLookup, seed, usedLookup } from './concepts';
+
+export const seedTranslations = JSON.parse(fs.readFileSync(new URL('../data/translations.json', import.meta.url), 'utf8')) as TranslationMemory;
 
 function toCatalog(r: Recipe, parsed: ParsedIngredient[]): CatalogRecipe {
   const ing = [...new Set(parsed.map((p) => p.name).filter(Boolean))];
@@ -57,7 +61,7 @@ export interface EmitReport {
  * Recipes the vegan check flags are left out and listed in the report; so are translated editions.
  */
 /** `generatedAt` defaults to now; fixtures pin it so regenerating them changes nothing. */
-export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { generatedAt = new Date().toISOString() } = {}): EmitReport {
+export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { generatedAt = new Date().toISOString(), translations = seedTranslations }: { generatedAt?: string; translations?: TranslationMemory } = {}): EmitReport {
   const excluded: EmitReport['excluded'] = [];
   const recipes: Recipe[] = [];
   const sourceIds = new Set(sources.map((s) => s.id));
@@ -97,6 +101,9 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
   fs.rmSync(path.join(outDir, 'lookup'), { recursive: true, force: true });
   fs.mkdirSync(path.join(outDir, 'lookup'), { recursive: true });
 
+  fs.rmSync(path.join(outDir, 'overlay'), { recursive: true, force: true });
+  fs.mkdirSync(path.join(outDir, 'overlay'), { recursive: true });
+
   const catalog: Catalog = { version: 1, generatedAt, dictionary: seed.provenance, sources: usedSources, recipes: rows };
   const full: FullDataset = {
     version: 1,
@@ -117,6 +124,13 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
     bytes += json.length;
     fs.writeFileSync(path.join(outDir, name), json);
   };
+  for (const [language, memory] of Object.entries(translations)) {
+    const titles = Object.fromEntries([...new Set(rows.map((r) => r.title))].sort().flatMap((original) => {
+      const title = safeTranslation(original, memory[original], language);
+      return title !== original ? [[original, title]] : [];
+    }));
+    write(`overlay/${language}.json`, { language, titles });
+  }
   write('concept-coverage.json', coverage);
   write('dictionary.json', { provenance: seed.provenance, concepts: seed.concepts.filter((c) => used.has(c.id)) });
   for (const language of ['en', 'it'] as const)

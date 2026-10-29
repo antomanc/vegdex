@@ -8,6 +8,7 @@
   } from './lib/state.svelte'
   import { m, countArgs, formatNumber, pageLocale } from './lib/i18n'
   import { LOCALES } from './lib/locales'
+  import { loadTranslations } from './lib/translations.svelte'
   import { isLocale } from './paraglide/runtime'
   import { SORTS } from './lib/labels'
   import { onSheetPop } from './lib/sheet'
@@ -47,6 +48,7 @@
         lookup = c.recipes.some((r) => r.concepts) ? await loadLookup(pageLocale.code).then((f) => f.aliases, () => ({})) : {}
         for (const s of c.sources) sourceNames.set(s.id, s.name)
         catalog = c
+        void loadTranslations()
       })
       .catch((e: Error) => {
         console.error(e)
