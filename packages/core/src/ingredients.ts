@@ -27,7 +27,7 @@ const UNIT_ALIASES: [string[], UnitDef][] = [
   [['pounds', 'pound', 'lbs.', 'lbs', 'lb.', 'lb'], { unit: 'lb', dimension: 'mass', factor: 453.6 }],
   [['cloves', 'clove'], { unit: 'clove', dimension: 'other', factor: 1 }],
   [['cans', 'can', 'tins', 'tin'], { unit: 'can', dimension: 'other', factor: 1 }],
-  [['packages', 'package', 'packs', 'pack', 'pkg'], { unit: 'package', dimension: 'other', factor: 1 }],
+  [['packages', 'package', 'packs', 'pack', 'pkg', 'packets', 'packet', 'sachets', 'sachet', 'envelopes', 'envelope'], { unit: 'package', dimension: 'other', factor: 1 }],
   [['blocks', 'block'], { unit: 'block', dimension: 'other', factor: 1 }],
   [['bunches', 'bunch'], { unit: 'bunch', dimension: 'other', factor: 1 }],
   [['handfuls', 'handful'], { unit: 'handful', dimension: 'other', factor: 1 }],
@@ -354,7 +354,7 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
   };
   // Preparation written before the line ("Juice of 1 lemon", "Optional: …", "more hot sauce") moves to its notes.
   const leading: string[] = [];
-  const lead = s.match(/^(?:(juice|zest)(?:\s+and\s+(juice|zest))?\s+of\s+(?:the\s+)?|(optional)[:\s]\s*|(more|additional)\s+)/i);
+  const lead = s.match(/^(?:(juice|zest)(?:\s+and\s+(juice|zest))?\s+(?:of|from)\s+(?:the\s+)?|(optional)[:\s]\s*|(more|additional)\s+)/i);
   if (lead && language === 'en') {
     s = s.slice(lead[0].length);
     if (lead[1]) leading.push(...[lead[1], lead[2]].filter(Boolean).map((w) => (w!.toLowerCase() === 'juice' ? 'juiced' : 'zested')));
@@ -383,6 +383,10 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
     quantity = words[word[1]!.toLowerCase()] ?? null;
     s = s.slice(word[0].length);
   }
+  // "half a lemon", "1/2 a lemon".
+  if (quantity !== null && language === 'en') s = s.replace(/^(?:an?|the)\s+(?=\p{L})/iu, '');
+  // "70% dark chocolate": the percentage is detail, kept in the original.
+  if (language === 'en') s = s.replace(/\b\d+(?:[.,]\d+)?\s*%\s*/, '');
 
   // "1 (15-ounce) can chickpeas": the parenthetical size belongs to the can.
   let sizeNote = '';
@@ -422,7 +426,7 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
         s = s.slice(plus[0].length + plusUnit[0].length);
       }
     }
-  } else if (u && /^(pinch|dash|handful|splash)/i.test(u[1]!)) {
+  } else if (u && /^(pinch|dash|handful|splash|bunch|sprig|can|tin|jar|bag|package|block|packet|sachet)/i.test(u[1]!)) {
     unit = lookupUnit(u[1]!)?.unit ?? null;
     quantity = 1;
     s = s.slice(u[0].length);
@@ -458,11 +462,14 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
     s = s.slice(more[0].length);
     leading.push('as needed');
   }
+  // "plain, unsweetened non-dairy milk", "medium (113g) onion": words that only describe continue with the name.
+  const head = s.match(/^([^,;(]+?)\s*(?:,\s*|\(([^()]*)\)\s*)(?=[\p{L}])/u);
+  if (head && onlyTerms(head[1]!, lookup) && !lookupConcept(head[1]!, lookup)) s = `${head[1]} ${s.slice(head[0].length)}${head[2] ? ` (${head[2]})` : ''}`;
   const commaAt = s.search(/[,;(]/);
   const afterName = commaAt >= 0 ? s.slice(commaAt) : '';
   let note = [sizeNote, afterName].filter(Boolean).join(' ').replace(/^[,;\s]+/, '');
   // "seeds of choice", "toppings such as tomato": the choice is commentary.
-  let phrase = s.split(/[,;(]/)[0]!.replace(/\s+(?:of (?:your )?choice|such as\b.*)$/i, '');
+  let phrase = s.split(/[,;(]/)[0]!.trim().replace(/\s+(?:of (?:your )?choice|such as\b.*)$/i, '').replace(/^(?:your\s+)?favou?rite\s+/i, '');
   let preparation = [afterName, ...leading].join(', ');
   const trailing = !lookupConcept(phrase, lookup) && pack.trailingNote ? phrase.match(pack.trailingNote) : null;
   if (trailing) {
@@ -488,7 +495,7 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
     // "romano or ramiro pepper" shares its noun and is never split into two ingredients.
     const resolve = (text: string) => {
       const id = lookupConcept(text, lookup) ?? plainConcept(text, lookup, language);
-      return id ? { concept: id, also: null } : shared ? null : splitIngredients(text, lookup, language);
+      return id ? { concept: id, also: null } : splitIngredients(text, lookup, language);
     };
     const found = peelTerms(phrase, resolve, lookup);
     if (found) {
@@ -562,11 +569,13 @@ function peelTerms(phrase: string, resolve: (text: string) => Resolved | null, l
   const lead: PreparationTerm[] = [];
   const trail: PreparationTerm[] = [];
   const take = (fromEnd: boolean) => {
-    for (let n = Math.min(5, words.length - 1); n > 0; n--) {
-      const text = (fromEnd ? words.slice(-n) : words.slice(0, n)).join(' ');
+    // "unflavored and unsweetened milk": a connector between two leading terms goes with them.
+    const skip = !fromEnd && lead.length && /^(?:and|&|or|,)$/i.test(words[0] ?? '') ? 1 : 0;
+    for (let n = Math.min(5, words.length - 1 - skip); n > 0; n--) {
+      const text = (fromEnd ? words.slice(-n) : words.slice(skip, skip + n)).join(' ');
       const id = lookupTerm(text, lookup);
       if (!id) continue;
-      words = fromEnd ? words.slice(0, -n) : words.slice(n);
+      words = fromEnd ? words.slice(0, -n) : words.slice(skip + n);
       (fromEnd ? trail : lead).push({ id, text });
       return true;
     }
@@ -575,6 +584,17 @@ function peelTerms(phrase: string, resolve: (text: string) => Resolved | null, l
   let resolved = resolve(words.join(' '));
   while (!resolved && (take(false) || take(true))) resolved = resolve(words.join(' '));
   return resolved ? { ...resolved, terms: [...lead, ...trail.reverse()] } : null;
+}
+
+/** Whether the words are all preparation terms ("plain", "unsweetened, plain"). */
+function onlyTerms(text: string, lookup: IngredientLookup): boolean {
+  let words = text.toLowerCase().split(/[\s,]+/).filter(Boolean);
+  while (words.length) {
+    const n = [3, 2, 1].find((k) => k <= words.length && lookupTerm(words.slice(0, k).join(' '), lookup));
+    if (!n) return false;
+    words = words.slice(n);
+  }
+  return true;
 }
 
 /**
@@ -592,13 +612,19 @@ function splitIngredients(phrase: string, lookup: IngredientLookup, language: st
     const peeled = peelTerms(text, (t) => { const c = lookupConcept(t, lookup); return c ? { concept: c, also: null } : null; }, lookup);
     return peeled ? { concept: peeled.concept, terms: peeled.terms } : null;
   };
-  const left = side(m[1]!);
-  if (!left) return null;
-  const right = side(m[3]!);
   const joiner = [pack.or, '/'].includes(m[2]!.toLowerCase()) ? 'or' : 'and';
+  const right = side(m[3]!);
+  // "firm or extra firm tofu", "lemon or lime juice", "romano or ramiro pepper": the first option shares
+  // the second's noun, which is tried before the first option alone.
+  const tail = m[3]!.split(/\s+/);
+  const shared = [1, 2].map((k) => tail.length > k ? lookupConcept(`${m[1]} ${tail.slice(-k).join(' ')}`, lookup) : null).find(Boolean);
+  const left = shared ? { concept: shared, terms: [] as PreparationTerm[] } : side(m[1]!);
+  // "tamari or soy sauce": an alternative vegdex knows stands in for one it does not.
+  if (!left) return joiner === 'or' && right ? { concept: right.concept, also: null, phrase: m[3]!.trim(), sideTerms: right.terms } : null;
   if (!right || right.concept === left.concept) return joiner === 'or' ? { concept: left.concept, also: null, phrase: m[1]!.trim(), sideTerms: left.terms } : null;
   const name = language === 'en' ? canonicalName(m[3]!) : m[3]!.trim().toLowerCase();
-  return { concept: left.concept, also: { concept: right.concept, name, joiner }, sideTerms: [...left.terms, ...right.terms] };
+  const sideTerms = [...left.terms, ...right.terms].filter((t, i, all) => all.findIndex((o) => o.id === t.id) === i);
+  return { concept: left.concept, also: { concept: right.concept, name, joiner }, sideTerms };
 }
 
 /** Drop the alternative side of "60 ml / ¼ cup"; the first measure is the one kept. */

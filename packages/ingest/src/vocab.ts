@@ -95,7 +95,19 @@ export function loadVocabulary(dir = vocabDir): Vocabulary {
       const owner = ids.size === 1 ? [...ids] : [...ids].filter((id) => taxonomy(id, key));
       if (owner.length === 1) result[key] = owner[0]!;
     }
+    // English plurals ("red grapes") name their concept too, below every real name.
+    if (language === 'en') {
+      const plurals = new Map<string, Set<string>>();
+      for (const [key, id] of Object.entries(result)) {
+        if (isTermId(id) || /\s(?:of|in|with|and)\s|[^a-z\s-]/.test(key)) continue;
+        const plural = englishPlural(key);
+        if (!owners.has(plural)) (plurals.get(plural) ?? plurals.set(plural, new Set()).get(plural)!).add(id);
+      }
+      for (const [key, ids] of plurals) if (ids.size === 1) result[key] = [...ids][0]!;
+    }
     for (const l of nameLanguages) for (const [alias, id] of Object.entries(files[l]?.aliases ?? {})) result[ingredientKey(alias)] = id;
+    // Hyphenated names are also found without hyphens; lookups try the spaced form.
+    for (const [key, id] of Object.entries(result)) if (key.includes('-')) result[key.replace(/-/g, ' ')] ??= id;
     lookups.set(language, result);
     return result;
   };
@@ -104,6 +116,12 @@ export function loadVocabulary(dir = vocabDir): Vocabulary {
     return { language, names: file.names, terms: file.terms, units: file.units, titles: file.titles };
   };
   return { dir, concepts, byId, added, files, lookup, display };
+}
+
+function englishPlural(name: string): string {
+  if (/(?:s|x|z|ch|sh)$/.test(name)) return `${name}es`;
+  if (/[^aeiou]y$/.test(name)) return `${name.slice(0, -1)}ies`;
+  return `${name}s`;
 }
 
 /** Sorted keys, one entry per line: vocabulary diffs stay reviewable. */

@@ -47,6 +47,13 @@ it('gives a name several concepts share to the concept the taxonomy calls that',
   expect(lookupConcept('aglio', vocab.lookup('it'))).toBe('off:41024084d2e27b7d');
 });
 
+it('finds English plurals and unhyphenated names below every real name', () => {
+  const en = loadVocabulary().lookup('en');
+  expect(lookupConcept('red grapes', en)).toBe(lookupConcept('red grape', en));
+  expect(lookupConcept('red grapes', en)).not.toBeNull();
+  expect(lookupConcept('extra firm tofu', en)).toBe(lookupConcept('extra-firm tofu', en));
+});
+
 it('lets an explicit alias settle a name the taxonomy leaves ambiguous', () => {
   const vocab = scratch();
   vocab.files.en!.aliases['all-purpose flour'] = 'off:f55f97cfa0dd5f18';
