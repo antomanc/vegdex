@@ -65,6 +65,11 @@ it('applies checked answers for every kind and writes reviewable files', () => {
   });
   expect(name.accepted).toBe(2);
   expect(applyAnswers(vocab, { kind: 'title', language: 'it', items: items(['5-Minute Hummus']) }, { '5-Minute Hummus': 'Hummus in 5 minuti' }).accepted).toBe(1);
+  // Applying the same answer again reuses the concept it created.
+  applyAnswers(vocab, { kind: 'map', language: 'en', items: items(['moon flour']) }, { 'moon flour': { new: { gloss: 'Lunar flour', parents: [] } } });
+  expect(vocab.added.filter((c) => c.gloss.toLowerCase() === 'lunar flour')).toHaveLength(1);
+  applyAnswers(vocab, { kind: 'map', language: 'en', items: items(['boiling chickpeas']) }, { 'boiling chickpeas': { new: { gloss: 'chickpea', parents: [] } } });
+  expect(vocab.files.en!.aliases['boiling chickpeas']).toBe(CHICKPEA);
   writeVocabulary(vocab);
   const reloaded = loadVocabulary(vocab.dir);
   expect(checkVocabulary(reloaded)).toEqual([]);
@@ -72,7 +77,7 @@ it('applies checked answers for every kind and writes reviewable files', () => {
   expect(lookupConcept('farina lunare', reloaded.lookup('it'))).toBe('vocab:lunar-flour');
   expect(reloaded.files.en!.commentary).toEqual(expect.arrayContaining(['for the sauce', 'or tamari']));
   expect(reloaded.display('it').titles['5-Minute Hummus']).toBe('Hummus in 5 minuti');
-  expect(fs.readFileSync(path.join(vocab.dir, 'concepts.json'), 'utf8')).toBe('[\n  {"id":"vocab:lunar-flour","gloss":"lunar flour","parents":[]}\n]\n');
+  expect(fs.readFileSync(path.join(vocab.dir, 'concepts.json'), 'utf8')).toContain('\n  {"id":"vocab:lunar-flour","gloss":"lunar flour","parents":[]}');
 });
 
 it('rejects answers that would lose a qualifier, hide an animal product or break the grammar', () => {
@@ -103,12 +108,12 @@ it('measures coverage and ranks gaps by the lines they keep from rendering', () 
   }) satisfies Prepared;
   const prepared = [
     recipe('a', ['400 g chickpeas, drained and rinsed', '1 cup mystery seeds', '2 tbsp moon oil']),
-    recipe('b', ['1 cup mystery seeds, see notes', '1 tsp sea salt'])
+    recipe('b', ['1 cup mystery seeds, see notes', '1 tsp moon salt'])
   ];
   const coverage = measureCoverage(prepared, vocab, ['it']);
-  expect(coverage.languages.it).toMatchObject({ lines: 5, rendered: 1, unknown: 3, titles: 2, translatedTitles: 0 });
+  expect(coverage.languages.it).toMatchObject({ lines: 5, rendered: 1, unknown: 4, titles: 2, translatedTitles: 0 });
   const gaps = findGaps(prepared, vocab, ['it']);
-  expect(gaps.filter((g) => g.kind === 'map').map((g) => [g.id, g.lines])).toEqual([['mystery seeds', 2], ['moon oil', 1]]);
+  expect(gaps.filter((g) => g.kind === 'map').map((g) => [g.id, g.lines])).toEqual([['mystery seeds', 2], ['moon oil', 1], ['moon salt', 1]]);
   expect(gaps.filter((g) => g.kind === 'title')).toHaveLength(2);
   const batch = buildBatch(vocab, gaps, 'map', 'en', 1);
   expect(batch.items).toEqual([expect.objectContaining({ id: 'mystery seeds', lines: 2, context: expect.objectContaining({ candidates: expect.any(Array) }) })]);

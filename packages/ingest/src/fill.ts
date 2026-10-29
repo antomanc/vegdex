@@ -1,4 +1,4 @@
-import { ingredientKey, isTermId, languagePacks, type NounForms, type TermForms } from '@vegdex/core';
+import { findUnsafeRenderedTerms, ingredientKey, isTermId, languagePacks, type NounForms, type TermForms } from '@vegdex/core';
 import type { Gap, GapKind } from './gaps';
 import { checkAlias, checkName, checkTerm, checkTitle, slug, termKeys } from './vocab-check';
 import { emptyVocabFile, type Vocabulary } from './vocab';
@@ -130,8 +130,12 @@ function applyOne(vocab: Vocabulary, kind: GapKind, language: string, file: Voca
     }
     if (kind === 'map' && record(answer.new)) {
       const { gloss, parents } = answer.new as { gloss?: unknown; parents?: unknown };
-      if (typeof gloss !== 'string' || !gloss.trim() || !Array.isArray(parents) || !parents.every((p) => typeof p === 'string')) return 'malformed';
+      if (typeof gloss !== 'string' || !gloss.trim() || gloss.length > 80 || !Array.isArray(parents) || !parents.every((p) => typeof p === 'string')) return 'malformed';
+      if (findUnsafeRenderedTerms(gloss, 'en').length) return 'unsafe';
       if (parents.some((p) => !vocab.byId.has(p) || vocab.byId.get(p)!.vegan === 'no')) return 'unknown-parent';
+      // A gloss vegdex already knows is that concept, and applying an answer twice must not mint another.
+      const known = vocab.lookup('en')[ingredientKey(gloss)] ?? vocab.added.find((c) => ingredientKey(c.gloss) === ingredientKey(gloss))?.id;
+      if (known && !isTermId(known)) return addAlias(vocab, language, phrase, known);
       let conceptId = `vocab:${slug(gloss)}`;
       for (let n = 2; vocab.byId.has(conceptId); n++) conceptId = `vocab:${slug(gloss)}-${n}`;
       const concept = { id: conceptId, gloss: gloss.trim(), parents: parents as string[] };

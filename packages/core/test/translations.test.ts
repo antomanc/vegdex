@@ -55,3 +55,14 @@ it('guards common named cheeses and meats in each display language without borro
   expect(safeTranslation('Original', 'Cheddar vegano e gorgonzola', 'it')).toBe('Original');
   expect(safeTranslation('Original', 'Vegan gorgonzola with salami', 'en')).toBe('Original');
 });
+
+it('accepts a qualifier anywhere in the same ingredient, once, and a cheese name followed by "cheese"', () => {
+  for (const safe of ['vegan ground beef', 'dairy free butter', 'dairy-free butter', 'vegan heavy cream', 'vegan cheddar cheese', 'shredded vegan mozzarella cheese', 'non-dairy whipped cream', 'meatless sausage', 'sunflower seed butter', 'coconut whipped cream', 'apple butter'])
+    expect(safeTranslation('Original', safe, 'en'), safe).toBe(safe);
+  for (const unsafe of ['vegan cheddar bacon', 'vegan butter cheese chicken', 'ground beef', 'cheddar cheese', 'vegan butter and cheese'])
+    expect(safeTranslation('Original', unsafe, 'en'), unsafe).toBe('Original');
+  for (const safe of ['carne macinata vegetale', 'panna da cucina vegetale', 'formaggio grattugiato vegano'])
+    expect(safeTranslation('Original', safe, 'it'), safe).toBe(safe);
+  for (const unsafe of ['carne macinata di manzo', 'panna da cucina fresca e intera'])
+    expect(safeTranslation('Original', unsafe, 'it'), unsafe).toBe('Original');
+});
