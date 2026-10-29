@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { recipeTitle } from './translations.svelte'
-  import { compileGroceryList, parseIngredient, type CatalogRecipe, type GroceryItem } from '@vegdex/core'
+  import { display, recipeTitle } from './translations.svelte'
+  import { compileGroceryList, displayGroceryName, parseIngredient, type CatalogRecipe, type GroceryItem } from '@vegdex/core'
   import { loadIngredients, loadLookup, type LookupFile } from './data'
   import { BASE_LOCALE } from './locales'
-  import { m, countArgs, formatNumber } from './i18n'
+  import { m, countArgs, formatNumber, pageLocale } from './i18n'
   import { AISLE_LABELS, formatGroceryAmount } from './labels'
   import Icon from './Icon.svelte'
   import { sheet } from './sheet'
@@ -132,7 +132,7 @@
             <li>
               <label class:done={checked[key(item)]}>
                 <input type="checkbox" bind:checked={checked[key(item)]} />
-                <span class="name">{item.name}</span>
+                <span class="name">{displayGroceryName(item, display.overlay?.ingredients, pageLocale.code)}</span>
                 <span class="amount">{item.toTaste ? m.to_taste() : item.amounts.map(formatGroceryAmount).join(' + ')}</span>
               </label>
             </li>

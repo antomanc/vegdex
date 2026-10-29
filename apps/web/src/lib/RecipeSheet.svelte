@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { recipeTitle } from './translations.svelte'
-  import type { CatalogRecipe } from '@vegdex/core'
-  import { loadIngredients } from './data'
+  import { display, recipeTitle } from './translations.svelte'
+  import { renderIngredient, type CatalogRecipe } from '@vegdex/core'
+  import { loadDetails } from './data'
   import Icon from './Icon.svelte'
   import { m, countArgs, formatNumber, formatRating, pageLocale } from './i18n'
   import { FREE, cuisineLabel, formatMinutes, splitLine } from './labels'
@@ -29,7 +29,7 @@
     broken = false
     if (dialog) dialog.scrollTop = 0
   })
-  const ingredients = $derived(loadIngredients(recipe.id))
+  const ingredients = $derived(loadDetails(recipe.id))
   const isSaved = $derived(saved.ids.includes(recipe.id))
   const reportUrl = $derived(`https://github.com/antomanc/vegdex/issues/new?${new URLSearchParams({
     title: `Recipe problem: ${recipe.title}`,
@@ -84,13 +84,26 @@
     <div class="ingredients-head"><h3>{m.ingredients()}</h3><UnitsToggle /></div>
     {#await ingredients}
       <p class="muted">{m.loading()}</p>
-    {:then lines}
-      {@const split = lines.map((line) => splitLine(line, prefs.units))}
+    {:then { ingredients: lines, parsedIngredients }}
+      {@const split = lines.map((line, i) => {
+        const parsed = parsedIngredients?.[i]
+        return parsed && pageLocale.code !== (recipe.contentLanguage ?? 'en')
+          ? renderIngredient(parsed, display.overlay?.ingredients, pageLocale.code, prefs.units) ?? splitLine(line, prefs.units)
+          : splitLine(line, prefs.units)
+      })}
       <ul class="ingredients" data-testid="ingredients">
         {#each split as [amount, rest], i (i)}<li>{#if amount}<span class="amount">{amount}</span>{' '}{/if}{rest}</li>{/each}
       </ul>
       {#if split.some(([amount]) => amount.startsWith('≈'))}
         <p class="muted small">{m.metric_note()}</p>
+      {/if}
+      {#if pageLocale.code !== (recipe.contentLanguage ?? 'en')}
+        <details class="original-ingredients">
+          <summary>{m.original_ingredients()}</summary>
+          <ul class="ingredients" data-testid="original-ingredients" lang={recipe.contentLanguage ?? 'en'}>
+            {#each lines as line, i (i)}<li>{line}</li>{/each}
+          </ul>
+        </details>
       {/if}
     {:catch}
       <p class="muted">{m.ingredients_offline({ source: sourceName })}</p>

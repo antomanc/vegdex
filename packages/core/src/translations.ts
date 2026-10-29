@@ -5,6 +5,7 @@ export type TranslationMemory = Record<string, Record<string, string>>;
 export interface LanguageOverlay {
   language: string;
   titles: Record<string, string>;
+  ingredients?: import('./ingredient-display').IngredientTables;
 }
 
 export function translatedTitle(original: string, language: string, memory: TranslationMemory): string {

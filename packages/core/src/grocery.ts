@@ -11,6 +11,8 @@ export interface GroceryInput {
 }
 
 export interface GroceryItem {
+  /** Present when every mapped contribution agrees on one concept. The row name remains stable across UI languages. */
+  concept?: string;
   name: string;
   aisle: string;
   /** Human-readable totals, e.g. ["1 ½ cups (360 ml)", "2 cans"]. */
@@ -153,6 +155,7 @@ export function compileGroceryList(
   { units = 'us', lookup = {}, concepts = {} }: { units?: Units; lookup?: IngredientLookup; concepts?: GroceryConcepts } = {}
 ): GroceryItem[] {
   interface Acc {
+    concepts: Set<string>;
     name: string;
     aisle: string;
     volume: number;
@@ -202,10 +205,11 @@ export function compileGroceryList(
     if (canned) aisle = 'canned & jarred';
     const key = canned ? `${name} canned` : name;
     const acc: Acc = groups.get(key) ?? {
-      name, aisle, volume: 0, volumeGrams: 0, unweighedMl: 0, blogMl: 0, blogGrams: 0,
+      concepts: new Set(), name, aisle, volume: 0, volumeGrams: 0, unweighedMl: 0, blogMl: 0, blogGrams: 0,
       mass: 0, estimate: false, count: 0, other: new Map(), toTaste: false, recipeIds: new Set(), lines: []
     };
     groups.set(key, acc);
+    if (p.concept) acc.concepts.add(p.concept);
     acc.recipeIds.add(input.recipeId);
     acc.lines.push(p.raw);
     if (p.quantity === null) {
@@ -263,6 +267,7 @@ export function compileGroceryList(
     for (const [unit, q] of acc.other)
       amounts.push(unit === 'cm' ? formatMetric({ quantity: q, quantityMax: null, unit: 'cm', estimate: false }) : `${fmt(q)} ${plural(unit, q)}`);
     items.push({
+      ...(acc.concepts.size === 1 ? { concept: [...acc.concepts][0]! } : {}),
       name: acc.name,
       aisle: acc.aisle,
       amounts,

@@ -118,9 +118,9 @@ test('saved recipes, shopping amounts and check-offs survive switching languages
   await list.locator('summary').click();
   await expect(list.getByText('8 porzioni', { exact: true })).toBeVisible();
   await expect(list.getByText('×1½', { exact: true })).toBeVisible();
-  await expect(groceries.locator('li', { hasText: 'garlic' })).toContainText('9 spicchi');
-  await expect(groceries.getByRole('checkbox', { name: /garlic/ })).toBeChecked();
+  await expect(groceries.locator('li', { hasText: 'aglio' })).toContainText('9 spicchi');
+  await expect(groceries.getByRole('checkbox', { name: /aglio/ })).toBeChecked();
   await expect(list.getByRole('button', { name: 'Metrico', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await page.reload();
-  await expect(groceries.locator('li', { hasText: 'garlic' })).toContainText('9 spicchi');
+  await expect(groceries.locator('li', { hasText: 'aglio' })).toContainText('9 spicchi');
 });

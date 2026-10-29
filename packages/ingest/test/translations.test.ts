@@ -22,9 +22,24 @@ it('emits only used safe titles in a lazy overlay while retaining catalog origin
   const overlay = read('overlay/it.json') as LanguageOverlay;
   expect(catalog.recipes[0]!.title).toBe('Fluffy Vegan Pancakes');
   expect(catalog).not.toHaveProperty('titles');
-  expect(overlay).toEqual({ language: 'it', titles: { 'Fluffy Vegan Pancakes': 'Pancake vegani soffici' } });
+  expect({ language: overlay.language, titles: overlay.titles }).toEqual({ language: 'it', titles: { 'Fluffy Vegan Pancakes': 'Pancake vegani soffici' } });
   emitDataset([recipe], [{ id: recipe.sourceId, name: 'Nora Cooks', url: 'https://noracooks.com' }], out, {
     translations: { it: { [recipe.title]: 'Pancake al burro' } }
   });
   expect(read('overlay/it.json').titles).toEqual({});
+});
+
+it('ships only used ingredient names, preparation phrases and units beside translated titles', () => {
+  const store = loadStore(path.resolve('e2e/fixtures/store.json'));
+  const recipe = store.recipes['quinoa-salad']!;
+  const out = fs.mkdtempSync(path.join(os.tmpdir(), 'vegdex-ingredient-tables-'));
+  dirs.push(out);
+  emitDataset([recipe], [{ id: recipe.sourceId, name: 'The Simple Veganista', url: 'https://simple-veganista.com' }], out);
+  const overlay = JSON.parse(fs.readFileSync(path.join(out, 'overlay/it.json'), 'utf8')) as LanguageOverlay;
+  expect(overlay.ingredients?.names['off:7ed0f0da39d5b63b']).toBe('ceci');
+  expect(overlay.ingredients?.notes['drained and rinsed']).toBe('scolati e sciacquati');
+  expect(overlay.ingredients?.units.g).toEqual(['g', 'g']);
+  expect(overlay.ingredients?.names).not.toHaveProperty('veg:0001');
+  expect(overlay.ingredients?.notes).not.toHaveProperty('minced');
+  expect(overlay.ingredients?.units).not.toHaveProperty('block');
 });
