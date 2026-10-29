@@ -38,6 +38,7 @@ function instructions(kind: GapKind, language: string): string {
   const genders = languagePacks[language]?.genders;
   if (kind === 'map') return `Each item is an ingredient name as written in ${lang} recipes, with example lines. Decide which ingredient it is.
 - {"concept": "<id>"} when one of the item's candidates is exactly the same ingredient: same product, same plant-based qualification. "all-purpose flour" is plain wheat flour; "vegan butter" is never butter.
+- {"same": "<English name>"} when no candidate fits but you know another common English name for exactly this ingredient ("sodium bicarbonate" for "baking soda"); it is used only if vegdex knows that name.
 - {"new": {"gloss": "<short English name>", "parents": ["<candidate id>"]}} when no candidate is the same ingredient. The gloss names the product plainly ("smoked paprika"). Parents are broader candidates it belongs to, or [].
 - "not-ingredient" for headings and sentences ("for the sauce", "serve with rice").
 ${common}`;
@@ -62,8 +63,8 @@ function candidates(vocab: Vocabulary, phrase: string, language: string) {
     .map((c) => ({ c, score: [...new Set([...(c.names.en ?? []), ...(c.names[language] ?? [])].flatMap((n) => n.split(/[^\p{L}]+/u)))].filter((t) => tokens.has(t)).length }))
     .filter(({ score }) => score)
     .sort((a, b) => b.score - a.score || (a.c.names.en?.[0] ?? '').length - (b.c.names.en?.[0] ?? '').length)
-    .slice(0, 12)
-    .map(({ c }) => ({ id: c.id, en: c.names.en?.slice(0, 4) ?? [], ...(language !== 'en' && c.names[language] ? { [language]: c.names[language]!.slice(0, 3) } : {}) }));
+    .slice(0, 8)
+    .map(({ c }) => ({ id: c.id, en: c.names.en?.slice(0, 3) ?? [], ...(language !== 'en' && c.names[language] ? { [language]: c.names[language]!.slice(0, 2) } : {}) }));
 }
 
 export function buildBatch(vocab: Vocabulary, gaps: Gap[], kind: GapKind, language: string, limit: number, offset = 0): Batch {
@@ -73,7 +74,7 @@ export function buildBatch(vocab: Vocabulary, gaps: Gap[], kind: GapKind, langua
     terms: Object.fromEntries(Object.entries(vocab.files.en?.terms ?? {}).map(([id, name]) => [id, typeof name === 'string' ? name : Object.values(name)[0]]))
   };
   for (const gap of items) {
-    const item: Batch['items'][number] = { id: gap.id, lines: gap.lines, examples: gap.examples };
+    const item: Batch['items'][number] = { id: gap.id, lines: gap.lines, examples: gap.examples.slice(0, 2).map((e) => e.slice(0, 100)) };
     if (kind === 'map') item.context = { candidates: candidates(vocab, gap.id, language) };
     if (kind === 'name') {
       const concept = vocab.byId.get(gap.id);
@@ -121,6 +122,11 @@ function applyOne(vocab: Vocabulary, kind: GapKind, language: string, file: Voca
       if (problem) return problem;
       file.terms[termId] = name as TermForms;
       return addAlias(vocab, language, phrase, termId);
+    }
+    if (kind === 'map' && typeof answer.same === 'string') {
+      const id = vocab.lookup('en')[ingredientKey(answer.same)];
+      if (!id || isTermId(id)) return 'unknown-name';
+      return addAlias(vocab, language, phrase, id);
     }
     if (kind === 'map' && record(answer.new)) {
       const { gloss, parents } = answer.new as { gloss?: unknown; parents?: unknown };

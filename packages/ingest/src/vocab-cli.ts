@@ -67,7 +67,9 @@ function gaps() {
     const batch = buildBatch(vocab, all, kind, language, size, n * size);
     if (!batch.items.length) break;
     const file = batchPath(kind, language, n + 1);
-    writeAtomic(file, JSON.stringify(batch, null, 1) + '\n');
+    // One item per line: small for a model to read, easy for a person to skim.
+    const { items, ...head } = batch;
+    writeAtomic(file, `${JSON.stringify(head).slice(0, -1)},"items":[\n${items.map((i) => JSON.stringify(i)).join(',\n')}\n]}\n`);
     console.log(`${path.relative(root, file)}: ${batch.items.length} items covering ${batch.items.reduce((a, i) => a + i.lines, 0)} lines`);
   }
 }

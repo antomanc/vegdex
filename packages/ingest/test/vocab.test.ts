@@ -50,10 +50,11 @@ it('lets an explicit alias settle a name the taxonomy leaves ambiguous', () => {
 it('applies checked answers for every kind and writes reviewable files', () => {
   const vocab = scratch();
   const items = (ids: string[]) => ids.map((id) => ({ id, lines: 1, examples: [] }));
-  const map = applyAnswers(vocab, { kind: 'map', language: 'en', items: items(['garbanzo beans', 'lunar flour', 'for the sauce', 'mystery']) }, {
-    'garbanzo beans': { concept: CHICKPEA }, 'lunar flour': { new: { gloss: 'lunar flour', parents: [] } }, 'for the sauce': 'not-ingredient', mystery: null
+  const map = applyAnswers(vocab, { kind: 'map', language: 'en', items: items(['garbanzo beans', 'chick peas cooked', 'lunar flour', 'for the sauce', 'mystery', 'moon dust']) }, {
+    'garbanzo beans': { concept: CHICKPEA }, 'chick peas cooked': { same: 'chickpea' }, 'lunar flour': { new: { gloss: 'lunar flour', parents: [] } },
+    'for the sauce': 'not-ingredient', mystery: null, 'moon dust': { same: 'moon dust powder' }
   });
-  expect(map).toEqual({ accepted: 3, skipped: 1, rejected: [] });
+  expect(map).toEqual({ accepted: 4, skipped: 1, rejected: [{ id: 'moon dust', reason: 'unknown-name' }] });
   const term = applyAnswers(vocab, { kind: 'term', language: 'en', items: items(['finely snipped', 'or tamari', 'cut into dice']) }, {
     'finely snipped': { new: { id: 'term:snipped', name: 'finely snipped' } }, 'or tamari': 'commentary', 'cut into dice': { term: 'term:diced' }
   });
