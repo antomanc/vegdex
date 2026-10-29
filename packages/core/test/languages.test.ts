@@ -12,6 +12,8 @@ it('keeps Italian vegan-qualified concepts distinct and checks separate animal i
   expect(parseIngredient('due cucchiaini di burro vegetale', lookup, 'it')).toMatchObject({ concept: 'vegan-butter', quantity: 2, unit: 'tsp' });
   expect(parseIngredient('1 g burro vegetale sconosciuto', lookup, 'it').concept).toBeNull();
   expect(findNonVegan(['2 uova', '1 cucchiaio burro vegetale e 1 uovo', '100 ml latte di soia', '10 g parmigiano vegano'], 'it').map((h) => h.line)).toEqual(['2 uova', '1 cucchiaio burro vegetale e 1 uovo']);
+  const animal = ['50 g lardo', '100 g speck a cubetti', '2 würstel', '200 g polpo', '300 g baccalà', '1 cucchiaio di salsa worcestershire', '200 g frutti di mare', '1 sardina'];
+  expect(findNonVegan([...animal, '150 g würstel vegani'], 'it').map((h) => h.line)).toEqual(animal);
   expect(findNonVeganConcepts(['10 g nome animale'], lookup, { animal: 'no' }, 'it')).toEqual([{ concept: 'animal', line: '10 g nome animale' }]);
 });
 

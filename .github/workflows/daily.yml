@@ -43,7 +43,10 @@ jobs:
       - name: Restore store
         run: gh release download data --pattern store.json.gz --dir .data || echo "no store yet, starting fresh"
 
+      # Enrichment is optional for publishing: on failure, emit shows originals and the queue is not saved.
       - name: Restore enrichment and previous queue
+        id: restore
+        continue-on-error: true
         run: pnpm nightly:enrichment restore
 
       - name: Crawl new recipes
@@ -61,10 +64,12 @@ jobs:
           gh release upload data .data/store.json.gz .data/excluded.json --clobber
 
       - name: Update translation backlog
+        if: steps.restore.outcome == 'success'
+        continue-on-error: true
         run: pnpm nightly:enrichment backlog
 
       - name: Save translation queue
-        if: always() && steps.emit.outcome == 'success'
+        if: always() && steps.emit.outcome == 'success' && steps.restore.outcome == 'success'
         run: pnpm nightly:enrichment save
 
       - name: Build site
