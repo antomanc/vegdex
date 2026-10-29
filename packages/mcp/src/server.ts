@@ -31,6 +31,7 @@ export async function startServer(load: () => Promise<FullDataset>, version: str
         'Returns summaries with ids; free-from and high-protein tags are derived from ingredients and nutrition data, so confirm on the source for allergies.',
       inputSchema: {
         text: z.string().optional().describe('Free text matched against titles and ingredients, e.g. "lasagna" or "peanut noodles"'),
+        contentLanguage: z.string().optional().describe('Content language code, e.g. "en" or "it"; omit to search every language'),
         meals: z.array(z.enum(MEALS)).optional().describe('Any of these meal types'),
         flavor: z.enum(FLAVORS).optional(),
         maxMinutes: z.number().int().positive().optional().describe('Maximum total time in minutes'),

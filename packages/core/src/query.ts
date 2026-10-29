@@ -4,6 +4,10 @@ import type { CatalogRecipe, Flavor, FreeFrom, Meal } from './types';
 
 export interface RecipeQuery {
   text?: string;
+  /** Restrict recipes to the language their source writes in. */
+  contentLanguage?: string;
+  /** Prefer this content language only when the selected ordering ties. */
+  preferredContentLanguage?: string;
   meals?: Meal[];
   flavor?: Flavor;
   maxMinutes?: number;
@@ -81,6 +85,7 @@ export function searchRecipes<R extends CatalogRecipe>(recipes: R[], q: RecipeQu
   const scored: { r: R; score: number }[] = [];
   for (const r of recipes) {
     if (ids && !ids.has(r.id)) continue;
+    if (q.contentLanguage && (r.contentLanguage ?? 'en') !== q.contentLanguage) continue;
     if (sources && !sources.has(r.source)) continue;
     if (q.meals?.length && !q.meals.some((m) => r.tags.includes(`meal:${m}`))) continue;
     if (q.flavor && !r.tags.includes(`flavor:${q.flavor}`)) continue;
@@ -115,5 +120,7 @@ export function searchRecipes<R extends CatalogRecipe>(recipes: R[], q: RecipeQu
     newest: (a, b) => (b.r.published ?? '').localeCompare(a.r.published ?? ''),
     fastest: (a, b) => (a.r.minutes ?? Infinity) - (b.r.minutes ?? Infinity)
   };
-  return scored.sort(cmp[sort]).map((s) => s.r);
+  return scored.sort((a, b) => cmp[sort](a, b) ||
+    Number((b.r.contentLanguage ?? 'en') === q.preferredContentLanguage) -
+    Number((a.r.contentLanguage ?? 'en') === q.preferredContentLanguage)).map((s) => s.r);
 }

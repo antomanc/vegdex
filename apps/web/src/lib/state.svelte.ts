@@ -24,9 +24,10 @@ export type Filters = typeof filters
 
 export function toQuery(savedIds: string[], f: Filters = filters): RecipeQuery {
   // The saved view is a list the user built by hand: browse filters never hide its recipes.
-  if (f.saved) return { text: f.text.trim() || undefined, sort: f.sort ?? undefined, ids: savedIds }
+  if (f.saved) return { text: f.text.trim() || undefined, sort: f.sort ?? undefined, ids: savedIds, preferredContentLanguage: pageLocale.code }
   return {
     text: f.text.trim() || undefined,
+    preferredContentLanguage: pageLocale.code,
     meals: f.meals,
     flavor: f.flavor ?? undefined,
     maxMinutes: f.maxMinutes ?? undefined,

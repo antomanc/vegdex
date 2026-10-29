@@ -24,6 +24,7 @@ Search options:
   --protein           At least 20 g protein per serving
   --have <i,...>      Must use these ingredients
   --avoid <i,...>     Must not use these ingredients
+  --language <code>  Content language, e.g. en or it (default: all)
   --sort <s>          relevance, rating, newest, fastest
   --limit <n>         Default 10
   --json              Machine-readable output
@@ -49,6 +50,7 @@ async function main() {
       protein: { type: 'boolean' },
       have: { type: 'string' },
       avoid: { type: 'string' },
+      language: { type: 'string' },
       sort: { type: 'string' },
       limit: { type: 'string' },
       json: { type: 'boolean' }
@@ -60,6 +62,7 @@ async function main() {
   if (command === 'search') {
     const result = search(data, {
       text: positionals.join(' ') || undefined,
+      contentLanguage: values.language,
       meals: list(values.meal) as Meal[] | undefined,
       flavor: values.flavor as Flavor | undefined,
       maxMinutes: values.max ? Number(values.max) : undefined,

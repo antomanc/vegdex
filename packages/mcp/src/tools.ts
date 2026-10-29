@@ -7,7 +7,7 @@ import {
   type RecipeQuery
 } from '@vegdex/core'
 
-export interface SearchArgs extends Omit<RecipeQuery, 'ids'> {
+export interface SearchArgs extends Omit<RecipeQuery, 'ids' | 'preferredContentLanguage'> {
   limit?: number
 }
 
