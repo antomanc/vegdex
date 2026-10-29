@@ -1,5 +1,8 @@
 import {
   classify,
+  ingredientNote,
+  toMetric,
+  type IngredientTables,
   safeTranslation,
   type TranslationMemory,
   DETAIL_SHARDS,
@@ -21,6 +24,10 @@ import { isOtherLanguage } from './sitemap';
 import { conceptFamily, conceptVegan, englishLookup, seed, usedLookup } from './concepts';
 
 export const seedTranslations = JSON.parse(fs.readFileSync(new URL('../data/translations.json', import.meta.url), 'utf8')) as TranslationMemory;
+const displaySeeds = JSON.parse(fs.readFileSync(new URL('../data/ingredient-display.json', import.meta.url), 'utf8')) as Record<string, IngredientTables>;
+export const seedIngredientTables: Record<string, IngredientTables> = Object.fromEntries(Object.entries(displaySeeds).map(([language, tables]) => [language, {
+  ...tables, names: { ...Object.fromEntries(seed.concepts.flatMap((c) => c.names[language]?.[0] ? [[c.id, c.names[language]![0]!]] : [])), ...tables.names }
+}]));
 const blockedIds: string[] = JSON.parse(fs.readFileSync(new URL('../data/blocklist.json', import.meta.url), 'utf8'));
 
 function toCatalog(r: Recipe, parsed: ParsedIngredient[]): CatalogRecipe {
@@ -62,7 +69,7 @@ export interface EmitReport {
  * Recipes the vegan check flags are left out and listed in the report; so are translated editions.
  */
 /** `generatedAt` defaults to now; fixtures pin it so regenerating them changes nothing. */
-export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { generatedAt = new Date().toISOString(), translations = seedTranslations, blocklist = blockedIds }: { generatedAt?: string; translations?: TranslationMemory; blocklist?: string[] } = {}): EmitReport {
+export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { generatedAt = new Date().toISOString(), translations = seedTranslations, ingredientTables = seedIngredientTables, blocklist = blockedIds }: { generatedAt?: string; translations?: TranslationMemory; ingredientTables?: Record<string, IngredientTables>; blocklist?: string[] } = {}): EmitReport {
   const excluded: EmitReport['excluded'] = [];
   const recipes: Recipe[] = [];
   const sourceIds = new Set(sources.map((s) => s.id));
@@ -130,12 +137,25 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
     bytes += json.length;
     fs.writeFileSync(path.join(outDir, name), json);
   };
-  for (const [language, memory] of Object.entries(translations)) {
+  for (const language of new Set([...Object.keys(translations), ...Object.keys(ingredientTables)])) {
+    const memory = translations[language] ?? {};
     const titles = Object.fromEntries([...new Set(rows.map((r) => r.title))].sort().flatMap((original) => {
       const title = safeTranslation(original, memory[original], language);
       return title !== original ? [[original, title]] : [];
     }));
-    write(`overlay/${language}.json`, { language, titles });
+    const tables = ingredientTables[language];
+    const usedNames = new Set(parsed.flatMap((lines) => lines.flatMap((p) => p.concept ? [p.concept] : [])));
+    const usedNotes = new Set(parsed.flat().map(ingredientNote).filter(Boolean));
+    const usedUnits = new Set(parsed.flat().flatMap((p) => {
+      const metric = toMetric(p);
+      return [...p.unit ? [p.unit] : [], ...metric ? [metric.unit, ...(metric.unit !== 'cm' && Math.max(metric.quantity, metric.quantityMax ?? 0) >= 1000 ? [metric.unit === 'g' ? 'kg' : 'l'] : [])] : []];
+    }));
+    const ingredients = tables ? {
+      names: Object.fromEntries(Object.entries(tables.names).filter(([id]) => usedNames.has(id))),
+      notes: Object.fromEntries(Object.entries(tables.notes).filter(([note]) => usedNotes.has(note))),
+      units: Object.fromEntries(Object.entries(tables.units).filter(([unit]) => usedUnits.has(unit)))
+    } : undefined;
+    write(`overlay/${language}.json`, { language, titles, ...(ingredients ? { ingredients } : {}) });
   }
   write('concept-coverage.json', coverage);
   write('dictionary.json', { provenance: seed.provenance, concepts: seed.concepts.filter((c) => used.has(c.id)) });

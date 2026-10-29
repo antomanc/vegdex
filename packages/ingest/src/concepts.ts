@@ -3,7 +3,7 @@ import type { ConceptVeganStatus, IngredientLookup } from '@vegdex/core';
 
 interface Concept {
   id: string;
-  names: { en: string[]; it: string[] };
+  names: Record<string, string[]>;
   parents: string[];
   vegan: ConceptVeganStatus;
 }
@@ -20,12 +20,12 @@ export function conceptFamily(ids: string[]): string[] {
   return [...found].sort();
 }
 
-export function usedLookup(language: 'en' | 'it', used?: Set<string>): IngredientLookup {
+export function usedLookup(language: string, used?: Set<string>): IngredientLookup {
   const aliases: IngredientLookup = Object.create(null);
   const ambiguous = new Set<string>();
   for (const c of seed.concepts) {
     if (used && !used.has(c.id)) continue;
-    for (const n of language === 'en' ? c.names.en : [...c.names.en, ...c.names.it]) {
+    for (const n of language === 'en' ? c.names.en ?? [] : [...(c.names.en ?? []), ...(c.names[language] ?? [])]) {
       if (aliases[n] && aliases[n] !== c.id) ambiguous.add(n);
       else aliases[n] = c.id;
     }

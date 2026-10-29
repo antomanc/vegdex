@@ -15,7 +15,7 @@ test('Italian ingredient search loads only its lookup and keeps original details
   await expect(page.getByRole('link', { name: 'Dizionario ingredienti', exact: true })).toHaveAttribute('href', '/data/dictionary.json');
   await page.getByRole('button', { name: 'Salva Insalata di quinoa al limone', exact: true }).click();
   await page.getByRole('button', { name: 'Insalata di quinoa al limone', exact: true }).click();
-  await expect(page.getByTestId('ingredients')).toContainText('chickpeas');
+  await expect(page.getByTestId('ingredients')).toContainText('ceci');
   await expect(page.getByRole('dialog').getByRole('heading', { name: 'Insalata di quinoa al limone', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Chiudi', exact: true }).click();
   await page.getByRole('link', { name: 'English', exact: true }).click();

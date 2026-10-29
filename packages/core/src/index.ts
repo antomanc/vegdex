@@ -9,3 +9,4 @@ export * from './weights';
 export * from './metric';
 export * from './concepts';
 export * from './translations';
+export * from './ingredient-display';

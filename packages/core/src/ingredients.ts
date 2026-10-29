@@ -97,6 +97,8 @@ function parseNumber(text: string): number {
 }
 
 export interface ParsedIngredient {
+  /** False when mapping discarded source wording that display must retain. Absent in older datasets. */
+  conceptExact?: boolean;
   concept: string | null;
   raw: string;
   quantity: number | null;
@@ -393,7 +395,8 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}): Par
   const concept = isQualifiedIngredient(raw)
     ? (isQualifiedIngredient(phrase) ? lookupConcept(phrase, lookup) : null)
     : lookupConcept(phrase, lookup) ?? (shared && lookupConcept(canonicalName(`${shared[1]} ${shared[2]}`), lookup)) ?? lookupConcept(name, lookup);
-  return { raw: cleanText(raw), quantity, quantityMax, unit, metric, afterMeasure, name, concept, note, optional };
+  const conceptExact = !!concept && lookupConcept(phrase.replace(/\s+to taste$/i, ''), lookup) === concept;
+  return { conceptExact, raw: cleanText(raw), quantity, quantityMax, unit, metric, afterMeasure, name, concept, note, optional };
 }
 
 /** Drop the alternative side of "60 ml / ¼ cup"; the first measure is the one kept. */
