@@ -91,7 +91,7 @@ pnpm eval:enrichment --label qwen4b-q4-run1 \
 Without the wizard, export `ENRICH_BASE_URL=http://127.0.0.1:8080/v1` and
 `ENRICH_MODEL=vegdex-enrich`; export `ENRICH_API_KEY` only for a server that requires bearer auth.
 Any endpoint supporting nonstreaming OpenAI-compatible chat completions can be evaluated. A paid
-endpoint will receive 14 requests per run, so set its own spending limit first.
+endpoint will receive 18 requests per run, so set its own spending limit first.
 
 Results go to `.data/evaluation/<label>.eval.json`. `--report-dir <directory>` selects an isolated
 report directory, with relative paths resolved from the project root. Reports always use the
@@ -101,8 +101,9 @@ server startup flags, model-file checksum (`sha256sum /path/to/model.gguf`), des
 observations and report together when comparing runs. Reports record model identity, server version,
 endpoint without credentials, evaluation version, request settings and timestamps.
 
-The committed [14-case sample](../packages/ingest/data/enrichment-evaluation.json) retains recipe
-IDs, publisher links and ingredient-line context from the October 2026 catalog. It covers real titles,
+The committed [18-case sample](../packages/ingest/data/enrichment-evaluation.json) retains recipe
+IDs, publisher links and ingredient-line context from the October 2026 catalog and Cucinaverza fixtures.
+Version 2 evaluates 14 English-to-Italian cases and four Italian-to-English cases. It covers real titles,
 reusable preparation phrases, exact ingredient concepts, numbers, alternatives, vegan butter and the
 ambiguous tofu "egg" title. The concept IDs come from the committed dictionary, credited to
 [Open Food Facts contributors under ODbL/DbCL](../packages/ingest/data/README.md).
@@ -111,15 +112,17 @@ from source text and are not evidence about any model.
 
 | Score | Interpretation |
 | --- | --- |
-| Meaning heuristic | Accepted proposals with the expected concept ID and every required lexical group. Each group permits listed Italian variants. Denominator: all 14 cases. |
+| Meaning heuristic | Accepted proposals with the expected concept ID and every required lexical group. Each group permits listed variants in the target language. Denominator: all 18 cases. |
 | Response validity | Proposals accepted by the same `proposeEnrichment` validation used by enrich, including merge/fidelity checks. Denominator: all 14 cases. |
-| Qualifier preservation | Accepted proposals retaining a plant-based qualifier on the two marked cases. Failed cases count as failures. |
+| Qualifier preservation | Accepted proposals retaining a plant-based qualifier on the four marked cases. Failed cases count as failures. |
 | Safety failures | Proposals rejected as unsafe translation or lost qualification; fixed reasons appear per case. |
 
 Exit status 1 means at least one score failed, including abstentions or request errors. Every case
 stays in the denominator; a partial success cannot score 100%. Rejected text and provider error bodies
 are never saved. Accepted proposals are saved for review. Meaning checks are lexical heuristics:
 they can miss a wrong meaning and reject a valid synonym. They do not prove fluent or faithful Italian.
+Reports include aggregate scores and `byDirection` scores, and each result records its source and target
+language. Inspect both directions before selecting a model; compare runs using the same evaluation version.
 Compare each proposal with the source and expectations before selecting a model. Never select a run
 with safety failures or lost qualifiers on the strength of an average score. The wizard blocks that
 selection, and allows manual review of other heuristic failures.

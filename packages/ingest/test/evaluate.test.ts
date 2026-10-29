@@ -28,7 +28,11 @@ it('evaluates catalog cases with project-relative report paths without modifying
     'vegan butter': { conceptId: 'veg:0001', text: 'burro vegano' },
     'garlic': { conceptId: 'off:41024084d2e27b7d', text: 'aglio' },
     'cannellini beans': { conceptId: 'off:76299b83f7ce63ae', text: 'fagioli cannellini' },
-    'panko': { conceptId: 'off:2c9bf62209dfea1e', text: 'pangrattato panko' }
+    'panko': { conceptId: 'off:2c9bf62209dfea1e', text: 'pangrattato panko' },
+    'Vegan fudge al cioccolato fondente': { text: 'Vegan dark chocolate fudge' },
+    '(pesate a crudo con la buccia)': { text: '(weighed raw with the skin on)' },
+    'burro vegetale': { conceptId: 'veg:0001', text: 'vegan butter' },
+    'farina 0': { conceptId: 'off:e93bbd2ca559bd79', text: 'flour type 0' }
   };
   const root = path.resolve('.');
   fs.mkdirSync(path.join(root, '.data'), { recursive: true });
@@ -36,13 +40,15 @@ it('evaluates catalog cases with project-relative report paths without modifying
   dirs.push(dir);
   const learnedFile = path.join(dir, 'enrichment.json');
   fs.writeFileSync(learnedFile, 'leave learned entries untouched');
+  const directions: string[] = [];
   const server = createServer(async (req, res) => {
     expect(req.url).toBe('/v1/chat/completions');
     let body = '';
     for await (const chunk of req) body += chunk;
     const request = JSON.parse(body);
     const input = JSON.parse(request.messages[1].content);
-    res.end(JSON.stringify({ choices: [{ finish_reason: 'stop', message: { content: JSON.stringify({ language: 'it', ...answers[input.original] }) } }] }));
+    directions.push(`${input.sourceLanguage}->${input.targetLanguage}`);
+    res.end(JSON.stringify({ choices: [{ finish_reason: 'stop', message: { content: JSON.stringify({ language: input.targetLanguage, ...answers[input.original] }) } }] }));
   });
   servers.push(server);
   await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
@@ -51,12 +57,17 @@ it('evaluates catalog cases with project-relative report paths without modifying
     env: { ...process.env, ENRICH_BASE_URL: `http://127.0.0.1:${(server.address() as AddressInfo).port}/v1`, ENRICH_MODEL: 'fake-model', ENRICH_API_KEY: '' }
   }).catch((error) => { throw new Error(error.stdout + error.stderr + fs.readFileSync(path.join(dir, "fake-good.eval.json"), "utf8")); });
   const report = JSON.parse(fs.readFileSync(path.join(dir, 'fake-good.eval.json'), 'utf8'));
-  expect(report).toMatchObject({ evaluationVersion: 1, model: 'fake-model', identity: 'fixture/revision:q4', serverVersion: 'fake/1', scores: {
-    meaningHeuristic: { passed: 14, total: 14 }, responseValidity: { passed: 14, total: 14 }, qualifierPreservation: { passed: 2, total: 2 }, safetyFailures: 0
+  expect(report).toMatchObject({ evaluationVersion: 2, model: 'fake-model', identity: 'fixture/revision:q4', serverVersion: 'fake/1', scores: {
+    meaningHeuristic: { passed: 18, total: 18 }, responseValidity: { passed: 18, total: 18 }, qualifierPreservation: { passed: 4, total: 4 }, safetyFailures: 0
   } });
-  expect(report.cases).toHaveLength(14);
+  expect(report.cases).toHaveLength(18);
+  expect(directions.filter((d) => d === 'en->it')).toHaveLength(14);
+  expect(directions.filter((d) => d === 'it->en')).toHaveLength(4);
+  expect(report.byDirection['en->it'].responseValidity).toEqual({ passed: 14, total: 14 });
+  expect(report.byDirection['it->en']).toEqual({ meaningHeuristic: { passed: 4, total: 4 }, responseValidity: { passed: 4, total: 4 }, qualifierPreservation: { passed: 2, total: 2 }, safetyFailures: 0 });
+  expect(report.cases).toContainEqual(expect.objectContaining({ id: 'it-ingredient-butter', sourceLanguage: 'it', targetLanguage: 'en', qualifierPreserved: true }));
   expect(report.cases[0].proposal).toEqual({ kind: 'title', text: 'Chana masala (facile e veloce)' });
-  expect(result.stdout).toContain('14/14');
+  expect(result.stdout).toContain('18/18');
   expect(fs.readFileSync(learnedFile, 'utf8')).toBe('leave learned entries untouched');
 });
 
@@ -82,13 +93,17 @@ it('scores lost qualifiers, wrong mappings, changed numbers and malformed or sec
   expect(result.code).toBe(1);
   const serialized = fs.readFileSync(path.join(dir, 'fake-bad.eval.json'), 'utf8');
   const report = JSON.parse(serialized);
-  expect(report.scores).toEqual({ meaningHeuristic: { passed: 0, total: 14 }, responseValidity: { passed: 1, total: 14 }, qualifierPreservation: { passed: 0, total: 2 }, safetyFailures: 1 });
+  expect(report.scores).toEqual({ meaningHeuristic: { passed: 0, total: 18 }, responseValidity: { passed: 1, total: 18 }, qualifierPreservation: { passed: 0, total: 4 }, safetyFailures: 2 });
+  expect(report.byDirection['it->en'].responseValidity).toEqual({ passed: 0, total: 4 });
+  expect(report.byDirection['it->en'].safetyFailures).toBe(1);
   expect(report.cases).toEqual(expect.arrayContaining([
     expect.objectContaining({ id: 'ingredient-butter', accepted: false, reason: 'unsafe-translation', qualifierPreserved: false }),
     expect.objectContaining({ id: 'ingredient-garlic', accepted: true, meaningHeuristic: false }),
     expect.objectContaining({ id: 'title-chana', accepted: false, reason: 'malformed-response' }),
     expect.objectContaining({ id: 'title-5-minutes', accepted: false, reason: 'quantity-changed' }),
-    expect.objectContaining({ id: 'title-panko', accepted: false, reason: 'secret-in-response' })
+    expect.objectContaining({ id: 'title-panko', accepted: false, reason: 'secret-in-response' }),
+    expect.objectContaining({ id: 'it-ingredient-butter', accepted: false, reason: 'unsafe-translation', qualifierPreserved: false }),
+    expect.objectContaining({ id: 'it-ingredient-flour', accepted: false, reason: 'quantity-changed' })
   ]));
   expect(serialized + result.stdout + result.stderr).not.toContain(secret);
   expect(serialized).not.toContain('rejected payload');
