@@ -61,8 +61,10 @@ it('accepts a qualifier anywhere in the same ingredient, once, and a cheese name
     expect(safeTranslation('Original', safe, 'en'), safe).toBe(safe);
   for (const unsafe of ['vegan cheddar bacon', 'vegan butter cheese chicken', 'ground beef', 'cheddar cheese', 'vegan butter and cheese'])
     expect(safeTranslation('Original', unsafe, 'en'), unsafe).toBe('Original');
-  for (const safe of ['carne macinata vegetale', 'panna da cucina vegetale', 'formaggio grattugiato vegano'])
+  for (const safe of ['carne macinata vegetale', 'panna da cucina vegetale', 'formaggio grattugiato vegano', 'Pancetta di tofu affumicata',
+    'Feta al tofu', 'Panna montata al cocco', 'Pollo fritto al tofu', 'Burrito vegani in stile manzo', 'Insalata di ceci tipo tonno',
+    'Pane alla banana senza uova', 'Biscotti senza burro', 'Funghi ostrica saltati'])
     expect(safeTranslation('Original', safe, 'it'), safe).toBe(safe);
-  for (const unsafe of ['carne macinata di manzo', 'panna da cucina fresca e intera'])
+  for (const unsafe of ['carne macinata di manzo', 'panna da cucina fresca e intera', 'Pollo e gnocchi vegani', 'Pollo al burro vegano', 'Tonno di mare'])
     expect(safeTranslation('Original', unsafe, 'it'), unsafe).toBe('Original');
 });

@@ -74,7 +74,9 @@ export function buildBatch(vocab: Vocabulary, gaps: Gap[], kind: GapKind, langua
     terms: Object.fromEntries(Object.entries(vocab.files.en?.terms ?? {}).map(([id, name]) => [id, typeof name === 'string' ? name : Object.values(name)[0]]))
   };
   for (const gap of items) {
-    const item: Batch['items'][number] = { id: gap.id, lines: gap.lines, examples: gap.examples.slice(0, 2).map((e) => e.slice(0, 100)) };
+    // A title is its own context; its examples are only recipe URLs.
+    const examples = kind === 'title' ? [] : gap.examples.slice(0, 2).map((e) => e.slice(0, 100));
+    const item: Batch['items'][number] = { id: gap.id, lines: gap.lines, examples };
     if (kind === 'map') item.context = { candidates: candidates(vocab, gap.id, language) };
     if (kind === 'name') {
       const concept = vocab.byId.get(gap.id);
