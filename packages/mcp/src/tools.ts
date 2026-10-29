@@ -62,14 +62,14 @@ export function groceryList(data: FullDataset, args: GroceryArgs) {
     const multiplier = x.multiplier ?? (x.servings && r.servings ? x.servings / r.servings : 1)
     return [{ recipeId: r.id, ingredients: r.ingredients, multiplier }]
   })
-  const items = compileGroceryList(inputs)
+  const items = compileGroceryList(inputs, { lookup: data.lookup, concepts: data.grocery })
   const aisles: Record<string, { item: string; amount: string }[]> = {}
   for (const it of items) (aisles[it.aisle] ??= []).push({ item: it.name, amount: amountText(it) })
   return {
     recipes: inputs.map((i) => ({ id: i.recipeId, title: byId.get(i.recipeId)!.title, multiplier: round(i.multiplier) })),
     aisles,
     ...(unknown.length ? { unknownIds: unknown } : {}),
-    note: 'Quantities are summed per ingredient across recipes; lines without a quantity are listed as "to taste".'
+    note: 'Quantities are summed per ingredient across recipes, with synonyms merged; cups join grams only where the density is known (≈ marks an estimate). Lines without a quantity are listed as "to taste".'
   }
 }
 

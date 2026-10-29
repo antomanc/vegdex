@@ -6,6 +6,7 @@ import {
   parseIngredient,
   shardOf,
   type Catalog,
+  groceryConcepts,
   type CatalogRecipe,
   type FullDataset,
   type Recipe,
@@ -81,6 +82,8 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string): E
   const rows = sorted.map((r, i) => toCatalog(r, parsed[i]!));
   const used = new Set(rows.flatMap((r) => r.concepts ?? []));
   const lookup = usedLookup('en', used);
+  // Shopping-list rows and aisles per concept, from the English lines that use them.
+  const grocery = groceryConcepts(parsed.flat(), englishLookup);
   const unmapped: Record<string, number> = Object.create(null);
   let mapped = 0;
   for (const lines of parsed) for (const p of lines) {
@@ -101,6 +104,7 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string): E
     dictionary: seed.provenance,
     sources: usedSources,
     lookup,
+    grocery,
     recipes: rows.map((row, i) => ({ ...row, ingredients: sorted[i]!.ingredients, parsedIngredients: parsed[i]! }))
   };
 
@@ -115,7 +119,8 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string): E
   };
   write('concept-coverage.json', coverage);
   write('dictionary.json', { provenance: seed.provenance, concepts: seed.concepts.filter((c) => used.has(c.id)) });
-  for (const language of ['en', 'it'] as const) write(`lookup/${language}.json`, { provenance: seed.provenance, aliases: usedLookup(language, used) });
+  for (const language of ['en', 'it'] as const)
+    write(`lookup/${language}.json`, { provenance: seed.provenance, aliases: usedLookup(language, used), ...(language === 'en' ? { grocery } : {}) });
   write('catalog.json', catalog);
   write('recipes.full.json', full);
   shards.forEach((shard, i) => write(`details/${String(i).padStart(2, '0')}.json`, shard));

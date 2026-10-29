@@ -43,7 +43,7 @@
     error = null
     loadCatalog()
       .then(async (c) => {
-        lookup = c.recipes.some((r) => r.concepts) ? await loadLookup(pageLocale.code) : {}
+        lookup = c.recipes.some((r) => r.concepts) ? (await loadLookup(pageLocale.code)).aliases : {}
         for (const s of c.sources) sourceNames.set(s.id, s.name)
         catalog = c
       })
