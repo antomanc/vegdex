@@ -13,7 +13,8 @@
     "test:watch": "vitest",
     "test:e2e": "pnpm fixtures && playwright test",
     "fixtures": "pnpm --filter @vegdex/ingest ingest emit --store ../../e2e/fixtures/store.json --out ../../e2e/fixtures/data --generated-at 2026-10-29T00:00:00.000Z --blocklist ../../e2e/fixtures/blocklist.json",
-    "seed:concepts": "pnpm --filter @vegdex/ingest exec tsx scripts/seed-concepts.ts"
+    "seed:concepts": "pnpm --filter @vegdex/ingest exec tsx scripts/seed-concepts.ts",
+    "enrich": "pnpm --filter @vegdex/ingest enrich"
   },
   "engines": {
     "node": ">=22.12.0"
