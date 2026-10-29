@@ -11,7 +11,7 @@ for (const { path, save, saved, open, aisle, starch } of [
     page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
     await page.goto(path);
     await page.getByRole('button', { name: `${save} ${path === '/it/' ? 'Pancake vegani soffici' : 'Fluffy Vegan Pancakes'}`, exact: true }).click();
-    await page.getByRole('button', { name: `${save} Fudgy Vegan Brownies`, exact: true }).click();
+    await page.getByRole('button', { name: `${save} ${path === '/it/' ? 'Brownies vegani fondenti' : 'Fudgy Vegan Brownies'}`, exact: true }).click();
     await page.getByRole('button', { name: saved, exact: true }).click();
     await page.getByRole('button', { name: open, exact: true }).click();
 

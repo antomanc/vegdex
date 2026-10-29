@@ -25,14 +25,14 @@ test('meal filters are in Italian while the URL keeps English identifiers', asyn
   await expect(page).toHaveURL(/\/it\/\?meal=dessert/);
   await expect(page.getByTestId('result-count')).toHaveText(/1 ricetta/);
   await page.reload();
-  await expect(page.getByTestId('recipe-card')).toHaveText([/Fudgy Vegan Brownies/]);
+  await expect(page.getByTestId('recipe-card')).toHaveText([/Brownies vegani fondenti/]);
   await expect(page.getByRole('button', { name: 'Dolci', exact: true }).first()).toHaveAttribute('aria-pressed', 'true');
 });
 
 test('a recipe opens and closes on /it/', async ({ page }) => {
-  await page.getByRole('button', { name: 'Red Lentil Soup', exact: true }).click();
+  await page.getByRole('button', { name: 'Zuppa di lenticchie rosse', exact: true }).click();
   const sheet = page.getByRole('dialog');
-  await expect(sheet.getByRole('heading', { name: 'Red Lentil Soup' })).toBeVisible();
+  await expect(sheet.getByRole('heading', { name: 'Zuppa di lenticchie rosse' })).toBeVisible();
   await expect(sheet.getByTestId('ingredients').locator('li')).toHaveCount(6);
   await sheet.getByRole('button', { name: 'Chiudi' }).click();
   await expect(sheet).toBeHidden();
@@ -69,7 +69,7 @@ test('recipe details and the source shelf read in Italian', async ({ page }) => 
 
 test('saved recipes build an Italian shopping list', async ({ page }) => {
   await page.getByRole('button', { name: 'Salva Spinach Tofu Curry', exact: true }).click();
-  await page.getByRole('button', { name: 'Salva Red Lentil Soup', exact: true }).click();
+  await page.getByRole('button', { name: 'Salva Zuppa di lenticchie rosse', exact: true }).click();
   await page.getByRole('button', { name: 'Salvate · 2', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Ricette salvate', exact: true })).toBeVisible();
   await expect(page.getByTestId('result-count')).toHaveText('2 ricette salvate');
@@ -89,7 +89,7 @@ test('saved recipes build an Italian shopping list', async ({ page }) => {
   await list.getByRole('button', { name: 'Deseleziona tutto', exact: true }).click();
   await expect(groceries.getByRole('checkbox', { name: /aglio/ })).not.toBeChecked();
   await list.getByRole('button', { name: 'Chiudi', exact: true }).click();
-  await page.getByRole('button', { name: 'Rimuovi dalle salvate: Red Lentil Soup', exact: true }).click();
+  await page.getByRole('button', { name: 'Rimuovi dalle salvate: Zuppa di lenticchie rosse', exact: true }).click();
   await expect(page.getByTestId('result-count')).toHaveText('1 ricetta salvata');
 });
 

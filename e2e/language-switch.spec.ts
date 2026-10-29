@@ -112,7 +112,7 @@ test('saved recipes, shopping amounts and check-offs survive switching languages
   await page.locator('footer').getByRole('link', { name: 'Italiano', exact: true }).click();
   await expect(page).toHaveURL('/it/?view=saved');
   await expect(page.getByTestId('result-count')).toHaveText('2 ricette salvate');
-  await expect(page.getByTestId('recipe-card')).toHaveText([/Spinach Tofu Curry/, /Red Lentil Soup/]);
+  await expect(page.getByTestId('recipe-card')).toHaveText([/Spinach Tofu Curry/, /Zuppa di lenticchie rosse/]);
   await page.getByRole('button', { name: 'Lista della spesa', exact: true }).click();
   await expect(list.getByText('Per 2 ricette salvate · 2 modificate', { exact: true })).toBeVisible();
   await list.locator('summary').click();
