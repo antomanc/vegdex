@@ -40,19 +40,24 @@ function instructions(kind: GapKind, language: string): string {
 - {"concept": "<id>"} when one of the item's candidates is exactly the same ingredient: same product, same plant-based qualification. "all-purpose flour" is plain wheat flour; "vegan butter" is never butter.
 - {"same": "<English name>"} when no candidate fits but you know another common English name for exactly this ingredient ("sodium bicarbonate" for "baking soda"); it is used only if vegdex knows that name.
 - {"new": {"gloss": "<short English name>", "parents": ["<candidate id>"]}} when no candidate is the same ingredient. The gloss names the product plainly ("smoked paprika"). Parents are broader candidates it belongs to, or [].
-- "not-ingredient" for headings and sentences ("for the sauce", "serve with rice").
+- "not-ingredient" for headings, equipment, instructions and sentences ("for the sauce", "mixing bowls", "serve with rice").
+Same ingredient means the same thing to buy: grind, "pure", "organic", "good quality", ripeness, size and brand do not change it; smoked vs sweet paprika, brown vs white sugar and plant-based vs animal do. Check the candidates and "same" before answering "new". A phrase offering alternatives ("tamari or soy sauce") answers null.
 ${common}`;
   if (kind === 'term') return `Each item is a phrase from the notes of ${lang} ingredient lines ("finely chopped", "see notes"). Decide whether a cook needs it.
 - {"term": "<id>"} when it means the same as one of the existing preparation terms in the batch context.
 - {"new": {"id": "term:<english-words-with-dashes>", "name": ${genders ? `{${termKeys(language)!.map((k) => `"${k}": "..."`).join(', ')}}` : '"<the phrase as it should be shown>"'}}} for a short preparation, state, size or purpose that matters when shopping or cooking ("softened", "for frying").${genders ? ` Give the ${lang} forms agreeing with each gender and number.` : ''}
-- "commentary" for everything else: substitutions, brand advice, cross-references, chatter ("or tamari", "i use bob's red mill", "see notes").
+- "commentary" for everything else: substitutions, brand advice, cross-references, chatter, ingredient names in brackets, text in another language ("or tamari", "i use bob's red mill", "see notes", "cilantro").
+A preparation term is a cut ("cut into cubes"), a state ("at room temperature"), a size ("large"), a purpose ("for frying"), "optional" or "to taste". Prefer an existing term whenever one means the same ("rinsed & drained" is term:drained-rinsed). When unsure, answer "commentary".
 ${common}`;
   if (kind === 'name') return `Each item is an ingredient (an "off:", "veg:" or "vocab:" ID) or a preparation term ("term:" ID) to name in ${lang}, with its English names and example lines.
-- Ingredient: {"one": "<singular>", "other": "<form used for 2 or more and after a measure>"${genders ? `, "gender": "${genders.join('" or "')}"` : ''}}. Mass nouns repeat the singular (${language === 'it' ? '"olio"/"olio"' : '"flour"/"flour"'}). Use the name a ${lang} cook would buy it under, lowercase, no article, no amounts.
+- Ingredient: {"one": "<singular>", "other": "<form used for 2 or more and after a measure>"${genders ? `, "gender": "${genders.join('" or "')}"` : ''}}. Mass nouns repeat the singular (${language === 'it' ? '"olio"/"olio"' : '"flour"/"flour"'}). Use the everyday name a ${lang} shopper looks for, lowercase, no article, no amounts${language === 'it' ? ' ("pepe nero", "succo di limone", "lievito per dolci")' : ''}.${genders ? ' The gender is that of the head noun ("salsa di soia" is "f", "latte di cocco" is "m").' : ''} The "taxonomy" hint may read oddly; ignore it when it is not natural ${lang}.
 - Preparation term: ${genders ? `{${termKeys(language)!.map((k) => `"${k}": "..."`).join(', ')}}, agreeing with each gender and number` : 'the phrase as it should be shown'}.
 Keep every plant-based qualification ("vegan butter" stays vegan). Never name an animal product.
 ${common}`;
-  return `Each item is a recipe title. Translate it into natural ${lang}, as a ${lang} food blog would title the dish. Keep the meaning, every plant-based qualification and every number. Answer the translation as a string.
+  return `Each item is a recipe title. Translate it into natural ${lang}, as a ${lang} food blog would title the dish${language === 'it' ? ', with Italian capitalization (only the first word and proper nouns) and natural word order ("Vegan Pumpkin Bread" → "Pane alla zucca vegano")' : ''}. Answer the translation as a string.
+- Keep the meaning, every plant-based qualification (agreeing in gender and number) and every number as a digit ("1 Bowl Brownies" keeps its 1).
+- Dish names ${lang} cooks use as they are stay as they are (hummus, falafel, pad thai, curry, brownie); otherwise write no words of the original language.
+- Name an animal product only with its plant qualifier attached ("formaggio vegano"). A title that cannot be translated well answers null.
 ${common}`;
 }
 

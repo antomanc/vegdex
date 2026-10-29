@@ -139,3 +139,13 @@ it('drops a curated brand only where no ingredient shares its name', () => {
   expect(lookupConcept('chickpea', vocab.lookup('en'))).toBe(CHICKPEA);
   expect(parseIngredient("1 cup Bob's Red Mill almond flour", loadVocabulary().lookup('en')).conceptExact).toBe(true);
 });
+
+it('reports a concept that duplicates another and a shown name search cannot find', () => {
+  const vocab = scratch();
+  vocab.added.push({ id: 'vocab:chickpea-again', gloss: 'chickpea', parents: [] });
+  vocab.files.it!.names['off:4452df579db4f1b1'] = { one: 'cece magico', other: 'ceci magici', gender: 'm' };
+  vocab.files.it!.names['off:41024084d2e27b7d'] = { one: 'cece magico', other: 'ceci magici', gender: 'm' };
+  const problems = checkVocabulary(vocab);
+  expect(problems).toContain(`vocab:chickpea-again: gloss is already ${CHICKPEA}`);
+  expect(problems.some((p) => p.includes('"cece magico": ambiguous'))).toBe(true);
+});

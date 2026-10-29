@@ -122,9 +122,22 @@ export function checkVocabulary(vocab: Vocabulary): string[] {
     for (const parent of c.parents) if (!vocab.byId.has(parent) || vocab.byId.get(parent)!.vegan === 'no') report(c.id, `parent ${parent}`);
   }
   if (ids.size !== vocab.added.length) problems.push('concepts.json: duplicate IDs');
+  // A vocabulary concept duplicating another one, or a taxonomy name, splits one ingredient in two.
+  const glosses = new Map<string, string>();
+  for (const c of vocab.added) {
+    const key = ingredientKey(c.gloss);
+    if (glosses.has(key)) report(c.id, `same gloss as ${glosses.get(key)}`);
+    glosses.set(key, c.id);
+    const owner = vocab.lookup('en')[key];
+    if (owner && owner !== c.id && !isTermId(owner)) report(c.id, `gloss is already ${owner}`);
+  }
   for (const [language, file] of Object.entries(vocab.files)) {
     for (const [phrase, id] of Object.entries(file.aliases)) report(`${language} alias "${phrase}"`, checkAlias(vocab, language, phrase, id));
     for (const [id, forms] of Object.entries(file.names)) report(`${language} name ${id}`, checkName(vocab, language, id, forms));
+    // Every shown name must also be searchable: a name that parsing finds ambiguous drops out of search.
+    const lookup = vocab.lookup(language);
+    for (const [id, forms] of Object.entries(file.names))
+      for (const form of new Set([forms.one, forms.other])) if (!lookup[ingredientKey(form)]) report(`${language} name ${id} "${form}"`, 'ambiguous');
     for (const [id, forms] of Object.entries(file.terms)) {
       if (!/^term:[a-z0-9-]+$/.test(id)) report(`${language} term ${id}`, 'malformed-id');
       report(`${language} term ${id}`, checkTerm(language, forms));

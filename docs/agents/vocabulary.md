@@ -32,7 +32,7 @@ Work in this order: `map` and `term` first, because they decide what exists, the
 
 ## Answering batches as an agent
 
-Split the batch files across cheap subagents (Haiku is enough), one file each. Give each the batch path, the answers path and this rule: read the instructions in the file, write only the answers file. Then run `pnpm vocab:apply` yourself and read the rejections. A rejection means the answer broke a check; never edit the checks to let it through.
+Split the batch files across cheap subagents (Haiku is enough; medium thinking for `map` and `name`, low for `term` and `title`), one or two files each. The batch carries every judgment rule, so the prompt only needs: the batch path, the answers path, "follow the instructions in the file, write only the answers file". Then run `pnpm vocab:apply` yourself and read the rejections. A rejection means the answer broke a check; never edit the checks to let it through.
 
 ## Unattended runs
 
