@@ -122,6 +122,12 @@ Add the blog to `packages/ingest/sources.json` only if every recipe on it is veg
 `pnpm ingest crawl --sources <id> --max-per-source 30`, then `pnpm ingest emit`, and check the
 result and `.data/excluded.json`.
 
+Set `contentLanguage` to `it` for original Italian publishers; it defaults to `en`.
+Each content language needs a tested language pack. Non-English recipes with unmapped
+ingredients stay held in `.data/translation-queue.json` until an enrich run maps them.
+Translated editions of existing publishers remain excluded. Cucinaverza's bounded source
+verification is recorded in [the source notes](docs/research/italian-source-cucinaverza.md).
+
 ## MCP server
 
 ```json

@@ -14,7 +14,7 @@ Claude Code: `claude mcp add vegdex -- npx -y @antomanc/vegdex mcp`
 
 | Tool | Does |
 | --- | --- |
-| `search_vegan_recipes` | Text, meal, sweet/savory, max minutes, gluten/nut/soy/oil-free, high protein, must-use and avoid ingredients, cuisine, rating |
+| `search_vegan_recipes` | Text, meal, sweet/savory, max minutes, gluten/nut/soy/oil-free, high protein, must-use and avoid ingredients, cuisine, rating, content language |
 | `get_vegan_recipes` | Exact ingredient lines, servings, time and nutrition for up to 20 ids |
 | `compile_grocery_list` | Combines recipes, scales each to target servings, sums quantities and groups them by aisle |
 | `list_vegan_sources` | The blogs in the index and the dataset date |
@@ -25,6 +25,7 @@ Recipes don't include the method. Agents should send the user to the recipe URL 
 
 ```bash
 npx @antomanc/vegdex search "peanut noodles" --max 30
+npx @antomanc/vegdex search gnocchi --language it
 npx @antomanc/vegdex search --meal breakfast --flavor savory --protein --have tofu
 npx @antomanc/vegdex show <id>
 npx @antomanc/vegdex grocery <id>:4 <id>:2      # id:target-servings

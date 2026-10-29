@@ -48,6 +48,30 @@ async function endpoint(reply: (request: Record<string, unknown>, index: number)
   return { model: { baseURL: `http://127.0.0.1:${(server.address() as AddressInfo).port}/v1`, model: 'fixture-model' }, requests };
 }
 
+it('keeps Italian alternatives, compounds and sizes queued when a model drops their wording', async () => {
+  const originals = ['ceci o lenticchie', 'ceci e lenticchie', 'ceci piccoli', 'ceci con quinoa'];
+  const state = files(originals.map((original) => ({ ...task('ingredient', original), sourceLanguage: 'it', targetLanguage: 'en' })));
+  const fake = await endpoint(() => ({ language: 'en', conceptId: englishLookup.chickpeas }));
+  expect(await runLocalEnrich({ ...state, model: fake.model })).toMatchObject({ accepted: 0, remaining: 4 });
+  expect(readLearnedData(state.learnedFile)).toEqual(emptyLearnedData());
+});
+
+it('learns an accented Italian name without using English canonicalization', async () => {
+  const original = 'farina caffè lunare';
+  const state = files([{ ...task('ingredient', original), sourceLanguage: 'it', targetLanguage: 'en' }]);
+  const fake = await endpoint(() => ({ language: 'en', conceptId: null, text: 'lunar coffee flour' }));
+  expect(await runLocalEnrich({ ...state, model: fake.model })).toMatchObject({ accepted: 1, remaining: 0 });
+  expect(readLearnedData(state.learnedFile).aliases.it).toHaveProperty(original);
+});
+
+it('reuses safe English names for all curated Italian plant alternatives without model calls', async () => {
+  const state = files(['burro vegetale', 'latte vegetale', 'parmigiano vegano']
+    .map((original) => ({ ...task('ingredient', original), sourceLanguage: 'it', targetLanguage: 'en' })));
+  const fake = await endpoint(() => null);
+  expect(await runLocalEnrich({ ...state, model: fake.model })).toMatchObject({ accepted: 0, reused: 3, remaining: 0, failed: [] });
+  expect(fake.requests).toHaveLength(0);
+});
+
 it('persists a translated title and clears its queue without requesting it again', async () => {
   const state = files([task('title', 'Weeknight Chickpea Bowl')]);
   const fake = await endpoint(() => ({ language: 'it', text: 'Ciotola di ceci per la sera' }));
@@ -100,6 +124,45 @@ it('learns names and preparation phrases that the next emit renders through cura
   const full = JSON.parse(fs.readFileSync(path.join(out, 'recipes.full.json'), 'utf8')) as FullDataset;
   const overlay = JSON.parse(fs.readFileSync(path.join(out, 'overlay/it.json'), 'utf8'));
   expect(renderIngredient(full.recipes[0]!.parsedIngredients![0]!, overlay.ingredients, 'it', 'us')).toEqual(['1 tazza', 'farina misteriosa, setacciata finemente']);
+});
+
+it('rechecks held Italian recipes after guarded English enrichment and clears only released holds', async () => {
+  const base = loadStore(path.resolve('e2e/fixtures/store.json')).recipes.pancakes!;
+  const recipe = { ...base, title: 'Frittelle lunari', ingredients: ['200 g farina lunare, setacciata finemente'] };
+  const source = { id: base.sourceId, name: 'Italian Vegan', url: 'https://noracooks.com', contentLanguage: 'it' };
+  const state = files([]);
+  const out = path.join(path.dirname(state.queueFile), 'public');
+  const initial = emitDataset([recipe], [source], out, { generatedAt: '2026-10-01T00:00:00.000Z' });
+  writeJSONAtomic(state.queueFile, initial.queue);
+  let safe = false;
+  const fake = await endpoint((request) => {
+    const input = JSON.parse((request.messages as { content: string }[])[1]!.content);
+    expect(input.sourceLanguage).toBe('it');
+    expect(input.targetLanguage).toBe('en');
+    return input.kind === 'title' ? { language: 'en', text: 'Lunar pancakes' }
+      : input.kind === 'note' ? { language: 'en', text: 'finely sifted' }
+      : { language: 'en', conceptId: null, text: safe ? 'lunar flour' : 'butter' };
+  });
+  expect(await runLocalEnrich({ ...state, model: fake.model })).toMatchObject({ accepted: 2, remaining: 1, failed: [expect.objectContaining({ reason: 'unsafe-translation' })] });
+  const rejected = emitDataset([recipe], [source], out, { learnedData: readLearnedData(state.learnedFile), previousQueue: readTranslationQueue(state.queueFile), generatedAt: '2026-10-29T00:00:00.000Z' });
+  expect(rejected.published).toBe(0);
+  expect(rejected.queue.held).toEqual(initial.queue.held);
+  safe = true;
+  expect(await runLocalEnrich({ ...state, model: fake.model })).toMatchObject({ accepted: 1, remaining: 0, failed: [] });
+  const learned = readLearnedData(state.learnedFile);
+  const released = emitDataset([recipe], [source], out, { learnedData: learned, previousQueue: rejected.queue });
+  expect(released.published).toBe(1);
+  expect(released.queue.held).toEqual([]);
+  expect(released.queue.tasks).toEqual([]);
+  const full = JSON.parse(fs.readFileSync(path.join(out, 'recipes.full.json'), 'utf8')) as FullDataset;
+  const overlay = JSON.parse(fs.readFileSync(path.join(out, 'overlay/en.json'), 'utf8'));
+  expect(full.recipes[0]).toMatchObject({ title: 'Frittelle lunari', contentLanguage: 'it', ingredients: recipe.ingredients });
+  expect(overlay.titles['Frittelle lunari']).toBe('Lunar pancakes');
+  expect(renderIngredient(full.recipes[0]!.parsedIngredients![0]!, overlay.ingredients, 'en', 'metric')).toEqual(['200 g', 'lunar flour, finely sifted']);
+  const blocked = emitDataset([recipe], [source], out, { learnedData: learned, previousQueue: initial.queue, blocklist: [recipe.id] });
+  expect(blocked.published).toBe(0);
+  expect(blocked.queue.held).toEqual([]);
+  expect(blocked.excluded[0]?.reason).toBe('blocklist');
 });
 
 it('accepts negative animal-concept evidence while keeping a qualified mismatch queued', async () => {

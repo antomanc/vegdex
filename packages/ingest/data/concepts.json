@@ -67967,6 +67967,7 @@
      "wheat flour type 0"
     ],
     "it": [
+     "farina 0",
      "farina di grano tenero 0",
      "farina di grano tenero tipo \"0\"",
      "farina di grano tenero tipo 0",
@@ -74398,6 +74399,23 @@
     ]
    },
    "parents": []
+  },
+  {
+   "id": "veg:cooked-beetroot",
+   "names": {
+    "en": [
+     "cooked beetroot",
+     "precooked beetroot"
+    ],
+    "it": [
+     "barbabietola cotta",
+     "barbabietola precotta"
+    ]
+   },
+   "parents": [
+    "off:5c679610f9badb63"
+   ],
+   "vegan": "yes"
   }
  ]
 }

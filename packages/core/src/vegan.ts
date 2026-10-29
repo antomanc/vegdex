@@ -1,11 +1,16 @@
 import { normalizeLine, parseIngredient } from './ingredients';
 import { isQualifiedIngredient, type IngredientLookup } from './concepts';
+import { findUnsafeRenderedTerms } from './translations';
 
 /** OFF's explicit/inherited status; missing evidence is never treated as vegan. */
 export type ConceptVeganStatus = 'yes' | 'no' | 'maybe' | 'unknown';
 
 /** Unmapped or uncertain English ingredients still rely on the separate text check. */
-export function findNonVeganConcepts(lines: string[], lookup: IngredientLookup, vegan: Record<string, ConceptVeganStatus>): { concept: string; line: string }[] {
+export function findNonVeganConcepts(lines: string[], lookup: IngredientLookup, vegan: Record<string, ConceptVeganStatus>, language = 'en'): { concept: string; line: string }[] {
+  if (language !== 'en') return lines.flatMap((line) => {
+    const concept = parseIngredient(line, lookup, language).concept;
+    return concept && vegan[concept] === 'no' ? [{ concept, line }] : [];
+  });
   return lines.flatMap((line) => {
     const normalized = normalizeLine(line);
     if (NON_INGREDIENT.test(normalized)) return [];
@@ -118,7 +123,8 @@ const PLANT_QUALIFIER = new RegExp(
 const NON_INGREDIENT = /^(?:for the|note|tip|see|garnish|serve)\b/i;
 
 /** Return the animal-product categories found, empty when the list looks vegan. */
-export function findNonVegan(lines: string[]): { term: string; line: string }[] {
+export function findNonVegan(lines: string[], language = 'en'): { term: string; line: string }[] {
+  if (language !== 'en') return lines.flatMap((line) => findUnsafeRenderedTerms(line, language).map((term) => ({ term, line })));
   const hits: { term: string; line: string }[] = [];
   for (const raw of lines) {
     const line = normalizeLine(raw).toLowerCase();

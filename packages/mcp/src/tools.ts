@@ -7,7 +7,7 @@ import {
   type RecipeQuery
 } from '@vegdex/core'
 
-export interface SearchArgs extends Omit<RecipeQuery, 'ids'> {
+export interface SearchArgs extends Omit<RecipeQuery, 'ids' | 'preferredContentLanguage'> {
   limit?: number
 }
 
@@ -60,7 +60,7 @@ export function groceryList(data: FullDataset, args: GroceryArgs) {
     const r = byId.get(x.id)
     if (!r) return []
     const multiplier = x.multiplier ?? (x.servings && r.servings ? x.servings / r.servings : 1)
-    return [{ recipeId: r.id, ingredients: r.ingredients, multiplier }]
+    return [{ recipeId: r.id, ingredients: r.ingredients, parsedIngredients: r.parsedIngredients, contentLanguage: r.contentLanguage, multiplier }]
   })
   const items = compileGroceryList(inputs, { lookup: data.lookup, concepts: data.grocery })
   const aisles: Record<string, { item: string; amount: string }[]> = {}

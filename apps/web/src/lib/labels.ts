@@ -1,4 +1,4 @@
-import { parseIngredient, metricLine, type FreeFrom, type Meal, type Units } from '@vegdex/core'
+import { parseIngredient, metricLine, type FreeFrom, type Meal, type Units, type ParsedIngredient } from '@vegdex/core'
 import { m, countArgs, formatNumber, formatQuantity, pageLocale } from './i18n'
 import { BASE_LOCALE } from './locales'
 import type { Sort } from './state.svelte'
@@ -135,7 +135,7 @@ export function splitAmount(line: string): [string, string] {
 }
 
 /** splitAmount in the chosen units: metric rewrites cups, ounces and inches, and leaves spoons and whole items as written. */
-export function splitLine(line: string, units: Units): [string, string] {
-  const metric = units === 'metric' ? metricLine(line) : null
+export function splitLine(line: string, units: Units, parsed?: ParsedIngredient): [string, string] {
+  const metric = units === 'metric' ? metricLine(line, parsed) : null
   return metric ? [formatQuantity(metric[0]), tidyLine(metric[1])] : splitAmount(line)
 }

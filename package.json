@@ -4,15 +4,17 @@
   "type": "module",
   "description": "A free, zero-backend index of vegan recipes from the best vegan food blogs: mobile web app + MCP server.",
   "scripts": {
+    "preflight": "node scripts/preflight.mjs",
     "dev": "pnpm --filter @vegdex/web dev",
     "build": "pnpm --filter @vegdex/web build",
     "ingest": "pnpm --filter @vegdex/ingest ingest",
     "nightly:enrichment": "pnpm --filter @vegdex/ingest exec tsx src/nightly-cli.ts",
-    "typecheck": "pnpm -r typecheck",
+    "typecheck": "pnpm -r typecheck && pnpm typecheck:e2e",
+    "typecheck:e2e": "tsc -p tsconfig.e2e.json",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "pnpm fixtures && playwright test",
-    "fixtures": "pnpm --filter @vegdex/ingest ingest emit --store ../../e2e/fixtures/store.json --out ../../e2e/fixtures/data --generated-at 2026-10-29T00:00:00.000Z --blocklist ../../e2e/fixtures/blocklist.json",
+    "fixtures": "pnpm --filter @vegdex/ingest exec tsx ../../e2e/emit-fixtures.ts",
     "seed:concepts": "pnpm --filter @vegdex/ingest exec tsx scripts/seed-concepts.ts",
     "enrich": "pnpm --filter @vegdex/ingest enrich",
     "eval:enrichment": "pnpm --filter @vegdex/ingest exec tsx src/evaluate-cli.ts"
@@ -21,8 +23,11 @@
     "node": ">=22.12.0"
   },
   "devDependencies": {
-    "vitest": "^4.1.11",
-    "@playwright/test": "^1.63.0"
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.5",
+    "@vegdex/core": "workspace:*",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
   },
   "packageManager": "pnpm@12.15.0"
 }

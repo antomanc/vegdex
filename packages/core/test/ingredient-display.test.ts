@@ -58,6 +58,13 @@ it('retains originals for cached parsed data without proof that the source wordi
   expect(renderIngredient(legacy, tables, 'it', 'metric')).toBeNull();
 });
 
+it('keeps original amounts when parsing discarded approximation or fill qualifiers', () => {
+  for (const line of ['about 2 tbsp flour', 'approximately 2 cups flour', '2 heaped tbsp flour', '2 scant cups flour', '2 loosely packed cups flour', 'one rounded cup flour', '60 ml / heaped 1/4 cup flour']) {
+    const parsed = parseIngredient(line, lookup);
+    for (const units of ['metric', 'us'] as const) expect(renderIngredient(parsed, tables, 'it', units), line).toBeNull();
+  }
+});
+
 it('keeps original can-size units when a cached translated note changes the measurement', () => {
   const parsed = parseIngredient('1 (15 ounce) can chickpeas, drained', lookup);
   const complete = { ...tables, units: { ...tables.units, can: ['barattolo', 'barattoli'] as [string, string], oz: ['oncia', 'once'] as [string, string] }, notes: { [parsed.note]: '15 kg, scolati' } };

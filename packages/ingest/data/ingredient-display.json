@@ -144,5 +144,141 @@
         "pezzi"
       ]
     }
+  },
+  "en": {
+    "names": {
+      "off:7ed0f0da39d5b63b": "chickpeas",
+      "veg:0001": "vegan butter",
+      "veg:0003": "vegan parmesan"
+    },
+    "notes": {
+      "scolati e sciacquati": "drained and rinsed",
+      "scolati": "drained",
+      "sciacquati": "rinsed",
+      "tritato": "chopped",
+      "quanto basta": "to taste",
+      "q.b.": "to taste",
+      "facoltativo": "optional",
+      "(pesate a crudo con la buccia)": "(weighed raw with the skin on)",
+      "+ q.b. ma comunque meno possibile": "plus more as needed, using as little as possible"
+    },
+    "units": {
+      "g": [
+        "g",
+        "g"
+      ],
+      "kg": [
+        "kg",
+        "kg"
+      ],
+      "ml": [
+        "ml",
+        "ml"
+      ],
+      "l": [
+        "l",
+        "l"
+      ],
+      "cm": [
+        "cm",
+        "cm"
+      ],
+      "cup": [
+        "cup",
+        "cups"
+      ],
+      "tbsp": [
+        "tbsp",
+        "tbsp"
+      ],
+      "tsp": [
+        "tsp",
+        "tsp"
+      ],
+      "oz": [
+        "oz",
+        "oz"
+      ],
+      "lb": [
+        "lb",
+        "lb"
+      ],
+      "fl oz": [
+        "fl oz",
+        "fl oz"
+      ],
+      "clove": [
+        "clove",
+        "cloves"
+      ],
+      "can": [
+        "can",
+        "cans"
+      ],
+      "jar": [
+        "jar",
+        "jars"
+      ],
+      "package": [
+        "package",
+        "packages"
+      ],
+      "block": [
+        "block",
+        "blocks"
+      ],
+      "bunch": [
+        "bunch",
+        "bunches"
+      ],
+      "handful": [
+        "handful",
+        "handfuls"
+      ],
+      "sprig": [
+        "sprig",
+        "sprigs"
+      ],
+      "stalk": [
+        "stalk",
+        "stalks"
+      ],
+      "head": [
+        "head",
+        "heads"
+      ],
+      "slice": [
+        "slice",
+        "slices"
+      ],
+      "sheet": [
+        "sheet",
+        "sheets"
+      ],
+      "pinch": [
+        "pinch",
+        "pinches"
+      ],
+      "dash": [
+        "dash",
+        "dashes"
+      ],
+      "inch": [
+        "inch",
+        "inches"
+      ],
+      "bag": [
+        "bag",
+        "bags"
+      ],
+      "scoop": [
+        "scoop",
+        "scoops"
+      ],
+      "piece": [
+        "piece",
+        "pieces"
+      ]
+    }
   }
 }

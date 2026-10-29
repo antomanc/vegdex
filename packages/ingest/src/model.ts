@@ -44,7 +44,8 @@ export function applyProposal(task: QueueTask, proposal: EnrichmentProposal, lea
     const tables = next.ingredientTables[task.targetLanguage] ??= { names: {}, notes: {}, units: {} };
     tables.notes[task.original] = proposal.text;
   } else {
-    const id = proposal.conceptId ?? learnedConceptId(task.original);
+    // Learned concept IDs use their English name in either translation direction.
+    const id = proposal.conceptId ?? learnedConceptId(task.sourceLanguage === 'en' ? task.original : proposal.text!);
     if (!proposal.conceptId) {
       const existing = next.concepts.find((concept) => concept.id === id);
       if (existing) existing.names[task.targetLanguage] = [proposal.text!];

@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import {
-  canonicalName, findUnsafeRenderedTerms, ingredientKey, ingredientNote, isQualifiedIngredient,
+  canonicalName, findUnsafeRenderedTerms, ingredientKey, ingredientNote, isQualifiedIngredient, languagePacks,
   safeTranslation, sameMeasurements, type IngredientLookup, type IngredientTables,
   type ParsedIngredient, type Recipe, type TranslationMemory
 } from '@vegdex/core';
@@ -108,8 +108,10 @@ export function learnedConceptId(original: string): string {
 }
 
 /** Learned aliases may add synonyms, never a shortened alternative, purpose or size phrase. */
-function wholeAlias(alias: string): boolean {
+function wholeAlias(alias: string, language = 'en'): boolean {
   if (/[,;()/]|\b(?:or|and|with|for|optional|small|medium|large|extra|baby|big|fat|jumbo|mini|whole|half|chopped|diced|minced|sliced|halved|quartered|peeled|grated|crushed|ground|fresh|frozen|dried|to|taste|as|needed|desired|divided|plus)\b/i.test(alias)) return false;
+  if (languagePacks[language]?.unsafeLearnedAlias?.test(alias)) return false;
+  if (language !== 'en') return Object.hasOwn(languagePacks, language);
   const original = ingredientKey(alias);
   const canonical = canonicalName(alias);
   return original === canonical || original === `${canonical}s` || original === `${canonical}es` || isQualifiedIngredient(alias);
@@ -129,7 +131,7 @@ export function mergeEnrichment(learned: LearnedData, titles: TranslationMemory,
   // Model claims of vegan status never become publication evidence.
   const concepts = [...seed.concepts, ...additions.map((c): Concept => ({ ...c, vegan: 'unknown' }))];
   const byId = new Map(concepts.map((c) => [c.id, c]));
-  const languages = new Set(['en', ...Object.keys(titles), ...Object.keys(tables)]);
+  const languages = new Set([...Object.keys(languagePacks), ...Object.keys(titles), ...Object.keys(tables)]);
   const aliases: Record<string, IngredientLookup> = {};
   const ingredientTables: Record<string, IngredientTables> = {};
   const translations: TranslationMemory = {};
@@ -138,7 +140,7 @@ export function mergeEnrichment(learned: LearnedData, titles: TranslationMemory,
     const learnedAliases = { ...usedLookup(language, undefined, additions), ...learned.aliases[language] };
     aliases[language] = Object.fromEntries(Object.entries(learnedAliases).filter(([alias, id]) => {
       const concept = byId.get(id);
-      if (!concept || reservedNames.has(ingredientKey(alias)) || !wholeAlias(alias)) return false;
+      if (!concept || reservedNames.has(ingredientKey(alias)) || !wholeAlias(alias, language)) return false;
       // A learned alias naming an animal product must not hide that word behind a plant concept.
       if (concept.vegan !== 'no' && findUnsafeRenderedTerms(alias, language).length) return false;
       if (isQualifiedIngredient(alias) && (concept.vegan === 'no' || !concept.names.en?.some(isQualifiedIngredient))) return false;
@@ -162,7 +164,7 @@ export function mergeEnrichment(learned: LearnedData, titles: TranslationMemory,
 
 export function buildTranslationQueue(
   recipes: Recipe[], parsed: ParsedIngredient[][], titles: TranslationMemory,
-  tables: Record<string, IngredientTables>, now: string, previous = emptyQueue(now)
+  tables: Record<string, IngredientTables>, now: string, previous = emptyQueue(now), held: Recipe[] = []
 ): TranslationQueue {
   const tasks = new Map<string, QueueTask>();
   const firstSeen = new Map(previous.tasks.map((task) => [task.id, task.firstSeen]));
@@ -196,6 +198,6 @@ export function buildTranslationQueue(
     }
   });
   return { version: 1, generatedAt: now, tasks: [...tasks.values()].sort((a, b) => a.id.localeCompare(b.id)),
-    // English recipes are never held. Phase 4 supplies held records when it adds non-English sources.
-    held: [], ...(previous.issueNumber ? { issueNumber: previous.issueNumber } : {}) };
+    held: held.map((recipe) => previous.held.find((entry) => entry.id === recipe.id) ?? { id: recipe.id, since: now }),
+    ...(previous.issueNumber ? { issueNumber: previous.issueNumber } : {}) };
 }

@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "provenance": "October 2026 generated catalog; source IDs and URLs retained per case. Notes and ingredient names are reusable fragments, never full ingredient-line translation requests. Qualifier scoring applies to vegan butter and the vegan pumpkin title. The tofu egg title also checks ambiguous animal-product wording.",
+  "version": 2,
+  "provenance": "October 2026 generated catalog; source IDs and URLs retained per case. Notes and ingredient names are reusable fragments, never full ingredient-line translation requests. Qualifier scoring covers plant-based titles and ingredient names in both languages. The tofu egg title also checks ambiguous animal-product wording. Italian-to-English cases come from the Cucinaverza source fixtures captured on 2026-10-29; original ingredient context and vegan qualifications are retained.",
   "cases": [
     {
       "id": "title-chana",
@@ -27,7 +27,9 @@
           "veloce",
           "rapid"
         ]
-      ]
+      ],
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
     },
     {
       "id": "title-pumpkin",
@@ -60,7 +62,9 @@
           "padella unica"
         ]
       ],
-      "qualifier": true
+      "qualifier": true,
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
     },
     {
       "id": "title-panko",
@@ -94,7 +98,9 @@
         [
           "croccant"
         ]
-      ]
+      ],
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
     },
     {
       "id": "title-5-minutes",
@@ -119,7 +125,9 @@
         [
           "minut"
         ]
-      ]
+      ],
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
     },
     {
       "id": "title-tofu-egg",
@@ -151,7 +159,9 @@
         [
           "minut"
         ]
-      ]
+      ],
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
     },
     {
       "id": "note-minced",
@@ -168,7 +178,9 @@
           "tritat",
           "sminuzzat"
         ]
-      ]
+      ],
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
     },
     {
       "id": "note-alternative",
@@ -191,7 +203,9 @@
           "tritat",
           "sminuzzat"
         ]
-      ]
+      ],
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
     },
     {
       "id": "note-melted",
@@ -208,7 +222,9 @@
           "fus",
           "sciolt"
         ]
-      ]
+      ],
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
     },
     {
       "id": "note-softened",
@@ -224,7 +240,9 @@
         [
           "ammorbidit"
         ]
-      ]
+      ],
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
     },
     {
       "id": "note-drained",
@@ -245,7 +263,9 @@
           "sciacquat",
           "risciacquat"
         ]
-      ]
+      ],
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
     },
     {
       "id": "ingredient-butter",
@@ -258,7 +278,9 @@
         "line": "3 tablespoons vegan butter"
       },
       "conceptId": "veg:0001",
-      "qualifier": true
+      "qualifier": true,
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
     },
     {
       "id": "ingredient-garlic",
@@ -270,7 +292,9 @@
         "url": "https://jessicainthekitchen.com/baked-pumpkin-mac-and-cheese-vegan/",
         "line": "3 cloves garlic (minced)"
       },
-      "conceptId": "off:41024084d2e27b7d"
+      "conceptId": "off:41024084d2e27b7d",
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
     },
     {
       "id": "ingredient-cannellini",
@@ -282,7 +306,9 @@
         "url": "https://www.connoisseurusveg.com/white-bean-skillet/",
         "line": "2 (15 ounce/425 gram) cans cannellini beans, (drained and rinsed)"
       },
-      "conceptId": "off:76299b83f7ce63ae"
+      "conceptId": "off:76299b83f7ce63ae",
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
     },
     {
       "id": "ingredient-panko",
@@ -294,7 +320,98 @@
         "url": "https://www.connoisseurusveg.com/white-bean-skillet/",
         "line": "3/4 cup panko breadcrumbs"
       },
-      "conceptId": "off:2c9bf62209dfea1e"
+      "conceptId": "off:2c9bf62209dfea1e",
+      "sourceLanguage": "en",
+      "targetLanguage": "it"
+    },
+    {
+      "id": "it-title-fudge",
+      "kind": "title",
+      "sourceLanguage": "it",
+      "targetLanguage": "en",
+      "original": "Vegan fudge al cioccolato fondente",
+      "source": {
+        "id": "AkNG-Sm4sz",
+        "title": "Vegan fudge al cioccolato fondente",
+        "url": "https://cucinaverza.com/dolci-colazione/vegan-fudge-al-cioccolato-fondente/"
+      },
+      "terms": [
+        [
+          "vegan"
+        ],
+        [
+          "dark"
+        ],
+        [
+          "chocolate"
+        ],
+        [
+          "fudge"
+        ]
+      ],
+      "qualifier": true
+    },
+    {
+      "id": "it-note-potatoes",
+      "kind": "note",
+      "sourceLanguage": "it",
+      "targetLanguage": "en",
+      "original": "(pesate a crudo con la buccia)",
+      "source": {
+        "id": "nXR-659Ynh",
+        "title": "Gnocchi di barbabietola e patate (senza uova)",
+        "url": "https://cucinaverza.com/piatti-unici/primi/gnocchi-di-barbabietola-e-patate-senza-uova/",
+        "line": "600 g patate (pesate a crudo con la buccia)"
+      },
+      "terms": [
+        [
+          "weigh"
+        ],
+        [
+          "raw"
+        ],
+        [
+          "skin",
+          "peel"
+        ]
+      ]
+    },
+    {
+      "id": "it-ingredient-butter",
+      "kind": "ingredient",
+      "sourceLanguage": "it",
+      "targetLanguage": "en",
+      "original": "burro vegetale",
+      "source": {
+        "id": "AkNG-Sm4sz",
+        "title": "Vegan fudge al cioccolato fondente",
+        "url": "https://cucinaverza.com/dolci-colazione/vegan-fudge-al-cioccolato-fondente/",
+        "line": "60 g burro vegetale"
+      },
+      "conceptId": "veg:0001",
+      "qualifier": true
+    },
+    {
+      "id": "it-ingredient-flour",
+      "kind": "ingredient",
+      "sourceLanguage": "it",
+      "targetLanguage": "en",
+      "original": "farina 0",
+      "source": {
+        "id": "nXR-659Ynh",
+        "title": "Gnocchi di barbabietola e patate (senza uova)",
+        "url": "https://cucinaverza.com/piatti-unici/primi/gnocchi-di-barbabietola-e-patate-senza-uova/",
+        "line": "350 g farina 0 + q.b. ma comunque meno possibile"
+      },
+      "conceptId": "off:e93bbd2ca559bd79",
+      "terms": [
+        [
+          "flour"
+        ],
+        [
+          "0"
+        ]
+      ]
     }
   ]
 }

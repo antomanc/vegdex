@@ -88,8 +88,8 @@
       {@const split = lines.map((line, i) => {
         const parsed = parsedIngredients?.[i]
         return parsed && pageLocale.code !== (recipe.contentLanguage ?? 'en')
-          ? renderIngredient(parsed, display.overlay?.ingredients, pageLocale.code, prefs.units) ?? splitLine(line, prefs.units)
-          : splitLine(line, prefs.units)
+          ? renderIngredient(parsed, display.overlay?.ingredients, pageLocale.code, prefs.units) ?? splitLine(line, prefs.units, parsed)
+          : splitLine(line, prefs.units, parsed)
       })}
       <ul class="ingredients" data-testid="ingredients">
         {#each split as [amount, rest], i (i)}<li>{#if amount}<span class="amount">{amount}</span>{' '}{/if}{rest}</li>{/each}
