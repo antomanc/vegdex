@@ -84,3 +84,9 @@ it('keeps English text matches for ingredients mapped to other concepts', async 
   // Italian aliases still reach exactly their concept.
   expect(ids({ include: ['olio'] })).toEqual(['plain']);
 });
+
+it('gives "X or Y noun" the shared noun only when that names a known ingredient', () => {
+  const lookup = { romano: 'cheese', 'romano pepper': 'sweet-pepper', quark: 'quark', 'nutritional yeast': 'yeast' };
+  expect(parseIngredient('1 Romano or Ramiro pepper, diced finely', lookup).concept).toBe('sweet-pepper');
+  expect(parseIngredient('1 cup quark or nutritional yeast', lookup).concept).toBe('quark');
+});

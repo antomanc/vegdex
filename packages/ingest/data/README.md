@@ -26,7 +26,7 @@ Generation reads only `ingredients.off.txt` and `additions.json`. It verifies th
 
 The current seed contains 4,874 concepts with English names. `off:` identifiers are opaque hashes of frozen upstream entry identities, independent of the selected UI language. Existing IDs must be retained explicitly if a future seed changes an upstream identity; do not silently regenerate IDs from renamed labels. `veg:` IDs are assigned in committed additions. Additions can extend an existing concept's aliases by ID without changing its identity or parents.
 
-`additions.json` contains three distinct concepts for vegan butter, plant milk and vegan parmesan. It also adds `funghi` to the mushroom entry (the pinned Italian taxonomy lists `fungo, fungi`) and cremini/crimini/baby bella aliases to brown mushroom. These are explicit seed entries; qualifying words are never removed to find a concept. Taxonomy parents support broad ingredient filters, so `funghi` also finds named mushroom varieties. Plant substitutes are never assigned an animal-product parent.
+`additions.json` contains three distinct concepts for vegan butter, plant milk and vegan parmesan. It also adds `funghi` to the mushroom entry (the pinned Italian taxonomy lists `fungo, fungi`) and cremini/crimini/baby bella aliases to brown mushroom. Romano and Ramiro peppers are added to sweet pepper, so "1 Romano or Ramiro pepper" is not read as Romano cheese. These are explicit seed entries; qualifying words are never removed to find a concept. Taxonomy parents support broad ingredient filters, so `funghi` also finds named mushroom varieties. Plant substitutes are never assigned an animal-product parent.
 
 ## Coverage
 

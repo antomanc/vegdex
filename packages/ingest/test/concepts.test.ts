@@ -92,3 +92,19 @@ it('publishes only recipes passing both independent vegan checks and reports con
     expect(dictionary.concepts.find((c: { id: string }) => c.id === id)).toMatchObject({ vegan: 'yes' });
   }
 });
+
+it('rejects a separate animal ingredient on a line whose other ingredient is plant-qualified', () => {
+  const store = loadStore(path.resolve('e2e/fixtures/store.json'));
+  const base = store.recipes['quinoa-salad']!;
+  const separate = ['2 tbsp vegan butter and 2 eggs', '2 eggs and vegan butter', '2 tbsp vegan butter; 2 eggs',
+    '2 tbsp vegan butter, 2 eggs', '2 eggs with vegan butter', 'vegan butter, eggs', 'eggs (or flax eggs)'];
+  const plant = ['8 ounces Chanterelle, Oyster, or Cremini mushrooms, roughly chopped', '1 1/2 cups vegan cheese shreds, cheddar preferred (optional)',
+    '2 cups not beef broth (or any other vegan broth)', 'pepita parmesan (or your favorite parm recipe)',
+    '“honey” mustard: 1 tablespoon each dijon mustard and maple syrup', '1 Romano or Ramiro pepper, diced finely'];
+  const recipes = [...separate, ...plant].map((line, i) => ({ ...base, id: `r${String(i).padStart(2, '0')}`, ingredients: [line] }));
+  const out = fs.mkdtempSync(path.join(os.tmpdir(), 'vegdex-separate-'));
+  dirs.push(out);
+  const report = emitDataset(recipes, [{ id: base.sourceId, name: 'The Simple Veganista', url: 'https://simple-veganista.com' }], out);
+  expect(report.excluded.map((r) => r.hits[0]!.line)).toEqual(separate);
+  expect(report.published).toBe(plant.length);
+});
