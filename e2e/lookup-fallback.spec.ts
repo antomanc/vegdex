@@ -9,7 +9,7 @@ const ticks = (page: import('@playwright/test').Page) =>
 test('a failed ingredient lookup keeps the catalog and English name search', async ({ page }) => {
   await page.route('**/data/lookup/**', (route) => route.abort());
   await page.goto('/it/?q=chickpeas');
-  await expect(cards(page)).toHaveText([/Lemony Quinoa Salad/]);
+  await expect(cards(page)).toHaveText([/Insalata di quinoa al limone/]);
   await expect(page.getByText('Non riesco a caricare le ricette', { exact: false })).toHaveCount(0);
   await page.getByRole('searchbox').fill('');
   await expect(page.getByTestId('result-count')).toHaveText('6 ricette');

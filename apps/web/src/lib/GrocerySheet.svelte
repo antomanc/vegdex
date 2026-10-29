@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { recipeTitle } from './translations.svelte'
   import { compileGroceryList, parseIngredient, type CatalogRecipe, type GroceryItem } from '@vegdex/core'
   import { loadIngredients, loadLookup, type LookupFile } from './data'
   import { BASE_LOCALE } from './locales'
@@ -106,11 +107,11 @@
         {#each rows as r (r.id)}
           {@const n = steps(r)}
           <li>
-            <span class="title">{r.title}</span>
+            <span class="title">{recipeTitle(r)}</span>
             <span class="stepper">
-              <button aria-disabled={n === 1} onclick={() => nudge(r, -1)} aria-label={m.fewer_servings({ title: r.title })}>−</button>
+              <button aria-disabled={n === 1} onclick={() => nudge(r, -1)} aria-label={m.fewer_servings({ title: recipeTitle(r) })}>−</button>
               <span class="value" aria-live="polite">{amountLabel(r)}</span>
-              <button aria-disabled={n === MAX_BATCHES * perBatch(r)} onclick={() => nudge(r, 1)} aria-label={m.more_servings({ title: r.title })}>+</button>
+              <button aria-disabled={n === MAX_BATCHES * perBatch(r)} onclick={() => nudge(r, 1)} aria-label={m.more_servings({ title: recipeTitle(r) })}>+</button>
             </span>
           </li>
         {/each}
