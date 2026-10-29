@@ -2,6 +2,7 @@ import {
   classify,
   DETAIL_SHARDS,
   findNonVegan,
+  findNonVeganConcepts,
   parseIngredient,
   shardOf,
   type Catalog,
@@ -14,7 +15,7 @@ import {
 import fs from 'node:fs';
 import path from 'node:path';
 import { isOtherLanguage } from './sitemap';
-import { conceptFamily, englishLookup, seed, usedLookup } from './concepts';
+import { conceptFamily, conceptVegan, englishLookup, seed, usedLookup } from './concepts';
 
 function toCatalog(r: Recipe, parsed: ParsedIngredient[]): CatalogRecipe {
   const ing = [...new Set(parsed.map((p) => p.name).filter(Boolean))];
@@ -40,7 +41,7 @@ function toCatalog(r: Recipe, parsed: ParsedIngredient[]): CatalogRecipe {
 
 export interface EmitReport {
   published: number;
-  excluded: { id: string; title: string; url: string; hits: { term: string; line: string }[] }[];
+  excluded: { id: string; title: string; url: string; hits: { term: string; line: string; concept?: string }[] }[];
   /** Stored recipes from a translated edition of a blog, left out. */
   otherLanguage: number;
   bySource: Record<string, number>;
@@ -65,7 +66,10 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string): E
       otherLanguage++;
       continue;
     }
-    const hits = findNonVegan(r.ingredients);
+    const hits = [
+      ...findNonVegan(r.ingredients),
+      ...findNonVeganConcepts(r.ingredients, englishLookup, conceptVegan).map((hit) => ({ ...hit, term: hit.concept }))
+    ];
     if (hits.length) excluded.push({ id: r.id, title: r.title, url: r.url, hits });
     else recipes.push(r);
   }

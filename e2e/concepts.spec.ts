@@ -50,3 +50,25 @@ test('English synonyms search the emitted concept data without title matches', a
   await page.getByRole('searchbox').fill('quinoa');
   await expect(cards(page)).toHaveText([/Lemony Quinoa Salad/]);
 });
+
+test('publication excludes animal concepts while qualified counterparts remain searchable and openable', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
+  await page.goto('/?q=quark');
+  await expect(page.getByTestId('result-count')).toHaveText(/0 recipes/);
+  await expect(cards(page)).toHaveCount(0);
+  await page.getByRole('searchbox').fill('Quark Pancakes');
+  await expect(cards(page)).toHaveCount(0);
+  await page.getByRole('searchbox').fill('plant milk');
+  await expect(cards(page)).toHaveText([/Fluffy Vegan Pancakes/]);
+  await page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true }).click();
+  await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText('plant milk');
+  await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText('vegan butter');
+  await page.getByRole('button', { name: 'Close', exact: true }).click();
+  await page.getByRole('searchbox').fill('vegan parmesan');
+  await expect(cards(page)).toHaveText([/Mushroom Tofu Stir Fry/]);
+  await page.getByRole('button', { name: 'Mushroom Tofu Stir Fry', exact: true }).click();
+  await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText('vegan parmesan');
+  expect(errors).toEqual([]);
+});

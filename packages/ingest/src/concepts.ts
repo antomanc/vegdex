@@ -1,10 +1,11 @@
 import fs from 'node:fs';
-import type { IngredientLookup } from '@vegdex/core';
+import type { ConceptVeganStatus, IngredientLookup } from '@vegdex/core';
 
 interface Concept {
   id: string;
   names: { en: string[]; it: string[] };
   parents: string[];
+  vegan: ConceptVeganStatus;
 }
 export const seed = JSON.parse(fs.readFileSync(new URL('../data/concepts.json', import.meta.url), 'utf8')) as {
   provenance: Record<string, string>;
@@ -33,3 +34,4 @@ export function usedLookup(language: 'en' | 'it', used?: Set<string>): Ingredien
   return aliases;
 }
 export const englishLookup = usedLookup('en');
+export const conceptVegan = Object.fromEntries(seed.concepts.map((c) => [c.id, c.vegan]));

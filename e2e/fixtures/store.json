@@ -25,7 +25,9 @@
     "2 tbsp sugar",
     "1 tbsp baking powder",
     "1 1/2 cups almond milk",
-    "2 tbsp maple syrup"
+    "2 tbsp maple syrup",
+    "1 cup plant milk",
+    "2 tbsp vegan butter"
    ]
   },
   "tofu-curry": {
@@ -83,7 +85,8 @@
     "2 tbsp soy sauce",
     "2 cloves garlic",
     "1 tbsp sesame oil",
-    "1 cup pumpkin"
+    "1 cup pumpkin",
+    "1 tbsp vegan parmesan"
    ]
   },
   "brownies": {
@@ -193,6 +196,29 @@
     "1 lb carrots",
     "2 tbsp honey",
     "1 tbsp olive oil"
+   ]
+  },
+  "quark-pancakes": {
+   "id": "quark-pancakes",
+   "title": "Quark Pancakes",
+   "sourceId": "noracooks",
+   "url": "https://example.com/quark-pancakes/",
+   "image": null,
+   "minutes": 20,
+   "servings": 4,
+   "rating": 4.9,
+   "ratingCount": 300,
+   "calories": 400,
+   "protein": null,
+   "published": "2026-01-01",
+   "categories": [
+    "Breakfast"
+   ],
+   "cuisines": [],
+   "keywords": [],
+   "ingredients": [
+    "2 cups all-purpose flour",
+    "1 cup quark"
    ]
   }
  }

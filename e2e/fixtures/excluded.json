@@ -7,6 +7,23 @@
    {
     "term": "honey",
     "line": "2 tbsp honey"
+   },
+   {
+    "concept": "off:a55e2e3846a51f6a",
+    "line": "2 tbsp honey",
+    "term": "off:a55e2e3846a51f6a"
+   }
+  ]
+ },
+ {
+  "id": "quark-pancakes",
+  "title": "Quark Pancakes",
+  "url": "https://example.com/quark-pancakes/",
+  "hits": [
+   {
+    "concept": "off:6e0f5e50cfafafa5",
+    "line": "1 cup quark",
+    "term": "off:6e0f5e50cfafafa5"
    }
   ]
  }
