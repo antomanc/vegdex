@@ -1,6 +1,7 @@
 [
   {
     "id": "veg:0001",
+    "vegan": "yes",
     "names": {
       "en": [
         "vegan butter",
@@ -17,6 +18,7 @@
   },
   {
     "id": "veg:0002",
+    "vegan": "yes",
     "names": {
       "en": [
         "plant milk",
@@ -35,6 +37,7 @@
   },
   {
     "id": "veg:0003",
+    "vegan": "yes",
     "names": {
       "en": [
         "vegan parmesan",

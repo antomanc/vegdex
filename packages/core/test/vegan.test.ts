@@ -34,7 +34,13 @@ describe('findNonVegan', () => {
     '2 beef tomatoes (diced)',
     '1 cup mock chicken pieces',
     '2 tsp chicken spice mix',
-    '1/4 cup vegan mayo'
+    '1/4 cup vegan mayo',
+    '1/4 tsp salt, less if your butter is salty',
+    "8 tablespoons butter, i used miyoko's plant butter (cold)",
+    '1/3 cup feta cheese; i used dairy-free',
+    '2 cups leftover vegan mac and cheese',
+    '1 cup bread and butter pickles',
+    '1 cup coconut milk (use 1/2 cup coconut cream), or 1/3 cup yogurt + 2/3 cup water'
   ])('accepts %s', (line) => {
     expect(findNonVegan([line])).toEqual([]);
   });
@@ -57,4 +63,16 @@ describe('findNonVegan', () => {
   ])('flags %s', (line, term) => {
     expect(findNonVegan([line])[0]?.term).toBe(term);
   });
+});
+
+it.each([
+  '2 tbsp vegan butter and 2 eggs',
+  '2 eggs and vegan butter',
+  '2 tbsp vegan butter; 2 eggs',
+  '2 tbsp vegan butter, 2 eggs',
+  '2 eggs with vegan butter',
+  'vegan butter, eggs',
+  'eggs (or flax eggs)'
+])('keeps plant qualification attached to its own ingredient in %s', (line) => {
+  expect(findNonVegan([line])).toEqual(expect.arrayContaining([expect.objectContaining({ term: 'egg' })]));
 });

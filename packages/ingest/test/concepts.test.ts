@@ -58,3 +58,37 @@ it('emits concepts, original English content and lazy used-only lookups from a f
   expect(read('concept-coverage.json')).toMatchObject({ lines: 6, mapped: 5, unmapped: { 'mystery seasoning': 1 } });
   expect(read('lookup/it.json').provenance.license).toContain('/odbl/');
 });
+
+it('publishes only recipes passing both independent vegan checks and reports concept exclusions', () => {
+  const store = loadStore(path.resolve('e2e/fixtures/store.json'));
+  const base = store.recipes['quinoa-salad']!;
+  const recipes = [
+    { ...base, id: 'concept-only', title: 'Quark Bowl', ingredients: ['1 cup quark'] },
+    { ...base, id: 'text-only', ingredients: ['1 tbsp mystery honey drizzle'] },
+    { ...base, id: 'both', ingredients: ['1 cup quark', '2 eggs'] },
+    { ...base, id: 'qualified', ingredients: ['2 tbsp vegan butter', '1 cup plant milk', '1 tbsp vegan parmesan'] },
+    { ...base, id: 'separate-animal', ingredients: ['2 tbsp vegan butter', '1 cup quark'] },
+    { ...base, id: 'unmapped', ingredients: ['1 tbsp mystery seasoning'] },
+    { ...base, id: 'unapproved-source', sourceId: 'not-a-vegan-source', ingredients: ['1 cup oats'] },
+    { ...base, id: 'translated', url: 'https://example.com/de/bowl/', ingredients: ['1 cup oats'] }
+  ];
+  const out = fs.mkdtempSync(path.join(os.tmpdir(), 'vegdex-vegan-'));
+  dirs.push(out);
+  const report = emitDataset(recipes, [{ id: base.sourceId, name: 'The Simple Veganista', url: 'https://simple-veganista.com' }], out);
+  const full = JSON.parse(fs.readFileSync(path.join(out, 'recipes.full.json'), 'utf8')) as FullDataset;
+  expect(full.recipes.map((r) => r.id)).toEqual(['qualified', 'unmapped']);
+  expect(report.excluded.map((r) => r.id)).toEqual(['concept-only', 'text-only', 'both', 'separate-animal']);
+  expect(report.otherLanguage).toBe(1);
+  expect(report.excluded[0]).toMatchObject({
+    id: 'concept-only', title: 'Quark Bowl', url: base.url,
+    hits: [expect.objectContaining({ concept: 'off:6e0f5e50cfafafa5', line: '1 cup quark' })]
+  });
+  expect(report.excluded[2]!.hits).toEqual(expect.arrayContaining([
+    expect.objectContaining({ term: 'egg' }),
+    expect.objectContaining({ concept: 'off:6e0f5e50cfafafa5' })
+  ]));
+  const dictionary = JSON.parse(fs.readFileSync(path.join(out, 'dictionary.json'), 'utf8'));
+  for (const id of ['veg:0001', 'veg:0002', 'veg:0003']) {
+    expect(dictionary.concepts.find((c: { id: string }) => c.id === id)).toMatchObject({ vegan: 'yes' });
+  }
+});

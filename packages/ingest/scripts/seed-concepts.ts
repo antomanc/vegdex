@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
-import { ingredientKey, singularize } from '@vegdex/core';
+import { ingredientKey, singularize, type ConceptVeganStatus } from '@vegdex/core';
 
 const dir = new URL('../data/', import.meta.url);
 const input = fs.readFileSync(new URL('ingredients.off.txt', dir));
@@ -13,7 +13,7 @@ const provenance = {
   license: 'https://opendatacommons.org/licenses/odbl/1-0/',
   contentsLicense: 'https://opendatacommons.org/licenses/dbcl/1-0/'
 };
-type Concept = { id: string; names: { en: string[]; it: string[] }; parents: string[] };
+type Concept = { id: string; names: { en: string[]; it: string[] }; parents: string[]; vegan: ConceptVeganStatus };
 const entries: { concept: Concept; parents: string[] }[] = [];
 for (const block of input.toString('utf8').split(/\n\s*\n/)) {
   const names = { en: [] as string[], it: [] as string[] };
@@ -27,7 +27,8 @@ for (const block of input.toString('utf8').split(/\n\s*\n/)) {
   if (!names.en.length) continue;
   // Frozen source identity: retain this ID explicitly if a later taxonomy renames the entry.
   const id = `off:${createHash('sha256').update(names.en[0]!).digest('hex').slice(0, 16)}`;
-  entries.push({ concept: { id, names, parents: [] }, parents });
+  const vegan = block.match(/^vegan:en:\s*(yes|no|maybe)\s*$/m)?.[1] as ConceptVeganStatus | undefined;
+  entries.push({ concept: { id, names, parents: [], vegan: vegan ?? 'unknown' }, parents });
 }
 const byName = new Map(entries.flatMap(({ concept }) => concept.names.en.map((n) => [n, concept.id] as const)));
 for (const { concept, parents } of entries) concept.parents = parents.flatMap((p) => byName.has(p) ? [byName.get(p)!] : []);
@@ -37,8 +38,21 @@ for (const addition of additions) {
   const existing = concepts.find((c) => c.id === addition.id);
   if (existing) {
     for (const lang of ['en', 'it'] as const) existing.names[lang].push(...addition.names[lang]);
+    if (addition.vegan) existing.vegan = addition.vegan;
   } else concepts.push(addition);
 }
+// Explicit statuses win; otherwise inherit taxonomy evidence, with animal ancestry taking priority.
+const inherited = concepts.filter((c) => c.vegan === 'unknown');
+const byId = new Map(concepts.map((c) => [c.id, c]));
+let changed: boolean;
+do {
+  changed = false;
+  for (const c of inherited) {
+    const parents = c.parents.map((id) => byId.get(id)?.vegan);
+    const vegan = (['no', 'maybe', 'yes'] as const).find((s) => parents.includes(s)) ?? 'unknown';
+    if (c.vegan !== vegan) { c.vegan = vegan; changed = true; }
+  }
+} while (changed);
 // Ambiguous aliases are omitted, never resolved by file order. English plurals are exact aliases too.
 for (const c of concepts) {
   c.names.en = [...new Set(c.names.en.flatMap((n) => {
