@@ -137,6 +137,8 @@ describe('compileGroceryList with ingredient concepts', () => {
     expect(compile([{ recipeId: 'a', ingredients: ['1 tbsp corn starch', '1 tbsp cornstarch', '1 cup cornmeal', '1 cup corn'] }]).map(({ name, aisle }) => [name, aisle])).toEqual([
       ['corn', 'produce'], ['cornmeal', 'grains & pasta'], ['cornstarch', 'baking & sweeteners']
     ]);
+    for (const line of ['1 tbsp cornflour', '1 tbsp corn flour', '2 tbsp corn syrup'])
+      expect(compile([{ recipeId: 'a', ingredients: [line] }])[0]?.aisle, line).toBe('baking & sweeteners');
   });
 
   it('keeps canned produce apart from fresh produce', () => {

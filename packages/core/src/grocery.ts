@@ -27,11 +27,11 @@ const AISLES: [string, RegExp][] = [
   ['produce', /\b(?:onion|garlic|ginger|lemon|lime|orange|apple|banana|berr|tomato|potato|carrot|celery|spinach|kale|lettuce|cabbage|broccoli|cauliflower|zucchini|squash|pumpkin|pepper(?!corn)|chili|jalape|cucumber|avocado|mushroom|herb|cilantro|parsley|basil|mint|dill|thyme|rosemary|green onion|leek|shallot|eggplant|corn(?! ?(?:starch|flour|meal|flake|bread|syrup))|pea\b|bean sprout|beet|radish|fruit|grape|mango|pineapple|peach|pear|plum|cherry|date|fig|sweet potato|arugula|chard|bok choy|fennel|asparagus|okra|green bean|edamame|sprout)/],
   ['tofu & alternatives', /\b(?:tofu|tempeh|seitan|vegan (?:butter|cheese|yogurt|sausage)|plant[\s-]based|yogurt|soy curl|jackfruit)/],
   ['plant milk & cream', /(?<!coconut )\b(?:milk|cream|creamer)\b/],
-  ['grains & pasta', /\b(?:rice|quinoa|oats?|pasta|spaghetti|noodle|couscous|bulgur|farro|barley|bread|tortilla|pita|wrap|bun|flour|polenta|cornmeal|panko|breadcrumb)/],
+  ['grains & pasta', /\b(?:rice|quinoa|oats?|pasta|spaghetti|noodle|couscous|bulgur|farro|barley|bread|tortilla|pita|wrap|bun|(?<!corn ?)flour|polenta|cornmeal|panko|breadcrumb)/],
   ['beans & legumes', /\b(?:(?<!vanilla )bean|chickpea|lentil|split pea)/],
   ['nuts & seeds', /\b(?:almond|cashew|walnut|pecan|peanut|hazelnut|pistachio|seed|tahini|nut butter|coconut flake|shredded coconut)/],
   ['spices', /\b(?:salt|pepper|cumin|paprika|turmeric|cinnamon|nutmeg|clove|cardamom|coriander|oregano|chili powder|curry powder|garam masala|spice|seasoning|cayenne|bay lea|vanilla|baking (?:soda|powder)|yeast)/],
-  ['baking & sweeteners', /\b(?:sugar|maple|agave|syrup|chocolate|cocoa|cacao|molasses|cornstarch|starch|arrowroot|xanthan)/],
+  ['baking & sweeteners', /\b(?:sugar|maple|agave|syrup|chocolate|cocoa|cacao|molasses|cornstarch|starch|corn ?flour|arrowroot|xanthan)/],
   ['oils, vinegars & sauces', /\b(?:oil|vinegar|soy sauce|tamari|miso|sauce|paste|ketchup|mustard|mayo|sriracha|broth|stock|bouillon|liquid smoke|nutritional yeast)/],
   ['canned & jarred', /\b(?:canned|can|jar|coconut milk|tomato sauce|crushed tomato|olive|caper|pickle)/]
 ];
