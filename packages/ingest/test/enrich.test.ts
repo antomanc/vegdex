@@ -64,6 +64,14 @@ it('learns an accented Italian name without using English canonicalization', asy
   expect(readLearnedData(state.learnedFile).aliases.it).toHaveProperty(original);
 });
 
+it('reuses safe English names for all curated Italian plant alternatives without model calls', async () => {
+  const state = files(['burro vegetale', 'latte vegetale', 'parmigiano vegano']
+    .map((original) => ({ ...task('ingredient', original), sourceLanguage: 'it', targetLanguage: 'en' })));
+  const fake = await endpoint(() => null);
+  expect(await runLocalEnrich({ ...state, model: fake.model })).toMatchObject({ accepted: 0, reused: 3, remaining: 0, failed: [] });
+  expect(fake.requests).toHaveLength(0);
+});
+
 it('persists a translated title and clears its queue without requesting it again', async () => {
   const state = files([task('title', 'Weeknight Chickpea Bowl')]);
   const fake = await endpoint(() => ({ language: 'it', text: 'Ciotola di ceci per la sera' }));
