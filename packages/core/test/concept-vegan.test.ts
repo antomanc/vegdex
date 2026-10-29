@@ -76,3 +76,10 @@ it.each([
   const hits = findNonVeganConcepts([line], names, { ...vegan, yogurt: 'no' });
   expect(hits.map((h) => h.concept)).toEqual(concept ? [concept] : []);
 });
+
+it('checks both ingredients of a line split into two', () => {
+  const split = { sale: 'salt', burro: 'butter', salt: 'salt', butter: 'butter' };
+  const status = { salt: 'yes', butter: 'no' } as const;
+  expect(findNonVeganConcepts(['sale e burro'], split, status, 'it')).toEqual([{ concept: 'butter', line: 'sale e burro' }]);
+  expect(findNonVeganConcepts(['salt and butter'], split, status)).toEqual([{ concept: 'butter', line: 'salt and butter' }]);
+});

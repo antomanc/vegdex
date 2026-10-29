@@ -23,7 +23,6 @@ it('extracts and publishes a real Italian source while holding its unmapped comp
   const report = emitDataset(recipes, [source], out);
   expect(report.published).toBe(1);
   expect(report.held.map((r) => r.id)).toEqual([recipes[1]!.id]);
-  expect(report.queue.held.map((r) => r.id)).toEqual([recipes[1]!.id]);
   const full = JSON.parse(fs.readFileSync(path.join(out, 'recipes.full.json'), 'utf8')) as FullDataset;
   expect(full.recipes).toHaveLength(1);
   const gnocchi = full.recipes[0]!;
@@ -34,9 +33,10 @@ it('extracts and publishes a real Italian source while holding its unmapped comp
   expect(searchRecipes(full.recipes, { include: ['beetroot'] }, full.lookup).map((r) => r.id)).toEqual([gnocchi.id]);
   const overlay = JSON.parse(fs.readFileSync(path.join(out, 'overlay/en.json'), 'utf8'));
   expect(overlay.titles[gnocchi.title]).toBe('Vegan Beetroot and Potato Gnocchi');
-  expect(renderIngredient(gnocchi.parsedIngredients![0]!, overlay.ingredients, 'en', 'metric')).toEqual(['300 g', 'cooked beetroot']);
-  expect(renderIngredient(gnocchi.parsedIngredients![2]!, overlay.ingredients, 'en', 'metric'))
-    .toEqual(['350 g', 'flour type 0, plus more as needed, using as little as possible']);
+  expect(renderIngredient(gnocchi.parsedIngredients![0]!, overlay, 'en', 'metric', 'it')).toEqual(['300 g', 'cooked beetroot']);
+  expect(renderIngredient(gnocchi.parsedIngredients![2]!, overlay, 'en', 'metric', 'it')).toEqual(['350 g', 'flour type 0, plus more as needed']);
+  // The weighing note is commentary: left out of the English line, kept in the original.
+  expect(renderIngredient(gnocchi.parsedIngredients![1]!, overlay, 'en', 'metric', 'it')).toEqual(['600 g', 'potatoes']);
   const list = compileGroceryList([{ recipeId: gnocchi.id, ingredients: gnocchi.ingredients, parsedIngredients: gnocchi.parsedIngredients, contentLanguage: 'it', multiplier: 2 }], { concepts: full.grocery, lookup: full.lookup, units: 'metric' });
   expect(list.find((item) => item.name === 'cooked beetroot')).toMatchObject({ amounts: ['600 g'] });
   expect(list.find((item) => item.name === 'flour type 0')).toMatchObject({ amounts: ['700 g'] });

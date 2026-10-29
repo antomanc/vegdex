@@ -44,9 +44,9 @@ async function openPancakes(page: Page, path: string) {
 
 // The English page keeps following the browser's region; the Italian page is metric whatever the browser says.
 for (const { locale, english, italian } of [
-  { locale: 'en-US', english: '2 cups all-purpose flour', italian: '≈ 250 g all-purpose flour' },
-  { locale: 'it-IT', english: '≈ 250 g all-purpose flour', italian: '≈ 250 g all-purpose flour' },
-  { locale: 'en-GB', english: '≈ 250 g all-purpose flour', italian: '≈ 250 g all-purpose flour' }
+  { locale: 'en-US', english: '2 cups all-purpose flour', italian: '≈ 250 g farina 00' },
+  { locale: 'it-IT', english: '≈ 250 g all-purpose flour', italian: '≈ 250 g farina 00' },
+  { locale: 'en-GB', english: '≈ 250 g all-purpose flour', italian: '≈ 250 g farina 00' }
 ]) {
   test.describe(`page defaults with a ${locale} browser`, () => {
     test.use({ locale });
@@ -61,8 +61,8 @@ for (const { locale, english, italian } of [
 }
 
 for (const { path, other, choice, amount } of [
-  { path: '/', other: '/it/', choice: 'Metric', amount: '≈ 250 g all-purpose flour' },
-  { path: '/it/', other: '/', choice: 'USA', amount: '2 cups all-purpose flour' }
+  { path: '/', other: '/it/', choice: 'Metric', amount: { '/': '≈ 250 g all-purpose flour', '/it/': '≈ 250 g farina 00' } },
+  { path: '/it/', other: '/', choice: 'USA', amount: { '/': '2 cups all-purpose flour', '/it/': '2 tazze di farina 00' } }
 ]) {
   test(`a ${choice} choice on ${path} holds in both languages`, async ({ page }) => {
     await page.goto(path);
@@ -71,9 +71,9 @@ for (const { path, other, choice, amount } of [
     for (const language of [other, path]) {
       await page.goto(language);
       await page.getByRole('button', { name: language === '/it/' ? 'Pancake vegani soffici' : 'Fluffy Vegan Pancakes', exact: true }).click();
-      await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText(amount);
+      await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText(amount[language as '/' | '/it/']);
       await page.reload();
-      await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText(amount);
+      await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText(amount[language as '/' | '/it/']);
     }
   });
 }

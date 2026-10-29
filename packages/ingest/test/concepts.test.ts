@@ -55,7 +55,8 @@ it('emits concepts, original English content and lazy used-only lookups from a f
   expect(searchRecipes(catalog.recipes, { include: ['zucca'], exclude: ['funghi'] }, it).map((r) => r.id)).toEqual(['bowl']);
   expect(searchRecipes(catalog.recipes, { include: ['ceci', 'funghi'] }, it)).toEqual([]);
   expect(searchRecipes(catalog.recipes, { exclude: ['ceci', 'funghi'] }, it)).toEqual([]);
-  expect(read('concept-coverage.json')).toMatchObject({ lines: 6, mapped: 5, unmapped: { 'mystery seasoning': 1 } });
+  expect(read('coverage.json').languages.it).toMatchObject({ lines: 6, unknown: 1 });
+  expect(read('coverage.json').top.en).toContainEqual({ kind: 'map', id: 'mystery seasoning', lines: 1 });
   expect(read('lookup/it.json').provenance.license).toContain('/odbl/');
 });
 

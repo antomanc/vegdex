@@ -48,7 +48,7 @@ for (const language of ['en', 'it'] as const) {
     await page.getByRole('button', { name: title, exact: true }).click();
     let sheet = page.getByRole('dialog');
     await expect(sheet.getByTestId('ingredients')).toContainText(italian ? '400 g ceci, scolati e sciacquati' : /400 g chick ?peas, drained and rinsed/);
-    await expect(sheet.getByTestId('ingredients')).toContainText(italian ? '1,5 cucchiai' : '1.5 tbsp');
+    await expect(sheet.getByTestId('ingredients')).toContainText(italian ? '1 ½ cucchiai di olio di oliva' : '1 ½ tbsp olive oil');
     if (!italian) {
       await expect(sheet.locator('.original-title')).toHaveText('Insalata italiana di ceci');
       await sheet.getByText('Original ingredients', { exact: true }).click();

@@ -76,47 +76,37 @@
       ]
     }
   ],
-  "titles": {
-    "Insalata italiana di ceci": "Italian Chickpea Salad",
-    "Cracker italiani": "Italian Crackers"
-  },
-  "learned": {
-    "version": 1,
-    "concepts": [
-      {
-        "id": "learned:50a8ce0bc79d0364",
-        "names": {
-          "en": [
-            "lunar flour"
-          ],
-          "it": [
-            "farina lunare"
-          ]
-        },
-        "parents": [],
-        "vegan": "unknown"
+  "answers": [
+    {
+      "kind": "map",
+      "language": "it",
+      "answers": {
+        "farina lunare": {
+          "new": {
+            "gloss": "lunar flour",
+            "parents": []
+          }
+        }
       }
-    ],
-    "titles": {
-      "en": {
+    },
+    {
+      "kind": "name",
+      "language": "en",
+      "answers": {
+        "vocab:lunar-flour": {
+          "one": "lunar flour",
+          "other": "lunar flour"
+        }
+      }
+    },
+    {
+      "kind": "title",
+      "language": "en",
+      "answers": {
+        "Insalata italiana di ceci": "Italian Chickpea Salad",
+        "Cracker italiani": "Italian Crackers",
         "Frittelle lunari": "Lunar pancakes"
       }
-    },
-    "aliases": {
-      "it": {
-        "farina lunare": "learned:50a8ce0bc79d0364"
-      }
-    },
-    "ingredientTables": {
-      "en": {
-        "names": {
-          "learned:50a8ce0bc79d0364": "lunar flour"
-        },
-        "notes": {
-          "setacciata finemente": "finely sifted"
-        },
-        "units": {}
-      }
     }
-  }
+  ]
 }

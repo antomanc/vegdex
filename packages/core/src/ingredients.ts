@@ -1,6 +1,7 @@
 import { cleanText } from './text';
-import { isQualifiedIngredient, lookupConcept, type IngredientLookup } from './concepts';
+import { isQualifiedIngredient, lookupConcept, lookupTerm, type IngredientLookup } from './concepts';
 import { languagePacks, languageUnitPatterns } from './languages';
+import { findUnsafeRenderedTerms } from './translations';
 
 export type Dimension = 'volume' | 'mass' | 'count' | 'other';
 
@@ -105,13 +106,27 @@ function parseNumber(text: string): number {
   return Number(t);
 }
 
+export interface PreparationTerm {
+  id: string;
+  /** The words as written. */
+  text: string;
+  /** Written inside the name ("chopped scallion"), not in a note: other languages attach it to the noun. */
+  inName?: true;
+}
+
 export interface ParsedIngredient {
   /** English name of a mapped concept, used only with the existing density table. */
   densityName?: string;
-  /** Complete residual phrase for enrichment when canonical reduction is not safe to render. */
-  sourceName?: string;
   /** False when mapping discarded source wording that display must retain. Absent in older datasets. */
   conceptExact?: boolean;
+  /** The ingredient as written, without amount, notes or commentary. Absent in older datasets. */
+  phrase?: string;
+  /** Preparation terms in line order. Notes that are not terms are commentary and never displayed. */
+  terms?: PreparationTerm[];
+  /** "1 (15 oz) can": the size of each can, block or piece. */
+  size?: { quantity: number; unit: string } | null;
+  /** "salt and pepper", "walnuts or almonds": the second ingredient, when both sides are known exactly. */
+  also?: { concept: string; name: string; joiner: 'and' | 'or' } | null;
   concept: string | null;
   raw: string;
   quantity: number | null;
@@ -404,22 +419,117 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
   s = s.replace(/^\([^)]*\)\s*/, '').replace(/^of\s+(?:an?\s+)?/i, '');
   if (pack.preposition) s = s.replace(pack.preposition, '');
   const commaAt = s.search(/,|\(/);
-  let note = [sizeNote, commaAt >= 0 ? s.slice(commaAt) : ''].filter(Boolean).join(' ').replace(/^[,\s]+/, '');
+  const afterName = commaAt >= 0 ? s.slice(commaAt) : '';
+  let note = [sizeNote, afterName].filter(Boolean).join(' ').replace(/^[,\s]+/, '');
   let phrase = s.split(/,|\(/)[0]!;
+  let preparation = afterName;
   const trailing = !lookupConcept(phrase, lookup) && pack.trailingNote ? phrase.match(pack.trailingNote) : null;
   if (trailing) {
     phrase = phrase.slice(0, trailing.index);
     note = [trailing[1], note].filter(Boolean).join(', ');
+    preparation = [trailing[1], preparation].filter(Boolean).join(', ');
   }
   const name = pack.nonIngredient?.test(s) ? '' : language === 'en' ? canonicalName(s) : phrase.trim().toLowerCase();
   // "romano or ramiro pepper": a one-word first option shares the noun when that names a known ingredient.
   const shared = phrase.match(/^\s*([\p{L}'-]+)\s+or\s+[\p{L}'-]+(?:\s+[\p{L}'-]+)*\s+([\p{L}'-]+)\s*$/iu);
   // Qualifiers in notes or unknown names must never disappear through canonicalization.
-  const concept = isQualifiedIngredient(raw)
-    ? (isQualifiedIngredient(phrase) ? lookupConcept(phrase, lookup) : null)
+  // "butter (vegan)": the qualifier is outside an animal name, so the name alone must not map to butter.
+  const qualifierOutsideName = isQualifiedIngredient(raw) && !isQualifiedIngredient(phrase)
+    && Object.keys(languagePacks).some((l) => findUnsafeRenderedTerms(phrase, l).length > 0);
+  let concept = qualifierOutsideName ? null : isQualifiedIngredient(phrase)
+    ? lookupConcept(phrase, lookup)
     : lookupConcept(phrase, lookup) ?? (shared && lookupConcept(canonicalName(`${shared[1]} ${shared[2]}`), lookup)) ?? lookupConcept(name, lookup);
-  const conceptExact = !!concept && lookupConcept(phrase.replace(/\s+to taste$/i, ''), lookup) === concept;
-  return { ...(!conceptExact ? { sourceName: phrase.trim() } : {}), conceptExact, raw: cleanText(raw), quantity, quantityMax, unit, metric, afterMeasure, name, concept, note, optional };
+  phrase = phrase.trim();
+  let conceptExact = !!concept && lookupConcept(phrase, lookup) === concept;
+  const terms: PreparationTerm[] = [];
+  let also: ParsedIngredient['also'] = null;
+  if (!conceptExact && !qualifierOutsideName) {
+    // "romano or ramiro pepper" shares its noun and is never split into two ingredients.
+    const resolve = (text: string) => {
+      const id = lookupConcept(text, lookup);
+      return id ? { concept: id, also: null } : shared ? null : splitIngredients(text, lookup, language);
+    };
+    const found = peelTerms(phrase, resolve, lookup);
+    if (found) {
+      ({ concept, also } = found);
+      if (found.phrase) phrase = found.phrase;
+      terms.push(...[...found.terms, ...found.sideTerms ?? []].map((t): PreparationTerm => ({ ...t, inName: true })));
+      conceptExact = true;
+    }
+  }
+  terms.push(...noteTerms(preparation, lookup).filter((t) => !terms.some((other) => other.id === t.id)));
+  const sizeDef = unit ? unitDef(unit) : undefined;
+  const measuredSize = sizeNote && (!sizeDef || sizeDef.dimension === 'other') ? parseSize(sizeNote) : null;
+  return { conceptExact, phrase, terms, size: measuredSize, also, raw: cleanText(raw), quantity, quantityMax, unit, metric, afterMeasure, name, concept, note, optional };
+}
+
+/** "15-ounce", "3-inch", "400 g": the size of one can or piece; null for anything else. */
+function parseSize(text: string): ParsedIngredient['size'] {
+  const m = text.trim().match(/^(\d+(?:[.,]\d+)?)\s*-?\s*([a-z]+\.?|"|”)$/i);
+  const def = m ? lookupUnit(m[2] === '”' ? '"' : m[2]!) : undefined;
+  return def && (def.dimension === 'mass' || def.dimension === 'volume' || def.unit === 'inch') ? { quantity: parseNumber(m![1]!), unit: def.unit } : null;
+}
+
+/** Each comma or bracket segment of a note that is a known preparation term; the rest is commentary. */
+function noteTerms(note: string, lookup: IngredientLookup): PreparationTerm[] {
+  const terms: PreparationTerm[] = [];
+  for (const segment of note.split(/[,;()]|\s[-–—]\s/)) {
+    const text = segment.trim().replace(/[.:]+$/, '');
+    const id = text && lookupTerm(text, lookup);
+    if (id && !terms.some((t) => t.id === id)) terms.push({ id, text });
+  }
+  return terms;
+}
+
+/** `phrase` replaces the written name when an alternative was dropped; `sideTerms` were peeled off either side of a split. */
+type Resolved = { concept: string; also: ParsedIngredient['also']; phrase?: string; sideTerms?: PreparationTerm[] };
+
+/**
+ * "finely chopped parsley", "salt and pepper to taste": peel known preparation terms off either end of the name
+ * until what remains resolves to known ingredients, so no written word is lost.
+ */
+function peelTerms(phrase: string, resolve: (text: string) => Resolved | null, lookup: IngredientLookup): (Resolved & { terms: PreparationTerm[] }) | null {
+  let words = phrase.split(/\s+/).filter(Boolean);
+  const lead: PreparationTerm[] = [];
+  const trail: PreparationTerm[] = [];
+  const take = (fromEnd: boolean) => {
+    for (let n = Math.min(3, words.length - 1); n > 0; n--) {
+      const text = (fromEnd ? words.slice(-n) : words.slice(0, n)).join(' ');
+      const id = lookupTerm(text, lookup);
+      if (!id) continue;
+      words = fromEnd ? words.slice(0, -n) : words.slice(n);
+      (fromEnd ? trail : lead).push({ id, text });
+      return true;
+    }
+    return false;
+  };
+  let resolved = resolve(words.join(' '));
+  while (!resolved && (take(false) || take(true))) resolved = resolve(words.join(' '));
+  return resolved ? { ...resolved, terms: [...lead, ...trail.reverse()] } : null;
+}
+
+/**
+ * "salt and ground pepper", "salt + pepper": two ingredients when both sides are known.
+ * "walnuts or almonds", "cornflour / cornstarch": an alternative stays only when it names a known ingredient;
+ * otherwise it is a substitution, which is commentary.
+ */
+function splitIngredients(phrase: string, lookup: IngredientLookup, language: string): Resolved | null {
+  const pack = languagePacks[language]!;
+  const m = phrase.match(new RegExp(`^(.+?)\\s+(${pack.and}|&|\\+|${pack.or}|\\/)\\s+(.+)$`, 'i'));
+  if (!m) return null;
+  const side = (text: string) => {
+    const id = lookupConcept(text, lookup);
+    if (id) return { concept: id, terms: [] as PreparationTerm[] };
+    const peeled = peelTerms(text, (t) => { const c = lookupConcept(t, lookup); return c ? { concept: c, also: null } : null; }, lookup);
+    return peeled ? { concept: peeled.concept, terms: peeled.terms } : null;
+  };
+  const left = side(m[1]!);
+  if (!left) return null;
+  const right = side(m[3]!);
+  const joiner = [pack.or, '/'].includes(m[2]!.toLowerCase()) ? 'or' : 'and';
+  if (!right || right.concept === left.concept) return joiner === 'or' ? { concept: left.concept, also: null, phrase: m[1]!.trim(), sideTerms: left.terms } : null;
+  const name = language === 'en' ? canonicalName(m[3]!) : m[3]!.trim().toLowerCase();
+  return { concept: left.concept, also: { concept: right.concept, name, joiner }, sideTerms: [...left.terms, ...right.terms] };
 }
 
 /** Drop the alternative side of "60 ml / ¼ cup"; the first measure is the one kept. */

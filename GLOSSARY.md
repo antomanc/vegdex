@@ -37,18 +37,34 @@ _Avoid_: Canonical name, ingredient ID
 **Language pack**:
 Everything vegdex needs to parse and check recipes written in one content language, including its animal-word list.
 
-**Translation memory**:
-The cache of titles already translated, keyed by the original text and the target UI language.
-_Avoid_: Translation cache, title table
+**Vocabulary**:
+Everything vegdex knows about one language's words, kept in git per language: aliases, concept names with their grammatical forms, preparation terms, unit labels and titles.
+_Avoid_: Tables, translation memory, learned data
+
+**Preparation term**:
+A language-neutral note a cook needs, such as "minced" or "to taste", named in each language. Notes that are not terms are commentary.
+_Avoid_: Note phrase
+
+**Commentary**:
+Note text that is not a preparation term, such as substitutions, brand advice or "see notes". Never displayed; the original line keeps it.
+_Avoid_: Aside, extra note
+
+**Gap**:
+Something the vocabulary lacks: a phrase with no concept or term, a concept or term with no name in a language, or a title with no translation.
+_Avoid_: Queue task, missing string
+
+**Coverage**:
+The share of ingredient lines and titles one language can show entirely from the vocabulary, for recipes written in another language.
+_Avoid_: Translation progress
 
 **Original text**:
-A title or ingredient line exactly as the source wrote it, always shown when no safe translation exists.
+A title or ingredient line exactly as the source wrote it, shown whenever the vocabulary cannot compose it in the page language.
 _Avoid_: Raw text, source text
 
 **Held recipe**:
-A recipe that is crawled but not published until its unmapped ingredients are mapped to concepts.
+A recipe that is crawled but not published until every ingredient maps to a concept.
 _Avoid_: Pending, quarantined
 
-**Enrich run**:
-A manual catch-up run on the owner's desktop that clears the queue of strings the tables could not handle.
-_Avoid_: Translation job, sync
+**Fill**:
+One round of answering gap batches and applying the answers, by any worker: an agent session, a local model or an API.
+_Avoid_: Enrich run, translation job, sync
