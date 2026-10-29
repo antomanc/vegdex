@@ -1,0 +1,41 @@
+{
+  "sourceUrl": "https://cucinaverza.com/piatti-unici/primi/gnocchi-di-barbabietola-e-patate-senza-uova/",
+  "checkedAt": "2026-10-29",
+  "recipe": {
+    "@type": "Recipe",
+    "name": "Gnocchi di barbabietola e patate (senza uova)",
+    "author": {
+      "@type": "Person",
+      "name": "Cristiana",
+      "url": "https://www.cucinaverza.com"
+    },
+    "datePublished": "2026-04-23T21:20:08+00:00",
+    "image": [
+      "https://cucinaverza.com/wp-content/uploads/2026/02/GnocchiRossi-1-scaled-e1776976564397.jpg",
+      "https://cucinaverza.com/wp-content/uploads/2026/02/GnocchiRossi-1-500x500.jpg",
+      "https://cucinaverza.com/wp-content/uploads/2026/02/GnocchiRossi-1-500x375.jpg",
+      "https://cucinaverza.com/wp-content/uploads/2026/02/GnocchiRossi-1-480x270.jpg"
+    ],
+    "recipeYield": [
+      "4",
+      "4 persone"
+    ],
+    "prepTime": "PT30M",
+    "cookTime": "PT1M",
+    "totalTime": "PT60M",
+    "recipeIngredient": [
+      "300 g barbabietola precotta",
+      "600 g patate (pesate a crudo con la buccia)",
+      "350 g farina 0 + q.b. ma comunque meno possibile",
+      "250 g tofu",
+      "Sale"
+    ],
+    "recipeCategory": [
+      "Primo"
+    ],
+    "recipeCuisine": [
+      "Italiana"
+    ],
+    "keywords": "gnocchi di barbabietola e patate, gnocchi senza uova, gnocchi vegani, tofu"
+  }
+}

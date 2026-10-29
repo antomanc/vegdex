@@ -33,7 +33,7 @@ export const languagePacks: Record<string, LanguagePack> = {
     },
     numberWords: { un: 1, uno: 1, una: 1, due: 2, tre: 3, quattro: 4, cinque: 5, sei: 6, mezzo: 0.5, mezza: 0.5 },
     preposition: /^(?:di\s+|d['’]\s*)/i,
-    trailingNote: /\s+((?:(?:cott[oaie]|scolat[oaie]|sciacquat[oaie]|tritat[oaie]|tagliat[oaie]|sbucciat[oaie]|grattugiat[oaie]|facoltativ[oaie])\b.*)|q\.?\s*b\.?|quanto basta)$/i,
+    trailingNote: /\s+((?:(?:cott[oaie]|scolat[oaie]|sciacquat[oaie]|tritat[oaie]|tagliat[oaie]|sbucciat[oaie]|grattugiat[oaie]|facoltativ[oaie])\b.*)|q\.?\s*b\.?|quanto basta|\+\s+q\.?\s*b\.?(?:\s+ma comunque meno possibile)?)$/i,
     nonIngredient: /^(?:per (?:servire|guarnire|la decorazione)|nota|note|consiglio)\b/i,
     unsafeLearnedAlias: /\b(?:o|e|con|per|oppure|facoltativ[oaie]|piccol[oaie]|medi[oaie]|grand[ei]|inter[oaie]|mezz[oaie]|tritat[oaie]|tagliat[oaie]|sbucciat[oaie]|grattugiat[oaie]|fresc[hoaie]+|surgelat[oaie]|essiccat[oaie]|divis[oaie]|più)\b/i,
     optional: /\b(?:facoltativ[oaie]|opzional[ei])\b/i,

@@ -89,5 +89,32 @@
       "it": []
     },
     "parents": []
+  },
+  {
+    "id": "veg:cooked-beetroot",
+    "names": {
+      "en": [
+        "cooked beetroot",
+        "precooked beetroot"
+      ],
+      "it": [
+        "barbabietola precotta",
+        "barbabietola cotta"
+      ]
+    },
+    "parents": [
+      "off:5c679610f9badb63"
+    ],
+    "vegan": "yes"
+  },
+  {
+    "id": "off:e93bbd2ca559bd79",
+    "names": {
+      "en": [],
+      "it": [
+        "farina 0"
+      ]
+    },
+    "parents": []
   }
 ]
