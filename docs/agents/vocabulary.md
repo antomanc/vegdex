@@ -13,18 +13,22 @@ pnpm coverage                                          # see what moved
 
 The first run downloads the crawl store from the `data` release with `gh`.
 
+## How a name resolves
+
+Before a phrase counts as a gap, the parser tries, in order: the name as written; the name without a plant qualifier ("vegan coconut yogurt"); the name with one typo fixed; and preparation terms or a product brand (`brands` in `vocab/en.json`) peeled off either end. A step never resolves to an animal word the original did not name. So a frequent gap is usually a missing alias, term or brand, cheaper to add than a fill.
+
 ## Gap kinds
 
 | Kind | `--lang` is | Answer |
 | --- | --- | --- |
-| `map` | the language recipes are written in | `{"concept": "<id>"}`, `{"new": {"gloss": "...", "parents": [...]}}` or `"not-ingredient"` |
+| `map` | the language recipes are written in | `{"concept": "<id>"}`, `{"same": "<English name>"}`, `{"new": {"gloss": "...", "parents": [...]}}` or `"not-ingredient"` |
 | `term` | the language recipes are written in | `{"term": "<id>"}`, `{"new": {"id": "term:...", "name": ...}}` or `"commentary"` |
 | `name` | the display language | concept: `{"one", "other", "gender"}`; term: its forms |
 | `title` | the display language | the translated title |
 
 Each batch file carries its own `instructions`. Follow them exactly. The answers file is `{"kind", "language", "answers": {"<item id>": <answer>}}`. Leave out any item you are unsure of: an open gap shows the original text, while a wrong entry shows wrong text.
 
-Work in this order: `map` and `term` first, because they decide what exists, then `name`, then `title`.
+Work in this order: `map` and `term` first, because they decide what exists, then `name`, then `title`. Applying the same answers twice is safe: a `new` gloss vegdex already knows reuses that concept. A `"not-ingredient"` answer hides every line with that phrase.
 
 ## Answering batches as an agent
 
