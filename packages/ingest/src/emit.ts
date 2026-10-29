@@ -56,7 +56,8 @@ export interface EmitReport {
  * - recipes.full.json: catalog + ingredient lines in one file, for the MCP server
  * Recipes the vegan check flags are left out and listed in the report; so are translated editions.
  */
-export function emitDataset(all: Recipe[], sources: Source[], outDir: string): EmitReport {
+/** `generatedAt` defaults to now; fixtures pin it so regenerating them changes nothing. */
+export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { generatedAt = new Date().toISOString() } = {}): EmitReport {
   const excluded: EmitReport['excluded'] = [];
   const recipes: Recipe[] = [];
   const sourceIds = new Set(sources.map((s) => s.id));
@@ -75,7 +76,6 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string): E
     else recipes.push(r);
   }
 
-  const generatedAt = new Date().toISOString();
   const usedSources = sources.filter((s) => recipes.some((r) => r.sourceId === s.id)).map((s) => ({ ...s, contentLanguage: s.contentLanguage ?? 'en' }));
   const sorted = recipes.sort((a, b) => a.id.localeCompare(b.id));
   const parsed = sorted.map((r) => r.ingredients.map((line) => parseIngredient(line, englishLookup)));

@@ -108,3 +108,18 @@ it('rejects a separate animal ingredient on a line whose other ingredient is pla
   expect(report.excluded.map((r) => r.hits[0]!.line)).toEqual(separate);
   expect(report.published).toBe(plant.length);
 });
+
+it('emits byte-identical files for a given generation time', () => {
+  const store = loadStore(path.resolve('e2e/fixtures/store.json'));
+  const sources = JSON.parse(fs.readFileSync(new URL('../sources.json', import.meta.url), 'utf8'));
+  const read = (dir: string) => Object.fromEntries(fs.readdirSync(dir, { recursive: true, encoding: 'utf8' }).sort()
+    .filter((f) => fs.statSync(path.join(dir, f)).isFile()).map((f) => [f, fs.readFileSync(path.join(dir, f), 'utf8')]));
+  const outs = [0, 1].map(() => {
+    const out = fs.mkdtempSync(path.join(os.tmpdir(), 'vegdex-stable-'));
+    dirs.push(out);
+    emitDataset(Object.values(store.recipes), sources, out, { generatedAt: '2026-01-01T00:00:00.000Z' });
+    return read(out);
+  });
+  expect(outs[1]).toEqual(outs[0]);
+  expect(JSON.parse(outs[0]!['catalog.json']!).generatedAt).toBe('2026-01-01T00:00:00.000Z');
+});
