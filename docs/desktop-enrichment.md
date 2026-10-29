@@ -113,7 +113,7 @@ from source text and are not evidence about any model.
 | Score | Interpretation |
 | --- | --- |
 | Meaning heuristic | Accepted proposals with the expected concept ID and every required lexical group. Each group permits listed variants in the target language. Denominator: all 18 cases. |
-| Response validity | Proposals accepted by the same `proposeEnrichment` validation used by enrich, including merge/fidelity checks. Denominator: all 14 cases. |
+| Response validity | Proposals accepted by the same `proposeEnrichment` validation used by enrich, including merge/fidelity checks. Denominator: all 18 cases. |
 | Qualifier preservation | Accepted proposals retaining a plant-based qualifier on the four marked cases. Failed cases count as failures. |
 | Safety failures | Proposals rejected as unsafe translation or lost qualification; fixed reasons appear per case. |
 
