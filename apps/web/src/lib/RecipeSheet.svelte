@@ -1,8 +1,9 @@
 <script lang="ts">
-  import type { CatalogRecipe } from '@vegdex/core'
-  import { loadIngredients } from './data'
+  import { display, recipeTitle } from './translations.svelte'
+  import { renderIngredient, type CatalogRecipe } from '@vegdex/core'
+  import { loadDetails } from './data'
   import Icon from './Icon.svelte'
-  import { m, countArgs, formatNumber, formatRating } from './i18n'
+  import { m, countArgs, formatNumber, formatRating, pageLocale } from './i18n'
   import { FREE, cuisineLabel, formatMinutes, splitLine } from './labels'
   import { sheet } from './sheet'
   import { prefs, saved, toggleSaved } from './state.svelte'
@@ -28,8 +29,12 @@
     broken = false
     if (dialog) dialog.scrollTop = 0
   })
-  const ingredients = $derived(loadIngredients(recipe.id))
+  const ingredients = $derived(loadDetails(recipe.id))
   const isSaved = $derived(saved.ids.includes(recipe.id))
+  const reportUrl = $derived(`https://github.com/antomanc/vegdex/issues/new?${new URLSearchParams({
+    title: `Recipe problem: ${recipe.title}`,
+    body: `Recipe ID: ${recipe.id}\nSource: ${recipe.url}\nUI language: ${pageLocale.code}\n\nPlease describe the problem:\n`
+  })}`)
 
   const LABELS: Record<string, string> = {
     ...Object.fromEntries(FREE.map(([id, label]) => [`free:${id}`, label])),
@@ -48,7 +53,8 @@
     {#if recipe.image && !broken}
       <img class="hero" src={recipe.image} alt="" referrerpolicy="no-referrer" onerror={() => (broken = true)} />
     {/if}
-    <h2 id="sheet-title">{recipe.title}</h2>
+    <h2 id="sheet-title">{recipeTitle(recipe)}</h2>
+    {#if recipeTitle(recipe) !== recipe.title}<p class="muted original-title" lang={recipe.contentLanguage ?? 'en'}>{recipe.title}</p>{/if}
     <p class="kitchen">
       <span>{m.from_kitchen()} <button class="kitchen-name" onclick={onkitchen} aria-label={m.source_recipes({ source: sourceName })}>{sourceName}</button></span>
       {#if recipe.rating && recipe.ratingCount}<span class="rating"><Icon name="star" size={13} filled /><span class="visually-hidden">{m.rated()}</span> {formatRating(recipe.rating)} <span class="muted">({m.rating_total(countArgs(recipe.ratingCount))})</span></span>{/if}
@@ -78,18 +84,32 @@
     <div class="ingredients-head"><h3>{m.ingredients()}</h3><UnitsToggle /></div>
     {#await ingredients}
       <p class="muted">{m.loading()}</p>
-    {:then lines}
-      {@const split = lines.map((line) => splitLine(line, prefs.units))}
+    {:then { ingredients: lines, parsedIngredients }}
+      {@const split = lines.map((line, i) => {
+        const parsed = parsedIngredients?.[i]
+        return parsed && pageLocale.code !== (recipe.contentLanguage ?? 'en')
+          ? renderIngredient(parsed, display.overlay?.ingredients, pageLocale.code, prefs.units) ?? splitLine(line, prefs.units)
+          : splitLine(line, prefs.units)
+      })}
       <ul class="ingredients" data-testid="ingredients">
         {#each split as [amount, rest], i (i)}<li>{#if amount}<span class="amount">{amount}</span>{' '}{/if}{rest}</li>{/each}
       </ul>
       {#if split.some(([amount]) => amount.startsWith('≈'))}
         <p class="muted small">{m.metric_note()}</p>
       {/if}
+      {#if pageLocale.code !== (recipe.contentLanguage ?? 'en')}
+        <details class="original-ingredients">
+          <summary>{m.original_ingredients()}</summary>
+          <ul class="ingredients" data-testid="original-ingredients" lang={recipe.contentLanguage ?? 'en'}>
+            {#each lines as line, i (i)}<li>{line}</li>{/each}
+          </ul>
+        </details>
+      {/if}
     {:catch}
       <p class="muted">{m.ingredients_offline({ source: sourceName })}</p>
     {/await}
     <p class="muted small">{m.creator_credit({ source: sourceName })}</p>
+    <p class="muted small"><a href={reportUrl} target="_blank" rel="noopener">{m.report_problem()}</a></p>
     </div>
 
     <div class="sheet-footer actions">

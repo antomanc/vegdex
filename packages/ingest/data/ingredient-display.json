@@ -1,0 +1,148 @@
+{
+  "it": {
+    "names": {
+      "off:cc767fb1c6efc232": "zucchero",
+      "off:782f0a13661ebc63": "latte di mandorla",
+      "off:997f2bec11fab269": "tofu compatto",
+      "off:7ed0f0da39d5b63b": "ceci",
+      "off:86119140b8973dcc": "cumino",
+      "off:69ee4b5bc8e1c92d": "latte di cocco",
+      "off:f65f5ac33d081465": "olio di sesamo",
+      "off:dd832404e8eeb907": "cetriolo"
+    },
+    "notes": {
+      "drained and rinsed": "scolati e sciacquati",
+      "drained": "scolati",
+      "rinsed": "sciacquati",
+      "minced": "tritato",
+      "diced": "a dadini",
+      "juiced": "spremuto",
+      "sifted": "setacciata",
+      "chopped": "tritato",
+      "finely chopped": "tritato finemente",
+      "(finely chopped)": "tritato finemente",
+      "for sprinkling": "per spolverare",
+      "to taste": "quanto basta",
+      "optional": "facoltativo",
+      "(optional)": "facoltativo"
+    },
+    "units": {
+      "g": [
+        "g",
+        "g"
+      ],
+      "kg": [
+        "kg",
+        "kg"
+      ],
+      "ml": [
+        "ml",
+        "ml"
+      ],
+      "l": [
+        "l",
+        "l"
+      ],
+      "cm": [
+        "cm",
+        "cm"
+      ],
+      "cup": [
+        "tazza",
+        "tazze"
+      ],
+      "tbsp": [
+        "cucchiaio",
+        "cucchiai"
+      ],
+      "tsp": [
+        "cucchiaino",
+        "cucchiaini"
+      ],
+      "oz": [
+        "oncia",
+        "once"
+      ],
+      "lb": [
+        "lb",
+        "lb"
+      ],
+      "fl oz": [
+        "fl oz",
+        "fl oz"
+      ],
+      "clove": [
+        "spicchio",
+        "spicchi"
+      ],
+      "can": [
+        "lattina",
+        "lattine"
+      ],
+      "jar": [
+        "barattolo",
+        "barattoli"
+      ],
+      "package": [
+        "confezione",
+        "confezioni"
+      ],
+      "block": [
+        "panetto",
+        "panetti"
+      ],
+      "bunch": [
+        "mazzetto",
+        "mazzetti"
+      ],
+      "handful": [
+        "manciata",
+        "manciate"
+      ],
+      "sprig": [
+        "rametto",
+        "rametti"
+      ],
+      "stalk": [
+        "gambo",
+        "gambi"
+      ],
+      "head": [
+        "cespo",
+        "cespi"
+      ],
+      "slice": [
+        "fetta",
+        "fette"
+      ],
+      "sheet": [
+        "foglio",
+        "fogli"
+      ],
+      "pinch": [
+        "pizzico",
+        "pizzichi"
+      ],
+      "dash": [
+        "goccio",
+        "gocci"
+      ],
+      "inch": [
+        "pollice",
+        "pollici"
+      ],
+      "bag": [
+        "sacchetto",
+        "sacchetti"
+      ],
+      "scoop": [
+        "misurino",
+        "misurini"
+      ],
+      "piece": [
+        "pezzo",
+        "pezzi"
+      ]
+    }
+  }
+}

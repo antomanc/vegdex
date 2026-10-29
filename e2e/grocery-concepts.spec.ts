@@ -10,18 +10,18 @@ for (const { path, save, saved, open, aisle, starch } of [
     page.on('pageerror', (e) => errors.push(e.message));
     page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
     await page.goto(path);
-    await page.getByRole('button', { name: `${save} Fluffy Vegan Pancakes`, exact: true }).click();
+    await page.getByRole('button', { name: `${save} ${path === '/it/' ? 'Pancake vegani soffici' : 'Fluffy Vegan Pancakes'}`, exact: true }).click();
     await page.getByRole('button', { name: `${save} Fudgy Vegan Brownies`, exact: true }).click();
     await page.getByRole('button', { name: saved, exact: true }).click();
     await page.getByRole('button', { name: open, exact: true }).click();
 
     const list = page.getByRole('dialog');
     const groceries = list.getByTestId('grocery-list');
-    await expect(groceries.locator('li', { hasText: /starch/ })).toHaveCount(1);
+    await expect(groceries.locator('li', { hasText: path === '/' ? /starch/ : /amido di mais/ })).toHaveCount(1);
     const baking = list.getByRole('heading', { name: aisle, exact: true }).locator('xpath=following-sibling::ul[1]');
-    await expect(baking.locator('li', { hasText: 'cornstarch' })).toContainText(starch);
+    await expect(baking.locator('li', { hasText: path === '/' ? 'cornstarch' : 'amido di mais' })).toContainText(starch);
     // 3/4 cup and 2 tbsp of sugar are weighed through the density table and added to the blog's 25 g.
-    await expect(baking.locator('li', { has: page.getByText('sugar', { exact: true }) })).toContainText('≈ 200 g');
+    await expect(baking.locator('li', { has: page.getByText(path === '/' ? 'sugar' : 'zucchero', { exact: true }) })).toContainText('≈ 200 g');
     expect(errors).toEqual([]);
   });
 }

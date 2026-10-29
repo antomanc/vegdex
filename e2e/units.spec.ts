@@ -39,7 +39,7 @@ const ingredients = (page: Page) => page.getByRole('dialog').getByTestId('ingred
 
 async function openPancakes(page: Page, path: string) {
   await page.goto(path);
-  await page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true }).click();
+  await page.getByRole('button', { name: path === '/it/' ? 'Pancake vegani soffici' : 'Fluffy Vegan Pancakes', exact: true }).click();
 }
 
 // The English page keeps following the browser's region; the Italian page is metric whatever the browser says.
@@ -66,11 +66,11 @@ for (const { path, other, choice, amount } of [
 ]) {
   test(`a ${choice} choice on ${path} holds in both languages`, async ({ page }) => {
     await page.goto(path);
-    await page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true }).click();
+    await page.getByRole('button', { name: path === '/it/' ? 'Pancake vegani soffici' : 'Fluffy Vegan Pancakes', exact: true }).click();
     await page.getByRole('dialog').getByRole('button', { name: choice, exact: true }).click();
     for (const language of [other, path]) {
       await page.goto(language);
-      await page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true }).click();
+      await page.getByRole('button', { name: language === '/it/' ? 'Pancake vegani soffici' : 'Fluffy Vegan Pancakes', exact: true }).click();
       await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText(amount);
       await page.reload();
       await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText(amount);

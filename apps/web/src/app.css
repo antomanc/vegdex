@@ -305,6 +305,8 @@ main {
 .ingredients li { padding: 9px 0 8px; border-bottom: 1px solid var(--line); text-wrap: pretty; }
 .ingredients .amount { font-weight: 650; font-variant-numeric: tabular-nums; }
 /* The units switch sits on the Ingredients heading's line, like a note in the card's margin. */
+.original-ingredients { margin-top: 12px; }
+.original-ingredients summary { cursor: pointer; min-height: 44px; padding: 10px 0; color: var(--ink-green); }
 .ingredients-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 26px 0 8px; }
 .ingredients-head h3 { margin: 0; }
 .muted { color: var(--muted); }

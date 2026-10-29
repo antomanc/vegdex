@@ -167,6 +167,7 @@
   "metric_note": "≈ Weighed from cups with typical weights per ingredient. Results vary with how you fill the cup.",
   "ingredients_offline": "Ingredients are unavailable offline. Open the recipe on {source}.",
   "creator_credit": "Method, photos and tips are on {source}. Visiting supports the creator.",
+  "report_problem": "Report a problem",
   "saved_recipe": "Saved",
   "save": "Save",
   "save_recipe": "Save {title}",
@@ -607,5 +608,6 @@
     }
   ],
   "dictionary_credit": "Ingredient names from",
-  "dictionary_tables": "Ingredient dictionary"
+  "dictionary_tables": "Ingredient dictionary",
+  "original_ingredients": "Original ingredients"
 }

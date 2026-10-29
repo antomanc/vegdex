@@ -7,12 +7,15 @@
     "dev": "pnpm --filter @vegdex/web dev",
     "build": "pnpm --filter @vegdex/web build",
     "ingest": "pnpm --filter @vegdex/ingest ingest",
+    "nightly:enrichment": "pnpm --filter @vegdex/ingest exec tsx src/nightly-cli.ts",
     "typecheck": "pnpm -r typecheck",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "pnpm fixtures && playwright test",
-    "fixtures": "pnpm --filter @vegdex/ingest ingest emit --store ../../e2e/fixtures/store.json --out ../../e2e/fixtures/data --generated-at 2026-10-29T00:00:00.000Z",
-    "seed:concepts": "pnpm --filter @vegdex/ingest exec tsx scripts/seed-concepts.ts"
+    "fixtures": "pnpm --filter @vegdex/ingest ingest emit --store ../../e2e/fixtures/store.json --out ../../e2e/fixtures/data --generated-at 2026-10-29T00:00:00.000Z --blocklist ../../e2e/fixtures/blocklist.json",
+    "seed:concepts": "pnpm --filter @vegdex/ingest exec tsx scripts/seed-concepts.ts",
+    "enrich": "pnpm --filter @vegdex/ingest enrich",
+    "eval:enrichment": "pnpm --filter @vegdex/ingest exec tsx src/evaluate-cli.ts"
   },
   "engines": {
     "node": ">=22.12.0"

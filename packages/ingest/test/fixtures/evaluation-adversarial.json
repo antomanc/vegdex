@@ -1,0 +1,10 @@
+{
+  "description": "Deliberately bad fake-server responses, not source text or measured model behavior. Unlisted cases abstain.",
+  "responses": {
+    "Chana Masala (Quick + Easy)": "not JSON: rejected payload",
+    "5 Minute Stir Fry Sauce": { "language": "it", "text": "Salsa per saltare in padella in 7 minuti" },
+    "Green Chile White Bean Skillet with Crispy Panko Topping": { "language": "it", "text": "SECRET_PLACEHOLDER" },
+    "vegan butter": { "language": "it", "conceptId": null, "text": "burro" },
+    "garlic": { "language": "it", "conceptId": "off:08ddff4ebe39249a", "text": "zenzero" }
+  }
+}

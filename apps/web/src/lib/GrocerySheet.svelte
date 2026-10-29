@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { compileGroceryList, parseIngredient, type CatalogRecipe, type GroceryItem } from '@vegdex/core'
+  import { display, recipeTitle } from './translations.svelte'
+  import { compileGroceryList, displayGroceryName, parseIngredient, type CatalogRecipe, type GroceryItem } from '@vegdex/core'
   import { loadIngredients, loadLookup, type LookupFile } from './data'
   import { BASE_LOCALE } from './locales'
-  import { m, countArgs, formatNumber } from './i18n'
+  import { m, countArgs, formatNumber, pageLocale } from './i18n'
   import { AISLE_LABELS, formatGroceryAmount } from './labels'
   import Icon from './Icon.svelte'
   import { sheet } from './sheet'
@@ -106,11 +107,11 @@
         {#each rows as r (r.id)}
           {@const n = steps(r)}
           <li>
-            <span class="title">{r.title}</span>
+            <span class="title">{recipeTitle(r)}</span>
             <span class="stepper">
-              <button aria-disabled={n === 1} onclick={() => nudge(r, -1)} aria-label={m.fewer_servings({ title: r.title })}>−</button>
+              <button aria-disabled={n === 1} onclick={() => nudge(r, -1)} aria-label={m.fewer_servings({ title: recipeTitle(r) })}>−</button>
               <span class="value" aria-live="polite">{amountLabel(r)}</span>
-              <button aria-disabled={n === MAX_BATCHES * perBatch(r)} onclick={() => nudge(r, 1)} aria-label={m.more_servings({ title: r.title })}>+</button>
+              <button aria-disabled={n === MAX_BATCHES * perBatch(r)} onclick={() => nudge(r, 1)} aria-label={m.more_servings({ title: recipeTitle(r) })}>+</button>
             </span>
           </li>
         {/each}
@@ -131,7 +132,7 @@
             <li>
               <label class:done={checked[key(item)]}>
                 <input type="checkbox" bind:checked={checked[key(item)]} />
-                <span class="name">{item.name}</span>
+                <span class="name">{displayGroceryName(item, display.overlay?.ingredients, pageLocale.code)}</span>
                 <span class="amount">{item.toTaste ? m.to_taste() : item.amounts.map(formatGroceryAmount).join(' + ')}</span>
               </label>
             </li>

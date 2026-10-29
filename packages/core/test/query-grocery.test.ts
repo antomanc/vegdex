@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { compileGroceryList, groceryConcepts, parseIngredient, searchRecipes, type CatalogRecipe } from '../src';
+import { compileGroceryList, groceryConcepts, parseIngredient, safeTranslation, searchRecipes, type CatalogRecipe } from '../src';
 
 const r = (id: string, over: Partial<CatalogRecipe>): CatalogRecipe => ({
   id, title: id, source: 's', url: 'u', image: null, minutes: 20, servings: 4, rating: 4.5, ratingCount: 10,
@@ -24,6 +24,29 @@ describe('searchRecipes', () => {
 
   it('ranks title matches first', () => {
     expect(searchRecipes(recipes, { text: 'curry' }).map((x) => x.id)).toEqual(['tofu-spinach']);
+  });
+
+  it('searches a safe displayed title alongside the original without changing recipe objects or ingredient filters', () => {
+    const salad = r('salad', { title: 'Lemony Quinoa Salad', ing: ['quinoa', 'chickpea'], concepts: ['chickpea'] });
+    const displayTitle = (recipe: CatalogRecipe) => safeTranslation(recipe.title, 'Insalata di quinoa al limone', 'it');
+    const lookup = { ceci: 'chickpea' };
+    expect(searchRecipes([salad], { text: 'Insalata di quinoa al limone', include: ['ceci'] }, lookup, displayTitle)[0]).toBe(salad);
+    expect(searchRecipes([salad], { text: 'Lemony Quinoa Salad' }, lookup, displayTitle)[0]).toBe(salad);
+    expect(searchRecipes([salad], { text: 'Insalata di quinoa al limone', exclude: ['quinoa'] }, lookup, displayTitle)).toEqual([]);
+    expect(salad.title).toBe('Lemony Quinoa Salad');
+  });
+
+  it('gives translated title words title relevance and leaves rejected translations unsearchable', () => {
+    const recipes = [
+      r('translated', { title: 'Forest Bowl', rating: 3 }),
+      r('ingredient', { title: 'Lunch', ing: ['funghi'], rating: 5, ratingCount: 100 })
+    ];
+    const displayTitle = (recipe: CatalogRecipe) => safeTranslation(recipe.title,
+      recipe.id === 'translated' ? 'Ciotola di funghi' : undefined, 'it');
+    expect(searchRecipes(recipes, { text: 'funghi' }, {}, displayTitle).map((r) => r.id)).toEqual(['translated', 'ingredient']);
+    const unsafe = (recipe: CatalogRecipe) => safeTranslation(recipe.title, 'Pollo al forno', 'it');
+    expect(searchRecipes(recipes, { text: 'pollo' }, {}, unsafe)).toEqual([]);
+    expect(searchRecipes(recipes, { text: 'funghi' }).map((r) => r.id)).toEqual(['ingredient']);
   });
 });
 
