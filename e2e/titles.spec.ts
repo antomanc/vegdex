@@ -1,5 +1,26 @@
 import { expect, test } from './fixtures';
 
+test('Italian search finds the displayed title and keeps original-title and ingredient matching', async ({ page }) => {
+  await page.goto('/it/?q=quinoa');
+  const card = page.getByTestId('recipe-card');
+  await expect(card).toHaveText(/Insalata di quinoa al limone/);
+  await page.getByRole('searchbox').fill('Insalata di quinoa al limone');
+  await expect(card).toHaveText(/Insalata di quinoa al limone/);
+  await page.getByRole('searchbox').fill('Lemony Quinoa Salad');
+  await expect(card).toHaveText(/Insalata di quinoa al limone/);
+  await page.goto('/it/?q=Insalata%20di%20quinoa%20al%20limone&have=ceci&avoid=funghi');
+  await expect(card).toHaveText(/Insalata di quinoa al limone/);
+  await page.goto('/it/?q=Insalata%20di%20quinoa%20al%20limone&avoid=ceci');
+  await expect(card).toHaveCount(0);
+});
+
+test('a translated-title search offers the filter removal that brings the recipe back', async ({ page }) => {
+  await page.goto('/it/?q=Insalata%20di%20quinoa%20al%20limone&meal=dessert');
+  await expect(page.getByTestId('recipe-card')).toHaveCount(0);
+  await page.getByRole('button', { name: /Togli “Dolci”/ }).click();
+  await expect(page.getByTestId('recipe-card')).toHaveText(/Insalata di quinoa al limone/);
+});
+
 test('Italian titles preserve source titles and appear in saved recipes and the shopping list', async ({ page }) => {
   await page.goto('/it/?q=pancakes');
   await expect(page.getByRole('button', { name: 'Pancake vegani soffici', exact: true })).toBeVisible();
@@ -26,6 +47,9 @@ test('unsafe title translations fall back to originals at display time', async (
   await page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true }).click();
   await expect(page.getByRole('dialog').getByRole('heading', { name: 'Fluffy Vegan Pancakes', exact: true })).toBeVisible();
   await expect(page.getByText('Pancake al burro', { exact: true })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Chiudi', exact: true }).click();
+  await page.getByRole('searchbox').fill('Pancake al burro');
+  await expect(page.getByTestId('recipe-card')).toHaveCount(0);
 });
 
 test('unavailable overlays keep the catalog browsable and missing titles retain originals', async ({ page }) => {
