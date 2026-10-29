@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { compileGroceryList, type CatalogRecipe, type GroceryItem } from '@vegdex/core'
-  import { loadIngredients } from './data'
+  import { compileGroceryList, parseIngredient, type CatalogRecipe, type GroceryItem } from '@vegdex/core'
+  import { loadIngredients, loadLookup, type LookupFile } from './data'
+  import { BASE_LOCALE } from './locales'
   import { m, countArgs, formatNumber } from './i18n'
   import { AISLE_LABELS, formatGroceryAmount } from './labels'
   import Icon from './Icon.svelte'
@@ -32,13 +33,35 @@
   })
 
   const lines = $derived(Promise.all(recipes.map(async (r) => ({ id: r.id, lines: await loadIngredients(r.id) }))))
+  // Recipes are written in English, so every UI language merges them through the English names.
+  // Without them (an older dataset) the list still merges by name.
+  const english = loadLookup(BASE_LOCALE.code).catch((): LookupFile => ({ aliases: {} }))
+  const ready = $derived(Promise.all([lines, english]))
+  const options = (file: LookupFile) => ({ lookup: file.aliases, concepts: file.grocery })
+  // Canned and fresh tomatoes are two rows with one name, in different aisles.
+  const key = (item: GroceryItem) => `${item.aisle}/${item.name}`
 
   // A tick belongs to this list: items no longer on it lose theirs, so next week's olive oil isn't pre-ticked.
+  // Ticks stored by name alone (before concepts), or under a row name that has since changed,
+  // move to the row now holding that ingredient.
   $effect(() => {
-    lines.then((all) => {
-      const names = new Set(compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier: 1 }))).map((i) => i.name))
-      const kept = Object.fromEntries(Object.entries(checked).filter(([name, on]) => on && names.has(name)))
-      if (Object.keys(kept).length !== Object.keys(checked).length) checked = kept
+    ready.then(([all, file]) => {
+      // Without the English names the rows are not the real ones: keep every tick for later.
+      if (!file.grocery && recipes.some((r) => r.concepts)) return
+      const items = compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier: 1 })), options(file))
+      const kept: Record<string, boolean> = {}
+      for (const [k, on] of Object.entries(checked)) {
+        if (!on) continue
+        const slash = k.indexOf('/')
+        const aisle = slash > 0 && k.slice(0, slash) in AISLE_LABELS ? k.slice(0, slash) : null
+        const name = aisle ? k.slice(slash + 1) : k
+        let found = items.filter((i) => i.name === name)
+        if (!found.length) found = items.filter((i) => i.lines.some((line) => parseIngredient(line).name === name))
+        if (aisle && found.some((i) => i.aisle === aisle)) found = found.filter((i) => i.aisle === aisle)
+        if (new Set(found.map((i) => i.name)).size !== 1) continue
+        for (const item of found) kept[key(item)] = true
+      }
+      if (JSON.stringify(kept) !== JSON.stringify(Object.fromEntries(Object.entries(checked).filter(([, on]) => on)))) checked = kept
     })
   })
 
@@ -59,17 +82,17 @@
 
   const nudge = (r: CatalogRecipe, by: number) => setAmount(r.id, steps(r, by) / perBatch(r))
 
-  function compile(all: { id: string; lines: string[] }[]): [string, GroceryItem[]][] {
+  function compile(all: { id: string; lines: string[] }[], file: LookupFile): [string, GroceryItem[]][] {
     const byId = new Map(recipes.map((r) => [r.id, r]))
     const multiplier = (id: string) => {
       const r = byId.get(id)
       return r ? steps(r) / perBatch(r) : 1
     }
-    const items = compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier: multiplier(r.id) })), { units: prefs.units })
+    const items = compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier: multiplier(r.id) })), { units: prefs.units, ...options(file) })
     const byAisle = new Map<string, GroceryItem[]>()
     for (const item of items) byAisle.set(item.aisle, [...(byAisle.get(item.aisle) ?? []), item])
     // Checked items sink to the bottom of their aisle, so what's left to grab stays on top.
-    return [...byAisle].map(([aisle, list]) => [aisle, [...list].sort((a, b) => Number(!!checked[a.name]) - Number(!!checked[b.name]))])
+    return [...byAisle].map(([aisle, list]) => [aisle, [...list].sort((a, b) => Number(!!checked[key(a)]) - Number(!!checked[key(b)]))])
   }
 </script>
 
@@ -98,16 +121,16 @@
       <UnitsToggle />
       <button class="text-btn uncheck" disabled={!anyChecked} onclick={() => (checked = {})}>{m.uncheck()}</button>
     </div>
-    {#await lines}
+    {#await ready}
       <p class="muted">{m.loading_ingredients()}</p>
-    {:then all}
-      {#each compile(all) as [aisle, items] (aisle)}
+    {:then [all, file]}
+      {#each compile(all, file) as [aisle, items] (aisle)}
         <h3 class="aisle">{AISLE_LABELS[aisle]?.() ?? m.aisle_other()}</h3>
         <ul class="grocery" data-testid="grocery-list">
           {#each items as item (item.name)}
             <li>
-              <label class:done={checked[item.name]}>
-                <input type="checkbox" bind:checked={checked[item.name]} />
+              <label class:done={checked[key(item)]}>
+                <input type="checkbox" bind:checked={checked[key(item)]} />
                 <span class="name">{item.name}</span>
                 <span class="amount">{item.toTaste ? m.to_taste() : item.amounts.map(formatGroceryAmount).join(' + ')}</span>
               </label>

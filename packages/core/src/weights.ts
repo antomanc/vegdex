@@ -39,6 +39,8 @@ const CUP_GRAMS: [RegExp, number][] = [
   [/vinegar$/, 239],
   [/soy sauce|tamari|liquid aminos|coconut aminos?/, 255],
   [/(?:broth|stock|bouillon)$/, 240],
+  // USDA FoodData Central SR Legacy 02050 (FDC 173471): 1 cup 208 g, 1 tbsp 13 g, 1 tsp 4.2 g.
+  [/vanilla extract/, 208],
   // Sweeteners
   [/powdered|confectioner|icing sugar|powered sugar/, 120],
   [/brown sugar|muscovado|sucanat|rapadura/, 220],

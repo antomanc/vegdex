@@ -1,4 +1,5 @@
 import { singularize } from './ingredients';
+import { isQualifiedIngredient, lookupConcept, type IngredientLookup } from './concepts';
 import type { CatalogRecipe, Flavor, FreeFrom, Meal } from './types';
 
 export interface RecipeQuery {
@@ -35,8 +36,30 @@ function nameMatches(name: string, phrase: string[]): boolean {
   return phrase.every((p) => words.some((w) => w === p || (p.length >= 4 && w.startsWith(p))));
 }
 
-function hasIngredient(recipe: CatalogRecipe, phrase: string[]): boolean {
-  return recipe.ing.some((name) => nameMatches(name, phrase));
+interface SearchTerm { words: string[]; concept: string | null }
+
+function searchTerms(text: string, lookup: IngredientLookup): SearchTerm[] {
+  if (isQualifiedIngredient(text)) return [{ words: tokens(text), concept: lookupConcept(text, lookup) }];
+  const words = text.toLowerCase().match(/[\p{L}\p{N}'-]+/gu) ?? [];
+  const terms: SearchTerm[] = [];
+  for (let start = 0; start < words.length;) {
+    let end = words.length;
+    let concept: string | null = null;
+    for (; end > start; end--) {
+      concept = lookupConcept(words.slice(start, end).join(' '), lookup);
+      if (concept) break;
+    }
+    if (!concept) end = start + 1;
+    terms.push({ words: tokens(words.slice(start, end).join(' ')), concept });
+    start = end;
+  }
+  return terms;
+}
+
+/** Concepts add matches (Italian names, synonyms); the English text match always still counts. */
+function hasIngredient(recipe: CatalogRecipe, term: SearchTerm): boolean {
+  if (term.concept && recipe.concepts?.includes(term.concept)) return true;
+  return recipe.ing.some((name) => nameMatches(name, term.words));
 }
 
 /** Bayesian-ish rating so 5.0 from 2 votes does not beat 4.8 from 300. */
@@ -46,10 +69,10 @@ export function ratingScore(r: Pick<CatalogRecipe, 'rating' | 'ratingCount'>): n
   return (avg * n + 4.2 * 10) / (n + 10);
 }
 
-export function searchRecipes<R extends CatalogRecipe>(recipes: R[], q: RecipeQuery): R[] {
-  const textTokens = q.text ? tokens(q.text) : [];
-  const include = (q.include ?? []).map(tokens).filter((t) => t.length);
-  const exclude = (q.exclude ?? []).map(tokens).filter((t) => t.length);
+export function searchRecipes<R extends CatalogRecipe>(recipes: R[], q: RecipeQuery, lookup: IngredientLookup = {}): R[] {
+  const textTerms = q.text ? searchTerms(q.text, lookup).filter((t) => t.words.length) : [];
+  const include = (q.include ?? []).filter((p) => tokens(p).length).map((p) => ({ words: tokens(p), concept: lookupConcept(p, lookup) }));
+  const exclude = (q.exclude ?? []).filter((p) => tokens(p).length).map((p) => ({ words: tokens(p), concept: lookupConcept(p, lookup) }));
   const ids = q.ids ? new Set(q.ids) : null;
   const sources = q.sources?.length ? new Set(q.sources) : null;
   const cuisine = q.cuisine?.toLowerCase();
@@ -69,22 +92,22 @@ export function searchRecipes<R extends CatalogRecipe>(recipes: R[], q: RecipeQu
     if (exclude.some((p) => hasIngredient(r, p))) continue;
 
     let score = 0;
-    if (textTokens.length) {
+    if (textTerms.length) {
       const title = tokens(r.title);
       let matched = 0;
-      for (const t of textTokens) {
+      for (const term of textTerms) for (const t of term.words) {
         if (title.some((w) => w === t)) score += 3;
         else if (title.some((w) => t.length >= 3 && w.startsWith(t))) score += 2;
-        else if (r.ing.some((n) => nameMatches(n, [t]))) score += 1;
+        else if (hasIngredient(r, { words: [t], concept: term.concept })) score += 1;
         else continue;
         matched++;
       }
-      if (matched < textTokens.length) continue;
+      if (matched < textTerms.reduce((n, term) => n + term.words.length, 0)) continue;
     }
     scored.push({ r, score });
   }
 
-  const sort = q.sort ?? (textTokens.length ? 'relevance' : 'rating');
+  const sort = q.sort ?? (textTerms.length ? 'relevance' : 'rating');
   const cmp: Record<NonNullable<RecipeQuery['sort']>, (a: { r: R; score: number }, b: { r: R; score: number }) => number> = {
     relevance: (a, b) => b.score - a.score || ratingScore(b.r) - ratingScore(a.r),
     rating: (a, b) => ratingScore(b.r) - ratingScore(a.r),

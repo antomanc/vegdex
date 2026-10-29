@@ -16,6 +16,7 @@ function summary(data: FullDataset, r: FullRecipe) {
   return {
     id: r.id,
     title: r.title,
+    contentLanguage: r.contentLanguage ?? 'en',
     source: source?.name ?? r.source,
     url: r.url,
     minutes: r.minutes,
@@ -32,7 +33,7 @@ function summary(data: FullDataset, r: FullRecipe) {
 
 export function search(data: FullDataset, args: SearchArgs) {
   const { limit = 10, ...query } = args
-  const all = searchRecipes(data.recipes, query)
+  const all = searchRecipes(data.recipes, query, data.lookup)
   return {
     total: all.length,
     recipes: all.slice(0, Math.min(Math.max(limit, 1), 50)).map((r) => summary(data, r))
@@ -61,14 +62,14 @@ export function groceryList(data: FullDataset, args: GroceryArgs) {
     const multiplier = x.multiplier ?? (x.servings && r.servings ? x.servings / r.servings : 1)
     return [{ recipeId: r.id, ingredients: r.ingredients, multiplier }]
   })
-  const items = compileGroceryList(inputs)
+  const items = compileGroceryList(inputs, { lookup: data.lookup, concepts: data.grocery })
   const aisles: Record<string, { item: string; amount: string }[]> = {}
   for (const it of items) (aisles[it.aisle] ??= []).push({ item: it.name, amount: amountText(it) })
   return {
     recipes: inputs.map((i) => ({ id: i.recipeId, title: byId.get(i.recipeId)!.title, multiplier: round(i.multiplier) })),
     aisles,
     ...(unknown.length ? { unknownIds: unknown } : {}),
-    note: 'Quantities are summed per ingredient across recipes; lines without a quantity are listed as "to taste".'
+    note: 'Quantities are summed per ingredient across recipes, with synonyms merged; cups join grams only where the density is known (≈ marks an estimate). Lines without a quantity are listed as "to taste".'
   }
 }
 

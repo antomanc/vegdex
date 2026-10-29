@@ -1,4 +1,5 @@
 import { cleanText } from './text';
+import { isQualifiedIngredient, lookupConcept, type IngredientLookup } from './concepts';
 
 export type Dimension = 'volume' | 'mass' | 'count' | 'other';
 
@@ -96,6 +97,7 @@ function parseNumber(text: string): number {
 }
 
 export interface ParsedIngredient {
+  concept: string | null;
   raw: string;
   quantity: number | null;
   quantityMax: number | null;
@@ -297,7 +299,7 @@ function reduceAlternative(text: string): string {
 }
 
 /** Parse one published ingredient line into quantity, unit and canonical name. */
-export function parseIngredient(raw: string): ParsedIngredient {
+export function parseIngredient(raw: string, lookup: IngredientLookup = {}): ParsedIngredient {
   let s = normalizeLine(raw);
   const optional = /\boptional\b/i.test(s);
   s = s.replace(MEASURE_WORDS_RE, '');
@@ -383,7 +385,15 @@ export function parseIngredient(raw: string): ParsedIngredient {
   s = s.replace(/^\([^)]*\)\s*/, '').replace(/^of\s+(?:an?\s+)?/i, '');
   const commaAt = s.search(/,|\(/);
   const note = [sizeNote, commaAt >= 0 ? s.slice(commaAt) : ''].filter(Boolean).join(' ').replace(/^[,\s]+/, '');
-  return { raw: cleanText(raw), quantity, quantityMax, unit, metric, afterMeasure, name: canonicalName(s), note, optional };
+  const name = canonicalName(s);
+  const phrase = s.split(/,|\(/)[0]!;
+  // "romano or ramiro pepper": a one-word first option shares the noun when that names a known ingredient.
+  const shared = phrase.match(/^\s*([\p{L}'-]+)\s+or\s+[\p{L}'-]+(?:\s+[\p{L}'-]+)*\s+([\p{L}'-]+)\s*$/iu);
+  // Qualifiers in notes or unknown names must never disappear through canonicalization.
+  const concept = isQualifiedIngredient(raw)
+    ? (isQualifiedIngredient(phrase) ? lookupConcept(phrase, lookup) : null)
+    : lookupConcept(phrase, lookup) ?? (shared && lookupConcept(canonicalName(`${shared[1]} ${shared[2]}`), lookup)) ?? lookupConcept(name, lookup);
+  return { raw: cleanText(raw), quantity, quantityMax, unit, metric, afterMeasure, name, concept, note, optional };
 }
 
 /** Drop the alternative side of "60 ml / ¼ cup"; the first measure is the one kept. */

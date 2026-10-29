@@ -1,7 +1,7 @@
 <script lang="ts">
   import { untrack } from 'svelte'
-  import { searchRecipes, type Catalog, type CatalogRecipe } from '@vegdex/core'
-  import { loadCatalog } from './lib/data'
+  import { searchRecipes, type Catalog, type CatalogRecipe, type IngredientLookup } from '@vegdex/core'
+  import { loadCatalog, loadLookup } from './lib/data'
   import {
     activeCount, activeFilters, clearFilters, defaultSort, filters, forgetUnsavedAmounts, readUrl, removeFilter, saved, sourceNames, toQuery, writeUrl,
     type Sort
@@ -26,6 +26,7 @@
 
   const initial = readUrl()
   let catalog = $state<Catalog | null>(null)
+  let lookup = $state<IngredientLookup>({})
   let error = $state<string | null>(null)
   let openId = $state<string | null>(initial.openId)
   // Opened by "Pick for me": the sheet offers another draw.
@@ -41,7 +42,9 @@
   function load() {
     error = null
     loadCatalog()
-      .then((c) => {
+      .then(async (c) => {
+        // Ingredient names only add matches: without them, search still matches the recipes' English names.
+        lookup = c.recipes.some((r) => r.concepts) ? await loadLookup(pageLocale.code).then((f) => f.aliases, () => ({})) : {}
         for (const s of c.sources) sourceNames.set(s.id, s.name)
         catalog = c
       })
@@ -55,7 +58,7 @@
   const kitchen = $derived(filters.from && !filters.saved ? catalog?.sources.find((s) => s.id === filters.from) ?? null : null)
   // Recipes unsaved in this visit to the saved view stay listed, so a mis-tap on the heart can be undone.
   const listedIds = $derived([...saved.ids, ...saved.unsaved])
-  const results = $derived<CatalogRecipe[]>(catalog ? searchRecipes(catalog.recipes, toQuery(listedIds)) : [])
+  const results = $derived<CatalogRecipe[]>(catalog ? searchRecipes(catalog.recipes, toQuery(listedIds), lookup) : [])
   const resultCount = $derived(filters.saved ? results.filter((r) => saved.ids.includes(r.id)).length : results.length)
   const visible = $derived(results.slice(0, limit))
   const open = $derived(openId && catalog ? catalog.recipes.find((r) => r.id === openId) ?? null : null)
@@ -72,7 +75,7 @@
     if (filters.text.trim()) options.push({ label: m.clear_the_search(), apply: () => (filters.text = ''), patch: { text: '' }, isSearch: true })
     let best: { label: string; apply: () => void; n: number; isSearch: boolean } | null = null
     for (const o of options) {
-      const n = searchRecipes(catalog.recipes, toQuery([], { ...filters, ...o.patch })).length
+      const n = searchRecipes(catalog.recipes, toQuery([], { ...filters, ...o.patch }), lookup).length
       if (n && (!best || n > best.n)) best = { ...o, n }
     }
     return best
@@ -293,6 +296,7 @@
     <footer class="credits">
       {m.credits(countArgs(catalog.sources.length))}
       {m.credits_updated({ date: new Date(catalog.generatedAt).toLocaleDateString(pageLocale.intl) })}
+      <div>{m.dictionary_credit()} <a href="https://world.openfoodfacts.org/">Open Food Facts</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> · <a href="{import.meta.env.BASE_URL}data/dictionary.json">{m.dictionary_tables()}</a></div>
       <div class="row center">
         {#each LOCALES.filter((locale) => locale.code !== pageLocale.code) as locale (locale.code)}
           {#if isLocale(locale.code)}

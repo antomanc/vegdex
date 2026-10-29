@@ -23,9 +23,12 @@
    "ingredients": [
     "2 cups all-purpose flour",
     "2 tbsp sugar",
+    "1 tbsp cornstarch",
     "1 tbsp baking powder",
     "1 1/2 cups almond milk",
-    "2 tbsp maple syrup"
+    "2 tbsp maple syrup",
+    "1 cup plant milk",
+    "2 tbsp vegan butter"
    ]
   },
   "tofu-curry": {
@@ -54,7 +57,9 @@
     "1 can coconut milk",
     "3 cloves garlic, minced",
     "1 tbsp curry powder",
-    "1 onion, diced"
+    "1 onion, diced",
+    "1 and 1/2 tbsp chipotle peppers in adobo sauce (finely chopped)",
+    "Serve with my Vegan Lemon Cream Sauce"
    ]
   },
   "mushroom-stirfry": {
@@ -80,7 +85,9 @@
     "8 oz cremini mushrooms",
     "2 tbsp soy sauce",
     "2 cloves garlic",
-    "1 tbsp sesame oil"
+    "1 tbsp sesame oil",
+    "1 cup pumpkin",
+    "1 tbsp vegan parmesan"
    ]
   },
   "brownies": {
@@ -104,6 +111,8 @@
    "ingredients": [
     "1 cup flour",
     "3/4 cup sugar",
+    "2 tbsp corn starch",
+    "2 tbsp (25 g) sugar, for sprinkling",
     "1/2 cup cocoa powder",
     "1/2 cup coconut oil",
     "1/2 cup oat milk"
@@ -116,7 +125,7 @@
    "url": "https://example.com/lentil-soup/",
    "image": null,
    "minutes": 35,
-   "servings": 4,
+   "servings": null,
    "rating": 4.6,
    "ratingCount": 80,
    "calories": 400,
@@ -163,7 +172,9 @@
     "1 cucumber",
     "1 lemon, juiced",
     "2 tbsp olive oil",
-    "1/4 cup parsley"
+    "1/4 cup parsley",
+    "400 g chickpeas, drained and rinsed",
+    "1 cup pumpkin"
    ]
   },
   "honey-carrots": {
@@ -188,6 +199,29 @@
     "1 lb carrots",
     "2 tbsp honey",
     "1 tbsp olive oil"
+   ]
+  },
+  "quark-pancakes": {
+   "id": "quark-pancakes",
+   "title": "Quark Pancakes",
+   "sourceId": "noracooks",
+   "url": "https://example.com/quark-pancakes/",
+   "image": null,
+   "minutes": 20,
+   "servings": 4,
+   "rating": 4.9,
+   "ratingCount": 300,
+   "calories": 400,
+   "protein": null,
+   "published": "2026-01-01",
+   "categories": [
+    "Breakfast"
+   ],
+   "cuisines": [],
+   "keywords": [],
+   "ingredients": [
+    "2 cups all-purpose flour",
+    "1 cup quark"
    ]
   }
  }

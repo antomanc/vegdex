@@ -1,4 +1,71 @@
-import { normalizeLine } from './ingredients';
+import { normalizeLine, parseIngredient } from './ingredients';
+import { isQualifiedIngredient, type IngredientLookup } from './concepts';
+
+/** OFF's explicit/inherited status; missing evidence is never treated as vegan. */
+export type ConceptVeganStatus = 'yes' | 'no' | 'maybe' | 'unknown';
+
+/** Unmapped or uncertain English ingredients still rely on the separate text check. */
+export function findNonVeganConcepts(lines: string[], lookup: IngredientLookup, vegan: Record<string, ConceptVeganStatus>): { concept: string; line: string }[] {
+  return lines.flatMap((line) => {
+    const normalized = normalizeLine(line);
+    if (NON_INGREDIENT.test(normalized)) return [];
+    return ingredientOptions(normalized, lookup).flatMap((option) => {
+      const concept = parseIngredient(option, lookup).concept;
+      // Same scope as the text check: a qualifier on this option ("(i used soy yogurt)") counts.
+      return concept && vegan[concept] === 'no' && !PLANT_QUALIFIER.test(option.toLowerCase()) ? [{ concept, line }] : [];
+    });
+  });
+}
+
+const isQualified = (text: string) => PLANT_QUALIFIER.test(text.toLowerCase()) || isQualifiedIngredient(text);
+
+/**
+ * The separate ingredients named on one line, each with its own notes, so a qualifier
+ * on one never excuses another. Only the primary option of an alternative counts.
+ */
+function ingredientOptions(line: string, lookup: IngredientLookup): string[] {
+  line = line.replace(/\(\s*(?:or|oder|bzw\.?)\s+[^)]*\)?/gi, ' ');
+  // "Vegan protein of choice: tofu, sausages" qualifies the whole list; "Topping: quark" does not.
+  const label = line.match(/^([^:\d(]+):/);
+  if (label) {
+    if (isQualified(label[1]!)) return [];
+    line = line.slice(label[0].length);
+  }
+  // "vegan cheese i use a mix of vegan mozzarella and parmesan" is one ingredient and its note.
+  const noteAt = line.search(/\bi (?:use|used|like|prefer)\b/i);
+  const note = noteAt > 0 ? line.slice(noteAt) : '';
+  if (note) line = line.slice(0, noteAt);
+  const parts: string[] = [];
+  let start = 0;
+  // "mac and cheese" and "bread and butter" name one ingredient.
+  for (const match of line.matchAll(/\([^)]*\)?|[,;]\s*|(?<!\b(?:mac|macaroni|bread))\s+(?:and|&|\+|with|or|oder|bzw\.?)\s+/gi)) {
+    if (match[0].startsWith('(')) continue;
+    const rest = line.slice(match.index + match[0].length);
+    const next = rest.split(/[,;(]|\s+(?:and|&|\+|with|or|oder|bzw\.?)\s+/i)[0]!;
+    if (/\b(?:or|oder|bzw)\b/i.test(match[0])) {
+      // "romano or ramiro pepper" may share its noun: parsing reads the whole alternative,
+      // unless that would let a qualified alternative ("quark or vegan butter") hide the primary.
+      parts.push(isQualified(next) ? line.slice(start, match.index) : line.slice(start));
+      return withNote(parts, note);
+    }
+    if (/^[,;]/.test(match[0])) {
+      const tail = rest.replace(/\([^)]*\)?/g, ' ');
+      // "chanterelle, oyster, or cremini mushrooms" lists alternatives of one ingredient.
+      if (!/^\d/.test(rest) && (/,\s*(?:or|oder|bzw)\b/i.test(tail) || /^[^,;]*\b(?:or|oder|bzw)\b[^,;]*$/i.test(tail))) {
+        parts.push(line.slice(start, match.index));
+        return withNote(parts, note);
+      }
+      // Commas usually introduce preparation notes; split only where a recognizable ingredient starts.
+      if (!/^\d/.test(next) && !parseIngredient(next, lookup).concept) continue;
+    } else if (!parseIngredient(next.replace(/\([^)]*\)?/g, ' '), lookup).name) continue; // "1/2 cup milk + 2 tablespoons"
+    parts.push(line.slice(start, match.index));
+    start = match.index + match[0].length;
+  }
+  parts.push(line.slice(start));
+  return withNote(parts, note);
+}
+
+const withNote = (parts: string[], note: string) => note ? [...parts.slice(0, -1), `${parts.at(-1)} ${note}`] : parts;
 
 /**
  * Safety net on top of all-vegan sources: flags ingredient lines that name an
