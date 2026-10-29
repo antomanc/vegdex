@@ -86,6 +86,17 @@ it('queues complete residual phrases and refuses learned aliases that erase alte
   expect(report.queue.tasks.filter((task) => task.kind === 'ingredient').map((task) => task.original).sort()).toEqual(['chickpeas or lentils', 'small chickpeas']);
 });
 
+it('refuses learned aliases that name an animal product for a plant concept', () => {
+  const learned = emptyLearnedData();
+  learned.aliases.en = { 'salmon flakes': englishLookup.chickpeas! };
+  learned.aliases.it = { 'polpo tenero': englishLookup.chickpeas! };
+  const out = output();
+  emitDataset([recipe('one', ['1 cup oats'])], [source], out, { learnedData: learned });
+  const read = (name: string) => JSON.parse(fs.readFileSync(path.join(out, name), 'utf8'));
+  expect(read('lookup/en.json').aliases['salmon flakes']).toBeUndefined();
+  expect(read('lookup/it.json').aliases['polpo tenero']).toBeUndefined();
+});
+
 it('uses safe learned concepts throughout parsing, search and display, and removes completed queue entries', () => {
   const learned = emptyLearnedData();
   const id = learnedConceptId('mystery flour');

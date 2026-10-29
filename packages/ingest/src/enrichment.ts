@@ -139,6 +139,8 @@ export function mergeEnrichment(learned: LearnedData, titles: TranslationMemory,
     aliases[language] = Object.fromEntries(Object.entries(learnedAliases).filter(([alias, id]) => {
       const concept = byId.get(id);
       if (!concept || reservedNames.has(ingredientKey(alias)) || !wholeAlias(alias)) return false;
+      // A learned alias naming an animal product must not hide that word behind a plant concept.
+      if (concept.vegan !== 'no' && findUnsafeRenderedTerms(alias, language).length) return false;
       if (isQualifiedIngredient(alias) && (concept.vegan === 'no' || !concept.names.en?.some(isQualifiedIngredient))) return false;
       return true;
     }).map(([alias, id]) => [ingredientKey(alias), id]));

@@ -44,8 +44,8 @@ it('rejects common Italian shellfish forms and unrelated plant words', () => {
 
 it('guards common named cheeses and meats in each display language without borrowing another qualifier', () => {
   for (const [language, names] of [
-    ['it', ['cheddar', 'gorgonzola', 'brie', 'gouda', 'gruyère', 'emmental', 'provolone', 'fontina', 'burrata', 'stracchino', 'guanciale', 'mortadella', 'bresaola', 'coniglio']],
-    ['en', ['gorgonzola', 'brie', 'gouda', 'gruyère', 'halloumi', 'paneer', 'salami', 'pepperoni', 'chorizo', 'venison', 'rabbit']]
+    ['it', ['cheddar', 'gorgonzola', 'brie', 'gouda', 'gruyère', 'emmental', 'provolone', 'fontina', 'burrata', 'stracchino', 'guanciale', 'mortadella', 'bresaola', 'coniglio', 'lardo', 'speck', 'würstel', 'polpo', 'seppie', 'baccalà', 'trota', 'frutti di mare', 'carni', 'cacio', 'kefir', 'sardina', 'latticello', 'maionese']],
+    ['en', ['gorgonzola', 'brie', 'gouda', 'gruyère', 'halloumi', 'paneer', 'salami', 'pepperoni', 'chorizo', 'venison', 'rabbit', 'buttermilk', 'kefir', 'mayonnaise', 'trout', 'octopus', 'seafood', 'worcestershire sauce']]
   ] as const) {
     for (const name of names) {
       expect(safeTranslation('Original vegan recipe', name, language), name).toBe('Original vegan recipe');
