@@ -1,5 +1,6 @@
 import { cleanText } from './text';
 import { isQualifiedIngredient, lookupConcept, type IngredientLookup } from './concepts';
+import { languagePacks, languageUnitPatterns } from './languages';
 
 export type Dimension = 'volume' | 'mass' | 'count' | 'other';
 
@@ -97,6 +98,8 @@ function parseNumber(text: string): number {
 }
 
 export interface ParsedIngredient {
+  /** English name of a mapped concept, used only with the existing density table. */
+  densityName?: string;
   /** Complete residual phrase for enrichment when canonical reduction is not safe to render. */
   sourceName?: string;
   /** False when mapping discarded source wording that display must retain. Absent in older datasets. */
@@ -303,16 +306,19 @@ function reduceAlternative(text: string): string {
 }
 
 /** Parse one published ingredient line into quantity, unit and canonical name. */
-export function parseIngredient(raw: string, lookup: IngredientLookup = {}): ParsedIngredient {
+export function parseIngredient(raw: string, lookup: IngredientLookup = {}, language = 'en'): ParsedIngredient {
+  const pack = languagePacks[language];
+  if (!pack) throw new RangeError(`Unsupported content language: ${language}`);
   let s = normalizeLine(raw);
-  const optional = /\boptional\b/i.test(s);
+  const optional = (pack.optional ?? /\boptional\b/i).test(s);
   s = s.replace(MEASURE_WORDS_RE, '');
   let quantity: number | null = null;
   let quantityMax: number | null = null;
   let unit: string | null = null;
   let altMeasure = '';
 
-  const word = s.match(/^(a|an|one|two|three|four|five|six|seven|eight|nine|ten|twelve|half)\s+/i);
+  const words = pack.numberWords ?? NUMBER_WORDS;
+  const word = s.match(new RegExp(`^(${Object.keys(words).join('|')})\\s+`, 'i'));
   const q = s.match(QTY_RE);
   if (q) {
     quantity = parseNumber(q[1]!);
@@ -324,13 +330,14 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}): Par
       s = s.slice(more[0].length);
     }
   } else if (word) {
-    quantity = NUMBER_WORDS[word[1]!.toLowerCase()] ?? null;
+    quantity = words[word[1]!.toLowerCase()] ?? null;
     s = s.slice(word[0].length);
   }
 
   // "1 (15-ounce) can chickpeas": the parenthetical size belongs to the can.
   let sizeNote = '';
   s = s.replace(MEASURE_WORDS_RE, '');
+  if (pack.units) s = s.replace(languageUnitPatterns[language]!, (_, token: string) => `${pack.units![token.toLowerCase()]} `);
   const size = s.match(/^\(([^)]*)\)\s*/) ?? s.match(PIECE_SIZE_RE) ?? s.match(PACK_SIZE_RE);
   if (size) {
     sizeNote = size[1]!;
@@ -387,10 +394,16 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}): Par
     metric = { quantity: quantity * (unit === 'l' ? 1000 : 1), unit: 'ml' };
 
   s = s.replace(/^\([^)]*\)\s*/, '').replace(/^of\s+(?:an?\s+)?/i, '');
+  if (pack.preposition) s = s.replace(pack.preposition, '');
   const commaAt = s.search(/,|\(/);
-  const note = [sizeNote, commaAt >= 0 ? s.slice(commaAt) : ''].filter(Boolean).join(' ').replace(/^[,\s]+/, '');
-  const name = canonicalName(s);
-  const phrase = s.split(/,|\(/)[0]!;
+  let note = [sizeNote, commaAt >= 0 ? s.slice(commaAt) : ''].filter(Boolean).join(' ').replace(/^[,\s]+/, '');
+  let phrase = s.split(/,|\(/)[0]!;
+  const trailing = !lookupConcept(phrase, lookup) && pack.trailingNote ? phrase.match(pack.trailingNote) : null;
+  if (trailing) {
+    phrase = phrase.slice(0, trailing.index);
+    note = [trailing[1], note].filter(Boolean).join(', ');
+  }
+  const name = pack.nonIngredient?.test(s) ? '' : language === 'en' ? canonicalName(s) : phrase.trim().toLowerCase();
   // "romano or ramiro pepper": a one-word first option shares the noun when that names a known ingredient.
   const shared = phrase.match(/^\s*([\p{L}'-]+)\s+or\s+[\p{L}'-]+(?:\s+[\p{L}'-]+)*\s+([\p{L}'-]+)\s*$/iu);
   // Qualifiers in notes or unknown names must never disappear through canonicalization.

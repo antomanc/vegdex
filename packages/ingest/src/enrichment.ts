@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import {
-  canonicalName, findUnsafeRenderedTerms, ingredientKey, ingredientNote, isQualifiedIngredient,
+  canonicalName, findUnsafeRenderedTerms, ingredientKey, ingredientNote, isQualifiedIngredient, languagePacks,
   safeTranslation, sameMeasurements, type IngredientLookup, type IngredientTables,
   type ParsedIngredient, type Recipe, type TranslationMemory
 } from '@vegdex/core';
@@ -129,7 +129,7 @@ export function mergeEnrichment(learned: LearnedData, titles: TranslationMemory,
   // Model claims of vegan status never become publication evidence.
   const concepts = [...seed.concepts, ...additions.map((c): Concept => ({ ...c, vegan: 'unknown' }))];
   const byId = new Map(concepts.map((c) => [c.id, c]));
-  const languages = new Set(['en', ...Object.keys(titles), ...Object.keys(tables)]);
+  const languages = new Set([...Object.keys(languagePacks), ...Object.keys(titles), ...Object.keys(tables)]);
   const aliases: Record<string, IngredientLookup> = {};
   const ingredientTables: Record<string, IngredientTables> = {};
   const translations: TranslationMemory = {};

@@ -53,7 +53,7 @@ async function discover(source: CrawlSource, robots: Robots, queue: HostQueue): 
   }
   const include = source.include ? new RegExp(source.include) : null;
   return [...entries.values()].filter(
-    (e) => isCandidateUrl(e.url, source.url) && (!include || include.test(new URL(e.url).pathname))
+    (e) => isCandidateUrl(e.url, source.url, source.contentLanguage ?? 'en') && (!include || include.test(new URL(e.url).pathname))
   );
 }
 
@@ -110,6 +110,7 @@ export async function crawlSource(source: CrawlSource, store: Store, opts: Crawl
       if (res.status !== 200) throw new Error(`HTTP ${res.status}`);
       const recipe = extractRecipe(res.text, res.url || e.url, source.id);
       if (recipe) {
+        recipe.contentLanguage = source.contentLanguage ?? 'en';
         // Drop an older copy stored under a different id (URL changed via redirect).
         const prev = store.urls[e.url]?.id;
         if (prev && prev !== recipe.id) delete store.recipes[prev];

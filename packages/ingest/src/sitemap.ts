@@ -33,18 +33,19 @@ export function isContentSitemap(url: string): boolean {
 }
 
 /**
- * A translated edition of a blog ("/de/", "/fr-ca/"). vegdex is English-only: the tagger and the
- * vegan check read English, so a German "Mandeln" line would pass as nut-free.
+ * A translated edition of a blog ("/de/", "/fr-ca/") duplicates recipes already
+ * rendered in every UI language. New content languages come from original-language sources.
  */
-export function isOtherLanguage(url: string): boolean {
-  return /^\/(?!en(?:-[a-z]{2})?\/)[a-z]{2}(?:-[a-z]{2})?\//i.test(new URL(url).pathname);
+export function isOtherLanguage(url: string, contentLanguage = 'en'): boolean {
+  const prefix = /^\/([a-z]{2})(?:-[a-z]{2})?\//i.exec(new URL(url).pathname);
+  return !!prefix && prefix[1]!.toLowerCase() !== contentLanguage.split('-')[0]!.toLowerCase();
 }
 
 /** Page URLs that are never recipes. */
-export function isCandidateUrl(url: string, siteUrl: string): boolean {
+export function isCandidateUrl(url: string, siteUrl: string, contentLanguage = 'en'): boolean {
   const u = new URL(url);
   if (u.hostname.replace(/^www\./, '') !== new URL(siteUrl).hostname.replace(/^www\./, '')) return false;
   if (u.pathname === '/' || u.pathname === '') return false;
-  if (isOtherLanguage(url)) return false;
+  if (isOtherLanguage(url, contentLanguage)) return false;
   return !/\/(?:category|tag|author|page|wp-content|feed|about|contact|privacy|shop|cart|resources?|start-here|newsletter|recipes?\/?$|recipe-index)(?:\/|$)/i.test(u.pathname);
 }

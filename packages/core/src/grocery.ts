@@ -6,6 +6,8 @@ import { gramsPerCup } from './weights';
 export interface GroceryInput {
   recipeId: string;
   ingredients: string[];
+  contentLanguage?: string;
+  parsedIngredients?: ParsedIngredient[];
   /** Multiply every quantity by this (servings scaling). */
   multiplier: number;
 }
@@ -141,7 +143,7 @@ function weighed(p: ParsedIngredient, multiplier: number): number | null {
   const m = toMetric(p);
   if (m) return m.unit === 'g' ? (m.quantityMax ?? m.quantity) * multiplier : null;
   // Spoons stay spoons in metric mode, so weigh them here.
-  const perCup = gramsPerCup(p.name);
+  const perCup = gramsPerCup(p.densityName ?? p.name);
   return perCup ? (((p.quantityMax ?? p.quantity!) * unitDef(p.unit!)!.factor * multiplier) / 240) * perCup : null;
 }
 
@@ -179,8 +181,9 @@ export function compileGroceryList(
 
   const parsed: { input: GroceryInput; p: ParsedIngredient }[] = [];
   for (const input of inputs) {
-    for (const line of input.ingredients) {
-      const p = parseIngredient(line, lookup);
+    for (const [i, line] of input.ingredients.entries()) {
+      let p = input.parsedIngredients?.[i] ?? parseIngredient(line, lookup, input.contentLanguage ?? 'en');
+      if (input.contentLanguage && input.contentLanguage !== 'en' && p.concept && Object.hasOwn(concepts, p.concept)) p = { ...p, name: concepts[p.concept]![0] };
       if (!p.name) continue;
       // Sentence-like notes are not purchases; unquantified ingredients still are.
       if (p.quantity === null && /^(?:serve with|i|if you)\b|\bis a\b/.test(p.name)) continue;

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { display, recipeTitle } from './translations.svelte'
-  import { compileGroceryList, displayGroceryName, parseIngredient, type CatalogRecipe, type GroceryItem } from '@vegdex/core'
-  import { loadIngredients, loadLookup, type LookupFile } from './data'
+  import { compileGroceryList, displayGroceryName, parseIngredient, type CatalogRecipe, type GroceryItem, type ParsedIngredient } from '@vegdex/core'
+  import { loadDetails, loadLookup, type LookupFile } from './data'
   import { BASE_LOCALE } from './locales'
   import { m, countArgs, formatNumber, pageLocale } from './i18n'
   import { AISLE_LABELS, formatGroceryAmount } from './labels'
@@ -33,8 +33,8 @@
     localStorage.setItem(CHECKED_KEY, JSON.stringify(checked))
   })
 
-  const lines = $derived(Promise.all(recipes.map(async (r) => ({ id: r.id, lines: await loadIngredients(r.id) }))))
-  // Recipes are written in English, so every UI language merges them through the English names.
+  const lines = $derived(Promise.all(recipes.map(async (r) => ({ id: r.id, contentLanguage: r.contentLanguage, ...await loadDetails(r.id) }))))
+  // English concept names keep rows and checked state stable across UI and content languages.
   // Without them (an older dataset) the list still merges by name.
   const english = loadLookup(BASE_LOCALE.code).catch((): LookupFile => ({ aliases: {} }))
   const ready = $derived(Promise.all([lines, english]))
@@ -49,7 +49,7 @@
     ready.then(([all, file]) => {
       // Without the English names the rows are not the real ones: keep every tick for later.
       if (!file.grocery && recipes.some((r) => r.concepts)) return
-      const items = compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier: 1 })), options(file))
+      const items = compileGroceryList(all.map((r) => ({ ...r, recipeId: r.id, multiplier: 1 })), options(file))
       const kept: Record<string, boolean> = {}
       for (const [k, on] of Object.entries(checked)) {
         if (!on) continue
@@ -83,13 +83,13 @@
 
   const nudge = (r: CatalogRecipe, by: number) => setAmount(r.id, steps(r, by) / perBatch(r))
 
-  function compile(all: { id: string; lines: string[] }[], file: LookupFile): [string, GroceryItem[]][] {
+  function compile(all: { id: string; ingredients: string[]; parsedIngredients?: ParsedIngredient[]; contentLanguage?: string }[], file: LookupFile): [string, GroceryItem[]][] {
     const byId = new Map(recipes.map((r) => [r.id, r]))
     const multiplier = (id: string) => {
       const r = byId.get(id)
       return r ? steps(r) / perBatch(r) : 1
     }
-    const items = compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier: multiplier(r.id) })), { units: prefs.units, ...options(file) })
+    const items = compileGroceryList(all.map((r) => ({ ...r, recipeId: r.id, multiplier: multiplier(r.id) })), { units: prefs.units, ...options(file) })
     const byAisle = new Map<string, GroceryItem[]>()
     for (const item of items) byAisle.set(item.aisle, [...(byAisle.get(item.aisle) ?? []), item])
     // Checked items sink to the bottom of their aisle, so what's left to grab stays on top.
@@ -132,7 +132,7 @@
             <li>
               <label class:done={checked[key(item)]}>
                 <input type="checkbox" bind:checked={checked[key(item)]} />
-                <span class="name">{displayGroceryName(item, display.overlay?.ingredients, pageLocale.code)}</span>
+                <span class="name">{displayGroceryName(item, pageLocale.code === BASE_LOCALE.code ? undefined : display.overlay?.ingredients, pageLocale.code)}</span>
                 <span class="amount">{item.toTaste ? m.to_taste() : item.amounts.map(formatGroceryAmount).join(' + ')}</span>
               </label>
             </li>

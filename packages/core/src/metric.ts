@@ -33,7 +33,7 @@ export function toMetric(p: ParsedIngredient): MetricAmount | null {
   const blogMl = p.metric?.unit === 'ml' ? p.metric.quantity / p.quantity : null;
   const ml = blogMl && Math.abs(blogMl / def.factor - 1) <= 0.5 ? blogMl : def.factor;
   // "brown or green lentils" is named "brown": the last alternative names the food.
-  const perCup = gramsPerCup(p.name) ?? gramsPerCup(canonicalName(p.afterMeasure?.split(/\s(?:or|and)\s/).at(-1) ?? ''));
+  const perCup = gramsPerCup(p.densityName ?? p.name) ?? gramsPerCup(canonicalName(p.afterMeasure?.split(/\s(?:or|and)\s/).at(-1) ?? ''));
   if (perCup) return { ...range((ml / 240) * perCup), unit: 'g', estimate: true };
   return { ...range(ml), unit: 'ml', estimate: false };
 }
@@ -69,8 +69,7 @@ export function formatMetric(m: MetricAmount, exact = false): string {
  * A published line in metric, split into its amount and the rest:
  * "1 cup flour, sifted" → ["≈ 125 g", "flour, sifted"]. Null when the line stays as written.
  */
-export function metricLine(raw: string): [amount: string, rest: string] | null {
-  const p = parseIngredient(raw);
+export function metricLine(raw: string, p = parseIngredient(raw)): [amount: string, rest: string] | null {
   const m = toMetric(p);
   if (!m || p.afterMeasure === null) return null;
   const blogGrams = p.metric?.unit === 'g' && m.unit === 'g' && !m.estimate;

@@ -1,3 +1,4 @@
+import { languagePacks } from './languages';
 /** Titles are cached once per original text and target UI language. */
 export type TranslationMemory = Record<string, Record<string, string>>;
 
@@ -15,17 +16,17 @@ export function translatedTitle(original: string, language: string, memory: Tran
 // These lists guard display text; the original-content publication checks stay independent.
 const animals: Record<string, RegExp> = {
   en: /\b(?:eggs?|yolks?|butter|ghee|milk|cream|cheese|parmesan|cheddar|gorgonzola|brie|gouda|gruy[eè]re|halloumi|paneer|emmental|provolone|fontina|burrata|stracchino|mozzarella|feta|ricotta|mascarpone|pecorino|quark|yogh?urt|honey|gelatine?|chicken|beef|pork|bacon|ham|lamb|turkey|veal|duck|rabbit|venison|salami|pepperoni|chorizo|guanciale|mortadella|bresaola|sausage|prosciutto|pancetta|lard|fish|anchov(?:y|ies)|tuna|salmon|shrimp|prawns?|crab|lobster|scallops?|oysters?|clams?|mussels?|squid|cod|sardines?|whey|casein)\b/g,
-  it: /\b(?:uov[oa]|tuorl[oi]|album[ei]|burro|ghee|latte|panna|formaggi[oi]|parmigiano|parmesan|cheddar|gorgonzola|brie|gouda|gruy[eè]re|halloumi|paneer|emmental|provolone|fontina|taleggio|burrata|stracchino|caciotta|caciocavallo|asiago|scamorza|caprino|grana|pecorino|mozzarella|feta|ricotta|mascarpone|quark|yogurt|miele|gelatina|colla di pesce|carne|pollo|manzo|maiale|bacon|prosciutto|pancetta|agnello|tacchino|vitello|anatra|coniglio|cervo|capretto|guanciale|mortadella|bresaola|cotechino|chorizo|salsicc[ei]a|salsicce|salame|salumi|strutto|pesce|acciug[ah]e?|alici|tonno|salmone|gamber(?:[oi]|ett[oi])|granch(?:io|i)|aragost[ae]|ostric[ah]e?|vongol[ae]|cozz[ae]|calamar[oi]|cap[ae]sant[ae]|merluzzo|sardine|siero|caseina)\b/g
+  ...Object.fromEntries(Object.entries(languagePacks).filter(([, p]) => p.animalWords).map(([code, p]) => [code, p.animalWords!]))
 };
 const qualifiers: Record<string, RegExp> = {
   en: /\b(?:vegan|plant[ -]based|plant)\s*$/,
-  it: /\b(?:vegan[oaie]?|vegetal[ei]|soia|tofu|seitan|tempeh)\s*$/
+  ...Object.fromEntries(Object.entries(languagePacks).filter(([, p]) => p.qualifier).map(([code, p]) => [code, p.qualifier!]))
 };
 const plantPairs = /\b(?:(?:almond|coconut|oat|cashew|soy|soya|rice|pea|dairy[ -]free|non[ -]dairy)\s+(?:milk|cream|cheese|yogh?urt)|(?:peanut|almond|cashew|cocoa|shea|nut)\s+butter|(?:flax|chia|egg[ -]free)\s+eggs?|mushroom\s+cream)\s*$/;
 const plantSuffixes = /^(?:butter\s+(?:beans?|lettuce)|oysters?\s+mushrooms?|cream\s+of tartar)\b/;
 const suffixes: Record<string, RegExp> = {
   en: /^\s+(?:alternative|substitute|replacer)\b/,
-  it: /^\s+(?:vegan[oaie]?|vegetal[ei]|di (?:soia|mandorl[ae]|avena|cocco|anacardi|arachidi|cacao|karit[eé]|riso|piselli))\b/
+  ...Object.fromEntries(Object.entries(languagePacks).filter(([, p]) => p.qualifierSuffix).map(([code, p]) => [code, p.qualifierSuffix!]))
 };
 
 /** Check each named ingredient separately, so one plant qualifier cannot excuse another. */

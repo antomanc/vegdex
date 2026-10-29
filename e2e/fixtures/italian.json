@@ -1,0 +1,61 @@
+{
+  "source": {
+    "id": "italian-fixture",
+    "name": "Cucina di prova",
+    "url": "https://italian.example",
+    "contentLanguage": "it"
+  },
+  "recipes": [
+    {
+      "id": "italian-chickpeas",
+      "sourceId": "italian-fixture",
+      "title": "Insalata italiana di ceci",
+      "url": "https://italian.example/insalata/",
+      "image": null,
+      "minutes": 35,
+      "servings": 2,
+      "rating": 4.2,
+      "ratingCount": 5,
+      "calories": 300,
+      "protein": 12,
+      "published": "2026-01-01",
+      "categories": [
+        "Insalata"
+      ],
+      "cuisines": [],
+      "keywords": [],
+      "ingredients": [
+        "400 g ceci, scolati e sciacquati",
+        "1,5 cucchiai olio di oliva"
+      ]
+    },
+    {
+      "id": "italian-crackers",
+      "sourceId": "italian-fixture",
+      "title": "Cracker italiani",
+      "url": "https://italian.example/cracker/",
+      "image": null,
+      "minutes": 35,
+      "servings": 2,
+      "rating": 4.2,
+      "ratingCount": 5,
+      "calories": 300,
+      "protein": 12,
+      "published": "2026-01-01",
+      "categories": [
+        "Antipasti"
+      ],
+      "cuisines": [],
+      "keywords": [],
+      "ingredients": [
+        "1 tazza di farina",
+        "100 ml acqua",
+        "1 g sale"
+      ]
+    }
+  ],
+  "titles": {
+    "Insalata italiana di ceci": "Italian Chickpea Salad",
+    "Cracker italiani": "Italian Crackers"
+  }
+}
