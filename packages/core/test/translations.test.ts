@@ -41,3 +41,18 @@ it('rejects common Italian shellfish forms and unrelated plant words', () => {
     expect(safeTranslation('Original', text, 'en')).toBe('Original');
   expect(safeTranslation('Original', 'Oyster mushrooms', 'en')).toBe('Oyster mushrooms');
 });
+
+it('guards common named cheeses and meats in each display language without borrowing another qualifier', () => {
+  for (const [language, names] of [
+    ['it', ['cheddar', 'gorgonzola', 'brie', 'gouda', 'gruyère', 'emmental', 'provolone', 'fontina', 'burrata', 'stracchino', 'guanciale', 'mortadella', 'bresaola', 'coniglio']],
+    ['en', ['gorgonzola', 'brie', 'gouda', 'gruyère', 'halloumi', 'paneer', 'salami', 'pepperoni', 'chorizo', 'venison', 'rabbit']]
+  ] as const) {
+    for (const name of names) {
+      expect(safeTranslation('Original vegan recipe', name, language), name).toBe('Original vegan recipe');
+      const qualified = language === 'it' ? `${name} vegetale` : `vegan ${name}`;
+      expect(safeTranslation('Original', qualified, language)).toBe(qualified);
+    }
+  }
+  expect(safeTranslation('Original', 'Cheddar vegano e gorgonzola', 'it')).toBe('Original');
+  expect(safeTranslation('Original', 'Vegan gorgonzola with salami', 'en')).toBe('Original');
+});

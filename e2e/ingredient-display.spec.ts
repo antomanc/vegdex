@@ -10,17 +10,19 @@ test('Italian ingredient lines keep amounts and preparation notes with source or
   await expect(sheet.getByTestId('original-ingredients')).toContainText('2 tbsp olive oil');
 });
 
-test('missing or unsafe preparation translations retain the complete original ingredient', async ({ page }) => {
-  await page.route('**/data/overlay/it.json', (route) => route.fulfill({ json: {
-    language: 'it', titles: {}, ingredients: {
-      names: { 'off:7ed0f0da39d5b63b': 'ceci' },
-      units: { g: ['g', 'g'] }, notes: { 'drained and rinsed': 'con latte' }
-    }
-  } }));
-  await page.goto('/it/?r=quinoa-salad');
-  await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText('400 g chickpeas, drained and rinsed');
-  await expect(page.getByRole('dialog').getByTestId('ingredients')).not.toContainText('ceci');
-});
+for (const unsafeNote of ['con latte', 'kg, scolati e sciacquati']) {
+  test(`unsafe preparation translation ${unsafeNote} retains the complete original ingredient`, async ({ page }) => {
+    await page.route('**/data/overlay/it.json', (route) => route.fulfill({ json: {
+      language: 'it', titles: {}, ingredients: {
+        names: { 'off:7ed0f0da39d5b63b': 'ceci' },
+        units: { g: ['g', 'g'] }, notes: { 'drained and rinsed': unsafeNote }
+      }
+    } }));
+    await page.goto('/it/?r=quinoa-salad');
+    await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText('400 g chickpeas, drained and rinsed');
+    await expect(page.getByRole('dialog').getByTestId('ingredients')).not.toContainText('ceci');
+  });
+}
 
 test('Italian shopping names retain merged totals, scaling and ticks across language changes', async ({ page }) => {
   await page.goto('/');

@@ -321,7 +321,7 @@ if ! gh auth status >/dev/null 2>&1; then
   pause 'Press Enter after authentication'
 fi
 gh auth status >/dev/null 2>&1 || { warn 'GitHub authentication is not ready.'; return 1; }
-say 'Enrich will download the queue, save accepted translations to the data release and dispatch deploy-data.'
+say 'Enrich will download the queue, save accepted translations to the data release and trigger the existing deployment workflow.'
 confirm 'Run the remote enrich command and publish accepted translations?' || return 0
 pnpm enrich
 finish

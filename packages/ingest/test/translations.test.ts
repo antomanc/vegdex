@@ -23,10 +23,13 @@ it('emits only used safe titles in a lazy overlay while retaining catalog origin
   expect(catalog.recipes[0]!.title).toBe('Fluffy Vegan Pancakes');
   expect(catalog).not.toHaveProperty('titles');
   expect({ language: overlay.language, titles: overlay.titles }).toEqual({ language: 'it', titles: { 'Fluffy Vegan Pancakes': 'Pancake vegani soffici' } });
-  emitDataset([recipe], [{ id: recipe.sourceId, name: 'Nora Cooks', url: 'https://noracooks.com' }], out, {
-    translations: { it: { [recipe.title]: 'Pancake al burro' } }
-  });
-  expect(read('overlay/it.json').titles).toEqual({});
+  for (const unsafe of ['Pancake al burro', 'Pasta al cheddar', 'Pasta al gorgonzola']) {
+    emitDataset([recipe], [{ id: recipe.sourceId, name: 'Nora Cooks', url: 'https://noracooks.com' }], out, {
+      translations: { it: { [recipe.title]: unsafe } }
+    });
+    expect(read('overlay/it.json').titles).toEqual({});
+    expect((read('catalog.json') as Catalog).recipes[0]!.title).toBe(recipe.title);
+  }
 });
 
 it('ships only used ingredient names, preparation phrases and units beside translated titles', () => {

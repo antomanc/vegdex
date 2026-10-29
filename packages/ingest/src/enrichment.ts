@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {
   canonicalName, findUnsafeRenderedTerms, ingredientKey, ingredientNote, isQualifiedIngredient,
-  safeTranslation, type IngredientLookup, type IngredientTables,
+  safeTranslation, sameMeasurements, type IngredientLookup, type IngredientTables,
   type ParsedIngredient, type Recipe, type TranslationMemory
 } from '@vegdex/core';
 import { seed, usedLookup, type Concept } from './concepts';
@@ -146,7 +146,7 @@ export function mergeEnrichment(learned: LearnedData, titles: TranslationMemory,
     const learnedTables = learned.ingredientTables[language];
     const names = Object.fromEntries(concepts.flatMap((c) => c.names[language]?.[0] ? [[c.id, c.names[language]![0]!]] : []));
     const safeNames = Object.fromEntries(Object.entries(learnedTables?.names ?? {}).filter(([id, name]) => byId.has(id) && !findUnsafeRenderedTerms(name, language).length));
-    const safeNotes = Object.fromEntries(Object.entries(learnedTables?.notes ?? {}).filter(([, note]) => !findUnsafeRenderedTerms(note, language).length));
+    const safeNotes = Object.fromEntries(Object.entries(learnedTables?.notes ?? {}).filter(([original, note]) => !findUnsafeRenderedTerms(note, language).length && sameMeasurements(original, note, tables[language]?.units ?? {})));
     if (tables[language] || learnedTables) ingredientTables[language] = {
       names: { ...safeNames, ...names, ...tables[language]?.names },
       notes: { ...safeNotes, ...tables[language]?.notes },
@@ -189,7 +189,7 @@ export function buildTranslationQueue(
           add('ingredient', p.sourceName || p.name, r, language, p);
         const note = ingredientNote(p);
         const translated = note && tables[language]?.notes[note];
-        if (note && (!translated || safeTranslation('', translated, language) !== translated)) add('note', note, r, language, p);
+        if (note && (!translated || safeTranslation('', translated, language) !== translated || !sameMeasurements(note, translated, tables[language]?.units ?? {}))) add('note', note, r, language, p);
       }
     }
   });

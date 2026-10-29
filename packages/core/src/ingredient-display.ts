@@ -1,3 +1,4 @@
+import { sameMeasurements } from './measurements';
 import type { ParsedIngredient } from './ingredients';
 import { findUnsafeRenderedTerms, safeTranslation } from './translations';
 import type { GroceryItem } from './grocery';
@@ -23,8 +24,8 @@ export function renderIngredient(p: ParsedIngredient, tables: IngredientTables |
   if (!p.concept || p.conceptExact !== true || !tables) return null;
   const name = tables.names[p.concept];
   const originalNote = ingredientNote(p);
-  const note = originalNote ? tables.notes[originalNote] : '';
-  if (!name || (originalNote && !note)) return null;
+  const note = originalNote ? tables.notes[originalNote] ?? '' : '';
+  if (!name || (originalNote && !note) || !sameMeasurements(originalNote, note, tables.units)) return null;
   const number = new Intl.NumberFormat(language, { useGrouping: false, maximumFractionDigits: 10 });
   const metric = units === 'metric' ? toMetric(p) : null;
   let amount = p.quantity === null ? '' : number.format(p.quantity);

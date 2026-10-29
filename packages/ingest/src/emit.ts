@@ -1,6 +1,7 @@
 import {
   classify,
   ingredientNote,
+  measurements,
   toMetric,
   type IngredientTables,
   safeTranslation,
@@ -159,7 +160,7 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
     const usedNotes = new Set(parsed.flat().map(ingredientNote).filter(Boolean));
     const usedUnits = new Set(parsed.flat().flatMap((p) => {
       const metric = toMetric(p);
-      return [...p.unit ? [p.unit] : [], ...metric ? [metric.unit, ...(metric.unit !== 'cm' && Math.max(metric.quantity, metric.quantityMax ?? 0) >= 1000 ? [metric.unit === 'g' ? 'kg' : 'l'] : [])] : []];
+      return [...measurements(ingredientNote(p)).map(([, unit]) => unit), ...p.unit ? [p.unit] : [], ...metric ? [metric.unit, ...(metric.unit !== 'cm' && Math.max(metric.quantity, metric.quantityMax ?? 0) >= 1000 ? [metric.unit === 'g' ? 'kg' : 'l'] : [])] : []];
     }));
     const ingredients = tables ? {
       names: Object.fromEntries(Object.entries(tables.names).filter(([id]) => usedNames.has(id))),
