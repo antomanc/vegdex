@@ -1,6 +1,6 @@
 <script lang="ts">
   import { display, recipeTitle } from './translations.svelte'
-  import { renderIngredient, type CatalogRecipe } from '@vegdex/core'
+  import { isHiddenLine, renderIngredient, type CatalogRecipe } from '@vegdex/core'
   import { loadDetails } from './data'
   import Icon from './Icon.svelte'
   import { m, countArgs, formatNumber, formatRating, pageLocale } from './i18n'
@@ -86,11 +86,13 @@
       <p class="muted">{m.loading()}</p>
     {:then { ingredients: lines, parsedIngredients }}
       {@const source = recipe.contentLanguage ?? 'en'}
-      {@const split = lines.map((line, i) => {
+      {@const split = lines.flatMap((line, i) => {
         const parsed = parsedIngredients?.[i]
+        // Only ingredients show: equipment and asides never, headings only in the recipe's own language.
+        if (isHiddenLine(parsed, pageLocale.code, source)) return []
         const rendered = parsed && renderIngredient(parsed, display.overlay ?? undefined, pageLocale.code, prefs.units, source)
         // A line vegdex cannot compose stays exactly as written in another language: no half-translated lines.
-        return rendered || (pageLocale.code === source ? splitLine(line, prefs.units, parsed) : splitAmount(line))
+        return [rendered || (pageLocale.code === source ? splitLine(line, prefs.units, parsed) : splitAmount(line))]
       })}
       <ul class="ingredients" data-testid="ingredients">
         {#each split as [amount, rest], i (i)}<li>{#if amount}<span class="amount">{amount}</span>{' '}{/if}{rest}</li>{/each}

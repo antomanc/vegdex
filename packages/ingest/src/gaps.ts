@@ -1,4 +1,4 @@
-import { ingredientKey, lookupTerm, renderIngredient, safeTranslation, type ParsedIngredient } from '@vegdex/core';
+import { ingredientKey, isHiddenLine, lookupTerm, renderIngredient, safeTranslation, type ParsedIngredient } from '@vegdex/core';
 import type { Prepared } from './prepare';
 import type { Vocabulary } from './vocab';
 
@@ -101,6 +101,8 @@ export function measureCoverage(prepared: Prepared[], vocab: Vocabulary, languag
       c.titles++;
       if (safeTranslation('', display.titles[recipe.title], language)) c.translatedTitles++;
       for (const p of parsed) {
+        // Headings and asides are not shown in another language, so they are nothing to translate.
+        if (isHiddenLine(p, language, source)) continue;
         c.lines++;
         if (renderIngredient(p, display, language, 'metric', source)) c.rendered++;
         else if (p.name && !known(p)) c.unknown++;

@@ -1,10 +1,11 @@
 import { expect, test } from './fixtures';
 
-test('recipe notes stay on the sheet and out of the scaled shopping list', async ({ page }) => {
+test('asides stay off the ingredient list and out of the scaled shopping list', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Spinach Tofu Curry', exact: true }).click();
   const sheet = page.getByRole('dialog');
-  await expect(sheet.getByTestId('ingredients')).toContainText('Serve with my Vegan Lemon Cream Sauce');
+  await expect(sheet.getByTestId('ingredients')).not.toContainText('Serve with my Vegan Lemon Cream Sauce');
+  await expect(sheet.getByTestId('ingredients').locator('li')).toHaveCount(7);
   await expect(sheet.getByTestId('ingredients')).toContainText('1 ½ tbsp chipotle peppers in adobo sauce, finely chopped');
   await sheet.getByRole('button', { name: 'Close' }).click();
 

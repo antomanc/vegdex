@@ -3,7 +3,11 @@ import { compileGroceryList, metricLine } from '../src';
 
 describe('metricLine', () => {
   it('keeps qualified measures as written when conversion would discard their wording', () => {
-    for (const line of ['about 2 cups flour', '2 heaped cups flour', '2 scant cups flour', '60 ml / heaped 1/4 cup flour']) expect(metricLine(line), line).toBeNull();
+    for (const line of ['2 heaped cups flour', '2 scant cups flour', '60 ml / heaped 1/4 cup flour']) expect(metricLine(line), line).toBeNull();
+  });
+
+  it('converts an approximate measure, which ≈ already marks', () => {
+    expect(metricLine('about 2 cups flour')).toEqual(['≈ 250 g', 'flour']);
   });
 
   it('weighs cups with the density table, marked as an estimate', () => {
