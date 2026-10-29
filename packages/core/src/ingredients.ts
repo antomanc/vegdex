@@ -97,6 +97,8 @@ function parseNumber(text: string): number {
 }
 
 export interface ParsedIngredient {
+  /** Complete residual phrase for enrichment when canonical reduction is not safe to render. */
+  sourceName?: string;
   /** False when mapping discarded source wording that display must retain. Absent in older datasets. */
   conceptExact?: boolean;
   concept: string | null;
@@ -396,7 +398,7 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}): Par
     ? (isQualifiedIngredient(phrase) ? lookupConcept(phrase, lookup) : null)
     : lookupConcept(phrase, lookup) ?? (shared && lookupConcept(canonicalName(`${shared[1]} ${shared[2]}`), lookup)) ?? lookupConcept(name, lookup);
   const conceptExact = !!concept && lookupConcept(phrase.replace(/\s+to taste$/i, ''), lookup) === concept;
-  return { conceptExact, raw: cleanText(raw), quantity, quantityMax, unit, metric, afterMeasure, name, concept, note, optional };
+  return { ...(!conceptExact ? { sourceName: phrase.trim() } : {}), conceptExact, raw: cleanText(raw), quantity, quantityMax, unit, metric, afterMeasure, name, concept, note, optional };
 }
 
 /** Drop the alternative side of "60 ml / ¼ cup"; the first measure is the one kept. */

@@ -5,6 +5,7 @@ import { parseIngredient } from '@vegdex/core';
 import { crawlAll, type CrawlSource } from './crawl';
 import { emitDataset } from './emit';
 import { loadStore, saveStore } from './store';
+import { readLearnedData, readTranslationQueue, writeJSONAtomic } from './enrichment';
 
 const root = path.resolve(import.meta.dirname, '../../..');
 
@@ -19,7 +20,9 @@ const { values, positionals } = parseArgs({
     'gap-ms': { type: 'string', default: '1000' },
     concurrency: { type: 'string', default: '8' },
     'generated-at': { type: 'string' },
-    blocklist: { type: 'string' }
+    blocklist: { type: 'string' },
+    enrichment: { type: 'string' },
+    queue: { type: 'string' }
   }
 });
 
@@ -56,7 +59,12 @@ function emit() {
   const store = loadStore(values.store!);
   fs.mkdirSync(values.out!, { recursive: true });
   const blocklist = values.blocklist ? JSON.parse(fs.readFileSync(values.blocklist, 'utf8')) as string[] : undefined;
-  const report = emitDataset(Object.values(store.recipes), allSources, values.out!, { generatedAt: values['generated-at'], blocklist });
+  const learnedData = values.enrichment ? readLearnedData(path.resolve(root, values.enrichment)) : undefined;
+  const queueFile = values.queue ? path.resolve(root, values.queue) : undefined;
+  const report = emitDataset(Object.values(store.recipes), allSources, values.out!, {
+    generatedAt: values['generated-at'], blocklist, learnedData, previousQueue: queueFile ? readTranslationQueue(queueFile) : undefined
+  });
+  if (queueFile) writeJSONAtomic(queueFile, report.queue);
   fs.writeFileSync(path.join(path.dirname(values.store!), 'excluded.json'), JSON.stringify(report.excluded, null, 1));
   const blocked = report.excluded.filter((r) => r.reason === 'blocklist').length;
   log(`published ${report.published} recipes (${(report.bytes / 1e6).toFixed(1)} MB raw), excluded ${report.excluded.length - blocked} by the vegan check, ${blocked} by the blocklist and ${report.otherLanguage} translated editions`);

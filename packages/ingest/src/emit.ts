@@ -21,7 +21,8 @@ import {
 import fs from 'node:fs';
 import path from 'node:path';
 import { isOtherLanguage } from './sitemap';
-import { conceptFamily, conceptVegan, englishLookup, seed, usedLookup } from './concepts';
+import { conceptFamily, seed, usedLookup, type Concept } from './concepts';
+import { buildTranslationQueue, emptyLearnedData, mergeEnrichment, type LearnedData, type TranslationQueue } from './enrichment';
 
 export const seedTranslations = JSON.parse(fs.readFileSync(new URL('../data/translations.json', import.meta.url), 'utf8')) as TranslationMemory;
 const displaySeeds = JSON.parse(fs.readFileSync(new URL('../data/ingredient-display.json', import.meta.url), 'utf8')) as Record<string, IngredientTables>;
@@ -30,11 +31,11 @@ export const seedIngredientTables: Record<string, IngredientTables> = Object.fro
 }]));
 const blockedIds: string[] = JSON.parse(fs.readFileSync(new URL('../data/blocklist.json', import.meta.url), 'utf8'));
 
-function toCatalog(r: Recipe, parsed: ParsedIngredient[]): CatalogRecipe {
+function toCatalog(r: Recipe, parsed: ParsedIngredient[], concepts: Map<string, Concept>): CatalogRecipe {
   const ing = [...new Set(parsed.map((p) => p.name).filter(Boolean))];
   return {
     contentLanguage: r.contentLanguage ?? 'en',
-    concepts: conceptFamily(parsed.flatMap((p) => p.concept ? [p.concept] : [])),
+    concepts: conceptFamily(parsed.flatMap((p) => p.concept ? [p.concept] : []), concepts),
     id: r.id,
     title: r.title,
     source: r.sourceId,
@@ -53,6 +54,7 @@ function toCatalog(r: Recipe, parsed: ParsedIngredient[]): CatalogRecipe {
 }
 
 export interface EmitReport {
+  queue: TranslationQueue;
   published: number;
   excluded: { id: string; title: string; url: string; reason?: 'blocklist'; hits: { term: string; line: string; concept?: string }[] }[];
   /** Stored recipes from a translated edition of a blog, left out. */
@@ -69,7 +71,12 @@ export interface EmitReport {
  * Recipes the vegan check flags are left out and listed in the report; so are translated editions.
  */
 /** `generatedAt` defaults to now; fixtures pin it so regenerating them changes nothing. */
-export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { generatedAt = new Date().toISOString(), translations = seedTranslations, ingredientTables = seedIngredientTables, blocklist = blockedIds }: { generatedAt?: string; translations?: TranslationMemory; ingredientTables?: Record<string, IngredientTables>; blocklist?: string[] } = {}): EmitReport {
+export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { generatedAt = new Date().toISOString(), translations: committedTranslations = seedTranslations, ingredientTables: committedTables = seedIngredientTables, blocklist = blockedIds, previousQueue, learnedData = emptyLearnedData() }: { generatedAt?: string; translations?: TranslationMemory; ingredientTables?: Record<string, IngredientTables>; blocklist?: string[]; previousQueue?: TranslationQueue; learnedData?: LearnedData } = {}): EmitReport {
+  const merged = mergeEnrichment(learnedData, committedTranslations, committedTables);
+  const translations = merged.titles;
+  const ingredientTables = merged.ingredientTables;
+  const englishLookup = merged.aliases.en ?? {};
+  const conceptVegan = Object.fromEntries(merged.concepts.map((c) => [c.id, c.vegan]));
   const excluded: EmitReport['excluded'] = [];
   const recipes: Recipe[] = [];
   const sourceIds = new Set(sources.map((s) => s.id));
@@ -96,9 +103,13 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
   const usedSources = sources.filter((s) => recipes.some((r) => r.sourceId === s.id)).map((s) => ({ ...s, contentLanguage: s.contentLanguage ?? 'en' }));
   const sorted = recipes.sort((a, b) => a.id.localeCompare(b.id));
   const parsed = sorted.map((r) => r.ingredients.map((line) => parseIngredient(line, englishLookup)));
-  const rows = sorted.map((r, i) => toCatalog(r, parsed[i]!));
+  const rows = sorted.map((r, i) => toCatalog(r, parsed[i]!, merged.byId));
   const used = new Set(rows.flatMap((r) => r.concepts ?? []));
-  const lookup = usedLookup('en', used);
+  const lookupFor = (language: string) => ({
+    ...usedLookup(language, used),
+    ...Object.fromEntries(Object.entries(merged.aliases[language] ?? {}).filter(([, id]) => used.has(id)))
+  });
+  const lookup = lookupFor('en');
   // Shopping-list rows and aisles per concept, from the English lines that use them.
   const grocery = groceryConcepts(parsed.flat(), englishLookup);
   const unmapped: Record<string, number> = Object.create(null);
@@ -158,14 +169,15 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
     write(`overlay/${language}.json`, { language, titles, ...(ingredients ? { ingredients } : {}) });
   }
   write('concept-coverage.json', coverage);
-  write('dictionary.json', { provenance: seed.provenance, concepts: seed.concepts.filter((c) => used.has(c.id)) });
-  for (const language of ['en', 'it'] as const)
-    write(`lookup/${language}.json`, { provenance: seed.provenance, aliases: usedLookup(language, used), ...(language === 'en' ? { grocery } : {}) });
+  write('dictionary.json', { provenance: seed.provenance, concepts: merged.concepts.filter((c) => used.has(c.id)) });
+  for (const language of Object.keys(merged.aliases))
+    write(`lookup/${language}.json`, { provenance: seed.provenance, aliases: lookupFor(language), ...(language === 'en' ? { grocery } : {}) });
   write('catalog.json', catalog);
   write('recipes.full.json', full);
   shards.forEach((shard, i) => write(`details/${String(i).padStart(2, '0')}.json`, shard));
 
   const bySource: Record<string, number> = {};
   for (const r of rows) bySource[r.source] = (bySource[r.source] ?? 0) + 1;
-  return { published: rows.length, excluded, otherLanguage, bySource, bytes };
+  const queue = buildTranslationQueue(sorted, parsed, translations, ingredientTables, generatedAt, previousQueue);
+  return { published: rows.length, excluded, otherLanguage, bySource, bytes, queue };
 }
