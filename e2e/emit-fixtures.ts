@@ -15,7 +15,7 @@ for (const mixed of [false, true]) {
     [...Object.values(store.recipes), ...mixed ? italian.recipes : []],
     [...sources, ...mixed ? [italian.source] : []],
     out,
-    { ...options, translations: { ...seedTranslations, en: { ...seedTranslations.en, ...mixed ? italian.titles : {} } } }
+    { ...options, learnedData: mixed ? italian.learned : undefined, translations: { ...seedTranslations, en: { ...seedTranslations.en, ...mixed ? italian.titles : {} } } }
   );
   if (!mixed) fs.writeFileSync(path.join(root, 'excluded.json'), JSON.stringify(report.excluded, null, 1));
   console.log(`${mixed ? 'Mixed-language' : 'English'} fixtures: ${report.published} recipes`);

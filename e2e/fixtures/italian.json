@@ -52,10 +52,71 @@
         "100 ml acqua",
         "1 g sale"
       ]
+    },
+    {
+      "id": "italian-enriched",
+      "sourceId": "italian-fixture",
+      "title": "Frittelle lunari",
+      "url": "https://italian.example/frittelle/",
+      "image": null,
+      "minutes": 35,
+      "servings": 2,
+      "rating": 4.2,
+      "ratingCount": 5,
+      "calories": 300,
+      "protein": 12,
+      "published": "2026-01-01",
+      "categories": [
+        "Colazione"
+      ],
+      "cuisines": [],
+      "keywords": [],
+      "ingredients": [
+        "200 g farina lunare, setacciata finemente"
+      ]
     }
   ],
   "titles": {
     "Insalata italiana di ceci": "Italian Chickpea Salad",
     "Cracker italiani": "Italian Crackers"
+  },
+  "learned": {
+    "version": 1,
+    "concepts": [
+      {
+        "id": "learned:50a8ce0bc79d0364",
+        "names": {
+          "en": [
+            "lunar flour"
+          ],
+          "it": [
+            "farina lunare"
+          ]
+        },
+        "parents": [],
+        "vegan": "unknown"
+      }
+    ],
+    "titles": {
+      "en": {
+        "Frittelle lunari": "Lunar pancakes"
+      }
+    },
+    "aliases": {
+      "it": {
+        "farina lunare": "learned:50a8ce0bc79d0364"
+      }
+    },
+    "ingredientTables": {
+      "en": {
+        "names": {
+          "learned:50a8ce0bc79d0364": "lunar flour"
+        },
+        "notes": {
+          "setacciata finemente": "finely sifted"
+        },
+        "units": {}
+      }
+    }
   }
 }

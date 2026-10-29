@@ -1,6 +1,20 @@
 import { expect, italianFixtureData, test } from './fixtures';
 
 for (const language of ['en', 'it'] as const) {
+  test(`an enriched Italian recipe is safely browsable in ${language}`, async ({ page }) => {
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    await page.route('**/data/**', italianFixtureData);
+    await page.goto(language === 'it' ? '/it/' : '/');
+    await page.getByRole('searchbox').fill(language === 'it' ? 'lunare' : 'lunar');
+    await expect(page.getByTestId('recipe-card')).toHaveCount(1);
+    await page.getByRole('button', { name: language === 'it' ? 'Frittelle lunari' : 'Lunar pancakes', exact: true }).click();
+    const sheet = page.getByRole('dialog');
+    await expect(sheet.getByTestId('ingredients')).toContainText(language === 'it' ? '200 g farina lunare, setacciata finemente' : '200 g lunar flour, finely sifted');
+    await expect(sheet.getByRole('link', { name: /Cucina di prova/ })).toHaveAttribute('href', 'https://italian.example/frittelle/');
+    expect(errors).toEqual([]);
+  });
+
   test(`an Italian-source recipe searches, renders and merges into the shopping list in ${language}`, async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
