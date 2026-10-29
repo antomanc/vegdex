@@ -43,7 +43,8 @@
     error = null
     loadCatalog()
       .then(async (c) => {
-        lookup = c.recipes.some((r) => r.concepts) ? (await loadLookup(pageLocale.code)).aliases : {}
+        // Ingredient names only add matches: without them, search still matches the recipes' English names.
+        lookup = c.recipes.some((r) => r.concepts) ? await loadLookup(pageLocale.code).then((f) => f.aliases, () => ({})) : {}
         for (const s of c.sources) sourceNames.set(s.id, s.name)
         catalog = c
       })

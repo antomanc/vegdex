@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { compileGroceryList, type CatalogRecipe, type GroceryItem } from '@vegdex/core'
+  import { compileGroceryList, parseIngredient, type CatalogRecipe, type GroceryItem } from '@vegdex/core'
   import { loadIngredients, loadLookup, type LookupFile } from './data'
   import { BASE_LOCALE } from './locales'
   import { m, countArgs, formatNumber } from './i18n'
@@ -42,11 +42,26 @@
   const key = (item: GroceryItem) => `${item.aisle}/${item.name}`
 
   // A tick belongs to this list: items no longer on it lose theirs, so next week's olive oil isn't pre-ticked.
+  // Ticks stored by name alone (before concepts), or under a row name that has since changed,
+  // move to the row now holding that ingredient.
   $effect(() => {
     ready.then(([all, file]) => {
-      const keys = new Set(compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier: 1 })), options(file)).map(key))
-      const kept = Object.fromEntries(Object.entries(checked).filter(([k, on]) => on && keys.has(k)))
-      if (Object.keys(kept).length !== Object.keys(checked).length) checked = kept
+      // Without the English names the rows are not the real ones: keep every tick for later.
+      if (!file.grocery && recipes.some((r) => r.concepts)) return
+      const items = compileGroceryList(all.map((r) => ({ recipeId: r.id, ingredients: r.lines, multiplier: 1 })), options(file))
+      const kept: Record<string, boolean> = {}
+      for (const [k, on] of Object.entries(checked)) {
+        if (!on) continue
+        const slash = k.indexOf('/')
+        const aisle = slash > 0 && k.slice(0, slash) in AISLE_LABELS ? k.slice(0, slash) : null
+        const name = aisle ? k.slice(slash + 1) : k
+        let found = items.filter((i) => i.name === name)
+        if (!found.length) found = items.filter((i) => i.lines.some((line) => parseIngredient(line).name === name))
+        if (aisle && found.some((i) => i.aisle === aisle)) found = found.filter((i) => i.aisle === aisle)
+        if (new Set(found.map((i) => i.name)).size !== 1) continue
+        for (const item of found) kept[key(item)] = true
+      }
+      if (JSON.stringify(kept) !== JSON.stringify(Object.fromEntries(Object.entries(checked).filter(([, on]) => on)))) checked = kept
     })
   })
 
