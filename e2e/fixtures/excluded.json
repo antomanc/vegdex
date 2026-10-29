@@ -26,5 +26,12 @@
     "term": "off:6e0f5e50cfafafa5"
    }
   ]
+ },
+ {
+  "id": "reported-fixture",
+  "title": "Reported Fixture Recipe",
+  "url": "https://example.com/reported-fixture/",
+  "reason": "blocklist",
+  "hits": []
  }
 ]

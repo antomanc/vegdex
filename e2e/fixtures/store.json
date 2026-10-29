@@ -223,6 +223,35 @@
     "2 cups all-purpose flour",
     "1 cup quark"
    ]
+  },
+  "reported-fixture": {
+   "id": "reported-fixture",
+   "title": "Reported Fixture Recipe",
+   "sourceId": "noracooks",
+   "url": "https://example.com/reported-fixture/",
+   "image": null,
+   "minutes": 20,
+   "servings": 4,
+   "rating": 4.9,
+   "ratingCount": 300,
+   "calories": 400,
+   "protein": null,
+   "published": "2026-01-01",
+   "categories": [
+    "Breakfast"
+   ],
+   "cuisines": [],
+   "keywords": [],
+   "ingredients": [
+    "2 cups all-purpose flour",
+    "2 tbsp sugar",
+    "1 tbsp cornstarch",
+    "1 tbsp baking powder",
+    "1 1/2 cups almond milk",
+    "2 tbsp maple syrup",
+    "1 cup plant milk",
+    "2 tbsp vegan butter"
+   ]
   }
  }
 }
