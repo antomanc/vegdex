@@ -71,4 +71,3 @@ describe('findNonVegan', () => {
     expect(findNonVegan([line])[0]?.term).toBe(term);
   });
 });
-
