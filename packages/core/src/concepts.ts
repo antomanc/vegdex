@@ -13,7 +13,10 @@ export function ingredientKey(name: string): string {
 
 function lookupEntry(name: string, lookup: IngredientLookup): string | null {
   const key = ingredientKey(name);
-  return Object.hasOwn(lookup, key) ? lookup[key]! : null;
+  if (Object.hasOwn(lookup, key)) return lookup[key]!;
+  // "extra-firm tofu" and "extra firm tofu" are one name.
+  const spaced = key.replace(/-/g, ' ');
+  return spaced !== key && Object.hasOwn(lookup, spaced) ? lookup[spaced]! : null;
 }
 
 export function lookupConcept(name: string, lookup: IngredientLookup = {}): string | null {

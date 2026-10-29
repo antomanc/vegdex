@@ -2,6 +2,8 @@ import { expect, it } from 'vitest';
 import { compileGroceryList, displayGroceryName, parseIngredient, renderIngredient, type LanguageVocabulary } from '../src/index';
 
 const lookup = {
+  'firm tofu': 'tofu', 'lemon juice': 'lemon-juice', 'soy sauce': 'soy', onion: 'onion', 'plant milk': 'milk', 'non-dairy milk': 'milk', 'soy milk': 'soy-milk', 'almond milk': 'almond-milk',
+  'dark chocolate': 'chocolate', 'extra firm tofu': 'xtofu', plain: 'term:plain', unflavored: 'term:unflavored', medium: 'term:medium',
   lemon: 'lemon', 'sea salt': 'salt', basil: 'basil', tomatoes: 'tomato', 'coconut yogurt': 'yogurt-coco', 'hot sauce': 'hot-sauce', cumin: 'cumin', nutmeg: 'nutmeg',
   juiced: 'term:juiced', zested: 'term:zested', fresh: 'term:fresh', 'more to taste': 'term:to-taste', 'plus more to taste': 'term:to-taste',
   '+ more to taste': 'term:to-taste', 'as needed': 'term:as-needed', canned: 'term:canned', unsweetened: 'term:unsweetened',
@@ -23,7 +25,10 @@ const it_: LanguageVocabulary = {
     almond: { one: 'mandorla', other: 'mandorle', gender: 'f' }, lemon: { one: 'limone', other: 'limoni', gender: 'm' },
     basil: { one: 'basilico', other: 'basilico', gender: 'm' }, tomato: { one: 'pomodoro', other: 'pomodori', gender: 'm' },
     'yogurt-coco': { one: 'yogurt di cocco', other: 'yogurt di cocco', gender: 'm' }, 'hot-sauce': { one: 'salsa piccante', other: 'salsa piccante', gender: 'f' },
-    cumin: { one: 'cumino', other: 'cumino', gender: 'm' }
+    cumin: { one: 'cumino', other: 'cumino', gender: 'm' }, 'lemon-juice': { one: 'succo di limone', other: 'succo di limone', gender: 'm' },
+    milk: { one: 'latte vegetale', other: 'latte vegetale', gender: 'm' }, 'soy-milk': { one: 'latte di soia', other: 'latte di soia', gender: 'm' },
+    'almond-milk': { one: 'latte di mandorla', other: 'latte di mandorla', gender: 'm' }, chocolate: { one: 'cioccolato fondente', other: 'cioccolato fondente', gender: 'm' },
+    xtofu: { one: 'tofu extra compatto', other: 'tofu extra compatto', gender: 'm' }
   },
   terms: {
     'term:drained-rinsed': { m: 'scolato e sciacquato', f: 'scolata e sciacquata', 'm.pl': 'scolati e sciacquati', 'f.pl': 'scolate e sciacquate' },
@@ -38,7 +43,10 @@ const it_: LanguageVocabulary = {
     'term:fresh': { m: 'fresco', f: 'fresca', 'm.pl': 'freschi', 'f.pl': 'fresche' },
     'term:as-needed': { m: 'più quanto basta', f: 'più quanto basta', 'm.pl': 'più quanto basta', 'f.pl': 'più quanto basta' },
     'term:canned': { m: 'in scatola', f: 'in scatola', 'm.pl': 'in scatola', 'f.pl': 'in scatola' },
-    'term:unsweetened': { m: 'senza zucchero', f: 'senza zucchero', 'm.pl': 'senza zucchero', 'f.pl': 'senza zucchero' }
+    'term:unsweetened': { m: 'senza zucchero', f: 'senza zucchero', 'm.pl': 'senza zucchero', 'f.pl': 'senza zucchero' },
+    'term:plain': { m: 'naturale', f: 'naturale', 'm.pl': 'naturali', 'f.pl': 'naturali' },
+    'term:unflavored': { m: 'non aromatizzato', f: 'non aromatizzata', 'm.pl': 'non aromatizzati', 'f.pl': 'non aromatizzate' },
+    'term:medium': { m: 'medio', f: 'media', 'm.pl': 'medi', 'f.pl': 'medie' }
   },
   units: {
     g: ['g', 'g'], ml: ['ml', 'ml'], cup: ['tazza', 'tazze'], tbsp: ['cucchiaio', 'cucchiai'], tsp: ['cucchiaino', 'cucchiaini'],
@@ -133,7 +141,7 @@ it('reads the shapes recipes write ingredients in', () => {
   expect(render('Juice of 1 lemon (1-2 tablespoons)')).toEqual(['1', 'limone, spremuto']);
   expect(render('1/2 teaspoon sea salt + more to taste', 'us')).toEqual(['½ cucchiaino', 'di sale quanto basta']);
   expect(render('1 large handful of fresh basil (or parsley, chopped)', 'us')).toEqual(['1 manciata', 'di basilico fresco']);
-  expect(render('1/2 cup (~112g) vegan coconut yogurt (unsweetened, plain)', 'metric')).toEqual(['112 g', 'yogurt di cocco, senza zucchero']);
+  expect(render('1/2 cup (~112g) vegan coconut yogurt (unsweetened, plain)', 'metric')).toEqual(['112 g', 'yogurt di cocco, senza zucchero, naturale']);
   expect(render('2 x 400 g / 14 oz canned tomatoes', 'metric')).toEqual(['800 g', 'pomodori in scatola']);
   expect(render('more hot sauce')).toEqual(['', 'salsa piccante, più quanto basta']);
   expect(render('1/3 tsp or more cumin', 'us')).toEqual(['⅓ cucchiaino', 'di cumino, più quanto basta']);
@@ -142,6 +150,23 @@ it('reads the shapes recipes write ingredients in', () => {
   expect(render('1 cup chickpeas of choice', 'us')).toEqual(['1 tazza', 'di ceci']);
   expect(render('1 large head cauliflower (cut into florets (about 2.5 pounds)', 'us', en, 'en')).toBeNull(); // unknown here, but no longer blocked by the note
   expect(parseIngredient('1 large head cauliflower (about 2.5 pounds)', { cauliflower: 'cauli' })).toMatchObject({ unit: 'head', concept: 'cauli' });
+});
+
+it('reads alternatives, descriptors before the name and loose packaging', () => {
+  expect(render('7 oz firm or extra firm tofu', 'us')).toEqual(['7 once', 'di tofu compatto o tofu extra compatto']);
+  expect(render('2 tbsp lemon or lime juice', 'us')).toEqual(['2 cucchiai', 'di succo di limone']);
+  expect(render('2 tbsp tamari or soy sauce', 'us')).toEqual(['2 cucchiai', 'di salsa di soia']);
+  expect(render('1 cup soy or almond milk', 'us')).toEqual(['1 tazza', 'di latte di soia o latte di mandorla']);
+  expect(render('1 cup unflavored and unsweetened non-dairy milk', 'us')).toEqual(['1 tazza', 'di latte vegetale non aromatizzato senza zucchero']);
+  expect(render('2 cups plain, unsweetened non-dairy milk (room temperature (soy recommended))', 'us')).toEqual(['2 tazze', 'di latte vegetale naturale senza zucchero']);
+  expect(render('1/2 medium (113g) onion, chopped', 'us')).toEqual(['½', 'cipolla media, tritata']);
+  expect(parseIngredient('zest of half a lemon', lookup)).toMatchObject({ quantity: 0.5, concept: 'lemon' });
+  expect(render('juice from 1 lemon')).toEqual(['1', 'limone, spremuto']);
+  expect(render('can chickpeas, drained and rinsed', 'us')).toEqual(['1 scatola', 'di ceci, scolati e sciacquati']);
+  expect(render('100 g 70% dark chocolate')).toEqual(['100 g', 'cioccolato fondente']);
+  expect(render('1 block extra-firm tofu', 'us')).toEqual(['1 panetto', 'di tofu extra compatto']);
+  expect(render('2 slices of your favourite bread')).toBeNull(); // no bread here, but the favourite is gone:
+  expect(parseIngredient('2 slices of your favourite bread', lookup).phrase).toBe('bread');
 });
 
 it('marks headings and asides so no language shows them as ingredients', async () => {
