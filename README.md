@@ -58,53 +58,26 @@ pnpm ingest weights             # snapshot cup-measured lines for the metric wei
 The crawl state (`.data/store.json.gz`) is kept as a release asset named `data`, not in git.
 Vegan-check rejections are written to `.data/excluded.json` for review.
 
-## Manual enrichment
+## Translation vocabulary
 
-The nightly emit records missing recipe titles, ingredient mappings and preparation phrases in
-`.data/translation-queue.json`. Learned entries live in `.data/enrichment.json`; committed tables
-win when they conflict. The nightly workflow never calls a model.
-
-Authenticate the GitHub CLI with permission to write release assets and dispatch Actions workflows,
-then run against an OpenAI-compatible model server:
-
-```bash
-ENRICH_BASE_URL=http://127.0.0.1:8080/v1 ENRICH_MODEL=vegdex-enrich pnpm enrich
-```
-
-The command downloads the release assets, processes the queue, merges any work published while the
-model ran, uploads learned entries followed by the remaining queue, and triggers deployment with
-crawling disabled. `--repo owner/repo` selects the repository; the default is `GITHUB_REPOSITORY`
-when set, otherwise `antomanc/vegdex`. Accepted results also stay in the local files, so retrying a
-failed upload reuses them. If dispatch fails, the command reports that the data is saved and deployment
-is pending; retrying triggers another deployment attempt without translating completed strings again.
-
-With queue and learned files already available locally, run:
+Recipes show in every UI language by composing each ingredient line from a vocabulary in
+`packages/ingest/data/vocab/<lang>.json`: concept names with their grammatical forms, preparation
+terms, unit labels and titles (see [ADR 0005](docs/adr/0005-vocabulary-in-git-filled-by-any-worker.md)).
+A line that cannot be composed stays exactly as written. Notes that are not preparation terms are
+commentary and are left out, in every language. The nightly workflow never calls a model; it
+reports each language's coverage on the "Translation backlog" issue.
 
 ```bash
-ENRICH_BASE_URL=http://127.0.0.1:8080/v1 ENRICH_MODEL=vegdex-enrich pnpm enrich --local
+pnpm coverage                                    # score per language and the largest gaps
+pnpm gaps --kind name --lang it --batches 4      # batch files for any worker
+pnpm vocab:apply .data/fill/*.answers.json       # check answers and merge what passes
+ENRICH_BASE_URL=http://127.0.0.1:8080/v1 ENRICH_MODEL=vegdex-enrich \
+  pnpm enrich --kind name --lang it --batches 10 # the same loop against an OpenAI-compatible endpoint
 ```
 
-The endpoint must support nonstreaming chat completions. Set `ENRICH_API_KEY` in the environment
-if it needs bearer authentication. `--queue <file>` and `--learned <file>` select other local files
-in either mode. Relative paths resolve from the repository root, and absolute paths work unchanged;
-`--help` lists the options. This local mode does not upload data or deploy the site.
-
-Each accepted result is saved before its task leaves the queue. Interrupted runs reuse saved
-results. The command reports accepted, reused and remaining counts, plus task IDs with fixed
-failure reasons; rejected tasks remain available for another run. New concepts get a stable ID
-and an unknown vegan status. A known animal-concept finding can exclude a recipe at the next emit.
-
-The checks reject malformed responses, changed numbers, unsafe display text, unknown IDs and
-obvious language mismatches. They cannot prove that a translation preserves meaning. Sizes and
-alternatives that cannot be represented faithfully retain their original text; correct those
-through the committed tables. No model has been evaluated on the owner's desktop yet.
-
-## Desktop setup and evaluation
-
-Run `bash scripts/setup-enrichment.sh` on the Omarchy desktop for guided Vulkan/model setup,
-private endpoint configuration, evaluation and enrich. `--help` and `--check` are non-destructive.
-The [desktop guide](docs/desktop-enrichment.md) covers reproducible `pnpm eval:enrichment` runs,
-scoring limits and the hardware checks still needed before choosing a model.
+[Filling the vocabulary](docs/agents/vocabulary.md) explains the gap kinds, the answer shapes and how
+a fill lands as a PR. For a local model on the Omarchy desktop, run `bash scripts/setup-enrichment.sh`
+([desktop guide](docs/desktop-enrichment.md)).
 
 ## Metric weights
 
@@ -123,8 +96,8 @@ Add the blog to `packages/ingest/sources.json` only if every recipe on it is veg
 result and `.data/excluded.json`.
 
 Set `contentLanguage` to `it` for original Italian publishers; it defaults to `en`.
-Each content language needs a tested language pack. Non-English recipes with unmapped
-ingredients stay held in `.data/translation-queue.json` until an enrich run maps them.
+Each content language needs a tested language pack and a vocabulary file. Non-English recipes
+with unmapped ingredients stay held (listed in `.data/held.json`) until a fill maps them.
 Translated editions of existing publishers remain excluded. Cucinaverza's bounded source
 verification is recorded in [the source notes](docs/research/italian-source-cucinaverza.md).
 

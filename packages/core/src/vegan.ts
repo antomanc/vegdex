@@ -7,18 +7,16 @@ export type ConceptVeganStatus = 'yes' | 'no' | 'maybe' | 'unknown';
 
 /** Unmapped or uncertain English ingredients still rely on the separate text check. */
 export function findNonVeganConcepts(lines: string[], lookup: IngredientLookup, vegan: Record<string, ConceptVeganStatus>, language = 'en'): { concept: string; line: string }[] {
-  if (language !== 'en') return lines.flatMap((line) => {
-    const concept = parseIngredient(line, lookup, language).concept;
-    return concept && vegan[concept] === 'no' ? [{ concept, line }] : [];
-  });
+  // "sale e burro": the second ingredient of a split line is checked too.
+  const named = (p: ReturnType<typeof parseIngredient>) => [p.concept, p.also?.concept].filter((c): c is string => !!c);
+  if (language !== 'en') return lines.flatMap((line) =>
+    named(parseIngredient(line, lookup, language)).filter((concept) => vegan[concept] === 'no').map((concept) => ({ concept, line })));
   return lines.flatMap((line) => {
     const normalized = normalizeLine(line);
     if (NON_INGREDIENT.test(normalized)) return [];
-    return ingredientOptions(normalized, lookup).flatMap((option) => {
-      const concept = parseIngredient(option, lookup).concept;
+    return ingredientOptions(normalized, lookup).flatMap((option) =>
       // Same scope as the text check: a qualifier on this option ("(i used soy yogurt)") counts.
-      return concept && vegan[concept] === 'no' && !PLANT_QUALIFIER.test(option.toLowerCase()) ? [{ concept, line }] : [];
-    });
+      PLANT_QUALIFIER.test(option.toLowerCase()) ? [] : named(parseIngredient(option, lookup)).filter((concept) => vegan[concept] === 'no').map((concept) => ({ concept, line })));
   });
 }
 

@@ -100,9 +100,10 @@ it('weighs Italian cup measures through the same known ingredient density for re
   const { full, out } = emit([{ ...base, ingredients: ['1 tazza di farina', '1 g sale'] }]);
   const r = full.recipes[0]!;
   const p = r.parsedIngredients![0]!;
-  const tables = JSON.parse(fs.readFileSync(path.join(out, 'overlay/en.json'), 'utf8')).ingredients;
+  const overlay = JSON.parse(fs.readFileSync(path.join(out, 'overlay/en.json'), 'utf8'));
   expect(p.raw).toBe('1 tazza di farina');
-  expect(renderIngredient(p, tables, 'en', 'metric')?.[0]).toBe('≈ 125 g');
+  expect(renderIngredient(p, overlay, 'en', 'metric', 'it')).toEqual(['≈ 125 g', 'flour']);
+  expect(renderIngredient(p, overlay, 'en', 'us', 'it')).toEqual(['1 cup', 'flour']);
   expect(metricLine(p.raw, p)?.[0]).toBe('≈ 125 g');
   expect(compileGroceryList([{ recipeId: r.id, ingredients: r.ingredients, parsedIngredients: r.parsedIngredients, contentLanguage: 'it', multiplier: 1 }], { lookup: full.lookup, concepts: full.grocery, units: 'metric' }).find((i) => i.lines.includes(p.raw))?.amounts).toEqual(['≈ 125 g']);
 });

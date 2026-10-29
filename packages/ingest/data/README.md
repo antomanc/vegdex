@@ -30,21 +30,15 @@ The current seed contains 4,875 concepts with English names. `off:` identifiers 
 
 ## Coverage
 
-Every emit writes `concept-coverage.json`, counting mapped lines and listing each unmapped parsed name with its frequency. Unmapped English lines remain published; the existing text vegan check still applies.
+Every emit writes `coverage.json`: per display language, the share of ingredient lines and titles from recipes written in another language that render entirely from the vocabulary, and the largest gaps. Run `pnpm coverage` to measure the current crawl store with the current vocabulary (`docs/agents/vocabulary.md`). Unmapped English lines remain published; the existing text vegan check still applies.
 
-`catalog-coverage.json` records a measurement of the public [English dataset](https://vegdex.antomanc.com/data/recipes.full.json), generated at `2026-10-28T21:28:57.399Z`: 16,030 recipes, 206,308 ingredient lines; 152,048 mapped (73.70%), 54,260 unmapped across 11,690 distinct names. Its checksum identifies the measured input; the URL changes as new catalog versions are deployed. Common gaps include all-purpose flour and baking soda, whose aliases are ambiguous or absent in this snapshot. No guessed aliases fill those gaps.
+## Vocabulary
 
-To measure another downloaded dataset without publishing or crawling:
-
-```bash
-pnpm --filter @vegdex/ingest exec tsx scripts/catalog-coverage.ts /path/to/recipes.full.json data/catalog-coverage.json
-```
-
-`pnpm test:e2e` regenerates the fixture dataset from `e2e/fixtures/store.json` before testing the production build. It includes chickpeas and pumpkin in a recipe whose title names neither, plus pumpkin and cremini mushrooms in another recipe, to exercise the emitted-data-to-UI search path.
+`vocab/<lang>.json` holds what vegdex knows about each language's words: aliases to concepts and preparation terms, concept names with grammatical forms, term forms, curated unit labels, title translations and known commentary. `vocab/concepts.json` lists concepts the taxonomy lacks; their vegan status is always unknown. The taxonomy's own names above stay parsing aliases; display names come only from the vocabulary files. An explicit alias settles a name the taxonomy leaves ambiguous. A test runs every check `pnpm vocab:apply` uses over these files.
 
 ## Published payloads and limits
 
-`catalog.json` contains original titles, each recipe's content language, parsed ingredient names and concept IDs (including taxonomy ancestors). Detail shards preserve original lines and their parsed quantity, unit, note and leaf concept. `recipes.full.json` carries those details plus the used English lookup for CLI/MCP. UI-language overlays supply guarded titles and ingredient names; missing or unsafe translations use original text.
+`catalog.json` contains original titles, each recipe's content language, parsed ingredient names and concept IDs (including taxonomy ancestors). Detail shards preserve original lines and their parsed quantity, unit, note and leaf concept. `recipes.full.json` carries those details plus the used English lookup for CLI/MCP. UI-language overlays carry the used part of each vocabulary; lines that cannot be composed and unsafe titles use original text.
 
 The browser requests one language lookup after loading the catalog, containing only used concepts and their ancestors. It never imports the full seed. Italian lookups also accept English aliases; unknown names keep the existing text matching, and mapped English names can still match unmapped English ingredient text. Qualified unknown names get no concept fallback. Offline, an unvisited UI language can still browse the cached catalog using the cached English lookup (or the original text if no lookup is cached). Italian concept search is available offline after its lookup has been loaded online. Publication now checks mapped concepts alongside the original English ingredient text (#25). Grocery aggregation still uses the existing English names (#26).
 

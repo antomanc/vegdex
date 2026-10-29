@@ -6,7 +6,7 @@
   "scripts": {
     "ingest": "tsx src/cli.ts",
     "typecheck": "tsc --noEmit",
-    "enrich": "tsx src/enrich-cli.ts"
+    "vocab": "tsx src/vocab-cli.ts"
   },
   "dependencies": {
     "@vegdex/core": "workspace:*"

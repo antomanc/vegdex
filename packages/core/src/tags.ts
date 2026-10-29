@@ -57,7 +57,7 @@ function firstMeals(rules: [RegExp, Meal][], text: string): Meal[] {
 }
 
 export function classify(input: TagInput, ingredientNames?: string[]): Tag[] {
-  const pack = languagePacks[input.contentLanguage ?? 'en'] ?? {};
+  const pack = languagePacks[input.contentLanguage ?? 'en'] ?? languagePacks.en!;
   const title = input.title.toLowerCase();
   const categories = input.categories.join(' | ').toLowerCase();
   const keywords = input.keywords.join(' | ').toLowerCase();

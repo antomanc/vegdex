@@ -1,4 +1,4 @@
-# Desktop enrichment setup and evaluation
+# Desktop model setup for vocabulary fills
 
 Run this from a checkout on the Omarchy desktop:
 
@@ -9,7 +9,7 @@ bash scripts/setup-enrichment.sh
 ```
 
 The wizard checks Vulkan, guides model download and server startup, saves private endpoint settings,
-runs the scored evaluation, and offers the remote enrich run after GitHub authentication. Its
+and runs a first small fill for you to review after GitHub authentication. Its
 `--help` and `--check` paths install nothing, write nothing and open no browser. It does not need
 Wake-on-LAN or a self-hosted runner. Stop the server terminal when finished.
 
@@ -57,7 +57,7 @@ In a separate desktop terminal, substitute the absolute model path:
 ```bash
 llama-server -m /absolute/path/to/chosen-model.gguf \
   --alias vegdex-enrich --host 127.0.0.1 --port 8080 \
-  --n-gpu-layers 99 --ctx-size 4096 \
+  --n-gpu-layers 99 --ctx-size 16384 \
   --chat-template-kwargs '{"enable_thinking":false}'
 curl --fail --silent --show-error http://127.0.0.1:8080/health
 curl --fail --silent --show-error http://127.0.0.1:8080/v1/models
@@ -67,69 +67,35 @@ The [server reference](https://github.com/ggml-org/llama.cpp/blob/master/tools/s
 documents chat completions, model aliases, template parameters and readiness checks. `/health`
 returns 503 during loading. Confirm Radeon GPU-layer offload in the startup logs and record actual
 memory use; a successful HTTP response does not prove GPU offload. The Qwen template setting disables
-thinking so the response budget is available for translation. Keep that runtime setting identical
-between evaluation and enrich. These server-specific settings do not change the provider-neutral
-production endpoint contract.
+thinking so the response budget is available for answers. A batch of 40 items with its instructions
+needs the larger context. These server-specific settings do not change the provider-neutral endpoint contract.
 
-## Reproduce and review an evaluation
+## Run fills
 
-The wizard writes `.env.enrichment.local` with mode 0600, ignored by git. It stores the public GGUF
-path, model identity, server version, endpoint, advertised model ID and run labels there. Only
-`ENRICH_API_KEY` is secret; the wizard captures it with hidden input and never sets a GitHub secret.
-GitHub credentials stay with `gh auth login`. To run commands later, explicitly load **and export**
-the environment from the repository root:
+The wizard writes `.env.enrichment.local` with mode 0600, ignored by git. It stores the GGUF path,
+model identity, server version, endpoint and advertised model ID there. Only `ENRICH_API_KEY` is
+secret; the wizard captures it with hidden input. GitHub credentials stay with `gh auth login`.
+To run fills later, load **and export** the environment from the repository root:
 
 ```bash
 set -a
 source .env.enrichment.local
 set +a
-pnpm eval:enrichment --label qwen4b-q4-run1 \
-  --identity 'Qwen/Qwen3-4B-GGUF@<revision>/<filename>:Q4_K_M' \
-  --server-version '<llama-server --version output>'
+pnpm enrich --kind name --lang it --size 40 --batches 10
+git diff --stat -- packages/ingest/data/vocab
+pnpm coverage
 ```
 
-Without the wizard, export `ENRICH_BASE_URL=http://127.0.0.1:8080/v1` and
-`ENRICH_MODEL=vegdex-enrich`; export `ENRICH_API_KEY` only for a server that requires bearer auth.
-Any endpoint supporting nonstreaming OpenAI-compatible chat completions can be evaluated. A paid
-endpoint will receive 18 requests per run, so set its own spending limit first.
+Without the wizard, export `ENRICH_BASE_URL=http://127.0.0.1:8080/v1` and `ENRICH_MODEL=vegdex-enrich`;
+export `ENRICH_API_KEY` only for a server that requires bearer auth. Any endpoint supporting
+nonstreaming OpenAI-compatible chat completions works. A paid endpoint receives one request per
+batch, so set its own spending limit first.
 
-Results go to `.data/evaluation/<label>.eval.json`. `--report-dir <directory>` selects an isolated
-report directory, with relative paths resolved from the project root. Reports always use the
-`.eval.json` suffix and existing labels are refused.
-The command never reads or writes the production queue or learned data. Keep the git revision,
-server startup flags, model-file checksum (`sha256sum /path/to/model.gguf`), desktop GPU/memory
-observations and report together when comparing runs. Reports record model identity, server version,
-endpoint without credentials, evaluation version, request settings and timestamps.
-
-The committed [18-case sample](../packages/ingest/data/enrichment-evaluation.json) retains recipe
-IDs, publisher links and ingredient-line context from the October 2026 catalog and Cucinaverza fixtures.
-Version 2 evaluates 14 English-to-Italian cases and four Italian-to-English cases. It covers real titles,
-reusable preparation phrases, exact ingredient concepts, numbers, alternatives, vegan butter and the
-ambiguous tofu "egg" title. The concept IDs come from the committed dictionary, credited to
-[Open Food Facts contributors under ODbL/DbCL](../packages/ingest/data/README.md).
-[Adversarial fake responses](../packages/ingest/test/fixtures/evaluation-adversarial.json) are separate
-from source text and are not evidence about any model.
-
-| Score | Interpretation |
-| --- | --- |
-| Meaning heuristic | Accepted proposals with the expected concept ID and every required lexical group. Each group permits listed variants in the target language. Denominator: all 18 cases. |
-| Response validity | Proposals accepted by the same `proposeEnrichment` validation used by enrich, including merge/fidelity checks. Denominator: all 18 cases. |
-| Qualifier preservation | Accepted proposals retaining a plant-based qualifier on the four marked cases. Failed cases count as failures. |
-| Safety failures | Proposals rejected as unsafe translation or lost qualification; fixed reasons appear per case. |
-
-Exit status 1 means at least one score failed, including abstentions or request errors. Every case
-stays in the denominator; a partial success cannot score 100%. Rejected text and provider error bodies
-are never saved. Accepted proposals are saved for review. Meaning checks are lexical heuristics:
-they can miss a wrong meaning and reject a valid synonym. They do not prove fluent or faithful Italian.
-Reports include aggregate scores and `byDirection` scores, and each result records its source and target
-language. Inspect both directions before selecting a model; compare runs using the same evaluation version.
-Compare each proposal with the source and expectations before selecting a model. Never select a run
-with safety failures or lost qualifiers on the strength of an average score. The wizard blocks that
-selection, and allows manual review of other heuristic failures.
-
-No model has been run on the owner's GPU for this ticket. There is no measured winner, speed result
-or VRAM promise. On the desktop, run both candidates with fresh labels and identical settings; inspect
-all outputs, verify offload and memory use, and retain the reports before choosing.
+Every answer passes the same checks as any other worker's (`docs/agents/vocabulary.md`). They catch
+unsafe names, lost plant qualifiers, broken grammar and changed numbers; they cannot prove a name is
+the one an Italian cook would use. Read the diff of a first run before running more, and discard a
+bad one with `git checkout -- packages/ingest/data/vocab`. A small local model is weaker than a
+hosted one; compare by running the same batch with each and reading both diffs.
 
 ## Values saved by the wizard
 
@@ -138,15 +104,10 @@ all outputs, verify offload and memory use, and retain the reports before choosi
 | Prerequisites / Vulkan | No captured values; package update requires confirmation. |
 | Choose model / start server | `ENRICH_MODEL_FILE`, `ENRICH_MODEL_IDENTITY`, `ENRICH_SERVER_VERSION` in the private env file. Server command is displayed for a separate terminal. |
 | Endpoint configuration | `ENRICH_BASE_URL`, `ENRICH_MODEL`, optional hidden `ENRICH_API_KEY` in the private env file; exported to child commands. |
-| Evaluation / review | `ENRICH_EVAL_LABEL`, and `ENRICH_APPROVED_RUN` only after reviewing measured runs; isolated JSON report. |
-| GitHub / enrich | GitHub auth through `gh`; confirmed `pnpm enrich` uploads accepted results and dispatches the existing deployment workflow. No GitHub token is captured. |
+| GitHub | Auth through `gh`, used to read the crawl store. No GitHub token is captured. |
+| First fill | One batch of 20 Italian names into `packages/ingest/data/vocab/`, left uncommitted for review. |
 
-After selecting a measured model, `pnpm enrich` uses the exported endpoint settings. See the
-[manual enrichment command](../README.md#manual-enrichment) for authentication, local-file mode and
-remote behavior. `pnpm enrich --help` lists its options.
-
-The automated tests run the public evaluation command against a fake HTTP server and exercise the
-wizard's syntax/help/check paths. The wizard library matches the skill template unchanged. ShellCheck
-passes with `shellcheck --exclude=SC1087,SC2317 scripts/setup-enrichment.sh`: those exclusions cover
-the template's Readline prompt expansion and unused shared helpers. The real interactive desktop
-stages remain for the owner to verify.
+The automated tests exercise the wizard's syntax/help/check paths. The wizard library matches the
+skill template unchanged. ShellCheck passes with `shellcheck --exclude=SC1087,SC2317 scripts/setup-enrichment.sh`:
+those exclusions cover the template's Readline prompt expansion and unused shared helpers. The real
+interactive desktop stages remain for the owner to verify.

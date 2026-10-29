@@ -1,18 +1,4 @@
 import { languagePacks } from './languages';
-/** Titles are cached once per original text and target UI language. */
-export type TranslationMemory = Record<string, Record<string, string>>;
-
-/** Optional display data, fetched after the language-neutral catalog. */
-export interface LanguageOverlay {
-  language: string;
-  titles: Record<string, string>;
-  ingredients?: import('./ingredient-display').IngredientTables;
-}
-
-export function translatedTitle(original: string, language: string, memory: TranslationMemory): string {
-  return safeTranslation(original, memory[language]?.[original], language);
-}
-
 // These lists guard display text. Original Italian content reuses its language pack's list as its text check (vegan.ts).
 const animals: Record<string, RegExp> = {
   en: /\b(?:eggs?|yolks?|butter|ghee|milk|cream|cheese|parmesan|cheddar|gorgonzola|brie|gouda|gruy[eè]re|halloumi|paneer|emmental|provolone|fontina|burrata|stracchino|mozzarella|feta|ricotta|mascarpone|pecorino|quark|yogh?urt|honey|gelatine?|buttermilk|kefir|mayonnaise|chicken|beef|goat|mutton|pork|bacon|ham|lamb|turkey|veal|duck|rabbit|venison|salami|pepperoni|chorizo|guanciale|mortadella|bresaola|sausage|prosciutto|pancetta|lard|fish|anchov(?:y|ies)|tuna|salmon|shrimp|prawns?|crab|lobster|scallops?|oysters?|clams?|mussels?|squid|cod|sardines?|trout|herring|mackerel|octopus|seafood|worcestershire|whey|casein)\b/g,

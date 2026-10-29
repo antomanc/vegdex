@@ -8,7 +8,6 @@
     "dev": "pnpm --filter @vegdex/web dev",
     "build": "pnpm --filter @vegdex/web build",
     "ingest": "pnpm --filter @vegdex/ingest ingest",
-    "nightly:enrichment": "pnpm --filter @vegdex/ingest exec tsx src/nightly-cli.ts",
     "typecheck": "pnpm -r typecheck && pnpm typecheck:e2e",
     "typecheck:e2e": "tsc -p tsconfig.e2e.json",
     "test": "vitest run",
@@ -16,8 +15,11 @@
     "test:e2e": "pnpm fixtures && playwright test",
     "fixtures": "pnpm --filter @vegdex/ingest exec tsx ../../e2e/emit-fixtures.ts",
     "seed:concepts": "pnpm --filter @vegdex/ingest exec tsx scripts/seed-concepts.ts",
-    "enrich": "pnpm --filter @vegdex/ingest enrich",
-    "eval:enrichment": "pnpm --filter @vegdex/ingest exec tsx src/evaluate-cli.ts"
+    "nightly:backlog": "pnpm --filter @vegdex/ingest exec tsx src/nightly-cli.ts",
+    "coverage": "pnpm --filter @vegdex/ingest vocab coverage",
+    "gaps": "pnpm --filter @vegdex/ingest vocab gaps",
+    "vocab:apply": "pnpm --filter @vegdex/ingest vocab apply",
+    "enrich": "pnpm --filter @vegdex/ingest vocab enrich"
   },
   "engines": {
     "node": ">=22.12.0"

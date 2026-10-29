@@ -22,23 +22,22 @@ test('Italian ingredient lines keep amounts and preparation notes with source or
   await page.goto('/it/?r=quinoa-salad');
   const sheet = page.getByRole('dialog');
   await expect(sheet.getByTestId('ingredients')).toContainText('400 g ceci, scolati e sciacquati');
-  await expect(sheet.getByTestId('ingredients')).toContainText("2 cucchiai olio d'oliva");
+  await expect(sheet.getByTestId('ingredients')).toContainText("2 cucchiai di olio d'oliva");
   await sheet.getByText('Ingredienti originali', { exact: true }).click();
   await expect(sheet.getByTestId('original-ingredients')).toContainText('400 g chickpeas, drained and rinsed');
   await expect(sheet.getByTestId('original-ingredients')).toContainText('2 tbsp olive oil');
 });
 
-for (const unsafeNote of ['con latte', 'kg, scolati e sciacquati']) {
-  test(`unsafe preparation translation ${unsafeNote} retains the complete original ingredient`, async ({ page }) => {
-    await page.route('**/data/overlay/it.json', (route) => route.fulfill({ json: {
-      language: 'it', titles: {}, ingredients: {
-        names: { 'off:7ed0f0da39d5b63b': 'ceci' },
-        units: { g: ['g', 'g'] }, notes: { 'drained and rinsed': unsafeNote }
-      }
-    } }));
+const it = (forms: string) => ({ m: forms, f: forms, 'm.pl': forms, 'f.pl': forms });
+for (const [what, overlay] of [
+  ['preparation term', { names: { 'off:7ed0f0da39d5b63b': { one: 'cece', other: 'ceci', gender: 'm' } }, terms: { 'term:drained-rinsed': it('con latte') } }],
+  ['ingredient name', { names: { 'off:7ed0f0da39d5b63b': { one: 'pollo', other: 'polli', gender: 'm' } }, terms: { 'term:drained-rinsed': it('scolati e sciacquati') } }]
+] as const) {
+  test(`an unsafe ${what} in the vocabulary keeps the complete original ingredient`, async ({ page }) => {
+    await page.route('**/data/overlay/it.json', (route) => route.fulfill({ json: { language: 'it', titles: {}, units: { g: ['g', 'g'] }, ...overlay } }));
     await page.goto('/it/?r=quinoa-salad');
     await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText('400 g chickpeas, drained and rinsed');
-    await expect(page.getByRole('dialog').getByTestId('ingredients')).not.toContainText('ceci');
+    await expect(page.getByRole('dialog').getByTestId('ingredients')).not.toContainText(/ceci|poll/);
   });
 }
 

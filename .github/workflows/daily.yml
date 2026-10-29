@@ -43,19 +43,12 @@ jobs:
       - name: Restore store
         run: gh release download data --pattern store.json.gz --dir .data || echo "no store yet, starting fresh"
 
-      # Enrichment is optional for publishing: on failure, emit shows originals and the queue is not saved.
-      - name: Restore enrichment and previous queue
-        id: restore
-        continue-on-error: true
-        run: pnpm nightly:enrichment restore
-
       - name: Crawl new recipes
         if: github.event_name == 'schedule' || inputs.crawl
         run: pnpm ingest crawl
 
       - name: Emit dataset
-        id: emit
-        run: pnpm ingest emit --enrichment .data/enrichment.json --queue .data/translation-queue.json
+        run: pnpm ingest emit
 
       - name: Save store
         if: github.event_name == 'schedule' || inputs.crawl
@@ -63,14 +56,10 @@ jobs:
           gh release view data >/dev/null 2>&1 || gh release create data --title "Crawl state" --notes "Ingest store used by the daily workflow. Not a software release."
           gh release upload data .data/store.json.gz .data/excluded.json --clobber
 
+      # Coverage per language and held recipes; reporting never blocks a deploy.
       - name: Update translation backlog
-        if: steps.restore.outcome == 'success'
         continue-on-error: true
-        run: pnpm nightly:enrichment backlog
-
-      - name: Save translation queue
-        if: always() && steps.emit.outcome == 'success' && steps.restore.outcome == 'success'
-        run: pnpm nightly:enrichment save
+        run: pnpm nightly:backlog
 
       - name: Build site
         run: pnpm build

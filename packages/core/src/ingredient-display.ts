@@ -1,48 +1,78 @@
-import { sameMeasurements } from './measurements';
 import { hasDroppedMeasureWords, type ParsedIngredient } from './ingredients';
+import { languagePacks } from './languages';
 import { findUnsafeRenderedTerms, safeTranslation } from './translations';
 import type { GroceryItem } from './grocery';
-import { formatMetric, toMetric, type Units } from './metric';
+import { exactMetric, formatMetric, toMetric, type Units } from './metric';
+import { formatAmount, formatAmountRange, nounForm, termForm, type LanguageVocabulary, type NounForms } from './vocabulary';
 
-export interface IngredientTables {
-  names: Record<string, string>;
-  notes: Record<string, string>;
-  units: Record<string, [singular: string, plural: string]>;
-}
+const METRIC_UNITS = new Set(['g', 'kg', 'ml', 'l']);
 
-/** Preparation text that still needs translating, excluding an equivalent already used in the amount. */
-export function ingredientNote(p: ParsedIngredient): string {
-  let note = p.note;
-  const equivalent = note.match(/^(?:\(\s*)?(\d+(?:[.,]\d+)?)\s*(g|ml)\s*\)?(?:$|[,;]\s*)/i);
-  if (p.metric && equivalent && Number(equivalent[1]!.replace(',', '.')) === p.metric.quantity && equivalent[2]!.toLowerCase() === p.metric.unit) note = note.slice(equivalent[0].length).trim();
-  if (!note && /\bto taste\b/i.test(p.raw)) note = 'to taste';
-  return note;
-}
-
-/** Null means the caller keeps the complete original line. */
-export function renderIngredient(p: ParsedIngredient, tables: IngredientTables | undefined, language: string, units: Units): [amount: string, rest: string] | null {
-  if (!p.concept || p.conceptExact !== true || !tables || hasDroppedMeasureWords(p)) return null;
-  const name = tables.names[p.concept];
-  const originalNote = ingredientNote(p);
-  const note = originalNote ? tables.notes[originalNote] ?? '' : '';
-  if (!name || (originalNote && !note) || !sameMeasurements(originalNote, note, tables.units)) return null;
+/**
+ * One ingredient line in `language`, as [amount, name and preparation]; commentary is left out.
+ * In the recipe's own language the name and preparation keep their written words. In another language
+ * every part comes from the vocabulary, or the line is null and the caller keeps the original as written.
+ */
+export function renderIngredient(
+  p: ParsedIngredient, vocab: LanguageVocabulary | undefined, language: string, units: Units, source = 'en'
+): [amount: string, rest: string] | null {
+  const pack = languagePacks[language];
+  if (!vocab || !pack || !p.terms || p.phrase === undefined || !p.name || hasDroppedMeasureWords(p)) return null;
+  const same = language === source;
   const number = new Intl.NumberFormat(language, { useGrouping: false, maximumFractionDigits: 10 });
+  const label = (unit: string, quantity: number) => vocab.units[unit]?.[quantity <= 1 ? 0 : 1];
+
   const metric = units === 'metric' ? toMetric(p) : null;
-  let amount = p.quantity === null ? '' : number.format(p.quantity);
-  if (p.quantityMax !== null) amount += `–${number.format(p.quantityMax)}`;
+  let amount = '';
+  let linked = false;
   if (metric) {
-    amount = formatMetric(metric, p.metric?.unit === 'g' && !metric.estimate).replace(/\d+(?:\.\d+)?/g, (n) => number.format(Number(n)));
-  } else if (p.unit) {
-    const labels = tables.units[p.unit];
-    if (!labels) return null;
-    amount += ` ${labels[(p.quantityMax ?? p.quantity) === 1 ? 0 : 1]}`;
+    amount = formatMetric(metric, exactMetric(p, metric)).replace(/\d+(?:\.\d+)?/g, (n) => number.format(Number(n)));
+  } else if (p.quantity !== null) {
+    amount = formatAmountRange(p.quantity, p.quantityMax, language);
+    if (p.unit) {
+      const unit = label(p.unit, p.quantityMax ?? p.quantity);
+      if (!unit) return null;
+      amount += ` ${unit}`;
+      linked = !pack.unitLink?.except.includes(p.unit);
+    }
+    if (p.size) {
+      const unit = label(p.size.unit, p.size.quantity);
+      if (!unit) return null;
+      amount += ` (${formatAmount(p.size.quantity, language)} ${unit})`;
+    }
+    if (p.metric && p.unit && !METRIC_UNITS.has(p.unit)) amount += ` (${number.format(p.metric.quantity)} ${p.metric.unit})`;
   }
-  if (!metric && p.metric && p.unit && !['g', 'kg', 'ml', 'l'].includes(p.unit)) amount += ` (${number.format(p.metric.quantity)} ${p.metric.unit})`;
-  const rest = `${name}${note ? `, ${note}` : ''}`;
+
+  const measured = !!metric || !!p.unit;
+  let name = p.phrase;
+  let forms: NounForms | undefined;
+  let plural = false;
+  if (!same) {
+    if (!p.concept || p.conceptExact !== true) return null;
+    forms = vocab.names[p.concept];
+    const second = p.also ? vocab.names[p.also.concept] : undefined;
+    if (!forms || (p.also && !second)) return null;
+    ({ text: name, plural } = nounForm(forms, p.quantityMax ?? p.quantity, measured));
+    if (p.also) {
+      name = `${name} ${pack[p.also.joiner]} ${nounForm(second!, p.quantityMax ?? p.quantity, measured).text}`;
+      plural = true;
+    }
+  }
+  // Written in its own language the name keeps its words; elsewhere words from the name attach to the noun.
+  const attached: string[] = [];
+  const notes: string[] = [];
+  for (const term of p.terms) {
+    if (same && term.inName) continue;
+    const text = same ? term.text : vocab.terms[term.id] && termForm(vocab.terms[term.id]!, forms?.gender, plural);
+    if (!text) return null;
+    (term.inName ? attached : notes).push(text);
+  }
+  if (attached.length) name = pack.adjectivesFirst ? `${attached.join(' ')} ${name}` : `${name} ${attached.join(' ')}`;
+  const link = linked && pack.unitLink ? `${pack.unitLink.word} ` : '';
+  const rest = `${link}${name}${notes.length ? `, ${notes.join(', ')}` : ''}`;
   return findUnsafeRenderedTerms(`${amount} ${rest}`, language).length ? null : [amount, rest];
 }
 
 /** Translate the label after aggregation; the original name still owns the checked-state key. */
-export function displayGroceryName(item: GroceryItem, tables: IngredientTables | undefined, language: string): string {
-  return safeTranslation(item.name, item.concept && tables?.names[item.concept], language);
+export function displayGroceryName(item: GroceryItem, vocab: LanguageVocabulary | undefined, language: string): string {
+  return safeTranslation(item.name, item.concept && vocab?.names[item.concept]?.other, language);
 }

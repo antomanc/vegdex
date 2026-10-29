@@ -188,6 +188,9 @@ export function compileGroceryList(
       // Sentence-like notes are not purchases; unquantified ingredients still are.
       if (p.quantity === null && /^(?:serve with|i|if you)\b|\bis a\b/.test(p.name)) continue;
       parsed.push({ input, p });
+      // "salt and pepper" buys both; the amount stays with the first, which the line measured.
+      if (p.also?.joiner === 'and')
+        parsed.push({ input, p: { ...p, concept: p.also.concept, name: p.also.name, quantity: null, quantityMax: null, unit: null, metric: null, also: null } });
     }
   }
   // Concepts and unmapped lines with the same name share a row, as names did before concepts.

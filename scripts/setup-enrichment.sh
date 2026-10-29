@@ -202,7 +202,7 @@ run_wizard() {
 case "${1:-}" in
   --help|-h)
     printf '%s\n' 'bash scripts/setup-enrichment.sh [--help|--check]' \
-      'Five desktop stages: Vulkan prerequisites, model/server, private endpoint configuration, evaluation/review, GitHub auth and enrich.' \
+      'Five desktop stages: Vulkan prerequisites, model/server, private endpoint configuration, GitHub auth, and a first reviewed fill.' \
       '--check only lists installed commands; it writes nothing, installs nothing and opens no browser.' \
       'Interactive values are saved to .env.enrichment.local (0600, ignored by git). See docs/desktop-enrichment.md.'
     return ;;
@@ -217,7 +217,7 @@ case "${1:-}" in
   *) printf '%s\n' 'Unknown option; use --help.' >&2; return 1 ;;
 esac
 
-local root model_command report_file
+local root model_command
 root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 cd "$root"
 ENV_FILE="$root/.env.enrichment.local"
@@ -258,8 +258,8 @@ llama-server --version
 ask ENRICH_SERVER_VERSION 'Copy the installed llama.cpp version/build identity:'
 [[ -n "$ENRICH_SERVER_VERSION" ]] || return 1
 write_env ENRICH_SERVER_VERSION "$ENRICH_SERVER_VERSION"
-printf -v model_command 'llama-server -m %q --alias vegdex-enrich --host 127.0.0.1 --port 8080 --n-gpu-layers 99 --ctx-size 4096 --chat-template-kwargs %q' "$ENRICH_MODEL_FILE" '{"enable_thinking":false}'
-say 'Run this in a separate terminal and leave it running until enrich finishes:'
+printf -v model_command 'llama-server -m %q --alias vegdex-enrich --host 127.0.0.1 --port 8080 --n-gpu-layers 99 --ctx-size 16384 --chat-template-kwargs %q' "$ENRICH_MODEL_FILE" '{"enable_thinking":false}'
+say 'Run this in a separate terminal and leave it running until the fill finishes (batches need the larger context):'
 say "$model_command"
 note 'Check llama-server --help if your Arch package lacks a flag. See upstream build fallback in the docs.'
 say 'Wait for loading to finish. Read the startup logs for Radeon GPU layer offload and actual memory use.'
@@ -289,41 +289,27 @@ if ! node --input-type=module -e '
     console.log("Endpoint models check passed.");
   } catch { console.error("Endpoint models check failed; check server readiness and configuration."); process.exitCode = 1; }
 '; then
-  note 'Some compatible providers omit GET /models. The evaluation tests the required chat endpoint.'
-  confirm 'Continue to the chat-completion evaluation?' || return 1
+  note 'Some compatible providers omit GET /models. The first fill tests the required chat endpoint.'
+  confirm 'Continue anyway?' || return 1
 fi
 
-stage 'Evaluate and review this candidate'
-ask ENRICH_EVAL_LABEL 'Unique report label (letters, digits, underscores or hyphens):'
-[[ "$ENRICH_EVAL_LABEL" =~ ^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$ ]] || return 1
-write_env ENRICH_EVAL_LABEL "$ENRICH_EVAL_LABEL"
-report_file="$root/.data/evaluation/$ENRICH_EVAL_LABEL.eval.json"
-[[ ! -e "$report_file" ]] || { warn 'This report label already exists; rerun with a new label.'; return 1; }
-if ! pnpm eval:enrichment --label "$ENRICH_EVAL_LABEL" --identity "$ENRICH_MODEL_IDENTITY" --server-version "$ENRICH_SERVER_VERSION"; then
-  warn 'The evaluation found failures. Review each case before making a choice.'
-fi
-[[ -f "$report_file" ]] || return 1
-say "Review $report_file beside packages/ingest/data/enrichment-evaluation.json."
-say 'Meaning scores are lexical heuristics. Read every accepted proposal, failure and qualifier before choosing.'
-say 'For comparison, stop this server, rerun the wizard for the other model and use a fresh label.'
-if ! node --input-type=module -e 'import fs from "node:fs"; const r=JSON.parse(fs.readFileSync(process.argv[1])); process.exitCode=r.scores.safetyFailures || r.scores.qualifierPreservation.passed < r.scores.qualifierPreservation.total ? 1 : 0;' "$report_file"; then
-  warn 'This run has safety failures or lost qualifiers. Keep the report and try another configuration.'
-  return 1
-fi
-confirm 'After reviewing measured runs, use this candidate for enrich now?' || return 0
-write_env ENRICH_APPROVED_RUN "$ENRICH_EVAL_LABEL"
-
-stage 'Authenticate GitHub and run enrich'
+stage 'Authenticate GitHub'
 open_url 'https://cli.github.com/manual/gh_auth_login'
-say 'Use your own GitHub account with release-write and Actions dispatch permission for antomanc/vegdex.'
+say 'The fill reads the crawl store from the data release of antomanc/vegdex. Read access is enough.'
 if ! gh auth status >/dev/null 2>&1; then
   say 'Run gh auth login in a separate terminal. Complete the browser/device sign-in there.'
   pause 'Press Enter after authentication'
 fi
 gh auth status >/dev/null 2>&1 || { warn 'GitHub authentication is not ready.'; return 1; }
-say 'Enrich will download the queue, save accepted translations to the data release and trigger the existing deployment workflow.'
-confirm 'Run the remote enrich command and publish accepted translations?' || return 0
-pnpm enrich
+
+stage 'Run a first fill and review it'
+say 'A small batch of Italian names goes to the model; every answer is checked before it reaches data/vocab/.'
+confirm 'Run one batch of 20 now?' || return 0
+pnpm enrich --kind name --lang it --size 20 --batches 1
+git diff --stat -- packages/ingest/data/vocab
+say 'Read the diff: every name should be what an Italian cook would buy, with the right plural and gender.'
+say 'Discard a bad run with: git checkout -- packages/ingest/data/vocab'
+say 'Larger runs and landing them as a PR: docs/agents/vocabulary.md.'
 finish
 }
 

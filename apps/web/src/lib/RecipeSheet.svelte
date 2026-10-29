@@ -4,7 +4,7 @@
   import { loadDetails } from './data'
   import Icon from './Icon.svelte'
   import { m, countArgs, formatNumber, formatRating, pageLocale } from './i18n'
-  import { FREE, cuisineLabel, formatMinutes, splitLine } from './labels'
+  import { FREE, cuisineLabel, formatMinutes, splitAmount, splitLine } from './labels'
   import { sheet } from './sheet'
   import { prefs, saved, toggleSaved } from './state.svelte'
   import UnitsToggle from './UnitsToggle.svelte'
@@ -85,11 +85,12 @@
     {#await ingredients}
       <p class="muted">{m.loading()}</p>
     {:then { ingredients: lines, parsedIngredients }}
+      {@const source = recipe.contentLanguage ?? 'en'}
       {@const split = lines.map((line, i) => {
         const parsed = parsedIngredients?.[i]
-        return parsed && pageLocale.code !== (recipe.contentLanguage ?? 'en')
-          ? renderIngredient(parsed, display.overlay?.ingredients, pageLocale.code, prefs.units) ?? splitLine(line, prefs.units, parsed)
-          : splitLine(line, prefs.units, parsed)
+        const rendered = parsed && renderIngredient(parsed, display.overlay ?? undefined, pageLocale.code, prefs.units, source)
+        // A line vegdex cannot compose stays exactly as written in another language: no half-translated lines.
+        return rendered || (pageLocale.code === source ? splitLine(line, prefs.units, parsed) : splitAmount(line))
       })}
       <ul class="ingredients" data-testid="ingredients">
         {#each split as [amount, rest], i (i)}<li>{#if amount}<span class="amount">{amount}</span>{' '}{/if}{rest}</li>{/each}

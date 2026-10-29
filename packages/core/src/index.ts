@@ -10,5 +10,5 @@ export * from './metric';
 export * from './concepts';
 export * from './translations';
 export * from './ingredient-display';
-export * from './measurements';
 export * from './languages';
+export * from './vocabulary';

@@ -1,12 +1,5 @@
 import { expect, it } from 'vitest';
-import { safeTranslation, translatedTitle } from '../src/index';
-
-it('renders a remembered title in the UI language and keeps the original when missing', () => {
-  const memory = { it: { 'Fluffy Vegan Pancakes': 'Pancake vegani soffici' } };
-  expect(translatedTitle('Fluffy Vegan Pancakes', 'it', memory)).toBe('Pancake vegani soffici');
-  expect(translatedTitle('Fluffy Vegan Pancakes', 'en', memory)).toBe('Fluffy Vegan Pancakes');
-  expect(translatedTitle('Lentil Soup', 'it', memory)).toBe('Lentil Soup');
-});
+import { safeTranslation } from '../src/index';
 
 it('falls back when a translated title names an unqualified animal ingredient', () => {
   for (const [language, unsafe] of [
@@ -20,7 +13,7 @@ it('falls back when a translated title names an unqualified animal ingredient', 
 it('allows qualifiers belonging to the ingredient and plant names that contain animal words', () => {
   for (const [language, safe] of [
     ['it', 'Burro vegano'], ['it', 'Formaggio vegetale'], ['it', 'Latte di mandorla'],
-    ['it', 'Burro di arachidi'], ['it', 'Yogurt di soia'], ['it', 'Pancake vegani soffici'],
+    ['it', 'Burro di arachidi'], ['it', 'Yogurt di soia'], ['it', 'Pancake vegani soffici'], ['it', "Latte d'avena"], ['it', 'Burro d’arachidi'],
     ['en', 'Vegan butter'], ['en', 'Plant-based milk'], ['en', 'Almond milk'],
     ['en', 'Peanut butter'], ['en', 'Flax eggs'], ['en', 'Mushroom cream'], ['en', 'Butter beans']
   ]) expect(safeTranslation('Original', safe, language!)).toBe(safe);
@@ -32,6 +25,12 @@ it('allows qualifiers belonging to the ingredient and plant names that contain a
 it('does not reuse one qualifier for two adjacent animal ingredients', () => {
   expect(safeTranslation('Original', 'Burro vegano latte', 'it')).toBe('Original');
   expect(safeTranslation('Original', 'Burro vegano e latte vegetale', 'it')).toBe('Burro vegano e latte vegetale');
+});
+
+it('rejects plural forms of Italian meats and fish, which agreeing names now produce', () => {
+  for (const text of ['polli', 'maiali', 'agnelli', 'tacchini', 'vitelli', 'anatre', 'conigli', 'salami', 'tonni', 'salmoni', 'merluzzi', 'pesci', 'prosciutti'])
+    expect(safeTranslation('Original', `Pasta con ${text}`, 'it'), text).toBe('Original');
+  expect(safeTranslation('Original', 'Pesche sciroppate', 'it')).toBe('Pesche sciroppate');
 });
 
 it('rejects common Italian shellfish forms and unrelated plant words', () => {

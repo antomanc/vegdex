@@ -51,11 +51,17 @@ describe('metricLine', () => {
     expect(metricLine('10 cups all-purpose flour')).toEqual(['≈ 1.3 kg', 'all-purpose flour']);
   });
 
+  it('weighs a can, block or piece by the size its package states', () => {
+    expect(metricLine('1 (15 oz) can chickpeas')).toEqual(['425 g', 'chickpeas']);
+    expect(metricLine('1 (16 ounce) block firm tofu')).toEqual(['454 g', 'firm tofu']);
+    expect(metricLine('2 (400 ml) cans coconut milk')).toEqual(['800 ml', 'coconut milk']);
+    expect(metricLine('1 3-inch piece of ginger')).toEqual(['7.5 cm', 'ginger']);
+  });
+
   it('leaves spoons, whole items and unmeasured lines as written', () => {
     expect(metricLine('2 tablespoons olive oil')).toBeNull();
     expect(metricLine('1/2 teaspoon kosher salt')).toBeNull();
     expect(metricLine('2 medium carrots, diced')).toBeNull();
-    expect(metricLine('1 (15 oz) can chickpeas')).toBeNull();
     expect(metricLine('Salt and black pepper (to taste)')).toBeNull();
     expect(metricLine('200 g firm tofu')).toBeNull();
   });

@@ -24,6 +24,11 @@ export function toMetric(p: ParsedIngredient): MetricAmount | null {
   if (!def) return null;
   const range = (factor: number) => ({ quantity: p.quantity! * factor, quantityMax: p.quantityMax === null ? null : p.quantityMax * factor });
   if (def.unit === 'inch') return { ...range(2.54), unit: 'cm', estimate: false };
+  // "1 (16 ounce) block tofu" weighs what its package says.
+  const size = def.dimension === 'other' && p.size ? unitDef(p.size.unit) : undefined;
+  if (size?.unit === 'inch') return { ...range(p.size!.quantity * 2.54), unit: 'cm', estimate: false };
+  if (size && (size.dimension === 'mass' || size.dimension === 'volume'))
+    return { ...range(p.size!.quantity * size.factor), unit: size.dimension === 'mass' ? 'g' : 'ml', estimate: false };
   if (['g', 'kg', 'ml', 'l'].includes(def.unit) || (def.dimension !== 'mass' && def.dimension !== 'volume')) return null;
   // The blog's own grams beat any conversion; its ml are only a starting point for the density.
   if (p.metric?.unit === 'g') return { ...range(p.metric.quantity / p.quantity), unit: 'g', estimate: false };
@@ -36,6 +41,11 @@ export function toMetric(p: ParsedIngredient): MetricAmount | null {
   const perCup = gramsPerCup(p.densityName ?? p.name) ?? gramsPerCup(canonicalName(p.afterMeasure?.split(/\s(?:or|and)\s/).at(-1) ?? ''));
   if (perCup) return { ...range((ml / 240) * perCup), unit: 'g', estimate: true };
   return { ...range(ml), unit: 'ml', estimate: false };
+}
+
+/** The blog's own grams and a package's stated size are shown as given, not rounded for the kitchen. */
+export function exactMetric(p: ParsedIngredient, m: MetricAmount): boolean {
+  return !m.estimate && m.unit !== 'cm' && (!!p.size || (p.metric?.unit === 'g' && m.unit === 'g'));
 }
 
 /** Kitchen precision: no "236.6 ml". Under 10 to the unit, then to 5 (so a cup of flour stays 125 g), 10 and 25. */
@@ -73,6 +83,5 @@ export function metricLine(raw: string, p = parseIngredient(raw)): [amount: stri
   if (hasDroppedMeasureWords(p)) return null;
   const m = toMetric(p);
   if (!m || p.afterMeasure === null) return null;
-  const blogGrams = p.metric?.unit === 'g' && m.unit === 'g' && !m.estimate;
-  return [formatMetric(m, blogGrams), p.afterMeasure.replace(/^of\s+/i, '').trim()];
+  return [formatMetric(m, exactMetric(p, m)), p.afterMeasure.replace(/^of\s+/i, '').trim()];
 }
