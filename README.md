@@ -64,14 +64,29 @@ The nightly emit records missing recipe titles, ingredient mappings and preparat
 `.data/translation-queue.json`. Learned entries live in `.data/enrichment.json`; committed tables
 win when they conflict. The nightly workflow never calls a model.
 
-With those files available locally, run:
+Authenticate the GitHub CLI with permission to write release assets and dispatch Actions workflows,
+then run against an OpenAI-compatible model server:
+
+```bash
+ENRICH_BASE_URL=http://127.0.0.1:8080/v1 ENRICH_MODEL=vegdex-enrich pnpm enrich
+```
+
+The command downloads the release assets, processes the queue, merges any work published while the
+model ran, uploads learned entries followed by the remaining queue, and triggers deployment with
+crawling disabled. `--repo owner/repo` selects the repository; the default is `GITHUB_REPOSITORY`
+when set, otherwise `antomanc/vegdex`. Accepted results also stay in the local files, so retrying a
+failed upload reuses them. If dispatch fails, the command reports that the data is saved and deployment
+is pending; retrying triggers another deployment attempt without translating completed strings again.
+
+With queue and learned files already available locally, run:
 
 ```bash
 ENRICH_BASE_URL=http://127.0.0.1:8080/v1 ENRICH_MODEL=vegdex-enrich pnpm enrich --local
 ```
 
 The endpoint must support nonstreaming chat completions. Set `ENRICH_API_KEY` in the environment
-if it needs bearer authentication. `--queue <file>` and `--learned <file>` select other local files;
+if it needs bearer authentication. `--queue <file>` and `--learned <file>` select other local files
+in either mode. Relative paths resolve from the repository root, and absolute paths work unchanged;
 `--help` lists the options. This local mode does not upload data or deploy the site.
 
 Each accepted result is saved before its task leaves the queue. Interrupted runs reuse saved
