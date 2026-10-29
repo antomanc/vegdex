@@ -18,6 +18,8 @@ import path from 'node:path';
 import { isOtherLanguage } from './sitemap';
 import { conceptFamily, conceptVegan, englishLookup, seed, usedLookup } from './concepts';
 
+const blockedIds: string[] = JSON.parse(fs.readFileSync(new URL('../data/blocklist.json', import.meta.url), 'utf8'));
+
 function toCatalog(r: Recipe, parsed: ParsedIngredient[]): CatalogRecipe {
   const ing = [...new Set(parsed.map((p) => p.name).filter(Boolean))];
   return {
@@ -42,7 +44,7 @@ function toCatalog(r: Recipe, parsed: ParsedIngredient[]): CatalogRecipe {
 
 export interface EmitReport {
   published: number;
-  excluded: { id: string; title: string; url: string; hits: { term: string; line: string; concept?: string }[] }[];
+  excluded: { id: string; title: string; url: string; reason?: 'blocklist'; hits: { term: string; line: string; concept?: string }[] }[];
   /** Stored recipes from a translated edition of a blog, left out. */
   otherLanguage: number;
   bySource: Record<string, number>;
@@ -57,13 +59,18 @@ export interface EmitReport {
  * Recipes the vegan check flags are left out and listed in the report; so are translated editions.
  */
 /** `generatedAt` defaults to now; fixtures pin it so regenerating them changes nothing. */
-export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { generatedAt = new Date().toISOString() } = {}): EmitReport {
+export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { generatedAt = new Date().toISOString(), blocklist = blockedIds }: { generatedAt?: string; blocklist?: string[] } = {}): EmitReport {
   const excluded: EmitReport['excluded'] = [];
   const recipes: Recipe[] = [];
   const sourceIds = new Set(sources.map((s) => s.id));
+  const blocked = new Set(blocklist);
   let otherLanguage = 0;
   for (const r of all) {
     if (!sourceIds.has(r.sourceId)) continue;
+    if (blocked.has(r.id)) {
+      excluded.push({ id: r.id, title: r.title, url: r.url, reason: 'blocklist', hits: [] });
+      continue;
+    }
     if (isOtherLanguage(r.url)) {
       otherLanguage++;
       continue;
