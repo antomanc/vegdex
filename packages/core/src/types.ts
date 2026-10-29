@@ -95,6 +95,8 @@ export interface FullDataset {
   dictionary?: Record<string, string>;
   /** English aliases, limited to concepts used by this dataset. */
   lookup?: import('./concepts').IngredientLookup;
+  /** Shopping-list name and aisle per concept, for compileGroceryList. */
+  grocery?: import('./grocery').GroceryConcepts;
   version: 1;
   generatedAt: string;
   sources: Source[];

@@ -1,4 +1,4 @@
-import { shardOf, type Catalog, type IngredientLookup } from '@vegdex/core'
+import { shardOf, type Catalog, type GroceryConcepts, type IngredientLookup } from '@vegdex/core'
 import { BASE_LOCALE } from './locales'
 
 const base = import.meta.env.BASE_URL
@@ -9,16 +9,22 @@ export async function loadCatalog(): Promise<Catalog> {
   return res.json()
 }
 
+export interface LookupFile {
+  aliases: IngredientLookup
+  /** English only: the shopping-list name and aisle per concept. */
+  grocery?: GroceryConcepts
+}
+
 /** Requested after the catalog; contains only names of concepts used in that catalog. */
-export async function loadLookup(language: string): Promise<IngredientLookup> {
+export async function loadLookup(language: string): Promise<LookupFile> {
   try {
     const res = await fetch(`${base}data/lookup/${language}.json`)
     if (!res.ok) throw new Error(`Could not load ingredient names (HTTP ${res.status})`)
-    return (await res.json()).aliases
+    return await res.json()
   } catch (error) {
     if (navigator.onLine) throw error
     // An unvisited UI language must still browse the cached English catalog offline.
-    return language === BASE_LOCALE.code ? {} : loadLookup(BASE_LOCALE.code)
+    return language === BASE_LOCALE.code ? { aliases: {} } : loadLookup(BASE_LOCALE.code)
   }
 }
 
