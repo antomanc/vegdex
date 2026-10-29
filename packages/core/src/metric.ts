@@ -19,13 +19,15 @@ const KEPT = new Set(['tsp', 'tbsp']);
  * spoons, whole items, unmeasured lines and lines already in metric.
  */
 export function toMetric(p: ParsedIngredient): MetricAmount | null {
-  if (p.quantity === null || !p.unit || KEPT.has(p.unit)) return null;
-  const def = unitDef(p.unit);
-  if (!def) return null;
+  if (p.quantity === null || (!p.unit && !p.size) || (p.unit && KEPT.has(p.unit))) return null;
   const range = (factor: number) => ({ quantity: p.quantity! * factor, quantityMax: p.quantityMax === null ? null : p.quantityMax * factor });
-  if (def.unit === 'inch') return { ...range(2.54), unit: 'cm', estimate: false };
-  // "1 (16 ounce) block tofu" weighs what its package says.
-  const size = def.dimension === 'other' && p.size ? unitDef(p.size.unit) : undefined;
+  // "1 (16 ounce) block tofu", "2 x 400 g tomatoes" weigh what their package says.
+  const packaged = (!p.unit || unitDef(p.unit)?.dimension === 'other') && p.size ? unitDef(p.size.unit) : undefined;
+  if (!p.unit && !packaged) return null;
+  const def = unitDef(p.unit ?? p.size!.unit);
+  if (!def) return null;
+  if (def.unit === 'inch' && p.unit) return { ...range(2.54), unit: 'cm', estimate: false };
+  const size = packaged;
   if (size?.unit === 'inch') return { ...range(p.size!.quantity * 2.54), unit: 'cm', estimate: false };
   if (size && (size.dimension === 'mass' || size.dimension === 'volume'))
     return { ...range(p.size!.quantity * size.factor), unit: size.dimension === 'mass' ? 'g' : 'ml', estimate: false };

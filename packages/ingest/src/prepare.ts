@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import {
-  canonicalName, findNonVegan, findNonVeganConcepts, gramsPerCup, languagePacks, parseIngredient,
+  canonicalName, findNonVegan, findNonVeganConcepts, gramsPerCup, ingredientKey, languagePacks, parseIngredient,
   type ParsedIngredient, type Recipe, type Source
 } from '@vegdex/core';
 import { isOtherLanguage } from './sitemap';
@@ -50,8 +50,11 @@ export function prepareRecipes(all: Recipe[], sources: Source[], vocab: Vocabula
       continue;
     }
     const lookup = vocab.lookup(recipe.contentLanguage);
-    const parsed = recipe.ingredients.map((line) => {
+    const notIngredients = new Set(vocab.files[recipe.contentLanguage]?.commentary ?? []);
+    const parsed = recipe.ingredients.map((line): ParsedIngredient => {
       const p = parseIngredient(line, lookup, recipe.contentLanguage);
+      // A fill judged this phrase not an ingredient ("i use this scale").
+      if (!p.concept && p.name && notIngredients.has(ingredientKey(p.phrase ?? ''))) return { ...p, kind: 'other', name: '' };
       if (recipe.contentLanguage !== 'en' && p.concept) {
         const names = vocab.byId.get(p.concept)?.names.en?.map(canonicalName) ?? [];
         p.densityName = names.find((name) => gramsPerCup(name) !== null);

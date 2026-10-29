@@ -7,6 +7,11 @@ import { formatAmount, formatAmountRange, nounForm, termForm, type LanguageVocab
 
 const METRIC_UNITS = new Set(['g', 'kg', 'ml', 'l']);
 
+/** Lines that are not ingredients never show; a heading shows only in the language it was written in. */
+export function isHiddenLine(p: ParsedIngredient | undefined, language: string, source = 'en'): boolean {
+  return p?.kind === 'other' || (p?.kind === 'heading' && language !== source);
+}
+
 /**
  * One ingredient line in `language`, as [amount, name and preparation]; commentary is left out.
  * In the recipe's own language the name and preparation keep their written words. In another language
@@ -16,7 +21,7 @@ export function renderIngredient(
   p: ParsedIngredient, vocab: LanguageVocabulary | undefined, language: string, units: Units, source = 'en'
 ): [amount: string, rest: string] | null {
   const pack = languagePacks[language];
-  if (!vocab || !pack || !p.terms || p.phrase === undefined || !p.name || hasDroppedMeasureWords(p)) return null;
+  if (!vocab || !pack || !p.terms || p.phrase === undefined || !p.name || p.kind || hasDroppedMeasureWords(p)) return null;
   const same = language === source;
   const number = new Intl.NumberFormat(language, { useGrouping: false, maximumFractionDigits: 10 });
   const label = (unit: string, quantity: number) => vocab.units[unit]?.[quantity <= 1 ? 0 : 1];
@@ -40,7 +45,9 @@ export function renderIngredient(
       amount += ` (${formatAmount(p.size.quantity, language)} ${unit})`;
     }
     if (p.metric && p.unit && !METRIC_UNITS.has(p.unit)) amount += ` (${number.format(p.metric.quantity)} ${p.metric.unit})`;
+    if (p.approx) amount = `${pack.about} ${amount}`;
   }
+  if (metric && p.approx && !amount.startsWith('≈')) amount = `≈ ${amount}`;
 
   const measured = !!metric || !!p.unit;
   let name = p.phrase;

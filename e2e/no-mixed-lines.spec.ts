@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { shardOf, type LanguageVocabulary, type ParsedIngredient } from '@vegdex/core';
+import { isHiddenLine, shardOf, type LanguageVocabulary, type ParsedIngredient } from '@vegdex/core';
 import { expect, italianFixtureData, test } from './fixtures';
 
 // A line shown in another language is composed entirely from the vocabulary, or shown exactly as written:
@@ -21,10 +21,12 @@ for (const { variant, path, language } of [
       for (const recipe of recipes) {
         const details = read(variant, `details/${String(shardOf(recipe.id)).padStart(2, '0')}.json`)[recipe.id] as { ingredients: string[]; parsedIngredients: ParsedIngredient[] };
         await page.goto(`${path}?r=${recipe.id}`);
+        const visible = details.ingredients.map((_, i) => i).filter((i) => !isHiddenLine(details.parsedIngredients[i], language, recipe.contentLanguage));
         const lines = page.getByRole('dialog').getByTestId('ingredients').locator('li');
-        await expect(lines).toHaveCount(details.ingredients.length);
+        await expect(lines).toHaveCount(visible.length);
         const shown = await lines.allInnerTexts();
-        shown.forEach((text, i) => {
+        shown.forEach((text, n) => {
+          const i = visible[n]!;
           if (tidy(text) === tidy(details.ingredients[i]!)) return;
           const phrase = details.parsedIngredients[i]!.phrase?.toLowerCase();
           if (phrase && !names.some((n) => n.toLowerCase().includes(phrase)))

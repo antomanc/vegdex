@@ -14,7 +14,9 @@ test('qualified source amounts survive translated display and both unit choices'
   const sheet = page.getByRole('dialog');
   for (const units of ['Metrico', 'USA']) {
     await sheet.getByRole('button', { name: units, exact: true }).click();
-    for (const line of lines) await expect(sheet.getByTestId('ingredients').locator('li', { hasText: line })).toHaveText(line);
+    // An approximate amount is shown as approximate; how full a cup is cannot be translated without losing it.
+    await expect(sheet.getByTestId('ingredients').locator('li').first()).toHaveText("circa 2 cucchiai di olio d'oliva");
+    for (const line of lines.slice(1)) await expect(sheet.getByTestId('ingredients').locator('li', { hasText: line })).toHaveText(line);
   }
 });
 

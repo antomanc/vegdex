@@ -86,15 +86,23 @@ const PLUS_MEASURE_RE = new RegExp(String.raw`^\+\s*(${NUM})\s*`);
 const MEASURE_WORD = String.raw`heaped|heaping|packed|loosely|lightly|firmly|scant|generous|rounded|level|approx\.?|approximately|about|around`;
 const MEASURE_WORDS_RE = new RegExp(`^(?:(?:${MEASURE_WORD})\\s+)+`, 'i');
 const MEASURE_QUALIFIERS_RE = new RegExp(`\\b(?:${MEASURE_WORD})\\b`, 'gi');
+/** "about 2 cups": an approximate amount, shown as such rather than dropped. */
+const APPROX_RE = /\b(?:approx\.?|approximately|about|around)\b/i;
+const FILL_QUALIFIERS_RE = /\b(?:heaped|heaping|packed|loosely|lightly|firmly|scant|generous|rounded|level)\b/gi;
+/** "1 large handful": a size before a unit describes the unit, not the ingredient. */
+const UNIT_SIZE_RE = /^(?:x-large|extra-large|large|medium|small|big|fat)\s+(?=(?:handfuls?|heads?|bunch(?:es)?|pinch(?:es)?|cans?|tins?|jars?|blocks?|bags?|packages?|sprigs?|stalks?|slices?|pieces?|scoops?|cloves?)\b)/i;
 /** "3-inch piece", "2 cm piece": the size of a piece, kept as a note. */
 const PIECE_SIZE_RE = /^(\d+(?:[.,]\d+)?\s*-?\s*(?:inch|in\.|cm|"|”))\s*/i;
 /** "1 15 oz can": the size of the can, jar or block, kept as a note. */
-const PACK_SIZE_RE = /^(\d+(?:[.,]\d+)?(?:\s*[-–]\s*\d+(?:[.,]\d+)?)?\s*(?:oz\.?|ounces?|g|grams?|ml))\s*(?=(?:cans?|tins?|jars?|blocks?|bags?|packages?|packs?|cartons?|canned)\b)/i;
+const PACK_SIZE_RE = /^(\d+(?:[.,]\d+)?(?:\s*[-–]\s*\d+(?:[.,]\d+)?)?\s*-?\s*(?:oz\.?|ounces?|g|grams?|ml))\s*(?=(?:cans?|tins?|jars?|blocks?|bags?|packages?|packs?|cartons?|canned)\b)/i;
 
-/** Cached parsed lines also need to retain qualifiers removed from their measure. */
+/** Cached parsed lines also need to retain qualifiers removed from their measure; an approximate amount is kept as `approx`. */
 export function hasDroppedMeasureWords(p: ParsedIngredient): boolean {
-  const count = (text: string) => [...text.matchAll(MEASURE_QUALIFIERS_RE)].length;
-  return count(p.raw) > count(p.afterMeasure ?? '');
+  const words = p.approx ? FILL_QUALIFIERS_RE : MEASURE_QUALIFIERS_RE;
+  const count = (text: string) => [...text.matchAll(words)].length;
+  // Words in a note ("about 2.5 pounds") stay in the note; only those before the name were dropped.
+  const kept = p.afterMeasure ?? (p.phrase !== undefined ? `${p.phrase} ${p.note}` : '');
+  return count(p.raw) > count(kept);
 }
 
 function parseNumber(text: string): number {
@@ -127,6 +135,10 @@ export interface ParsedIngredient {
   size?: { quantity: number; unit: string } | null;
   /** "salt and pepper", "walnuts or almonds": the second ingredient, when both sides are known exactly. */
   also?: { concept: string; name: string; joiner: 'and' | 'or' } | null;
+  /** "about 2 cups". */
+  approx?: true;
+  /** Not an ingredient: a heading ("For the sauce:") or anything else (equipment, instructions, notes). */
+  kind?: 'heading' | 'other';
   concept: string | null;
   raw: string;
   quantity: number | null;
@@ -334,7 +346,22 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
   if (!pack) throw new RangeError(`Unsupported content language: ${language}`);
   let s = normalizeLine(raw);
   const optional = (pack.optional ?? /\boptional\b/i).test(s);
-  s = s.replace(MEASURE_WORDS_RE, '');
+  let approx = false;
+  const stripMeasureWords = (text: string) => {
+    const m = text.match(MEASURE_WORDS_RE);
+    if (m && APPROX_RE.test(m[0])) approx = true;
+    return m ? text.slice(m[0].length) : text;
+  };
+  // Preparation written before the line ("Juice of 1 lemon", "Optional: …", "more hot sauce") moves to its notes.
+  const leading: string[] = [];
+  const lead = s.match(/^(?:(juice|zest)(?:\s+and\s+(juice|zest))?\s+of\s+(?:the\s+)?|(optional)[:\s]\s*|(more|additional)\s+)/i);
+  if (lead && language === 'en') {
+    s = s.slice(lead[0].length);
+    if (lead[1]) leading.push(...[lead[1], lead[2]].filter(Boolean).map((w) => (w!.toLowerCase() === 'juice' ? 'juiced' : 'zested')));
+    else leading.push(lead[3] ? 'optional' : 'as needed');
+  }
+  s = s.replace(/^\((\d+)\)\s*/, '$1 ');
+  s = stripMeasureWords(s);
   let quantity: number | null = null;
   let quantityMax: number | null = null;
   let unit: string | null = null;
@@ -359,9 +386,15 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
 
   // "1 (15-ounce) can chickpeas": the parenthetical size belongs to the can.
   let sizeNote = '';
-  s = s.replace(MEASURE_WORDS_RE, '');
+  s = stripMeasureWords(s).replace(UNIT_SIZE_RE, '');
+  // "2 x 400 g / 14 oz canned tomatoes": a count of packages of a stated size.
+  const times = quantity !== null ? s.match(/^x\s*(\d+(?:[.,]\d+)?\s*(?:g|ml|oz|ounces?))(?:\s*\/\s*\d+(?:[.,]\d+)?\s*(?:g|ml|oz|ounces?))?\s+/i) : null;
+  if (times) {
+    sizeNote = times[1]!;
+    s = s.slice(times[0].length);
+  }
   if (pack.units) s = s.replace(languageUnitPatterns[language]!, (_, token: string) => `${pack.units![token.toLowerCase()]} `);
-  const size = s.match(/^\(([^)]*)\)\s*/) ?? s.match(PIECE_SIZE_RE) ?? s.match(PACK_SIZE_RE);
+  const size = times ? null : s.match(/^\(([^)]*)\)\s*/) ?? s.match(PIECE_SIZE_RE) ?? s.match(PACK_SIZE_RE);
   if (size) {
     sizeNote = size[1]!;
     s = s.slice(size[0].length);
@@ -418,11 +451,19 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
 
   s = s.replace(/^\([^)]*\)\s*/, '').replace(/^of\s+(?:an?\s+)?/i, '');
   if (pack.preposition) s = s.replace(pack.preposition, '');
-  const commaAt = s.search(/,|\(/);
+  // "½ tsp each salt & pepper", "1/3 tsp or more cumin": amounts shared or open-ended.
+  s = s.replace(/^each\s+(?:of\s+)?/i, '');
+  const more = language === 'en' ? s.match(/^(?:or|plus|\+)\s+more\s+/i) : null;
+  if (more) {
+    s = s.slice(more[0].length);
+    leading.push('as needed');
+  }
+  const commaAt = s.search(/[,;(]/);
   const afterName = commaAt >= 0 ? s.slice(commaAt) : '';
-  let note = [sizeNote, afterName].filter(Boolean).join(' ').replace(/^[,\s]+/, '');
-  let phrase = s.split(/,|\(/)[0]!;
-  let preparation = afterName;
+  let note = [sizeNote, afterName].filter(Boolean).join(' ').replace(/^[,;\s]+/, '');
+  // "seeds of choice", "toppings such as tomato": the choice is commentary.
+  let phrase = s.split(/[,;(]/)[0]!.replace(/\s+(?:of (?:your )?choice|such as\b.*)$/i, '');
+  let preparation = [afterName, ...leading].join(', ');
   const trailing = !lookupConcept(phrase, lookup) && pack.trailingNote ? phrase.match(pack.trailingNote) : null;
   if (trailing) {
     phrase = phrase.slice(0, trailing.index);
@@ -446,7 +487,7 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
   if (!conceptExact && !qualifierOutsideName) {
     // "romano or ramiro pepper" shares its noun and is never split into two ingredients.
     const resolve = (text: string) => {
-      const id = lookupConcept(text, lookup);
+      const id = lookupConcept(text, lookup) ?? plainConcept(text, lookup, language);
       return id ? { concept: id, also: null } : shared ? null : splitIngredients(text, lookup, language);
     };
     const found = peelTerms(phrase, resolve, lookup);
@@ -460,7 +501,26 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
   terms.push(...noteTerms(preparation, lookup).filter((t) => !terms.some((other) => other.id === t.id)));
   const sizeDef = unit ? unitDef(unit) : undefined;
   const measuredSize = sizeNote && (!sizeDef || sizeDef.dimension === 'other') ? parseSize(sizeNote) : null;
-  return { conceptExact, phrase, terms, size: measuredSize, also, raw: cleanText(raw), quantity, quantityMax, unit, metric, afterMeasure, name, concept, note, optional };
+  const kind = lineKind(cleanText(raw), quantity, concept, name);
+  return { conceptExact, phrase, terms, size: measuredSize, also, ...(approx ? { approx: true as const } : {}), ...(kind ? { kind } : {}),
+    raw: cleanText(raw), quantity, quantityMax, unit, metric, afterMeasure, name: kind ? '' : name, concept: kind ? null : concept, note, optional };
+}
+
+/** Headings, equipment, instructions and asides written among the ingredients. */
+function lineKind(raw: string, quantity: number | null, concept: string | null, name: string): ParsedIngredient['kind'] {
+  if (quantity !== null || concept) return undefined;
+  if (/:\s*$/.test(raw) || /^(?:for|per)\s+(?:the\s+|il\s+|la\s+|lo\s+|l['’]|i\s+|le\s+|gli\s+)?[^,;()]{1,40}$/i.test(raw)) return 'heading';
+  if (!name) return 'other';
+  if (/^(?:i|i'm|i've|you|we|use|add|serve|see|note|notes|tip|equipment|this|if|make|to make|recipe|check)\b/i.test(raw)) return 'other';
+  if (/\b(?:mixing bowls?|baking (?:sheet|dish|pan)s?|skillet|blender|food processor|kitchen scale|scale for accuracy|thermometer|parchment paper|piping bag|muffin tin|loaf pan|cake pan|stand mixer|hand mixer)\b/i.test(raw)) return 'other';
+  return undefined;
+}
+
+/** "vegan coconut yogurt": a plant qualifier before a name that is not an animal word adds nothing to the ingredient. */
+function plainConcept(text: string, lookup: IngredientLookup, language: string): string | null {
+  const plain = text.replace(/^(?:vegan|plant[ -]based|dairy[ -]free|non[ -]?dairy)\s+/i, '').replace(/\s+(?:vegan[oaie]|vegetal[ei])$/i, '');
+  if (plain === text || findUnsafeRenderedTerms(plain, language).length > 0) return null;
+  return lookupConcept(plain, lookup);
 }
 
 /** "15-ounce", "3-inch", "400 g": the size of one can or piece; null for anything else. */
@@ -473,10 +533,19 @@ function parseSize(text: string): ParsedIngredient['size'] {
 /** Each comma or bracket segment of a note that is a known preparation term; the rest is commentary. */
 function noteTerms(note: string, lookup: IngredientLookup): PreparationTerm[] {
   const terms: PreparationTerm[] = [];
-  for (const segment of note.split(/[,;()]|\s[-–—]\s/)) {
-    const text = segment.trim().replace(/[.:]+$/, '');
-    const id = text && lookupTerm(text, lookup);
-    if (id && !terms.some((t) => t.id === id)) terms.push({ id, text });
+  // "(or parsley, chopped)": what follows an alternative inside its bracket describes the alternative.
+  let depth = 0;
+  let skipFrom: number | null = null;
+  for (const token of note.match(/[()]|[^()]+/g) ?? []) {
+    if (token === '(') { depth++; continue; }
+    if (token === ')') { depth--; if (skipFrom !== null && depth < skipFrom) skipFrom = null; continue; }
+    for (const segment of token.split(/[,;]|\s[-–—]\s/)) {
+      const text = segment.trim().replace(/[.:]+$/, '');
+      if (/^(?:or|o|oppure)\s/i.test(text)) skipFrom ??= depth;
+      if (skipFrom !== null) continue;
+      const id = text && lookupTerm(text, lookup);
+      if (id && !terms.some((t) => t.id === id)) terms.push({ id, text });
+    }
   }
   return terms;
 }
@@ -493,7 +562,7 @@ function peelTerms(phrase: string, resolve: (text: string) => Resolved | null, l
   const lead: PreparationTerm[] = [];
   const trail: PreparationTerm[] = [];
   const take = (fromEnd: boolean) => {
-    for (let n = Math.min(3, words.length - 1); n > 0; n--) {
+    for (let n = Math.min(5, words.length - 1); n > 0; n--) {
       const text = (fromEnd ? words.slice(-n) : words.slice(0, n)).join(' ');
       const id = lookupTerm(text, lookup);
       if (!id) continue;

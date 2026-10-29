@@ -6,6 +6,8 @@ export interface LanguagePack {
   /** "sale e pepe", "noci o mandorle": the words joining two ingredients. */
   and: string;
   or: string;
+  /** "about 2 cups", "circa 2 tazze". */
+  about: string;
   /** Genders that preparation terms agree with; absent when they don't agree. */
   genders?: Gender[];
   /** "large carrots": descriptive words come before the noun; otherwise after it ("carote grandi"). */
@@ -30,10 +32,11 @@ export interface LanguagePack {
 }
 
 export const languagePacks: Record<string, LanguagePack> = {
-  en: { and: 'and', or: 'or', adjectivesFirst: true },
+  en: { and: 'and', or: 'or', about: 'about', adjectivesFirst: true },
   it: {
     and: 'e',
     or: 'o',
+    about: 'circa',
     genders: ['m', 'f'],
     unitLink: { word: 'di', except: ['g', 'kg', 'ml', 'l', 'cm'] },
     units: {
