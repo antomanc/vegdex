@@ -26,9 +26,12 @@ export interface LanguageVocabulary {
   titles: Record<string, string>;
 }
 
-/** Preparation terms share the alias space with concepts and are told apart by this prefix. */
+/** Preparation terms and brands share the alias space with concepts and are told apart by these prefixes. */
 export const TERM_PREFIX = 'term:';
 export const isTermId = (id: string) => id.startsWith(TERM_PREFIX);
+/** A brand ("bob's red mill") says nothing about the ingredient and is dropped from the name. */
+export const BRAND_PREFIX = 'brand:';
+export const isBrandId = (id: string) => id.startsWith(BRAND_PREFIX);
 
 /** Counts of one or less take the singular; everything else, measured amounts included, the plural form. */
 export function nounForm(forms: NounForms, quantity: number | null, measured: boolean): { text: string; plural: boolean } {

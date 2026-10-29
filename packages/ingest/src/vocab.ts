@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  ingredientKey, isTermId, languagePacks, type IngredientLookup, type LanguageVocabulary, type NounForms, type TermForms
+  BRAND_PREFIX, ingredientKey, isTermId, languagePacks, type IngredientLookup, type LanguageVocabulary, type NounForms, type TermForms
 } from '@vegdex/core';
 import { seed, type Concept } from './concepts';
 
@@ -20,6 +20,8 @@ export interface VocabFile {
   titles: Record<string, string>;
   /** Note phrases judged not essential, so they are not proposed again. */
   commentary: string[];
+  /** Brand names dropped from an ingredient's name ("bob's red mill almond flour"). */
+  brands: string[];
 }
 
 /** A concept the taxonomy lacks, named only in the language files. Its vegan status is always unknown. */
@@ -43,7 +45,7 @@ export interface Vocabulary {
 
 export const vocabDir = fileURLToPath(new URL('../data/vocab/', import.meta.url));
 
-export const emptyVocabFile = (): VocabFile => ({ aliases: {}, names: {}, terms: {}, units: {}, titles: {}, commentary: [] });
+export const emptyVocabFile = (): VocabFile => ({ aliases: {}, names: {}, terms: {}, units: {}, titles: {}, commentary: [], brands: [] });
 
 export function readVocabFile(file: string): VocabFile {
   if (!fs.existsSync(file)) return emptyVocabFile();
@@ -106,6 +108,8 @@ export function loadVocabulary(dir = vocabDir): Vocabulary {
       for (const [key, ids] of plurals) if (ids.size === 1) result[key] = [...ids][0]!;
     }
     for (const l of nameLanguages) for (const [alias, id] of Object.entries(files[l]?.aliases ?? {})) result[ingredientKey(alias)] = id;
+    // A brand counts only where no ingredient or term has that name.
+    for (const brand of files[language]?.brands ?? []) result[ingredientKey(brand)] ??= `${BRAND_PREFIX}${ingredientKey(brand)}`;
     // Hyphenated names are also found without hyphens; lookups try the spaced form.
     for (const [key, id] of Object.entries(result)) if (key.includes('-')) result[key.replace(/-/g, ' ')] ??= id;
     lookups.set(language, result);
@@ -140,7 +144,7 @@ export function writeVocabulary(vocab: Vocabulary): void {
   for (const [language, file] of Object.entries(vocab.files)) {
     const empty = Object.values(file).every((v) => Array.isArray(v) ? !v.length : !Object.keys(v).length);
     if (empty && !fs.existsSync(path.join(vocab.dir, `${language}.json`))) continue;
-    writeAtomic(path.join(vocab.dir, `${language}.json`), stable({ ...file, commentary: [...new Set(file.commentary)].sort() }) + '\n');
+    writeAtomic(path.join(vocab.dir, `${language}.json`), stable({ ...file, commentary: [...new Set(file.commentary)].sort(), brands: [...new Set(file.brands)].sort() }) + '\n');
   }
   const added = [...vocab.added].sort((a, b) => a.id.localeCompare(b.id));
   writeAtomic(path.join(vocab.dir, 'concepts.json'), (added.length ? `[\n${added.map((c) => `  ${JSON.stringify(c)}`).join(',\n')}\n]` : '[]') + '\n');

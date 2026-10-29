@@ -131,6 +131,7 @@ export function checkVocabulary(vocab: Vocabulary): string[] {
     }
     for (const [original, title] of Object.entries(file.titles)) report(`${language} title "${original}"`, checkTitle(language, original, title));
     for (const unit of Object.values(file.units)) if (!Array.isArray(unit) || unit.length !== 2 || !unit.every((u) => text(u))) report(`${language} units`, 'malformed');
+    for (const brand of file.brands) if (!text(brand, 40) || ingredientKey(brand) !== brand || brand.split(' ').length > 4) report(`${language} brand "${brand}"`, 'malformed');
   }
   return problems;
 }
