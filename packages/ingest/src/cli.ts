@@ -18,7 +18,8 @@ const { values, positionals } = parseArgs({
     'max-per-source': { type: 'string', default: '400' },
     'gap-ms': { type: 'string', default: '1000' },
     concurrency: { type: 'string', default: '8' },
-    'generated-at': { type: 'string' }
+    'generated-at': { type: 'string' },
+    blocklist: { type: 'string' }
   }
 });
 
@@ -54,9 +55,11 @@ async function crawl() {
 function emit() {
   const store = loadStore(values.store!);
   fs.mkdirSync(values.out!, { recursive: true });
-  const report = emitDataset(Object.values(store.recipes), allSources, values.out!, { generatedAt: values['generated-at'] });
+  const blocklist = values.blocklist ? JSON.parse(fs.readFileSync(values.blocklist, 'utf8')) as string[] : undefined;
+  const report = emitDataset(Object.values(store.recipes), allSources, values.out!, { generatedAt: values['generated-at'], blocklist });
   fs.writeFileSync(path.join(path.dirname(values.store!), 'excluded.json'), JSON.stringify(report.excluded, null, 1));
-  log(`published ${report.published} recipes (${(report.bytes / 1e6).toFixed(1)} MB raw), excluded ${report.excluded.length} by the vegan check and ${report.otherLanguage} not in English`);
+  const blocked = report.excluded.filter((r) => r.reason === 'blocklist').length;
+  log(`published ${report.published} recipes (${(report.bytes / 1e6).toFixed(1)} MB raw), excluded ${report.excluded.length - blocked} by the vegan check, ${blocked} by the blocklist and ${report.otherLanguage} translated editions`);
   log(Object.entries(report.bySource).sort((a, b) => b[1] - a[1]).map(([s, n]) => `  ${s}: ${n}`).join('\n'));
 }
 

@@ -2,7 +2,7 @@
   import type { CatalogRecipe } from '@vegdex/core'
   import { loadIngredients } from './data'
   import Icon from './Icon.svelte'
-  import { m, countArgs, formatNumber, formatRating } from './i18n'
+  import { m, countArgs, formatNumber, formatRating, pageLocale } from './i18n'
   import { FREE, cuisineLabel, formatMinutes, splitLine } from './labels'
   import { sheet } from './sheet'
   import { prefs, saved, toggleSaved } from './state.svelte'
@@ -30,6 +30,10 @@
   })
   const ingredients = $derived(loadIngredients(recipe.id))
   const isSaved = $derived(saved.ids.includes(recipe.id))
+  const reportUrl = $derived(`https://github.com/antomanc/vegdex/issues/new?${new URLSearchParams({
+    title: `Recipe problem: ${recipe.title}`,
+    body: `Recipe ID: ${recipe.id}\nSource: ${recipe.url}\nUI language: ${pageLocale.code}\n\nPlease describe the problem:\n`
+  })}`)
 
   const LABELS: Record<string, string> = {
     ...Object.fromEntries(FREE.map(([id, label]) => [`free:${id}`, label])),
@@ -90,6 +94,7 @@
       <p class="muted">{m.ingredients_offline({ source: sourceName })}</p>
     {/await}
     <p class="muted small">{m.creator_credit({ source: sourceName })}</p>
+    <p class="muted small"><a href={reportUrl} target="_blank" rel="noopener">{m.report_problem()}</a></p>
     </div>
 
     <div class="sheet-footer actions">
