@@ -38,7 +38,7 @@ Guaranteed vegan. Every source is an all-vegan publisher, and a second check dro
 
 ## Evidence on Hand
 - Real catalog data in `apps/web/public/data` (recipes from ~25 vegan blogs); a fixed fixture dataset in `e2e/fixtures/`.
-- The interface is English at `/` and Italian at `/it/` (UI languages under path prefixes, see `docs/adr/0002`). Recipes are still English only: translated editions of a blog (a `/de/`-style path) are never crawled or published, because the tagger and the vegan check read English ingredient names. Recipes translated through language-neutral concepts are designed but not built (`docs/adr/0003`–`0004`).
+- The interface is English at `/` and Italian at `/it/` (UI languages under path prefixes, see `docs/adr/0002`). The source catalog is still English. Concepts support search and ingredient rendering across languages; Italian titles and ingredient lines use committed tables and learned translations, with original text whenever a safe translation is unavailable. A manual enrich run fills translation gaps (`docs/adr/0003` and `0004`). Italian sources remain phase 4 work, and translated editions of existing blogs stay excluded.
 - No testimonials, user counts, or press exist. Do not invent them.
 
 ## Product Principles

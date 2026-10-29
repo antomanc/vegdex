@@ -84,6 +84,13 @@ obvious language mismatches. They cannot prove that a translation preserves mean
 alternatives that cannot be represented faithfully retain their original text; correct those
 through the committed tables. No model has been evaluated on the owner's desktop yet.
 
+## Desktop setup and evaluation
+
+Run `bash scripts/setup-enrichment.sh` on the Omarchy desktop for guided Vulkan/model setup,
+private endpoint configuration, evaluation and enrich. `--help` and `--check` are non-destructive.
+The [desktop guide](docs/desktop-enrichment.md) covers reproducible `pnpm eval:enrichment` runs,
+scoring limits and the hardware checks still needed before choosing a model.
+
 ## Metric weights
 
 The web app's Metric switch turns cups, ounces and inches into grams and centimeters; spoons and
