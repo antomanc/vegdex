@@ -49,6 +49,18 @@ _Avoid_: Note phrase
 Note text that is not a preparation term, such as substitutions, brand advice or "see notes". Never displayed; the original line keeps it.
 _Avoid_: Aside, extra note
 
+**Heading**:
+A line that names a group of ingredients, such as "For the sauce:". Shown only in the language it was written in.
+_Avoid_: Section, title line
+
+**Non-ingredient line**:
+Anything written among the ingredients that is not one: equipment, instructions, remarks. Never shown on the ingredient list; the original lines keep it.
+_Avoid_: Note, aside
+
+**Product brand**:
+A manufacturer's name written into an ingredient, such as "Bob's Red Mill almond flour". Dropped from the name, unless it is what makes the ingredient plant-based.
+_Avoid_: Brand (alone: the product's own identity uses that word)
+
 **Gap**:
 Something the vocabulary lacks: a phrase with no concept or term, a concept or term with no name in a language, or a title with no translation.
 _Avoid_: Queue task, missing string

@@ -34,7 +34,7 @@ Every emit writes `coverage.json`: per display language, the share of ingredient
 
 ## Vocabulary
 
-`vocab/<lang>.json` holds what vegdex knows about each language's words: aliases to concepts and preparation terms, concept names with grammatical forms, term forms, curated unit labels, title translations and known commentary. `vocab/concepts.json` lists concepts the taxonomy lacks; their vegan status is always unknown. The taxonomy's own names above stay parsing aliases; display names come only from the vocabulary files. An explicit alias settles a name the taxonomy leaves ambiguous. A test runs every check `pnpm vocab:apply` uses over these files.
+`vocab/<lang>.json` holds what vegdex knows about each language's words: aliases to concepts and preparation terms, concept names with grammatical forms, term forms, curated unit labels, title translations, known commentary and non-ingredient phrases, and product brands dropped from names. `vocab/concepts.json` lists concepts the taxonomy lacks; their vegan status is always unknown. The taxonomy's own names above stay parsing aliases; display names come only from the vocabulary files. An explicit alias settles a name the taxonomy leaves ambiguous. A test runs every check `pnpm vocab:apply` uses over these files.
 
 ## Published payloads and limits
 
