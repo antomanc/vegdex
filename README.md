@@ -58,6 +58,32 @@ pnpm ingest weights             # snapshot cup-measured lines for the metric wei
 The crawl state (`.data/store.json.gz`) is kept as a release asset named `data`, not in git.
 Vegan-check rejections are written to `.data/excluded.json` for review.
 
+## Manual enrichment
+
+The nightly emit records missing recipe titles, ingredient mappings and preparation phrases in
+`.data/translation-queue.json`. Learned entries live in `.data/enrichment.json`; committed tables
+win when they conflict. The nightly workflow never calls a model.
+
+With those files available locally, run:
+
+```bash
+ENRICH_BASE_URL=http://127.0.0.1:8080/v1 ENRICH_MODEL=vegdex-enrich pnpm enrich --local
+```
+
+The endpoint must support nonstreaming chat completions. Set `ENRICH_API_KEY` in the environment
+if it needs bearer authentication. `--queue <file>` and `--learned <file>` select other local files;
+`--help` lists the options. This local mode does not upload data or deploy the site.
+
+Each accepted result is saved before its task leaves the queue. Interrupted runs reuse saved
+results. The command reports accepted, reused and remaining counts, plus task IDs with fixed
+failure reasons; rejected tasks remain available for another run. New concepts get a stable ID
+and an unknown vegan status. A known animal-concept finding can exclude a recipe at the next emit.
+
+The checks reject malformed responses, changed numbers, unsafe display text, unknown IDs and
+obvious language mismatches. They cannot prove that a translation preserves meaning. Sizes and
+alternatives that cannot be represented faithfully retain their original text; correct those
+through the committed tables. No model has been evaluated on the owner's desktop yet.
+
 ## Metric weights
 
 The web app's Metric switch turns cups, ounces and inches into grams and centimeters; spoons and

@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "ingest": "tsx src/cli.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "enrich": "tsx src/enrich-cli.ts"
   },
   "dependencies": {
     "@vegdex/core": "workspace:*"
