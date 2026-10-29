@@ -226,3 +226,10 @@ it('does not let model translations change quantities inside preparation notes',
   const fake = await endpoint(() => ({ language: 'it', text: '200 g, scolati' }));
   expect(await runLocalEnrich({ ...state, model: fake.model })).toMatchObject({ accepted: 0, remaining: 1, failed: [{ id: 'changed-quantity', reason: 'quantity-changed' }] });
 });
+
+it('rejects a translated full ingredient line offered in place of an ingredient name', async () => {
+  const state = files([task('ingredient', 'mystery beans', 'introduced-amount')]);
+  const fake = await endpoint(() => ({ language: 'it', conceptId: null, text: '400 g fagioli' }));
+  expect(await runLocalEnrich({ ...state, model: fake.model })).toMatchObject({ accepted: 0, remaining: 1, failed: [{ id: 'introduced-amount', reason: 'quantity-changed' }] });
+  expect(readLearnedData(state.learnedFile)).toEqual(emptyLearnedData());
+});
