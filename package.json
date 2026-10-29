@@ -4,6 +4,7 @@
   "type": "module",
   "description": "A free, zero-backend index of vegan recipes from the best vegan food blogs: mobile web app + MCP server.",
   "scripts": {
+    "preflight": "node scripts/preflight.mjs",
     "dev": "pnpm --filter @vegdex/web dev",
     "build": "pnpm --filter @vegdex/web build",
     "ingest": "pnpm --filter @vegdex/ingest ingest",
