@@ -81,6 +81,15 @@ it('peels preparation words off the name only when the rest is a known ingredien
   expect(render('chopped scallion (for garnish)', 'us', en, 'en')).toEqual(['', 'chopped scallion, for garnish']);
 });
 
+it('drops an unknown alternative as commentary and keeps plant names whose note mentions a qualifier', () => {
+  expect(render('2 tbsp olive oil or any neutral oil', 'us')).toEqual(['2 cucchiai', "di olio d'oliva"]);
+  expect(render('salt + pepper')).toEqual(['', 'sale e pepe']);
+  expect(render('salt and chopped scallion')).toEqual(['', 'sale e cipollotti tritati']);
+  expect(render('1 cup chickpeas (or any vegan protein)', 'us')).toEqual(['1 tazza', 'di ceci']);
+  expect(parseIngredient('1 cup yogurt (vegan)', lookup).concept).toBeNull();
+  expect(render('2 tbsp olive oil or any neutral oil', 'us', en, 'en')).toEqual(['2 tbsp', 'olive oil']);
+});
+
 it('splits two known ingredients joined by and or or', () => {
   expect(render('salt and pepper to taste')).toEqual(['', 'sale e pepe quanto basta']);
   expect(render('salt and pepper, to taste')).toEqual(['', 'sale e pepe, quanto basta']);
