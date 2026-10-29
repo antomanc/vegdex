@@ -18,6 +18,7 @@ permissions:
   pages: write
   id-token: write
   actions: write
+  issues: write
 
 concurrency:
   group: daily
@@ -42,18 +43,29 @@ jobs:
       - name: Restore store
         run: gh release download data --pattern store.json.gz --dir .data || echo "no store yet, starting fresh"
 
+      - name: Restore enrichment and previous queue
+        run: pnpm nightly:enrichment restore
+
       - name: Crawl new recipes
         if: github.event_name == 'schedule' || inputs.crawl
         run: pnpm ingest crawl
 
       - name: Emit dataset
-        run: pnpm ingest emit
+        id: emit
+        run: pnpm ingest emit --enrichment .data/enrichment.json --queue .data/translation-queue.json
 
       - name: Save store
         if: github.event_name == 'schedule' || inputs.crawl
         run: |
           gh release view data >/dev/null 2>&1 || gh release create data --title "Crawl state" --notes "Ingest store used by the daily workflow. Not a software release."
           gh release upload data .data/store.json.gz .data/excluded.json --clobber
+
+      - name: Update translation backlog
+        run: pnpm nightly:enrichment backlog
+
+      - name: Save translation queue
+        if: always() && steps.emit.outcome == 'success'
+        run: pnpm nightly:enrichment save
 
       - name: Build site
         run: pnpm build
