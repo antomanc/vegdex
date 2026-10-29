@@ -8,7 +8,7 @@
   } from './lib/state.svelte'
   import { m, countArgs, formatNumber, pageLocale } from './lib/i18n'
   import { LOCALES } from './lib/locales'
-  import { loadTranslations } from './lib/translations.svelte'
+  import { loadTranslations, recipeTitle } from './lib/translations.svelte'
   import { isLocale } from './paraglide/runtime'
   import { SORTS } from './lib/labels'
   import { onSheetPop } from './lib/sheet'
@@ -60,7 +60,7 @@
   const kitchen = $derived(filters.from && !filters.saved ? catalog?.sources.find((s) => s.id === filters.from) ?? null : null)
   // Recipes unsaved in this visit to the saved view stay listed, so a mis-tap on the heart can be undone.
   const listedIds = $derived([...saved.ids, ...saved.unsaved])
-  const results = $derived<CatalogRecipe[]>(catalog ? searchRecipes(catalog.recipes, toQuery(listedIds), lookup) : [])
+  const results = $derived<CatalogRecipe[]>(catalog ? searchRecipes(catalog.recipes, toQuery(listedIds), lookup, recipeTitle) : [])
   const resultCount = $derived(filters.saved ? results.filter((r) => saved.ids.includes(r.id)).length : results.length)
   const visible = $derived(results.slice(0, limit))
   const open = $derived(openId && catalog ? catalog.recipes.find((r) => r.id === openId) ?? null : null)
@@ -77,7 +77,7 @@
     if (filters.text.trim()) options.push({ label: m.clear_the_search(), apply: () => (filters.text = ''), patch: { text: '' }, isSearch: true })
     let best: { label: string; apply: () => void; n: number; isSearch: boolean } | null = null
     for (const o of options) {
-      const n = searchRecipes(catalog.recipes, toQuery([], { ...filters, ...o.patch }), lookup).length
+      const n = searchRecipes(catalog.recipes, toQuery([], { ...filters, ...o.patch }), lookup, recipeTitle).length
       if (n && (!best || n > best.n)) best = { ...o, n }
     }
     return best

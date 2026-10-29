@@ -69,7 +69,8 @@ export function ratingScore(r: Pick<CatalogRecipe, 'rating' | 'ratingCount'>): n
   return (avg * n + 4.2 * 10) / (n + 10);
 }
 
-export function searchRecipes<R extends CatalogRecipe>(recipes: R[], q: RecipeQuery, lookup: IngredientLookup = {}): R[] {
+/** A caller can add its guarded display title without replacing the original catalog text. */
+export function searchRecipes<R extends CatalogRecipe>(recipes: R[], q: RecipeQuery, lookup: IngredientLookup = {}, displayTitle?: (recipe: R) => string): R[] {
   const textTerms = q.text ? searchTerms(q.text, lookup).filter((t) => t.words.length) : [];
   const include = (q.include ?? []).filter((p) => tokens(p).length).map((p) => ({ words: tokens(p), concept: lookupConcept(p, lookup) }));
   const exclude = (q.exclude ?? []).filter((p) => tokens(p).length).map((p) => ({ words: tokens(p), concept: lookupConcept(p, lookup) }));
@@ -93,7 +94,7 @@ export function searchRecipes<R extends CatalogRecipe>(recipes: R[], q: RecipeQu
 
     let score = 0;
     if (textTerms.length) {
-      const title = tokens(r.title);
+      const title = tokens(`${r.title} ${displayTitle?.(r) ?? ''}`);
       let matched = 0;
       for (const term of textTerms) for (const t of term.words) {
         if (title.some((w) => w === t)) score += 3;
