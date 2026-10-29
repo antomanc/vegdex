@@ -13,6 +13,42 @@ describe('searchRecipes', () => {
     r('pancakes', { title: 'Fluffy Pancakes', minutes: 15, tags: ['meal:breakfast', 'flavor:sweet'], ing: ['flour'] })
   ];
 
+  it('prefers the UI content language only after the selected sort and rating ties', () => {
+    const english = r('english', { contentLanguage: 'en', title: 'Chickpea Salad', published: '2026-01-01' });
+    const italian = r('italian', { contentLanguage: 'it', title: 'Chickpea Salad', published: '2026-01-01' });
+    const recipes = [english, italian];
+    for (const sort of ['relevance', 'rating', 'newest', 'fastest'] as const) {
+      expect(searchRecipes(recipes, { sort, preferredContentLanguage: 'it' }).map((r) => r.id)).toEqual(['italian', 'english']);
+    }
+    expect(searchRecipes(recipes, {}).map((r) => r.id)).toEqual(['english', 'italian']);
+    expect(searchRecipes([r('english', { rating: 5, ratingCount: 100 }), italian], {
+      preferredContentLanguage: 'it'
+    }).map((r) => r.id)).toEqual(['english', 'italian']);
+    expect(searchRecipes([english, { ...italian, title: 'Lunch', ing: ['chickpeas'] }], {
+      text: 'chickpea', preferredContentLanguage: 'it'
+    }).map((r) => r.id)).toEqual(['english', 'italian']);
+    expect(searchRecipes([{ ...english, published: '2026-02-01' }, italian], {
+      sort: 'newest', preferredContentLanguage: 'it'
+    }).map((r) => r.id)).toEqual(['english', 'italian']);
+    expect(searchRecipes([{ ...english, minutes: 10 }, italian], {
+      sort: 'fastest', preferredContentLanguage: 'it'
+    }).map((r) => r.id)).toEqual(['english', 'italian']);
+  });
+
+  it('filters content language without losing ingredient constraints or legacy English recipes', () => {
+    const recipes = [
+      r('legacy', { ing: ['chickpeas'] }),
+      r('english', { contentLanguage: 'en', ing: ['chickpeas', 'mushrooms'] }),
+      r('italian', { contentLanguage: 'it', ing: ['ceci'], concepts: ['chickpea'] })
+    ];
+    const lookup = { chickpeas: 'chickpea' };
+    expect(searchRecipes(recipes, {}).map((r) => r.id)).toEqual(['legacy', 'english', 'italian']);
+    expect(searchRecipes(recipes, { contentLanguage: 'it', include: ['chickpeas'] }, lookup).map((r) => r.id)).toEqual(['italian']);
+    expect(searchRecipes(recipes, { contentLanguage: 'en', exclude: ['mushrooms'] }).map((r) => r.id)).toEqual(['legacy']);
+    expect(searchRecipes(recipes, { contentLanguage: 'it', exclude: ['chickpeas'] }, lookup)).toEqual([]);
+    expect(searchRecipes(recipes, { contentLanguage: 'de' })).toEqual([]);
+  });
+
   it('filters by include/exclude ingredients', () => {
     const out = searchRecipes(recipes, { include: ['tofu'], exclude: ['mushrooms'] });
     expect(out.map((x) => x.id)).toEqual(['tofu-spinach']);
