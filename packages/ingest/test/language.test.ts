@@ -6,8 +6,7 @@ import { describe, expect, it } from 'vitest';
 import { emitDataset } from '../src/emit';
 import { isCandidateUrl } from '../src/sitemap';
 
-// The tagger and the vegan check read English: a German "Mandeln" line would pass as nut-free.
-describe('English-only catalog', () => {
+describe('Translated source editions', () => {
   it('never crawls a translated edition of a blog', () => {
     expect(isCandidateUrl('https://elavegan.com/de/haferflocken-wraps/', 'https://elavegan.com')).toBe(false);
     expect(isCandidateUrl('https://example.com/fr-ca/tarte/', 'https://example.com')).toBe(false);

@@ -1,7 +1,9 @@
 import { parseIngredient } from './ingredients';
+import { languagePacks } from './languages';
 import type { Flavor, Meal, Tag } from './types';
 
 export interface TagInput {
+  contentLanguage?: string;
   title: string;
   categories: string[];
   cuisines: string[];
@@ -54,16 +56,19 @@ function firstMeals(rules: [RegExp, Meal][], text: string): Meal[] {
   return [...out];
 }
 
-export function classify(input: TagInput): Tag[] {
+export function classify(input: TagInput, ingredientNames?: string[]): Tag[] {
+  const pack = languagePacks[input.contentLanguage ?? 'en'] ?? {};
   const title = input.title.toLowerCase();
   const categories = input.categories.join(' | ').toLowerCase();
   const keywords = input.keywords.join(' | ').toLowerCase();
-  const names = input.ingredients.map((line) => parseIngredient(line).name);
+  const names = ingredientNames ?? input.ingredients.map((line) => parseIngredient(line).name);
   const joined = names.join(' | ');
-  const rawJoined = input.ingredients.join(' | ').toLowerCase();
+  const original = input.ingredients.join(' | ').toLowerCase();
+  const rawJoined = ingredientNames ? `${original} | ${joined}` : original;
+  const knownIngredients = (input.contentLanguage ?? 'en') === 'en' || !!ingredientNames && ingredientNames.every(Boolean);
 
-  let meals = firstMeals(CATEGORY_MEALS, categories);
-  const fromTitle = firstMeals(TITLE_MEALS, title);
+  let meals = firstMeals(pack.meals ?? CATEGORY_MEALS, categories);
+  const fromTitle = firstMeals(pack.meals ?? TITLE_MEALS, title);
   if (meals.length === 0) meals = fromTitle.slice(0, 1);
   // A title like "Chocolate Chip Cookies" outranks a vague "Snack" category, never a savory course.
   else if (fromTitle[0] === 'dessert' && !meals.some((m) => ['dessert', 'main', 'soup', 'salad', 'side'].includes(m))) meals.push('dessert');
@@ -79,20 +84,23 @@ export function classify(input: TagInput): Tag[] {
   else flavor = sweetHits > savoryHits ? 'sweet' : 'savory';
   tags.push(`flavor:${flavor}`);
 
-  const claimsGf = /gluten[\s-]?free/.test(keywords + ' ' + title + ' ' + categories);
-  const hasGluten = input.ingredients.some((line) => {
+  const claimsGf = (pack.glutenFree ?? /gluten[\s-]?free/).test(keywords + ' ' + title + ' ' + categories);
+  const hasGluten = !!pack.ingredientRisks?.gluten.test(pack.glutenFree ? original.replace(pack.glutenFree, '') : original) || [...input.ingredients, ...ingredientNames ?? []].some((line) => {
     const l = line.toLowerCase();
     return GLUTEN.test(l) && !GLUTEN_SAFE.test(l);
   });
-  if (claimsGf && !hasGluten) tags.push('free:gluten-free');
-  if (!NUTS.test(joined) && !NUTS.test(rawJoined.replace(/coconut|nutmeg|nutritional|butternut|doughnut|donut|chestnut|water chestnut|tiger ?nut/g, ''))) tags.push('free:nut-free');
-  if (!SOY.test(rawJoined)) tags.push('free:soy-free');
-  if (!OIL.test(rawJoined.replace(/oil[\s-]free|optional[^|]*oil|oil[^|]*optional/g, '')) || /oil[\s-]free/.test(keywords + title)) tags.push('free:oil-free');
+  if (knownIngredients) {
+    if (claimsGf && !hasGluten) tags.push('free:gluten-free');
+    if (!pack.ingredientRisks?.nuts.test(original) && !NUTS.test(joined) && !NUTS.test(rawJoined.replace(/coconut|nutmeg|nutritional|butternut|doughnut|donut|chestnut|water chestnut|tiger ?nut/g, ''))) tags.push('free:nut-free');
+    if (!pack.ingredientRisks?.soy.test(original) && !SOY.test(rawJoined)) tags.push('free:soy-free');
+    if (!pack.ingredientRisks?.oil.test(pack.oilFree ? original.replace(pack.oilFree, '') : original) && (!OIL.test(rawJoined.replace(/oil[\s-]free|optional[^|]*oil|oil[^|]*optional/g, '')) || (pack.oilFree ?? /oil[\s-]free/).test(keywords + title))) tags.push('free:oil-free');
+  }
 
   if (input.protein !== null && input.protein >= 20) tags.push('high-protein');
 
   for (const cuisine of input.cuisines) {
-    const c = cuisine.toLowerCase().replace(/[-\s]?inspired$/, '').trim();
+    const original = cuisine.toLowerCase().replace(/[-\s]?inspired$/, '').trim();
+    const c = pack.cuisines?.[original] ?? original;
     if (c && c.length < 30 && c !== 'vegan') tags.push(`cuisine:${c}`);
   }
   return [...new Set(tags)];

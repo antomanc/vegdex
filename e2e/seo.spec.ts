@@ -125,7 +125,8 @@ test('offline navigation keeps the UI language selected by the path', async ({ b
     // Reload under worker control so the fixture catalog enters its runtime cache.
     await page.reload();
     await expect(page.getByTestId('recipe-card')).toHaveCount(6);
-    await context.unroute('**/data/**', fixtureData);
+    // Let in-flight overlay responses finish before switching the context offline.
+    await context.unrouteAll({ behavior: 'wait' });
     await context.setOffline(true);
     // Neither path has been visited: a cached navigation response cannot hide the wrong fallback.
     for (const { path, language, button } of [

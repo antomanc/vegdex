@@ -13,6 +13,10 @@ import {
   shardOf,
   type Catalog,
   groceryConcepts,
+  canonicalName,
+  aisleFor,
+  languagePacks,
+  gramsPerCup,
   type CatalogRecipe,
   type FullDataset,
   type Recipe,
@@ -34,6 +38,8 @@ const blockedIds: string[] = JSON.parse(fs.readFileSync(new URL('../data/blockli
 
 function toCatalog(r: Recipe, parsed: ParsedIngredient[], concepts: Map<string, Concept>): CatalogRecipe {
   const ing = [...new Set(parsed.map((p) => p.name).filter(Boolean))];
+  const ingredientNames = r.contentLanguage === 'en' ? undefined : parsed.map((p) => p.concept
+    ? conceptFamily([p.concept], concepts).flatMap((id) => concepts.get(id)?.names.en ?? []).join(' | ') : '');
   return {
     contentLanguage: r.contentLanguage ?? 'en',
     concepts: conceptFamily(parsed.flatMap((p) => p.concept ? [p.concept] : []), concepts),
@@ -49,7 +55,7 @@ function toCatalog(r: Recipe, parsed: ParsedIngredient[], concepts: Map<string, 
     calories: r.calories,
     protein: r.protein,
     published: r.published,
-    tags: classify(r),
+    tags: classify(r, ingredientNames),
     ing
   };
 }
@@ -57,7 +63,8 @@ function toCatalog(r: Recipe, parsed: ParsedIngredient[], concepts: Map<string, 
 export interface EmitReport {
   queue: TranslationQueue;
   published: number;
-  excluded: { id: string; title: string; url: string; reason?: 'blocklist'; hits: { term: string; line: string; concept?: string }[] }[];
+  held: Recipe[];
+  excluded: { id: string; title: string; url: string; reason?: 'blocklist' | 'unsupported-language'; hits: { term: string; line: string; concept?: string }[] }[];
   /** Stored recipes from a translated edition of a blog, left out. */
   otherLanguage: number;
   bySource: Record<string, number>;
@@ -80,30 +87,51 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
   const conceptVegan = Object.fromEntries(merged.concepts.map((c) => [c.id, c.vegan]));
   const excluded: EmitReport['excluded'] = [];
   const recipes: Recipe[] = [];
-  const sourceIds = new Set(sources.map((s) => s.id));
+  const held: Recipe[] = [];
+  const sourceById = new Map(sources.map((s) => [s.id, s]));
+  const parsedById = new Map<string, ParsedIngredient[]>();
   const blocked = new Set(blocklist);
   let otherLanguage = 0;
-  for (const r of all) {
-    if (!sourceIds.has(r.sourceId)) continue;
+  for (const original of all) {
+    const source = sourceById.get(original.sourceId);
+    if (!source) continue;
+    const r = { ...original, contentLanguage: source.contentLanguage ?? 'en' };
     if (blocked.has(r.id)) {
       excluded.push({ id: r.id, title: r.title, url: r.url, reason: 'blocklist', hits: [] });
       continue;
     }
-    if (isOtherLanguage(r.url)) {
+    if (isOtherLanguage(r.url, r.contentLanguage)) {
       otherLanguage++;
       continue;
     }
+    if (!Object.hasOwn(languagePacks, r.contentLanguage)) {
+      excluded.push({ id: r.id, title: r.title, url: r.url, reason: 'unsupported-language', hits: [] });
+      continue;
+    }
+    const contentLookup = merged.aliases[r.contentLanguage] ?? {};
+    const parsed = r.ingredients.map((line) => {
+      const p = parseIngredient(line, contentLookup, r.contentLanguage);
+      if (r.contentLanguage !== 'en' && p.concept) {
+        const names = merged.byId.get(p.concept)?.names.en?.map(canonicalName) ?? [];
+        p.densityName = names.find((name) => gramsPerCup(name) !== null);
+      }
+      return p;
+    });
     const hits = [
-      ...findNonVegan(r.ingredients),
-      ...findNonVeganConcepts(r.ingredients, englishLookup, conceptVegan).map((hit) => ({ ...hit, term: hit.concept }))
+      ...findNonVegan(r.ingredients, r.contentLanguage),
+      ...findNonVeganConcepts(r.ingredients, contentLookup, conceptVegan, r.contentLanguage).map((hit) => ({ ...hit, term: hit.concept }))
     ];
     if (hits.length) excluded.push({ id: r.id, title: r.title, url: r.url, hits });
-    else recipes.push(r);
+    else if (r.contentLanguage !== 'en' && parsed.some((p) => p.name && (!p.concept || p.conceptExact !== true))) held.push(r);
+    else {
+      recipes.push(r);
+      parsedById.set(r.id, parsed);
+    }
   }
 
   const usedSources = sources.filter((s) => recipes.some((r) => r.sourceId === s.id)).map((s) => ({ ...s, contentLanguage: s.contentLanguage ?? 'en' }));
   const sorted = recipes.sort((a, b) => a.id.localeCompare(b.id));
-  const parsed = sorted.map((r) => r.ingredients.map((line) => parseIngredient(line, englishLookup)));
+  const parsed = sorted.map((r) => parsedById.get(r.id)!);
   const rows = sorted.map((r, i) => toCatalog(r, parsed[i]!, merged.byId));
   const used = new Set(rows.flatMap((r) => r.concepts ?? []));
   const lookupFor = (language: string) => ({
@@ -111,8 +139,11 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
     ...Object.fromEntries(Object.entries(merged.aliases[language] ?? {}).filter(([, id]) => used.has(id)))
   });
   const lookup = lookupFor('en');
-  // Shopping-list rows and aisles per concept, from the English lines that use them.
-  const grocery = groceryConcepts(parsed.flat(), englishLookup);
+  // English concept names keep shopping rows and density conversions stable across source languages.
+  const groceryLines = parsed.flatMap((lines, i) => lines.map((p) => sorted[i]!.contentLanguage !== 'en' && p.concept
+    ? { ...p, name: merged.byId.get(p.concept)?.names.en?.map(canonicalName).filter(Boolean).sort((a, b) => a.length - b.length || a.localeCompare(b))[0] ?? p.name } : p));
+  const grocery = groceryConcepts(groceryLines, englishLookup);
+  for (const p of groceryLines) if (p.concept && !grocery[p.concept]) grocery[p.concept] = [p.name, aisleFor(p.name)];
   const unmapped: Record<string, number> = Object.create(null);
   let mapped = 0;
   for (const lines of parsed) for (const p of lines) {
@@ -180,5 +211,5 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
   const bySource: Record<string, number> = {};
   for (const r of rows) bySource[r.source] = (bySource[r.source] ?? 0) + 1;
   const queue = buildTranslationQueue(sorted, parsed, translations, ingredientTables, generatedAt, previousQueue);
-  return { published: rows.length, excluded, otherLanguage, bySource, bytes, queue };
+  return { published: rows.length, held, excluded, otherLanguage, bySource, bytes, queue };
 }
