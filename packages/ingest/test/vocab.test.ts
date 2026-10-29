@@ -41,6 +41,12 @@ it('parses with taxonomy names, name forms and explicit aliases, keeping terms a
   expect(parseIngredient('1 can chickpeas, rinsed and drained (see notes)', en).terms).toEqual([{ id: 'term:drained-rinsed', text: 'rinsed and drained' }]);
 });
 
+it('gives a name several concepts share to the concept the taxonomy calls that', () => {
+  const vocab = scratch();
+  vocab.files.it!.names['off:4452df579db4f1b1'] = { one: 'aglio', other: 'aglio', gender: 'm' }; // garlic clove
+  expect(lookupConcept('aglio', vocab.lookup('it'))).toBe('off:41024084d2e27b7d');
+});
+
 it('lets an explicit alias settle a name the taxonomy leaves ambiguous', () => {
   const vocab = scratch();
   vocab.files.en!.aliases['all-purpose flour'] = 'off:f55f97cfa0dd5f18';

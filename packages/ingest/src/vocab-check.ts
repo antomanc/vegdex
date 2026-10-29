@@ -37,8 +37,13 @@ export function checkAlias(vocab: Vocabulary, language: string, phrase: string, 
   if (STRUCTURAL.test(phrase)) return 'not-whole';
   // An alias naming an animal product must not hide behind a plant concept; mapping it to the animal concept is evidence.
   if (concept.vegan !== 'no' && findUnsafeRenderedTerms(phrase, language).length) return 'unsafe';
-  if (isQualifiedIngredient(phrase) && (concept.vegan === 'no' || !allQualified(concept))) return 'qualification-lost';
+  // "vegan sugar" is sugar; "vegan butter" must never become a concept plainly named butter.
+  if (isQualifiedIngredient(phrase) && (concept.vegan === 'no' || namedAsAnimal(concept))) return 'qualification-lost';
   return null;
+}
+
+function namedAsAnimal(concept: Concept): boolean {
+  return (concept.names.en ?? []).some((name) => !isQualifiedIngredient(name) && findUnsafeRenderedTerms(name, 'en').length > 0);
 }
 
 /** A concept every English name of which is plant-qualified ("vegan butter") must keep that in every language. */

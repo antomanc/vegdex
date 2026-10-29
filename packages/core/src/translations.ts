@@ -23,7 +23,7 @@ export function findUnsafeRenderedTerms(text: string, language: string): string[
   const animal = animals[language];
   if (!animal) return [text];
   const hits: string[] = [];
-  const normalized = text.normalize('NFC').toLowerCase().replace(/\p{Pd}/gu, '-');
+  const normalized = text.normalize('NFC').toLowerCase().replace(/\p{Pd}/gu, '-').replace(/[“”"]/g, '');
   for (const part of normalized.split(/[,;:()!?]|\s+(?:and|with|or|e|con|o|&|\+)\s+/)) {
     const matches = [...part.matchAll(new RegExp(animal))];
     const usedQualifiers: [number, number][] = [];
@@ -33,7 +33,10 @@ export function findUnsafeRenderedTerms(text: string, language: string): string[
       const previous = matches[i - 1];
       const before = part.slice(previous ? previous.index + previous[0].length : 0, match.index);
       const after = part.slice(match.index + match[0].length, matches[i + 1]?.index);
-      if (language === 'en' && (plantPairs.test(`${before}${match[0]}`) || plantSuffixes.test(`${match[0]}${after}`))) continue;
+      if (language === 'en' && (plantPairs.test(`${before}${match[0]}`) || plantSuffixes.test(`${match[0]}${after}`))) {
+        previousQualified = true;
+        continue;
+      }
       // "vegan cheddar cheese" names one cheese.
       if (language === 'en' && previousQualified && /^\s+$/.test(before) && /^cheeses?$/.test(match[0])) continue;
       const prefix = qualifiers[language]!.exec(before);

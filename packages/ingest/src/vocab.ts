@@ -64,6 +64,7 @@ export function loadVocabulary(dir = vocabDir): Vocabulary {
   const concepts: Concept[] = [...seed.concepts.map((c) => ({ ...c, names: { ...c.names } })),
     ...added.map((c): Concept => ({ id: c.id, names: {}, parents: c.parents, vegan: 'unknown' }))];
   const byId = new Map(concepts.map((c) => [c.id, c]));
+  const seedNames = new Map(seed.concepts.map((c) => [c.id, c.names]));
   // Names and aliases in the language files also name their concept, for search, tags and the public dictionary.
   for (const [language, file] of Object.entries(files)) {
     const extra = new Map<string, string[]>();
@@ -87,8 +88,13 @@ export function loadVocabulary(dir = vocabDir): Vocabulary {
     const nameLanguages = language === 'en' ? ['en'] : ['en', language];
     for (const c of concepts) for (const l of nameLanguages) for (const name of c.names[l] ?? []) own(name, c.id);
     for (const l of nameLanguages) for (const [id, value] of Object.entries(files[l]?.terms ?? {})) for (const form of forms(value)) own(form, id);
+    // A name several concepts share belongs to the one the taxonomy itself calls that ("aglio" is garlic, not garlic clove).
+    const taxonomy = (id: string, key: string) => nameLanguages.some((l) => seedNames.get(id)?.[l]?.includes(key));
     const result: IngredientLookup = Object.create(null);
-    for (const [key, ids] of owners) if (ids.size === 1) result[key] = [...ids][0]!;
+    for (const [key, ids] of owners) {
+      const owner = ids.size === 1 ? [...ids] : [...ids].filter((id) => taxonomy(id, key));
+      if (owner.length === 1) result[key] = owner[0]!;
+    }
     for (const l of nameLanguages) for (const [alias, id] of Object.entries(files[l]?.aliases ?? {})) result[ingredientKey(alias)] = id;
     lookups.set(language, result);
     return result;

@@ -57,7 +57,7 @@ it('guards common named cheeses and meats in each display language without borro
 });
 
 it('accepts a qualifier anywhere in the same ingredient, once, and a cheese name followed by "cheese"', () => {
-  for (const safe of ['vegan ground beef', 'dairy free butter', 'dairy-free butter', 'vegan heavy cream', 'vegan cheddar cheese', 'shredded vegan mozzarella cheese', 'non-dairy whipped cream', 'meatless sausage', 'sunflower seed butter', 'coconut whipped cream', 'apple butter'])
+  for (const safe of ['vegan ground beef', 'dairy free butter', 'dairy-free butter', 'vegan heavy cream', 'vegan cheddar cheese', 'shredded vegan mozzarella cheese', 'non-dairy whipped cream', 'meatless sausage', 'sunflower seed butter', 'coconut whipped cream', 'apple butter', 'dairy-free cream cheese', 'flax “eggs”'])
     expect(safeTranslation('Original', safe, 'en'), safe).toBe(safe);
   for (const unsafe of ['vegan cheddar bacon', 'vegan butter cheese chicken', 'ground beef', 'cheddar cheese', 'vegan butter and cheese'])
     expect(safeTranslation('Original', unsafe, 'en'), unsafe).toBe('Original');
