@@ -1,5 +1,5 @@
 import { sameMeasurements } from './measurements';
-import type { ParsedIngredient } from './ingredients';
+import { hasDroppedMeasureWords, type ParsedIngredient } from './ingredients';
 import { findUnsafeRenderedTerms, safeTranslation } from './translations';
 import type { GroceryItem } from './grocery';
 import { formatMetric, toMetric, type Units } from './metric';
@@ -21,7 +21,7 @@ export function ingredientNote(p: ParsedIngredient): string {
 
 /** Null means the caller keeps the complete original line. */
 export function renderIngredient(p: ParsedIngredient, tables: IngredientTables | undefined, language: string, units: Units): [amount: string, rest: string] | null {
-  if (!p.concept || p.conceptExact !== true || !tables) return null;
+  if (!p.concept || p.conceptExact !== true || !tables || hasDroppedMeasureWords(p)) return null;
   const name = tables.names[p.concept];
   const originalNote = ingredientNote(p);
   const note = originalNote ? tables.notes[originalNote] ?? '' : '';

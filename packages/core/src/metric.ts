@@ -1,4 +1,4 @@
-import { canonicalName, parseIngredient, unitDef, type ParsedIngredient } from './ingredients';
+import { canonicalName, hasDroppedMeasureWords, parseIngredient, unitDef, type ParsedIngredient } from './ingredients';
 import { gramsPerCup } from './weights';
 
 export type Units = 'us' | 'metric';
@@ -70,6 +70,7 @@ export function formatMetric(m: MetricAmount, exact = false): string {
  * "1 cup flour, sifted" → ["≈ 125 g", "flour, sifted"]. Null when the line stays as written.
  */
 export function metricLine(raw: string, p = parseIngredient(raw)): [amount: string, rest: string] | null {
+  if (hasDroppedMeasureWords(p)) return null;
   const m = toMetric(p);
   if (!m || p.afterMeasure === null) return null;
   const blogGrams = p.metric?.unit === 'g' && m.unit === 'g' && !m.estimate;

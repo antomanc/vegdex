@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { compileGroceryList, metricLine } from '../src';
 
 describe('metricLine', () => {
+  it('keeps qualified measures as written when conversion would discard their wording', () => {
+    for (const line of ['about 2 cups flour', '2 heaped cups flour', '2 scant cups flour', '60 ml / heaped 1/4 cup flour']) expect(metricLine(line), line).toBeNull();
+  });
+
   it('weighs cups with the density table, marked as an estimate', () => {
     expect(metricLine('1 cup all-purpose flour')).toEqual(['≈ 125 g', 'all-purpose flour']);
     expect(metricLine('3 cups chopped kale')).toEqual(['≈ 120 g', 'chopped kale']);

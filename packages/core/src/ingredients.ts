@@ -82,11 +82,19 @@ const ALT_MEASURE_RE = new RegExp(String.raw`^\/\s*(?:(?:heaped|heaping|packed|s
 /** "½ cup + 2 tbsp": a second amount added to the first. */
 const PLUS_MEASURE_RE = new RegExp(String.raw`^\+\s*(${NUM})\s*`);
 /** How full the spoon or cup is: says nothing about what to buy. */
-const MEASURE_WORDS_RE = /^(?:(?:heaped|heaping|packed|loosely|lightly|firmly|scant|generous|rounded|level|approx\.?|approximately|about|around)\s+)+/i;
+const MEASURE_WORD = String.raw`heaped|heaping|packed|loosely|lightly|firmly|scant|generous|rounded|level|approx\.?|approximately|about|around`;
+const MEASURE_WORDS_RE = new RegExp(`^(?:(?:${MEASURE_WORD})\\s+)+`, 'i');
+const MEASURE_QUALIFIERS_RE = new RegExp(`\\b(?:${MEASURE_WORD})\\b`, 'gi');
 /** "3-inch piece", "2 cm piece": the size of a piece, kept as a note. */
 const PIECE_SIZE_RE = /^(\d+(?:[.,]\d+)?\s*-?\s*(?:inch|in\.|cm|"|”))\s*/i;
 /** "1 15 oz can": the size of the can, jar or block, kept as a note. */
 const PACK_SIZE_RE = /^(\d+(?:[.,]\d+)?(?:\s*[-–]\s*\d+(?:[.,]\d+)?)?\s*(?:oz\.?|ounces?|g|grams?|ml))\s*(?=(?:cans?|tins?|jars?|blocks?|bags?|packages?|packs?|cartons?|canned)\b)/i;
+
+/** Cached parsed lines also need to retain qualifiers removed from their measure. */
+export function hasDroppedMeasureWords(p: ParsedIngredient): boolean {
+  const count = (text: string) => [...text.matchAll(MEASURE_QUALIFIERS_RE)].length;
+  return count(p.raw) > count(p.afterMeasure ?? '');
+}
 
 function parseNumber(text: string): number {
   const t = text.trim().replace(',', '.');

@@ -1,4 +1,22 @@
 import { expect, test } from './fixtures';
+import { readFileSync } from 'node:fs';
+import { parseIngredient } from '@vegdex/core';
+
+test('qualified source amounts survive translated display and both unit choices', async ({ page }) => {
+  const lines = ['about 2 tbsp olive oil', '2 heaped cups olive oil', '2 scant cups olive oil'];
+  await page.route('**/data/details/15.json', (route) => {
+    const details = JSON.parse(readFileSync(new URL('./fixtures/data/details/15.json', import.meta.url), 'utf8'));
+    details['quinoa-salad'].ingredients = lines;
+    details['quinoa-salad'].parsedIngredients = lines.map((line) => parseIngredient(line, { 'olive oil': 'off:4267eb72e56db0a2' }));
+    return route.fulfill({ json: details });
+  });
+  await page.goto('/it/?r=quinoa-salad');
+  const sheet = page.getByRole('dialog');
+  for (const units of ['Metrico', 'USA']) {
+    await sheet.getByRole('button', { name: units, exact: true }).click();
+    for (const line of lines) await expect(sheet.getByTestId('ingredients').locator('li', { hasText: line })).toHaveText(line);
+  }
+});
 
 test('Italian ingredient lines keep amounts and preparation notes with source originals one action away', async ({ page }) => {
   await page.goto('/it/?r=quinoa-salad');
