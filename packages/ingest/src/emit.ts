@@ -122,7 +122,10 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
       ...findNonVeganConcepts(r.ingredients, contentLookup, conceptVegan, r.contentLanguage).map((hit) => ({ ...hit, term: hit.concept }))
     ];
     if (hits.length) excluded.push({ id: r.id, title: r.title, url: r.url, hits });
-    else if (r.contentLanguage !== 'en' && parsed.some((p) => p.name && (!p.concept || p.conceptExact !== true))) held.push(r);
+    else if (r.contentLanguage !== 'en' && parsed.some((p) => p.name && (!p.concept || p.conceptExact !== true))) {
+      held.push(r);
+      parsedById.set(r.id, parsed);
+    }
     else {
       recipes.push(r);
       parsedById.set(r.id, parsed);
@@ -210,6 +213,7 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
 
   const bySource: Record<string, number> = {};
   for (const r of rows) bySource[r.source] = (bySource[r.source] ?? 0) + 1;
-  const queue = buildTranslationQueue(sorted, parsed, translations, ingredientTables, generatedAt, previousQueue);
+  const queuedRecipes = [...sorted, ...held].sort((a, b) => a.id.localeCompare(b.id));
+  const queue = buildTranslationQueue(queuedRecipes, queuedRecipes.map((r) => parsedById.get(r.id)!), translations, ingredientTables, generatedAt, previousQueue, held);
   return { published: rows.length, held, excluded, otherLanguage, bySource, bytes, queue };
 }

@@ -7,6 +7,7 @@ export interface LanguagePack {
   preposition?: RegExp;
   trailingNote?: RegExp;
   nonIngredient?: RegExp;
+  unsafeLearnedAlias?: RegExp;
   optional?: RegExp;
   animalWords?: RegExp;
   qualifier?: RegExp;
@@ -34,6 +35,7 @@ export const languagePacks: Record<string, LanguagePack> = {
     preposition: /^(?:di\s+|d['’]\s*)/i,
     trailingNote: /\s+((?:(?:cott[oaie]|scolat[oaie]|sciacquat[oaie]|tritat[oaie]|tagliat[oaie]|sbucciat[oaie]|grattugiat[oaie]|facoltativ[oaie])\b.*)|q\.?\s*b\.?|quanto basta)$/i,
     nonIngredient: /^(?:per (?:servire|guarnire|la decorazione)|nota|note|consiglio)\b/i,
+    unsafeLearnedAlias: /\b(?:o|e|con|per|oppure|facoltativ[oaie]|piccol[oaie]|medi[oaie]|grand[ei]|inter[oaie]|mezz[oaie]|tritat[oaie]|tagliat[oaie]|sbucciat[oaie]|grattugiat[oaie]|fresc[hoaie]+|surgelat[oaie]|essiccat[oaie]|divis[oaie]|più)\b/i,
     optional: /\b(?:facoltativ[oaie]|opzional[ei])\b/i,
     meals: [
       [/colazione|brunch/, 'breakfast'], [/zupp[ae]|minestr[ae]|minestrone|vellutat[ae]/, 'soup'],

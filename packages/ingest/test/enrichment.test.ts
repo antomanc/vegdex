@@ -6,6 +6,7 @@ import { afterEach, expect, it } from 'vitest';
 import { emitDataset } from '../src/emit';
 import { emptyLearnedData, learnedConceptId, readLearnedData, readTranslationQueue } from '../src/enrichment';
 import { englishLookup, seed } from '../src/concepts';
+import { updateBacklog } from '../src/nightly';
 
 const dirs: string[] = [];
 afterEach(() => dirs.splice(0).forEach((dir) => fs.rmSync(dir, { recursive: true, force: true })));
@@ -36,6 +37,49 @@ it('keeps English recipes published and deduplicates missing work with its origi
   expect(first.queue.tasks.filter((task) => task.kind === 'title')).toHaveLength(1);
   const later = emitDataset(recipes, [source], output(), { generatedAt: '2026-10-29T00:00:00.000Z', previousQueue: first.queue });
   expect(later.queue.tasks.map((task) => task.firstSeen)).toEqual(first.queue.tasks.map((task) => task.firstSeen));
+
+});
+
+it('publishes fully mapped Italian recipes while their title and note translations wait', () => {
+  const out = output();
+  const report = emitDataset([{ ...recipe('one', ['200 g ceci, scolati dolcemente']), title: 'Ceci nuovi' }], [{ ...source, contentLanguage: 'it' }], out);
+  expect(report.published).toBe(1);
+  expect(report.queue.held).toEqual([]);
+  expect(report.queue.tasks).toContainEqual(expect.objectContaining({ kind: 'title', original: 'Ceci nuovi', sourceLanguage: 'it', targetLanguage: 'en' }));
+  expect(report.queue.tasks).toContainEqual(expect.objectContaining({ kind: 'note', original: 'scolati dolcemente', sourceLanguage: 'it', targetLanguage: 'en' }));
+});
+
+it('queues held Italian recipes and preserves their age and notification across nightly emits', () => {
+  const italianSource = { ...source, contentLanguage: 'it' };
+  const recipes = [recipe('one', ['200 g farina misteriosa, setacciata finemente']), recipe('two', ['200 g farina misteriosa'])];
+  const first = emitDataset(recipes, [italianSource], output(), { generatedAt: '2026-10-01T00:00:00.000Z' });
+  expect(first.published).toBe(0);
+  expect(first.queue.held).toEqual([
+    { id: 'one', since: '2026-10-01T00:00:00.000Z' },
+    { id: 'two', since: '2026-10-01T00:00:00.000Z' }
+  ]);
+  expect(first.queue.tasks).toContainEqual(expect.objectContaining({
+    kind: 'ingredient', original: 'farina misteriosa', sourceLanguage: 'it', targetLanguage: 'en',
+    recipes: expect.arrayContaining([expect.objectContaining({ id: 'one', line: recipes[0]!.ingredients[0] })])
+  }));
+  expect(first.queue.tasks.filter((task) => task.kind === 'ingredient')).toHaveLength(1);
+  first.queue.held[0]!.notifiedAt = '2026-10-09T00:00:00.000Z';
+  const later = emitDataset(recipes, [italianSource], output(), { generatedAt: '2026-10-29T00:00:00.000Z', previousQueue: first.queue });
+  expect(later.queue.held).toEqual(first.queue.held);
+  expect(later.queue.tasks.map((task) => task.firstSeen)).toEqual(first.queue.tasks.map((task) => task.firstSeen));
+  const comments: string[] = [];
+  const notified = updateBacklog({ ...later.queue, issueNumber: 77 }, 'antomanc/vegdex', (args, body) => {
+    if (args[1] === 'comment') comments.push(body!);
+    return args[1] === 'view' ? 'Translation backlog' : '';
+  });
+  expect(comments).toHaveLength(1);
+  expect(comments[0]).toContain('- two');
+  expect(comments[0]).not.toContain('- one');
+  const nextNight = emitDataset(recipes, [italianSource], output(), { generatedAt: '2026-10-30T00:00:00.000Z', previousQueue: notified });
+  updateBacklog(nextNight.queue, 'antomanc/vegdex', (args) => {
+    if (args[1] === 'comment') throw new Error('Already notified');
+    return args[1] === 'view' ? 'Translation backlog' : '';
+  });
 });
 
 it('initializes genuinely missing enrichment files but refuses malformed persisted data', () => {
