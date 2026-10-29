@@ -207,3 +207,17 @@ it('shops for both ingredients of an and-line and the first of an or-line', () =
   const items = compileGroceryList([{ recipeId: 'a', ingredients: ['salt and pepper to taste', '1 cup walnuts or almonds'], multiplier: 1 }], { lookup });
   expect(items.map((i) => i.concept).sort()).toEqual(['pepper', 'salt', 'walnut']);
 });
+
+it('drops brands, but never when that leaves an animal name', () => {
+  const branded = { ...lookup, "bob's red mill": "brand:bob's red mill", violife: 'brand:violife', 'almond flour': 'almond-flour', cheddar: 'cheddar' };
+  expect(parseIngredient("1 cup Bob’s Red Mill almond flour", branded)).toMatchObject({ concept: 'almond-flour', conceptExact: true });
+  expect(parseIngredient('1 cup Violife cheddar, shredded', branded).concept).not.toBe('cheddar');
+});
+
+it('fixes one typo in a long name, never a substitution and never into an animal product', async () => {
+  const { nearName } = await import('../src/index');
+  const names = { turmeric: 'turmeric', coriander: 'coriander', pistachio: 'pistachio', 'rice malt': 'malt', parmesan: 'parmesan', 'bouillon cube': 'stock' };
+  expect(['tumeric', 'corriander', 'pistachoi', 'bouilon cube', 'rice salt', 'cardamon'].map((t) => nearName(t, names))).toEqual(['turmeric', 'coriander', 'pistachio', 'bouillon cube', null, null]);
+  expect(parseIngredient('1 tsp tumeric', names)).toMatchObject({ concept: 'turmeric', conceptExact: true });
+  expect(parseIngredient('2 tbsp parmesean', names).concept).toBeNull();
+});

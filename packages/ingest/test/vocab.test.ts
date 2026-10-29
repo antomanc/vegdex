@@ -132,3 +132,10 @@ it('measures coverage and ranks gaps by the lines they keep from rendering', () 
   expect(batch.items).toEqual([expect.objectContaining({ id: 'mystery seeds', lines: 2, context: expect.objectContaining({ candidates: expect.any(Array) }) })]);
   expect(batch.instructions).toContain('"not-ingredient"');
 });
+
+it('drops a curated brand only where no ingredient shares its name', () => {
+  const vocab = scratch();
+  vocab.files.en!.brands.push('chickpea');
+  expect(lookupConcept('chickpea', vocab.lookup('en'))).toBe(CHICKPEA);
+  expect(parseIngredient("1 cup Bob's Red Mill almond flour", loadVocabulary().lookup('en')).conceptExact).toBe(true);
+});

@@ -12,3 +12,4 @@ export * from './translations';
 export * from './ingredient-display';
 export * from './languages';
 export * from './vocabulary';
+export * from './spelling';

@@ -1,5 +1,6 @@
 import { cleanText } from './text';
-import { isQualifiedIngredient, lookupConcept, lookupTerm, type IngredientLookup } from './concepts';
+import { isQualifiedIngredient, lookupBrand, lookupConcept, lookupTerm, type IngredientLookup } from './concepts';
+import { nearName } from './spelling';
 import { languagePacks, languageUnitPatterns } from './languages';
 import { findUnsafeRenderedTerms } from './translations';
 
@@ -494,10 +495,10 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
   if (!conceptExact && !qualifierOutsideName) {
     // "romano or ramiro pepper" shares its noun and is never split into two ingredients.
     const resolve = (text: string) => {
-      const id = lookupConcept(text, lookup) ?? plainConcept(text, lookup, language);
+      const id = resolveName(text, lookup, language);
       return id ? { concept: id, also: null } : splitIngredients(text, lookup, language);
     };
-    const found = peelTerms(phrase, resolve, lookup);
+    const found = peelTerms(phrase, resolve, lookup, language);
     if (found) {
       ({ concept, also } = found);
       if (found.phrase) phrase = found.phrase;
@@ -523,11 +524,19 @@ function lineKind(raw: string, quantity: number | null, concept: string | null, 
   return undefined;
 }
 
-/** "vegan coconut yogurt": a plant qualifier before a name that is not an animal word adds nothing to the ingredient. */
-function plainConcept(text: string, lookup: IngredientLookup, language: string): string | null {
+/**
+ * The concept a name refers to: as written, else without a plant qualifier ("vegan coconut yogurt") or with
+ * one typo fixed ("worcestshire sauce"), but only when what is left is not an animal word in the line's
+ * language, so a qualifier or typo never turns a plant product into an animal one.
+ */
+function resolveName(text: string, lookup: IngredientLookup, language: string): string | null {
+  const exact = lookupConcept(text, lookup);
+  if (exact) return exact;
+  const safe = (name: string) => findUnsafeRenderedTerms(name, language).length === 0;
   const plain = text.replace(/^(?:vegan|plant[ -]based|dairy[ -]free|non[ -]?dairy)\s+/i, '').replace(/\s+(?:vegan[oaie]|vegetal[ei])$/i, '');
-  if (plain === text || findUnsafeRenderedTerms(plain, language).length > 0) return null;
-  return lookupConcept(plain, lookup);
+  if (plain !== text) return safe(plain) ? lookupConcept(plain, lookup) : null;
+  const near = safe(text) ? nearName(text, lookup) : null;
+  return near && safe(near) ? lookupConcept(near, lookup) : null;
 }
 
 /** "15-ounce", "3-inch", "400 g": the size of one can or piece; null for anything else. */
@@ -564,11 +573,19 @@ type Resolved = { concept: string; also: ParsedIngredient['also']; phrase?: stri
  * "finely chopped parsley", "salt and pepper to taste": peel known preparation terms off either end of the name
  * until what remains resolves to known ingredients, so no written word is lost.
  */
-function peelTerms(phrase: string, resolve: (text: string) => Resolved | null, lookup: IngredientLookup): (Resolved & { terms: PreparationTerm[] }) | null {
+function peelTerms(phrase: string, resolve: (text: string) => Resolved | null, lookup: IngredientLookup, language = 'en'): (Resolved & { terms: PreparationTerm[] }) | null {
   let words = phrase.split(/\s+/).filter(Boolean);
   const lead: PreparationTerm[] = [];
   const trail: PreparationTerm[] = [];
+  let branded = false;
   const take = (fromEnd: boolean) => {
+    // "bob's red mill almond flour": a leading brand is dropped, not shown.
+    const brand = fromEnd ? 0 : [4, 3, 2, 1].find((n) => n < words.length && lookupBrand(words.slice(0, n).join(' '), lookup));
+    if (brand) {
+      words = words.slice(brand);
+      branded = true;
+      return true;
+    }
     // "unflavored and unsweetened milk": a connector between two leading terms goes with them.
     const skip = !fromEnd && lead.length && /^(?:and|&|or|,)$/i.test(words[0] ?? '') ? 1 : 0;
     for (let n = Math.min(5, words.length - 1 - skip); n > 0; n--) {
@@ -583,6 +600,8 @@ function peelTerms(phrase: string, resolve: (text: string) => Resolved | null, l
   };
   let resolved = resolve(words.join(' '));
   while (!resolved && (take(false) || take(true))) resolved = resolve(words.join(' '));
+  // A brand may be what made the name plant-based ("violife cheddar"): never resolve to an animal name without it.
+  if (resolved && branded && findUnsafeRenderedTerms(words.join(' '), language).length) return null;
   return resolved ? { ...resolved, terms: [...lead, ...trail.reverse()] } : null;
 }
 
