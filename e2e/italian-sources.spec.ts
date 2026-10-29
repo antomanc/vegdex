@@ -1,6 +1,27 @@
 import { expect, italianFixtureData, test } from './fixtures';
 
 for (const language of ['en', 'it'] as const) {
+  test(`a real Cucinaverza recipe keeps its facts, creator and shopping amounts in ${language}`, async ({ page }) => {
+    await page.route('**/data/**', italianFixtureData);
+    const italian = language === 'it';
+    const title = italian ? 'Gnocchi di barbabietola e patate (senza uova)' : 'Vegan Beetroot and Potato Gnocchi';
+    await page.goto(italian ? '/it/' : '/');
+    await page.getByRole('searchbox').fill(italian ? 'barbabietola' : 'beetroot');
+    await expect(page.getByTestId('recipe-card')).toHaveCount(1);
+    await page.getByRole('button', { name: title, exact: true }).click();
+    let sheet = page.getByRole('dialog');
+    await expect(sheet.getByRole('link', { name: /Cucinaverza/ })).toHaveAttribute('href', 'https://cucinaverza.com/piatti-unici/primi/gnocchi-di-barbabietola-e-patate-senza-uova/');
+    await expect(sheet.getByTestId('ingredients')).toContainText(italian ? '300 g barbabietola precotta' : '300 g cooked beetroot');
+    if (!italian) await expect(sheet.locator('.original-title')).toHaveText('Gnocchi di barbabietola e patate (senza uova)');
+    await sheet.getByRole('button', { name: italian ? 'Salva' : 'Save', exact: true }).click();
+    await sheet.getByRole('button', { name: italian ? 'Chiudi' : 'Close', exact: true }).click();
+    await page.getByRole('button', { name: italian ? 'Salvate · 1' : 'Saved · 1', exact: true }).click();
+    await page.getByRole('button', { name: italian ? 'Lista della spesa' : 'Shopping list', exact: true }).click();
+    sheet = page.getByRole('dialog');
+    const flour = sheet.getByTestId('grocery-list').locator('li', { hasText: italian ? 'farina 0' : 'flour type 0' });
+    await expect(flour).toContainText('350 g');
+  });
+
   test(`an enriched Italian recipe is safely browsable in ${language}`, async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));

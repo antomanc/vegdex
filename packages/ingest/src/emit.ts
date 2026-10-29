@@ -144,7 +144,7 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
   const lookup = lookupFor('en');
   // English concept names keep shopping rows and density conversions stable across source languages.
   const groceryLines = parsed.flatMap((lines, i) => lines.map((p) => sorted[i]!.contentLanguage !== 'en' && p.concept
-    ? { ...p, name: merged.byId.get(p.concept)?.names.en?.map(canonicalName).filter(Boolean).sort((a, b) => a.length - b.length || a.localeCompare(b))[0] ?? p.name } : p));
+    ? { ...p, name: merged.byId.get(p.concept)?.names.en?.filter(Boolean).slice().sort((a, b) => a.length - b.length || a.localeCompare(b))[0] ?? p.name } : p));
   const grocery = groceryConcepts(groceryLines, englishLookup);
   for (const p of groceryLines) if (p.concept && !grocery[p.concept]) grocery[p.concept] = [p.name, aisleFor(p.name)];
   const unmapped: Record<string, number> = Object.create(null);
