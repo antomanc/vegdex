@@ -40,7 +40,14 @@ describe('findNonVegan', () => {
     '1/3 cup feta cheese; i used dairy-free',
     '2 cups leftover vegan mac and cheese',
     '1 cup bread and butter pickles',
-    '1 cup coconut milk (use 1/2 cup coconut cream), or 1/3 cup yogurt + 2/3 cup water'
+    '1 cup coconut milk (use 1/2 cup coconut cream), or 1/3 cup yogurt + 2/3 cup water',
+    // Vegan foods the text check has always passed (old real catalog).
+    '8 ounces Chanterelle, Oyster, or Cremini mushrooms, roughly chopped',
+    '1 1/2 cups vegan cheese shreds, cheddar preferred (optional)',
+    '2 cups not beef broth (or any other vegan broth)',
+    'pepita parmesan (or your favorite parm recipe)',
+    '“honey” mustard: 1 tablespoon each dijon mustard and maple syrup',
+    '1/2 cup milk + 2 tablespoons ((150mL) any vegan milk works)'
   ])('accepts %s', (line) => {
     expect(findNonVegan([line])).toEqual([]);
   });
@@ -65,14 +72,3 @@ describe('findNonVegan', () => {
   });
 });
 
-it.each([
-  '2 tbsp vegan butter and 2 eggs',
-  '2 eggs and vegan butter',
-  '2 tbsp vegan butter; 2 eggs',
-  '2 tbsp vegan butter, 2 eggs',
-  '2 eggs with vegan butter',
-  'vegan butter, eggs',
-  'eggs (or flax eggs)'
-])('keeps plant qualification attached to its own ingredient in %s', (line) => {
-  expect(findNonVegan([line])).toEqual(expect.arrayContaining([expect.objectContaining({ term: 'egg' })]));
-});

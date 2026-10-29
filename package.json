@@ -11,7 +11,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "pnpm fixtures && playwright test",
-    "fixtures": "pnpm --filter @vegdex/ingest ingest emit --store ../../e2e/fixtures/store.json --out ../../e2e/fixtures/data",
+    "fixtures": "pnpm --filter @vegdex/ingest ingest emit --store ../../e2e/fixtures/store.json --out ../../e2e/fixtures/data --generated-at 2026-10-29T00:00:00.000Z",
     "seed:concepts": "pnpm --filter @vegdex/ingest exec tsx scripts/seed-concepts.ts"
   },
   "engines": {

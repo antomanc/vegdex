@@ -17,7 +17,8 @@ const { values, positionals } = parseArgs({
     // Small daily batches stay under the rate limits that blogs' firewalls enforce.
     'max-per-source': { type: 'string', default: '400' },
     'gap-ms': { type: 'string', default: '1000' },
-    concurrency: { type: 'string', default: '8' }
+    concurrency: { type: 'string', default: '8' },
+    'generated-at': { type: 'string' }
   }
 });
 
@@ -53,7 +54,7 @@ async function crawl() {
 function emit() {
   const store = loadStore(values.store!);
   fs.mkdirSync(values.out!, { recursive: true });
-  const report = emitDataset(Object.values(store.recipes), allSources, values.out!);
+  const report = emitDataset(Object.values(store.recipes), allSources, values.out!, { generatedAt: values['generated-at'] });
   fs.writeFileSync(path.join(path.dirname(values.store!), 'excluded.json'), JSON.stringify(report.excluded, null, 1));
   log(`published ${report.published} recipes (${(report.bytes / 1e6).toFixed(1)} MB raw), excluded ${report.excluded.length} by the vegan check and ${report.otherLanguage} not in English`);
   log(Object.entries(report.bySource).sort((a, b) => b[1] - a[1]).map(([s, n]) => `  ${s}: ${n}`).join('\n'));

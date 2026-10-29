@@ -137,6 +137,8 @@ describe('compileGroceryList with ingredient concepts', () => {
     expect(compile([{ recipeId: 'a', ingredients: ['1 tbsp corn starch', '1 tbsp cornstarch', '1 cup cornmeal', '1 cup corn'] }]).map(({ name, aisle }) => [name, aisle])).toEqual([
       ['corn', 'produce'], ['cornmeal', 'grains & pasta'], ['cornstarch', 'baking & sweeteners']
     ]);
+    for (const line of ['1 tbsp cornflour', '1 tbsp corn flour', '2 tbsp corn syrup'])
+      expect(compile([{ recipeId: 'a', ingredients: [line] }])[0]?.aisle, line).toBe('baking & sweeteners');
   });
 
   it('keeps canned produce apart from fresh produce', () => {
@@ -159,12 +161,20 @@ describe('compileGroceryList with ingredient concepts', () => {
     expect(list['vanilla extract']?.amounts).toEqual(['≈ 6 g']);
   });
 
+  it.each(['us', 'metric'] as const)('weighs vanilla extract spoons with its USDA density when no blog grams are given (%s)', (units) => {
+    const list = byName(compile([
+      { recipeId: 'a', ingredients: ['5 g vanilla extract'] },
+      { recipeId: 'b', ingredients: ['1/8 tsp pure vanilla extract'] }
+    ], units));
+    expect(list['vanilla extract']?.amounts).toEqual(['≈ 6 g']);
+  });
+
   it('keeps separate totals when no conversion is known and never adds cans to weights', () => {
     const list = byName(compile([
-      { recipeId: 'a', ingredients: ['5 g vanilla extract', '1 can coconut milk', '200 g coconut milk'] },
-      { recipeId: 'b', ingredients: ['1/8 tsp pure vanilla extract', '1 cup coconut milk'] }
+      { recipeId: 'a', ingredients: ['5 g fregola sarda', '1 can coconut milk', '200 g coconut milk'] },
+      { recipeId: 'b', ingredients: ['1/8 cup fregola sarda', '1 cup coconut milk'] }
     ]));
-    expect(list['vanilla extract']?.amounts).toEqual(['5 g', '⅛ tsp']);
+    expect(list['fregola sarda']?.amounts).toEqual(['5 g', '2 tbsp']);
     expect(list['coconut milk']?.amounts).toEqual(['≈ 430 g', '1 can']);
   });
 

@@ -56,11 +56,9 @@ function searchTerms(text: string, lookup: IngredientLookup): SearchTerm[] {
   return terms;
 }
 
-function hasIngredient(recipe: CatalogRecipe, term: SearchTerm, lookup: IngredientLookup): boolean {
-  if (term.concept && recipe.concepts) {
-    if (recipe.concepts.includes(term.concept)) return true;
-    return recipe.ing.some((name) => !isQualifiedIngredient(name) && !lookupConcept(name, lookup) && nameMatches(name, term.words));
-  }
+/** Concepts add matches (Italian names, synonyms); the English text match always still counts. */
+function hasIngredient(recipe: CatalogRecipe, term: SearchTerm): boolean {
+  if (term.concept && recipe.concepts?.includes(term.concept)) return true;
   return recipe.ing.some((name) => nameMatches(name, term.words));
 }
 
@@ -90,8 +88,8 @@ export function searchRecipes<R extends CatalogRecipe>(recipes: R[], q: RecipeQu
     if (q.highProtein && !r.tags.includes('high-protein')) continue;
     if (cuisine && !r.tags.some((t) => t.startsWith('cuisine:') && t.includes(cuisine))) continue;
     if (q.minRating !== undefined && (r.rating ?? 0) < q.minRating) continue;
-    if (!include.every((p) => hasIngredient(r, p, lookup))) continue;
-    if (exclude.some((p) => hasIngredient(r, p, lookup))) continue;
+    if (!include.every((p) => hasIngredient(r, p))) continue;
+    if (exclude.some((p) => hasIngredient(r, p))) continue;
 
     let score = 0;
     if (textTerms.length) {
@@ -100,7 +98,7 @@ export function searchRecipes<R extends CatalogRecipe>(recipes: R[], q: RecipeQu
       for (const term of textTerms) for (const t of term.words) {
         if (title.some((w) => w === t)) score += 3;
         else if (title.some((w) => t.length >= 3 && w.startsWith(t))) score += 2;
-        else if (hasIngredient(r, { words: [t], concept: term.concept }, lookup)) score += 1;
+        else if (hasIngredient(r, { words: [t], concept: term.concept })) score += 1;
         else continue;
         matched++;
       }
