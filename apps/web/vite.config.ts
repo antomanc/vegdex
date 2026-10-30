@@ -12,10 +12,10 @@ const base = process.env.BASE_PATH ?? '/'
 const siteUrl = 'https://vegdex.antomanc.com/'
 
 type Messages = Record<string, unknown> & { meta_title: string; meta_description: string; manifest_name: string }
-const messages = (code: string): Messages => JSON.parse(readFileSync(`messages/${code}.json`, 'utf8'))
+const messages = (code: string): Messages => JSON.parse(readFileSync(new URL(`messages/${code}.json`, import.meta.url), 'utf8'))
 
 // Paraglide compiles from project.inlang, which lists the same languages as the registry.
-const declared: string[] = JSON.parse(readFileSync('project.inlang/settings.json', 'utf8')).locales
+const declared: string[] = JSON.parse(readFileSync(new URL('project.inlang/settings.json', import.meta.url), 'utf8')).locales
 if (declared.join() !== LOCALES.map((l) => l.code).join()) {
   throw new Error(`project.inlang/settings.json locales (${declared}) must match src/lib/locales.ts`)
 }

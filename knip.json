@@ -1,0 +1,19 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "ignore": [".agents/**", ".trail/**"],
+  "ignoreExportsUsedInFile": true,
+  "workspaces": {
+    ".": {
+      "entry": ["e2e/emit-fixtures.ts"]
+    },
+    "apps/web": {
+      "ignoreDependencies": ["@inlang/plugin-message-format"]
+    },
+    "packages/ingest": {
+      "entry": ["src/nightly-cli.ts", "scripts/*.ts"]
+    },
+    "packages/mcp": {
+      "ignoreDependencies": ["tsx"]
+    }
+  }
+}

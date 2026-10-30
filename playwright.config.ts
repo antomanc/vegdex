@@ -6,7 +6,8 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: process.env.CI ? 'github' : 'list',
+  // e2e.json is a machine-readable summary for agents and scripts.
+  reporter: [[process.env.CI ? 'github' : 'list'], ['json', { outputFile: 'test-results/e2e.json' }]],
   use: {
     baseURL: 'http://localhost:4174',
     trace: 'on-first-retry',

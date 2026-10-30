@@ -90,7 +90,26 @@ export function findGaps(prepared: Prepared[], vocab: Vocabulary, languages: str
   return [...gaps.values()].sort((a, b) => b.lines - a.lines || a.id.localeCompare(b.id));
 }
 
-export function measureCoverage(prepared: Prepared[], vocab: Vocabulary, languages: string[]): Coverage {
+export const gapsIn = (gaps: Gap[], language: string) => gaps.filter((g) => g.language === language);
+const sumLines = (gaps: Gap[]) => gaps.reduce((sum, g) => sum + g.lines, 0);
+
+/**
+ * Lines the largest N gaps cover together, for each N in sizes (gaps sorted largest first),
+ * stopping at the first N that takes every gap. A line can carry several gaps, so these are gap-line hits.
+ */
+export function fillPayoff(gaps: Gap[], sizes: number[]): { gaps: number; lines: number }[] {
+  const steps = [];
+  for (const size of sizes) {
+    if (!gaps.length) break;
+    const taken = gaps.slice(0, size);
+    steps.push({ gaps: taken.length, lines: sumLines(taken) });
+    if (taken.length === gaps.length) break;
+  }
+  return steps;
+}
+
+/** Coverage per language, plus every gap (largest first) so callers need not walk the catalog again. */
+export function measureCoverage(prepared: Prepared[], vocab: Vocabulary, languages: string[]): { coverage: Coverage; gaps: Gap[] } {
   const result: Coverage = { languages: {}, top: {} };
   for (const language of languages) {
     const display = vocab.display(language);
@@ -114,6 +133,6 @@ export function measureCoverage(prepared: Prepared[], vocab: Vocabulary, languag
   }
   const gaps = findGaps(prepared, vocab, languages);
   for (const language of languages)
-    result.top[language] = gaps.filter((g) => g.language === language).slice(0, 20).map(({ kind, id, lines }) => ({ kind, id, lines }));
-  return result;
+    result.top[language] = gapsIn(gaps, language).slice(0, 20).map(({ kind, id, lines }) => ({ kind, id, lines }));
+  return { coverage: result, gaps };
 }

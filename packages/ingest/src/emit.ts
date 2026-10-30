@@ -128,7 +128,7 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
   };
   const languages = Object.keys(vocab.files);
   for (const language of languages) write(`overlay/${language}.json`, overlay(language, vocab.display(language), rows, parsed));
-  const coverage = measureCoverage([...published, ...held], vocab, languages);
+  const { coverage } = measureCoverage([...published, ...held], vocab, languages);
   write('coverage.json', coverage);
   write('dictionary.json', { provenance: seed.provenance, concepts: vocab.concepts.filter((c) => used.has(c.id)) });
   for (const language of languages)

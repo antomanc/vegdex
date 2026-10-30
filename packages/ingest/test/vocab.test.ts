@@ -4,7 +4,7 @@ import path from 'node:path';
 import { afterEach, expect, it } from 'vitest';
 import { lookupConcept, lookupTerm, parseIngredient } from '@vegdex/core';
 import { applyAnswers, buildBatch } from '../src/fill';
-import { findGaps, measureCoverage } from '../src/gaps';
+import { fillPayoff, findGaps, measureCoverage, type Gap } from '../src/gaps';
 import type { Prepared } from '../src/prepare';
 import { loadVocabulary, writeVocabulary } from '../src/vocab';
 import { checkVocabulary } from '../src/vocab-check';
@@ -123,14 +123,21 @@ it('measures coverage and ranks gaps by the lines they keep from rendering', () 
     recipe('a', ['400 g chickpeas, drained and rinsed', '1 cup mystery seeds', '2 tbsp moon oil']),
     recipe('b', ['1 cup mystery seeds, see notes', '1 tsp moon salt'])
   ];
-  const coverage = measureCoverage(prepared, vocab, ['it']);
+  const { coverage, gaps } = measureCoverage(prepared, vocab, ['it']);
   expect(coverage.languages.it).toMatchObject({ lines: 5, rendered: 1, unknown: 4, titles: 2, translatedTitles: 0 });
-  const gaps = findGaps(prepared, vocab, ['it']);
+  expect(gaps).toEqual(findGaps(prepared, vocab, ['it']));
   expect(gaps.filter((g) => g.kind === 'map').map((g) => [g.id, g.lines])).toEqual([['mystery seeds', 2], ['moon oil', 1], ['moon salt', 1]]);
   expect(gaps.filter((g) => g.kind === 'title')).toHaveLength(2);
   const batch = buildBatch(vocab, gaps, 'map', 'en', 1);
   expect(batch.items).toEqual([expect.objectContaining({ id: 'mystery seeds', lines: 2, context: expect.objectContaining({ candidates: expect.any(Array) }) })]);
   expect(batch.instructions).toContain('"not-ingredient"');
+});
+
+it('sizes fill payoff by the largest gaps, stopping at the first size that takes them all', () => {
+  const gaps = [50, 30, 20, 10, 5, 5].map((lines, i): Gap => ({ kind: 'map', language: 'en', id: `g${i}`, lines, examples: [] }));
+  expect(fillPayoff(gaps, [2, 4, 10, 25])).toEqual([{ gaps: 2, lines: 80 }, { gaps: 4, lines: 110 }, { gaps: 6, lines: 120 }]);
+  expect(fillPayoff(gaps, [6, 10])).toEqual([{ gaps: 6, lines: 120 }]);
+  expect(fillPayoff([], [10])).toEqual([]);
 });
 
 it('drops a curated brand only where no ingredient shares its name', () => {
