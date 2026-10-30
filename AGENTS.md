@@ -15,7 +15,8 @@ AI-first web project configured with `aginit` (Web, node).
 - Build: `pnpm build`
 - Typecheck: `pnpm typecheck`
 - Test: `pnpm test`
-- Test (E2E / Browser): `pnpm test:e2e`
+- Test (E2E / Browser): `pnpm test:e2e` (summary in `test-results/e2e.json`)
+- Preview for agent-browser: `pnpm preview:start` builds and serves http://localhost:4173 in the background; `pnpm preview:stop` stops it
 
 <!-- aginit:start — managed by npx @antomanc/aginit (re-run to refresh) -->
 ## Bootstrap & First Session

@@ -7,6 +7,8 @@
     "preflight": "node scripts/preflight.mjs",
     "dev": "pnpm --filter @vegdex/web dev",
     "build": "pnpm --filter @vegdex/web build",
+    "preview:start": "node scripts/preview.mjs start",
+    "preview:stop": "node scripts/preview.mjs stop",
     "ingest": "pnpm --filter @vegdex/ingest ingest",
     "typecheck": "pnpm -r typecheck && pnpm typecheck:e2e",
     "typecheck:e2e": "tsc -p tsconfig.e2e.json",
