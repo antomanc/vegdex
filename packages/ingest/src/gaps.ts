@@ -90,7 +90,7 @@ export function findGaps(prepared: Prepared[], vocab: Vocabulary, languages: str
   return [...gaps.values()].sort((a, b) => b.lines - a.lines || a.id.localeCompare(b.id));
 }
 
-export function measureCoverage(prepared: Prepared[], vocab: Vocabulary, languages: string[]): Coverage {
+export function measureCoverage(prepared: Prepared[], vocab: Vocabulary, languages: string[], gaps = findGaps(prepared, vocab, languages)): Coverage {
   const result: Coverage = { languages: {}, top: {} };
   for (const language of languages) {
     const display = vocab.display(language);
@@ -112,7 +112,6 @@ export function measureCoverage(prepared: Prepared[], vocab: Vocabulary, languag
     }
     result.languages[language] = c;
   }
-  const gaps = findGaps(prepared, vocab, languages);
   for (const language of languages)
     result.top[language] = gaps.filter((g) => g.language === language).slice(0, 20).map(({ kind, id, lines }) => ({ kind, id, lines }));
   return result;
