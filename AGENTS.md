@@ -14,6 +14,7 @@ AI-first web project configured with `aginit` (Web, node).
 - Dev Server: `pnpm dev`
 - Build: `pnpm build`
 - Typecheck: `pnpm typecheck`
+- Unused files, exports and dependencies: `pnpm knip` (config in `knip.json`; runs in CI)
 - Test: `pnpm test`
 - Test (E2E / Browser): `pnpm test:e2e` (summary in `test-results/e2e.json`)
 - Preview for agent-browser: `pnpm preview:start` builds and serves http://localhost:4173 in the background; `pnpm preview:stop` stops it

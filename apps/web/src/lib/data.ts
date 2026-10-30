@@ -51,11 +51,6 @@ export async function loadDetails(id: string): Promise<RecipeDetails> {
   return Array.isArray(detail) ? { ingredients: detail } : detail ?? { ingredients: [] }
 }
 
-/** Original lines remain available to the shopping-list compiler and older consumers. */
-export async function loadIngredients(id: string): Promise<string[]> {
-  return (await loadDetails(id)).ingredients
-}
-
 const record = (value: unknown): value is Record<string, unknown> => !!value && typeof value === 'object' && !Array.isArray(value)
 const text = (value: unknown): value is string => typeof value === 'string' && !!value
 const entries = <T>(value: unknown, valid: (v: unknown) => boolean): Record<string, T> =>

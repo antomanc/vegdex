@@ -12,6 +12,7 @@
     "ingest": "pnpm --filter @vegdex/ingest ingest",
     "typecheck": "pnpm -r typecheck && pnpm typecheck:e2e",
     "typecheck:e2e": "tsc -p tsconfig.e2e.json",
+    "knip": "knip",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "pnpm fixtures && playwright test",
@@ -30,6 +31,7 @@
     "@playwright/test": "^1.63.0",
     "@types/node": "^26.6.5",
     "@vegdex/core": "workspace:*",
+    "knip": "^6.43.0",
     "typescript": "^7.0.2",
     "vitest": "^4.1.11"
   },
