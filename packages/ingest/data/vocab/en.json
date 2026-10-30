@@ -3889,13 +3889,20 @@
   },
   "units": {
     "bag": ["bag","bags"],
+    "bar": ["bar","bars"],
+    "batch": ["batch","batches"],
     "block": ["block","blocks"],
+    "bottle": ["bottle","bottles"],
+    "box": ["box","boxes"],
     "bunch": ["bunch","bunches"],
     "can": ["can","cans"],
+    "carton": ["carton","cartons"],
     "clove": ["clove","cloves"],
     "cm": ["cm","cm"],
+    "container": ["container","containers"],
     "cup": ["cup","cups"],
     "dash": ["dash","dashes"],
+    "drop": ["drop","drops"],
     "fl oz": ["fl oz","fl oz"],
     "g": ["g","g"],
     "handful": ["handful","handfuls"],
@@ -3912,12 +3919,16 @@
     "pinch": ["pinch","pinches"],
     "pint": ["pint","pints"],
     "quart": ["quart","quarts"],
+    "recipe": ["recipe","recipes"],
     "scoop": ["scoop","scoops"],
     "sheet": ["sheet","sheets"],
     "slice": ["slice","slices"],
+    "splash": ["splash","splashes"],
     "sprig": ["sprig","sprigs"],
+    "sprinkle": ["sprinkle","sprinkles"],
     "stalk": ["stalk","stalks"],
     "tbsp": ["tbsp","tbsp"],
-    "tsp": ["tsp","tsp"]
+    "tsp": ["tsp","tsp"],
+    "tube": ["tube","tubes"]
   }
 }
