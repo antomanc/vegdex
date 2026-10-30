@@ -4,7 +4,7 @@ Ingredient lines render from `packages/ingest/data/vocab/` (see `docs/adr/0005`)
 
 ```bash
 pnpm coverage                                          # score per language, largest gaps
-pnpm coverage --sample                                 # plus an example line per gap and what the top 10…250 of each kind cover
+pnpm coverage --sample                                 # plus an example line per gap and the gap lines the top 10…250 of each kind cover
 pnpm gaps --kind name --lang it --size 50 --batches 4  # .data/fill/it-name-001.json …
 # answer each batch into .data/fill/it-name-001.answers.json
 pnpm vocab:apply .data/fill/it-name-*.answers.json     # checks every answer, merges what passes

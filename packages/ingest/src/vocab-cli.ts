@@ -5,7 +5,7 @@ import { parseArgs } from 'node:util';
 import type { Source } from '@vegdex/core';
 import { answerBatch, modelConfig } from './enrich';
 import { applyAnswers, buildBatch, type Answers, type Batch } from './fill';
-import { findGaps, measureCoverage, score, type GapKind } from './gaps';
+import { fillPayoff, findGaps, gapsIn, measureCoverage, score, type GapKind } from './gaps';
 import { prepareRecipes } from './prepare';
 import { loadStore } from './store';
 import { loadVocabulary, writeAtomic, writeVocabulary } from './vocab';
@@ -14,7 +14,7 @@ const root = path.resolve(import.meta.dirname, '../../..');
 const KINDS: GapKind[] = ['map', 'term', 'name', 'title'];
 const HELP = `Vocabulary fill loop (see docs/agents/vocabulary.md):
   pnpm coverage [--top 15] [--sample]                 score per language and the largest gaps; --sample adds an
-                                                      example line per gap and the lines the top N gaps of each kind cover
+                                                      example line per gap and the gap lines the top N gaps of each kind cover
   pnpm gaps --kind <map|term|name|title> --lang <code> [--size 50] [--batches 1]
                                                       write batch files to .data/fill/
   pnpm vocab:apply <file.answers.json> ...            check answers and merge them into data/vocab/
@@ -53,27 +53,25 @@ const PAYOFF_SIZES = [10, 25, 50, 100, 250];
 
 function coverage() {
   const { vocab, recipes } = prepared();
-  const languages = Object.keys(vocab.files);
-  const all = findGaps(recipes, vocab, languages);
-  const result = measureCoverage(recipes, vocab, languages, all);
+  const { coverage: result, gaps: all } = measureCoverage(recipes, vocab, Object.keys(vocab.files));
   for (const [language, c] of Object.entries(result.languages)) {
     const s = score(c);
     console.log(`\n${language}: ${s.rendered}% of ${c.lines} lines rendered, ${s.unknown}% unknown ingredients, ${c.unnamed} lines missing a name, ${c.kept} kept as written; ${s.titles}% of ${c.titles} titles`);
-    const own = all.filter((g) => g.language === language);
+    const own = gapsIn(all, language);
     for (const gap of own.slice(0, Number(values.top)))
       console.log(`  ${gap.kind.padEnd(5)} ${String(gap.lines).padStart(6)}  ${gap.id}${values.sample ? `  e.g. ${gap.examples[0]}` : ''}`);
     if (!values.sample) continue;
     // What filling the largest N gaps of a kind would cover, to size `pnpm gaps --size --batches`.
-    console.log('  lines covered by the largest N gaps of each kind:');
+    console.log('  gap lines covered by the largest N gaps of each kind (a line with two gaps counts twice):');
     for (const kind of KINDS) {
       const ofKind = own.filter((g) => g.kind === kind);
-      if (!ofKind.length) continue;
-      const total = ofKind.reduce((a, g) => a + g.lines, 0);
-      const steps = PAYOFF_SIZES.filter((n, i) => i === 0 || PAYOFF_SIZES[i - 1]! < ofKind.length).map((n) => {
-        const lines = ofKind.slice(0, n).reduce((a, g) => a + g.lines, 0);
-        return `${Math.min(n, ofKind.length)}: ${lines} (${Math.round((100 * lines) / total)}%)`;
-      });
-      console.log(`    ${kind.padEnd(5)} ${ofKind.length} gaps, ${total} lines; top ${steps.join(' · ')}`);
+      // The last step always takes every gap of the kind, so it holds the total.
+      const steps = fillPayoff(ofKind, [...PAYOFF_SIZES, Infinity]);
+      if (!steps.length) continue;
+      const total = steps.at(-1)!.lines;
+      // Floor, so 100% only shows once every gap of the kind is in.
+      const shown = steps.map((p) => `${p.gaps}: ${p.lines} (${Math.floor((1000 * p.lines) / total) / 10}%)`);
+      console.log(`    ${kind.padEnd(5)} top ${shown.join(' · ')}`);
     }
   }
 }
