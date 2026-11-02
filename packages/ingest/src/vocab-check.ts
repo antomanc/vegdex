@@ -23,9 +23,13 @@ const looksForeign = (language: string, value: string) => !!foreign[language]?.t
 /** Concept aliases name one whole ingredient: no alternatives, purposes, amounts or notes. */
 const STRUCTURAL = /[,;()/\d]|\b(?:or|and|with|for|to taste|as needed|if needed|optional|divided|plus)\b/i;
 
+const STRAY = /^[.,;:|”″]|\p{L}{3}\.$|[,;:|]$|[\u200b-\u200d\u2060-\u2064\u2800]/u;
+
 export function checkAlias(vocab: Vocabulary, language: string, phrase: string, id: string): string | null {
   if (!Object.hasOwn(languagePacks, language)) return 'unsupported-language';
   if (!text(phrase, 80) || ingredientKey(phrase) !== phrase) return 'malformed';
+  // Leftovers of an older parser: "1 lb. pasta" → ". pasta", "1” ginger" → "” ginger", invisible separators.
+  if (STRAY.test(phrase)) return 'stray-punctuation';
   if (isTermId(id)) {
     if (!termExists(vocab, id)) return 'unknown-term';
     if (/\d/.test(phrase) || phrase.split(/\s+/).length > 6) return 'not-a-term';

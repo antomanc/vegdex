@@ -108,6 +108,13 @@ describe('amount shapes that used to leak into the name', () => {
     ['30-45 / 2-3 tbsp olive oil', 2, 3, 'tbsp', 'olive-oil'],
     ['150 g / 1 and ½ cups of all purpose white flour', 150, null, 'g', 'flour'],
     ['3 ⁄4 teaspoon cumin', 0.75, null, 'tsp', 'cumin'],
+    // Scraping leftovers that older answers learned as part of the name.
+    ['1/2” ginger', 0.5, null, 'inch', 'ginger'],
+    ['1 c . basmati rice', 1, null, 'cup', 'rice'],
+    ['½. cup basmati rice', 0.5, null, 'cup', 'rice'],
+    ['2 teaspoons cumin.', 2, null, 'tsp', 'cumin'],
+    ['1/4 teaspoon cumin\u2063', 0.25, null, 'tsp', 'cumin'],
+    ['1 cup basmati rice | (rinsed)', 1, null, 'cup', 'rice'],
     ['A generous ¾ cup water', 0.75, null, 'cup', 'water'],
     ['a good pinch of cumin', 1, null, 'pinch', 'cumin'],
     ['1 heaping cup (150g) 1/4 inch sliced spinach', 1, null, 'cup', 'spinach'],

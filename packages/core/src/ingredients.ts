@@ -195,9 +195,12 @@ export function normalizeLine(raw: string): string {
   // "3 /4 teaspoon": a fraction split by a stray space.
   s = s.replace(/(\d) \/(\d)/g, '$1/$2');
   // "14- oz . can", "1 12-ounce) bag": a stray space or a missing bracket in the measure.
-  s = s.replace(/\b(oz|lbs?|tsp|tbsp)\s+\.(?=\s)/gi, '$1.').replace(/^(\d+) (\d[\d.]*\s*-?\s*(?:ounces?|oz|grams?|g|ml|lbs?|pounds?)\.?)\)/i, '$1 ($2)');
+  s = s.replace(/\b(oz|lbs?|tsp|tbsp|c)\s+\.(?=\s)/gi, '$1.').replace(/^(\d+) (\d[\d.]*\s*-?\s*(?:ounces?|oz|grams?|g|ml|lbs?|pounds?)\.?)\)/i, '$1 ($2)');
   s = s.replace(/\(\(/g, '(').replace(/\)\)/g, ')');
   s = s.replace(/\*+/g, '');
+  // Invisible separators, inch marks ("1/2” ginger"), a lone "|" and a full stop after the name ("baking powder.").
+  s = s.replace(/[\u200b-\u200d\u2060-\u2064\u2800\ufeff]/g, '').replace(/^([\d\s\/.–-]*\d)\s*[”″](?=\s*\p{L})/u, '$1 inch ');
+  s = s.replace(/(\d\/\d+)\.(?=\s)/g, '$1').replace(/\s\|(?=\s|$)/g, ' ').replace(/(\p{L}{3})\.(?=\s*(?:\(|$))/gu, '$1');
   s = s.replace(/^[-•▢·\s]+/, '');
   return s.replace(/\s+/g, ' ').trim();
 }
