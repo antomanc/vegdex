@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, expect, it } from 'vitest';
-import { lookupConcept, parseIngredient, searchRecipes, shardOf, type Catalog, type FullDataset } from '@vegdex/core';
+import { lookupConcept, parseIngredient, searchRecipes, shardOf, unpackCatalog, type FullDataset } from '@vegdex/core';
 import { emitDataset } from '../src/emit';
 import { loadStore } from '../src/store';
 
@@ -35,7 +35,7 @@ it('emits concepts, original English content and lazy used-only lookups from a f
   dirs.push(out);
   const report = emitDataset(recipes, [{ id: base.sourceId, name: 'The Simple Veganista', url: 'https://simple-veganista.com' }], out);
   const read = (name: string) => JSON.parse(fs.readFileSync(path.join(out, name), 'utf8'));
-  const catalog = read('catalog.json') as Catalog;
+  const catalog = unpackCatalog(read('catalog.json'));
   const full = read('recipes.full.json') as FullDataset;
   const en = read('lookup/en.json').aliases;
   const it = read('lookup/it.json').aliases;

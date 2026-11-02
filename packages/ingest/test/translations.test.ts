@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, expect, it } from 'vitest';
-import { type Catalog, type LanguageVocabulary } from '@vegdex/core';
+import { unpackCatalog, type LanguageVocabulary } from '@vegdex/core';
 import { emitDataset } from '../src/emit';
 import { loadStore } from '../src/store';
 import { loadVocabulary } from '../src/vocab';
@@ -20,7 +20,7 @@ it('emits only used safe titles in a lazy overlay while retaining catalog origin
   vocabulary.files.it!.titles = { [recipe.title]: 'Pancake vegani soffici', Unused: 'Inutilizzato' };
   emitDataset([recipe], [source], out, { vocabulary });
   const read = (name: string) => JSON.parse(fs.readFileSync(path.join(out, name), 'utf8'));
-  const catalog = read('catalog.json') as Catalog;
+  const catalog = unpackCatalog(read('catalog.json'));
   const overlay = read('overlay/it.json') as LanguageVocabulary;
   expect(catalog.recipes[0]!.title).toBe('Fluffy Vegan Pancakes');
   expect(catalog).not.toHaveProperty('titles');
@@ -29,7 +29,7 @@ it('emits only used safe titles in a lazy overlay while retaining catalog origin
     vocabulary.files.it!.titles = { [recipe.title]: unsafe };
     emitDataset([recipe], [source], out, { vocabulary });
     expect(read('overlay/it.json').titles).toEqual({});
-    expect((read('catalog.json') as Catalog).recipes[0]!.title).toBe(recipe.title);
+    expect((unpackCatalog(read('catalog.json'))).recipes[0]!.title).toBe(recipe.title);
   }
 });
 

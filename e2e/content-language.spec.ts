@@ -1,9 +1,9 @@
-import type { Catalog } from '@vegdex/core';
+import { unpackCatalog } from '@vegdex/core';
 import fs from 'node:fs';
 import { expect, italianFixtureData, test } from './fixtures';
 
 // Keep every ranking factor equal so only the page's language decides the order.
-const catalog = JSON.parse(fs.readFileSync(new URL('./fixtures/italian-data/catalog.json', import.meta.url), 'utf8')) as Catalog;
+const catalog = unpackCatalog(JSON.parse(fs.readFileSync(new URL('./fixtures/italian-data/catalog.json', import.meta.url), 'utf8')));
 const italian = catalog.recipes.find((r) => r.id === 'italian-chickpeas')!;
 const english = catalog.recipes.find((r) => r.id === 'quinoa-salad')!;
 const equivalent = { ...catalog, recipes: [english, { ...italian, rating: english.rating, ratingCount: english.ratingCount, minutes: english.minutes }] };

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { compileGroceryList, groceryConcepts, parseIngredient, safeTranslation, searchRecipes, type CatalogRecipe } from '../src';
+import { compileGroceryList, groceryConcepts, parseIngredient, prepareSearch, safeTranslation, searchRecipes, type CatalogRecipe } from '../src';
 
 const r = (id: string, over: Partial<CatalogRecipe>): CatalogRecipe => ({
   id, title: id, source: 's', url: 'u', image: null, minutes: 20, servings: 4, rating: 4.5, ratingCount: 10,
@@ -83,6 +83,45 @@ describe('searchRecipes', () => {
     const unsafe = (recipe: CatalogRecipe) => safeTranslation(recipe.title, 'Pollo al forno', 'it');
     expect(searchRecipes(recipes, { text: 'pollo' }, {}, unsafe)).toEqual([]);
     expect(searchRecipes(recipes, { text: 'funghi' }).map((r) => r.id)).toEqual(['ingredient']);
+  });
+});
+
+describe('searchRecipes on a prepared list', () => {
+  // The same array is searched again and again, as the app does: word indexes built once must keep every match.
+  const recipes = [
+    r('cookies', { title: 'Peanut Butter Cookies', ing: ['peanut butter', 'oat flour'], rating: 5, ratingCount: 50, published: '2026-01-01' }),
+    r('curry', { title: 'Chickpea Curry', ing: ['chickpeas', 'coconut milk'], rating: 4, ratingCount: 50, published: '2026-01-01' }),
+    r('ceci', { title: 'Pasta e ceci', contentLanguage: 'it', ing: ['ceci', 'pasta'], concepts: ['chickpea'], rating: 4.5, ratingCount: 50 }),
+    r('bowl', { title: 'Buddha Bowl', ing: ['roasted chickpeas', 'kale'], rating: 3, ratingCount: 50, published: '2026-01-01' })
+  ];
+  const lookup = { chickpeas: 'chickpea', chickpea: 'chickpea' };
+  const ids = (q: Parameters<typeof searchRecipes>[1], title?: (r: CatalogRecipe) => string) => searchRecipes(recipes, q, lookup, title).map((x) => x.id);
+
+  it('finds word starts in titles and ingredients, and concepts in any language', () => {
+    expect(ids({ text: 'pea' })).toEqual(['cookies']);
+    expect(ids({ text: 'chickp' })).toEqual(['curry', 'bowl']);
+    expect(ids({ text: 'chickpeas' })).toEqual(['curry', 'ceci', 'bowl']);
+    expect(ids({ include: ['chickpeas'], exclude: ['kale'] })).toEqual(['ceci', 'curry']);
+    expect(ids({ text: 'xyz' })).toEqual([]);
+  });
+
+  it('searches the titles of the title function it is given, and of a new one once titles change', () => {
+    const italian = (x: CatalogRecipe) => (x.id === 'bowl' ? 'Ciotola di ceci' : x.title);
+    expect(ids({ text: 'ciotola' }, italian)).toEqual(['bowl']);
+    const renamed = (x: CatalogRecipe) => (x.id === 'cookies' ? 'Biscotti al burro di arachidi' : x.title);
+    expect(ids({ text: 'biscotti' }, renamed)).toEqual(['cookies']);
+    expect(ids({ text: 'ciotola' }, renamed)).toEqual([]);
+  });
+
+  it('gives the same results after preparing ahead of the first search', () => {
+    const fresh = recipes.map((x) => ({ ...x }));
+    prepareSearch(fresh, (next) => next());
+    expect(searchRecipes(fresh, { text: 'chickpeas' }, lookup).map((x) => x.id)).toEqual(['curry', 'ceci', 'bowl']);
+  });
+
+  it('breaks ties of the chosen sort by rating', () => {
+    expect(ids({ sort: 'newest' })).toEqual(['cookies', 'curry', 'bowl', 'ceci']);
+    expect(ids({ sort: 'fastest' })).toEqual(['cookies', 'ceci', 'curry', 'bowl']);
   });
 });
 

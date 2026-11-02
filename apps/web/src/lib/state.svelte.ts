@@ -84,6 +84,11 @@ export function activeCount(): number {
   )
 }
 
+/** No search, filter, saved view or chosen order: the page a shared link opens, and the one first.json can fill. */
+export function isLanding(): boolean {
+  return !filters.text.trim() && !filters.saved && !filters.sort && activeCount() === 0
+}
+
 /** Filters that live behind "More filters" (the quick pills show their own state). */
 export function moreCount(): number {
   return filters.freeFrom.length + filters.include.length + filters.exclude.length

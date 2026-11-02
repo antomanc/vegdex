@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { unpackCatalog } from '@vegdex/core';
 import { expect, test } from './fixtures';
 
 test.beforeEach(async ({ page }) => {
@@ -94,11 +95,10 @@ test('saved recipes build an Italian shopping list', async ({ page }) => {
 });
 
 test('counts, compact ratings and times use Italian despite the browser language', async ({ page }) => {
-  const catalog = JSON.parse(readFileSync(new URL('./fixtures/data/catalog.json', import.meta.url), 'utf8'));
-  catalog.sources = [catalog.sources.find((source: { id: string }) => source.id === catalog.recipes[0].source)];
-  catalog.recipes = Array.from({ length: 12345 }, (_, i) => ({
-    ...catalog.recipes[0], id: `number-${i}`, ratingCount: 1200000, servings: 1.5, minutes: 90
-  }));
+  const catalog = unpackCatalog(JSON.parse(readFileSync(new URL('./fixtures/data/catalog.json', import.meta.url), 'utf8')));
+  const first = catalog.recipes[0]!;
+  catalog.sources = catalog.sources.filter((source) => source.id === first.source);
+  catalog.recipes = Array.from({ length: 12345 }, (_, i) => ({ ...first, id: `number-${i}`, ratingCount: 1200000, servings: 1.5, minutes: 90 }));
   await page.route('**/data/catalog.json', (route) => route.fulfill({ json: catalog }));
   await page.reload();
   await expect(page.getByTestId('result-count')).toHaveText('12.345 ricette');

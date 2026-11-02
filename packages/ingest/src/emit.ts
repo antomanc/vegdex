@@ -6,6 +6,8 @@ import {
   shardOf,
   type Catalog,
   groceryConcepts,
+  packCatalog,
+  ratingScore,
   aisleFor,
   isTermId,
   type CatalogRecipe,
@@ -22,6 +24,9 @@ import { conceptFamily, seed, type Concept } from './concepts';
 import { measureCoverage, type Coverage } from './gaps';
 import { blockedIds, prepareRecipes, type Excluded } from './prepare';
 import { loadVocabulary, type Vocabulary } from './vocab';
+
+/** Two screens of cards: enough for the first page in any UI language. */
+const FIRST_PAGE = 96;
 
 function toCatalog(r: Recipe, lines: ParsedIngredient[][], concepts: Map<string, Concept>): CatalogRecipe {
   const parsed = lines.flat();
@@ -78,7 +83,8 @@ function overlay(language: string, vocab: LanguageVocabulary, rows: CatalogRecip
 
 /**
  * Write the public dataset:
- * - catalog.json: everything the grid and filters need
+ * - catalog.json: everything the grid and filters need (packed, see packCatalog)
+ * - first.json: the best-rated recipes, shown while catalog.json loads
  * - details/NN.json: original lines and parsed ingredients, loaded when a recipe is opened
  * - recipes.full.json: catalog + ingredient lines in one file, for the MCP server
  * - overlay/<lang>.json: the vocabulary each UI language needs to display them
@@ -138,7 +144,12 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
   write('dictionary.json', { provenance: seed.provenance, concepts: vocab.concepts.filter((c) => used.has(c.id)) });
   for (const language of languages)
     write(`lookup/${language}.json`, { provenance: seed.provenance, aliases: lookupFor(language), ...(language === 'en' ? { grocery } : {}) });
-  write('catalog.json', catalog);
+  // Packed: each concept, ingredient name and tag once, and only the concepts a family does not imply.
+  write('catalog.json', packCatalog(catalog, (id) => vocab.byId.get(id)?.parents ?? []));
+  // The best-rated recipes, a few kilobytes: a plain landing shows them while catalog.json downloads.
+  const first = [...rows].sort((a, b) => ratingScore(b) - ratingScore(a)).slice(0, FIRST_PAGE);
+  const firstSources = usedSources.filter((s) => first.some((r) => r.source === s.id));
+  write('first.json', packCatalog({ ...catalog, sources: firstSources, recipes: first }, (id) => vocab.byId.get(id)?.parents ?? []));
   write('recipes.full.json', full);
   shards.forEach((shard, i) => write(`details/${String(i).padStart(2, '0')}.json`, shard));
 

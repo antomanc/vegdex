@@ -1,14 +1,14 @@
 <script lang="ts">
   import { untrack } from 'svelte'
-  import { searchRecipes, type Catalog, type CatalogRecipe, type IngredientLookup } from '@vegdex/core'
-  import { loadCatalog, loadLookup } from './lib/data'
+  import { prepareSearch, searchRecipes, type Catalog, type CatalogRecipe, type IngredientLookup } from '@vegdex/core'
+  import { loadCatalog, loadFirstPage, loadLookup } from './lib/data'
   import {
-    activeCount, activeFilters, clearFilters, defaultSort, filters, forgetUnsavedAmounts, readUrl, removeFilter, saved, sourceNames, toQuery, writeUrl,
+    activeCount, activeFilters, clearFilters, defaultSort, filters, forgetUnsavedAmounts, isLanding, readUrl, removeFilter, saved, sourceNames, toQuery, writeUrl,
     type Sort
   } from './lib/state.svelte'
   import { m, countArgs, formatNumber, pageLocale } from './lib/i18n'
-  import { LOCALES } from './lib/locales'
-  import { loadTranslations, recipeTitle } from './lib/translations.svelte'
+  import { BASE_LOCALE, LOCALES } from './lib/locales'
+  import { display, loadTranslations, recipeTitles } from './lib/translations.svelte'
   import { isLocale } from './paraglide/runtime'
   import { SORTS } from './lib/labels'
   import { onSheetPop } from './lib/sheet'
@@ -26,8 +26,11 @@
   const AUTO_LIMIT = PAGE * 4
 
   const initial = readUrl()
-  let catalog = $state<Catalog | null>(null)
-  let lookup = $state<IngredientLookup>({})
+  // Raw: 16k recipes behind deep reactive proxies cost memory and slow every search; the catalog is replaced, never mutated.
+  let catalog = $state.raw<Catalog | null>(null)
+  // The best-rated recipes, shown on a plain landing until the whole catalog arrives.
+  let firstPage = $state.raw<Catalog | null>(null)
+  let lookup = $state.raw<IngredientLookup>({})
   let error = $state<string | null>(null)
   let openId = $state<string | null>(initial.openId)
   // Opened by "Pick for me": the sheet offers another draw.
@@ -42,13 +45,25 @@
 
   function load() {
     error = null
+    // Everything starts at once (index.html preloads it too); the catalog is the long one.
+    // Ingredient names only add matches: without them, search still matches the recipes' English names.
+    const names = loadLookup(pageLocale.code).then((f) => f.aliases, () => ({}))
+    if (!display.loaded) void loadTranslations()
+    if (!catalog && isLanding()) {
+      void loadFirstPage().then((c) => {
+        if (!c || catalog) return
+        for (const s of c.sources) sourceNames.set(s.id, s.name)
+        firstPage = c
+      })
+    }
     loadCatalog()
       .then(async (c) => {
-        // Ingredient names only add matches: without them, search still matches the recipes' English names.
-        lookup = c.recipes.some((r) => r.concepts) ? await loadLookup(pageLocale.code).then((f) => f.aliases, () => ({})) : {}
+        lookup = c.recipes.some((r) => r.concepts) ? await names : {}
         for (const s of c.sources) sourceNames.set(s.id, s.name)
         catalog = c
-        void loadTranslations()
+        firstPage = null
+        // Tokenize titles and ingredients while the page is idle, so the first keystroke does not.
+        prepareSearch(c.recipes, (next) => ('requestIdleCallback' in window ? requestIdleCallback(() => next(), { timeout: 500 }) : setTimeout(next)))
       })
       .catch((e: Error) => {
         console.error(e)
@@ -60,10 +75,28 @@
   const kitchen = $derived(filters.from && !filters.saved ? catalog?.sources.find((s) => s.id === filters.from) ?? null : null)
   // Recipes unsaved in this visit to the saved view stay listed, so a mis-tap on the heart can be undone.
   const listedIds = $derived([...saved.ids, ...saved.unsaved])
-  const results = $derived<CatalogRecipe[]>(catalog ? searchRecipes(catalog.recipes, toQuery(listedIds), lookup, recipeTitle) : [])
+  // The typed character paints first and the list follows; keys typed faster than a search collapse into one.
+  let searchedText = $state(filters.text)
+  $effect(() => {
+    const text = filters.text
+    if (text === untrack(() => searchedText)) return
+    let timer = 0
+    const frame = requestAnimationFrame(() => (timer = setTimeout(() => (searchedText = text))))
+    return () => {
+      cancelAnimationFrame(frame)
+      clearTimeout(timer)
+    }
+  })
+  const results = $derived<CatalogRecipe[]>(catalog ? searchRecipes(catalog.recipes, toQuery(listedIds, { ...filters, text: searchedText }), lookup, recipeTitles()) : [])
   const resultCount = $derived(filters.saved ? results.filter((r) => saved.ids.includes(r.id)).length : results.length)
   const visible = $derived(results.slice(0, limit))
-  const open = $derived(openId && catalog ? catalog.recipes.find((r) => r.id === openId) ?? null : null)
+  // Before the catalog, a plain landing lists the first page; on other languages, once titles can be shown.
+  const early = $derived(
+    !catalog && firstPage && isLanding() && (pageLocale.code === BASE_LOCALE.code || display.loaded)
+      ? searchRecipes(firstPage.recipes, toQuery([]), {}, recipeTitles()).slice(0, PAGE)
+      : null
+  )
+  const open = $derived(openId ? ((catalog ?? firstPage)?.recipes.find((r) => r.id === openId) ?? null) : null)
   const savedRecipes = $derived(catalog ? catalog.recipes.filter((r) => saved.ids.includes(r.id)) : [])
   const countText = $derived(filters.saved ? m.saved_count(countArgs(resultCount)) : m.recipe_count(countArgs(resultCount)))
   const blogCount = $derived(new Set(results.map((r) => r.source)).size)
@@ -77,7 +110,7 @@
     if (filters.text.trim()) options.push({ label: m.clear_the_search(), apply: () => (filters.text = ''), patch: { text: '' }, isSearch: true })
     let best: { label: string; apply: () => void; n: number; isSearch: boolean } | null = null
     for (const o of options) {
-      const n = searchRecipes(catalog.recipes, toQuery([], { ...filters, ...o.patch }), lookup, recipeTitle).length
+      const n = searchRecipes(catalog.recipes, toQuery([], { ...filters, ...o.patch }), lookup, recipeTitles()).length
       if (n && (!best || n > best.n)) best = { ...o, n }
     }
     return best
@@ -216,9 +249,17 @@
     </div>
   {:else if !catalog}
     <p class="visually-hidden" role="status">{m.loading_recipes()}</p>
-    <ul class="grid skeleton" aria-hidden="true">
-      {#each Array(6) as _, i (i)}<li><div class="thumb"></div><div class="bar"></div><div class="bar short"></div></li>{/each}
-    </ul>
+    {#if early}
+      <ul class="grid" data-testid="first-page">
+        {#each early as recipe (recipe.id)}
+          <li><RecipeCard {recipe} sourceName={sourceNames.get(recipe.source) ?? recipe.source} onopen={() => (openId = recipe.id)} /></li>
+        {/each}
+      </ul>
+    {:else}
+      <ul class="grid skeleton" aria-hidden="true">
+        {#each Array(6) as _, i (i)}<li><div class="thumb"></div><div class="bar"></div><div class="bar short"></div></li>{/each}
+      </ul>
+    {/if}
   {:else}
     {#if filters.saved}
       <div class="view-head">
