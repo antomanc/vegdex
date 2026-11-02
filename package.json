@@ -22,7 +22,8 @@
     "coverage": "pnpm --filter @vegdex/ingest vocab coverage",
     "gaps": "pnpm --filter @vegdex/ingest vocab gaps",
     "vocab:apply": "pnpm --filter @vegdex/ingest vocab apply",
-    "enrich": "pnpm --filter @vegdex/ingest vocab enrich"
+    "enrich": "pnpm --filter @vegdex/ingest vocab enrich",
+    "parse:diff": "pnpm --filter @vegdex/ingest exec tsx src/parse-diff.ts"
   },
   "engines": {
     "node": ">=22.12.0"

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { display, recipeTitle } from './translations.svelte'
-  import { compileGroceryList, displayGroceryName, parseIngredient, type CatalogRecipe, type GroceryItem, type ParsedIngredient } from '@vegdex/core'
+  import { compileGroceryList, displayGroceryName, parseIngredient, type CatalogRecipe, type GroceryItem, type ParsedLine } from '@vegdex/core'
   import { loadDetails, loadLookup, type LookupFile } from './data'
   import { BASE_LOCALE } from './locales'
   import { m, countArgs, formatNumber, pageLocale } from './i18n'
@@ -83,7 +83,7 @@
 
   const nudge = (r: CatalogRecipe, by: number) => setAmount(r.id, steps(r, by) / perBatch(r))
 
-  function compile(all: { id: string; ingredients: string[]; parsedIngredients?: ParsedIngredient[]; contentLanguage?: string }[], file: LookupFile): [string, GroceryItem[]][] {
+  function compile(all: { id: string; ingredients: string[]; parsedIngredients?: ParsedLine[]; contentLanguage?: string }[], file: LookupFile): [string, GroceryItem[]][] {
     const byId = new Map(recipes.map((r) => [r.id, r]))
     const multiplier = (id: string) => {
       const r = byId.get(id)
@@ -133,7 +133,7 @@
               <label class:done={checked[key(item)]}>
                 <input type="checkbox" bind:checked={checked[key(item)]} />
                 <span class="name">{displayGroceryName(item, pageLocale.code === BASE_LOCALE.code ? undefined : display.overlay ?? undefined, pageLocale.code)}</span>
-                <span class="amount">{item.toTaste ? m.to_taste() : item.amounts.map(formatGroceryAmount).join(' + ')}</span>
+                <span class="amount">{item.toTaste ? m.to_taste() : item.amounts.map((a) => formatGroceryAmount(a, display.overlay)).join(' + ')}</span>
               </label>
             </li>
           {/each}

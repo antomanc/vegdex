@@ -30,6 +30,7 @@ export function lookupBrand(text: string, lookup: IngredientLookup = {}): string
 }
 
 export function lookupTerm(text: string, lookup: IngredientLookup = {}): string | null {
-  const id = lookupEntry(text, lookup);
+  // "+ more for dusting" is "plus more for dusting".
+  const id = lookupEntry(text, lookup) ?? (/^\+\s*/.test(text) ? lookupEntry(text.replace(/^\+\s*/, 'plus '), lookup) : null);
   return id && isTermId(id) ? id : null;
 }

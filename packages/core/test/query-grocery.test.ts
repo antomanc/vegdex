@@ -126,6 +126,15 @@ describe('compileGroceryList', () => {
     expect(by.cashew?.recipeIds).toEqual(['a', 'b']);
   });
 
+  it('buys each part of a line that names two measured ingredients', () => {
+    const lookup = { cornstarch: 'cornstarch', water: 'water' };
+    const list = compileGroceryList([
+      { recipeId: 'a', multiplier: 2, ingredients: ['2 tsp cornstarch + 1 tbsp water', '1 tsp cornstarch'] }
+    ], { lookup });
+    const by = Object.fromEntries(list.map((i) => [i.name, i.amounts]));
+    expect(by).toEqual({ cornstarch: ['2 tbsp'], water: ['2 tbsp'] });
+  });
+
   it('formats volumes', () => {
     const list = compileGroceryList([
       { recipeId: 'a', multiplier: 1, ingredients: ['1 cup coconut milk', '1/2 cup coconut milk', '2 tbsp coconut milk'] }

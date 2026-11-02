@@ -1,4 +1,4 @@
-import { parseIngredient, metricLine, type FreeFrom, type Meal, type Units, type ParsedIngredient } from '@vegdex/core'
+import { parseIngredient, metricLine, type FreeFrom, type LanguageVocabulary, type Meal, type Units, type ParsedIngredient } from '@vegdex/core'
 import { m, countArgs, formatNumber, formatQuantity, pageLocale } from './i18n'
 import { BASE_LOCALE } from './locales'
 import type { Sort } from './state.svelte'
@@ -55,38 +55,18 @@ export const AISLE_LABELS: Record<string, () => string> = {
   'other': m.aisle_other
 }
 
-const UNIT_LABELS: Record<string, (args: ReturnType<typeof countArgs>) => string> = {
-  'cup': m.unit_cup,
-  'tbsp': m.unit_tbsp,
-  'tsp': m.unit_tsp,
-  'clove': m.unit_clove,
-  'can': m.unit_can,
-  'package': m.unit_package,
-  'block': m.unit_block,
-  'bunch': m.unit_bunch,
-  'handful': m.unit_handful,
-  'sprig': m.unit_sprig,
-  'stalk': m.unit_stalk,
-  'head': m.unit_head,
-  'slice': m.unit_slice,
-  'sheet': m.unit_sheet,
-  'pinch': m.unit_pinch,
-  'dash': m.unit_dash,
-  'inch': m.unit_inch,
-  'jar': m.unit_jar,
-  'bag': m.unit_bag,
-  'scoop': m.unit_scoop,
-  'piece': m.unit_piece
-}
-
-/** Core returns English quantity strings for CLI/MCP; the web formats its own display. */
-export function formatGroceryAmount(amount: string): string {
+/**
+ * Core returns English quantity strings for CLI/MCP; the web formats its own display.
+ * The unit word comes from the language's vocabulary, the same names the recipe sheet uses.
+ */
+export function formatGroceryAmount(amount: string, vocab: LanguageVocabulary | null): string {
   const formatted = formatQuantity(amount)
   if (pageLocale.code === BASE_LOCALE.code) return formatted
   const parsed = parseIngredient(`${amount.replace(/^≈\s*/, '')} ingredient`)
-  const label = UNIT_LABELS[parsed.unit ?? '']
+  const label = parsed.unit && vocab?.units[parsed.unit]?.[(parsed.quantity ?? 0) <= 1 ? 0 : 1]
   if (!label) return formatted
-  return formatted.replace(/\b(?:cups?|tbsp|tsp|cloves?|cans?|packages?|blocks?|bunch(?:es)?|handfuls?|sprigs?|stalks?|heads?|slices?|sheets?|pinch(?:es)?|dash(?:es)?|inch(?:es)?|jars?|bags?|scoops?|pieces?)\b/, label(countArgs(parsed.quantity ?? 0)))
+  const word = new RegExp(`(?<![\\w])${parsed.unit!.replace(/ /g, '\\s')}(?:es|s)?\\b`)
+  return formatted.replace(word, label)
 }
 
 export const TIMES = [15, 30, 45, 60]
@@ -138,4 +118,18 @@ export function splitAmount(line: string): [string, string] {
 export function splitLine(line: string, units: Units, parsed?: ParsedIngredient): [string, string] {
   const metric = units === 'metric' ? metricLine(line, parsed) : null
   return metric ? [formatQuantity(metric[0]), tidyLine(metric[1])] : splitAmount(line)
+}
+
+/**
+ * A line split into parts, in its own language: in metric each part gets its own amount, joined with "+"
+ * ("≈ 45 g chickpea flour + 120 ml water"). Otherwise, or under a label, the line stays as written.
+ */
+export function splitParts(line: string, units: Units, parts: ParsedIngredient[]): [string, string] {
+  const metric = units === 'metric' && !parts.some((p) => /^\D+:/.test(p.raw)) ? parts.map((p) => metricLine(p.raw, p)) : []
+  if (!metric.some(Boolean)) return splitAmount(line)
+  const [first, ...rest] = parts.map((p, i): [string, string] => {
+    const m = metric[i]
+    return m ? [formatQuantity(m[0]), tidyLine(m[1])] : splitAmount(p.raw)
+  })
+  return [first![0], [first![1], ...rest.map(([amount, name]) => `${amount} ${name}`.trim())].join(' + ')]
 }

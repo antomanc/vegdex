@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import {
-  canonicalName, findNonVegan, findNonVeganConcepts, gramsPerCup, ingredientKey, languagePacks, parseIngredient,
+  canonicalName, findNonVegan, findNonVeganConcepts, gramsPerCup, ingredientKey, languagePacks, parseLine,
   type ParsedIngredient, type Recipe, type Source
 } from '@vegdex/core';
 import { isOtherLanguage } from './sitemap';
@@ -10,7 +10,8 @@ export const blockedIds: string[] = JSON.parse(fs.readFileSync(new URL('../data/
 
 export interface Prepared {
   recipe: Recipe;
-  parsed: ParsedIngredient[];
+  /** The parts of each line, in line order; most lines are one part. */
+  parsed: ParsedIngredient[][];
 }
 
 export interface Excluded {
@@ -51,8 +52,7 @@ export function prepareRecipes(all: Recipe[], sources: Source[], vocab: Vocabula
     }
     const lookup = vocab.lookup(recipe.contentLanguage);
     const notIngredients = new Set(vocab.files[recipe.contentLanguage]?.commentary ?? []);
-    const parsed = recipe.ingredients.map((line): ParsedIngredient => {
-      const p = parseIngredient(line, lookup, recipe.contentLanguage);
+    const parsed = recipe.ingredients.map((line) => parseLine(line, lookup, recipe.contentLanguage).map((p): ParsedIngredient => {
       // A fill judged this phrase not an ingredient ("i use this scale").
       if (!p.concept && p.name && notIngredients.has(ingredientKey(p.phrase ?? ''))) return { ...p, kind: 'other', name: '' };
       if (recipe.contentLanguage !== 'en' && p.concept) {
@@ -60,13 +60,13 @@ export function prepareRecipes(all: Recipe[], sources: Source[], vocab: Vocabula
         p.densityName = names.find((name) => gramsPerCup(name) !== null);
       }
       return p;
-    });
+    }));
     const hits = [
       ...findNonVegan(recipe.ingredients, recipe.contentLanguage),
       ...findNonVeganConcepts(recipe.ingredients, lookup, conceptVegan, recipe.contentLanguage).map((hit) => ({ ...hit, term: hit.concept }))
     ];
     if (hits.length) excluded.push({ id: recipe.id, title: recipe.title, url: recipe.url, hits });
-    else if (recipe.contentLanguage !== 'en' && parsed.some((p) => p.name && (!p.concept || p.conceptExact !== true))) held.push({ recipe, parsed });
+    else if (recipe.contentLanguage !== 'en' && parsed.flat().some((p) => p.name && (!p.concept || p.conceptExact !== true))) held.push({ recipe, parsed });
     else published.push({ recipe, parsed });
   }
   published.sort((a, b) => a.recipe.id.localeCompare(b.recipe.id));

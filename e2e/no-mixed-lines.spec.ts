@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { isHiddenLine, shardOf, type LanguageVocabulary, type ParsedIngredient } from '@vegdex/core';
+import { isHiddenLine, lineParts, renderIngredient, shardOf, type LanguageVocabulary, type ParsedLine } from '@vegdex/core';
 import { expect, italianFixtureData, test } from './fixtures';
 
 // A line shown in another language is composed entirely from the vocabulary, or shown exactly as written:
@@ -19,18 +19,24 @@ for (const { variant, path, language } of [
       if (variant === 'italian-data') await page.route('**/data/**', italianFixtureData);
       await page.addInitScript((u) => localStorage.setItem('vegdex:units', u), units);
       for (const recipe of recipes) {
-        const details = read(variant, `details/${String(shardOf(recipe.id)).padStart(2, '0')}.json`)[recipe.id] as { ingredients: string[]; parsedIngredients: ParsedIngredient[] };
+        const details = read(variant, `details/${String(shardOf(recipe.id)).padStart(2, '0')}.json`)[recipe.id] as { ingredients: string[]; parsedIngredients: ParsedLine[] };
         await page.goto(`${path}?r=${recipe.id}`);
-        const visible = details.ingredients.map((_, i) => i).filter((i) => !isHiddenLine(details.parsedIngredients[i], language, recipe.contentLanguage));
+        // A line split into parts shows one row per part when every part renders, else one row as written.
+        const rows = details.ingredients.flatMap((line, i) => {
+          const parts = lineParts(details.parsedIngredients[i]!);
+          if (parts.length === 1 && isHiddenLine(parts[0], language, recipe.contentLanguage)) return [];
+          if (parts.length > 1 && parts.every((p) => renderIngredient(p, overlay, language, units, recipe.contentLanguage)))
+            return parts.map((p) => ({ line: p.raw, phrase: p.phrase }));
+          return [{ line, phrase: parts[0]!.phrase }];
+        });
         const lines = page.getByRole('dialog').getByTestId('ingredients').locator('li');
-        await expect(lines).toHaveCount(visible.length);
+        await expect(lines).toHaveCount(rows.length);
         const shown = await lines.allInnerTexts();
         shown.forEach((text, n) => {
-          const i = visible[n]!;
-          if (tidy(text) === tidy(details.ingredients[i]!)) return;
-          const phrase = details.parsedIngredients[i]!.phrase?.toLowerCase();
-          if (phrase && !names.some((n) => n.toLowerCase().includes(phrase)))
-            expect(text.toLowerCase(), `${recipe.id}: "${details.ingredients[i]}"`).not.toContain(phrase);
+          const { line, phrase } = rows[n]!;
+          if (tidy(text) === tidy(line)) return;
+          if (phrase && !names.some((n) => n.toLowerCase().includes(phrase.toLowerCase())))
+            expect(text.toLowerCase(), `${recipe.id}: "${line}"`).not.toContain(phrase.toLowerCase());
         });
       }
     });

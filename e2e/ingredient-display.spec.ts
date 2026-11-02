@@ -64,3 +64,25 @@ test('Italian shopping names retain merged totals, scaling and ticks across lang
   await expect(groceries.locator('li', { hasText: 'amido di mais' })).toContainText('3 ¼ cucchiai');
   await expect(groceries.getByRole('checkbox', { name: /amido di mais/ })).toBeChecked();
 });
+
+test('a line naming two measured ingredients shows each part in Italian and as written in English', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('vegdex:units', localStorage.getItem('vegdex:units') ?? 'us'));
+  await page.goto('/?r=lentil-soup');
+  const lines = page.getByRole('dialog').getByTestId('ingredients').locator('li');
+  await expect(lines.filter({ hasText: 'cornstarch' })).toHaveText(['1 tbsp cornstarch + 1/2 cup water']);
+  // In metric each part gets its own amount; the spoon stays a spoon.
+  await page.getByRole('dialog').getByRole('button', { name: 'Metric', exact: true }).click();
+  await expect(lines.filter({ hasText: 'cornstarch' })).toHaveText(['1 tbsp cornstarch + ≈ 120 g water']);
+  await page.getByRole('dialog').getByRole('button', { name: 'US', exact: true }).click();
+  await page.goto('/it/?r=lentil-soup');
+  await expect(lines.filter({ hasText: 'amido di mais' })).toHaveText(['1 cucchiaio di amido di mais']);
+  await expect(lines.filter({ hasText: 'acqua' })).toHaveText(['½ tazza di acqua']);
+  // The shopping list buys the water too, with its own amount.
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Save Red Lentil Soup', exact: true }).click();
+  await page.getByRole('button', { name: 'Saved · 1', exact: true }).click();
+  await page.getByRole('button', { name: 'Shopping list', exact: true }).click();
+  const groceries = page.getByRole('dialog').getByTestId('grocery-list');
+  await expect(groceries.getByRole('checkbox', { name: /^water/ })).toHaveCount(1);
+  await expect(groceries.locator('li').filter({ has: page.getByRole('checkbox', { name: /^water/ }) })).toContainText('½ cup');
+});

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseIngredient } from '../src';
+import { parseIngredient, parseLine } from '../src';
 
 describe('parseIngredient', () => {
   it.each([
@@ -79,5 +79,137 @@ describe('parseIngredient', () => {
 
   it('keeps the metric side of a dual measure', () => {
     expect(parseIngredient('30-45 ml / 2-3 tbsp lemon juice')).toMatchObject({ quantity: 30, quantityMax: 45, unit: 'ml', name: 'lemon juice' });
+  });
+});
+
+describe('amount shapes that used to leak into the name', () => {
+  const lookup: Record<string, string> = {
+    rice: 'rice', 'basmati rice': 'rice', water: 'water', 'shredded coconut': 'coconut', 'soy milk': 'soy-milk', ginger: 'ginger',
+    'diced tomatoes': 'tomato', 'artichoke hearts': 'artichoke', spinach: 'spinach', 'maple syrup': 'maple', 'non-dairy milk': 'plant-milk',
+    'dairy-free milk': 'plant-milk', 'dried apricots': 'apricot', 'olive oil': 'olive-oil', 'all purpose white flour': 'flour', flour: 'flour',
+    'red bell pepper': 'bell-pepper', buns: 'bun', bread: 'bread', 'lime juice': 'lime-juice', 'lemon juice': 'lemon-juice', parsley: 'parsley',
+    basil: 'basil', 'basil leaves': 'basil', cumin: 'cumin', 'rum extract': 'rum', 'vegan cheese sauce': 'cheese-sauce', thyme: 'thyme',
+    'crushed tomatoes': 'crushed-tomatoes', 'can crushed tomatoes': 'canned-crushed-tomatoes', sprinkles: 'sprinkles', 'red pepper flakes': 'chili-flakes',
+    cinnamon: 'cinnamon', 'garbanzo bean flour': 'chickpea-flour',
+    small: 'term:small', fresh: 'term:fresh', sliced: 'term:sliced', optional: 'term:optional', 'to taste': 'term:to-taste', 'plus more for dusting': 'term:for-dusting'
+  };
+
+  it.each([
+    ['1 cup 180g basmati rice', 1, null, 'cup', 'rice'],
+    ['2 tablespoons 30 ml water', 2, null, 'tbsp', 'water'],
+    ['.5 cup soy milk (120ml)', 0.5, null, 'cup', 'soy-milk'],
+    ['1-inch (2.5 cm) piece of ginger', 1, null, 'inch', 'ginger'],
+    ['1 14 ounce artichoke hearts', 14, null, 'oz', 'artichoke'],
+    ['1/2 cup plus 2 tablespoons maple syrup', 0.625, null, 'cup', 'maple'],
+    ['3/4 cup (180 ml) + 2 tablespoons dairy-free milk', 0.875, null, 'cup', 'plant-milk'],
+    ['¼ cup + 2 tbsp / 90 ml water', 0.375, null, 'cup', 'water'],
+    ['½ cup – 1 cup non-dairy milk', 0.5, 1, 'cup', 'plant-milk'],
+    ['75 g / 10 dried apricots', 75, null, 'g', 'apricot'],
+    ['30-45 / 2-3 tbsp olive oil', 2, 3, 'tbsp', 'olive-oil'],
+    ['150 g / 1 and ½ cups of all purpose white flour', 150, null, 'g', 'flour'],
+    ['3 ⁄4 teaspoon cumin', 0.75, null, 'tsp', 'cumin'],
+    // Scraping leftovers that older answers learned as part of the name.
+    ['1/2” ginger', 0.5, null, 'inch', 'ginger'],
+    ['1 c . basmati rice', 1, null, 'cup', 'rice'],
+    ['½. cup basmati rice', 0.5, null, 'cup', 'rice'],
+    ['2 teaspoons cumin.', 2, null, 'tsp', 'cumin'],
+    ['1/4 teaspoon cumin\u2063', 0.25, null, 'tsp', 'cumin'],
+    ['1 cup basmati rice | (rinsed)', 1, null, 'cup', 'rice'],
+    ['A generous ¾ cup water', 0.75, null, 'cup', 'water'],
+    ['a good pinch of cumin', 1, null, 'pinch', 'cumin'],
+    ['1 heaping cup (150g) 1/4 inch sliced spinach', 1, null, 'cup', 'spinach'],
+    ['1 package of 4 buns', 1, null, 'package', 'bun'],
+    ['1 batch of vegan cheese sauce', 1, null, 'batch', 'cheese-sauce'],
+    ['1 3/4 cups water + 2 tablespoons', 1.75, null, 'cup', 'water'],
+    ['2 cups flour + more for dusting', 2, null, 'cup', 'flour'],
+    // An alternative with its own amount is dropped, never shown under the first amount.
+    ['4 buns or 8 slices of bread', 4, null, null, 'bun'],
+    ['1 tbsp fresh thyme or 1/2 tsp dried thyme', 1, null, 'tbsp', 'thyme'],
+    ['2 small or 1 large red bell pepper', 2, null, null, 'bell-pepper'],
+    ['1/3 cup chickpea/garbanzo bean flour', 1 / 3, null, 'cup', 'chickpea-flour']
+  ])('%s', (line, quantity, quantityMax, unit, concept) => {
+    const p = parseIngredient(line, lookup);
+    expect(p.quantity).toBeCloseTo(quantity);
+    expect(p.quantityMax).toBe(quantityMax);
+    expect(p.unit).toBe(unit);
+    expect({ concept: p.concept, exact: p.conceptExact }).toEqual({ concept, exact: true });
+  });
+
+  it('keeps the size of a counted or weighed package', () => {
+    expect(parseIngredient('1 14.5 ounce (410 g) can diced tomatoes', lookup)).toMatchObject({ quantity: 1, unit: 'can', size: { quantity: 14.5, unit: 'oz' }, concept: 'tomato' });
+    expect(parseIngredient('10 ounce package spinach (thawed)', lookup)).toMatchObject({ quantity: 1, unit: 'package', size: { quantity: 10, unit: 'oz' }, concept: 'spinach' });
+  });
+
+  it('tries a name with the container words an older parse left in it', () => {
+    expect(parseIngredient('28 ounces can crushed tomatoes', lookup).concept).toBe('canned-crushed-tomatoes');
+  });
+
+  it('reads approximate and open amounts', () => {
+    expect(parseIngredient('~1/3 cup shredded coconut', lookup)).toMatchObject({ quantity: 1 / 3, unit: 'cup', approx: true, concept: 'coconut' });
+    expect(parseIngredient('1/2 teaspoon or so of cinnamon', lookup)).toMatchObject({ quantity: 0.5, unit: 'tsp', approx: true, concept: 'cinnamon' });
+    expect(parseIngredient('pinch or two of red pepper flakes', lookup)).toMatchObject({ quantity: 1, unit: 'pinch', approx: true, concept: 'chili-flakes' });
+    expect(parseIngredient('a few basil leaves', lookup)).toMatchObject({ quantity: null, concept: 'basil', conceptExact: true, terms: [{ id: 'term:to-taste' }] });
+    expect(parseIngredient('A few drops of rum extract', lookup)).toMatchObject({ quantity: null, unit: null, concept: 'rum' });
+  });
+
+  it('splits two named alternatives', () => {
+    expect(parseIngredient('2 tsp lime/lemon juice', lookup)).toMatchObject({ concept: 'lime-juice', also: { concept: 'lemon-juice', joiner: 'or' } });
+    expect(parseIngredient('1/3 cup fresh basil and/or parsley', lookup)).toMatchObject({ concept: 'basil', also: { concept: 'parsley', joiner: 'or' } });
+  });
+
+  it('drops a label naming one ingredient and keeps a list as written', () => {
+    expect(parseIngredient('Spices: 1 tsp cumin', lookup)).toMatchObject({ quantity: 1, unit: 'tsp', concept: 'cumin', raw: 'Spices: 1 tsp cumin' });
+    expect(parseIngredient('Toppings: basil leaves', lookup)).toMatchObject({ concept: 'basil', optional: true, terms: [{ id: 'term:optional' }] });
+    expect(parseIngredient('(optional) 1 teaspoon cumin', lookup)).toMatchObject({ concept: 'cumin', optional: true });
+    expect(parseIngredient('Garnish: chopped parsley, lemon wedges', lookup)).toMatchObject({ concept: null });
+    expect(parseIngredient('Garnish: chopped parsley, lemon wedges', lookup).kind).toBeUndefined();
+  });
+
+  it('never reads a food as a unit', () => {
+    expect(parseIngredient('sprinkles, for decorating', lookup)).toMatchObject({ unit: null, concept: 'sprinkles' });
+    expect(parseIngredient('2-3 sticks cinnamon', lookup).unit).toBeNull();
+  });
+});
+
+describe('parseLine: lines naming two ingredients with their own amounts', () => {
+  const lookup: Record<string, string> = {
+    cornstarch: 'cornstarch', water: 'water', 'ground flax seed': 'flax', 'smoked paprika': 'paprika', 'garlic powder': 'garlic-powder',
+    salt: 'salt', pepper: 'pepper', juice: 'juice', garlic: 'garlic', cloves: 'clove-spice', 'spelt flour': 'spelt-flour', tamari: 'tamari', miso: 'miso', 'lemon juice': 'lemon-juice',
+    'amido di mais': 'cornstarch', acqua: 'water', optional: 'term:optional'
+  };
+  const parts = (line: string, language = 'en') =>
+    parseLine(line, lookup, language).map((p) => [p.quantity, p.unit, p.concept]);
+
+  it.each([
+    ['2 tsp cornstarch + 2 tbsp water', [[2, 'tsp', 'cornstarch'], [2, 'tbsp', 'water']]],
+    ['2 teaspoons cornstarch mixed with 1 tablespoon water', [[2, 'tsp', 'cornstarch'], [1, 'tbsp', 'water']]],
+    ['1 tbsp ground flax seed plus 3 tbsp water', [[1, 'tbsp', 'flax'], [3, 'tbsp', 'water']]],
+    ['1 1/2 teaspoons salt and 1/4 teaspoon pepper', [[1.5, 'tsp', 'salt'], [0.25, 'tsp', 'pepper']]],
+    ['1 cucchiaio di amido di mais e 2 cucchiai di acqua', [[1, 'tbsp', 'cornstarch'], [2, 'tbsp', 'water']], 'it']
+  ])('%s splits into its parts', (line, expected, language = 'en') => {
+    expect(parts(line, language)).toEqual(expected);
+  });
+
+  it.each([
+    // An added amount of the same ingredient is one measure, or a note.
+    ['1 3/4 cups spelt flour + 2 tablespoons, divided', [[1.75, 'cup', 'spelt-flour']]],
+    ['1/2 cup plus 2 tablespoons water', [[0.625, 'cup', 'water']]],
+    // "+" binds to the alternative, so the line is not two purchases.
+    ['1 tbsp tamari or 1 tsp miso + 2 tbsp water', [[1, 'tbsp', 'tamari']]],
+    // A part vegdex does not know keeps the whole line together, as written.
+    ['2 tsp cornstarch + 2 tbsp moon dust', [[2, 'tsp', null]]],
+    ['1 cup water (+ 2 tbsp cornstarch)', [[1, 'cup', 'water']]],
+    // A later part named by what it takes from the first is not a second purchase.
+    ['2 tsp cornstarch + 2 tbsp juice', [[2, 'tsp', null]]],
+    ['1 head garlic + 3 large cloves', [[1, 'head', 'garlic']]],
+    ['1 tsp each salt, pepper and ½ tsp cornstarch', [[1, 'tsp', 'salt']]]
+  ])('%s stays one line', (line, expected) => {
+    expect(parts(line)).toEqual(expected);
+  });
+
+  it('applies a label to every part', () => {
+    const [first, second] = parseLine('Optional: 2 tsp smoked paprika + 1 tsp garlic powder', lookup);
+    expect([first!.concept, second!.concept]).toEqual(['paprika', 'garlic-powder']);
+    expect(second!.terms).toContainEqual({ id: 'term:optional', text: 'optional' });
   });
 });

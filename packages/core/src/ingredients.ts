@@ -15,8 +15,8 @@ interface UnitDef {
 
 const UNIT_ALIASES: [string[], UnitDef][] = [
   [['cups', 'cup', 'c'], { unit: 'cup', dimension: 'volume', factor: 240 }],
-  [['tablespoons', 'tablespoon', 'tbsps', 'tbsp', 'tbs', 'tbl', 'T'], { unit: 'tbsp', dimension: 'volume', factor: 15 }],
-  [['teaspoons', 'teaspoon', 'tsps', 'tsp', 't'], { unit: 'tsp', dimension: 'volume', factor: 5 }],
+  [['tablespoons', 'tablespoon', 'tablepoons', 'tablepoon', 'tbsps', 'tbsp', 'tbs', 'tbl', 'T'], { unit: 'tbsp', dimension: 'volume', factor: 15 }],
+  [['teaspoons', 'teaspoon', 'teaspooon', 'tsps', 'tsp', 't'], { unit: 'tsp', dimension: 'volume', factor: 5 }],
   [['milliliters', 'millilitres', 'milliliter', 'millilitre', 'ml'], { unit: 'ml', dimension: 'volume', factor: 1 }],
   [['liters', 'litres', 'liter', 'litre', 'l'], { unit: 'l', dimension: 'volume', factor: 1000 }],
   [['fluid ounces', 'fluid ounce', 'fl. oz.', 'fl. oz', 'fl oz'], { unit: 'fl oz', dimension: 'volume', factor: 29.57 }],
@@ -43,7 +43,19 @@ const UNIT_ALIASES: [string[], UnitDef][] = [
   [['jars', 'jar'], { unit: 'jar', dimension: 'other', factor: 1 }],
   [['bags', 'bag'], { unit: 'bag', dimension: 'other', factor: 1 }],
   [['scoops', 'scoop'], { unit: 'scoop', dimension: 'other', factor: 1 }],
-  [['pieces', 'piece'], { unit: 'piece', dimension: 'other', factor: 1 }]
+  [['pieces', 'piece'], { unit: 'piece', dimension: 'other', factor: 1 }],
+  [['centimeters', 'centimetres', 'centimeter', 'centimetre', 'cm'], { unit: 'cm', dimension: 'other', factor: 1 }],
+  [['boxes', 'box'], { unit: 'box', dimension: 'other', factor: 1 }],
+  [['bottles', 'bottle'], { unit: 'bottle', dimension: 'other', factor: 1 }],
+  [['cartons', 'carton'], { unit: 'carton', dimension: 'other', factor: 1 }],
+  [['containers', 'container', 'tubs', 'tub'], { unit: 'container', dimension: 'other', factor: 1 }],
+  [['tubes', 'tube'], { unit: 'tube', dimension: 'other', factor: 1 }],
+  [['bars', 'bar'], { unit: 'bar', dimension: 'other', factor: 1 }],
+  [['splashes', 'splash'], { unit: 'splash', dimension: 'other', factor: 1 }],
+  [['sprinkle'], { unit: 'sprinkle', dimension: 'other', factor: 1 }],
+  [['drops', 'drop'], { unit: 'drop', dimension: 'other', factor: 1 }],
+  [['recipes', 'recipe'], { unit: 'recipe', dimension: 'other', factor: 1 }],
+  [['batches', 'batch'], { unit: 'batch', dimension: 'other', factor: 1 }]
 ];
 
 const UNIT_LOOKUP = new Map<string, UnitDef>();
@@ -79,10 +91,17 @@ const NUM = String.raw`\d+\s+\d+\/\d+|\d+\/\d+|\d+(?:[.,]\d+)?`;
 const QTY_RE = new RegExp(String.raw`^(${NUM})(?:\s*(?:-|–|to|or)\s*(${NUM}))?\s*`);
 /** "1 and 1/2", "1/4 + 1/8": a fraction added to the quantity before the unit. */
 const AND_FRACTION_RE = /^(?:and|\+)\s*(\d+\/\d+)\s*/;
+const SUM = String.raw`(?:${NUM})(?:\s*(?:and|\+)\s*\d+\/\d+)?`;
 /** "60 ml / ¼ cup": the second, alternative measure of a dual measure. */
-const ALT_MEASURE_RE = new RegExp(String.raw`^\/\s*(?:(?:heaped|heaping|packed|scant|generous|level)\s+)?(?:${NUM})(?:\s*(?:-|–|to)\s*(?:${NUM}))?\s*`, 'i');
+const ALT_MEASURE_RE = new RegExp(String.raw`^\/\s*(?:(?:heaped|heaping|packed|scant|generous|level|about|approx\.?|approximately|around|(?:just|a little|a bit) (?:under|over)|~)\s*)?(?:${SUM})(?:\s*(?:-|–|to)\s*(?:${NUM}))?\s*`, 'i');
 /** "½ cup + 2 tbsp": a second amount added to the first. */
-const PLUS_MEASURE_RE = new RegExp(String.raw`^\+\s*(${NUM})\s*`);
+const PLUS_MEASURE_RE = new RegExp(String.raw`^(?:\+|plus\s|and\s)\s*(${NUM})(?:\s*(?:-|–|to|or)\s*(?:${NUM}))?\s*`, 'i');
+/** "½ cup – 1 cup milk", "½ teaspoon to 2 teaspoons": the top of a range written with its own unit. */
+const RANGE_TAIL_RE = new RegExp(String.raw`^(?:-|–|to)\s*(${NUM})\s*`, 'i');
+/** "1/4 inch sliced carrots", "1/2-inch chunks of": the size of the cut, kept as a note. */
+const CUT_SIZE_RE = new RegExp(String.raw`^((?:${NUM})(?:\s*(?:-|–|to)\s*(?:${NUM}))?\s*-?\s*(?:inch(?:es)?|in\.|cm|"|”)(?:\s+(?:wide|thick|long))?(?:\s+(?:chunks?|pieces?|cubes?|dice|slices?|rounds?))?)\s+(?:of\s+)?`, 'i');
+/** "1 cup 180g rice", "2 tablespoons 30 ml water": a second measure written straight after the first. */
+const SECOND_MEASURE_RE = new RegExp(String.raw`^(${NUM})(?:\s*(?:-|–)\s*(?:${NUM}))?\s*(?:an?\s+)?`);
 /** How full the spoon or cup is: says nothing about what to buy. */
 const MEASURE_WORD = String.raw`heaped|heaping|packed|loosely|lightly|firmly|scant|generous|rounded|level|approx\.?|approximately|about|around`;
 const MEASURE_WORDS_RE = new RegExp(`^(?:(?:${MEASURE_WORD})\\s+)+`, 'i');
@@ -91,11 +110,23 @@ const MEASURE_QUALIFIERS_RE = new RegExp(`\\b(?:${MEASURE_WORD})\\b`, 'gi');
 const APPROX_RE = /\b(?:approx\.?|approximately|about|around)\b/i;
 const FILL_QUALIFIERS_RE = /\b(?:heaped|heaping|packed|loosely|lightly|firmly|scant|generous|rounded|level)\b/gi;
 /** "1 large handful": a size before a unit describes the unit, not the ingredient. */
-const UNIT_SIZE_RE = /^(?:x-large|extra-large|large|medium|small|big|fat)\s+(?=(?:handfuls?|heads?|bunch(?:es)?|pinch(?:es)?|cans?|tins?|jars?|blocks?|bags?|packages?|sprigs?|stalks?|slices?|pieces?|scoops?|cloves?)\b)/i;
+const UNIT_SIZE_RE = /^(?:x-large|extra-large|large|medium|small|big|fat|good|healthy|hearty)\s+(?=(?:handfuls?|heads?|bunch(?:es)?|pinch(?:es)?|dash(?:es)?|splash(?:es)?|sprinkles?|cans?|tins?|jars?|blocks?|bags?|packages?|sprigs?|stalks?|slices?|pieces?|scoops?|cloves?)\b)/i;
 /** "3-inch piece", "2 cm piece": the size of a piece, kept as a note. */
-const PIECE_SIZE_RE = /^(\d+(?:[.,]\d+)?\s*-?\s*(?:inch|in\.|cm|"|”))\s*/i;
+const PIECE_SIZE_RE = /^(\d+(?:[.,]\d+)?(?:\s*(?:-|–|to)\s*\d+(?:[.,]\d+)?)?\s*-?\s*(?:inch|in\.|cm|"|”))\s*/i;
 /** "1 15 oz can": the size of the can, jar or block, kept as a note. */
-const PACK_SIZE_RE = /^(\d+(?:[.,]\d+)?(?:\s*[-–]\s*\d+(?:[.,]\d+)?)?\s*-?\s*(?:oz\.?|ounces?|g|grams?|ml))\s*(?=(?:cans?|tins?|jars?|blocks?|bags?|packages?|packs?|cartons?|canned)\b)/i;
+const PACK_SIZE_RE = /^(\d+(?:[.,]\d+)?(?:\s*[-–]\s*\d+(?:[.,]\d+)?)?\s*-?\s*(?:oz\.?|ounces?|g|grams?|ml|lbs?\.?|pounds?))\s*(?:[([][^)\]]*[)\]]\s*)?(?=(?:cans?|tins?|jars?|blocks?|bags?|packages?|packs?|packets?|cartons?|canned|box(?:es)?|bottles?|tubs?|containers?|tubes?|bars?)\b)/i;
+/** "1 14 ounce artichoke hearts", "one 4oz butter stick": a count of packages whose size is the measure. */
+const COUNT_SIZE_RE = /^(\d+(?:[.,]\d+)?)\s*-?\s*(?=(?:oz\.?|ounces?|g|grams?|ml|lbs?\.?|pounds?)(?![\p{L}]))/iu;
+/** "water + 2 tablespoons", "soy milk + 1 tbsp for brushing": an extra amount at the end of the name. */
+const TRAILING_EXTRA_RE = new RegExp(String.raw`\s+(?:\+|plus)\s*(?:(?:${NUM})\s*(?:${UNIT_PATTERN})\.?(?=\s+(?:for|to|as|if)\b|\s*[,;(]|\s*$))`, 'i');
+/** "or 8 slices of", "and 1/4 teaspoon": the amount of a second ingredient inside the name. */
+const ALT_AMOUNT_RE = new RegExp(String.raw`\s+or\s+(?:${NUM}).*$`, 'i');
+const SIZE_WORD = 'x-large|extra-large|large|medium|small|big';
+/** "2 small or 1 large peppers": the first size goes with the amount. */
+const ALT_SIZE_RE = new RegExp(String.raw`^(${SIZE_WORD})\s+or\s+(?:(?:${NUM})\s+)?(?:${SIZE_WORD})\s+`, 'i');
+/** "Garnish: chopped parsley", "spices: 1 tsp cumin": a label naming one ingredient. */
+const OPTIONAL_LABEL_RE = /optio|garnish|topping|serv|add|extra|mix-in|decorat/i;
+const LABEL_RE = /^((?:optional\s+|optioanl\s+)?[\p{L}][\p{L}&' -]{0,30}?)\s*:\s*(?=\S)/iu;
 
 /** Cached parsed lines also need to retain qualifiers removed from their measure; an approximate amount is kept as `approx`. */
 export function hasDroppedMeasureWords(p: ParsedIngredient): boolean {
@@ -161,8 +192,15 @@ export function normalizeLine(raw: string): string {
   s = s.replace(/(\d)\s*([½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞])/g, (_, d: string, f: string) => `${d} ${VULGAR[f]}`);
   s = s.replace(/[½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]/g, (f) => VULGAR[f] ?? f);
   s = s.replace(/⁄/g, '/');
+  // "3 /4 teaspoon": a fraction split by a stray space.
+  s = s.replace(/(\d) \/(\d)/g, '$1/$2');
+  // "14- oz . can", "1 12-ounce) bag": a stray space or a missing bracket in the measure.
+  s = s.replace(/\b(oz|lbs?|tsp|tbsp|c)\s+\.(?=\s)/gi, '$1.').replace(/^(\d+) (\d[\d.]*\s*-?\s*(?:ounces?|oz|grams?|g|ml|lbs?|pounds?)\.?)\)/i, '$1 ($2)');
   s = s.replace(/\(\(/g, '(').replace(/\)\)/g, ')');
   s = s.replace(/\*+/g, '');
+  // Invisible separators, inch marks ("1/2” ginger"), a lone "|" and a full stop after the name ("baking powder.").
+  s = s.replace(/[\u200b-\u200d\u2060-\u2064\u2800\ufeff]/g, '').replace(/^([\d\s\/.–-]*\d)\s*[”″](?=\s*\p{L})/u, '$1 inch ');
+  s = s.replace(/(\d\/\d+)\.(?=\s)/g, '$1').replace(/\s\|(?=\s|$)/g, ' ').replace(/(\p{L}{3})\.(?=\s*(?:\(|$))/gu, '$1');
   s = s.replace(/^[-•▢·\s]+/, '');
   return s.replace(/\s+/g, ' ').trim();
 }
@@ -345,17 +383,36 @@ function reduceAlternative(text: string): string {
 export function parseIngredient(raw: string, lookup: IngredientLookup = {}, language = 'en'): ParsedIngredient {
   const pack = languagePacks[language];
   if (!pack) throw new RangeError(`Unsupported content language: ${language}`);
-  let s = normalizeLine(raw);
+  let s = normalizeLine(raw).replace(/^\.(?=\d)/, '0.');
   const optional = (pack.optional ?? /\boptional\b/i).test(s);
+  const label = language === 'en' ? s.match(LABEL_RE) : null;
+  // Only a label naming one known ingredient is dropped; a list after it ("Garnish: parsley, lemon") stays as written.
+  if (label && !/[,;(]/.test(s.slice(label[0].length))) {
+    const inner = parseIngredient(s.slice(label[0].length), lookup, language);
+    // "Toppings: basil" is shown as optional basil.
+    const optionalId = OPTIONAL_LABEL_RE.test(label[1]!) ? lookupTerm('optional', lookup) : null;
+    const terms = optionalId && !inner.terms?.some((t) => t.id === optionalId) ? [...inner.terms ?? [], { id: optionalId, text: 'optional' }] : inner.terms;
+    if (inner.concept && inner.conceptExact) return { ...inner, terms, raw: cleanText(raw), optional: inner.optional || !!optionalId };
+  }
   let approx = false;
-  const stripMeasureWords = (text: string) => {
+  // Words this parser now reads as amount or commentary but an older one left in the name ("can crushed tomatoes",
+  // "fresh or 1/2 dried thyme"): the vocabulary learned names in that shape, so they are tried too.
+  let written = '';
+  const stripMeasureWords = (input: string) => {
+    let text = input;
+    // "~1/3 cup".
+    const tilde = text.match(/^~\s*/);
+    if (tilde) {
+      approx = true;
+      text = text.slice(tilde[0].length);
+    }
     const m = text.match(MEASURE_WORDS_RE);
     if (m && APPROX_RE.test(m[0])) approx = true;
     return m ? text.slice(m[0].length) : text;
   };
   // Preparation written before the line ("Juice of 1 lemon", "Optional: …", "more hot sauce") moves to its notes.
   const leading: string[] = [];
-  const lead = s.match(/^(?:(juice|zest)(?:\s+and\s+(juice|zest))?\s+(?:of|from)\s+(?:the\s+)?|(optional)[:\s]\s*|(more|additional)\s+)/i);
+  const lead = s.match(/^(?:(juice|zest)(?:\s+and\s+(juice|zest))?\s+(?:of|from)\s+(?:the\s+)?|\(?(optional)\)?[:\s]\s*|(more|additional)\s+)/i);
   if (lead && language === 'en') {
     s = s.slice(lead[0].length);
     if (lead[1]) leading.push(...[lead[1], lead[2]].filter(Boolean).map((w) => (w!.toLowerCase() === 'juice' ? 'juiced' : 'zested')));
@@ -380,14 +437,38 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
       quantity += parseNumber(more[1]!);
       s = s.slice(more[0].length);
     }
+    // "1-inch piece", "6- ounces": the hyphen joined the number to its unit.
+    s = s.replace(/^[-–]\s*(?=[\p{L}"”])/u, (m) => { written += m; return ''; });
   } else if (word) {
     quantity = words[word[1]!.toLowerCase()] ?? null;
     s = s.slice(word[0].length);
+    // "a generous ¾ cup": the article only introduced the amount.
+    const amount = /^an?$/i.test(word[1]!) ? stripMeasureWords(s).match(QTY_RE) : null;
+    if (amount) {
+      quantity = parseNumber(amount[1]!);
+      quantityMax = amount[2] ? parseNumber(amount[2]) : null;
+      s = stripMeasureWords(s).slice(amount[0].length);
+    }
   }
   // "half a lemon", "1/2 a lemon".
   if (quantity !== null && language === 'en') s = s.replace(/^(?:an?|the)\s+(?=\p{L})/iu, '');
+  // "a few basil leaves", "a few drops of rum extract": no amount, to taste.
+  const few = language === 'en' && (quantity === null || quantity === 1) && quantityMax === null ? s.match(/^few\s+/i) : null;
+  if (few) {
+    written += few[0];
+    s = s.slice(few[0].length);
+    const fewUnit = s.match(UNIT_RE);
+    // "a few cloves" names the cloves; "a few cloves of garlic" measures the garlic.
+    if (fewUnit && lookupUnit(fewUnit[1]!)?.dimension === 'other' && /^(?:of\s+)?\p{L}/iu.test(s.slice(fewUnit[0].length))) {
+      const of = s.slice(fewUnit[0].length).match(/^of\s+/i)?.[0] ?? '';
+      written += fewUnit[0] + of;
+      s = s.slice(fewUnit[0].length + of.length);
+    }
+    quantity = null;
+    leading.push('to taste');
+  }
   // "70% dark chocolate": the percentage is detail, kept in the original.
-  if (language === 'en') s = s.replace(/\b\d+(?:[.,]\d+)?\s*%\s*/, '');
+  if (language === 'en') s = s.replace(/\b\d+(?:[.,]\d+)?(?:\s*[-–]\s*\d+(?:[.,]\d+)?)?\s*%\s*/, '');
 
   // "1 (15-ounce) can chickpeas": the parenthetical size belongs to the can.
   let sizeNote = '';
@@ -404,16 +485,45 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
     sizeNote = size[1]!;
     s = s.slice(size[0].length);
   }
+  const counted = !size && !times && quantity !== null && quantityMax === null && language === 'en' ? s.match(COUNT_SIZE_RE) : null;
+  if (counted) {
+    quantity! *= parseNumber(counted[1]!);
+    s = s.slice(counted[0].length);
+  }
 
   const u = s.match(UNIT_RE);
   if (u && quantity !== null) {
     const def = lookupUnit(u[1]!);
     if (def) {
       unit = def.unit;
+      if (def.dimension === 'other') written += u[0];
       s = s.slice(u[0].length);
-      const alt = skipAltMeasure(s);
+      // "10 ounce package spinach": the weight is the size of the package.
+      const container = (def.dimension === 'mass' || def.dimension === 'volume') && quantityMax === null && !altMeasure && language === 'en'
+        ? s.match(/^(?:cans?|tins?|jars?|blocks?|bags?|packages?|packs?|packets?|cartons?|box(?:es)?|bottles?|tubs?|containers?|tubes?)\b\s*(?:of\s+)?/i) : null;
+      if (container) {
+        sizeNote ||= `${quantity} ${def.unit}`;
+        unit = lookupUnit(container[0].trim().split(/\s/)[0]!)!.unit;
+        quantity = 1;
+        written += container[0];
+        s = s.slice(container[0].length);
+      }
+      const range = s.match(RANGE_TAIL_RE);
+      const rangeUnit = range ? s.slice(range[0].length).match(UNIT_RE) : null;
+      const rangeDef = rangeUnit ? lookupUnit(rangeUnit[1]!) : undefined;
+      if (range && rangeDef && (rangeDef.unit === def.unit || (rangeDef.dimension === def.dimension && def.dimension !== 'other'))) {
+        quantityMax = (parseNumber(range[1]!) * rangeDef.factor) / def.factor;
+        s = s.slice(range[0].length + rangeUnit![0].length);
+      }
+      const alt = skipAltMeasure(s, def.dimension === 'mass' || def.dimension === 'volume');
       altMeasure = s.slice(0, s.length - alt.length);
       s = alt;
+      // "3/4 cup (180 ml) + 2 tablespoons": the bracket belongs to the first amount.
+      const bracket = s.match(/^\(([^()]*)\)\s*(?=(?:\+|plus\s))/i);
+      if (bracket) {
+        altMeasure ||= bracket[1]!;
+        s = s.slice(bracket[0].length);
+      }
       const plus = s.match(PLUS_MEASURE_RE);
       const plusUnit = plus ? s.slice(plus[0].length).match(UNIT_RE) : null;
       const plusDef = plusUnit ? lookupUnit(plusUnit[1]!) : undefined;
@@ -425,12 +535,40 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
           if (quantityMax !== null) quantityMax += extra;
         }
         s = s.slice(plus[0].length + plusUnit[0].length);
+        // "¼ cup + 2 tbsp / 90 ml".
+        s = skipAltMeasure(s, false);
+      }
+      // "1 cup 180g rice": the second measure repeats the first; grams or ml are kept as its metric.
+      const second = s.match(SECOND_MEASURE_RE);
+      const secondUnit = second ? s.slice(second[0].length).match(UNIT_RE) : null;
+      if (second && secondUnit && lookupUnit(secondUnit[1]!)) {
+        altMeasure ||= s.slice(0, second[0].length + secondUnit[0].length);
+        s = skipAltMeasure(s.slice(second[0].length + secondUnit[0].length), false);
       }
     }
-  } else if (u && /^(pinch|dash|handful|splash|bunch|sprig|can|tin|jar|bag|package|block|packet|sachet)/i.test(u[1]!)) {
+  } else if (!u && quantity !== null && /^\/\s/.test(s)) {
+    // "30-45 / 2-3 tbsp oil": the first amount has no unit, so the second measure is the one kept.
+    const alt = s.match(new RegExp(String.raw`^\/\s*(${NUM})(?:\s*(?:-|–|to)\s*(${NUM}))?\s*`));
+    const altUnit = alt ? s.slice(alt[0].length).match(UNIT_RE) : null;
+    const altDef = altUnit ? lookupUnit(altUnit[1]!) : undefined;
+    if (alt && altUnit && altDef) {
+      quantity = parseNumber(alt[1]!);
+      quantityMax = alt[2] ? parseNumber(alt[2]) : null;
+      unit = altDef.unit;
+      s = s.slice(alt[0].length + altUnit[0].length);
+    }
+  } else if (u && /^(pinch|dash|handful|splash|sprinkle|bunch|sprig|can|tin|jar|bag|package|block|packet|sachet)/i.test(u[1]!)) {
     unit = lookupUnit(u[1]!)?.unit ?? null;
     quantity = 1;
+    written += u[0];
     s = s.slice(u[0].length);
+  }
+
+  // "pinch or two of", "1/2 teaspoon or so of".
+  const orSo = unit && language === 'en' ? s.match(/^or\s+(?:two|so)\b\s*(?:of\s+)?/i) : null;
+  if (orSo) {
+    approx = true;
+    s = s.slice(orSo[0].length);
   }
 
   // "garlic cloves" written name-first.
@@ -454,7 +592,13 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
   if (unit && (unit === 'ml' || unit === 'l') && quantity !== null)
     metric = { quantity: quantity * (unit === 'l' ? 1000 : 1), unit: 'ml' };
 
-  s = s.replace(/^\([^)]*\)\s*/, '').replace(/^of\s+(?:an?\s+)?/i, '');
+  s = s.replace(/^\([^)]*\)\s*/, '').replace(/^of\s+(?:an?\s+)?/i, (m) => { if (written) written += m; return ''; });
+  const cut = unit && language === 'en' ? s.match(CUT_SIZE_RE) : null;
+  if (cut) s = s.slice(cut[0].length);
+  // "2-inch piece of ginger": the piece is the measure.
+  if (unit && ['inch', 'cm'].includes(unit) && language === 'en') s = s.replace(/^(?:pieces?|knobs?|chunks?|slices?)\s+(?:of\s+)?(?=\p{L})/iu, (m) => { written += m; return ''; });
+  // "1 package of 4 sausages": the count inside the package.
+  if (unit && ['package', 'bag', 'box', 'can', 'jar', 'container'].includes(unit) && language === 'en') s = s.replace(/^\d+\s+(?=\p{L})/u, '');
   if (pack.preposition) s = s.replace(pack.preposition, '');
   // "½ tsp each salt & pepper", "1/3 tsp or more cumin": amounts shared or open-ended.
   s = s.replace(/^each\s+(?:of\s+)?/i, '');
@@ -463,14 +607,20 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
     s = s.slice(more[0].length);
     leading.push('as needed');
   }
+  // "water + 2 tablespoons": an extra amount of the same ingredient goes to the notes.
+  if (language === 'en') s = s.replace(TRAILING_EXTRA_RE, (m) => `, ${m.replace(/^\s*(?:\+|plus)\s*/i, '')}`);
   // "plain, unsweetened non-dairy milk", "medium (113g) onion": words that only describe continue with the name.
   const head = s.match(/^([^,;(]+?)\s*(?:,\s*|\(([^()]*)\)\s*)(?=[\p{L}])/u);
   if (head && onlyTerms(head[1]!, lookup) && !lookupConcept(head[1]!, lookup)) s = `${head[1]} ${s.slice(head[0].length)}${head[2] ? ` (${head[2]})` : ''}`;
   const commaAt = s.search(/[,;(]/);
   const afterName = commaAt >= 0 ? s.slice(commaAt) : '';
-  let note = [sizeNote, afterName].filter(Boolean).join(' ').replace(/^[,;\s]+/, '');
+  let note = [sizeNote, cut?.[1], afterName].filter(Boolean).join(' ').replace(/^[,;\s]+/, '');
   // "seeds of choice", "toppings such as tomato": the choice is commentary.
   let phrase = s.split(/[,;(]/)[0]!.trim().replace(/\s+(?:of (?:your )?choice|such as\b.*)$/i, '').replace(/^(?:your\s+)?favou?rite\s+/i, '');
+  // "4 small or 3 large bananas", "buns or 8 slices of bread": the amount of an alternative is dropped with it.
+  // An alternative with an amount of its own is commentary: shown under the first amount, it would be wrong.
+  const uncut = phrase;
+  if (language === 'en') phrase = phrase.replace(ALT_SIZE_RE, '$1 ').replace(ALT_AMOUNT_RE, '');
   let preparation = [afterName, ...leading].join(', ');
   const trailing = !lookupConcept(phrase, lookup) && pack.trailingNote ? phrase.match(pack.trailingNote) : null;
   if (trailing) {
@@ -485,20 +635,40 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
   // "butter (vegan)": the qualifier is outside an animal name, so the name alone must not map to butter.
   const qualifierOutsideName = isQualifiedIngredient(raw) && !isQualifiedIngredient(phrase)
     && Object.keys(languagePacks).some((l) => findUnsafeRenderedTerms(phrase, l).length > 0);
+  const legacy = `${written}${uncut}`.trim();
+  // "can white beans" names the canned product: a name with its container comes before the name alone.
+  // Every tail of the dropped words is tried ("inch piece cinnamon", "piece cinnamon").
+  const tails = written.split(/(?<=\s)/).map((_, i, parts) => parts.slice(i).join(''));
+  const asWritten = [...new Set(tails.flatMap((t) => [`${t}${uncut}`, `${t}${phrase}`]))].map((t) => lookupConcept(t.trim(), lookup)).find(Boolean)
+    ?? (uncut !== phrase ? lookupConcept(uncut.trim(), lookup) : null);
   let concept = qualifierOutsideName ? null : isQualifiedIngredient(phrase)
-    ? lookupConcept(phrase, lookup)
-    : lookupConcept(phrase, lookup) ?? (shared && lookupConcept(canonicalName(`${shared[1]} ${shared[2]}`), lookup)) ?? lookupConcept(name, lookup);
+    ? (written ? asWritten : null) ?? lookupConcept(phrase, lookup) ?? asWritten
+    : (written ? asWritten : null) ?? lookupConcept(phrase, lookup) ?? asWritten ?? (shared && lookupConcept(canonicalName(`${shared[1]} ${shared[2]}`), lookup)) ?? lookupConcept(name, lookup);
   phrase = phrase.trim();
-  let conceptExact = !!concept && lookupConcept(phrase, lookup) === concept;
+  let conceptExact = !!concept && (lookupConcept(phrase, lookup) === concept || asWritten === concept);
   const terms: PreparationTerm[] = [];
   let also: ParsedIngredient['also'] = null;
   if (!conceptExact && !qualifierOutsideName) {
     // "romano or ramiro pepper" shares its noun and is never split into two ingredients.
-    const resolve = (text: string) => {
+    const resolve = (text: string): Resolved | null => {
       const id = resolveName(text, lookup, language);
-      return id ? { concept: id, also: null } : splitIngredients(text, lookup, language);
+      if (id) return { concept: id, also: null };
+      const split = splitIngredients(text, lookup, language);
+      if (split || language !== 'en') return split;
+      // "basil and/or mint".
+      const andOr = text.replace(/\s*\band\s*\/\s*or\b\s*/gi, ' or ');
+      if (andOr !== text) return splitIngredients(andOr, lookup, language);
+      // "lime/lemon juice", "nuts/seeds": either word stands in its place; one the vocabulary does not know is a substitution.
+      const slash = text.match(/([\p{L}'-]+)\/([\p{L}'-]+)/u);
+      if (!slash) return null;
+      const variant = (word: string) => `${text.slice(0, slash.index)}${word}${text.slice(slash.index! + slash[0].length)}`;
+      const [a, b] = [variant(slash[1]!), variant(slash[2]!)];
+      const [left, right] = [resolve(a), resolve(b)];
+      if (left && right && left.concept !== right.concept && !left.also && !right.also)
+        return { ...left, phrase: a, also: { concept: right.concept, name: canonicalName(b), joiner: 'or' as const } };
+      return left ? { ...left, phrase: left.phrase ?? a } : right ? { ...right, phrase: right.phrase ?? b } : null;
     };
-    const found = peelTerms(phrase, resolve, lookup, language);
+    const found = peelTerms(phrase, resolve, lookup, language) ?? (legacy !== phrase ? peelTerms(legacy, resolve, lookup, language) : null);
     if (found) {
       ({ concept, also } = found);
       if (found.phrase) phrase = found.phrase;
@@ -512,6 +682,69 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
   const kind = lineKind(cleanText(raw), quantity, concept, name);
   return { conceptExact, phrase, terms, size: measuredSize, also, ...(approx ? { approx: true as const } : {}), ...(kind ? { kind } : {}),
     raw: cleanText(raw), quantity, quantityMax, unit, metric, afterMeasure, name: kind ? '' : name, concept: kind ? null : concept, note, optional };
+}
+
+/** A raw line as shipped: one ingredient, or its parts when the line names several with their own amounts. */
+export type ParsedLine = ParsedIngredient | ParsedIngredient[];
+
+/** The parts of a shipped line; datasets before parts hold one object per line. */
+export const lineParts = (line: ParsedLine): ParsedIngredient[] => (Array.isArray(line) ? line : [line]);
+
+/** Words besides "+", "&" and the language's "and" that join two measured ingredients. */
+const PART_JOINERS: Record<string, string[]> = { en: ['plus', 'mixed with', 'whisked with', 'combined with'], it: ['più'] };
+/** "zest of 1 lemon + 2 tbsp juice": a later part named only by what it takes from an earlier one. */
+const BACK_REFERENCE = /^(?:juice|zest|sauce|brine|liquid|pulp|succo|scorza|salsa|sugo|liquido|polpa|salamoia)$/i;
+/** "1 tsp each cumin, turmeric…": a part sharing its amount with a list that the part would drop. */
+const SHARED_AMOUNT = /(?<!\p{L})(?:each|ciascun[oa]|ognuno)(?!\p{L})/iu;
+
+/**
+ * "2 tsp cornstarch + 2 tbsp water": a line naming several ingredients, each with its own amount, as its parts.
+ * It splits only where every part is a known ingredient and each later part has its own amount; any other
+ * line is one part, as parseIngredient reads it. A joiner inside brackets or after an alternative
+ * ("tamari or 1 tsp miso + 2 tbsp water") never splits, and a label ("Smoky: …") applies to every part.
+ */
+export function parseLine(raw: string, lookup: IngredientLookup = {}, language = 'en'): ParsedIngredient[] {
+  const pack = languagePacks[language];
+  if (!pack) throw new RangeError(`Unsupported content language: ${language}`);
+  const s = normalizeLine(raw);
+  const label = language === 'en' ? s.match(LABEL_RE)?.[0] ?? '' : '';
+  const body = s.slice(label.length);
+  const words = [pack.and, ...(PART_JOINERS[language] ?? [])].map((w) => w.replace(/ /g, String.raw`\s+`));
+  const joiner = new RegExp(String.raw`(?:\s*,)?\s*(?:\+|&|(?<!\p{L})(?:${words.join('|')})(?!\p{L}))\s*(?=\d)`, 'iuy');
+  const points: [start: number, end: number][] = [];
+  for (let i = 0, depth = 0; i < body.length; i++) {
+    if (body[i] === '(') depth++;
+    else if (body[i] === ')') depth = Math.max(depth - 1, 0);
+    else if (depth === 0) {
+      joiner.lastIndex = i;
+      if (joiner.exec(body) && joiner.lastIndex > i) {
+        points.push([i, joiner.lastIndex]);
+        i = joiner.lastIndex - 1;
+      }
+    }
+  }
+  if (!points.length) return [parseIngredient(raw, lookup, language)];
+  const alternative = new RegExp(String.raw`(?<!\p{L})${pack.or}(?!\p{L})`, 'iu');
+  const known = (p: ParsedIngredient) => !p.kind && !!p.concept && p.conceptExact === true;
+  // A later part needs its own amount and its own name: "3 large cloves" after a head of garlic is not the spice.
+  const own = (p: ParsedIngredient) => p.quantity !== null && !!p.phrase && !BACK_REFERENCE.test(p.name);
+  const part = (text: string) => parseIngredient(`${label}${text}`, lookup, language);
+  // The parts of body[from…], splitting at points[k…]; null when no split makes every part known.
+  const split = (from: number, k: number): ParsedIngredient[] | null => {
+    for (let j = k; j < points.length; j++) {
+      const [start, end] = points[j]!;
+      const text = body.slice(from, start);
+      if (alternative.test(text.replace(/\([^)]*\)?/g, ' ')) || SHARED_AMOUNT.test(text)) break;
+      const p = part(text);
+      if (!known(p) || (from > 0 && !own(p))) continue;
+      const rest = split(end, j + 1);
+      if (rest) return [p, ...rest];
+    }
+    if (from === 0) return null;
+    const last = part(body.slice(from));
+    return known(last) && own(last) && !SHARED_AMOUNT.test(body.slice(from)) ? [last] : null;
+  };
+  return split(0, 0) ?? [parseIngredient(raw, lookup, language)];
 }
 
 /** Headings, equipment, instructions and asides written among the ingredients. */
@@ -646,11 +879,12 @@ function splitIngredients(phrase: string, lookup: IngredientLookup, language: st
   return { concept: left.concept, also: { concept: right.concept, name, joiner }, sideTerms };
 }
 
-/** Drop the alternative side of "60 ml / ¼ cup"; the first measure is the one kept. */
-function skipAltMeasure(s: string): string {
+/** Drop the alternative sides of "60 ml / ¼ cup / 4 tbsp" (or "75 g / 10 apricots" after a weight); the first measure is the one kept. */
+function skipAltMeasure(s: string, countOk: boolean): string {
   const alt = s.match(ALT_MEASURE_RE);
   if (!alt) return s;
   const rest = s.slice(alt[0].length).replace(MEASURE_WORDS_RE, '');
   const u = rest.match(UNIT_RE);
-  return u && lookupUnit(u[1]!) ? rest.slice(u[0].length) : s;
+  if (u && lookupUnit(u[1]!)) return skipAltMeasure(rest.slice(u[0].length), countOk);
+  return countOk && /^\p{L}/u.test(rest) ? rest : s;
 }

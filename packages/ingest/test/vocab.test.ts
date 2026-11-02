@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, expect, it } from 'vitest';
-import { lookupConcept, lookupTerm, parseIngredient } from '@vegdex/core';
+import { lookupConcept, lookupTerm, parseIngredient, parseLine } from '@vegdex/core';
 import { applyAnswers, buildBatch } from '../src/fill';
 import { fillPayoff, findGaps, measureCoverage, type Gap } from '../src/gaps';
 import type { Prepared } from '../src/prepare';
@@ -117,17 +117,20 @@ it('measures coverage and ranks gaps by the lines they keep from rendering', () 
   const recipe = (id: string, ingredients: string[], contentLanguage = 'en') => ({
     recipe: { id, sourceId: 's', title: `Title ${id}`, url: `https://example.com/${id}`, image: null, minutes: null, servings: null, rating: null,
       ratingCount: null, calories: null, protein: null, published: null, categories: [], cuisines: [], keywords: [], ingredients, contentLanguage },
-    parsed: ingredients.map((line) => parseIngredient(line, vocab.lookup(contentLanguage), contentLanguage))
+    parsed: ingredients.map((line) => parseLine(line, vocab.lookup(contentLanguage), contentLanguage))
   }) satisfies Prepared;
   const prepared = [
     recipe('a', ['400 g chickpeas, drained and rinsed', '1 cup mystery seeds', '2 tbsp moon oil']),
-    recipe('b', ['1 cup mystery seeds, see notes', '1 tsp moon salt'])
+    recipe('b', ['1 cup mystery seeds, see notes', '1 tsp moon salt']),
+    // Two parts make one line: rendered only when both render.
+    recipe('c', ['2 tsp cornstarch + 1 tbsp water'])
   ];
+  expect(prepared[2]!.parsed[0]).toHaveLength(2);
   const { coverage, gaps } = measureCoverage(prepared, vocab, ['it']);
-  expect(coverage.languages.it).toMatchObject({ lines: 5, rendered: 1, unknown: 4, titles: 2, translatedTitles: 0 });
+  expect(coverage.languages.it).toMatchObject({ lines: 6, rendered: 2, unknown: 4, titles: 3, translatedTitles: 0 });
   expect(gaps).toEqual(findGaps(prepared, vocab, ['it']));
   expect(gaps.filter((g) => g.kind === 'map').map((g) => [g.id, g.lines])).toEqual([['mystery seeds', 2], ['moon oil', 1], ['moon salt', 1]]);
-  expect(gaps.filter((g) => g.kind === 'title')).toHaveLength(2);
+  expect(gaps.filter((g) => g.kind === 'title')).toHaveLength(3);
   const batch = buildBatch(vocab, gaps, 'map', 'en', 1);
   expect(batch.items).toEqual([expect.objectContaining({ id: 'mystery seeds', lines: 2, context: expect.objectContaining({ candidates: expect.any(Array) }) })]);
   expect(batch.instructions).toContain('"not-ingredient"');

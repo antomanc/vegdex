@@ -1,10 +1,10 @@
 <script lang="ts">
   import { display, recipeTitle } from './translations.svelte'
-  import { isHiddenLine, renderIngredient, type CatalogRecipe } from '@vegdex/core'
+  import { isHiddenLine, lineParts, renderIngredient, type CatalogRecipe } from '@vegdex/core'
   import { loadDetails } from './data'
   import Icon from './Icon.svelte'
   import { m, countArgs, formatNumber, formatRating, pageLocale } from './i18n'
-  import { FREE, cuisineLabel, formatMinutes, splitAmount, splitLine } from './labels'
+  import { FREE, cuisineLabel, formatMinutes, splitAmount, splitLine, splitParts } from './labels'
   import { sheet } from './sheet'
   import { prefs, saved, toggleSaved } from './state.svelte'
   import UnitsToggle from './UnitsToggle.svelte'
@@ -87,7 +87,15 @@
     {:then { ingredients: lines, parsedIngredients }}
       {@const source = recipe.contentLanguage ?? 'en'}
       {@const split = lines.flatMap((line, i) => {
-        const parsed = parsedIngredients?.[i]
+        const shipped = parsedIngredients?.[i]
+        const parts = shipped ? lineParts(shipped) : []
+        // "2 tsp cornstarch + 2 tbsp water": as written in its own language, one line per part in another.
+        if (parts.length > 1) {
+          if (pageLocale.code === source) return [splitParts(line, prefs.units, parts)]
+          const rendered = parts.map((p) => renderIngredient(p, display.overlay ?? undefined, pageLocale.code, prefs.units, source))
+          return rendered.every((r) => r !== null) ? rendered : [splitAmount(line)]
+        }
+        const parsed = parts[0]
         // Only ingredients show: equipment and asides never, headings only in the recipe's own language.
         if (isHiddenLine(parsed, pageLocale.code, source)) return []
         const rendered = parsed && renderIngredient(parsed, display.overlay ?? undefined, pageLocale.code, prefs.units, source)

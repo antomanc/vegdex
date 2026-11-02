@@ -1,4 +1,4 @@
-import { normalizeLine, parseIngredient } from './ingredients';
+import { normalizeLine, parseIngredient, parseLine } from './ingredients';
 import { isQualifiedIngredient, type IngredientLookup } from './concepts';
 import { findUnsafeRenderedTerms } from './translations';
 
@@ -10,7 +10,7 @@ export function findNonVeganConcepts(lines: string[], lookup: IngredientLookup, 
   // "sale e burro": the second ingredient of a split line is checked too.
   const named = (p: ReturnType<typeof parseIngredient>) => [p.concept, p.also?.concept].filter((c): c is string => !!c);
   if (language !== 'en') return lines.flatMap((line) =>
-    named(parseIngredient(line, lookup, language)).filter((concept) => vegan[concept] === 'no').map((concept) => ({ concept, line })));
+    parseLine(line, lookup, language).flatMap(named).filter((concept) => vegan[concept] === 'no').map((concept) => ({ concept, line })));
   return lines.flatMap((line) => {
     const normalized = normalizeLine(line);
     if (NON_INGREDIENT.test(normalized)) return [];

@@ -18,6 +18,8 @@ The first run downloads the crawl store from the `data` release with `gh`.
 
 Before a phrase counts as a gap, the parser tries, in order: the name as written; the name without a plant qualifier ("vegan coconut yogurt"); the name with one typo fixed; and preparation terms or a product brand (`brands` in `vocab/en.json`) peeled off either end. A step never resolves to an animal word the original did not name. So a frequent gap is usually a missing alias, term or brand, cheaper to add than a fill.
 
+Amounts are read before the name: dual and triple measures ("150 g / 1 cup / 5 oz"), a second measure without a slash ("1 cup 180g"), added amounts ("½ cup plus 2 tbsp"), ranges with their own unit, package sizes ("1 14.5 ounce (410 g) can"), containers (box, bottle, tub, batch, recipe…), "a few", "~" and labels naming one ingredient ("Spices: 1 tsp cumin"). An alternative with its own amount ("4 buns or 8 slices of bread") is commentary. A line naming two ingredients with their own amounts ("2 tsp cornstarch + 2 tbsp water") splits into parts when every part is a known ingredient (ADR 0006); until then it is one line, and its gap is the whole phrase. Older answers learned names with some of these words still in them ("can crushed tomatoes"), so the name as written is tried too. A gap that still starts with a number or a unit is a parser bug: fix the parser, never answer it. Before committing a parser change, run `pnpm parse:diff <ref>` (usually `HEAD`): it parses every catalog line with both parsers against today's vocabulary, prints the changes by category with examples, and writes them all to `.data/scratch/parse-diff.tsv`. Read the `LOST` and `concept` examples before you commit.
+
 ## Gap kinds
 
 | Kind | `--lang` is | Answer |

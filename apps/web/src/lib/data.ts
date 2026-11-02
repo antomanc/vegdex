@@ -1,4 +1,4 @@
-import { shardOf, type Catalog, type GroceryConcepts, type IngredientLookup, type LanguageVocabulary, type ParsedIngredient } from '@vegdex/core'
+import { shardOf, type Catalog, type GroceryConcepts, type IngredientLookup, type LanguageVocabulary, type ParsedLine } from '@vegdex/core'
 import { BASE_LOCALE } from './locales'
 
 const base = import.meta.env.BASE_URL
@@ -30,7 +30,7 @@ export async function loadLookup(language: string): Promise<LookupFile> {
 
 export interface RecipeDetails {
   ingredients: string[]
-  parsedIngredients?: ParsedIngredient[]
+  parsedIngredients?: ParsedLine[]
 }
 
 const shards = new Map<number, Promise<Record<string, string[] | RecipeDetails>>>()

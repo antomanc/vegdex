@@ -15124,13 +15124,20 @@
   },
   "units": {
     "bag": ["sacchetto","sacchetti"],
+    "bar": ["tavoletta","tavolette"],
+    "batch": ["dose","dosi"],
     "block": ["panetto","panetti"],
+    "bottle": ["bottiglia","bottiglie"],
+    "box": ["scatola","scatole"],
     "bunch": ["mazzetto","mazzetti"],
     "can": ["lattina","lattine"],
+    "carton": ["cartone","cartoni"],
     "clove": ["spicchio","spicchi"],
     "cm": ["cm","cm"],
+    "container": ["confezione","confezioni"],
     "cup": ["tazza","tazze"],
     "dash": ["goccio","gocci"],
+    "drop": ["goccia","gocce"],
     "fl oz": ["fl oz","fl oz"],
     "g": ["g","g"],
     "handful": ["manciata","manciate"],
@@ -15147,12 +15154,16 @@
     "pinch": ["pizzico","pizzichi"],
     "pint": ["pinta","pinte"],
     "quart": ["quarto di gallone","quarti di gallone"],
+    "recipe": ["ricetta","ricette"],
     "scoop": ["misurino","misurini"],
     "sheet": ["foglio","fogli"],
     "slice": ["fetta","fette"],
+    "splash": ["spruzzo","spruzzi"],
     "sprig": ["rametto","rametti"],
+    "sprinkle": ["spolverata","spolverate"],
     "stalk": ["gambo","gambi"],
     "tbsp": ["cucchiaio","cucchiai"],
-    "tsp": ["cucchiaino","cucchiaini"]
+    "tsp": ["cucchiaino","cucchiaini"],
+    "tube": ["tubetto","tubetti"]
   }
 }
