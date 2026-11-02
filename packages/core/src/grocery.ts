@@ -73,11 +73,7 @@ function fmt(n: number): string {
 
 function plural(unit: string, n: number): string {
   if (n <= 1 || ['g', 'kg', 'ml', 'l', 'tbsp', 'tsp', 'oz', 'lb', 'fl oz'].includes(unit)) return unit;
-  if (unit === 'bunch') return 'bunches';
-  if (unit === 'pinch') return 'pinches';
-  if (unit === 'dash') return 'dashes';
-  if (unit === 'inch') return 'inches';
-  return unit + 's';
+  return /(?:ch|sh|x)$/.test(unit) ? `${unit}es` : `${unit}s`;
 }
 
 function formatVolume(ml: number): string {

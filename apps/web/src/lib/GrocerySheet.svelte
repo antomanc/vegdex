@@ -133,7 +133,7 @@
               <label class:done={checked[key(item)]}>
                 <input type="checkbox" bind:checked={checked[key(item)]} />
                 <span class="name">{displayGroceryName(item, pageLocale.code === BASE_LOCALE.code ? undefined : display.overlay ?? undefined, pageLocale.code)}</span>
-                <span class="amount">{item.toTaste ? m.to_taste() : item.amounts.map(formatGroceryAmount).join(' + ')}</span>
+                <span class="amount">{item.toTaste ? m.to_taste() : item.amounts.map((a) => formatGroceryAmount(a, display.overlay)).join(' + ')}</span>
               </label>
             </li>
           {/each}
