@@ -119,3 +119,17 @@ export function splitLine(line: string, units: Units, parsed?: ParsedIngredient)
   const metric = units === 'metric' ? metricLine(line, parsed) : null
   return metric ? [formatQuantity(metric[0]), tidyLine(metric[1])] : splitAmount(line)
 }
+
+/**
+ * A line split into parts, in its own language: in metric each part gets its own amount, joined with "+"
+ * ("≈ 45 g chickpea flour + 120 ml water"). Otherwise, or under a label, the line stays as written.
+ */
+export function splitParts(line: string, units: Units, parts: ParsedIngredient[]): [string, string] {
+  const metric = units === 'metric' && !parts.some((p) => /^\D+:/.test(p.raw)) ? parts.map((p) => metricLine(p.raw, p)) : []
+  if (!metric.some(Boolean)) return splitAmount(line)
+  const [first, ...rest] = parts.map((p, i): [string, string] => {
+    const m = metric[i]
+    return m ? [formatQuantity(m[0]), tidyLine(m[1])] : splitAmount(p.raw)
+  })
+  return [first![0], [first![1], ...rest.map(([amount, name]) => `${amount} ${name}`.trim())].join(' + ')]
+}
