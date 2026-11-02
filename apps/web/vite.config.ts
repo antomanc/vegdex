@@ -39,6 +39,8 @@ const localize = (html: string, locale: Locale) => {
   const text = messages(locale.code)
   return html
     .replaceAll('%LANG%', locale.code)
+    .replaceAll('%SHARE_IMAGE%', new URL(`share-${locale.code}.png`, siteUrl).href)
+    .replaceAll('%SHARE_ALT%', escapeHtml(String(text.share_alt)))
     .replaceAll('%PAGE_URL%', pageUrl(locale))
     .replaceAll('%OG_LOCALE%', locale.ogLocale)
     .replaceAll('%MANIFEST%', `${localePath(locale)}manifest.webmanifest`)
