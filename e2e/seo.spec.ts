@@ -59,7 +59,7 @@ test('initial HTML identifies the site and filtered views keep its canonical', a
   const html = await response.text();
   expect(html).toContain(`<link rel="canonical" href="${canonical}"`);
   expect(html).toContain('application/ld+json');
-  expect(html).toContain(`<meta property="og:image" content="${canonical}icon-512.png"`);
+  expect(html).toContain(`<meta property="og:image" content="${canonical}share-en.png"`);
   expect(html).not.toContain('%SITE_URL%');
 
   await page.goto('/?meal=soup');
@@ -145,3 +145,23 @@ test('offline navigation keeps the UI language selected by the path', async ({ b
     await context.close();
   }
 });
+
+for (const [path, language] of [['/', 'en'], ['/it/', 'it']]) {
+  test(`${language} share card exists with its declared dimensions`, async ({ page, request }) => {
+    await page.goto(path!);
+    const image = page.locator('meta[property="og:image"]');
+    const url = await image.getAttribute('content');
+    expect(url).toBe(`${canonical}share-${language}.png`);
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
+    await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute('content', /vegdex/);
+    const response = await request.get(new URL(url!).pathname);
+    expect(response.ok()).toBe(true);
+    const png = await response.body();
+    expect(png.subarray(0, 8).toString('hex')).toBe('89504e470d0a1a0a');
+    expect(png.length).toBeLessThan(300_000);
+    for (const [property, size] of [['width', png.readUInt32BE(16)], ['height', png.readUInt32BE(20)]] as const) {
+      await expect(page.locator(`meta[property="og:image:${property}"]`)).toHaveAttribute('content', String(size));
+    }
+    expect([png.readUInt32BE(16), png.readUInt32BE(20)]).toEqual([1200, 630]);
+  });
+}

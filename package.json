@@ -9,6 +9,7 @@
     "build": "pnpm --filter @vegdex/web build",
     "preview:start": "node scripts/preview.mjs start",
     "preview:stop": "node scripts/preview.mjs stop",
+    "share-card": "node scripts/share-card.mjs",
     "perf": "node scripts/perf.mjs",
     "ingest": "pnpm --filter @vegdex/ingest ingest",
     "typecheck": "pnpm -r typecheck && pnpm typecheck:e2e",
