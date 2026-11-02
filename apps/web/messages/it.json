@@ -1,5 +1,10 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
+  "discovery_hint": "Trova qui la ricetta. Per il procedimento, visita il sito di chi l’ha creata.",
+  "saved_device_hint": "Salvate in questo browser, su questo dispositivo.",
+  "open_source": "Codice aperto su GitHub",
+  "tonight_hint": "Piatti principali pronti in 45 minuti o meno",
+  "protein_hint": "Almeno 20 g di proteine per porzione",
   "language_name": "Italiano",
   "language_available": "Disponibile in italiano",
   "dismiss_language_suggestion": "Nascondi il suggerimento della lingua",

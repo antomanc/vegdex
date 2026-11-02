@@ -60,4 +60,20 @@ describe('classify', () => {
       expect(tags, title).toEqual(expect.arrayContaining(['meal:dessert', 'flavor:sweet']));
     }
   });
+  it('keeps pet food out of human meal filters even with publisher dinner categories', () => {
+    for (const title of ['Easy Homemade Dog Treats!', 'Homemade Soft Dog Treats (Just 5 Ingredients!)', 'Puppy-Friendly "Puppy Chow"', 'Cat Food']) {
+      const tags = classify({ ...base, title, categories: ['Dinner'], ingredients: ['1 cup oats', '1 banana'] });
+      expect(tags.filter((tag) => tag.startsWith('meal:')), title).toEqual([]);
+    }
+    for (const title of ['Vegan Corn Dogs', 'Carrot Hot Dogs', 'Puppy Chow']) {
+      expect(classify({ ...base, title, categories: ['Main'], ingredients: ['1 cup oats'] }), title).toContain('meal:main');
+    }
+  });
+
+  it('does not let an oil-free claim override required oil', () => {
+    const tags = classify({ ...base, title: 'Oil-free Pesto', keywords: ['oil-free'], ingredients: ['1 tbsp olive oil', '1 cup basil'] });
+    expect(tags).not.toContain('free:oil-free');
+    expect(classify({ ...base, title: 'Pesto', ingredients: ['1 cup basil', '1 tbsp olive oil (optional)'] })).toContain('free:oil-free');
+  });
+
 });

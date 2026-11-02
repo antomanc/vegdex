@@ -367,3 +367,9 @@ p.small { margin-top: 18px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
+
+/* Keep the creator link readable beside long translated labels and publisher names. */
+.recipe-sheet .actions { flex-wrap: wrap; }
+.recipe-secondary-actions { display: flex; gap: 10px; }
+.recipe-sheet .actions .cta { flex: 1 1 220px; }
+.discovery-hint, .device-hint { margin: 0; padding: 0 4px; color: var(--muted); font-size: 0.88rem; line-height: 1.5; }

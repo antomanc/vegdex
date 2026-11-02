@@ -42,7 +42,7 @@
 </script>
 
 <div class="pills controls">
-  <button class="pill tonight" class:on={isTonight()} aria-pressed={isTonight()} onclick={toggleTonight}>
+  <button class="pill tonight" class:on={isTonight()} aria-pressed={isTonight()} title={m.tonight_hint()} onclick={toggleTonight}>
     <Icon name="clock" size={16} /> {m.tonight()}
   </button>
   <button class="pill pick" disabled={count === 0} onclick={onpick}>
@@ -57,7 +57,7 @@
         onclick={() => (filters.maxMinutes = filters.maxMinutes === t ? null : t)}>{m.time_limit({ count: formatNumber(t) })}</button>
     {/each}
   </div>
-  <button class="pill outline" class:on={filters.highProtein} aria-pressed={filters.highProtein}
+  <button class="pill outline" class:on={filters.highProtein} aria-pressed={filters.highProtein} title={m.protein_hint()}
     onclick={() => (filters.highProtein = !filters.highProtein)}>{m.high_protein()}</button>
 </div>
 
