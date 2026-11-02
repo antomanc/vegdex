@@ -25,6 +25,8 @@
   const PAGE = 48
   // Past this many, more recipes load on request, so the credits at the bottom can be reached.
   const AUTO_LIMIT = PAGE * 4
+  // Cards in the first rows on a phone or a wide screen.
+  const EAGER = 4
 
   const initial = readUrl()
   // The catalog itself lives in a worker (lib/catalog.worker.ts); the page holds what it shows.
@@ -287,9 +289,11 @@
   {:else if !found}
     <p class="visually-hidden" role="status">{m.loading_recipes()}</p>
     {#if early}
+      <!-- Holds the count line's place, so the cards stay put when the catalog arrives. -->
+      <div class="summary" aria-hidden="true"><p>{m.loading_recipes()}</p></div>
       <ul class="grid" data-testid="first-page">
-        {#each early as recipe (recipe.id)}
-          <li><RecipeCard {recipe} sourceName={sourceNames.get(recipe.source) ?? recipe.source} onopen={() => (openId = recipe.id)} /></li>
+        {#each early as recipe, i (recipe.id)}
+          <li><RecipeCard {recipe} sourceName={sourceNames.get(recipe.source) ?? recipe.source} onopen={() => (openId = recipe.id)} eager={i < EAGER} /></li>
         {/each}
       </ul>
     {:else}
@@ -356,9 +360,9 @@
     {/if}
 
     <ul class="grid">
-      {#each visible as recipe (recipe.id)}
+      {#each visible as recipe, i (recipe.id)}
         <li>
-          <RecipeCard {recipe} sourceName={sourceNames.get(recipe.source) ?? recipe.source} onopen={() => (openId = recipe.id)} />
+          <RecipeCard {recipe} sourceName={sourceNames.get(recipe.source) ?? recipe.source} onopen={() => (openId = recipe.id)} eager={i < EAGER} />
         </li>
       {/each}
     </ul>

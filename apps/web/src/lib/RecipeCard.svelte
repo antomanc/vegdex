@@ -6,7 +6,8 @@
   import { formatCount, formatMinutes } from './labels'
   import { saved, toggleSaved } from './state.svelte'
 
-  let { recipe, sourceName, onopen }: { recipe: CatalogRecipe; sourceName: string; onopen: () => void } = $props()
+  // The first row is on screen at once: its photos load first instead of waiting for layout.
+  let { recipe, sourceName, onopen, eager = false }: { recipe: CatalogRecipe; sourceName: string; onopen: () => void; eager?: boolean } = $props()
   let broken = $state(false)
   const isSaved = $derived(saved.ids.includes(recipe.id))
   const justUnsaved = $derived(saved.unsaved.includes(recipe.id))
@@ -18,7 +19,7 @@
   <button class="card-open" onclick={onopen} aria-labelledby="{id}-title" aria-describedby="{id}-meta">
     <div class="thumb">
       {#if recipe.image && !broken}
-        <img src={recipe.image} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror={() => (broken = true)} />
+        <img src={recipe.image} alt="" loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async" referrerpolicy="no-referrer" onerror={() => (broken = true)} />
       {:else}
         <svg class="placeholder" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 44c0-16 10-26 28-28-1 18-10 28-26 28h-2z" fill="currentColor" /></svg>
       {/if}
