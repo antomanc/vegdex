@@ -61,6 +61,10 @@ _Avoid_: Note, aside
 A manufacturer's name written into an ingredient, such as "Bob's Red Mill almond flour". Dropped from the name, unless it is what makes the ingredient plant-based.
 _Avoid_: Brand (alone: the product's own identity uses that word)
 
+**Part**:
+One ingredient of a line that names two, each with its own amount, such as the water in "2 tsp cornstarch + 2 tbsp water". Shown as its own line in another language and bought as its own item.
+_Avoid_: Sub-ingredient, split line
+
 **Gap**:
 Something the vocabulary lacks: a phrase with no concept or term, a concept or term with no name in a language, or a title with no translation.
 _Avoid_: Queue task, missing string
