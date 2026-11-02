@@ -15,7 +15,14 @@ export interface PackedCatalog extends Omit<Catalog, 'version' | 'recipes'> {
   recipes: PackedRecipe[];
 }
 
-export type PackedRecipe = Omit<CatalogRecipe, 'concepts' | 'ing' | 'tags'> & { concepts?: number[]; ing: number[]; tags: number[] };
+export type PackedRecipe = Omit<CatalogRecipe, 'concepts' | 'ing' | 'tags'> & {
+  /** The concepts not implied by others; unpacking adds their ancestors. */
+  concepts?: number[];
+  /** A concept list that leaves out an ancestor of its own concepts, kept exactly as given. */
+  conceptsAsIs?: number[];
+  ing: number[];
+  tags: number[];
+};
 
 const table = <T extends string>(values: Iterable<T>) => {
   const list = [...new Set(values)].sort();
@@ -49,12 +56,16 @@ export function packCatalog(catalog: Catalog, parentsOf: (concept: string) => re
     parents,
     names: names.list,
     tags: tags.list,
-    recipes: recipes.map(({ concepts: own, ing, tags: tagged, ...row }) => ({
-      ...row,
-      ...(own ? { concepts: direct(closure(own.map((id) => concepts.at.get(id)!), parents)) } : {}),
-      ing: ing.map((name) => names.at.get(name)!),
-      tags: tagged.map((tag) => tags.at.get(tag)!)
-    }))
+    recipes: recipes.map(({ concepts: own, ing, tags: tagged, ...row }) => {
+      const given = own?.map((id) => concepts.at.get(id)!).sort((a, b) => a - b);
+      const closed = given && closure(given, parents).join() === given.join();
+      return {
+        ...row,
+        ...(given ? (closed ? { concepts: direct(given) } : { conceptsAsIs: given }) : {}),
+        ing: ing.map((name) => names.at.get(name)!),
+        tags: tagged.map((tag) => tags.at.get(tag)!)
+      };
+    })
   };
 }
 
@@ -66,8 +77,8 @@ export function unpackCatalog(catalog: Catalog | PackedCatalog): Catalog {
   return {
     version: 1,
     ...rest,
-    recipes: recipes.map(({ concepts: own, ing, tags: tagged, ...row }) => {
-      let family: string[] | undefined;
+    recipes: recipes.map(({ concepts: own, conceptsAsIs, ing, tags: tagged, ...row }) => {
+      let family = conceptsAsIs?.map((id) => concepts[id]!);
       if (own) {
         const key = own.join();
         family = families.get(key);

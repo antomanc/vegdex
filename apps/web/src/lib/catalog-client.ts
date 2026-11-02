@@ -4,6 +4,9 @@ import type { CatalogRequest, Found, Loaded } from './catalog.worker'
 export type { Found, Loaded }
 
 let worker: Worker | null = null
+// After a crash a new worker would start without the catalog and answer every search with nothing:
+// until the catalog is loaded again, every other call fails, and the page offers to try again.
+let lost = false
 let next = 0
 const pending = new Map<number, { resolve: (value: unknown) => void; reject: (error: Error) => void }>()
 
@@ -23,11 +26,14 @@ function connect(): Worker {
     pending.clear()
     worker?.terminate()
     worker = null
+    lost = true
   }
   return worker
 }
 
 function ask<T>(request: CatalogRequest, transfer: Transferable[] = []): Promise<T> {
+  if (request.kind === 'catalog') lost = false
+  else if (lost && request.kind !== 'titles') return Promise.reject(new Error('Catalog worker restarted without its catalog'))
   const id = ++next
   return new Promise<T>((resolve, reject) => {
     pending.set(id, { resolve: resolve as (value: unknown) => void, reject })

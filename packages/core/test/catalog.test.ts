@@ -39,6 +39,15 @@ describe('packCatalog and unpackCatalog', () => {
     expect(packed.recipes.map((r) => r.ing)).toEqual([[1, 0], [1]]);
   });
 
+  it('keep a concept list that leaves out an ancestor exactly as given', () => {
+    // Emit always writes whole families; packing must still not add what a caller left out.
+    const original = catalog([
+      recipe('a', { concepts: ['bean'] }),
+      recipe('b', { concepts: ['bean', 'black-bean', 'legume'] })
+    ]);
+    expect(unpackCatalog(packCatalog(original, (id) => parents[id] ?? []))).toEqual(original);
+  });
+
   it('pass a catalog from before packing through unchanged', () => {
     const old = catalog([recipe('a', { concepts: ['garlic'] })]);
     expect(unpackCatalog(old)).toBe(old);

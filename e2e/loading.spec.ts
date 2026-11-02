@@ -51,3 +51,13 @@ test('typing while the catalog loads searches it once it arrives', async ({ page
   release();
   await expect(page.getByTestId('recipe-card')).toHaveText([/Fudgy Vegan Brownies/]);
 });
+
+test('a catalog the worker cannot read shows the load error, and trying again recovers', async ({ page }) => {
+  let corrupt = true;
+  await page.route('**/data/catalog.json', (route) => (corrupt ? route.fulfill({ body: '{"version":2,"recipes":[', contentType: 'application/json' }) : route.fallback()));
+  await page.goto('/?q=lentil');
+  await expect(page.getByText("Couldn't load the recipes. Check your connection and try again.", { exact: true })).toBeVisible();
+  corrupt = false;
+  await page.getByRole('button', { name: 'Try again', exact: true }).click();
+  await expect(page.getByTestId('recipe-card')).toHaveText([/Red Lentil Soup/]);
+});

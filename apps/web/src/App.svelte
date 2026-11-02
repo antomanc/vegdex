@@ -51,8 +51,15 @@
   let filtersOutOfView = $state(false)
   let queryString = $state(location.search)
 
+  function failed(e: Error) {
+    console.error(e)
+    error = m.load_error()
+  }
+
   function load() {
     error = null
+    // A retry loads the catalog into a fresh worker; questions wait for it.
+    loaded = null
     // Everything starts at once (index.html preloads it too); the catalog is the long one.
     // Ingredient names only add matches: without them, search still matches the recipes' English names.
     const names = loadLookup(pageLocale.code).then((f) => f.aliases, () => ({}))
@@ -70,10 +77,7 @@
         for (const s of l.sources) sourceNames.set(s.id, s.name)
         loaded = l
       })
-      .catch((e: Error) => {
-        console.error(e)
-        error = m.load_error()
-      })
+      .catch(failed)
   }
   load()
 
@@ -81,7 +85,7 @@
   $effect(() => {
     const titles = display.overlay?.titles ?? null
     if (!loaded) return
-    void catalog.titles(titles).then(() => titlesVersion++)
+    catalog.titles(titles).then(() => titlesVersion++, failed)
   })
 
   const kitchen = $derived(filters.from && !filters.saved ? loaded?.sources.find((s) => s.id === filters.from) ?? null : null)
@@ -97,10 +101,7 @@
     const n = limit
     void titlesVersion
     const id = ++asked
-    catalog.search(query, n, countIds).then(
-      (f) => { if (id === asked) found = f },
-      (e: Error) => { console.error(e); error = m.load_error() }
-    )
+    catalog.search(query, n, countIds).then((f) => { if (id === asked) found = f }, failed)
   })
   const results = $derived(found?.recipes ?? [])
   const total = $derived(found?.total ?? 0)
@@ -123,13 +124,13 @@
   $effect(() => {
     const id = openId
     if (!id || !loaded || untrack(() => open)) return
-    void catalog.rows([id]).then(([row]) => { if (openId === id && row) openRow = row })
+    catalog.rows([id]).then(([row]) => { if (openId === id && row) openRow = row }, failed)
   })
 
   $effect(() => {
     const ids = $state.snapshot(saved.ids)
     if (!loaded) return
-    void catalog.rows(ids).then((rows) => (savedRecipes = rows))
+    catalog.rows(ids).then((rows) => (savedRecipes = rows), failed)
   })
 
   const countText = $derived(filters.saved ? m.saved_count(countArgs(resultCount)) : m.recipe_count(countArgs(resultCount)))
@@ -146,12 +147,12 @@
     const options = active.map((f) => ({ label: m.remove_suggestion({ label: f.label }), apply: () => removeFilter(f), patch: f.patch, isSearch: false }))
     if (filters.text.trim()) options.push({ label: m.clear_the_search(), apply: () => (filters.text = ''), patch: { text: '' }, isSearch: true })
     const queries = options.map((o) => $state.snapshot(toQuery([], { ...filters, ...o.patch })))
-    void catalog.counts(queries).then((counts) => {
+    catalog.counts(queries).then((counts) => {
       if (id !== loosenAsked) return
       let best: typeof loosen = null
       options.forEach((o, i) => { if (counts[i] && (!best || counts[i]! > best.n)) best = { ...o, n: counts[i]! } })
       loosen = best
-    })
+    }, failed)
   })
 
   // Screen readers hear the count once typing settles, not on every keystroke.
