@@ -681,6 +681,69 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
     raw: cleanText(raw), quantity, quantityMax, unit, metric, afterMeasure, name: kind ? '' : name, concept: kind ? null : concept, note, optional };
 }
 
+/** A raw line as shipped: one ingredient, or its parts when the line names several with their own amounts. */
+export type ParsedLine = ParsedIngredient | ParsedIngredient[];
+
+/** The parts of a shipped line; datasets before parts hold one object per line. */
+export const lineParts = (line: ParsedLine): ParsedIngredient[] => (Array.isArray(line) ? line : [line]);
+
+/** Words besides "+", "&" and the language's "and" that join two measured ingredients. */
+const PART_JOINERS: Record<string, string[]> = { en: ['plus', 'mixed with', 'whisked with', 'combined with'], it: ['più'] };
+/** "zest of 1 lemon + 2 tbsp juice": a later part named only by what it takes from an earlier one. */
+const BACK_REFERENCE = /^(?:juice|zest|sauce|brine|liquid|pulp|succo|scorza|salsa|sugo|liquido|polpa|salamoia)$/i;
+/** "1 tsp each cumin, turmeric…": a part sharing its amount with a list that the part would drop. */
+const SHARED_AMOUNT = /(?<!\p{L})(?:each|ciascun[oa]|ognuno)(?!\p{L})/iu;
+
+/**
+ * "2 tsp cornstarch + 2 tbsp water": a line naming several ingredients, each with its own amount, as its parts.
+ * It splits only where every part is a known ingredient and each later part has its own amount; any other
+ * line is one part, as parseIngredient reads it. A joiner inside brackets or after an alternative
+ * ("tamari or 1 tsp miso + 2 tbsp water") never splits, and a label ("Smoky: …") applies to every part.
+ */
+export function parseLine(raw: string, lookup: IngredientLookup = {}, language = 'en'): ParsedIngredient[] {
+  const pack = languagePacks[language];
+  if (!pack) throw new RangeError(`Unsupported content language: ${language}`);
+  const s = normalizeLine(raw);
+  const label = language === 'en' ? s.match(LABEL_RE)?.[0] ?? '' : '';
+  const body = s.slice(label.length);
+  const words = [pack.and, ...(PART_JOINERS[language] ?? [])].map((w) => w.replace(/ /g, String.raw`\s+`));
+  const joiner = new RegExp(String.raw`(?:\s*,)?\s*(?:\+|&|(?<!\p{L})(?:${words.join('|')})(?!\p{L}))\s*(?=\d)`, 'iuy');
+  const points: [start: number, end: number][] = [];
+  for (let i = 0, depth = 0; i < body.length; i++) {
+    if (body[i] === '(') depth++;
+    else if (body[i] === ')') depth = Math.max(depth - 1, 0);
+    else if (depth === 0) {
+      joiner.lastIndex = i;
+      if (joiner.exec(body) && joiner.lastIndex > i) {
+        points.push([i, joiner.lastIndex]);
+        i = joiner.lastIndex - 1;
+      }
+    }
+  }
+  if (!points.length) return [parseIngredient(raw, lookup, language)];
+  const alternative = new RegExp(String.raw`(?<!\p{L})${pack.or}(?!\p{L})`, 'iu');
+  const known = (p: ParsedIngredient) => !p.kind && !!p.concept && p.conceptExact === true;
+  // A later part needs its own amount and its own name: "3 large cloves" after a head of garlic is not the spice.
+  const own = (p: ParsedIngredient) => p.quantity !== null && !!p.phrase && !BACK_REFERENCE.test(p.name);
+  const part = (text: string) => parseIngredient(`${label}${text}`, lookup, language);
+  // The parts of body[from…], splitting at points[k…]; null when no split makes every part known.
+  const split = (from: number, k: number): ParsedIngredient[] | null => {
+    for (let j = k; j < points.length; j++) {
+      const [start, end] = points[j]!;
+      const text = body.slice(from, start);
+      if (alternative.test(text.replace(/\([^)]*\)?/g, ' ')) || SHARED_AMOUNT.test(text)) break;
+      const p = part(text);
+      if (!known(p) || (from > 0 && !own(p))) continue;
+      const rest = split(end, j + 1);
+      if (rest) return [p, ...rest];
+    }
+    if (from === 0) return null;
+    const last = part(body.slice(from));
+    return known(last) && own(last) && !SHARED_AMOUNT.test(body.slice(from)) ? [last] : null;
+  };
+  return split(0, 0) ?? [parseIngredient(raw, lookup, language)];
+}
+
 /** Headings, equipment, instructions and asides written among the ingredients. */
 function lineKind(raw: string, quantity: number | null, concept: string | null, name: string): ParsedIngredient['kind'] {
   if (quantity !== null || concept) return undefined;

@@ -4,7 +4,7 @@ import path from 'node:path';
 import http from 'node:http';
 import { once } from 'node:events';
 import { afterEach, expect, it } from 'vitest';
-import { compileGroceryList, metricLine, renderIngredient, searchRecipes, type FullDataset, type Recipe } from '@vegdex/core';
+import { compileGroceryList, lineParts, metricLine, renderIngredient, searchRecipes, type FullDataset, type Recipe } from '@vegdex/core';
 import { emitDataset } from '../src/emit';
 import { crawlSource } from '../src/crawl';
 import type { Store } from '../src/store';
@@ -99,7 +99,7 @@ it('merges Italian and English ingredient concepts with the correct scaled quant
 it('weighs Italian cup measures through the same known ingredient density for recipes and groceries', () => {
   const { full, out } = emit([{ ...base, ingredients: ['1 tazza di farina', '1 g sale'] }]);
   const r = full.recipes[0]!;
-  const p = r.parsedIngredients![0]!;
+  const p = lineParts(r.parsedIngredients![0]!)[0]!;
   const overlay = JSON.parse(fs.readFileSync(path.join(out, 'overlay/en.json'), 'utf8'));
   expect(p.raw).toBe('1 tazza di farina');
   expect(renderIngredient(p, overlay, 'en', 'metric', 'it')).toEqual(['≈ 125 g', 'flour']);

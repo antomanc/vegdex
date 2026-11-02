@@ -33,7 +33,7 @@ test('a recipe opens and closes on /it/', async ({ page }) => {
   await page.getByRole('button', { name: 'Zuppa di lenticchie rosse', exact: true }).click();
   const sheet = page.getByRole('dialog');
   await expect(sheet.getByRole('heading', { name: 'Zuppa di lenticchie rosse' })).toBeVisible();
-  await expect(sheet.getByTestId('ingredients').locator('li')).toHaveCount(6);
+  await expect(sheet.getByTestId('ingredients').locator('li')).toHaveCount(8); // "1 tsp cornstarch + 2 tbsp water" shows as two parts in Italian
   await sheet.getByRole('button', { name: 'Chiudi' }).click();
   await expect(sheet).toBeHidden();
 });

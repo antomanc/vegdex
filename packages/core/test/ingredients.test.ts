@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseIngredient } from '../src';
+import { parseIngredient, parseLine } from '../src';
 
 describe('parseIngredient', () => {
   it.each([
@@ -161,5 +161,48 @@ describe('amount shapes that used to leak into the name', () => {
   it('never reads a food as a unit', () => {
     expect(parseIngredient('sprinkles, for decorating', lookup)).toMatchObject({ unit: null, concept: 'sprinkles' });
     expect(parseIngredient('2-3 sticks cinnamon', lookup).unit).toBeNull();
+  });
+});
+
+describe('parseLine: lines naming two ingredients with their own amounts', () => {
+  const lookup: Record<string, string> = {
+    cornstarch: 'cornstarch', water: 'water', 'ground flax seed': 'flax', 'smoked paprika': 'paprika', 'garlic powder': 'garlic-powder',
+    salt: 'salt', pepper: 'pepper', juice: 'juice', garlic: 'garlic', cloves: 'clove-spice', 'spelt flour': 'spelt-flour', tamari: 'tamari', miso: 'miso', 'lemon juice': 'lemon-juice',
+    'amido di mais': 'cornstarch', acqua: 'water', optional: 'term:optional'
+  };
+  const parts = (line: string, language = 'en') =>
+    parseLine(line, lookup, language).map((p) => [p.quantity, p.unit, p.concept]);
+
+  it.each([
+    ['2 tsp cornstarch + 2 tbsp water', [[2, 'tsp', 'cornstarch'], [2, 'tbsp', 'water']]],
+    ['2 teaspoons cornstarch mixed with 1 tablespoon water', [[2, 'tsp', 'cornstarch'], [1, 'tbsp', 'water']]],
+    ['1 tbsp ground flax seed plus 3 tbsp water', [[1, 'tbsp', 'flax'], [3, 'tbsp', 'water']]],
+    ['1 1/2 teaspoons salt and 1/4 teaspoon pepper', [[1.5, 'tsp', 'salt'], [0.25, 'tsp', 'pepper']]],
+    ['1 cucchiaio di amido di mais e 2 cucchiai di acqua', [[1, 'tbsp', 'cornstarch'], [2, 'tbsp', 'water']], 'it']
+  ])('%s splits into its parts', (line, expected, language = 'en') => {
+    expect(parts(line, language)).toEqual(expected);
+  });
+
+  it.each([
+    // An added amount of the same ingredient is one measure, or a note.
+    ['1 3/4 cups spelt flour + 2 tablespoons, divided', [[1.75, 'cup', 'spelt-flour']]],
+    ['1/2 cup plus 2 tablespoons water', [[0.625, 'cup', 'water']]],
+    // "+" binds to the alternative, so the line is not two purchases.
+    ['1 tbsp tamari or 1 tsp miso + 2 tbsp water', [[1, 'tbsp', 'tamari']]],
+    // A part vegdex does not know keeps the whole line together, as written.
+    ['2 tsp cornstarch + 2 tbsp moon dust', [[2, 'tsp', null]]],
+    ['1 cup water (+ 2 tbsp cornstarch)', [[1, 'cup', 'water']]],
+    // A later part named by what it takes from the first is not a second purchase.
+    ['2 tsp cornstarch + 2 tbsp juice', [[2, 'tsp', null]]],
+    ['1 head garlic + 3 large cloves', [[1, 'head', 'garlic']]],
+    ['1 tsp each salt, pepper and ½ tsp cornstarch', [[1, 'tsp', 'salt']]]
+  ])('%s stays one line', (line, expected) => {
+    expect(parts(line)).toEqual(expected);
+  });
+
+  it('applies a label to every part', () => {
+    const [first, second] = parseLine('Optional: 2 tsp smoked paprika + 1 tsp garlic powder', lookup);
+    expect([first!.concept, second!.concept]).toEqual(['paprika', 'garlic-powder']);
+    expect(second!.terms).toContainEqual({ id: 'term:optional', text: 'optional' });
   });
 });

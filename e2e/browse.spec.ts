@@ -56,7 +56,7 @@ test('opening a recipe shows ingredients and links to the creator', async ({ pag
   await page.getByRole('button', { name: 'Red Lentil Soup', exact: true }).click();
   const sheet = page.getByRole('dialog');
   await expect(sheet.getByRole('heading', { name: 'Red Lentil Soup' })).toBeVisible();
-  await expect(sheet.getByTestId('ingredients').locator('li')).toHaveCount(6);
+  await expect(sheet.getByTestId('ingredients').locator('li')).toHaveCount(7);
   await expect(sheet.getByRole('link', { name: /Cook it on ElaVegan/ })).toHaveAttribute('href', 'https://example.com/lentil-soup/');
   await sheet.getByRole('button', { name: 'Close' }).click();
   await expect(sheet).toBeHidden();

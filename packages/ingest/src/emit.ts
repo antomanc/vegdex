@@ -13,6 +13,7 @@ import {
   type LanguageVocabulary,
   type Recipe,
   type ParsedIngredient,
+  type ParsedLine,
   type Source
 } from '@vegdex/core';
 import fs from 'node:fs';
@@ -22,7 +23,8 @@ import { measureCoverage, type Coverage } from './gaps';
 import { blockedIds, prepareRecipes, type Excluded } from './prepare';
 import { loadVocabulary, type Vocabulary } from './vocab';
 
-function toCatalog(r: Recipe, parsed: ParsedIngredient[], concepts: Map<string, Concept>): CatalogRecipe {
+function toCatalog(r: Recipe, lines: ParsedIngredient[][], concepts: Map<string, Concept>): CatalogRecipe {
+  const parsed = lines.flat();
   const ing = [...new Set(parsed.flatMap((p) => [p.name, p.also?.name ?? '']).filter(Boolean))];
   const ingredientNames = r.contentLanguage === 'en' ? undefined : parsed.map((p) => p.concept
     ? conceptFamily([p.concept], concepts).flatMap((id) => concepts.get(id)?.names.en ?? []).join(' | ') : '');
@@ -58,8 +60,8 @@ export interface EmitReport {
 }
 
 /** Only what the published lines use: names, terms and units of their concepts, and safe titles. */
-function overlay(language: string, vocab: LanguageVocabulary, rows: CatalogRecipe[], parsed: ParsedIngredient[][]): LanguageVocabulary {
-  const lines = parsed.flat();
+function overlay(language: string, vocab: LanguageVocabulary, rows: CatalogRecipe[], parsed: ParsedIngredient[][][]): LanguageVocabulary {
+  const lines = parsed.flat(2);
   const ids = new Set(lines.flatMap((p) => [p.concept, p.also?.concept, ...(p.terms ?? []).map((t) => t.id)].filter((id): id is string => !!id)));
   const units = new Set(lines.flatMap((p) => {
     const metric = toMetric(p);
@@ -96,10 +98,13 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
   const lookupFor = (language: string) => Object.fromEntries(Object.entries(vocab.lookup(language)).filter(([, id]) => !isTermId(id) && used.has(id)));
   const lookup = lookupFor('en');
   // English concept names keep shopping rows and density conversions stable across source languages.
-  const groceryLines = parsed.flatMap((lines, i) => lines.map((p) => recipes[i]!.contentLanguage !== 'en' && p.concept
+  const groceryLines = parsed.flatMap((lines, i) => lines.flat().map((p) => recipes[i]!.contentLanguage !== 'en' && p.concept
     ? { ...p, name: vocab.byId.get(p.concept)?.names.en?.filter(Boolean).slice().sort((a, b) => a.length - b.length || a.localeCompare(b))[0] ?? p.name } : p));
   const grocery = groceryConcepts(groceryLines, vocab.lookup('en'));
   for (const p of groceryLines) if (p.concept && !grocery[p.concept]) grocery[p.concept] = [p.name, aisleFor(p.name)];
+
+  // A line ships as its one part, or as an array of parts, so most detail entries keep their old shape.
+  const shipped = parsed.map((lines) => lines.map((parts): ParsedLine => (parts.length === 1 ? parts[0]! : parts)));
 
   for (const dir of ['details', 'lookup', 'overlay']) {
     fs.rmSync(path.join(outDir, dir), { recursive: true, force: true });
@@ -114,11 +119,11 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
     sources: usedSources,
     lookup,
     grocery,
-    recipes: rows.map((row, i) => ({ ...row, ingredients: recipes[i]!.ingredients, parsedIngredients: parsed[i]! }))
+    recipes: rows.map((row, i) => ({ ...row, ingredients: recipes[i]!.ingredients, parsedIngredients: shipped[i]! }))
   };
 
-  const shards: Record<string, { ingredients: string[]; parsedIngredients: ParsedIngredient[] }>[] = Array.from({ length: DETAIL_SHARDS }, () => ({}));
-  recipes.forEach((r, i) => { shards[shardOf(r.id)]![r.id] = { ingredients: r.ingredients, parsedIngredients: parsed[i]! }; });
+  const shards: Record<string, { ingredients: string[]; parsedIngredients: ParsedLine[] }>[] = Array.from({ length: DETAIL_SHARDS }, () => ({}));
+  recipes.forEach((r, i) => { shards[shardOf(r.id)]![r.id] = { ingredients: r.ingredients, parsedIngredients: shipped[i]! }; });
 
   let bytes = 0;
   const write = (name: string, value: unknown) => {

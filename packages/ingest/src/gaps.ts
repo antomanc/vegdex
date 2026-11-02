@@ -68,7 +68,9 @@ export function findGaps(prepared: Prepared[], vocab: Vocabulary, languages: str
   };
   for (const { recipe, parsed } of prepared) {
     const source = recipe.contentLanguage ?? 'en';
-    for (const p of parsed) {
+    // A line split into parts reports the part that is missing, not the whole line.
+    const parts = parsed.flat();
+    for (const p of parts) {
       if (!p.name) continue;
       if (!known(p) && p.phrase) add('map', source, ingredientKey(p.phrase), p.raw);
       for (const segment of unmatchedSegments(p, vocab, source)) add('term', source, ingredientKey(segment), p.raw);
@@ -79,7 +81,7 @@ export function findGaps(prepared: Prepared[], vocab: Vocabulary, languages: str
       // Shopping lists name every concept in the page language, whatever language the recipe was written in;
       // English rows use the concepts' own English names.
       if (language === source && language === 'en') continue;
-      for (const p of parsed) {
+      for (const p of parts) {
         if (!p.name || !known(p)) continue;
         for (const concept of [p.concept!, p.also?.concept].filter((c): c is string => !!c))
           if (!file?.names[concept] && vocab.byId.get(concept)?.vegan !== 'no') add('name', language, concept, p.raw);
@@ -119,13 +121,15 @@ export function measureCoverage(prepared: Prepared[], vocab: Vocabulary, languag
       if (source === language) continue;
       c.titles++;
       if (safeTranslation('', display.titles[recipe.title], language)) c.translatedTitles++;
-      for (const p of parsed) {
+      for (const line of parsed) {
         // Headings and asides are not shown in another language, so they are nothing to translate.
-        if (isHiddenLine(p, language, source)) continue;
+        const parts = line.filter((p) => !isHiddenLine(p, language, source));
+        if (!parts.length) continue;
+        // A line counts as rendered only when every part renders.
         c.lines++;
-        if (renderIngredient(p, display, language, 'metric', source)) c.rendered++;
-        else if (p.name && !known(p)) c.unknown++;
-        else if (p.name && (!display.names[p.concept!] || (p.also && !display.names[p.also.concept]) || p.terms?.some((t) => !display.terms[t.id]))) c.unnamed++;
+        if (parts.every((p) => renderIngredient(p, display, language, 'metric', source))) c.rendered++;
+        else if (parts.some((p) => p.name && !known(p))) c.unknown++;
+        else if (parts.some((p) => p.name && (!display.names[p.concept!] || (p.also && !display.names[p.also.concept]) || p.terms?.some((t) => !display.terms[t.id])))) c.unnamed++;
         else c.kept++;
       }
     }

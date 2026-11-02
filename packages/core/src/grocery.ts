@@ -1,5 +1,5 @@
 import { lookupConcept, type IngredientLookup } from './concepts';
-import { parseIngredient, unitDef, type ParsedIngredient } from './ingredients';
+import { lineParts, parseLine, unitDef, type ParsedIngredient, type ParsedLine } from './ingredients';
 import { formatMetric, toMetric, type Units } from './metric';
 import { gramsPerCup } from './weights';
 
@@ -7,7 +7,7 @@ export interface GroceryInput {
   recipeId: string;
   ingredients: string[];
   contentLanguage?: string;
-  parsedIngredients?: ParsedIngredient[];
+  parsedIngredients?: ParsedLine[];
   /** Multiply every quantity by this (servings scaling). */
   multiplier: number;
 }
@@ -178,15 +178,18 @@ export function compileGroceryList(
   const parsed: { input: GroceryInput; p: ParsedIngredient }[] = [];
   for (const input of inputs) {
     for (const [i, line] of input.ingredients.entries()) {
-      let p = input.parsedIngredients?.[i] ?? parseIngredient(line, lookup, input.contentLanguage ?? 'en');
-      if (input.contentLanguage && input.contentLanguage !== 'en' && p.concept && Object.hasOwn(concepts, p.concept)) p = { ...p, name: concepts[p.concept]![0] };
-      if (!p.name) continue;
-      // Sentence-like notes are not purchases; unquantified ingredients still are.
-      if (p.quantity === null && /^(?:serve with|i|if you)\b|\bis a\b/.test(p.name)) continue;
-      parsed.push({ input, p });
-      // "salt and pepper" buys both; the amount stays with the first, which the line measured.
-      if (p.also?.joiner === 'and')
-        parsed.push({ input, p: { ...p, concept: p.also.concept, name: p.also.name, quantity: null, quantityMax: null, unit: null, metric: null, also: null } });
+      // "2 tsp cornstarch + 2 tbsp water" buys each part, with its own amount.
+      const shipped = input.parsedIngredients?.[i];
+      for (let p of shipped ? lineParts(shipped) : parseLine(line, lookup, input.contentLanguage ?? 'en')) {
+        if (input.contentLanguage && input.contentLanguage !== 'en' && p.concept && Object.hasOwn(concepts, p.concept)) p = { ...p, name: concepts[p.concept]![0] };
+        if (!p.name) continue;
+        // Sentence-like notes are not purchases; unquantified ingredients still are.
+        if (p.quantity === null && /^(?:serve with|i|if you)\b|\bis a\b/.test(p.name)) continue;
+        parsed.push({ input, p });
+        // "salt and pepper" buys both; the amount stays with the first, which the line measured.
+        if (p.also?.joiner === 'and')
+          parsed.push({ input, p: { ...p, concept: p.also.concept, name: p.also.name, quantity: null, quantityMax: null, unit: null, metric: null, also: null } });
+      }
     }
   }
   // Concepts and unmapped lines with the same name share a row, as names did before concepts.
