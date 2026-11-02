@@ -47,3 +47,29 @@ it('ships only the names, preparation terms and units the published lines use', 
   expect(overlay.terms).not.toHaveProperty('term:minced');
   expect(overlay.units).not.toHaveProperty('block');
 });
+
+it('keeps original translation keys for safety and gaps while emitting normalized titles everywhere', async () => {
+  const { prepareRecipes } = await import('../src/prepare');
+  const { findGaps, measureCoverage } = await import('../src/gaps');
+  const store = loadStore(path.resolve('e2e/fixtures/store.json'));
+  const recipe = { ...store.recipes.pancakes!, title: 'VEGAN SPLIT PEA SOUP' };
+  const sources = [{ id: recipe.sourceId, name: 'Nora Cooks', url: 'https://noracooks.com' }];
+  const vocabulary = loadVocabulary();
+  vocabulary.files.it!.titles = { [recipe.title]: 'Zuppa di piselli vegana' };
+  const prepared = prepareRecipes([recipe], sources, vocabulary).published;
+  expect(prepared[0]!.recipe.title).toBe(recipe.title);
+  expect(findGaps(prepared, vocabulary, ['it']).filter((g) => g.kind === 'title')).toEqual([]);
+  expect(measureCoverage(prepared, vocabulary, ['it']).coverage.languages.it!.translatedTitles).toBe(1);
+  const out = fs.mkdtempSync(path.join(os.tmpdir(), 'vegdex-case-'));
+  dirs.push(out);
+  emitDataset([recipe], sources, out, { vocabulary });
+  const read = (name: string) => JSON.parse(fs.readFileSync(path.join(out, name), 'utf8'));
+  for (const name of ['catalog.json', 'first.json', 'recipes.full.json'])
+    expect(read(name).recipes[0].title).toBe('Vegan Split Pea Soup');
+  expect(read('overlay/it.json').titles).toEqual({ 'Vegan Split Pea Soup': 'Zuppa di piselli vegana' });
+  vocabulary.files.it!.titles[recipe.title] = 'Zuppa al burro';
+  emitDataset([recipe], sources, out, { vocabulary });
+  expect(read('overlay/it.json').titles).toEqual({});
+  expect(findGaps(prepared, vocabulary, ['it']).filter((g) => g.kind === 'title').map((g) => g.id)).toEqual([recipe.title]);
+  expect(recipe.title).toBe('VEGAN SPLIT PEA SOUP');
+});

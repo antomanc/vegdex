@@ -18,6 +18,7 @@ import {
   type ParsedLine,
   type Source
 } from '@vegdex/core';
+import { normalizeTitle } from './titles';
 import fs from 'node:fs';
 import path from 'node:path';
 import { conceptFamily, seed, type Concept } from './concepts';
@@ -37,7 +38,7 @@ function toCatalog(r: Recipe, lines: ParsedIngredient[][], concepts: Map<string,
     contentLanguage: r.contentLanguage ?? 'en',
     concepts: conceptFamily(parsed.flatMap((p) => [p.concept, p.also?.concept].filter((c): c is string => !!c)), concepts),
     id: r.id,
-    title: r.title,
+    title: normalizeTitle(r.title, r.contentLanguage ?? 'en'),
     source: r.sourceId,
     url: r.url,
     image: r.image,
@@ -65,7 +66,7 @@ export interface EmitReport {
 }
 
 /** Only what the published lines use: names, terms and units of their concepts, and safe titles. */
-function overlay(language: string, vocab: LanguageVocabulary, rows: CatalogRecipe[], parsed: ParsedIngredient[][][]): LanguageVocabulary {
+function overlay(language: string, vocab: LanguageVocabulary, recipes: Recipe[], parsed: ParsedIngredient[][][]): LanguageVocabulary {
   const lines = parsed.flat(2);
   const ids = new Set(lines.flatMap((p) => [p.concept, p.also?.concept, ...(p.terms ?? []).map((t) => t.id)].filter((id): id is string => !!id)));
   const units = new Set(lines.flatMap((p) => {
@@ -74,9 +75,11 @@ function overlay(language: string, vocab: LanguageVocabulary, rows: CatalogRecip
       .filter((u): u is string => !!u);
   }));
   const pick = <T>(table: Record<string, T>, used: Set<string>) => Object.fromEntries(Object.entries(table).filter(([key]) => used.has(key)));
-  const titles = Object.fromEntries([...new Set(rows.map((r) => r.title))].sort().flatMap((original) => {
+  const titles = Object.fromEntries([...recipes].sort((a, b) => a.title < b.title ? -1 : a.title > b.title ? 1 : 0).flatMap((recipe) => {
+    // Vocabulary keys remain the original source titles, including in gaps and coverage.
+    const original = recipe.title;
     const title = safeTranslation(original, vocab.titles[original], language);
-    return title !== original ? [[original, title]] : [];
+    return title !== original ? [[normalizeTitle(original, recipe.contentLanguage ?? 'en'), normalizeTitle(title, language)]] : [];
   }));
   return { language, names: pick(vocab.names, ids), terms: pick(vocab.terms, ids), units: pick(vocab.units, units), titles };
 }
@@ -138,7 +141,7 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
     fs.writeFileSync(path.join(outDir, name), json);
   };
   const languages = Object.keys(vocab.files);
-  for (const language of languages) write(`overlay/${language}.json`, overlay(language, vocab.display(language), rows, parsed));
+  for (const language of languages) write(`overlay/${language}.json`, overlay(language, vocab.display(language), recipes, parsed));
   const { coverage } = measureCoverage([...published, ...held], vocab, languages);
   write('coverage.json', coverage);
   write('dictionary.json', { provenance: seed.provenance, concepts: vocab.concepts.filter((c) => used.has(c.id)) });
