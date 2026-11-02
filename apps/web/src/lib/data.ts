@@ -1,12 +1,23 @@
-import { shardOf, type Catalog, type GroceryConcepts, type IngredientLookup, type LanguageVocabulary, type ParsedLine } from '@vegdex/core'
+import { shardOf, unpackCatalog, type Catalog, type GroceryConcepts, type IngredientLookup, type LanguageVocabulary, type ParsedLine } from '@vegdex/core'
 import { BASE_LOCALE } from './locales'
 
 const base = import.meta.env.BASE_URL
 
-export async function loadCatalog(): Promise<Catalog> {
+/** catalog.json as bytes, for the catalog worker to parse off the page's thread. */
+export async function loadCatalogData(): Promise<ArrayBuffer> {
   const res = await fetch(`${base}data/catalog.json`)
   if (!res.ok) throw new Error(`Could not load recipes (HTTP ${res.status})`)
-  return res.json()
+  return res.arrayBuffer()
+}
+
+/** The best-rated recipes, a few kilobytes; null when the dataset predates it or it fails. */
+export async function loadFirstPage(): Promise<Catalog | null> {
+  try {
+    const res = await fetch(`${base}data/first.json`)
+    return res.ok ? unpackCatalog(await res.json()) : null
+  } catch {
+    return null
+  }
 }
 
 export interface LookupFile {

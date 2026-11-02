@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import type { Catalog, FullDataset } from '@vegdex/core';
+import { unpackCatalog, type FullDataset } from '@vegdex/core';
 import { afterEach, expect, it } from 'vitest';
 import { emitDataset } from '../src/emit';
 import { loadStore } from '../src/store';
@@ -16,7 +16,7 @@ it('removes a reported recipe from every public dataset while retaining the othe
   dirs.push(out);
   const report = emitDataset(Object.values(store.recipes), sources, out, { blocklist: ['lentil-soup'] });
   const read = (file: string) => JSON.parse(fs.readFileSync(path.join(out, file), 'utf8'));
-  const catalog = read('catalog.json') as Catalog;
+  const catalog = unpackCatalog(read('catalog.json'));
   const full = read('recipes.full.json') as FullDataset;
 
   expect(catalog.recipes.some((r) => r.id === 'lentil-soup')).toBe(false);

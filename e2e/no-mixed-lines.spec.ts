@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { isHiddenLine, lineParts, renderIngredient, shardOf, type LanguageVocabulary, type ParsedLine } from '@vegdex/core';
+import { isHiddenLine, lineParts, renderIngredient, shardOf, unpackCatalog, type LanguageVocabulary, type ParsedLine } from '@vegdex/core';
 import { expect, italianFixtureData, test } from './fixtures';
 
 // A line shown in another language is composed entirely from the vocabulary, or shown exactly as written:
@@ -13,7 +13,7 @@ for (const { variant, path, language } of [
 ] as const) {
   const overlay = read(variant, `overlay/${language}.json`) as LanguageVocabulary;
   const names = Object.values(overlay.names).flatMap((n) => [n.one, n.other]);
-  const recipes = (read(variant, 'catalog.json').recipes as { id: string; contentLanguage: string }[]).filter((r) => r.contentLanguage !== language);
+  const recipes = (unpackCatalog(read(variant, 'catalog.json')).recipes as { id: string; contentLanguage: string }[]).filter((r) => r.contentLanguage !== language);
   for (const units of ['metric', 'us'] as const) {
     test(`every ${language} line on ${variant} recipes is composed or exactly as written, in ${units} units`, async ({ page }) => {
       if (variant === 'italian-data') await page.route('**/data/**', italianFixtureData);

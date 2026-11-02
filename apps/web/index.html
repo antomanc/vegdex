@@ -8,6 +8,11 @@
     <link rel="canonical" href="%PAGE_URL%" />
     %ALTERNATES%
     <link rel="manifest" href="%MANIFEST%" />
+    <!-- The first page and its titles paint first; the catalog and ingredient names follow at low priority. -->
+    <link rel="preload" href="/data/first.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="/data/overlay/%LANG%.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="/data/catalog.json" as="fetch" crossorigin="anonymous" fetchpriority="low" />
+    <link rel="preload" href="/data/lookup/%LANG%.json" as="fetch" crossorigin="anonymous" fetchpriority="low" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="vegdex" />
     <meta property="og:locale" content="%OG_LOCALE%" />

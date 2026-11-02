@@ -1,14 +1,15 @@
 <script lang="ts">
   import { untrack } from 'svelte'
-  import { searchRecipes, type Catalog, type CatalogRecipe, type IngredientLookup } from '@vegdex/core'
-  import { loadCatalog, loadLookup } from './lib/data'
+  import { searchRecipes, type Catalog, type CatalogRecipe } from '@vegdex/core'
+  import { catalog, type Found, type Loaded } from './lib/catalog-client'
+  import { loadCatalogData, loadFirstPage, loadLookup } from './lib/data'
   import {
-    activeCount, activeFilters, clearFilters, defaultSort, filters, forgetUnsavedAmounts, readUrl, removeFilter, saved, sourceNames, toQuery, writeUrl,
+    activeCount, activeFilters, clearFilters, defaultSort, filters, forgetUnsavedAmounts, isLanding, readUrl, removeFilter, saved, sourceNames, toQuery, writeUrl,
     type Sort
   } from './lib/state.svelte'
   import { m, countArgs, formatNumber, pageLocale } from './lib/i18n'
-  import { LOCALES } from './lib/locales'
-  import { loadTranslations, recipeTitle } from './lib/translations.svelte'
+  import { BASE_LOCALE, LOCALES } from './lib/locales'
+  import { display, loadTranslations, recipeTitles } from './lib/translations.svelte'
   import { isLocale } from './paraglide/runtime'
   import { SORTS } from './lib/labels'
   import { onSheetPop } from './lib/sheet'
@@ -24,12 +25,22 @@
   const PAGE = 48
   // Past this many, more recipes load on request, so the credits at the bottom can be reached.
   const AUTO_LIMIT = PAGE * 4
+  // Cards in the first rows on a phone or a wide screen.
+  const EAGER = 4
 
   const initial = readUrl()
-  let catalog = $state<Catalog | null>(null)
-  let lookup = $state<IngredientLookup>({})
+  // The catalog itself lives in a worker (lib/catalog.worker.ts); the page holds what it shows.
+  let loaded = $state.raw<Loaded | null>(null)
+  let found = $state.raw<Found | null>(null)
+  // The best-rated recipes, shown on a plain landing until the catalog is searchable.
+  let firstPage = $state.raw<Catalog | null>(null)
+  // Titles the worker searches: bumped once it has the page language's titles.
+  let titlesVersion = $state(0)
   let error = $state<string | null>(null)
   let openId = $state<string | null>(initial.openId)
+  let openRow = $state.raw<CatalogRecipe | null>(null)
+  // Null until the worker answers: the shopping list must not open on an empty list and forget its ticks.
+  let savedRecipes = $state.raw<CatalogRecipe[] | null>(null)
   // Opened by "Pick for me": the sheet offers another draw.
   let drawn = $state(false)
   let groceryOpen = $state(initial.listOpen)
@@ -40,54 +51,115 @@
   let filtersOutOfView = $state(false)
   let queryString = $state(location.search)
 
+  function failed(e: Error) {
+    console.error(e)
+    error = m.load_error()
+  }
+
   function load() {
     error = null
-    loadCatalog()
-      .then(async (c) => {
-        // Ingredient names only add matches: without them, search still matches the recipes' English names.
-        lookup = c.recipes.some((r) => r.concepts) ? await loadLookup(pageLocale.code).then((f) => f.aliases, () => ({})) : {}
-        for (const s of c.sources) sourceNames.set(s.id, s.name)
-        catalog = c
-        void loadTranslations()
+    // A retry loads the catalog into a fresh worker; questions wait for it.
+    loaded = null
+    // Everything starts at once (index.html preloads it too); the catalog is the long one.
+    // Ingredient names only add matches: without them, search still matches the recipes' English names.
+    const names = loadLookup(pageLocale.code).then((f) => f.aliases, () => ({}))
+    if (!display.loaded) void loadTranslations()
+    if (!loaded && isLanding()) {
+      void loadFirstPage().then((c) => {
+        if (!c || found) return
+        for (const s of c.sources) if (!sourceNames.has(s.id)) sourceNames.set(s.id, s.name)
+        firstPage = c
       })
-      .catch((e: Error) => {
-        console.error(e)
-        error = m.load_error()
+    }
+    Promise.all([loadCatalogData(), names])
+      .then(([data, aliases]) => catalog.load(data, aliases, pageLocale.code))
+      .then((l) => {
+        for (const s of l.sources) sourceNames.set(s.id, s.name)
+        loaded = l
       })
+      .catch(failed)
   }
   load()
 
-  const kitchen = $derived(filters.from && !filters.saved ? catalog?.sources.find((s) => s.id === filters.from) ?? null : null)
+  // The worker searches display titles too; it gets the page language's titles once they load.
+  $effect(() => {
+    const titles = display.overlay?.titles ?? null
+    if (!loaded) return
+    catalog.titles(titles).then(() => titlesVersion++, failed)
+  })
+
+  const kitchen = $derived(filters.from && !filters.saved ? loaded?.sources.find((s) => s.id === filters.from) ?? null : null)
   // Recipes unsaved in this visit to the saved view stay listed, so a mis-tap on the heart can be undone.
   const listedIds = $derived([...saved.ids, ...saved.unsaved])
-  const results = $derived<CatalogRecipe[]>(catalog ? searchRecipes(catalog.recipes, toQuery(listedIds), lookup, recipeTitle) : [])
-  const resultCount = $derived(filters.saved ? results.filter((r) => saved.ids.includes(r.id)).length : results.length)
+
+  // Each change asks the worker; an answer that a newer question overtook is dropped.
+  let asked = 0
+  $effect(() => {
+    if (!loaded) return
+    const query = $state.snapshot(toQuery(listedIds))
+    const countIds = filters.saved ? $state.snapshot(saved.ids) : undefined
+    const n = limit
+    void titlesVersion
+    const id = ++asked
+    catalog.search(query, n, countIds).then((f) => { if (id === asked) found = f }, failed)
+  })
+  const results = $derived(found?.recipes ?? [])
+  const total = $derived(found?.total ?? 0)
+  const resultCount = $derived(found?.counted ?? 0)
   const visible = $derived(results.slice(0, limit))
-  const open = $derived(openId && catalog ? catalog.recipes.find((r) => r.id === openId) ?? null : null)
-  const savedRecipes = $derived(catalog ? catalog.recipes.filter((r) => saved.ids.includes(r.id)) : [])
+  // Before the catalog, a plain landing lists the first page; on other languages, once titles can be shown.
+  const early = $derived(
+    !found && firstPage && isLanding() && (pageLocale.code === BASE_LOCALE.code || display.loaded)
+      ? searchRecipes(firstPage.recipes, toQuery([]), {}, recipeTitles()).slice(0, PAGE)
+      : null
+  )
+
+  // The open recipe comes from what the page already has, so the sheet never closes while switching;
+  // only a recipe opened from a link asks the worker.
+  const open = $derived.by(() => {
+    if (!openId) return null
+    if (openRow?.id === openId) return openRow
+    return [...results, ...(found?.top ?? []), ...(early ?? []), ...(savedRecipes ?? [])].find((r) => r.id === openId) ?? null
+  })
+  $effect(() => {
+    const id = openId
+    if (!id || !loaded || untrack(() => open)) return
+    catalog.rows([id]).then(([row]) => { if (openId === id && row) openRow = row }, failed)
+  })
+
+  $effect(() => {
+    const ids = $state.snapshot(saved.ids)
+    if (!loaded) return
+    catalog.rows(ids).then((rows) => (savedRecipes = rows), failed)
+  })
+
   const countText = $derived(filters.saved ? m.saved_count(countArgs(resultCount)) : m.recipe_count(countArgs(resultCount)))
-  const blogCount = $derived(new Set(results.map((r) => r.source)).size)
+  const blogCount = $derived(found?.blogs ?? 0)
   const sorts = $derived(SORTS.filter(([s]) => s !== 'relevance' || filters.text.trim()))
 
   /** At zero results, the one change that brings back the most recipes. */
-  const loosen = $derived.by(() => {
-    if (!catalog || results.length || filters.saved) return null
+  let loosen = $state.raw<{ label: string; apply: () => void; n: number; isSearch: boolean } | null>(null)
+  let loosenAsked = 0
+  $effect(() => {
+    const id = ++loosenAsked
+    if (!found || found.total || filters.saved) return void (loosen = null)
     const active = activeFilters()
     const options = active.map((f) => ({ label: m.remove_suggestion({ label: f.label }), apply: () => removeFilter(f), patch: f.patch, isSearch: false }))
     if (filters.text.trim()) options.push({ label: m.clear_the_search(), apply: () => (filters.text = ''), patch: { text: '' }, isSearch: true })
-    let best: { label: string; apply: () => void; n: number; isSearch: boolean } | null = null
-    for (const o of options) {
-      const n = searchRecipes(catalog.recipes, toQuery([], { ...filters, ...o.patch }), lookup, recipeTitle).length
-      if (n && (!best || n > best.n)) best = { ...o, n }
-    }
-    return best
+    const queries = options.map((o) => $state.snapshot(toQuery([], { ...filters, ...o.patch })))
+    catalog.counts(queries).then((counts) => {
+      if (id !== loosenAsked) return
+      let best: typeof loosen = null
+      options.forEach((o, i) => { if (counts[i] && (!best || counts[i]! > best.n)) best = { ...o, n: counts[i]! } })
+      loosen = best
+    }, failed)
   })
 
   // Screen readers hear the count once typing settles, not on every keystroke.
   let announced = $state('')
   $effect(() => {
     const text = countText
-    const t = setTimeout(() => (announced = catalog ? text : ''), 700)
+    const t = setTimeout(() => (announced = found ? text : ''), 700)
     return () => clearTimeout(t)
   })
 
@@ -145,9 +217,10 @@
   // Draw from the best of the current matches, never the card already open.
   const DRAW_POOL = 120
   function pick() {
-    const pool = results.slice(0, DRAW_POOL).filter((r) => r.id !== openId)
+    const pool = (found?.top ?? []).slice(0, DRAW_POOL).filter((r) => r.id !== openId)
     if (!pool.length) return
-    openId = pool[Math.floor(Math.random() * pool.length)]!.id
+    openRow = pool[Math.floor(Math.random() * pool.length)]!
+    openId = openRow.id
     drawn = true
   }
 
@@ -206,7 +279,7 @@
 <main>
   <LanguageSuggestion {queryString} />
   {#if !filters.saved}
-    <div class="filters" bind:this={filterBox}><FilterBar count={results.length} onpick={pick} /></div>
+    <div class="filters" bind:this={filterBox}><FilterBar count={total} onpick={pick} /></div>
   {/if}
 
   {#if error}
@@ -214,16 +287,26 @@
       <p>{error}</p>
       <button class="text-btn" onclick={load}>{m.try_again()}</button>
     </div>
-  {:else if !catalog}
+  {:else if !found}
     <p class="visually-hidden" role="status">{m.loading_recipes()}</p>
-    <ul class="grid skeleton" aria-hidden="true">
-      {#each Array(6) as _, i (i)}<li><div class="thumb"></div><div class="bar"></div><div class="bar short"></div></li>{/each}
-    </ul>
+    {#if early}
+      <!-- Holds the count line's place, so the cards stay put when the catalog arrives. -->
+      <div class="summary" aria-hidden="true"><p>{m.loading_recipes()}</p></div>
+      <ul class="grid" data-testid="first-page">
+        {#each early as recipe, i (recipe.id)}
+          <li><RecipeCard {recipe} sourceName={sourceNames.get(recipe.source) ?? recipe.source} onopen={() => (openId = recipe.id)} eager={i < EAGER} /></li>
+        {/each}
+      </ul>
+    {:else}
+      <ul class="grid skeleton" aria-hidden="true">
+        {#each Array(6) as _, i (i)}<li><div class="thumb"></div><div class="bar"></div><div class="bar short"></div></li>{/each}
+      </ul>
+    {/if}
   {:else}
     {#if filters.saved}
       <div class="view-head">
         <h2>{m.saved_recipes()}</h2>
-        {#if savedRecipes.length}
+        {#if savedRecipes?.length}
           <button class="grocery-btn" onclick={() => (groceryOpen = true)}><Icon name="list" size={16} /> {m.shopping_list()}</button>
         {/if}
       </div>
@@ -278,26 +361,26 @@
     {/if}
 
     <ul class="grid">
-      {#each visible as recipe (recipe.id)}
+      {#each visible as recipe, i (recipe.id)}
         <li>
-          <RecipeCard {recipe} sourceName={sourceNames.get(recipe.source) ?? recipe.source} onopen={() => (openId = recipe.id)} />
+          <RecipeCard {recipe} sourceName={sourceNames.get(recipe.source) ?? recipe.source} onopen={() => (openId = recipe.id)} eager={i < EAGER} />
         </li>
       {/each}
     </ul>
-    {#if visible.length < results.length}
+    {#if visible.length < total}
       {#if limit < AUTO_LIMIT}
         <div bind:this={sentinel} class="sentinel" aria-hidden="true"></div>
       {:else}
         <div class="more">
           <button class="pill outline" onclick={() => (limit += PAGE)}>{m.show_more()}</button>
-          <p class="meta">{m.showing({ visible: formatNumber(visible.length), total: formatNumber(results.length) })}</p>
+          <p class="meta">{m.showing({ visible: formatNumber(visible.length), total: formatNumber(total) })}</p>
         </div>
       {/if}
     {/if}
 
     <footer class="credits">
-      {m.credits(countArgs(catalog.sources.length))}
-      {m.credits_updated({ date: new Date(catalog.generatedAt).toLocaleDateString(pageLocale.intl) })}
+      {m.credits(countArgs(loaded!.sources.length))}
+      {m.credits_updated({ date: new Date(loaded!.generatedAt).toLocaleDateString(pageLocale.intl) })}
       <div>{m.dictionary_credit()} <a href="https://world.openfoodfacts.org/">Open Food Facts</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> · <a href="{import.meta.env.BASE_URL}data/dictionary.json">{m.dictionary_tables()}</a></div>
       <div class="row center">
         {#each LOCALES.filter((locale) => locale.code !== pageLocale.code) as locale (locale.code)}
@@ -320,6 +403,6 @@
   />
 {/if}
 
-{#if groceryOpen && catalog}
+{#if groceryOpen && savedRecipes}
   <GrocerySheet recipes={savedRecipes} onclose={() => (groceryOpen = false)} />
 {/if}
