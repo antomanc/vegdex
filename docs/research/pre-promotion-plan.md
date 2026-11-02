@@ -26,6 +26,12 @@ This review cannot establish “everything” that could be improved. It provide
 
 The production build succeeded and the full fixture E2E suite passed **218 tests in 1.8 minutes** on mobile and desktop. The separately captured real-data flows produced no page errors. A follow-up local deep-link probe timed out after the E2E build replaced the served data snapshot; it provides no reliable deep-link diagnosis and is excluded from findings. The preview server was stopped after inspection.
 
+## Implementation follow-up
+
+The first small implementation pass adds localized purpose and device-storage copy, a GitHub source link, filter tooltips and responsive recipe actions. Pet recipes retain general search visibility but no longer receive human meal tags; regeneration verified eight dog/puppy recipes against the real catalog. A regression also prevents an oil-free title/keyword from overriding required oil. The original Red Pesto Pasta sample explicitly lists olive oil as **optional**, so that particular badge is supported by the current rule and should not be treated as a confirmed data defect. Shopping selection, sharing and portability remain future work.
+
+The pass passed build, typecheck, knip, 331 unit tests and 218 fixture E2E tests. Impeccable detection returned no findings. Rendered layout checks covered 320/390/768/1440px, English/Italian, dark mode and a long publisher-label stress case, with no horizontal overflow or captured runtime errors.
+
 ## What already works and should be preserved
 
 The app gets directly to recipes, uses real food photography, credits each publisher, has useful one-tap Tonight and Pick actions, remembers saves, supports combined groceries and amounts, and has thoughtful zero-result recovery. The sage/green/rose recipe-card visual system is coherent on mobile and desktop. Native modal dialogs, Back handling and meaningful labels already exist. The main opportunity is refinement of relevance and discoverability, rather than replacing the design system.
