@@ -78,7 +78,7 @@
       <fieldset class="field">
         <legend class="label">{m.high_protein()}</legend>
         <p class="hint">{m.protein_hint()}</p>
-        <button class="pill outline" class:on={filters.highProtein} aria-pressed={filters.highProtein} onclick={() => (filters.highProtein = !filters.highProtein)}>{m.high_protein()}</button>
+        <div class="choice-grid"><button class="pill outline" class:on={filters.highProtein} aria-pressed={filters.highProtein} onclick={() => (filters.highProtein = !filters.highProtein)}>{m.high_protein()}</button></div>
       </fieldset>
 
       <fieldset class="field">
