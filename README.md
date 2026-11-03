@@ -35,7 +35,15 @@ The [GitHub CLI](https://cli.github.com/) is needed for that download. Alternati
 
 ## MCP server and CLI
 
-The repository includes an MCP server and a command-line client. The npm package is not yet published; run it from a checkout:
+The MCP server and command-line client ship as the npm package `@antomanc/vegdex`. To add the server to Claude Code:
+
+```bash
+claude mcp add vegdex -- npx -y @antomanc/vegdex mcp
+```
+
+Other MCP clients that start a stdio server can run `npx -y @antomanc/vegdex mcp`. The CLI runs the same way, for example `npx @antomanc/vegdex search curry`.
+
+Until the package is on npm ([#1](https://github.com/antomanc/vegdex/issues/1)), run it from a checkout:
 
 ```bash
 pnpm --filter @antomanc/vegdex build
