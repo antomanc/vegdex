@@ -33,34 +33,9 @@ pnpm ingest emit
 
 The [GitHub CLI](https://cli.github.com/) is needed for that download. Alternatively, download `store.json.gz` from the release page into `.data/`.
 
-## MCP server and CLI
-
-The repository includes an MCP server and a command-line client. The npm package is not yet published; run it from a checkout:
-
-```bash
-pnpm --filter @antomanc/vegdex build
-node packages/mcp/dist/cli.js search curry --max 30 --have tofu
-node packages/mcp/dist/cli.js --help
-```
-
-For an MCP client that accepts stdio server configuration, replace the path below with the absolute path to your checkout:
-
-```json
-{
-  "mcpServers": {
-    "vegdex": {
-      "command": "node",
-      "args": ["/absolute/path/to/vegdex/packages/mcp/dist/cli.js", "mcp"]
-    }
-  }
-}
-```
-
-The server provides `search_vegan_recipes`, `get_vegan_recipes`, `compile_grocery_list` and `list_vegan_sources`. It downloads the dataset on first use and refreshes its local cache daily. See the [MCP package README](packages/mcp/README.md) for more commands and configuration.
-
 ## How the index works
 
-A GitHub Actions workflow crawls the configured sources daily, extracts recipe JSON-LD, checks ingredients and emits static data for the web app and MCP server. The crawler identifies itself, respects `robots.txt` and crawl delays, and makes at most one request per second per site. After the first crawl it fetches pages that are new or changed. It does not work around sites that block it.
+A GitHub Actions workflow crawls the configured sources daily, extracts recipe JSON-LD, checks ingredients and emits static data for the web app. The crawler identifies itself, respects `robots.txt` and crawl delays, and makes at most one request per second per site. After the first crawl it fetches pages that are new or changed. It does not work around sites that block it.
 
 vegdex stores recipe facts such as titles, ingredient lines, times, servings, ratings, nutrition and image URLs. It does not store cooking methods or the publisher's writing. Images load from the publisher, and recipe links lead to the original instructions.
 
@@ -75,7 +50,6 @@ The metric switch uses the publisher's gram measurements when available. Otherwi
 | `apps/web` | Svelte 5 and Vite web app |
 | `packages/core` | Shared recipe types, parsing, search, vegan checks and shopping-list calculations |
 | `packages/ingest` | Crawler, source list and dataset emitter |
-| `packages/mcp` | MCP server and CLI |
 | `e2e` | Playwright tests and fixture dataset |
 
 ```bash

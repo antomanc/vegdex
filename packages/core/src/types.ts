@@ -85,7 +85,7 @@ export interface Catalog {
   recipes: CatalogRecipe[];
 }
 
-/** Full records (catalog row + raw ingredient lines), used by the MCP server. */
+/** Full records (catalog row + raw ingredient lines), as recipes.full.json ships them. */
 export interface FullRecipe extends CatalogRecipe {
   ingredients: string[];
   parsedIngredients?: import('./ingredients').ParsedLine[];

@@ -21,7 +21,6 @@ Guaranteed vegan. Every source is an all-vegan publisher, and a second check dro
 - Open source at `https://github.com/antomanc/vegdex`; keep contributions and problem reports accessible through GitHub.
 - Installable PWA that works offline once loaded. No accounts, no server, no database.
 - Saved recipes and the shopping list live in the browser on that device.
-- The same dataset also powers an MCP server and CLI (`packages/mcp`) for AI agents; that is a separate surface.
 
 ## Capabilities and Constraints
 - Search by text; quick filters for savory/sweet and meal type; time (≤15/30/45/60 min); high protein; "free from" (gluten, nut, soy, oil); "I have" and "avoid" ingredient lists; sort (top rated, newest, fastest, best match).

@@ -56,7 +56,7 @@ export const AISLE_LABELS: Record<string, () => string> = {
 }
 
 /**
- * Core returns English quantity strings for CLI/MCP; the web formats its own display.
+ * Core returns English quantity strings; the web formats its own display.
  * The unit word comes from the language's vocabulary, the same names the recipe sheet uses.
  */
 export function formatGroceryAmount(amount: string, vocab: LanguageVocabulary | null): string {

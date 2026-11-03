@@ -11,9 +11,6 @@
     },
     "packages/ingest": {
       "entry": ["src/nightly-cli.ts", "src/parse-diff.ts", "scripts/*.ts"]
-    },
-    "packages/mcp": {
-      "ignoreDependencies": ["tsx"]
     }
   }
 }
