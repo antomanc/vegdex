@@ -118,7 +118,7 @@ test('Tonight is one tap to a weeknight main', async ({ page }) => {
   await expect(count(page)).toHaveText(/2 recipes/);
   await expect(page).toHaveURL(/meal=main/);
   await expect(page).toHaveURL(/max=45/);
-  await page.getByRole('list', { name: 'Active filters' }).getByRole('button', { name: 'Remove Tonight' }).click();
+  await page.getByRole('list', { name: 'Active filters' }).getByRole('button', { name: 'Remove Tonight: mains, ≤ 45 min' }).click();
   await expect(count(page)).toHaveText(/6 recipes/);
 });
 
@@ -133,6 +133,13 @@ test('an empty result names the filter to remove', async ({ page }) => {
   await page.getByRole('button', { name: 'Desserts', exact: true }).click();
   await page.getByRole('button', { name: /Remove “Desserts”/ }).click();
   await expect(cards(page)).toHaveText([/Red Lentil Soup/]);
+});
+
+test('an empty result keeps the search and suggests a filter, even when clearing the search finds more', async ({ page }) => {
+  await page.getByRole('searchbox').fill('lentil');
+  await page.getByRole('button', { name: 'Sweet', exact: true }).click();
+  await expect(page.getByRole('button', { name: /Remove “Sweet”/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Clear the search/ })).toHaveCount(0);
 });
 
 test('the count credits the blogs and the credits stay on screen', async ({ page }) => {

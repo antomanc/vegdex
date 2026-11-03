@@ -239,7 +239,7 @@ Soft rectangles for content, full pills for small controls, near-square tags for
 ### Pills and segments
 - **Quick pill:** green wash at rest, ink green when on, 40px tall.
 - **Pick for me:** solid ink green with a shuffle icon, 52px, floating at the bottom centre of the browse screen within thumb reach (floating-control shadow; the page keeps room under the credits so it never covers them). Opens a random recipe from the top 120 of the current matches; the sheet it opens adds "Another" to its footer to draw again in place. Hidden at zero matches and in the Saved view.
-- **Tonight:** the first quick pill, outlined in ink green with a clock icon at rest. It sets Mains and 45 minutes or less, and shows as one "Tonight" chip.
+- **Tonight:** the first quick pill, outlined in ink green with a clock icon at rest. It sets Mains and 45 minutes or less, and shows as one chip that spells it out ("Tonight: mains, ≤ 45 min"), since its tooltip never shows on a phone.
 - **Outline pill:** transparent with a line border (More filters; High protein and free-from inside the sheet).
 - **Time segments:** one joined control (≤ 15, 30, 45, 60 min); picking one replaces the last.
 

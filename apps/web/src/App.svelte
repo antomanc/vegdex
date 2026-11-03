@@ -137,7 +137,7 @@
   const blogCount = $derived(found?.blogs ?? 0)
   const sorts = $derived(SORTS.filter(([s]) => s !== 'relevance' || filters.text.trim()))
 
-  /** At zero results, the one change that brings back the most recipes. */
+  /** At zero results, the one filter whose removal brings back the most recipes; the search goes only when no filter can. */
   let loosen = $state.raw<{ label: string; apply: () => void; n: number; isSearch: boolean } | null>(null)
   let loosenAsked = 0
   $effect(() => {
@@ -150,7 +150,8 @@
     catalog.counts(queries).then((counts) => {
       if (id !== loosenAsked) return
       let best: typeof loosen = null
-      options.forEach((o, i) => { if (counts[i] && (!best || counts[i]! > best.n)) best = { ...o, n: counts[i]! } })
+      // The search is listed last, so it is offered only when no filter brings recipes back.
+      options.forEach((o, i) => { if (counts[i] && (!best || (!o.isSearch && counts[i]! > best.n))) best = { ...o, n: counts[i]! } })
       loosen = best
     }, failed)
   })
