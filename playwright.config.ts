@@ -15,14 +15,29 @@ export default defineConfig({
     // Tests serve the dataset from e2e/fixtures; a service worker would bypass page.route.
     serviceWorkers: 'block'
   },
-  webServer: {
-    command: 'pnpm --filter @vegdex/web build && pnpm --filter @vegdex/web preview --port 4174 --strictPort',
-    url: 'http://localhost:4174',
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000
-  },
+  webServer: [
+    {
+      command: 'pnpm --filter @vegdex/web build && pnpm --filter @vegdex/web preview --port 4174 --strictPort',
+      url: 'http://localhost:4174',
+      reuseExistingServer: !process.env.CI,
+      timeout: 120_000
+    },
+    {
+      // The same build with the fixtures served for real, so the service worker can cache them.
+      // It answers 404 until the build above writes apps/web/dist.
+      command: 'node e2e/offline-server.ts 4175',
+      url: 'http://localhost:4175',
+      reuseExistingServer: !process.env.CI,
+      timeout: 120_000
+    }
+  ],
   projects: [
-    { name: 'mobile', use: { ...devices['Pixel 7'] } },
-    { name: 'desktop', use: { ...devices['Desktop Chrome'] } }
+    { name: 'mobile', testIgnore: 'offline.spec.ts', use: { ...devices['Pixel 7'] } },
+    { name: 'desktop', testIgnore: 'offline.spec.ts', use: { ...devices['Desktop Chrome'] } },
+    {
+      name: 'offline',
+      testMatch: 'offline.spec.ts',
+      use: { ...devices['Pixel 7'], baseURL: 'http://localhost:4175', serviceWorkers: 'allow' }
+    }
   ]
 });
