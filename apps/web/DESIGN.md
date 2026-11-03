@@ -206,7 +206,7 @@ Three families with separate jobs. Besley, a Clarendon revival self-hosted throu
 
 Mobile first, with a 1200px max container. The sticky header holds only the brand row and search (about 120px on a phone) and closes with the tomato rule. Quick filters scroll with the page. Once they are out of view, a "Filters" button in the header jumps back to them. Horizontal pill rows fade at the right edge to show there is more.
 
-- **Filters:** a controls row first (Tonight, More filters, time, High protein), then the divider tabs (Savory, Sweet, then meals) standing on a hairline that heads the results. The tabs sit next to the cards they sort.
+- **Filters:** a controls row first (Tonight, More filters, time). Each filter has one home: time lives only in the row, High protein only in More filters, then the divider tabs (Savory, Sweet, then meals) standing on a hairline that heads the results. The tabs sit next to the cards they sort.
 - **Grid:** `repeat(auto-fill, minmax(160px, 1fr))` with 10px gaps (two columns on a phone). At 700px and up, `minmax(220px, 1fr)` with 16px gaps.
 - **Sheets:** bottom sheets on phones (max 640px, 92dvh). Centred dialogs from 700px. The recipe sheet becomes two columns at 900px (920px wide): photo and facts stick on the left, ingredients scroll on the right.
 - **Sticky footers:** any sheet with a primary action pins it to the bottom (Save + "Cook it on…", Clear all + "Show N recipes").
@@ -221,6 +221,7 @@ Flat by default, with tonal layering (paper → surface). Shadows appear only wh
 - **Placed card** (motion): an opening sheet slides up 48px and settles from a 1° tilt, a card set down on the counter. Reduced motion drops it.
 - **Tag** (`box-shadow: 0 1px 3px var(--shadow)`): time tags stuck on a photo.
 - **Floating control** (`box-shadow: 0 1px 4px var(--shadow)`): the sheet close button.
+- **Floating action** (`0 2px 6px var(--shadow), 0 8px 24px var(--card-shadow)`): the "Pick for me" button docked at the bottom of the browse screen.
 - **Backdrop** (`var(--scrim)`): behind modal sheets.
 
 ## Shapes
@@ -237,9 +238,9 @@ Soft rectangles for content, full pills for small controls, near-square tags for
 
 ### Pills and segments
 - **Quick pill:** green wash at rest, ink green when on, 40px tall.
-- **Pick for me:** solid ink green with a shuffle icon, beside Tonight. Opens a random recipe from the top 120 of the current matches; the sheet it opens adds "Another" to its footer to draw again in place. Disabled at zero matches.
-- **Tonight:** the first quick pill, outlined in ink green with a clock icon at rest. It sets Mains and 45 minutes or less, and shows as one "Tonight" chip.
-- **Outline pill:** transparent with a line border (More filters, High protein, free-from).
+- **Pick for me:** solid ink green with a shuffle icon, 52px, floating at the bottom centre of the browse screen within thumb reach (floating-control shadow; the page keeps room under the credits so it never covers them). Opens a random recipe from the top 120 of the current matches; the sheet it opens adds "Another" to its footer to draw again in place. Hidden at zero matches and in the Saved view.
+- **Tonight:** the first quick pill, outlined in ink green with a clock icon at rest. It sets Mains and 45 minutes or less, and shows as one chip that spells it out ("Tonight: mains, ≤ 45 min"), since its tooltip never shows on a phone.
+- **Outline pill:** transparent with a line border (More filters; High protein and free-from inside the sheet).
 - **Time segments:** one joined control (≤ 15, 30, 45, 60 min); picking one replaces the last.
 
 ### Divider tabs

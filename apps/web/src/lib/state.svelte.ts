@@ -56,7 +56,8 @@ export function activeFilters(): ActiveFilter[] {
   const tonight = isTonight()
   return [
     ...(filters.from ? [{ label: m.from_source({ source: sourceNames.get(filters.from) ?? filters.from }), patch: { from: null } }] : []),
-    ...(tonight ? [{ label: m.tonight(), patch: { meals: [], maxMinutes: null } }] : []),
+    // The chip spells out what Tonight set: on a phone the pill's tooltip never shows.
+    ...(tonight ? [{ label: m.tonight_chip(), patch: { meals: [], maxMinutes: null } }] : []),
     ...(filters.flavor ? [{ label: filters.flavor === 'sweet' ? m.sweet() : m.savory(), patch: { flavor: null } }] : []),
     ...(tonight ? [] : filters.meals.map((m) => ({ label: meal.get(m) ?? m, patch: { meals: without(filters.meals, m) } }))),
     ...(filters.maxMinutes && !tonight ? [{ label: m.time_limit({ count: formatNumber(filters.maxMinutes) }), patch: { maxMinutes: null } }] : []),
@@ -91,7 +92,7 @@ export function isLanding(): boolean {
 
 /** Filters that live behind "More filters" (the quick pills show their own state). */
 export function moreCount(): number {
-  return filters.freeFrom.length + filters.include.length + filters.exclude.length
+  return (filters.highProtein ? 1 : 0) + filters.freeFrom.length + filters.include.length + filters.exclude.length
 }
 
 /** "Tonight": a weeknight main, on the table within 45 minutes. */

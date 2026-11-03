@@ -26,8 +26,11 @@ test('time and high-protein filters', async ({ page }) => {
   await page.getByRole('button', { name: '≤ 15 min', exact: true }).click();
   await expect(cards(page)).toHaveText([/Lemony Quinoa Salad/]);
   await page.getByRole('button', { name: '≤ 15 min', exact: true }).click();
-  await page.getByRole('button', { name: 'High protein', exact: true }).click();
+  await page.getByRole('button', { name: /More filters/ }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'High protein', exact: true }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Close' }).click();
   await expect(cards(page)).toHaveText([/Spinach Tofu Curry/]);
+  await expect(page.getByRole('button', { name: 'More filters · 1' })).toBeVisible();
 });
 
 test('search matches titles and ingredients', async ({ page }) => {
@@ -115,7 +118,7 @@ test('Tonight is one tap to a weeknight main', async ({ page }) => {
   await expect(count(page)).toHaveText(/2 recipes/);
   await expect(page).toHaveURL(/meal=main/);
   await expect(page).toHaveURL(/max=45/);
-  await page.getByRole('list', { name: 'Active filters' }).getByRole('button', { name: 'Remove Tonight' }).click();
+  await page.getByRole('list', { name: 'Active filters' }).getByRole('button', { name: 'Remove Tonight: mains, ≤ 45 min' }).click();
   await expect(count(page)).toHaveText(/6 recipes/);
 });
 
@@ -130,6 +133,13 @@ test('an empty result names the filter to remove', async ({ page }) => {
   await page.getByRole('button', { name: 'Desserts', exact: true }).click();
   await page.getByRole('button', { name: /Remove “Desserts”/ }).click();
   await expect(cards(page)).toHaveText([/Red Lentil Soup/]);
+});
+
+test('an empty result keeps the search and suggests a filter, even when clearing the search finds more', async ({ page }) => {
+  await page.getByRole('searchbox').fill('lentil');
+  await page.getByRole('button', { name: 'Sweet', exact: true }).click();
+  await expect(page.getByRole('button', { name: /Remove “Sweet”/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Clear the search/ })).toHaveCount(0);
 });
 
 test('the count credits the blogs and the credits stay on screen', async ({ page }) => {
@@ -163,6 +173,35 @@ test("a recipe's blog opens that blog's shelf, with a way to its site", async ({
 
   await page.getByRole('list', { name: 'Active filters' }).getByRole('button', { name: 'Remove From ElaVegan' }).click();
   await expect(count(page)).toHaveText(/6 recipes/);
+});
+
+test('the logo leaves a blog shelf for all recipes', async ({ page }) => {
+  await page.getByRole('button', { name: 'Red Lentil Soup', exact: true }).click();
+  await page.getByRole('dialog').getByRole('button', { name: /^ElaVegan/ }).click();
+  await expect(page.getByRole('heading', { name: 'ElaVegan' })).toBeVisible();
+  await page.getByRole('button', { name: 'vegdex, all recipes' }).click();
+  await expect(page.getByRole('heading', { name: 'ElaVegan' })).toBeHidden();
+  await expect(page).not.toHaveURL(/from=/);
+  await expect(count(page)).toHaveText(/6 recipes/);
+});
+
+test('a card opened after leaving a drawn one for its blog offers no Another', async ({ page }) => {
+  await page.getByRole('button', { name: 'Pick for me' }).click();
+  const sheet = page.getByRole('dialog');
+  await expect(sheet.getByRole('button', { name: 'Another' })).toBeVisible();
+  await sheet.locator('.kitchen-name').click();
+  await expect(sheet).toBeHidden();
+  await cards(page).first().getByRole('button').first().click();
+  await expect(sheet.getByRole('link', { name: /Cook it on/ })).toBeVisible();
+  await expect(sheet.getByRole('button', { name: 'Another' })).toHaveCount(0);
+});
+
+test('a skip link jumps from the top of the page to the recipes', async ({ page }) => {
+  await page.keyboard.press('Tab');
+  const skip = page.getByRole('link', { name: 'Skip to recipes' });
+  await expect(skip).toBeFocused();
+  await skip.press('Enter');
+  await expect(page.locator('#results')).toBeFocused();
 });
 
 test('night mode follows the system until switched, then stays switched', async ({ page }) => {

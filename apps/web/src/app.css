@@ -69,6 +69,15 @@ input { caret-color: var(--tomato); }
   position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
 }
 
+/* Keyboard users jump past the header and filters straight to the cards. */
+.skip-link {
+  position: fixed; top: 8px; left: 8px; z-index: 10; padding: 10px 16px; border-radius: 12px;
+  background: var(--green); color: var(--paper); font-weight: 600; text-decoration: none;
+  translate: 0 -200%;
+}
+.skip-link:focus-visible { translate: none; }
+#results:focus { outline: none; }
+
 /* Header: the card's top band, closed by the red rule. */
 .top {
   position: sticky; top: 0; z-index: 5;
@@ -132,9 +141,6 @@ input { caret-color: var(--tomato); }
 }
 .pill.outline { background: transparent; border-color: var(--line); font-size: 0.88rem; padding: 0 14px; }
 .pill.on { background: var(--green); color: var(--paper); border-color: var(--green); }
-/* The page's one solid action: pull a card from the box. */
-.pill.pick { background: var(--green); border-color: var(--green); color: var(--paper); font-weight: 600; }
-.pill.pick:disabled { opacity: 0.45; }
 .pill.tonight:not(.on) { background: var(--surface); border-color: var(--green); color: var(--green); font-weight: 600; }
 
 /* Divider tabs: the recipe box's sections stand on the edge of the card stack. */
@@ -170,7 +176,8 @@ input { caret-color: var(--tomato); }
 .field input {
   flex: 1; min-width: 0; min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper);
 }
-.btn-sm { min-height: 44px; padding: 0 18px; border-radius: 10px; border: 0; background: var(--green); color: var(--paper); font-size: 0.88rem; font-weight: 600; }
+/* Add is a step inside the sheet, not its action: "Show N recipes" stays the one solid button. */
+.btn-sm { min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid transparent; background: var(--green-soft); color: var(--green); font-size: 0.88rem; font-weight: 600; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip { display: inline-flex; align-items: center; gap: 4px; border: 0; border-radius: 999px; min-height: 32px; padding: 4px 10px 4px 12px; font-size: 0.88rem; background: var(--green-soft); }
 .chip.avoid { background: var(--tomato-soft); }
@@ -210,6 +217,20 @@ main {
 .grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 @media (min-width: 700px) { .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; } }
 
+/* The browse screen's one solid action, floating within thumb reach: pull a card from the box. */
+.pick-dock {
+  position: fixed; inset: auto 0 0; z-index: 4; display: flex; justify-content: center; pointer-events: none;
+  padding: 0 16px calc(16px + env(safe-area-inset-bottom));
+}
+.pick {
+  pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 24px;
+  border: 0; border-radius: 999px; background: var(--green); color: var(--paper); font-size: 1rem; font-weight: 600;
+  box-shadow: 0 2px 6px var(--shadow), 0 8px 24px var(--card-shadow);
+}
+.pick:focus-visible { outline-offset: 3px; }
+/* Room under the last cards and the credits, so the button never covers them. */
+main:has(~ .pick-dock) { padding-bottom: 96px; }
+
 /* Sweet recipes are filed on rose card stock, savory on white. */
 .sweet { --surface: var(--rose); --line: var(--rose-line); }
 
@@ -248,6 +269,8 @@ li:nth-child(even) > .card .time { rotate: 1.5deg; }
 .heart.on { color: var(--tomato); }
 .sentinel { height: 1px; }
 .credits { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: auto; padding-top: 40px; line-height: 1.5; text-wrap: balance; }
+/* A separator stays with the link before it, never leading a line. */
+.credits .nowrap { white-space: nowrap; }
 .credits a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 8px; color: var(--green); text-underline-offset: 3px; }
 
 /* Sheets */
@@ -291,10 +314,11 @@ li:nth-child(even) > .card .time { rotate: 1.5deg; }
 .kitchen-head h2 { font-family: var(--display); font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
 .kitchen-head a { color: var(--green); font-size: 0.88rem; font-weight: 600; text-underline-offset: 3px; }
 .card-fields { display: flex; margin: 12px 0 0; border-top: 2px solid var(--tomato); border-bottom: 1px solid var(--line); }
-.card-fields > div { flex: 1 1 0; padding: 8px 10px 9px; min-width: 0; }
+.card-fields > div { flex: 1 1 auto; padding: 8px 10px 9px; min-width: 0; }
 .card-fields > div:first-child { padding-left: 0; }
 .card-fields > div + div { border-left: 1px solid var(--line); }
 .card-fields dt { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.card-fields dd span { white-space: nowrap; }
 .card-fields dd { margin: 4px 0 0; font-family: var(--typed); font-size: 0.94rem; line-height: 1.35; }
 .badges { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .badges li { background: var(--green-soft); border: 1px solid transparent; border-radius: 999px; padding: 3px 10px; font-size: 0.8rem; }
@@ -359,12 +383,13 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 @media (hover: hover) {
   .pill:not(.on):hover, .stepper button:not([aria-disabled='true']):hover, .seg:not(.on):hover, .saved-toggle:not(.on):hover, .night:hover { border-color: var(--green); }
   .seg:not(.on):hover { background: var(--green-soft); }
-  .cta:hover, .btn-sm:hover, .grocery-btn:hover { filter: brightness(1.12); }
+  .cta:hover, .grocery-btn:hover { filter: brightness(1.12); }
+  .btn-sm:hover { border-color: var(--green); }
   .text-btn:not(:disabled):hover { text-decoration: underline; text-underline-offset: 3px; }
   .loosen:hover { background: var(--green-soft); }
   .heart:hover { color: var(--tomato); }
   .tab:not(.on):hover { border-color: var(--green); }
-  .pill.pick:not(:disabled):hover { filter: brightness(1.12); }
+  .pick:hover { filter: brightness(1.12); }
   /* Hovered, the card lifts a little out of the box. */
   .card:has(.card-open:hover) { translate: 0 -3px; box-shadow: 0 2px 4px var(--card-shadow), 0 10px 24px var(--card-shadow); }
 }
@@ -375,8 +400,10 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 
 /* Keep the creator link readable beside long translated labels and publisher names. */
 .recipe-sheet .actions { flex-wrap: wrap; }
-.recipe-secondary-actions { display: flex; gap: 10px; }
-.recipe-sheet .actions .cta { flex: 1 1 220px; }
+/* Wrapped onto their own line, Save and Another share it instead of huddling right. */
+.recipe-secondary-actions { display: flex; gap: 10px; flex: 1 1 auto; }
+.recipe-secondary-actions .save { flex: 1 1 auto; justify-content: center; }
+.recipe-sheet .actions .cta { flex: 3 1 220px; }
 .device-hint { margin: 0; padding: 0 4px; color: var(--muted); font-size: 0.8rem; line-height: 1.5; text-wrap: balance; }
 
 .amounts .title input { width: 20px; height: 20px; accent-color: var(--green); vertical-align: middle; }
