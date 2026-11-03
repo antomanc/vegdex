@@ -18,6 +18,7 @@ Guaranteed vegan. Every source is an all-vegan publisher, and a second check dro
 ## Operating Context
 - Mobile-first: the phone is the main device; desktop is secondary.
 - Used in short sessions while deciding dinner, sometimes with wet or busy hands, sometimes in a store.
+- Open source at `https://github.com/antomanc/vegdex`; keep contributions and problem reports accessible through GitHub.
 - Installable PWA that works offline once loaded. No accounts, no server, no database.
 - Saved recipes and the shopping list live in the browser on that device.
 - The same dataset also powers an MCP server and CLI (`packages/mcp`) for AI agents; that is a separate surface.

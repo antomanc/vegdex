@@ -74,6 +74,9 @@ export function classify(input: TagInput, ingredientNames?: string[]): Tag[] {
   else if (fromTitle[0] === 'dessert' && !meals.some((m) => ['dessert', 'main', 'soup', 'salad', 'side'].includes(m))) meals.push('dessert');
   if (meals.length === 0) meals = ['main'];
 
+  // Pet recipes remain searchable, but never appear as a human meal or Tonight pick.
+  if (/\b(?:dog|cat|pet)[\s-]+(?:treats?|food|biscuits?|cookies?)\b|\bpuppy[\s-]friendly\b/.test(title)) meals = [];
+
   const tags: Tag[] = meals.map((m) => `meal:${m}` as const);
 
   const sweetHits = names.filter((n) => SWEET.test(n)).length;
@@ -93,7 +96,7 @@ export function classify(input: TagInput, ingredientNames?: string[]): Tag[] {
     if (claimsGf && !hasGluten) tags.push('free:gluten-free');
     if (!pack.ingredientRisks?.nuts.test(original) && !NUTS.test(joined) && !NUTS.test(rawJoined.replace(/coconut|nutmeg|nutritional|butternut|doughnut|donut|chestnut|water chestnut|tiger ?nut/g, ''))) tags.push('free:nut-free');
     if (!pack.ingredientRisks?.soy.test(original) && !SOY.test(rawJoined)) tags.push('free:soy-free');
-    if (!pack.ingredientRisks?.oil.test(pack.oilFree ? original.replace(pack.oilFree, '') : original) && (!OIL.test(rawJoined.replace(/oil[\s-]free|optional[^|]*oil|oil[^|]*optional/g, '')) || (pack.oilFree ?? /oil[\s-]free/).test(keywords + title))) tags.push('free:oil-free');
+    if (!pack.ingredientRisks?.oil.test(pack.oilFree ? original.replace(pack.oilFree, '') : original) && !OIL.test(rawJoined.replace(/oil[\s-]free|optional[^|]*oil|oil[^|]*optional/g, ''))) tags.push('free:oil-free');
   }
 
   if (input.protein !== null && input.protein >= 20) tags.push('high-protein');

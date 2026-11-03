@@ -63,11 +63,14 @@ typography:
     fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
     fontSize: "0.8rem"
     fontFeature: "tnum"
+  typed:
+    fontFamily: "Courier Prime, Courier New, ui-monospace, monospace"
+    fontSize: "0.94rem"
+    fontWeight: 400
   tag:
-    fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
-    fontSize: "0.75rem"
-    fontWeight: 600
-    fontFeature: "tnum"
+    fontFamily: "Courier Prime, Courier New, ui-monospace, monospace"
+    fontSize: "0.8rem"
+    fontWeight: 700
   field-label:
     fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
     fontSize: "0.75rem"
@@ -79,6 +82,7 @@ typography:
     fontWeight: 700
     letterSpacing: "0.06em"
 rounded:
+  label: "3px"
   tag: "6px"
   photo: "8px"
   field: "10px"
@@ -125,8 +129,8 @@ components:
   time-tag:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.tag}"
-    padding: "3px 7px"
+    rounded: "{rounded.label}"
+    padding: "3px 7px 2px"
   search:
     backgroundColor: "{colors.surface}"
     rounded: "{rounded.pill}"
@@ -138,7 +142,7 @@ components:
 
 **Creative North Star: the recipe index card.** vegdex is a recipe box for a home kitchen: cards on a sage-grey ground, white card stock for savory and rose for sweet, green ink, one red line per card. The photos supply the appetite. The interface supplies the facts a cook needs to choose (time, rating, source, ingredients) and gets out of the way. It is an Operate surface used on a phone in short sessions, so precision and familiar controls come before expression.
 
-The card file is visible, not only described: categories are divider tabs standing on the edge of the stack, every recipe is a card with the publisher's photo mounted on card stock and its facts ruled underneath, and an open recipe is a recipe card (title above the red line, printed fields below it, ingredients on ruled lines, "From the kitchen of" the blog). The mount frame also evens out photos from 24 blogs with 24 different styles. The box also behaves like one: "Pick for me" pulls a card at random from the best matches, and every card's "From the kitchen of" opens that blog's shelf. The other details: the Clarendon titles, label-style time tags and tabular numerals.
+The card file is visible, not only described: categories are divider tabs standing on the edge of the stack, every recipe is a card with the publisher's photo mounted on card stock and its facts ruled underneath, and an open recipe is a recipe card (title above the red line, printed fields below it, ingredients on ruled lines, "From the kitchen of" the blog). The mount frame also evens out photos from 24 blogs with 24 different styles. The box also behaves like one: "Pick for me" pulls a card at random from the best matches, and every card's "From the kitchen of" opens that blog's shelf. The facts are typed onto the cards: times, servings, nutrition, amounts and the blog's name in a typewriter face, the way a recipe card was filled in. The time on each photo is a typed label stuck on by hand, never quite straight. The other details: the Clarendon titles and tabular numerals.
 
 Anti-references: beige "organic" palettes, wellness-brand softness, recipe-blog clutter, and any "verified vegan" badge (the guarantee stays implicit; see PRODUCT.md).
 
@@ -176,17 +180,18 @@ The palette is restrained. Neutrals carry the page, ink green carries action and
 
 ## Typography
 
-Two families with separate jobs. Besley, a Clarendon revival self-hosted through `@fontsource-variable/besley`, gives the wordmark, recipe titles and sheet headings the voice of a pantry label or an old recipe card. The system sans handles everything you operate: pills, buttons, labels, counts, ingredient lines.
+Three families with separate jobs. Besley, a Clarendon revival self-hosted through `@fontsource-variable/besley`, gives the wordmark, recipe titles and sheet headings the voice of a pantry label or an old recipe card. Courier Prime (`@fontsource/courier-prime`, 400 and 700) types the facts onto the card. The system sans handles everything you operate: pills, buttons, labels, hints, ingredient names.
 
 ### Hierarchy
 - **Wordmark** (Besley 700, 1.6rem, -0.02em): "vegdex", always lowercase.
 - **Headline** (Besley 600, 1.5rem, 1.2): sheet titles and the "Saved recipes" view title. Balanced wrapping.
 - **Subhead** (Besley 700, 1.25rem): "Ingredients" inside the recipe sheet.
-- **Title** (Besley 600, 1rem, 1.25): card titles, clamped to two lines, balanced, with the first letter uppercased to absorb publisher casing.
+- **Title** (Besley 600, 1rem, 1.25): card titles, clamped to three lines, balanced, with the first letter uppercased to absorb publisher casing.
 - **Body** (system sans 400, 1rem, 1.55): ingredient lines (`text-wrap: pretty`, 65ch max) and copy.
 - **Label** (system sans, 0.88rem, tabular numerals): pills, buttons, chips, counts, amounts, form labels.
 - **Meta** (system sans, 0.8rem, tabular numerals): card source and rating, hints, footnotes, credits.
-- **Tag** (system sans 600, 0.75rem, tabular numerals): the time tag on a photo.
+- **Typed** (Courier Prime 400, 0.94rem): the values of an open card's printed fields, ingredient amounts (700, a touch tighter), shopping-list amounts, the blog name after "From the kitchen of" (700), and the results count (0.82rem, muted).
+- **Tag** (Courier Prime 700, 0.8rem): the time label on a photo.
 - **Field label** (system sans 600, 0.75rem, 0.06em, uppercase, muted): the printed labels on an open recipe card (Time, Serves, Per serving).
 - **Aisle** (system sans 700, 0.8rem, 0.06em, uppercase, tomato): shopping-list aisle headings. Field labels and aisles are the only uppercase text.
 
@@ -194,6 +199,8 @@ Two families with separate jobs. Besley, a Clarendon revival self-hosted through
 **The Numbers Line Up Rule.** Times, ratings, counts and amounts use tabular numerals.
 
 **The Serif Is For Names Rule.** Besley names things (the app, a recipe, a sheet). It never sets a button, pill or label.
+
+**The Typewriter Fills In Facts Rule.** Courier Prime sets only values a cook would have typed onto a card: times, amounts, servings, nutrition, a count, the kitchen's name. Never a control, a field label, a sentence of copy or a heading. It runs wide, so keep it at 0.94rem or below and in 400 except for amounts and labels.
 
 ## Layout
 
@@ -210,14 +217,15 @@ Mobile first, with a 1200px max container. The sticky header holds only the bran
 Flat by default, with tonal layering (paper → surface). Shadows appear only where something sits physically on top of something else.
 
 ### Shadow Vocabulary
-- **Card** (`0 1px 2px var(--card-shadow), 0 2px 8px var(--card-shadow)`): recipe cards resting on the paper; deepens on hover. No border with it.
+- **Card** (`0 1px 2px var(--card-shadow), 0 2px 8px var(--card-shadow)`): recipe cards resting on the paper; on hover the card lifts 3px out of the box and the shadow deepens. No border with it.
+- **Placed card** (motion): an opening sheet slides up 48px and settles from a 1° tilt, a card set down on the counter. Reduced motion drops it.
 - **Tag** (`box-shadow: 0 1px 3px var(--shadow)`): time tags stuck on a photo.
 - **Floating control** (`box-shadow: 0 1px 4px var(--shadow)`): the sheet close button.
 - **Backdrop** (`var(--scrim)`): behind modal sheets.
 
 ## Shapes
 
-Soft rectangles for content, full pills for small controls, near-square tags for labels stuck on photos. Radii come only from the scale: 6px (tags, logo, skeleton bars), 8px (photos mounted in a card: 14px minus the 6px mount), 10px (fields, sort select, the top corners of divider tabs), 12px (buttons), 14px (cards), 20px (sheets), full pill. Card photos are 1:1. Sheets round only their top corners on phones (20px). Buttons use 12px, fields 10px.
+Soft rectangles for content, full pills for small controls, near-square tags for labels stuck on photos. Radii come only from the scale: 3px (the typed time label), 6px (logo, skeleton bars), 8px (photos mounted in a card: 14px minus the 6px mount), 10px (fields, sort select, the top corners of divider tabs), 12px (buttons), 14px (cards), 20px (sheets), full pill. Card photos are 1:1. Sheets round only their top corners on phones (20px). Buttons use 12px, fields 10px.
 
 ## Components
 
@@ -242,7 +250,7 @@ Soft rectangles for content, full pills for small controls, near-square tags for
 
 ### Recipe card
 - **Character:** a filed card: the photo mounted on card stock, the facts ruled underneath, nothing more.
-- Surface card, 6px mount, card shadow. 1:1 photo at 8px, label-style time tag bottom-left, heart top-right on a paper disc (dark disc in dark mode). Then the Besley title, then a hairline rule, the source, and under it the gold star with how many cooks rated it ("★ 1.2K ratings"). Most recipes average 5.0, so the card leads with the count; the average shows only below 4.5 ("★ 4.3 · 12 ratings"), and the sheet always shows both. The rule sits at the same height on every card in a row. The open button's accessible name is the title, and its description is time, source and rating.
+- Surface card, 6px mount, card shadow. 1:1 photo at 8px, typed time label bottom-left (tilted -2°, +1.5° on even cards), heart top-right on a paper disc (dark disc in dark mode). Then the Besley title, then a hairline rule, the source, and under it the gold star with how many cooks rated it ("★ 1.2K ratings"). Most recipes average 5.0, so the card leads with the count; the average shows only below 4.5 ("★ 4.3 · 12 ratings"), and the sheet always shows both. The rule sits at the same height on every card in a row. The open button's accessible name is the title, and its description is time, source and rating.
 
 ### Recipe sheet (the open card)
 - Photo, Besley title, then "From the kitchen of <blog>" with the rating. The blog name is an underlined button that opens the blog's shelf: the grid filtered to that source, headed by the blog's name in Besley and a "Visit <site>" link, with a removable "From <blog>" chip. Under that, the red line and the printed fields (Time, Serves, Per serving) in cells split by hairlines: field labels above, values in tabular numerals.

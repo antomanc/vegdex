@@ -12,9 +12,21 @@
 
   let { recipes, onclose }: { recipes: CatalogRecipe[]; onclose: () => void } = $props()
 
+  const EXCLUDED_KEY = 'vegdex:grocery-excluded'
+  function loadExcluded(): string[] {
+    try { const value = JSON.parse(localStorage.getItem(EXCLUDED_KEY) ?? '[]'); return Array.isArray(value) ? value.filter((id) => typeof id === 'string' && saved.ids.includes(id)) : [] }
+    catch { return [] }
+  }
+  let excluded = $state<string[]>(loadExcluded())
+  function toggleRecipe(id: string) {
+    excluded = excluded.includes(id) ? excluded.filter((item) => item !== id) : [...excluded, id]
+    try { localStorage.setItem(EXCLUDED_KEY, JSON.stringify(excluded)) } catch { /* the choice still applies for this visit */ }
+  }
+  const selected = $derived(recipes.filter((r) => !excluded.includes(r.id)))
+
   // Newest saved first, like the saved view.
   const rows = $derived([...recipes].sort((a, b) => saved.ids.indexOf(a.id) - saved.ids.indexOf(b.id)))
-  const adjusted = $derived(recipes.filter((r) => steps(r) !== perBatch(r)).length)
+  const adjusted = $derived(selected.filter((r) => steps(r) !== perBatch(r)).length)
   // Check-offs survive closing the sheet: the list is used aisle by aisle in the store.
   const CHECKED_KEY = 'vegdex:grocery-checked'
   let checked = $state<Record<string, boolean>>(loadChecked())
@@ -89,7 +101,7 @@
       const r = byId.get(id)
       return r ? steps(r) / perBatch(r) : 1
     }
-    const items = compileGroceryList(all.map((r) => ({ ...r, recipeId: r.id, multiplier: multiplier(r.id) })), { units: prefs.units, ...options(file) })
+    const items = compileGroceryList(all.filter((r) => !excluded.includes(r.id)).map((r) => ({ ...r, recipeId: r.id, multiplier: multiplier(r.id) })), { units: prefs.units, ...options(file) })
     const byAisle = new Map<string, GroceryItem[]>()
     for (const item of items) byAisle.set(item.aisle, [...(byAisle.get(item.aisle) ?? []), item])
     // Checked items sink to the bottom of their aisle, so what's left to grab stays on top.
@@ -102,12 +114,12 @@
     <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
     <h2 id="grocery-title">{m.shopping_list()}</h2>
     <details class="amounts">
-      <summary class="meta">{m.list_recipes(countArgs(recipes.length))}{adjusted ? m.adjusted_count(countArgs(adjusted)) : ''}</summary>
+      <summary class="meta"><span>{m.list_recipes(countArgs(selected.length))}{adjusted ? m.adjusted_count(countArgs(adjusted)) : ''}</span> · {m.shop_choose()}</summary>
       <ul>
         {#each rows as r (r.id)}
           {@const n = steps(r)}
           <li>
-            <span class="title">{recipeTitle(r)}</span>
+            <label class="title"><input type="checkbox" checked={!excluded.includes(r.id)} onchange={() => toggleRecipe(r.id)} aria-label={m.shop_exclude({ title: recipeTitle(r) })} /> {recipeTitle(r)}</label>
             <span class="stepper">
               <button aria-disabled={n === 1} onclick={() => nudge(r, -1)} aria-label={m.fewer_servings({ title: recipeTitle(r) })}>−</button>
               <span class="value" aria-live="polite">{amountLabel(r)}</span>
@@ -125,6 +137,7 @@
     {#await ready}
       <p class="muted">{m.loading_ingredients()}</p>
     {:then [all, file]}
+      {#if selected.length === 0}<p class="muted">{m.shop_empty()}</p>{/if}
       {#each compile(all, file) as [aisle, items] (aisle)}
         <h3 class="aisle">{AISLE_LABELS[aisle]?.() ?? m.aisle_other()}</h3>
         <ul class="grocery" data-testid="grocery-list">

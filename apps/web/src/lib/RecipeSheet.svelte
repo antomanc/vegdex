@@ -77,6 +77,7 @@
         {#each diet as b (b)}<li>{b}</li>{/each}
         {#each cuisines as b (b)}<li class="cuisine">{b}</li>{/each}
       </ul>
+      <p class="muted small">{m.diet_note()}</p>
     {/if}
     </div>
 
@@ -124,12 +125,14 @@
     </div>
 
     <div class="sheet-footer actions">
-      <button class="save" class:on={isSaved} aria-pressed={isSaved} onclick={() => toggleSaved(recipe.id)}>
-        <Icon name="heart" size={18} filled={isSaved} /> {isSaved ? m.saved_recipe() : m.save()}
-      </button>
-      {#if ondraw}
-        <button class="save" onclick={ondraw}><Icon name="shuffle" size={18} /> {m.another()}</button>
-      {/if}
+      <div class="recipe-secondary-actions">
+        <button class="save" class:on={isSaved} aria-pressed={isSaved} onclick={() => toggleSaved(recipe.id)}>
+          <Icon name="heart" size={18} filled={isSaved} /> {isSaved ? m.saved_recipe() : m.save()}
+        </button>
+        {#if ondraw}
+          <button class="save" onclick={ondraw}><Icon name="shuffle" size={18} /> {m.another()}</button>
+        {/if}
+      </div>
       <a class="cta" href={recipe.url} target="_blank" rel="noopener">
         <span>{m.cook_on({ source: sourceName })}&nbsp;<Icon name="external" size={16} /></span>
       </a>

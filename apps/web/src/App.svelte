@@ -279,6 +279,7 @@
 <main>
   <LanguageSuggestion {queryString} />
   {#if !filters.saved}
+    <p class="discovery-hint">{m.discovery_hint()}</p>
     <div class="filters" bind:this={filterBox}><FilterBar count={total} onpick={pick} /></div>
   {/if}
 
@@ -311,6 +312,8 @@
         {/if}
       </div>
     {/if}
+
+    {#if filters.saved}<p class="device-hint">{m.saved_device_hint()}</p>{/if}
 
     {#if kitchen}
       <div class="kitchen-head">
@@ -382,6 +385,7 @@
       {m.credits(countArgs(loaded!.sources.length))}
       {m.credits_updated({ date: new Date(loaded!.generatedAt).toLocaleDateString(pageLocale.intl) })}
       <div>{m.dictionary_credit()} <a href="https://world.openfoodfacts.org/">Open Food Facts</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> · <a href="{import.meta.env.BASE_URL}data/dictionary.json">{m.dictionary_tables()}</a></div>
+      <div><a href="https://github.com/antomanc/vegdex">{m.open_source()}</a></div>
       <div class="row center">
         {#each LOCALES.filter((locale) => locale.code !== pageLocale.code) as locale (locale.code)}
           {#if isLocale(locale.code)}

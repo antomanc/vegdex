@@ -1,6 +1,7 @@
 /*
  * vegdex: a recipe box in a home kitchen. White card stock for savory, rose for sweet, green ink, one tomato rule per card.
- * Besley (a Clarendon) for the wordmark and recipe titles; the system sans for everything you operate.
+ * Besley (a Clarendon) for the wordmark and recipe titles; Courier Prime for the facts typed onto a card;
+ * the system sans for everything you operate.
  */
 :root {
   --paper: #eef0e9;
@@ -23,6 +24,7 @@
   --radius: 14px;
   --display: 'Besley Variable', 'Besley', 'Clarendon', Georgia, serif;
   --body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --typed: 'Courier Prime', 'Courier New', ui-monospace, monospace;
   color-scheme: light dark;
   font-family: var(--body);
   color: var(--ink);
@@ -184,7 +186,7 @@ main {
 .view-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 4px 0; }
 .view-head h2 { font-family: var(--display); font-size: 1.5rem; margin: 0; letter-spacing: -0.01em; }
 .summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0 4px; margin: 6px 0 12px; min-height: 40px; }
-.summary p { color: var(--muted); font-size: 0.88rem; margin: 0; font-variant-numeric: tabular-nums; }
+.summary p { color: var(--muted); font-family: var(--typed); font-size: 0.82rem; margin: 0; text-wrap: balance; }
 .sort select {
   appearance: none; border: 0; background: transparent; color: var(--ink); font-size: 0.88rem; font-weight: 600;
   min-height: 40px; padding: 0 22px 0 8px; border-radius: 10px; cursor: pointer;
@@ -216,20 +218,21 @@ main {
   position: relative; height: 100%; padding: 6px 6px 10px; border-radius: var(--radius);
   background: var(--surface); box-shadow: 0 1px 2px var(--card-shadow), 0 2px 8px var(--card-shadow);
 }
-.card { transition: opacity 0.2s ease-out, box-shadow 0.2s ease-out; }
+.card { transition: opacity 0.2s ease-out, box-shadow 0.2s ease-out, translate 0.2s ease-out; }
 .card.unsaved { opacity: 0.55; }
 .card-open { display: flex; flex-direction: column; width: 100%; height: 100%; text-align: left; background: none; border: 0; padding: 0; border-radius: 8px; }
 .thumb { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; background: var(--green-soft); }
 .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease-out; }
 .card-open:hover img { transform: scale(1.03); }
 .placeholder { display: block; width: 40%; height: 100%; margin: 0 auto; color: var(--green); opacity: 0.35; }
-/* The time reads like a label stuck on the photo. */
+/* The time reads like a typed label stuck on the photo by hand, never quite straight. */
 .time {
-  position: absolute; left: 8px; bottom: 8px; background: var(--surface); color: var(--ink);
-  font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; padding: 3px 7px; border-radius: 6px;
-  box-shadow: 0 1px 3px var(--shadow);
+  position: absolute; left: 8px; bottom: 9px; background: var(--surface); color: var(--ink);
+  font-family: var(--typed); font-size: 0.8rem; font-weight: 700; line-height: 1.2; padding: 3px 7px 2px; border-radius: 3px;
+  box-shadow: 0 1px 3px var(--shadow); rotate: -2deg;
 }
-.card h2 { font-family: var(--display); font-size: 1rem; line-height: 1.25; margin: 9px 4px 8px; font-weight: 600; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+li:nth-child(even) > .card .time { rotate: 1.5deg; }
+.card h2 { font-family: var(--display); font-size: 1rem; line-height: 1.25; margin: 9px 4px 8px; font-weight: 600; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .card h2::first-letter, .sheet h2::first-letter { text-transform: uppercase; }
 /* The rule sits at the same height on every card in a row, one-line title or two. */
 .card .meta { margin: auto 4px 0; padding-top: 6px; border-top: 1px solid var(--line); display: flex; flex-direction: column; }
@@ -255,8 +258,8 @@ main {
 @media (min-width: 700px) { .sheet { margin: auto; border-radius: 20px; } }
 .sheet::backdrop { background: var(--scrim); }
 /* A sheet slides up into place, like a card pulled from the box. */
-.sheet[open] { transition: translate 0.32s cubic-bezier(0.16, 1, 0.3, 1); }
-@starting-style { .sheet[open] { translate: 0 48px; } }
+.sheet[open] { transition: translate 0.36s cubic-bezier(0.16, 1, 0.3, 1), rotate 0.36s cubic-bezier(0.16, 1, 0.3, 1); }
+@starting-style { .sheet[open] { translate: 0 48px; rotate: -1deg; } }
 .sheet-body { padding: 20px 20px 28px; position: relative; }
 .sheet-top { position: sticky; top: 20px; height: 0; z-index: 2; }
 .close {
@@ -278,7 +281,7 @@ main {
 /* The open recipe is the card itself: title above the red line, printed fields below it. */
 .kitchen { margin: 0; font-size: 0.88rem; color: var(--muted); font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; column-gap: 10px; }
 .kitchen-name {
-  border: 0; background: none; padding: 10px 0; margin: -10px 0; font-size: inherit; font-weight: 600; color: var(--ink);
+  border: 0; background: none; padding: 10px 0; margin: -10px 0; font-family: var(--typed); font-size: 0.94rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink);
   text-decoration: underline; text-decoration-color: var(--muted); text-decoration-thickness: 1px; text-underline-offset: 3px;
 }
 .kitchen-name:hover { text-decoration-color: currentColor; }
@@ -292,7 +295,7 @@ main {
 .card-fields > div:first-child { padding-left: 0; }
 .card-fields > div + div { border-left: 1px solid var(--line); }
 .card-fields dt { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-.card-fields dd { margin: 2px 0 0; font-size: 1rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.35; }
+.card-fields dd { margin: 4px 0 0; font-family: var(--typed); font-size: 0.94rem; line-height: 1.35; }
 .badges { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .badges li { background: var(--green-soft); border: 1px solid transparent; border-radius: 999px; padding: 3px 10px; font-size: 0.8rem; }
 .badges li.cuisine { background: transparent; border-color: var(--line); color: var(--muted); }
@@ -303,15 +306,16 @@ main {
 /* Ingredients sit on the card's ruled lines, the amount first and in bold. */
 .ingredients { list-style: none; padding: 0; margin: 0; line-height: 1.45; max-width: 65ch; border-top: 1px solid var(--line); }
 .ingredients li { padding: 9px 0 8px; border-bottom: 1px solid var(--line); text-wrap: pretty; }
-.ingredients .amount { font-weight: 650; font-variant-numeric: tabular-nums; }
+.ingredients .amount { font-family: var(--typed); font-weight: 700; font-size: 0.94em; letter-spacing: -0.02em; }
 /* The units switch sits on the Ingredients heading's line, like a note in the card's margin. */
 .original-ingredients { margin-top: 12px; }
-.original-ingredients summary { cursor: pointer; min-height: 44px; padding: 10px 0; color: var(--ink-green); }
+.original-ingredients summary { cursor: pointer; min-height: 44px; padding: 10px 0; color: var(--green); }
 .ingredients-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 26px 0 8px; }
 .ingredients-head h3 { margin: 0; }
 .muted { color: var(--muted); }
 .small { font-size: 0.8rem; }
 p.small { margin-top: 18px; }
+p.small a { color: var(--green); text-underline-offset: 3px; }
 
 /* Wide screens: photo and facts on the left, ingredients on the right, both above the fold. */
 @media (min-width: 900px) {
@@ -330,7 +334,7 @@ p.small { margin-top: 18px; }
 .grocery input { width: 22px; height: 22px; margin: 0; flex: none; accent-color: var(--green); }
 .grocery .name { flex: 1; }
 .grocery .name::first-letter { text-transform: uppercase; }
-.grocery .amount { color: var(--muted); font-size: 0.88rem; text-align: right; font-variant-numeric: tabular-nums; }
+.grocery .amount { color: var(--muted); font-family: var(--typed); font-size: 0.94rem; text-align: right; }
 .grocery label.done .name, .grocery label.done .amount { text-decoration: line-through; opacity: 0.5; }
 .uncheck { margin-left: auto; }
 .amounts summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; gap: 6px; width: fit-content; list-style: none; }
@@ -361,9 +365,18 @@ p.small { margin-top: 18px; }
   .heart:hover { color: var(--tomato); }
   .tab:not(.on):hover { border-color: var(--green); }
   .pill.pick:not(:disabled):hover { filter: brightness(1.12); }
-  .card:has(.card-open:hover) { box-shadow: 0 2px 4px var(--card-shadow), 0 8px 20px var(--card-shadow); }
+  /* Hovered, the card lifts a little out of the box. */
+  .card:has(.card-open:hover) { translate: 0 -3px; box-shadow: 0 2px 4px var(--card-shadow), 0 10px 24px var(--card-shadow); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
+
+/* Keep the creator link readable beside long translated labels and publisher names. */
+.recipe-sheet .actions { flex-wrap: wrap; }
+.recipe-secondary-actions { display: flex; gap: 10px; }
+.recipe-sheet .actions .cta { flex: 1 1 220px; }
+.discovery-hint, .device-hint { margin: 0; padding: 0 4px; color: var(--muted); font-size: 0.8rem; line-height: 1.5; text-wrap: balance; }
+
+.amounts .title input { width: 20px; height: 20px; accent-color: var(--green); vertical-align: middle; }
