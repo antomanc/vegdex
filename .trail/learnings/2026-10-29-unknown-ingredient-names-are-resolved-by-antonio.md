@@ -22,7 +22,7 @@ touches:
 ---
 
 ## Decided
-- The user chose rules over more model fills for the tail. Order: name as written, then without a plant qualifier, then one typo fixed, then terms or a product brand peeled off; every step that drops words refuses to land on an animal word ("Violife cheddar", "parmegan").
+- Rules win over more model fills for the tail. Order: name as written, then without a plant qualifier, then one typo fixed, then terms or a product brand peeled off; every step that drops words refuses to land on an animal word ("Violife cheddar", "parmegan").
 - "A or B C": the shared noun ("lemon or lime juice") is tried before A alone; only-B-known means B stands in. This replaced the blanket "romano or ramiro pepper" guard.
 - Non-ingredient lines (equipment, instructions, fill "not-ingredient" phrases) are hidden in every language; headings only outside their own language.
 

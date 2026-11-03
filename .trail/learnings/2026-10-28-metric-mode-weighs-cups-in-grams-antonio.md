@@ -23,7 +23,7 @@ touches:
 ---
 
 ## Decided
-- Metric means grams for weighing (the user ruled out cups-to-ml). packages/core/src/weights.ts maps the canonical name to grams per US cup (USDA SR Legacy, King Arthur for baking), first regex match wins, family patterns last. metric.ts converts; tsp/tbsp and whole items stay as written; a blog's own grams win; ml only when the table fails.
+- Metric means grams for weighing (cups-to-ml is ruled out). packages/core/src/weights.ts maps the canonical name to grams per US cup (USDA SR Legacy, King Arthur for baking), first regex match wins, family patterns last. metric.ts converts; tsp/tbsp and whole items stay as written; a blog's own grams win; ml only when the table fails.
 - Rounding: under 10 to 1, under 250 to 5 (keeps "≈ 125 g" for a cup of flour; nearest 10 gave 130), under 500 to 10, then 25.
 - The catalog is gitignored, so tests run on packages/core/test/fixtures/volume-lines.json from `pnpm ingest weights`. weights.test.ts needs ≥98% coverage and every table entry within 25% of the blogs' median grams.
 

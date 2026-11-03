@@ -18,7 +18,7 @@ touches:
 - UI fix priority after the first impeccable critique (20/40, .impeccable/critique/): filter visibility + Saved view first, then the mobile More-filters layout, the shopping list, then a polish pass.
 
 ## Tried and ruled out
-- Showing the guarantee "quietly" (a line under the brand plus a checked mark in the sheet) or "front and center" (a headline with an explainer): the user chose neither.
+- Showing the guarantee "quietly" (a line under the brand plus a checked mark in the sheet) or "front and center" (a headline with an explainer): neither was chosen.
 
 ## Watch out
 - `.small` in apps/web/src/app.css:80 is a button style (green background), but `p.muted.small` in RecipeSheet.svelte and GrocerySheet.svelte picks it up too, which makes the creator-credit footnote unreadable (2.1:1 contrast). Rename the button class rather than piling on overrides.

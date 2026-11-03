@@ -17,11 +17,10 @@ touches:
   - apps/web/src/lib/FilterBar.svelte
   - apps/web/src/lib/GrocerySheet.svelte
   - apps/web/src/lib/RecipeSheet.svelte
-  - docs/research/pre-promotion-plan.md
 ---
 
 ## Decided
-To make the index-card world more distinctive (the user asked for an elevated, non-generic look and chose to push the index card rather than replace it), values a cook would type onto a card are set in Courier Prime: the photo's time label, the open card's field values, ingredient and shopping amounts, the kitchen's name and the results count.
+To make the index-card world more distinctive (an elevated, non-generic look that pushes the index card rather than replacing it), values a cook would type onto a card are set in Courier Prime: the photo's time label, the open card's field values, ingredient and shopping amounts, the kitchen's name and the results count.
 
 ## Tried and ruled out
 Courier Prime for the discovery hint sentence and in 700 at 1-1.05rem for the field values: it runs so wide that "6 g protein" wrapped to three lines at 390px and the hint took two lines above the filters. Sentences stay in the system sans; the typed values use 400 at 0.94rem or below.

@@ -22,10 +22,10 @@ touches:
 ---
 
 ## Decided
-The user chose "fill payoff": `pnpm coverage --sample` adds one example line per listed gap and, per language and gap kind, how many lines the largest 10/25/50/100/250 gaps cover together (count and % of that kind's gap lines). Its purpose is sizing `pnpm gaps --size --batches`. Kinds are reported separately because batches are built per kind and language.
+The chosen view is "fill payoff": `pnpm coverage --sample` adds one example line per listed gap and, per language and gap kind, how many lines the largest 10/25/50/100/250 gaps cover together (count and % of that kind's gap lines). Its purpose is sizing `pnpm gaps --size --batches`. Kinds are reported separately because batches are built per kind and language.
 
 ## Tried and ruled out
-- `--sample N` scoring a random subset of recipes for a quicker run: not what the user wanted.
+- `--sample N` scoring a random subset of recipes for a quicker run: not what is needed.
 - Example lines plus a running total down the top list only: dropped in favour of per-kind cumulative sizes.
 
 ## Watch out

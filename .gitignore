@@ -18,3 +18,5 @@ apps/web/public/data/
 test-results/
 playwright-report/
 packages/mcp/dist/
+mise.local.toml
+.impeccable/
