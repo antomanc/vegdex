@@ -377,6 +377,6 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .recipe-sheet .actions { flex-wrap: wrap; }
 .recipe-secondary-actions { display: flex; gap: 10px; }
 .recipe-sheet .actions .cta { flex: 1 1 220px; }
-.discovery-hint, .device-hint { margin: 0; padding: 0 4px; color: var(--muted); font-size: 0.8rem; line-height: 1.5; text-wrap: balance; }
+.device-hint { margin: 0; padding: 0 4px; color: var(--muted); font-size: 0.8rem; line-height: 1.5; text-wrap: balance; }
 
 .amounts .title input { width: 20px; height: 20px; accent-color: var(--green); vertical-align: middle; }
