@@ -89,7 +89,6 @@
         <p class="hint">{m.protein_hint()}</p>
         <button class="pill outline" class:on={filters.highProtein} aria-pressed={filters.highProtein} onclick={() => (filters.highProtein = !filters.highProtein)}>{m.high_protein()}</button>
       </fieldset>
-      <p class="hint">{m.tonight_hint()}</p>
 
       <fieldset class="field">
         <legend class="label">{m.free_from()}</legend>

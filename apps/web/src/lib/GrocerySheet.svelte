@@ -14,19 +14,19 @@
 
   const EXCLUDED_KEY = 'vegdex:grocery-excluded'
   function loadExcluded(): string[] {
-    try { const value = JSON.parse(localStorage.getItem(EXCLUDED_KEY) ?? '[]'); return Array.isArray(value) ? value.filter((id) => typeof id === 'string') : [] }
+    try { const value = JSON.parse(localStorage.getItem(EXCLUDED_KEY) ?? '[]'); return Array.isArray(value) ? value.filter((id) => typeof id === 'string' && saved.ids.includes(id)) : [] }
     catch { return [] }
   }
   let excluded = $state<string[]>(loadExcluded())
   function toggleRecipe(id: string) {
     excluded = excluded.includes(id) ? excluded.filter((item) => item !== id) : [...excluded, id]
-    localStorage.setItem(EXCLUDED_KEY, JSON.stringify(excluded))
+    try { localStorage.setItem(EXCLUDED_KEY, JSON.stringify(excluded)) } catch { /* the choice still applies for this visit */ }
   }
   const selected = $derived(recipes.filter((r) => !excluded.includes(r.id)))
 
   // Newest saved first, like the saved view.
   const rows = $derived([...recipes].sort((a, b) => saved.ids.indexOf(a.id) - saved.ids.indexOf(b.id)))
-  const adjusted = $derived(recipes.filter((r) => steps(r) !== perBatch(r)).length)
+  const adjusted = $derived(selected.filter((r) => steps(r) !== perBatch(r)).length)
   // Check-offs survive closing the sheet: the list is used aisle by aisle in the store.
   const CHECKED_KEY = 'vegdex:grocery-checked'
   let checked = $state<Record<string, boolean>>(loadChecked())
