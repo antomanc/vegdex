@@ -166,3 +166,20 @@ test('the shopping list has its own address', async ({ page }) => {
   await page.reload();
   await expect(page.getByRole('dialog').getByRole('heading', { name: 'Shopping list' })).toBeVisible();
 });
+
+
+test('shopping selection persists without removing saved recipes', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: 'Save Red Lentil Soup' }).click();
+  await page.getByRole('button', { name: /Saved · 2/ }).click();
+  await page.getByRole('button', { name: 'Shopping list' }).click();
+  const list = page.getByRole('dialog');
+  await list.getByText('For 2 saved recipes').click();
+  await list.getByRole('checkbox', { name: 'Include Spinach Tofu Curry in shopping list' }).uncheck();
+  await expect(list.locator('li', { hasText: 'garlic' })).toContainText('2 cloves');
+  await page.reload();
+  await expect(list.locator('li', { hasText: 'garlic' })).toContainText('2 cloves');
+  await list.getByRole('button', { name: 'Close' }).click();
+  await expect(page.getByTestId('result-count')).toHaveText(/2 recipes saved/);
+});

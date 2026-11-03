@@ -229,7 +229,7 @@ main {
   font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; padding: 3px 7px; border-radius: 6px;
   box-shadow: 0 1px 3px var(--shadow);
 }
-.card h2 { font-family: var(--display); font-size: 1rem; line-height: 1.25; margin: 9px 4px 8px; font-weight: 600; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card h2 { font-family: var(--display); font-size: 1rem; line-height: 1.25; margin: 9px 4px 8px; font-weight: 600; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .card h2::first-letter, .sheet h2::first-letter { text-transform: uppercase; }
 /* The rule sits at the same height on every card in a row, one-line title or two. */
 .card .meta { margin: auto 4px 0; padding-top: 6px; border-top: 1px solid var(--line); display: flex; flex-direction: column; }
@@ -373,3 +373,5 @@ p.small { margin-top: 18px; }
 .recipe-secondary-actions { display: flex; gap: 10px; }
 .recipe-sheet .actions .cta { flex: 1 1 220px; }
 .discovery-hint, .device-hint { margin: 0; padding: 0 4px; color: var(--muted); font-size: 0.88rem; line-height: 1.5; }
+
+.amounts .title input { width: 20px; height: 20px; accent-color: var(--green); vertical-align: middle; }

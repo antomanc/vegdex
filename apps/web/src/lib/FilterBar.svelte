@@ -81,9 +81,19 @@
     <div class="sheet-body">
       <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
       <h2 id="more-title">{m.more_filters()}</h2>
+      <fieldset class="field"><legend class="label">{m.ready_in()}</legend>
+        <div class="choice-grid">{#each TIMES as t (t)}<button class="pill outline" class:on={filters.maxMinutes === t} aria-pressed={filters.maxMinutes === t} onclick={() => (filters.maxMinutes = filters.maxMinutes === t ? null : t)}>{m.time_limit({ count: formatNumber(t) })}</button>{/each}</div>
+      </fieldset>
+      <fieldset class="field">
+        <legend class="label">{m.high_protein()}</legend>
+        <p class="hint">{m.protein_hint()}</p>
+        <button class="pill outline" class:on={filters.highProtein} aria-pressed={filters.highProtein} onclick={() => (filters.highProtein = !filters.highProtein)}>{m.high_protein()}</button>
+      </fieldset>
+      <p class="hint">{m.tonight_hint()}</p>
 
       <fieldset class="field">
         <legend class="label">{m.free_from()}</legend>
+        <p class="hint">{m.diet_note()}</p>
         <div class="choice-grid">
           {#each FREE as [f, label] (f)}
             <button class="pill outline" class:on={filters.freeFrom.includes(f)} aria-pressed={filters.freeFrom.includes(f)}
@@ -94,7 +104,7 @@
 
       <form class="field" onsubmit={(e) => add('include', e)}>
         <label class="label" for="have">{m.must_include()}</label>
-        <p class="hint" id="have-hint">{m.include_hint()}</p>
+        <p class="hint" id="have-hint">{m.include_hint()} {m.pending_hint()}</p>
         <div class="input-row">
           <input id="have" bind:value={have} placeholder={m.include_example()} autocomplete="off" enterkeyhint="done" aria-describedby="have-hint" />
           <button class="btn-sm">{m.add()}</button>

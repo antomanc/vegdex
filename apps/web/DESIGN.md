@@ -182,7 +182,7 @@ Two families with separate jobs. Besley, a Clarendon revival self-hosted through
 - **Wordmark** (Besley 700, 1.6rem, -0.02em): "vegdex", always lowercase.
 - **Headline** (Besley 600, 1.5rem, 1.2): sheet titles and the "Saved recipes" view title. Balanced wrapping.
 - **Subhead** (Besley 700, 1.25rem): "Ingredients" inside the recipe sheet.
-- **Title** (Besley 600, 1rem, 1.25): card titles, clamped to two lines, balanced, with the first letter uppercased to absorb publisher casing.
+- **Title** (Besley 600, 1rem, 1.25): card titles, clamped to three lines, balanced, with the first letter uppercased to absorb publisher casing.
 - **Body** (system sans 400, 1rem, 1.55): ingredient lines (`text-wrap: pretty`, 65ch max) and copy.
 - **Label** (system sans, 0.88rem, tabular numerals): pills, buttons, chips, counts, amounts, form labels.
 - **Meta** (system sans, 0.8rem, tabular numerals): card source and rating, hints, footnotes, credits.
