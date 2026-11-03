@@ -1,5 +1,6 @@
 <script lang="ts">
   import { display, recipeTitle } from './translations.svelte'
+  import { groceryListText } from './grocery-text'
   import { compileGroceryList, displayGroceryName, parseIngredient, type CatalogRecipe, type GroceryItem, type ParsedLine } from '@vegdex/core'
   import { loadDetails, loadLookup, type LookupFile } from './data'
   import { BASE_LOCALE } from './locales'
@@ -97,6 +98,45 @@
     // Checked items sink to the bottom of their aisle, so what's left to grab stays on top.
     return [...byAisle].map(([aisle, list]) => [aisle, [...list].sort((a, b) => Number(!!checked[key(a)]) - Number(!!checked[key(b)]))])
   }
+
+  const aisleLabel = (aisle: string) => AISLE_LABELS[aisle]?.() ?? m.aisle_other()
+  const itemName = (item: GroceryItem) => displayGroceryName(item, pageLocale.code === BASE_LOCALE.code ? undefined : display.overlay ?? undefined, pageLocale.code)
+  const itemAmount = (item: GroceryItem) => item.toTaste ? m.to_taste() : item.amounts.map((a) => formatGroceryAmount(a, display.overlay)).join(' + ')
+
+  const canShare = typeof navigator.share === 'function'
+  let copied = $state(false)
+  let copiedTimer: ReturnType<typeof setTimeout> | undefined
+  /** The list to copy by hand, when the clipboard refused it. */
+  let manualText = $state('')
+
+  /** The list as shown, minus what is already in the basket. */
+  async function shareList() {
+    const [all, file] = await ready
+    const text = groceryListText({
+      title: m.shopping_list(),
+      aisles: compile(all, file).map(([aisle, items]) => ({ label: aisleLabel(aisle), items: items.map((item) => ({ name: itemName(item), amount: itemAmount(item), checked: !!checked[key(item)] })) })),
+      recipesHeading: m.list_for(),
+      recipes: rows.map((r) => ({ title: recipeTitle(r), excluded: excluded.includes(r.id) }))
+    })
+    if (canShare) {
+      try {
+        // Text only: a title is pasted above it by some apps, and the text already starts with one.
+        return await navigator.share({ text })
+      } catch (e) {
+        // Closing the share sheet is a choice, not a failure.
+        if ((e as DOMException).name === 'AbortError') return
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(text)
+      copied = true
+      clearTimeout(copiedTimer)
+      copiedTimer = setTimeout(() => (copied = false), 2000)
+    } catch {
+      manualText = text
+    }
+  }
+  const selectAll = (field: HTMLTextAreaElement) => { field.focus(); field.select() }
 </script>
 
 <dialog use:sheet class="sheet grocery-sheet" {onclose} aria-labelledby="grocery-title">
@@ -129,20 +169,36 @@
     {:then [all, file]}
       {#if selected.length === 0}<p class="muted">{m.shop_empty()}</p>{/if}
       {#each compile(all, file) as [aisle, items] (aisle)}
-        <h3 class="aisle">{AISLE_LABELS[aisle]?.() ?? m.aisle_other()}</h3>
+        <h3 class="aisle">{aisleLabel(aisle)}</h3>
         <ul class="grocery" data-testid="grocery-list">
           {#each items as item (item.name)}
             <li>
               <label class:done={checked[key(item)]}>
                 <input type="checkbox" bind:checked={checked[key(item)]} />
-                <span class="name">{displayGroceryName(item, pageLocale.code === BASE_LOCALE.code ? undefined : display.overlay ?? undefined, pageLocale.code)}</span>
-                <span class="amount">{item.toTaste ? m.to_taste() : item.amounts.map((a) => formatGroceryAmount(a, display.overlay)).join(' + ')}</span>
+                <span class="name">{itemName(item)}</span>
+                <span class="amount">{itemAmount(item)}</span>
               </label>
             </li>
           {/each}
         </ul>
       {/each}
       <p class="muted small">{m.grocery_note()}</p>
+      {#if selected.length}
+        {#if manualText}
+          <label class="share-link">
+            <span class="muted small">{m.list_by_hand()}</span>
+            <textarea readonly rows="8" value={manualText} use:selectAll onfocus={(e) => e.currentTarget.select()}></textarea>
+          </label>
+        {/if}
+        <div class="sheet-footer">
+          <button class="save share" class:copied onclick={shareList}>
+            <span class="swap"><Icon name="share" size={18} /><Icon name="check" size={18} /></span>
+            {canShare ? m.share_list() : m.copy_list()}
+            <span class="bubble" aria-hidden="true">{m.list_copied()}</span>
+          </button>
+          <span class="visually-hidden" role="status">{copied ? m.list_copied() : ''}</span>
+        </div>
+      {/if}
     {:catch}
       <p class="muted">{m.grocery_error()}</p>
     {/await}
