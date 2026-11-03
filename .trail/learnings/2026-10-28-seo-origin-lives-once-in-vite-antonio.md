@@ -17,7 +17,7 @@ touches:
 
 ## Decided
 - The preferred origin (https://vegdex.antomanc.com/) is defined once as `siteUrl` in apps/web/vite.config.ts. The `vegdex-seo` plugin fills `%SITE_URL%` into index.html (canonical, og:url, og:image, JSON-LD) and emits robots.txt and sitemap.xml at build. A domain change is a one-line edit there. e2e/seo.spec.ts still hardcodes the production origin on purpose, as a pin.
-- PRODUCT.md now says "Currently English only… language expansion will be designed separately". The user confirmed this reopening on purpose: other languages come later, in their own design session. Translated editions stay out of the catalog until then.
+- PRODUCT.md now says "Currently English only… language expansion will be designed separately". The reopening is on purpose: other languages come later, in their own design session. Translated editions stay out of the catalog until then.
 
 ## Tried and ruled out
 - Static public/robots.txt and public/sitemap.xml: the origin was repeated in 7 places, so they were dropped for the plugin.

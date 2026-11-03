@@ -108,9 +108,8 @@ const seo = (): Plugin => ({
 
 export default defineConfig({
   base,
-  // Reachable over Tailscale as http://home-server:<port>.
-  server: { host: '0.0.0.0', port: 5173, allowedHosts: ['home-server', '.ts.net'] },
-  preview: { host: '0.0.0.0', port: 4173, allowedHosts: ['home-server', '.ts.net'] },
+  server: { host: '0.0.0.0', port: 5173 },
+  preview: { host: '0.0.0.0', port: 4173 },
   plugins: [
     paraglideVitePlugin({
       project: './project.inlang',

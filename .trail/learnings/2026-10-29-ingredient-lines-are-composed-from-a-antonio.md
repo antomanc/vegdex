@@ -23,10 +23,10 @@ touches:
 
 ## Decided
 - The Italian "slop" had two causes: lines translated only when the whole note string had a translation (36k unique notes queued), and the cross-language fallback still converted amounts to grams while keeping the English name ("≈ 55 g oil for frying").
-- A line is amount + unit + concept(s) + preparation terms. Notes that are not terms are commentary and are dropped in every language (the user chose removal over an aside). In another language every part comes from the vocabulary or the whole line stays as written, units included.
+- A line is amount + unit + concept(s) + preparation terms. Notes that are not terms are commentary and are dropped in every language (removal was chosen over an aside). In another language every part comes from the vocabulary or the whole line stays as written, units included.
 - Names carry grammatical forms ({one, other, gender}); terms agree with them. Open Food Facts names are parse aliases and naming hints only, never display text, because they gave "2 cipolla".
 - Git is the only home for what models learn (supersedes ADR 0004 storage). The queue is derived, not stored. Every worker (agent session with Haiku subagents, local LLM, API) uses gaps → answers → vocab:apply; the checks live in vocab-check.ts and a test runs them over the committed files.
-- Goal agreed with the user: unknown-ingredient lines under 1% per display language, reached through fill runs after the PR.
+- Goal: unknown-ingredient lines under 1% per display language, reached through fill runs after the PR.
 
 ## Tried and ruled out
 - Translating notes as free strings, a learned-data release asset, showing commentary as a muted aside, and the per-task model evaluation harness (removed with the queue model).

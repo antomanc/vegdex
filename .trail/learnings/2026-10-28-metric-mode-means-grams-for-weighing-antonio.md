@@ -13,7 +13,7 @@ touches:
 ---
 
 ## Decided
-- Metric ingredient amounts are for weighing on a scale. Converting cups to ml is useless for that; the user ruled it out. Cups must become grams through a density per ingredient (planned table next to the parser in packages/core/src/ingredients.ts).
+- Metric ingredient amounts are for weighing on a scale. Converting cups to ml is useless for that, so it is ruled out. Cups must become grams through a density per ingredient (planned table next to the parser in packages/core/src/ingredients.ts).
 - tsp/tbsp stay unconverted in metric mode. A grams figure the blog wrote itself (extractMetric, e.g. "(15 oz / 425 g)") beats our own conversion.
 - Convert in the browser at display time (RecipeSheet.svelte, GrocerySheet.svelte). The dataset and MCP output keep the raw lines.
 

@@ -18,7 +18,7 @@ touches:
 ---
 
 ## Decided
-- When the web UI felt like a "generic recipe site", the user chose to amplify the existing index-card identity (apps/web/DESIGN.md) instead of running a new visual-direction round. Layout, flows and palette stay; the card file shows on screen: divider tabs for Savory/Sweet + meals (FilterBar.svelte), grid cards as card stock with a mounted photo (app.css `.card`), the recipe sheet as a recipe card ("From the kitchen of <blog>", red line, printed fields, ruled ingredients).
+- When the web UI felt like a "generic recipe site", the decision was to amplify the existing index-card identity (apps/web/DESIGN.md) instead of running a new visual-direction round. Layout, flows and palette stay; the card file shows on screen: divider tabs for Savory/Sweet + meals (FilterBar.svelte), grid cards as card stock with a mounted photo (app.css `.card`), the recipe sheet as a recipe card ("From the kitchen of <blog>", red line, printed fields, ruled ingredients).
 - Tomato rule is now "one red line per card" (header, open recipe, shopping list), never on grid cards.
 - Divider tabs stay toggles with aria-pressed (several meals can be on), not an ARIA tablist.
 

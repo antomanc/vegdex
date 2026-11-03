@@ -17,7 +17,7 @@ touches:
 ## Decided
 - Italian is the first of several UI languages, so nothing may assume a single extra language.
 - URL: English at the root, other languages under a path prefix (/it/), each built as its own index.html with lang and reciprocal hreflang (see docs/research/seo-guidance.md). No automatic redirect from navigator.language; only a dismissible one-time "Disponibile in italiano" link.
-- UI strings go through Paraglide JS 2 (the user wanted a small library so adding languages is easy), with en.json as the source and one messages file per locale. Formatting stays on Intl.
+- UI strings go through Paraglide JS 2 (a small library, so adding languages is easy), with en.json as the source and one messages file per locale. Formatting stays on Intl.
 - Italian copy is drafted by AI agents using the humanizer skill; no machine-translation service runs in the build.
 - On /it/, metric units are the default until the user changes the toggle. Saved recipes, the shopping list and the units choice live in shared localStorage across languages.
 - URL query params stay English identifiers (meal=dessert); only the labels shown on screen are translated.

@@ -22,7 +22,7 @@ touches:
 ---
 
 ## Decided
-- The user wants the parser as complete as possible before paying for more model fills. Gaps that start with a number, "/", "+" or a unit are parser bugs: earlier fills had learned aliases with those leftovers in them ("can crushed tomatoes", "batch of korean bbq sauce", "- inch ginger").
+- The parser should be as complete as possible before more model fills. Gaps that start with a number, "/", "+" or a unit are parser bugs: earlier fills had learned aliases with those leftovers in them ("can crushed tomatoes", "batch of korean bbq sauce", "- inch ginger").
 - The parser now also looks a name up in the shape an older parse left it ("as written"), so those aliases keep working. Without that, about 150 lines that used to resolve stopped resolving.
 - An alternative with its own amount ("1 tbsp fresh thyme or 1/2 tsp dried") is dropped as commentary. Otherwise the second ingredient would be shown under the first one's amount.
 

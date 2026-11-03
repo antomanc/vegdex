@@ -24,5 +24,5 @@ touches:
 - Why: classify() and findNonVegan read English ingredient names. On the German recipes, 222 were tagged nut-free while listing Mandeln/Nuss and 66 soy-free with Tofu/Soja; the vegan check could not see them either.
 
 ## Tried and ruled out
-- Translating recipes: the user ruled it out (cost, accuracy, and the method stays on the blog anyway).
+- Translating recipes: ruled out (accuracy, and the method stays on the blog anyway).
 - Detecting language from ingredient text: worked (518 of 526) but is fuzzy; the URL path is exact for every source we crawl. Revisit if a source mixes languages without a path prefix.

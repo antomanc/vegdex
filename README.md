@@ -76,8 +76,7 @@ ENRICH_BASE_URL=http://127.0.0.1:8080/v1 ENRICH_MODEL=vegdex-enrich \
 ```
 
 [Filling the vocabulary](docs/agents/vocabulary.md) explains the gap kinds, the answer shapes and how
-a fill lands as a PR. For a local model on the Omarchy desktop, run `bash scripts/setup-enrichment.sh`
-([desktop guide](docs/desktop-enrichment.md)).
+a fill lands as a PR. To run fills against a local model, see [local model fills](docs/local-model-fills.md).
 
 ## Metric weights
 
@@ -109,3 +108,7 @@ verification is recorded in [the source notes](docs/research/italian-source-cuci
 
 Tools: `search_vegan_recipes`, `get_vegan_recipes`, `compile_grocery_list`, `list_vegan_sources`.
 The same features are on the command line: `npx @antomanc/vegdex search curry --max 30 --have tofu`.
+
+## License
+
+The code is [MIT](LICENSE). Recipes, photos and their text belong to the blogs they come from.
