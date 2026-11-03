@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { FreeFrom, Meal } from '@vegdex/core'
-  import { m, countArgs, formatNumber } from './i18n'
+  import { loadSuggestions } from './data'
+  import { m, countArgs, formatNumber, pageLocale } from './i18n'
   import Icon from './Icon.svelte'
   import { FREE, MEAL_LABELS, TIMES } from './labels'
   import { sheet } from './sheet'
@@ -11,6 +12,13 @@
   let more = $state(false)
   let have = $state('')
   let avoid = $state('')
+  let names = $state<string[]>([])
+  // Fetched the first time an ingredient input gets focus, so the first card never waits for it.
+  async function suggest() {
+    if (!names.length) names = await loadSuggestions(pageLocale.code)
+  }
+  const chosen = $derived(new Set([...filters.include, ...filters.exclude]))
+  const offered = $derived(names.filter((n) => !chosen.has(n)))
 
   function toggleMeal(m: Meal) {
     filters.meals = filters.meals.includes(m) ? filters.meals.filter((x) => x !== m) : [...filters.meals, m]
@@ -27,6 +35,15 @@
   }
   function add(kind: 'include' | 'exclude', e: SubmitEvent) {
     e.preventDefault()
+    commit(kind)
+  }
+  // Picking a suggestion replaces the text without typing it (no inputType, or insertReplacementText): add it right away.
+  function picked(kind: 'include' | 'exclude', e: Event) {
+    const value = (e.currentTarget as HTMLInputElement).value.trim().toLowerCase()
+    const typed = e instanceof InputEvent && e.inputType !== 'insertReplacementText'
+    if (typed || !offered.includes(value)) return
+    if (kind === 'include') have = value
+    else avoid = value
     commit(kind)
   }
   function remove(kind: 'include' | 'exclude', v: string) {
@@ -96,7 +113,7 @@
         <label class="label" for="have">{m.must_include()}</label>
         <p class="hint" id="have-hint">{m.include_hint()} {m.pending_hint()}</p>
         <div class="input-row">
-          <input id="have" bind:value={have} placeholder={m.include_example()} autocomplete="off" enterkeyhint="done" aria-describedby="have-hint" />
+          <input id="have" bind:value={have} list="ingredient-names" onfocus={suggest} oninput={(e) => picked('include', e)} placeholder={m.include_example()} autocomplete="off" enterkeyhint="done" aria-describedby="have-hint" />
           <button class="btn-sm">{m.add()}</button>
         </div>
         {#if filters.include.length}
@@ -112,7 +129,7 @@
         <label class="label" for="avoid">{m.avoid()}</label>
         <p class="hint" id="avoid-hint">{m.exclude_hint()}</p>
         <div class="input-row">
-          <input id="avoid" bind:value={avoid} placeholder={m.avoid_example()} autocomplete="off" enterkeyhint="done" aria-describedby="avoid-hint" />
+          <input id="avoid" bind:value={avoid} list="ingredient-names" onfocus={suggest} oninput={(e) => picked('exclude', e)} placeholder={m.avoid_example()} autocomplete="off" enterkeyhint="done" aria-describedby="avoid-hint" />
           <button class="btn-sm">{m.add()}</button>
         </div>
         {#if filters.exclude.length}
@@ -123,6 +140,10 @@
           </div>
         {/if}
       </form>
+
+      <datalist id="ingredient-names">
+        {#each offered as name (name)}<option value={name}></option>{/each}
+      </datalist>
 
       <div class="sheet-footer">
         {#if activeCount()}<button class="text-btn" onclick={clearFilters}>{m.clear_all()}</button>{/if}

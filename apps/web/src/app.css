@@ -173,6 +173,8 @@ input { caret-color: var(--tomato); }
 .choice-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
 .choice-grid .pill { justify-content: center; white-space: normal; padding: 6px 14px; }
 .input-row { display: flex; gap: 8px; }
+/* Suggestions show as you type; Chrome's arrow would only open the whole list. */
+.input-row input::-webkit-calendar-picker-indicator { display: none !important; }
 .field input {
   flex: 1; min-width: 0; min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper);
 }

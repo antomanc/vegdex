@@ -39,6 +39,21 @@ export async function loadLookup(language: string): Promise<LookupFile> {
   }
 }
 
+const suggestions = new Map<string, Promise<string[]>>()
+
+/** Ingredient names the filter inputs suggest, most used first; empty when the dataset predates them or they fail. */
+export function loadSuggestions(language: string): Promise<string[]> {
+  let names = suggestions.get(language)
+  if (!names) {
+    names = fetch(`${base}data/suggest/${language}.json`).then((res) => (res.ok ? res.json() : [])).catch(() => {
+      suggestions.delete(language)
+      return []
+    })
+    suggestions.set(language, names)
+  }
+  return names
+}
+
 export interface RecipeDetails {
   ingredients: string[]
   parsedIngredients?: ParsedLine[]
