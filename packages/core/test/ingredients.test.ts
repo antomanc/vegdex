@@ -80,6 +80,27 @@ describe('parseIngredient', () => {
   it('keeps the metric side of a dual measure', () => {
     expect(parseIngredient('30-45 ml / 2-3 tbsp lemon juice')).toMatchObject({ quantity: 30, quantityMax: 45, unit: 'ml', name: 'lemon juice' });
   });
+
+  it.each([
+    ['2 tbsp bánh mì sauce', 'bánh mì sauce'],
+    ['1 tbsp ají panca paste', 'ají panca paste'],
+    ['1 pickled jalapeño, sliced', 'pickled jalapeño']
+  ])('keeps accented letters in the name: %s', (line, name) => {
+    expect(parseIngredient(line).name).toBe(name);
+  });
+
+  it.each([
+    ['5 garlic cloves, minced', 'garlic'],
+    ['3 large garlic cloves', 'garlic'],
+    ['2 fat garlic cloves, finely diced', 'garlic'],
+    ['1 garlic clove', 'garlic']
+  ])('names a name-first garlic line like a measure-first one: %s', (line, phrase) => {
+    expect(parseIngredient(line)).toMatchObject({ unit: 'clove', phrase, name: 'garlic' });
+  });
+
+  it.each([['2 cloves garlic, minced', 'garlic']])('keeps measure-first garlic lines as they were: %s', (line, name) => {
+    expect(parseIngredient(line).name).toBe(name);
+  });
 });
 
 describe('amount shapes that used to leak into the name', () => {

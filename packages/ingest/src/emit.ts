@@ -95,7 +95,10 @@ function overlay(language: string, vocab: LanguageVocabulary, recipes: Recipe[],
  * Recipes the vegan check flags are left out and listed in the report; so are translated editions.
  */
 /** `generatedAt` defaults to now; fixtures pin it so regenerating them changes nothing. */
-export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { generatedAt = new Date().toISOString(), vocabulary = loadVocabulary(), blocklist = blockedIds }: { generatedAt?: string; vocabulary?: Vocabulary; blocklist?: string[] } = {}): EmitReport {
+/** Shopping-list row names that win over the computed ones, for rows the catalog names from a typo or an odd spelling. */
+const groceryNameTable: Record<string, string> = JSON.parse(fs.readFileSync(new URL('../data/grocery-names.json', import.meta.url), 'utf8'));
+
+export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { generatedAt = new Date().toISOString(), vocabulary = loadVocabulary(), blocklist = blockedIds, groceryNames = groceryNameTable }: { generatedAt?: string; vocabulary?: Vocabulary; blocklist?: string[]; groceryNames?: Record<string, string> } = {}): EmitReport {
   const vocab = vocabulary;
   const { published, held, excluded, otherLanguage } = prepareRecipes(all, sources, vocab, blocklist);
   const recipes = published.map((p) => p.recipe);
@@ -111,6 +114,10 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
     ? { ...p, name: vocab.byId.get(p.concept)?.names.en?.filter(Boolean).slice().sort((a, b) => a.length - b.length || a.localeCompare(b))[0] ?? p.name } : p));
   const grocery = groceryConcepts(groceryLines, vocab.lookup('en'));
   for (const p of groceryLines) if (p.concept && !grocery[p.concept]) grocery[p.concept] = [p.name, aisleFor(p.name)];
+  for (const [id, name] of Object.entries(groceryNames)) {
+    if (!vocab.byId.has(id)) throw new Error(`grocery-names.json: unknown concept ${id}`);
+    if (grocery[id]) grocery[id] = [name, grocery[id][1]];
+  }
 
   // A line ships as its one part, or as an array of parts, so most detail entries keep their old shape.
   const shipped = parsed.map((lines) => lines.map((parts): ParsedLine => (parts.length === 1 ? parts[0]! : parts)));
