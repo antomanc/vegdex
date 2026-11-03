@@ -35,5 +35,12 @@ it('reads Italian packages, leaves and handfuls as units only after an amount', 
   expect(parseIngredient('Pizzico di sale', lookup, 'it')).toMatchObject({ concept: 'salt', unit: 'pinch' });
   expect(parseIngredient('circa 900 ml di acqua', { acqua: 'water' }, 'it')).toMatchObject({ concept: 'water', quantity: 900, unit: 'ml', approx: true });
   expect(parseIngredient('1 cucchiaino colmo di lievito per dolci', lookup, 'it')).toMatchObject({ concept: 'baking-powder', quantity: 1, unit: 'tsp' });
+  expect(parseIngredient('Il succo di mezzo limone bio', { limone: 'lemon' }, 'it')).toMatchObject({ concept: 'lemon', quantity: 0.5 });
+  expect(parseIngredient('Succo di limone', { limone: 'lemon', 'succo di limone': 'lemon-juice' }, 'it').concept).toBe('lemon-juice');
+  expect(parseIngredient('Qualche foglia di salvia fresca', { 'salvia fresca': 'sage' }, 'it')).toMatchObject({ concept: 'sage', quantity: null });
+  expect(parseIngredient('300 g farina di tipo 0 (va bene anche la tipo 1)', { 'farina tipo 0': 'flour-0' }, 'it').concept).toBe('flour-0');
+  expect(parseIngredient('Un bel pizzico di sale', lookup, 'it')).toMatchObject({ concept: 'salt', quantity: 1, unit: 'pinch' });
+  expect(parseIngredient('Pane casereccio per servire', { 'pane casereccio': 'bread' }, 'it').concept).toBe('bread');
+  expect(parseIngredient('1 pomodoro tondo circa 100 g', { 'pomodoro tondo': 'tomato' }, 'it').concept).toBe('tomato');
   expect(parseIngredient('1 cespo di radicchio', { radicchio: 'radicchio' }, 'it')).toMatchObject({ concept: 'radicchio', unit: 'head' });
 });

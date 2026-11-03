@@ -427,6 +427,7 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
     if (lead[1]) leading.push(...[lead[1], lead[2]].filter(Boolean).map((w) => (w!.toLowerCase() === 'juice' ? 'juiced' : 'zested')));
     else leading.push(lead[3] ? 'optional' : 'as needed');
   }
+  if (language === 'it') s = italianShapes(s, leading);
   s = s.replace(/^\((\d+)\)\s*/, '$1 ');
   s = stripMeasureWords(s);
   let quantity: number | null = null;
@@ -509,7 +510,7 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
       if (def.dimension === 'other') written += u[0];
       s = s.slice(u[0].length);
       // "1 cucchiaino colmo di curry", "1 cucchiaio a testa di anacardi": how full, or per person, is a note.
-      const fill = language === 'it' ? s.match(/^(colm[oaie]|abbondant[ei]|ras[oaie]|scars[oaie]|grand[ei]|piccol[oaie]|a testa)\s+/i) : null;
+      const fill = language === 'it' ? s.match(/^(colm[oaie]|abbondant[ei]|ras[oaie]|scars[oaie]|grand[ei]|piccol[oaie]|a testa|circa)\s+/i) : null;
       if (fill) {
         leading.push(fill[1]!.toLowerCase());
         s = s.slice(fill[0].length);
@@ -759,7 +760,8 @@ export function parseLine(raw: string, lookup: IngredientLookup = {}, language =
     for (let j = k; j < points.length; j++) {
       const [start, end] = points[j]!;
       const text = body.slice(from, start);
-      if (alternative.test(text.replace(/\([^)]*\)?/g, ' ')) || SHARED_AMOUNT.test(text)) break;
+      // "…, per me un radicchio e 150 g di cavolo nero": what the author used is commentary, not a second purchase.
+      if (alternative.test(text.replace(/\([^)]*\)?/g, ' ')) || SHARED_AMOUNT.test(text) || /,\s*(?:per me|io)\s/i.test(text)) break;
       const p = part(text);
       if (!known(p) || (from > 0 && !own(p))) continue;
       const rest = split(end, j + 1);
@@ -796,6 +798,27 @@ function sharedAmountParts(body: string, label: string, lookup: IngredientLookup
   const noun = language === 'en' ? names.at(-1)!.match(/\s(powder|seeds|flakes|leaves|extract)$/i)?.[1] : undefined;
   const shared = noun && read(names.map((n, i) => (i < names.length - 1 && !/\s/.test(n) ? `${n} ${noun}` : n)));
   return shared || read(names);
+}
+
+/**
+ * Italian shapes rewritten to ones the parser reads, with what they said moved to `leading` notes:
+ * "il succo di mezzo limone" → "mezzo limone" (juiced), "qualche foglia di salvia" → "salvia" (to taste),
+ * "farina di tipo 0, 1 o 2" → "farina 0", "un bel pizzico" → "un pizzico", "oppure" → "o".
+ */
+function italianShapes(text: string, leading: string[]): string {
+  let s = text.replace(/(?<!\p{L})oppure(?!\p{L})/giu, 'o');
+  const part = s.match(/^(?:(?:il|la)\s+|un\s+cucchiaino\s+(?:di\s+|della\s+))?(succo|scorza)(?:\s+grattugiata)?\s+(?:di|del|della)\s+(un[oa]?|mezz[oa]|1\/2|\d+(?:[.,]\d+)?)\s+(limon[ei]|lim[ei]|arance?|aranc[ia]a)\b(?:\s+(?:bio(?:logic[oaie])?|non\s+trattat[oaie]))?\s*/iu);
+  if (part && !/^(?:\+|,|e\s)/.test(s.slice(part[0].length))) {
+    leading.push(part[1]!.toLowerCase() === 'succo' ? 'spremuto' : 'solo la scorza');
+    s = `${part[2]} ${part[3]}${s.slice(part[0].length) ? ` ${s.slice(part[0].length)}` : ''}`;
+  }
+  const few = s.match(/^qualche\s+(?:(?:foglia|fogliolina|rametto|goccia|chicco|ciuffo)\s+(?:di\s+|d['’]\s*)?)?/i);
+  if (few) {
+    leading.push('quanto basta');
+    s = s.slice(few[0].length);
+  }
+  s = s.replace(/\bfarina\s+(?:bianca\s+)?(?:di\s+)?tipo\s+(00|0|1|2)\b(?:\s*(?:,|o)\s*(?:(?:la\s+)?tipo\s+)?(?:00|0|1|2|integrale)\b)*/i, (_, type: string) => `farina tipo ${type}`);
+  return s.replace(/^(un[oa]?|1)\s+(?:bel|buon|grande|abbondante)\s+(?=pizzic|mazzett|manciat)/i, '$1 ');
 }
 
 /** Headings, equipment, instructions and asides written among the ingredients. */
