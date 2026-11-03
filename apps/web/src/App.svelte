@@ -279,7 +279,6 @@
 <main>
   <LanguageSuggestion {queryString} />
   {#if !filters.saved}
-    <p class="discovery-hint">{m.discovery_hint()}</p>
     <div class="filters" bind:this={filterBox}><FilterBar count={total} onpick={pick} /></div>
   {/if}
 
