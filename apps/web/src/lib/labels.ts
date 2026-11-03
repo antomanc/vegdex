@@ -1,4 +1,4 @@
-import { parseIngredient, metricLine, type FreeFrom, type LanguageVocabulary, type Meal, type Units, type ParsedIngredient } from '@vegdex/core'
+import { parseIngredient, metricLine, type CatalogRecipe, type FreeFrom, type LanguageVocabulary, type Meal, type Units, type ParsedIngredient } from '@vegdex/core'
 import { m, countArgs, formatNumber, formatQuantity, pageLocale } from './i18n'
 import { BASE_LOCALE } from './locales'
 import type { Sort } from './state.svelte'
@@ -68,6 +68,19 @@ export function formatGroceryAmount(amount: string, vocab: LanguageVocabulary | 
   const word = new RegExp(`(?<![\\w])${parsed.unit!.replace(/ /g, '\\s')}(?:es|s)?\\b`)
   return formatted.replace(word, label)
 }
+
+/** Steps in one batch: whole servings for a recipe with a yield, half batches for one without. */
+export const perBatch = (r: CatalogRecipe) => r.servings || 2
+export const MAX_BATCHES = 4
+
+/** `n` steps of a recipe: "6 servings", or "×1½" batches for a recipe without a yield. */
+export function stepsLabel(r: CatalogRecipe, n: number): string {
+  if (r.servings) return m.servings_count(countArgs(n))
+  return `×${batchFactor(n)}`
+}
+
+/** Half batches as a cook writes them: "1½", "½", "2". */
+export const batchFactor = (n: number) => `${Math.floor(n / 2) ? formatNumber(Math.floor(n / 2)) : ''}${n % 2 ? '½' : ''}`
 
 export const TIMES = [15, 30, 45, 60]
 export const FREE: [FreeFrom, string][] = [
