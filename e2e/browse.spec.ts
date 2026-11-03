@@ -168,6 +168,36 @@ test("a recipe's blog opens that blog's shelf, with a way to its site", async ({
   await expect(count(page)).toHaveText(/6 recipes/);
 });
 
+test('the logo goes home from a blog shelf, with search and filters cleared', async ({ page }) => {
+  await page.getByRole('searchbox').fill('soup');
+  await page.getByRole('button', { name: 'Red Lentil Soup', exact: true }).click();
+  await page.getByRole('dialog').getByRole('button', { name: /^ElaVegan/ }).click();
+  await expect(page.getByRole('heading', { name: 'ElaVegan' })).toBeVisible();
+  await page.getByRole('button', { name: 'vegdex, all recipes' }).click();
+  await expect(page.getByRole('heading', { name: 'ElaVegan' })).toBeHidden();
+  await expect(page.getByRole('searchbox')).toHaveValue('');
+  await expect(count(page)).toHaveText(/6 recipes/);
+});
+
+test('a card opened after leaving a drawn one for its blog offers no Another', async ({ page }) => {
+  await page.getByRole('button', { name: 'Pick for me' }).click();
+  const sheet = page.getByRole('dialog');
+  await expect(sheet.getByRole('button', { name: 'Another' })).toBeVisible();
+  await sheet.locator('.kitchen-name').click();
+  await expect(sheet).toBeHidden();
+  await cards(page).first().getByRole('button').first().click();
+  await expect(sheet.getByRole('link', { name: /Cook it on/ })).toBeVisible();
+  await expect(sheet.getByRole('button', { name: 'Another' })).toHaveCount(0);
+});
+
+test('a skip link jumps from the top of the page to the recipes', async ({ page }) => {
+  await page.keyboard.press('Tab');
+  const skip = page.getByRole('link', { name: 'Skip to recipes' });
+  await expect(skip).toBeFocused();
+  await skip.press('Enter');
+  await expect(page.locator('#results')).toBeFocused();
+});
+
 test('night mode follows the system until switched, then stays switched', async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'light' });
   const html = page.locator('html');

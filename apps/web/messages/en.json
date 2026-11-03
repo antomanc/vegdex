@@ -50,6 +50,8 @@
   "free_from": "Free from",
   "must_include": "Must include",
   "include_hint": "Recipes that use every ingredient you add.",
+  "exclude_hint": "Recipes that use none of these ingredients.",
+  "skip_to_recipes": "Skip to recipes",
   "include_example": "e.g. tofu, spinach",
   "avoid": "Avoid",
   "avoid_example": "e.g. mushrooms, coconut",

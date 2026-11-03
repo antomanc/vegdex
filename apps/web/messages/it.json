@@ -50,6 +50,8 @@
   "free_from": "Senza",
   "must_include": "Deve contenere",
   "include_hint": "Ricette con tutti gli ingredienti che aggiungi.",
+  "exclude_hint": "Ricette senza nessuno di questi ingredienti.",
+  "skip_to_recipes": "Vai alle ricette",
   "include_example": "es. tofu, quinoa",
   "avoid": "Da evitare",
   "avoid_example": "es. avocado, tempeh",

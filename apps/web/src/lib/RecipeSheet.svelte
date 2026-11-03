@@ -67,7 +67,7 @@
         <div>
           <dt>{m.per_serving()}</dt>
           <dd>
-            {#if recipe.calories}{m.calories({ count: formatNumber(Math.round(recipe.calories)) })}{/if}{#if recipe.calories && recipe.protein}<br />{/if}{#if recipe.protein}{m.protein({ count: formatNumber(Math.round(recipe.protein)) })}{/if}
+            {#if recipe.calories}<span>{m.calories({ count: formatNumber(Math.round(recipe.calories)) })}</span>{/if}{#if recipe.calories && recipe.protein}<br />{/if}{#if recipe.protein}<span>{m.protein({ count: formatNumber(Math.round(recipe.protein)) })}</span>{/if}
           </dd>
         </div>
       {/if}

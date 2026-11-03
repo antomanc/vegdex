@@ -226,8 +226,17 @@
 
   function showKitchen(id: string) {
     openId = null
+    drawn = false
     filters.saved = false
     filters.from = id
+    scrollTo({ top: 0 })
+  }
+
+  // The logo is home: every recipe, no search, no filters.
+  function home() {
+    filters.saved = false
+    filters.text = ''
+    clearFilters()
     scrollTo({ top: 0 })
   }
 
@@ -236,10 +245,11 @@
   }
 </script>
 
+<a class="skip-link" href="#results">{m.skip_to_recipes()}</a>
 <header class="top" bind:offsetHeight={headerHeight}>
   <div class="brand-row">
     <h1 class="brand-h">
-      <button class="brand" onclick={() => (filters.saved = false)} aria-label={m.all_recipes()}>
+      <button class="brand" onclick={home} aria-label={m.all_recipes()}>
         <img class="logo" src="{import.meta.env.BASE_URL}favicon.svg" alt="" width="28" height="28" /> vegdex
       </button>
     </h1>
@@ -362,7 +372,7 @@
       </div>
     {/if}
 
-    <ul class="grid">
+    <ul class="grid" id="results" tabindex="-1">
       {#each visible as recipe, i (recipe.id)}
         <li>
           <RecipeCard {recipe} sourceName={sourceNames.get(recipe.source) ?? recipe.source} onopen={() => (openId = recipe.id)} eager={i < EAGER} />
@@ -383,7 +393,7 @@
     <footer class="credits">
       {m.credits(countArgs(loaded!.sources.length))}
       {m.credits_updated({ date: new Date(loaded!.generatedAt).toLocaleDateString(pageLocale.intl) })}
-      <div>{m.dictionary_credit()} <a href="https://world.openfoodfacts.org/">Open Food Facts</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> · <a href="{import.meta.env.BASE_URL}data/dictionary.json">{m.dictionary_tables()}</a></div>
+      <div>{m.dictionary_credit()} <a href="https://world.openfoodfacts.org/">Open Food Facts</a>&nbsp;· <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a>&nbsp;· <a href="{import.meta.env.BASE_URL}data/dictionary.json">{m.dictionary_tables()}</a></div>
       <div><a href="https://github.com/antomanc/vegdex">{m.open_source()}</a></div>
       <div class="row center">
         {#each LOCALES.filter((locale) => locale.code !== pageLocale.code) as locale (locale.code)}

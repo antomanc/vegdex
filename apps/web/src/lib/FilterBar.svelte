@@ -110,8 +110,9 @@
 
       <form class="field" onsubmit={(e) => add('exclude', e)}>
         <label class="label" for="avoid">{m.avoid()}</label>
+        <p class="hint" id="avoid-hint">{m.exclude_hint()}</p>
         <div class="input-row">
-          <input id="avoid" bind:value={avoid} placeholder={m.avoid_example()} autocomplete="off" enterkeyhint="done" />
+          <input id="avoid" bind:value={avoid} placeholder={m.avoid_example()} autocomplete="off" enterkeyhint="done" aria-describedby="avoid-hint" />
           <button class="btn-sm">{m.add()}</button>
         </div>
         {#if filters.exclude.length}
