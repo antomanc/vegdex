@@ -19,4 +19,4 @@ The page now does as little as possible before it shows recipes, and nothing hea
 
 ## Consequences
 
-Anything that reads catalog.json must unpack it first. The page has no recipe list of its own, so features that need recipes the page is not showing ask the worker for them. The MCP server still reads the unpacked recipes.full.json.
+Anything that reads catalog.json must unpack it first. The page has no recipe list of its own, so features that need recipes the page is not showing ask the worker for them.

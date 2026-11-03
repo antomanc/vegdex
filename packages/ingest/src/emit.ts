@@ -90,7 +90,7 @@ function overlay(language: string, vocab: LanguageVocabulary, recipes: Recipe[],
  * - catalog.json: everything the grid and filters need (packed, see packCatalog)
  * - first.json: the best-rated recipes, shown while catalog.json loads
  * - details/NN.json: original lines and parsed ingredients, loaded when a recipe is opened
- * - recipes.full.json: catalog + ingredient lines in one file, for the MCP server
+ * - recipes.full.json: catalog + ingredient lines in one file
  * - overlay/<lang>.json: the vocabulary each UI language needs to display them
  * - suggest/<lang>.json: ingredient names the filter inputs suggest, most used first
  * - coverage.json: how far each language is from rendering every line and title
