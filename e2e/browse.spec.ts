@@ -26,8 +26,11 @@ test('time and high-protein filters', async ({ page }) => {
   await page.getByRole('button', { name: '≤ 15 min', exact: true }).click();
   await expect(cards(page)).toHaveText([/Lemony Quinoa Salad/]);
   await page.getByRole('button', { name: '≤ 15 min', exact: true }).click();
-  await page.getByRole('button', { name: 'High protein', exact: true }).click();
+  await page.getByRole('button', { name: /More filters/ }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'High protein', exact: true }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Close' }).click();
   await expect(cards(page)).toHaveText([/Spinach Tofu Curry/]);
+  await expect(page.getByRole('button', { name: 'More filters · 1' })).toBeVisible();
 });
 
 test('search matches titles and ingredients', async ({ page }) => {

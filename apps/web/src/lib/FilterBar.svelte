@@ -6,8 +6,7 @@
   import { sheet } from './sheet'
   import { activeCount, clearFilters, filters, isTonight, moreCount, toggleTonight } from './state.svelte'
 
-  /** `onpick`: open one recipe at random from the best matches. */
-  let { count, onpick }: { count: number; onpick: () => void } = $props()
+  let { count }: { count: number } = $props()
 
   let more = $state(false)
   let have = $state('')
@@ -45,9 +44,6 @@
   <button class="pill tonight" class:on={isTonight()} aria-pressed={isTonight()} title={m.tonight_hint()} onclick={toggleTonight}>
     <Icon name="clock" size={16} /> {m.tonight()}
   </button>
-  <button class="pill pick" disabled={count === 0} onclick={onpick}>
-    <Icon name="shuffle" size={16} /> {m.pick()}
-  </button>
   <button class="pill outline" class:on={moreCount() > 0} aria-haspopup="dialog" onclick={() => (more = true)}>
     <Icon name="sliders" size={16} /> {m.more_filters()}{moreCount() ? ` · ${formatNumber(moreCount())}` : ''}
   </button>
@@ -57,8 +53,6 @@
         onclick={() => (filters.maxMinutes = filters.maxMinutes === t ? null : t)}>{m.time_limit({ count: formatNumber(t) })}</button>
     {/each}
   </div>
-  <button class="pill outline" class:on={filters.highProtein} aria-pressed={filters.highProtein} title={m.protein_hint()}
-    onclick={() => (filters.highProtein = !filters.highProtein)}>{m.high_protein()}</button>
 </div>
 
 <!-- The recipe box's dividers: their tabs stand on the edge of the card stack below. -->
@@ -81,9 +75,6 @@
     <div class="sheet-body">
       <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
       <h2 id="more-title">{m.more_filters()}</h2>
-      <fieldset class="field"><legend class="label">{m.ready_in()}</legend>
-        <div class="choice-grid">{#each TIMES as t (t)}<button class="pill outline" class:on={filters.maxMinutes === t} aria-pressed={filters.maxMinutes === t} onclick={() => (filters.maxMinutes = filters.maxMinutes === t ? null : t)}>{m.time_limit({ count: formatNumber(t) })}</button>{/each}</div>
-      </fieldset>
       <fieldset class="field">
         <legend class="label">{m.high_protein()}</legend>
         <p class="hint">{m.protein_hint()}</p>

@@ -279,7 +279,7 @@
 <main>
   <LanguageSuggestion {queryString} />
   {#if !filters.saved}
-    <div class="filters" bind:this={filterBox}><FilterBar count={total} onpick={pick} /></div>
+    <div class="filters" bind:this={filterBox}><FilterBar count={total} /></div>
   {/if}
 
   {#if error}
@@ -395,6 +395,11 @@
     </footer>
   {/if}
 </main>
+
+<!-- Pull a card from the box: within thumb reach while browsing. -->
+{#if found && total > 0 && !filters.saved}
+  <div class="pick-dock"><button class="pick" onclick={pick}><Icon name="shuffle" size={18} /> {m.pick()}</button></div>
+{/if}
 
 {#if open}
   <RecipeSheet

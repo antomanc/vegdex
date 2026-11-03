@@ -91,7 +91,7 @@ export function isLanding(): boolean {
 
 /** Filters that live behind "More filters" (the quick pills show their own state). */
 export function moreCount(): number {
-  return filters.freeFrom.length + filters.include.length + filters.exclude.length
+  return (filters.highProtein ? 1 : 0) + filters.freeFrom.length + filters.include.length + filters.exclude.length
 }
 
 /** "Tonight": a weeknight main, on the table within 45 minutes. */
