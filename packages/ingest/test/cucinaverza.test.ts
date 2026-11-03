@@ -11,7 +11,7 @@ afterEach(() => dirs.splice(0).forEach((dir) => fs.rmSync(dir, { recursive: true
 const samples = ['gnocchi', 'fudge'].map((name) => JSON.parse(fs.readFileSync(new URL(`./fixtures/cucinaverza-${name}.json`, import.meta.url), 'utf8')));
 const source = { id: 'cucinaverza', name: 'Cucinaverza', url: 'https://cucinaverza.com', contentLanguage: 'it' };
 
-it('extracts and publishes a real Italian source while holding its unmapped compound recipe', () => {
+it('extracts and publishes a real Italian source once the vocabulary knows every ingredient', () => {
   const sources = JSON.parse(fs.readFileSync(new URL('../sources.json', import.meta.url), 'utf8')) as Source[];
   expect(sources).toContainEqual(source);
   const recipes = samples.map((sample) => extractRecipe(`<script type="application/ld+json">${JSON.stringify(sample.recipe)}</script>`, sample.sourceUrl, source.id)!);
@@ -21,11 +21,12 @@ it('extracts and publishes a real Italian source while holding its unmapped comp
   const out = fs.mkdtempSync(path.join(os.tmpdir(), 'vegdex-cucinaverza-'));
   dirs.push(out);
   const report = emitDataset(recipes, [source], out);
-  expect(report.published).toBe(1);
-  expect(report.held.map((r) => r.id)).toEqual([recipes[1]!.id]);
+  // The fudge was held until "cacao amaro in polvere" and the other names were mapped; italian-source.test.ts covers holding.
+  expect(report.published).toBe(2);
+  expect(report.held).toEqual([]);
   const full = JSON.parse(fs.readFileSync(path.join(out, 'recipes.full.json'), 'utf8')) as FullDataset;
-  expect(full.recipes).toHaveLength(1);
-  const gnocchi = full.recipes[0]!;
+  expect(full.recipes).toHaveLength(2);
+  const gnocchi = full.recipes.find((r) => r.id === recipes[0]!.id)!;
   expect(gnocchi).toMatchObject({ contentLanguage: 'it', title: recipes[0]!.title, ingredients: recipes[0]!.ingredients });
   expect(gnocchi.tags).toContain('meal:main');
   expect(gnocchi.tags).not.toContain('free:gluten-free');

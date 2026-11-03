@@ -33,4 +33,7 @@ it('reads Italian packages, leaves and handfuls as units only after an amount', 
   expect(parseIngredient('6-7 foglie di salvia', lookup, 'it')).toMatchObject({ concept: 'sage', quantity: 6, quantityMax: 7, unit: 'leaf' });
   expect(parseIngredient('Foglioline di menta', lookup, 'it')).toMatchObject({ unit: null, concept: null });
   expect(parseIngredient('Pizzico di sale', lookup, 'it')).toMatchObject({ concept: 'salt', unit: 'pinch' });
+  expect(parseIngredient('circa 900 ml di acqua', { acqua: 'water' }, 'it')).toMatchObject({ concept: 'water', quantity: 900, unit: 'ml', approx: true });
+  expect(parseIngredient('1 cucchiaino colmo di lievito per dolci', lookup, 'it')).toMatchObject({ concept: 'baking-powder', quantity: 1, unit: 'tsp' });
+  expect(parseIngredient('1 cespo di radicchio', { radicchio: 'radicchio' }, 'it')).toMatchObject({ concept: 'radicchio', unit: 'head' });
 });

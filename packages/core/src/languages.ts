@@ -52,7 +52,8 @@ export const languagePacks: Record<string, LanguagePack> = {
       fetta: 'slice', fette: 'slice', pizzico: 'pinch', pizzichi: 'pinch', pezzo: 'piece', pezzi: 'piece',
       bustina: 'sachet', bustine: 'sachet', vasetto: 'jar', vasetti: 'jar', rotolo: 'roll', rotoli: 'roll',
       costa: 'stalk', coste: 'stalk', foglia: 'leaf', foglie: 'leaf', foglioline: 'leaf', manciata: 'handful', manciate: 'handful',
-      panetto: 'block', panetti: 'block'
+      panetto: 'block', panetti: 'block', cespo: 'head', cespi: 'head', ciuffo: 'bunch', ciuffetto: 'bunch', ciuffi: 'bunch',
+      rametto: 'sprig', rametti: 'sprig', centimetro: 'cm', centimetri: 'cm'
     },
     numberWords: { un: 1, uno: 1, una: 1, due: 2, tre: 3, quattro: 4, cinque: 5, sei: 6, mezzo: 0.5, mezza: 0.5 },
     preposition: /^(?:di\s+|d['’]\s*)/i,

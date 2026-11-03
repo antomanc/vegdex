@@ -409,6 +409,12 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
       approx = true;
       text = text.slice(tilde[0].length);
     }
+    // "circa 1 litro d'acqua".
+    const circa = language === 'it' ? text.match(/^circa\s+(?=\d|un[oa']?\s|mezz[oa]\s)/i) : null;
+    if (circa) {
+      approx = true;
+      text = text.slice(circa[0].length);
+    }
     const m = text.match(MEASURE_WORDS_RE);
     if (m && APPROX_RE.test(m[0])) approx = true;
     return m ? text.slice(m[0].length) : text;
@@ -502,6 +508,12 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
       unit = def.unit;
       if (def.dimension === 'other') written += u[0];
       s = s.slice(u[0].length);
+      // "1 cucchiaino colmo di curry", "1 cucchiaio a testa di anacardi": how full, or per person, is a note.
+      const fill = language === 'it' ? s.match(/^(colm[oaie]|abbondant[ei]|ras[oaie]|scars[oaie]|grand[ei]|piccol[oaie]|a testa)\s+/i) : null;
+      if (fill) {
+        leading.push(fill[1]!.toLowerCase());
+        s = s.slice(fill[0].length);
+      }
       // "10 ounce package spinach": the weight is the size of the package.
       const container = (def.dimension === 'mass' || def.dimension === 'volume') && quantityMax === null && !altMeasure && language === 'en'
         ? s.match(/^(?:cans?|tins?|jars?|blocks?|bags?|packages?|packs?|packets?|cartons?|box(?:es)?|bottles?|tubs?|containers?|tubes?)\b\s*(?:of\s+)?/i) : null;
