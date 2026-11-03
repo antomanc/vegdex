@@ -1,6 +1,6 @@
 import { lookupConcept, type IngredientLookup } from './concepts';
 import { lineParts, parseLine, unitDef, type ParsedIngredient, type ParsedLine } from './ingredients';
-import { formatMetric, toMetric, type Units } from './metric';
+import { formatMetric, roundKitchen, toMetric, type Units } from './metric';
 import { gramsPerCup } from './weights';
 
 export interface GroceryInput {
@@ -59,16 +59,47 @@ export function aisleFor(name: string): string {
   return AISLES.find(([, re]) => re.test(name))?.[0] ?? 'other';
 }
 
-function fmt(n: number): string {
+const FRACTIONS: [number, string][] = [[0, ''], [0.125, '⅛'], [0.25, '¼'], [1 / 3, '⅓'], [0.5, '½'], [2 / 3, '⅔'], [0.75, '¾'], [1, '']];
+
+/** The nearest amount a kitchen measures: whole numbers and ⅛, ¼, ⅓, ½, ⅔, ¾. Anything above 0 is at least ⅛. */
+export function snapKitchen(n: number): number {
+  if (n <= 0) return 0;
   const whole = Math.floor(n);
-  const frac = n - whole;
-  const fracs: [number, string][] = [[0, ''], [0.125, '⅛'], [0.25, '¼'], [1 / 3, '⅓'], [0.5, '½'], [2 / 3, '⅔'], [0.75, '¾'], [1, '']];
-  let best = fracs[0]!;
-  for (const f of fracs) if (Math.abs(frac - f[0]) < Math.abs(frac - best[0])) best = f;
-  const w = best[0] === 1 ? whole + 1 : whole;
-  if (w === 0 && best[1]) return best[1];
-  if (w === 0) return n > 0 ? '⅛' : '0';
-  return best[1] ? `${w} ${best[1]}` : String(w);
+  let best = FRACTIONS[0]![0];
+  for (const [f] of FRACTIONS) if (Math.abs(n - whole - f) < Math.abs(n - whole - best)) best = f;
+  return Math.max(whole + best, 0.125);
+}
+
+function fmt(n: number): string {
+  const s = snapKitchen(n);
+  const whole = Math.floor(s + 1e-9);
+  const symbol = FRACTIONS.find(([f]) => Math.abs(s - whole - f) < 1e-9)?.[1] ?? '';
+  if (!whole) return symbol || '0';
+  return symbol ? `${whole} ${symbol}` : String(whole);
+}
+
+/**
+ * A parsed line for `factor` times the recipe; its words, and a package's size, stay as they are.
+ * Shown in its own unit the amount lands on what a kitchen measures: fractions for cups, spoons and whole items,
+ * round numbers for grams and millilitres. Converted to metric it stays exact, since the conversion rounds.
+ * A line without an amount comes back unchanged.
+ */
+export function scaleIngredient(p: ParsedIngredient, factor: number, units: Units = 'us'): ParsedIngredient {
+  if (!p.quantity || factor === 1) return p;
+  const exact: ParsedIngredient = {
+    ...p,
+    quantity: p.quantity * factor,
+    quantityMax: p.quantityMax === null ? null : p.quantityMax * factor,
+    metric: p.metric && { ...p.metric, quantity: p.metric.quantity * factor }
+  };
+  if (units === 'metric' && toMetric(exact)) return exact;
+  const snap = (n: number) => (p.unit === 'g' || p.unit === 'ml' ? roundKitchen(n) : snapKitchen(n));
+  return {
+    ...exact,
+    quantity: snap(exact.quantity!),
+    quantityMax: exact.quantityMax === null ? null : snap(exact.quantityMax),
+    metric: exact.metric && { ...exact.metric, quantity: roundKitchen(exact.metric.quantity) }
+  };
 }
 
 function plural(unit: string, n: number): string {

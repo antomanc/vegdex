@@ -404,6 +404,20 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .recipe-secondary-actions { display: flex; gap: 10px; flex: 1 1 auto; }
 .recipe-secondary-actions .save { flex: 1 1 auto; justify-content: center; }
 .recipe-sheet .actions .cta { flex: 3 1 220px; }
+/* Share is an icon: the footer is full on a phone. Copied, the icon turns into a check in place and a note floats above, so nothing moves. */
+.recipe-secondary-actions .share { flex: none; position: relative; width: 48px; padding: 0; justify-content: center; }
+.share .swap { display: grid; }
+.share .swap > * { grid-area: 1 / 1; transition: opacity 0.15s; }
+.share .swap > :last-child, .share.copied .swap > :first-child { opacity: 0; }
+.share.copied .swap > :last-child { opacity: 1; color: var(--green); }
+.share .bubble { position: absolute; bottom: calc(100% + 8px); right: 0; translate: 0 4px; white-space: nowrap; padding: 6px 10px; border-radius: 8px; background: var(--ink); color: var(--paper); font-size: 0.8rem; opacity: 0; pointer-events: none; transition: opacity 0.15s, translate 0.15s; }
+.share.copied .bubble { opacity: 1; translate: 0 0; }
+.share-link { display: grid; gap: 4px; margin-top: 12px; }
+.share-link input { font: inherit; font-size: 0.88rem; min-height: 44px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--ink); }
+/* Servings for this visit sit under the Ingredients heading; the blog's yield stays in the card fields above. */
+.servings-row { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; }
+p.small.scale-note { margin: 0 0 10px; }
+.not-scaled { font-size: 0.8em; }
 .device-hint { margin: 0; padding: 0 4px; color: var(--muted); font-size: 0.8rem; line-height: 1.5; text-wrap: balance; }
 
 .amounts .title input { width: 20px; height: 20px; accent-color: var(--green); vertical-align: middle; }

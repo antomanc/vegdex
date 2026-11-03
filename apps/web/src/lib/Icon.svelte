@@ -1,5 +1,5 @@
 <script lang="ts">
-  type Name = 'heart' | 'close' | 'star' | 'external' | 'search' | 'sliders' | 'clock' | 'list' | 'shuffle' | 'moon' | 'sun'
+  type Name = 'heart' | 'close' | 'star' | 'external' | 'search' | 'sliders' | 'clock' | 'list' | 'shuffle' | 'moon' | 'sun' | 'share' | 'check'
   let { name, size = 18, filled = false }: { name: Name; size?: number; filled?: boolean } = $props()
 </script>
 
@@ -25,6 +25,10 @@
     <circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4" />
   {:else if name === 'shuffle'}
     <path d="M3.5 7h2.8c2.6 0 4 1.6 5.2 5s2.6 5 5.2 5h3.8M3.5 17h2.8c1.3 0 2.3-.4 3.1-1.2M14.4 8.2c.8-.8 1.8-1.2 3.1-1.2h3M18 4l3 3-3 3M18 14l3 3-3 3" />
+  {:else if name === 'share'}
+    <circle cx="17.5" cy="5.5" r="2.5" /><circle cx="6.5" cy="12" r="2.5" /><circle cx="17.5" cy="18.5" r="2.5" /><path d="M8.7 10.7l6.6-3.9M8.7 13.3l6.6 3.9" />
+  {:else if name === 'check'}
+    <path d="M5 12.5l4.5 4.5L19 7.5" />
   {:else}
     <path d="M14 5h5v5M19 5l-8 8M17 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4" />
   {/if}

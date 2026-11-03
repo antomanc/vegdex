@@ -307,5 +307,15 @@
   "aisle_other": "other",
   "dictionary_credit": "Ingredient names from",
   "dictionary_tables": "Ingredient dictionary",
-  "original_ingredients": "Original ingredients"
+  "original_ingredients": "Original ingredients",
+  "scaled_servings": "Serves {original} · scaled to {count}",
+  "scaled_batch": "Original batch · scaled ×{factor}",
+  "scale_reset": "Reset",
+  "scale_method_note": "The method on {source} uses the original amounts.",
+  "not_scaled": "not scaled",
+  "fewer_servings_here": "Fewer servings",
+  "more_servings_here": "More servings",
+  "share": "Share",
+  "link_copied": "Link copied",
+  "share_link": "Link to this recipe"
 }

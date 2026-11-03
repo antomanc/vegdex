@@ -4,7 +4,7 @@
   import { loadDetails, loadLookup, type LookupFile } from './data'
   import { BASE_LOCALE } from './locales'
   import { m, countArgs, formatNumber, pageLocale } from './i18n'
-  import { AISLE_LABELS, formatGroceryAmount } from './labels'
+  import { AISLE_LABELS, MAX_BATCHES, formatGroceryAmount, perBatch, stepsLabel } from './labels'
   import Icon from './Icon.svelte'
   import { sheet } from './sheet'
   import { amounts, prefs, saved, setAmount } from './state.svelte'
@@ -78,19 +78,9 @@
     })
   })
 
-  /** Steps in one batch: whole servings for a recipe with a yield, half batches for one without. */
-  const perBatch = (r: CatalogRecipe) => r.servings || 2
-  const MAX_BATCHES = 4
-
   /** The stored amount in steps, snapped to the grid: a recipe's yield can change between crawls. */
   function steps(r: CatalogRecipe, by = 0): number {
     return Math.min(Math.max(Math.round((amounts[r.id] ?? 1) * perBatch(r)) + by, 1), MAX_BATCHES * perBatch(r))
-  }
-
-  function amountLabel(r: CatalogRecipe): string {
-    const n = steps(r)
-    if (r.servings) return m.servings_count(countArgs(n))
-    return `×${Math.floor(n / 2) ? formatNumber(Math.floor(n / 2)) : ''}${n % 2 ? '½' : ''}`
   }
 
   const nudge = (r: CatalogRecipe, by: number) => setAmount(r.id, steps(r, by) / perBatch(r))
@@ -122,7 +112,7 @@
             <label class="title"><input type="checkbox" checked={!excluded.includes(r.id)} onchange={() => toggleRecipe(r.id)} aria-label={m.shop_exclude({ title: recipeTitle(r) })} /> {recipeTitle(r)}</label>
             <span class="stepper">
               <button aria-disabled={n === 1} onclick={() => nudge(r, -1)} aria-label={m.fewer_servings({ title: recipeTitle(r) })}>−</button>
-              <span class="value" aria-live="polite">{amountLabel(r)}</span>
+              <span class="value" aria-live="polite">{stepsLabel(r, n)}</span>
               <button aria-disabled={n === MAX_BATCHES * perBatch(r)} onclick={() => nudge(r, 1)} aria-label={m.more_servings({ title: recipeTitle(r) })}>+</button>
             </span>
           </li>

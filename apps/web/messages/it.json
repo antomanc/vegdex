@@ -307,5 +307,15 @@
   "aisle_other": "Altro",
   "dictionary_credit": "Nomi degli ingredienti da",
   "dictionary_tables": "Dizionario ingredienti",
-  "original_ingredients": "Ingredienti originali"
+  "original_ingredients": "Ingredienti originali",
+  "scaled_servings": "Porzioni {original} · ricalcolate per {count}",
+  "scaled_batch": "Dosi originali · ricalcolate ×{factor}",
+  "scale_reset": "Ripristina",
+  "scale_method_note": "Il procedimento su {source} usa le dosi originali.",
+  "not_scaled": "non ricalcolata",
+  "fewer_servings_here": "Meno porzioni",
+  "more_servings_here": "Più porzioni",
+  "share": "Condividi",
+  "link_copied": "Link copiato",
+  "share_link": "Link a questa ricetta"
 }
