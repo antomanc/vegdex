@@ -233,11 +233,10 @@
     scrollTo({ top: 0 })
   }
 
-  // The logo is home: every recipe, no search, no filters.
+  // The logo leaves the saved view and a blog's shelf for the whole box; the cook's other filters stay.
   function home() {
     filters.saved = false
-    filters.text = ''
-    clearFilters()
+    filters.from = null
     scrollTo({ top: 0 })
   }
 

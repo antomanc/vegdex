@@ -175,14 +175,13 @@ test("a recipe's blog opens that blog's shelf, with a way to its site", async ({
   await expect(count(page)).toHaveText(/6 recipes/);
 });
 
-test('the logo goes home from a blog shelf, with search and filters cleared', async ({ page }) => {
-  await page.getByRole('searchbox').fill('soup');
+test('the logo leaves a blog shelf for all recipes', async ({ page }) => {
   await page.getByRole('button', { name: 'Red Lentil Soup', exact: true }).click();
   await page.getByRole('dialog').getByRole('button', { name: /^ElaVegan/ }).click();
   await expect(page.getByRole('heading', { name: 'ElaVegan' })).toBeVisible();
   await page.getByRole('button', { name: 'vegdex, all recipes' }).click();
   await expect(page.getByRole('heading', { name: 'ElaVegan' })).toBeHidden();
-  await expect(page.getByRole('searchbox')).toHaveValue('');
+  await expect(page).not.toHaveURL(/from=/);
   await expect(count(page)).toHaveText(/6 recipes/);
 });
 
