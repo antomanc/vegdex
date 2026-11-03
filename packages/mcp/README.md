@@ -1,36 +1,49 @@
-# @antomanc/vegdex
+# vegdex MCP server and CLI
 
-Vegan recipes from established vegan food blogs, for AI agents and the terminal. Your assistant
-searches real, tested recipes (with exact ingredient quantities and links to the creators)
-instead of making them up, and can merge several of them into one shopping list.
+Search vegan recipes, retrieve ingredient quantities and combine recipes into a shopping list. Each recipe links to its publisher for cooking instructions.
+
+The npm package is not yet published. From a checkout of [vegdex](https://github.com/antomanc/vegdex), install dependencies and build the CLI:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm --filter @antomanc/vegdex build
+```
 
 ## MCP
 
+Use the absolute path to the built CLI in your client's stdio configuration:
+
 ```json
-{ "mcpServers": { "vegdex": { "command": "npx", "args": ["-y", "@antomanc/vegdex", "mcp"] } } }
+{
+  "mcpServers": {
+    "vegdex": {
+      "command": "node",
+      "args": ["/absolute/path/to/vegdex/packages/mcp/dist/cli.js", "mcp"]
+    }
+  }
+}
 ```
 
-Claude Code: `claude mcp add vegdex -- npx -y @antomanc/vegdex mcp`
-
-| Tool | Does |
+| Tool | Purpose |
 | --- | --- |
-| `search_vegan_recipes` | Text, meal, sweet/savory, max minutes, gluten/nut/soy/oil-free, high protein, must-use and avoid ingredients, cuisine, rating, content language |
-| `get_vegan_recipes` | Exact ingredient lines, servings, time and nutrition for up to 20 ids |
-| `compile_grocery_list` | Combines recipes, scales each to target servings, sums quantities and groups them by aisle |
-| `list_vegan_sources` | The blogs in the index and the dataset date |
+| `search_vegan_recipes` | Search by text, meal, time, ingredients and other filters |
+| `get_vegan_recipes` | Get ingredient lines, servings, time and nutrition for up to 20 recipe IDs |
+| `compile_grocery_list` | Scale recipes and combine ingredients by aisle |
+| `list_vegan_sources` | List the blogs in the index and the dataset date |
 
-Recipes don't include the method. Agents should send the user to the recipe URL for the steps.
+The dataset does not include cooking methods. Follow the recipe URL for instructions. Dietary filters are derived from recipe data, so check the source for allergens.
 
 ## CLI
 
+Run these commands from the repository root:
+
 ```bash
-npx @antomanc/vegdex search "peanut noodles" --max 30
-npx @antomanc/vegdex search gnocchi --language it
-npx @antomanc/vegdex search --meal breakfast --flavor savory --protein --have tofu
-npx @antomanc/vegdex show <id>
-npx @antomanc/vegdex grocery <id>:4 <id>:2      # id:target-servings
+node packages/mcp/dist/cli.js search "peanut noodles" --max 30
+node packages/mcp/dist/cli.js search gnocchi --language it
+node packages/mcp/dist/cli.js search --meal breakfast --flavor savory --protein --have tofu
+node packages/mcp/dist/cli.js show <id>
+node packages/mcp/dist/cli.js grocery <id>:4 <id>:2  # id:target-servings
+node packages/mcp/dist/cli.js --help
 ```
 
-The dataset (a few MB) is downloaded on first use and refreshed daily into `~/.cache/vegdex`.
-If a refresh fails, the cached copy is used. You can point it elsewhere with `VEGDEX_DATA_URL` or
-`VEGDEX_DATA_FILE`.
+The dataset is downloaded on first use and refreshed daily in `~/.cache/vegdex`. If a refresh fails, the cached copy is used. Set `VEGDEX_DATA_URL` or `VEGDEX_DATA_FILE` to use another dataset.

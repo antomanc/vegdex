@@ -1,114 +1,111 @@
 # vegdex
 
-Vegan recipes from the best vegan food blogs in one fast, filterable app, plus an MCP server so AI
-agents can plan meals from real, tested recipes instead of making them up.
+vegdex is a searchable index of recipes from vegan food blogs. Find a recipe by ingredient, meal or cooking time, make a shopping list, and follow the link to the publisher for instructions.
 
-Every recipe is vegan. All sources are vegan-only blogs, and a second check drops any recipe whose
-ingredients name an animal product without a plant-based qualifier.
+**[Open vegdex](https://vegdex.antomanc.com/)**
 
-Running it costs nothing: there is no server and no database.
+The app runs in the browser and works offline after its data has been cached. It supports English and Italian, US and metric measurements, saved recipes, and shopping lists. Filters include ingredients to use or avoid, cooking time, meal type and dietary preferences. Check the original recipe for allergens: filters are derived from the available recipe data.
 
-```
-sitemaps of ~25 vegan blogs
-        │  GitHub Actions, daily 03:17 UTC
-        ▼
-crawl new pages → Recipe JSON-LD → vegan check → tags
-        │
-        ▼
-catalog.json + details/*.json + recipes.full.json
-        │
-        ├─► web app (GitHub Pages): filters in the browser, works offline
-        └─► MCP server / CLI (npx): downloads recipes.full.json once a day
-```
+Every source is an all-vegan publisher. An additional ingredient check excludes recipes that name an animal product without a plant-based qualifier.
 
-## What's stored, and what isn't
+## Run locally
 
-vegdex keeps facts only: title, ingredient lines, times, servings, rating, nutrition and the image
-URL. It never stores the method or the blogger's writing. Every recipe links to its creator for
-those, so readers still visit the blogs. Images load directly from the publisher.
-
-The crawler identifies itself (`vegdex/0.1 (+repo URL)`), respects `robots.txt` and crawl-delay,
-makes at most one request per second per site, and after the first backfill only fetches pages
-that are new or changed. Sites that block it are dropped, not worked around.
-
-## Layout
-
-| Path | What |
-| --- | --- |
-| `packages/core` | Types, ingredient parser, vegan check, tagger, search, grocery-list math, metric weights. Shared by everything. |
-| `packages/ingest` | Crawler and dataset emitter. Sources are in `packages/ingest/sources.json`. |
-| `apps/web` | Svelte 5 + Vite PWA. |
-| `packages/mcp` | `@antomanc/vegdex`: MCP server and CLI. |
-| `e2e` | Playwright tests against a fixed fixture dataset. |
-
-## Commands
+You need Node.js 22.12 or later and pnpm. The project pins pnpm in `package.json` and uses Node 24 in `mise.toml`.
 
 ```bash
-pnpm install
-pnpm ingest run                 # crawl (incremental) + emit into apps/web/public/data
-pnpm ingest crawl --sources noracooks --max-per-source 50
-pnpm ingest emit                # re-tag and re-check stored recipes without crawling
-pnpm dev                        # web app on http://0.0.0.0:5173
-pnpm test                       # unit + MCP integration tests (Vitest)
-pnpm test:e2e                   # Playwright, mobile + desktop
-pnpm fixtures                   # rebuild e2e/fixtures/data after changing the fixture store
-pnpm ingest weights             # snapshot cup-measured lines for the metric weight tests
+git clone https://github.com/antomanc/vegdex.git
+cd vegdex
+corepack enable
+pnpm install --frozen-lockfile
+pnpm fixtures
+mkdir -p apps/web/public/data
+cp -R e2e/fixtures/data/. apps/web/public/data/
+pnpm dev
 ```
 
-The crawl state (`.data/store.json.gz`) is kept as a release asset named `data`, not in git.
-Vegan-check rejections are written to `.data/excluded.json` for review.
-
-## Translation vocabulary
-
-Recipes show in every UI language by composing each ingredient line from a vocabulary in
-`packages/ingest/data/vocab/<lang>.json`: concept names with their grammatical forms, preparation
-terms, unit labels and titles (see [ADR 0005](docs/adr/0005-vocabulary-in-git-filled-by-any-worker.md)).
-A line that cannot be composed stays exactly as written. Notes that are not preparation terms are
-commentary and are left out, in every language. The nightly workflow never calls a model; it
-reports each language's coverage on the "Translation backlog" issue.
+Open the address printed by Vite. The fixture dataset is small and intended for development and tests. To use the full dataset, download the crawl store from the [data release](https://github.com/antomanc/vegdex/releases/tag/data), then emit it:
 
 ```bash
-pnpm coverage                                    # score per language and the largest gaps
-pnpm gaps --kind name --lang it --batches 4      # batch files for any worker
-pnpm vocab:apply .data/fill/*.answers.json       # check answers and merge what passes
-ENRICH_BASE_URL=http://127.0.0.1:8080/v1 ENRICH_MODEL=vegdex-enrich \
-  pnpm enrich --kind name --lang it --batches 10 # the same loop against an OpenAI-compatible endpoint
+mkdir -p .data
+gh release download data --repo antomanc/vegdex --pattern store.json.gz --dir .data
+pnpm ingest emit
 ```
 
-[Filling the vocabulary](docs/agents/vocabulary.md) explains the gap kinds, the answer shapes and how
-a fill lands as a PR. To run fills against a local model, see [local model fills](docs/local-model-fills.md).
+The [GitHub CLI](https://cli.github.com/) is needed for that download. Alternatively, download `store.json.gz` from the release page into `.data/`.
 
-## Metric weights
+## MCP server and CLI
 
-The web app's Metric switch turns cups, ounces and inches into grams and centimeters; spoons and
-whole items stay as written. A blog's own grams win. Otherwise grams come from a table of grams per
-cup in `packages/core/src/weights.ts`, built from USDA FoodData Central (SR Legacy, public domain)
-and the King Arthur Baking ingredient weight chart. Those amounts show with `≈`. The tests in
-`packages/core/test/weights.test.ts` check the table against the catalog: it must know 98% of
-cup-measured lines and agree with the grams blogs wrote next to their cups. After a big crawl, run
-`pnpm ingest weights` and rerun `pnpm test`.
+The repository includes an MCP server and a command-line client. The npm package is not yet published; run it from a checkout:
 
-## Adding a source
+```bash
+pnpm --filter @antomanc/vegdex build
+node packages/mcp/dist/cli.js search curry --max 30 --have tofu
+node packages/mcp/dist/cli.js --help
+```
 
-Add the blog to `packages/ingest/sources.json` only if every recipe on it is vegan. Run
-`pnpm ingest crawl --sources <id> --max-per-source 30`, then `pnpm ingest emit`, and check the
-result and `.data/excluded.json`.
-
-Set `contentLanguage` to `it` for original Italian publishers; it defaults to `en`.
-Each content language needs a tested language pack and a vocabulary file. Non-English recipes
-with unmapped ingredients stay held (listed in `.data/held.json`) until a fill maps them.
-Translated editions of existing publishers remain excluded. Cucinaverza's bounded source
-verification is recorded in [the source notes](docs/research/italian-source-cucinaverza.md).
-
-## MCP server
+For an MCP client that accepts stdio server configuration, replace the path below with the absolute path to your checkout:
 
 ```json
-{ "mcpServers": { "vegdex": { "command": "npx", "args": ["-y", "@antomanc/vegdex", "mcp"] } } }
+{
+  "mcpServers": {
+    "vegdex": {
+      "command": "node",
+      "args": ["/absolute/path/to/vegdex/packages/mcp/dist/cli.js", "mcp"]
+    }
+  }
+}
 ```
 
-Tools: `search_vegan_recipes`, `get_vegan_recipes`, `compile_grocery_list`, `list_vegan_sources`.
-The same features are on the command line: `npx @antomanc/vegdex search curry --max 30 --have tofu`.
+The server provides `search_vegan_recipes`, `get_vegan_recipes`, `compile_grocery_list` and `list_vegan_sources`. It downloads the dataset on first use and refreshes its local cache daily. See the [MCP package README](packages/mcp/README.md) for more commands and configuration.
+
+## How the index works
+
+A GitHub Actions workflow crawls the configured sources daily, extracts recipe JSON-LD, checks ingredients and emits static data for the web app and MCP server. The crawler identifies itself, respects `robots.txt` and crawl delays, and makes at most one request per second per site. After the first crawl it fetches pages that are new or changed. It does not work around sites that block it.
+
+vegdex stores recipe facts such as titles, ingredient lines, times, servings, ratings, nutrition and image URLs. It does not store cooking methods or the publisher's writing. Images load from the publisher, and recipe links lead to the original instructions.
+
+Ingredient translations are composed from the vocabulary in `packages/ingest/data/vocab/`. Lines that cannot be composed stay as written; commentary is omitted. See [ADR 0005](docs/adr/0005-vocabulary-in-git-filled-by-any-worker.md) and the [vocabulary guide](docs/agents/vocabulary.md).
+
+The metric switch uses the publisher's gram measurements when available. Otherwise it estimates grams from a table based on USDA FoodData Central and the King Arthur Baking ingredient weight chart; estimates are marked `≈`. Spoons and whole items stay as written.
+
+## Development
+
+| Path | Contents |
+| --- | --- |
+| `apps/web` | Svelte 5 and Vite web app |
+| `packages/core` | Shared recipe types, parsing, search, vegan checks and shopping-list calculations |
+| `packages/ingest` | Crawler, source list and dataset emitter |
+| `packages/mcp` | MCP server and CLI |
+| `e2e` | Playwright tests and fixture dataset |
+
+```bash
+pnpm build                  # build the web app
+pnpm typecheck              # check workspace and e2e types
+pnpm test                   # Vitest
+pnpm test:e2e               # Playwright with fixture data
+pnpm knip                   # check unused files, exports and dependencies
+pnpm ingest run             # crawl and emit
+pnpm ingest emit            # emit from the local crawl store
+pnpm coverage               # translation coverage and gaps
+```
+
+Playwright needs a Chromium installation; run `pnpm exec playwright install chromium` if it is missing. See the [testing guide](docs/agents/testing.md) for the full checks and [local model fills](docs/local-model-fills.md) for vocabulary work.
+
+The crawl store is kept in the `data` release, outside git. Ingest writes vegan-check rejections to `.data/excluded.json` and held recipes to `.data/held.json`.
+
+## Contributing
+
+Issues and pull requests are welcome. For a bug report, include the steps to reproduce it and, if relevant, the recipe URL. For a change, run the checks in the [testing guide](docs/agents/testing.md).
+
+To suggest a source, open an [issue](https://github.com/antomanc/vegdex/issues). Every recipe on the source must be vegan. To test one locally, add it to `packages/ingest/sources.json`, then run:
+
+```bash
+pnpm ingest crawl --sources <id> --max-per-source 30
+pnpm ingest emit
+```
+
+Review the output and `.data/excluded.json`. Set `contentLanguage` to `it` for original Italian publishers; it defaults to `en`. Each content language needs a tested language pack and vocabulary. Non-English recipes with unmapped ingredients are held until the vocabulary maps them; translated editions of existing publishers are excluded.
 
 ## License
 
-The code is [MIT](LICENSE). Recipes, photos and their text belong to the blogs they come from.
+The code is licensed under [MIT](LICENSE). Recipes, photos and their text belong to their respective publishers.
