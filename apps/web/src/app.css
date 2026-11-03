@@ -413,7 +413,10 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .share .bubble { position: absolute; bottom: calc(100% + 8px); right: 0; translate: 0 4px; white-space: nowrap; padding: 6px 10px; border-radius: 8px; background: var(--ink); color: var(--paper); font-size: 0.8rem; opacity: 0; pointer-events: none; transition: opacity 0.15s, translate 0.15s; }
 .share.copied .bubble { opacity: 1; translate: 0 0; }
 .share-link { display: grid; gap: 4px; margin-top: 12px; }
-.share-link input { font: inherit; font-size: 0.88rem; min-height: 44px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--ink); }
+.share-link input, .share-link textarea { font: inherit; font-size: 0.88rem; min-height: 44px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--ink); }
+.share-link textarea { padding: 8px 10px; resize: vertical; }
+/* The shopping list's one action: full width, so "Condividi lista" fits at 320px. */
+.grocery-sheet .sheet-footer .share { flex: 1; position: relative; justify-content: center; }
 /* Servings for this visit sit under the Ingredients heading; the blog's yield stays in the card fields above. */
 .servings-row { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; }
 p.small.scale-note { margin: 0 0 10px; }
