@@ -1,5 +1,5 @@
 import { canonicalName, hasDroppedMeasureWords, parseIngredient, unitDef, type ParsedIngredient } from './ingredients';
-import { gramsPerCup } from './weights';
+import { gramsPerCup, isPoured } from './weights';
 
 export type Units = 'us' | 'metric';
 
@@ -39,15 +39,24 @@ export function toMetric(p: ParsedIngredient): MetricAmount | null {
   // A blog's ml can be checked against its cups: "¼ cup pumpkin puree (5 ml)" is a typo, not a measure.
   const blogMl = p.metric?.unit === 'ml' ? p.metric.quantity / p.quantity : null;
   const ml = blogMl && Math.abs(blogMl / def.factor - 1) <= 0.5 ? blogMl : def.factor;
+  if (isPoured(p.densityName ?? p.name)) return { ...range(ml), unit: 'ml', estimate: false };
   // "brown or green lentils" is named "brown": the last alternative names the food.
   const perCup = gramsPerCup(p.densityName ?? p.name) ?? gramsPerCup(canonicalName(p.afterMeasure?.split(/\s(?:or|and)\s/).at(-1) ?? ''));
   if (perCup) return { ...range((ml / 240) * perCup), unit: 'g', estimate: true };
   return { ...range(ml), unit: 'ml', estimate: false };
 }
 
-/** The blog's own grams and a package's stated size are shown as given, not rounded for the kitchen. */
+/**
+ * The blog's own grams or ml and a package's stated size are shown as given, not rounded for the kitchen.
+ * Grams beside ounces or pounds are the blog's conversion ("8 ounces (227g)"), so they round like ours.
+ */
 export function exactMetric(p: ParsedIngredient, m: MetricAmount): boolean {
-  return !m.estimate && m.unit !== 'cm' && (!!p.size || (p.metric?.unit === 'g' && m.unit === 'g'));
+  if (m.estimate || m.unit === 'cm') return false;
+  if (p.size) return true;
+  if (p.metric?.unit !== m.unit) return false;
+  if (m.unit === 'g') return !(p.unit && unitDef(p.unit)?.dimension === 'mass');
+  // The blog's ml are kept only when they passed the check against its cups.
+  return Math.abs(m.quantity - p.metric.quantity) < 0.5;
 }
 
 /** Kitchen precision: no "236.6 ml". Under 10 to the unit, then to 5 (so a cup of flour stays 125 g), 10 and 25. */

@@ -17,17 +17,17 @@ test('English stays at the root', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByRole('button', { name: 'Desserts', exact: true })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Dolci', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Dessert', exact: true })).toHaveCount(0);
 });
 
 test('meal filters are in Italian while the URL keeps English identifiers', async ({ page }) => {
   await expect(page.getByRole('button', { name: 'Desserts', exact: true })).toHaveCount(0);
-  await page.getByRole('button', { name: 'Dolci', exact: true }).click();
+  await page.getByRole('button', { name: 'Dessert', exact: true }).click();
   await expect(page).toHaveURL(/\/it\/\?meal=dessert/);
   await expect(page.getByTestId('result-count')).toHaveText(/1 ricetta/);
   await page.reload();
   await expect(page.getByTestId('recipe-card')).toHaveText([/Brownies vegani fondenti/]);
-  await expect(page.getByRole('button', { name: 'Dolci', exact: true }).first()).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByRole('button', { name: 'Dessert', exact: true }).first()).toHaveAttribute('aria-pressed', 'true');
 });
 
 test('a recipe opens and closes on /it/', async ({ page }) => {
@@ -47,9 +47,9 @@ test('filters and result plurals follow the page language', async ({ page }) => 
   await expect(sheet.getByRole('button', { name: 'Senza glutine', exact: true })).toBeVisible();
   await expect(sheet.getByLabel('Deve contenere')).toBeVisible();
   await sheet.getByRole('button', { name: 'Mostra 6 ricette', exact: true }).click();
-  await page.getByRole('button', { name: 'Dolci', exact: true }).click();
+  await page.getByRole('button', { name: 'Dessert', exact: true }).click();
   await expect(page.getByTestId('result-count')).toHaveText('1 ricetta');
-  await expect(page.getByRole('button', { name: 'Rimuovi Dolci', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Rimuovi Dessert', exact: true })).toBeVisible();
 });
 
 test('recipe details and the source shelf read in Italian', async ({ page }) => {

@@ -9,8 +9,8 @@ const lookup = {
   '+ more to taste': 'term:to-taste', 'as needed': 'term:as-needed', canned: 'term:canned', unsweetened: 'term:unsweetened',
   chickpeas: 'chickpea', chickpea: 'chickpea', flour: 'flour', salt: 'salt', pepper: 'pepper', onion: 'onion', onions: 'onion',
   'olive oil': 'oil', 'soy sauce': 'soy', 'firm tofu': 'tofu', scallion: 'scallion', 'vegan butter': 'butter', yogurt: 'yogurt',
-  walnuts: 'walnut', almonds: 'almond', carrots: 'carrot',
-  'drained and rinsed': 'term:drained-rinsed', sifted: 'term:sifted', 'to taste': 'term:to-taste', diced: 'term:diced',
+  walnuts: 'walnut', almonds: 'almond', carrots: 'carrot', garlic: 'garlic', spinach: 'spinach', packed: 'term:packed',
+  'spooned and leveled': 'term:spooned-and-leveled', 'drained and rinsed': 'term:drained-rinsed', sifted: 'term:sifted', 'to taste': 'term:to-taste', diced: 'term:diced',
   minced: 'term:minced', chopped: 'term:chopped', 'for garnish': 'term:for-garnish', large: 'term:large', optional: 'term:optional'
 };
 const it_: LanguageVocabulary = {
@@ -28,7 +28,8 @@ const it_: LanguageVocabulary = {
     cumin: { one: 'cumino', other: 'cumino', gender: 'm' }, 'lemon-juice': { one: 'succo di limone', other: 'succo di limone', gender: 'm' },
     milk: { one: 'latte vegetale', other: 'latte vegetale', gender: 'm' }, 'soy-milk': { one: 'latte di soia', other: 'latte di soia', gender: 'm' },
     'almond-milk': { one: 'latte di mandorla', other: 'latte di mandorla', gender: 'm' }, chocolate: { one: 'cioccolato fondente', other: 'cioccolato fondente', gender: 'm' },
-    xtofu: { one: 'tofu extra compatto', other: 'tofu extra compatto', gender: 'm' }
+    xtofu: { one: 'tofu extra compatto', other: 'tofu extra compatto', gender: 'm' },
+    garlic: { one: 'aglio', other: 'aglio', gender: 'm' }, spinach: { one: 'spinaci', other: 'spinaci', gender: 'm', plural: true }
   },
   terms: {
     'term:drained-rinsed': { m: 'scolato e sciacquato', f: 'scolata e sciacquata', 'm.pl': 'scolati e sciacquati', 'f.pl': 'scolate e sciacquate' },
@@ -46,11 +47,14 @@ const it_: LanguageVocabulary = {
     'term:unsweetened': { m: 'senza zucchero', f: 'senza zucchero', 'm.pl': 'senza zucchero', 'f.pl': 'senza zucchero' },
     'term:plain': { m: 'naturale', f: 'naturale', 'm.pl': 'naturali', 'f.pl': 'naturali' },
     'term:unflavored': { m: 'non aromatizzato', f: 'non aromatizzata', 'm.pl': 'non aromatizzati', 'f.pl': 'non aromatizzate' },
-    'term:medium': { m: 'medio', f: 'media', 'm.pl': 'medi', 'f.pl': 'medie' }
+    'term:medium': { m: 'medio', f: 'media', 'm.pl': 'medi', 'f.pl': 'medie' },
+    'term:spooned-and-leveled': { m: 'misurato e livellato', f: 'misurata e livellata', 'm.pl': 'misurati e livellati', 'f.pl': 'misurate e livellate' },
+    'term:packed': { m: 'pressato', f: 'pressata', 'm.pl': 'pressati', 'f.pl': 'pressate' }
   },
   units: {
     g: ['g', 'g'], ml: ['ml', 'ml'], cup: ['tazza', 'tazze'], tbsp: ['cucchiaio', 'cucchiai'], tsp: ['cucchiaino', 'cucchiaini'],
-    block: ['panetto', 'panetti'], oz: ['oncia', 'once'], handful: ['manciata', 'manciate'], head: ['cespo', 'cespi'], can: ['scatola', 'scatole']
+    block: ['panetto', 'panetti'], oz: ['oncia', 'once'], handful: ['manciata', 'manciate'], head: ['cespo', 'cespi'], can: ['scatola', 'scatole'], clove: ['spicchio', 'spicchi'],
+    dash: ['goccio', 'gocci'], pinch: ['pizzico', 'pizzichi']
   },
   titles: {}
 };
@@ -63,16 +67,31 @@ const render = (line: string, units: 'us' | 'metric' = 'metric', vocab = it_, la
   renderIngredient(parseIngredient(line, lookup), vocab, language, units);
 
 it('composes a line from vocabulary names and preparation terms', () => {
-  expect(render('400 g chickpeas, drained and rinsed')).toEqual(['400 g', 'ceci, scolati e sciacquati']);
-  expect(render('2 cups flour, sifted')).toEqual(['≈ 250 g', 'farina, setacciata']);
-  expect(render('2 cups flour (280 g)')).toEqual(['280 g', 'farina']);
-  expect(render('1–2 cups flour')).toEqual(['≈ 125–250 g', 'farina']);
+  expect(render('400 g chickpeas, drained and rinsed')).toEqual(['400 g', 'di ceci, scolati e sciacquati']);
+  expect(render('2 cups flour, sifted')).toEqual(['≈ 250 g', 'di farina, setacciata']);
+  expect(render('2 cups flour (280 g)')).toEqual(['280 g', 'di farina']);
+  expect(render('1–2 cups flour')).toEqual(['≈ 125–250 g', 'di farina']);
 });
 
 it('agrees in number and gender', () => {
   expect(render('2 onions, diced')).toEqual(['2', 'cipolle, a dadini']);
   expect(render('1 onion, minced')).toEqual(['1', 'cipolla, tritata']);
   expect(render('1/2 onion, minced')).toEqual(['½', 'cipolla, tritata']);
+  expect(render('4 cloves garlic, minced')).toEqual(['4 spicchi', 'di aglio, tritati']);
+  expect(render('1 clove garlic, minced')).toEqual(['1 spicchio', 'di aglio, tritato']);
+  expect(render('2 cups spinach, packed', 'us')).toEqual(['2 tazze', 'di spinaci, pressati']);
+});
+
+it('drops how the cup was filled once the amount is in grams', () => {
+  expect(render('1/2 cup (60 g) flour, spooned and leveled')).toEqual(['60 g', 'di farina']);
+  expect(render('⅓ packed cup (50g) flour')).toEqual(['50 g', 'di farina']);
+  expect(render('⅓ packed cup flour')).toBeNull();
+  expect(render('2 cups spinach, packed', 'us')).toEqual(['2 tazze', 'di spinaci, pressati']);
+});
+
+it('says a dash of a spice is a pinch and a dash of a liquid is a splash', () => {
+  expect(render('dash of pepper', 'us')).toEqual(['1 pizzico', 'di pepe']);
+  expect(render('dash of soy sauce', 'us')).toEqual(['1 goccio', 'di salsa di soia']);
 });
 
 it('writes kitchen fractions and links spoon units to the name', () => {
@@ -82,7 +101,7 @@ it('writes kitchen fractions and links spoon units to the name', () => {
 });
 
 it('uses a package size as the metric amount and keeps it beside the count in US units', () => {
-  expect(render('1 (16 ounce) block firm tofu')).toEqual(['454 g', 'tofu compatto']);
+  expect(render('1 (16 ounce) block firm tofu')).toEqual(['454 g', 'di tofu compatto']);
   expect(render('1 (16 ounce) block firm tofu', 'us')).toEqual(['1 panetto (16 once)', 'di tofu compatto']);
 });
 
@@ -141,8 +160,8 @@ it('reads the shapes recipes write ingredients in', () => {
   expect(render('Juice of 1 lemon (1-2 tablespoons)')).toEqual(['1', 'limone, spremuto']);
   expect(render('1/2 teaspoon sea salt + more to taste', 'us')).toEqual(['½ cucchiaino', 'di sale quanto basta']);
   expect(render('1 large handful of fresh basil (or parsley, chopped)', 'us')).toEqual(['1 manciata', 'di basilico fresco']);
-  expect(render('1/2 cup (~112g) vegan coconut yogurt (unsweetened, plain)', 'metric')).toEqual(['112 g', 'yogurt di cocco, senza zucchero, naturale']);
-  expect(render('2 x 400 g / 14 oz canned tomatoes', 'metric')).toEqual(['800 g', 'pomodori in scatola']);
+  expect(render('1/2 cup (~112g) vegan coconut yogurt (unsweetened, plain)', 'metric')).toEqual(['112 g', 'di yogurt di cocco, senza zucchero, naturale']);
+  expect(render('2 x 400 g / 14 oz canned tomatoes', 'metric')).toEqual(['800 g', 'di pomodori in scatola']);
   expect(render('more hot sauce')).toEqual(['', 'salsa piccante, più quanto basta']);
   expect(render('1/3 tsp or more cumin', 'us')).toEqual(['⅓ cucchiaino', 'di cumino, più quanto basta']);
   expect(render('1/8 teaspoon each of ground nutmeg', 'us')).toBeNull(); // nutmeg has no Italian name here
@@ -163,7 +182,7 @@ it('reads alternatives, descriptors before the name and loose packaging', () => 
   expect(parseIngredient('zest of half a lemon', lookup)).toMatchObject({ quantity: 0.5, concept: 'lemon' });
   expect(render('juice from 1 lemon')).toEqual(['1', 'limone, spremuto']);
   expect(render('can chickpeas, drained and rinsed', 'us')).toEqual(['1 scatola', 'di ceci, scolati e sciacquati']);
-  expect(render('100 g 70% dark chocolate')).toEqual(['100 g', 'cioccolato fondente']);
+  expect(render('100 g 70% dark chocolate')).toEqual(['100 g', 'di cioccolato fondente']);
   expect(render('1 block extra-firm tofu', 'us')).toEqual(['1 panetto', 'di tofu extra compatto']);
   expect(render('2 slices of your favourite bread')).toBeNull(); // no bread here, but the favourite is gone:
   expect(parseIngredient('2 slices of your favourite bread', lookup).phrase).toBe('bread');
@@ -182,8 +201,8 @@ it('marks headings and asides so no language shows them as ingredients', async (
 it('shows an approximate amount as approximate', () => {
   expect(render('about 2 tbsp flour', 'us')).toEqual(['circa 2 cucchiai', 'di farina']);
   expect(render('approximately 2 cups flour', 'us')).toEqual(['circa 2 tazze', 'di farina']);
-  expect(render('approximately 2 cups flour', 'metric')).toEqual(['≈ 250 g', 'farina']);
-  expect(render('about 400 g chickpeas', 'metric')).toEqual(['circa 400 g', 'ceci']);
+  expect(render('approximately 2 cups flour', 'metric')).toEqual(['≈ 250 g', 'di farina']);
+  expect(render('about 400 g chickpeas', 'metric')).toEqual(['circa 400 g', 'di ceci']);
   expect(render('about 2 tbsp flour', 'us', en, 'en')).toEqual(['about 2 tbsp', 'flour']);
 });
 

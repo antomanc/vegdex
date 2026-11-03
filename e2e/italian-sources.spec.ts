@@ -11,7 +11,7 @@ for (const language of ['en', 'it'] as const) {
     await page.getByRole('button', { name: title, exact: true }).click();
     let sheet = page.getByRole('dialog');
     await expect(sheet.getByRole('link', { name: /Cucinaverza/ })).toHaveAttribute('href', 'https://cucinaverza.com/piatti-unici/primi/gnocchi-di-barbabietola-e-patate-senza-uova/');
-    await expect(sheet.getByTestId('ingredients')).toContainText(italian ? '300 g barbabietola precotta' : '300 g cooked beetroot');
+    await expect(sheet.getByTestId('ingredients')).toContainText(italian ? '300 g di barbabietola precotta' : '300 g cooked beetroot');
     if (!italian) await expect(sheet.locator('.original-title')).toHaveText('Gnocchi di barbabietola e patate (senza uova)');
     await sheet.getByRole('button', { name: italian ? 'Salva' : 'Save', exact: true }).click();
     await sheet.getByRole('button', { name: italian ? 'Chiudi' : 'Close', exact: true }).click();
@@ -31,7 +31,7 @@ for (const language of ['en', 'it'] as const) {
     await expect(page.getByTestId('recipe-card')).toHaveCount(1);
     await page.getByRole('button', { name: language === 'it' ? 'Frittelle lunari' : 'Lunar pancakes', exact: true }).click();
     const sheet = page.getByRole('dialog');
-    await expect(sheet.getByTestId('ingredients')).toContainText(language === 'it' ? '200 g farina lunare, setacciata finemente' : '200 g lunar flour, finely sifted');
+    await expect(sheet.getByTestId('ingredients')).toContainText(language === 'it' ? '200 g di farina lunare, setacciata finemente' : '200 g lunar flour, finely sifted');
     await expect(sheet.getByRole('link', { name: /Cucina di prova/ })).toHaveAttribute('href', 'https://italian.example/frittelle/');
     expect(errors).toEqual([]);
   });
@@ -47,7 +47,7 @@ for (const language of ['en', 'it'] as const) {
     await expect(page.getByTestId('recipe-card')).toHaveCount(2);
     await page.getByRole('button', { name: title, exact: true }).click();
     let sheet = page.getByRole('dialog');
-    await expect(sheet.getByTestId('ingredients')).toContainText(italian ? '400 g ceci, scolati e sciacquati' : /400 g chick ?peas, drained and rinsed/);
+    await expect(sheet.getByTestId('ingredients')).toContainText(italian ? '400 g di ceci, scolati e sciacquati' : /400 g chick ?peas, drained and rinsed/);
     await expect(sheet.getByTestId('ingredients')).toContainText(italian ? '1 ½ cucchiai di olio di oliva' : '1 ½ tbsp olive oil');
     if (!italian) {
       await expect(sheet.locator('.original-title')).toHaveText('Insalata italiana di ceci');

@@ -194,7 +194,7 @@ describe('amount shapes that used to leak into the name', () => {
 
 describe('parseLine: lines naming two ingredients with their own amounts', () => {
   const lookup: Record<string, string> = {
-    cornstarch: 'cornstarch', water: 'water', 'ground flax seed': 'flax', 'smoked paprika': 'paprika', 'garlic powder': 'garlic-powder',
+    cornstarch: 'cornstarch', water: 'water', 'ground flax seed': 'flax', 'smoked paprika': 'paprika', 'garlic powder': 'garlic-powder', 'onion powder': 'onion-powder',
     salt: 'salt', pepper: 'pepper', juice: 'juice', garlic: 'garlic', cloves: 'clove-spice', 'spelt flour': 'spelt-flour', tamari: 'tamari', miso: 'miso', 'lemon juice': 'lemon-juice',
     'amido di mais': 'cornstarch', acqua: 'water', optional: 'term:optional'
   };
@@ -206,7 +206,12 @@ describe('parseLine: lines naming two ingredients with their own amounts', () =>
     ['2 teaspoons cornstarch mixed with 1 tablespoon water', [[2, 'tsp', 'cornstarch'], [1, 'tbsp', 'water']]],
     ['1 tbsp ground flax seed plus 3 tbsp water', [[1, 'tbsp', 'flax'], [3, 'tbsp', 'water']]],
     ['1 1/2 teaspoons salt and 1/4 teaspoon pepper', [[1.5, 'tsp', 'salt'], [0.25, 'tsp', 'pepper']]],
-    ['1 cucchiaio di amido di mais e 2 cucchiai di acqua', [[1, 'tbsp', 'cornstarch'], [2, 'tbsp', 'water']], 'it']
+    ['1 cucchiaio di amido di mais e 2 cucchiai di acqua', [[1, 'tbsp', 'cornstarch'], [2, 'tbsp', 'water']], 'it'],
+    // "each" shares one amount across a list: every item is a part with that amount.
+    ['1/4 tsp each smoked paprika (, garlic powder)', [[0.25, 'tsp', 'paprika'], [0.25, 'tsp', 'garlic-powder']]],
+    ['1/4 teaspoon each smoked paprika ( and garlic powder)', [[0.25, 'tsp', 'paprika'], [0.25, 'tsp', 'garlic-powder']]],
+    ['1/2 teaspoon EACH garlic & onion powder', [[0.5, 'tsp', 'garlic-powder'], [0.5, 'tsp', 'onion-powder']]],
+    ['1 tsp each salt, smoked paprika and garlic powder', [[1, 'tsp', 'salt'], [1, 'tsp', 'paprika'], [1, 'tsp', 'garlic-powder']]]
   ])('%s splits into its parts', (line, expected, language = 'en') => {
     expect(parts(line, language)).toEqual(expected);
   });
@@ -223,9 +228,17 @@ describe('parseLine: lines naming two ingredients with their own amounts', () =>
     // A later part named by what it takes from the first is not a second purchase.
     ['2 tsp cornstarch + 2 tbsp juice', [[2, 'tsp', null]]],
     ['1 head garlic + 3 large cloves', [[1, 'head', 'garlic']]],
-    ['1 tsp each salt, pepper and ½ tsp cornstarch', [[1, 'tsp', 'salt']]]
+    ['1 tsp each salt, pepper and ½ tsp cornstarch', [[1, 'tsp', 'salt']]],
+    // "each" inside an alternative or a note is not a shared amount.
+    ['2 tsp smoked paprika (or use 1 tsp each of salt and pepper)', [[2, 'tsp', 'paprika']]]
   ])('%s stays one line', (line, expected) => {
     expect(parts(line)).toEqual(expected);
+  });
+
+  it('never reads a shared-amount list it cannot split as its first item alone', () => {
+    const [line] = parseLine('1/4 tsp each salt, moon dust', lookup);
+    expect(line!.concept).toBe('salt');
+    expect(line!.conceptExact).toBe(false);
   });
 
   it('applies a label to every part', () => {

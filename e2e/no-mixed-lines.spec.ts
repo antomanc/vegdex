@@ -66,7 +66,7 @@ test('the reported sweet and sour tofu reads as clean lines or as written, never
   const shown = page.getByRole('dialog').getByTestId('ingredients').locator('li');
   await expect(shown).toHaveCount(lines.length);
   const texts = await shown.allInnerTexts();
-  expect(texts).toContain('454 g tofu compatto');
+  expect(texts).toContain('454 g di tofu compatto');
   expect(texts).toContain('1 cucchiaio di salsa di soia');
   texts.forEach((text, i) => {
     if (tidy(text) !== tidy(lines[i]!)) expect(text, lines[i]).not.toMatch(/\b(?:oil|onion|pineapple|pepper|sugar|vinegar|water|seeds|scallion|garlic|salt|tablespoon|teaspoon|cup)\b/i);

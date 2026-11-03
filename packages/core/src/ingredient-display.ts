@@ -3,9 +3,12 @@ import { languagePacks } from './languages';
 import { findUnsafeRenderedTerms, safeTranslation } from './translations';
 import type { GroceryItem } from './grocery';
 import { exactMetric, formatMetric, toMetric, type Units } from './metric';
+import { isPoured } from './weights';
 import { formatAmount, formatAmountRange, nounForm, termForm, type LanguageVocabulary, type NounForms } from './vocabulary';
 
 const METRIC_UNITS = new Set(['g', 'kg', 'ml', 'l']);
+/** How a cup was filled: nothing to say once the amount is in grams or ml. */
+const CUP_FILL = new Set(['term:packed', 'term:spooned-and-leveled']);
 
 /** Lines that are not ingredients never show; a heading shows only in the language it was written in. */
 export function isHiddenLine(p: ParsedIngredient | undefined, language: string, source = 'en'): boolean {
@@ -21,23 +24,28 @@ export function renderIngredient(
   p: ParsedIngredient, vocab: LanguageVocabulary | undefined, language: string, units: Units, source = 'en'
 ): [amount: string, rest: string] | null {
   const pack = languagePacks[language];
-  if (!vocab || !pack || !p.terms || p.phrase === undefined || !p.name || p.kind || hasDroppedMeasureWords(p)) return null;
+  if (!vocab || !pack || !p.terms || p.phrase === undefined || !p.name || p.kind) return null;
+  const metric = units === 'metric' ? toMetric(p) : null;
+  // "⅓ packed cup (50g)": how full the cup is matters only while the cup is the measure.
+  const weighedExactly = !!metric && p.metric?.unit === metric.unit;
+  if (hasDroppedMeasureWords(p) && !weighedExactly) return null;
   const same = language === source;
   const number = new Intl.NumberFormat(language, { useGrouping: false, maximumFractionDigits: 10 });
   const label = (unit: string, quantity: number) => vocab.units[unit]?.[quantity <= 1 ? 0 : 1];
 
-  const metric = units === 'metric' ? toMetric(p) : null;
   let amount = '';
   let linked = false;
   if (metric) {
     amount = formatMetric(metric, exactMetric(p, metric)).replace(/\d+(?:\.\d+)?/g, (n) => number.format(Number(n)));
+    linked = true;
   } else if (p.quantity !== null) {
     amount = formatAmountRange(p.quantity, p.quantityMax, language);
     if (p.unit) {
-      const unit = label(p.unit, p.quantityMax ?? p.quantity);
+      // A dash of pepper is a pinch; a dash of hot sauce is a splash.
+      const unit = label(p.unit === 'dash' && !isPoured(p.densityName ?? p.name) ? 'pinch' : p.unit, p.quantityMax ?? p.quantity);
       if (!unit) return null;
       amount += ` ${unit}`;
-      linked = !pack.unitLink?.except.includes(p.unit);
+      linked = true;
     }
     if (p.size) {
       const unit = label(p.size.unit, p.size.quantity);
@@ -67,14 +75,18 @@ export function renderIngredient(
   // Written in its own language the name keeps its words; elsewhere words from the name attach to the noun.
   const attached: string[] = [];
   const notes: string[] = [];
+  // "4 spicchi di aglio, tritati": what is chopped is the counted pieces, so notes agree with the unit.
+  const counted = !metric && p.unit ? pack.countUnits?.[p.unit] : undefined;
   for (const term of p.terms) {
     if (same && term.inName) continue;
-    const text = same ? term.text : vocab.terms[term.id] && termForm(vocab.terms[term.id]!, forms?.gender, plural);
+    if (metric && CUP_FILL.has(term.id)) continue;
+    const [gender, many] = counted && !term.inName ? [counted, (p.quantityMax ?? p.quantity ?? 1) > 1] : [forms?.gender, plural];
+    const text = same ? term.text : vocab.terms[term.id] && termForm(vocab.terms[term.id]!, gender, many);
     if (!text) return null;
     (term.inName ? attached : notes).push(text);
   }
   if (attached.length) name = pack.adjectivesFirst ? `${attached.join(' ')} ${name}` : `${name} ${attached.join(' ')}`;
-  const link = linked && pack.unitLink ? `${pack.unitLink.word} ` : '';
+  const link = linked && pack.unitLink ? `${pack.unitLink} ` : '';
   const rest = `${link}${name}${notes.length ? `, ${notes.join(', ')}` : ''}`;
   return findUnsafeRenderedTerms(`${amount} ${rest}`, language).length ? null : [amount, rest];
 }

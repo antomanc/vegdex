@@ -28,7 +28,10 @@ const UNIT_ALIASES: [string[], UnitDef][] = [
   [['pounds', 'pound', 'lbs.', 'lbs', 'lb.', 'lb'], { unit: 'lb', dimension: 'mass', factor: 453.6 }],
   [['cloves', 'clove'], { unit: 'clove', dimension: 'other', factor: 1 }],
   [['cans', 'can', 'tins', 'tin'], { unit: 'can', dimension: 'other', factor: 1 }],
-  [['packages', 'package', 'packs', 'pack', 'pkg', 'packets', 'packet', 'sachets', 'sachet', 'envelopes', 'envelope'], { unit: 'package', dimension: 'other', factor: 1 }],
+  [['packages', 'package', 'packs', 'pack', 'pkg', 'packets', 'packet', 'envelopes', 'envelope'], { unit: 'package', dimension: 'other', factor: 1 }],
+  [['sachets', 'sachet'], { unit: 'sachet', dimension: 'other', factor: 1 }],
+  [['roll'], { unit: 'roll', dimension: 'other', factor: 1 }],
+  [['leaf'], { unit: 'leaf', dimension: 'other', factor: 1 }],
   [['blocks', 'block'], { unit: 'block', dimension: 'other', factor: 1 }],
   [['bunches', 'bunch'], { unit: 'bunch', dimension: 'other', factor: 1 }],
   [['handfuls', 'handful'], { unit: 'handful', dimension: 'other', factor: 1 }],
@@ -479,7 +482,8 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
     sizeNote = times[1]!;
     s = s.slice(times[0].length);
   }
-  if (pack.units) s = s.replace(languageUnitPatterns[language]!, (_, token: string) => `${pack.units![token.toLowerCase()]} `);
+  // A unit word reads as a unit after an amount; "Pizzico di sale" alone still means one pinch, "Foglioline di menta" is the name.
+  if (pack.units) s = s.replace(languageUnitPatterns[language]!, (all, token: string) => (quantity !== null || pack.units![token.toLowerCase()] === 'pinch' ? `${pack.units![token.toLowerCase()]} ` : all));
   const size = times ? null : s.match(/^\(([^)]*)\)\s*/) ?? s.match(PIECE_SIZE_RE) ?? s.match(PACK_SIZE_RE);
   if (size) {
     sizeNote = size[1]!;
@@ -701,6 +705,8 @@ const PART_JOINERS: Record<string, string[]> = { en: ['plus', 'mixed with', 'whi
 const BACK_REFERENCE = /^(?:juice|zest|sauce|brine|liquid|pulp|succo|scorza|salsa|sugo|liquido|polpa|salamoia)$/i;
 /** "1 tsp each cumin, turmeric…": a part sharing its amount with a list that the part would drop. */
 const SHARED_AMOUNT = /(?<!\p{L})(?:each|ciascun[oa]|ognuno)(?!\p{L})/iu;
+/** "each" right after the amount, followed by a list; "(15 oz each)" sizing a package was taken out first. */
+const SHARED_LIST = /^[^,(]*?(?<!\p{L})(?:each|ciascun[oa]|ognuno)(?!\p{L}).*?(?:[,&+(]|\s(?:and|e)\s)/iu;
 
 /**
  * "2 tsp cornstarch + 2 tbsp water": a line naming several ingredients, each with its own amount, as its parts.
@@ -728,7 +734,9 @@ export function parseLine(raw: string, lookup: IngredientLookup = {}, language =
       }
     }
   }
-  if (!points.length) return [parseIngredient(raw, lookup, language)];
+  const shared = sharedAmountParts(body, label, lookup, language);
+  if (shared) return shared;
+  if (!points.length) return [whole(raw, lookup, language)];
   const alternative = new RegExp(String.raw`(?<!\p{L})${pack.or}(?!\p{L})`, 'iu');
   const known = (p: ParsedIngredient) => !p.kind && !!p.concept && p.conceptExact === true;
   // A later part needs its own amount and its own name: "3 large cloves" after a head of garlic is not the spice.
@@ -749,7 +757,33 @@ export function parseLine(raw: string, lookup: IngredientLookup = {}, language =
     const last = part(body.slice(from));
     return known(last) && own(last) && !SHARED_AMOUNT.test(body.slice(from)) ? [last] : null;
   };
-  return split(0, 0) ?? [parseIngredient(raw, lookup, language)];
+  return split(0, 0) ?? [whole(raw, lookup, language)];
+}
+
+/** The line as one part. A shared-amount list ("1 tsp each salt, cumin") is more than its first item, so that name is not exact. */
+function whole(raw: string, lookup: IngredientLookup, language: string): ParsedIngredient {
+  const p = parseIngredient(raw, lookup, language);
+  return p.conceptExact && !p.also && SHARED_LIST.test(p.raw.replace(/\([^()]*\)/g, (b) => (SHARED_AMOUNT.test(b) ? ' ' : b))) ? { ...p, conceptExact: false } : p;
+}
+
+/** "¼ tsp each onion powder (, garlic powder)": one part per listed item, each with the shared amount; null unless every item is known. */
+function sharedAmountParts(body: string, label: string, lookup: IngredientLookup, language: string): ParsedIngredient[] | null {
+  const m = body.match(/^([^,]*\d[^,]*?)\s+(?:each|ciascun[oa]|ognuno)\s*:?\s+([^\d]+)$/iu);
+  const pack = languagePacks[language]!;
+  // Only the amount comes before "each": "2 tsp seasoning (or 1 tsp each of …)" is an alternative.
+  if (!m || /[()]/.test(m[1]!) || new RegExp(String.raw`(?<!\p{L})${pack.or}(?!\p{L})`, 'iu').test(m[1]!)) return null;
+  const list = m[2]!.replace(/[()]/g, ',');
+  if (new RegExp(String.raw`(?<!\p{L})${pack.or}(?!\p{L})`, 'iu').test(list)) return null;
+  const names = list.split(new RegExp(String.raw`\s*,\s*(?:(?:${pack.and}|&)\s+)?|\s+(?:${pack.and}|&)\s+`, 'iu')).map((n) => n.trim()).filter(Boolean);
+  if (names.length < 2) return null;
+  const read = (list: string[]) => {
+    const parts = list.map((name) => parseIngredient(`${label}${m[1]} ${name}`, lookup, language));
+    return parts.every((p) => !p.kind && !!p.concept && p.conceptExact === true) ? parts : null;
+  };
+  // "garlic & onion powder": one-word items may share the last item's noun, when that names what they are.
+  const noun = language === 'en' ? names.at(-1)!.match(/\s(powder|seeds|flakes|leaves|extract)$/i)?.[1] : undefined;
+  const shared = noun && read(names.map((n, i) => (i < names.length - 1 && !/\s/.test(n) ? `${n} ${noun}` : n)));
+  return shared || read(names);
 }
 
 /** Headings, equipment, instructions and asides written among the ingredients. */

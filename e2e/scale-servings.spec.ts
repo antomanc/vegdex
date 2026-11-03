@@ -34,11 +34,11 @@ test('doubling the servings doubles the amounts, and reset brings them back', as
 test('the Italian page doubles the composed amounts', async ({ page }) => {
   const sheet = await openPancakes(page, '/it/');
   const flour = sheet.getByTestId('ingredients').locator('li', { hasText: 'farina 00' });
-  await expect(flour).toHaveText('≈ 250 g farina 00');
+  await expect(flour).toHaveText('≈ 250 g di farina 00');
   await twice(page, 'Più porzioni');
-  await expect(flour).toHaveText('≈ 500 g farina 00');
+  await expect(flour).toHaveText('≈ 500 g di farina 00');
   await sheet.getByRole('button', { name: 'Ripristina' }).click();
-  await expect(flour).toHaveText('≈ 250 g farina 00');
+  await expect(flour).toHaveText('≈ 250 g di farina 00');
 });
 
 test('a recipe without a yield scales in half batches, and unmeasured lines stay as written', async ({ page }) => {
