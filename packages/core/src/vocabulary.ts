@@ -9,6 +9,8 @@ export interface NounForms {
   one: string;
   other: string;
   gender?: Gender;
+  /** Only used in the plural ("spinaci", "semi di chia"), so words agreeing with it are plural even when one = other. */
+  plural?: true;
 }
 
 /** A plain string in languages without gender; otherwise one form per gender and number ("m", "f.pl"). */
@@ -36,7 +38,7 @@ export const isBrandId = (id: string) => id.startsWith(BRAND_PREFIX);
 /** Counts of one or less take the singular; everything else, measured amounts included, the plural form. */
 export function nounForm(forms: NounForms, quantity: number | null, measured: boolean): { text: string; plural: boolean } {
   const one = !measured && quantity !== null && quantity <= 1;
-  return one ? { text: forms.one, plural: false } : { text: forms.other, plural: forms.other !== forms.one };
+  return one && !forms.plural ? { text: forms.one, plural: false } : { text: forms.other, plural: !!forms.plural || forms.other !== forms.one };
 }
 
 export function termForm(forms: TermForms, gender: Gender | undefined, plural: boolean): string | undefined {

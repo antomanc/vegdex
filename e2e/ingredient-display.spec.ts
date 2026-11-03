@@ -23,7 +23,7 @@ test('qualified source amounts survive translated display and both unit choices'
 test('Italian ingredient lines keep amounts and preparation notes with source originals one action away', async ({ page }) => {
   await page.goto('/it/?r=quinoa-salad');
   const sheet = page.getByRole('dialog');
-  await expect(sheet.getByTestId('ingredients')).toContainText('400 g ceci, scolati e sciacquati');
+  await expect(sheet.getByTestId('ingredients')).toContainText('400 g di ceci, scolati e sciacquati');
   await expect(sheet.getByTestId('ingredients')).toContainText("2 cucchiai di olio d'oliva");
   await sheet.getByText('Ingredienti originali', { exact: true }).click();
   await expect(sheet.getByTestId('original-ingredients')).toContainText('400 g chickpeas, drained and rinsed');
@@ -72,7 +72,7 @@ test('a line naming two measured ingredients shows each part in Italian and as w
   await expect(lines.filter({ hasText: 'cornstarch' })).toHaveText(['1 tbsp cornstarch + 1/2 cup water']);
   // In metric each part gets its own amount; the spoon stays a spoon.
   await page.getByRole('dialog').getByRole('button', { name: 'Metric', exact: true }).click();
-  await expect(lines.filter({ hasText: 'cornstarch' })).toHaveText(['1 tbsp cornstarch + ≈ 120 g water']);
+  await expect(lines.filter({ hasText: 'cornstarch' })).toHaveText(['1 tbsp cornstarch + 120 ml water']);
   await page.getByRole('dialog').getByRole('button', { name: 'US', exact: true }).click();
   await page.goto('/it/?r=lentil-soup');
   await expect(lines.filter({ hasText: 'amido di mais' })).toHaveText(['1 cucchiaio di amido di mais']);

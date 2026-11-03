@@ -12,8 +12,10 @@ export interface LanguagePack {
   genders?: Gender[];
   /** "large carrots": descriptive words come before the noun; otherwise after it ("carote grandi"). */
   adjectivesFirst?: boolean;
-  /** "2 cucchiai di olio": the word joining a unit to the ingredient, except after the listed units. */
-  unitLink?: { word: string; except: string[] };
+  /** "2 cucchiai di olio", "200 g di farina": the word joining a unit to the ingredient. */
+  unitLink?: string;
+  /** Units that count pieces of the ingredient, by gender: notes agree with them ("4 spicchi di aglio, tritati"). */
+  countUnits?: Record<string, Gender>;
   units?: Record<string, string>;
   numberWords?: Record<string, number>;
   preposition?: RegExp;
@@ -38,7 +40,8 @@ export const languagePacks: Record<string, LanguagePack> = {
     or: 'o',
     about: 'circa',
     genders: ['m', 'f'],
-    unitLink: { word: 'di', except: ['g', 'kg', 'ml', 'l', 'cm'] },
+    unitLink: 'di',
+    countUnits: { clove: 'm', slice: 'f', piece: 'm', stalk: 'm', head: 'm' },
     units: {
       grammo: 'g', grammi: 'g', chilogrammo: 'kg', chilogrammi: 'kg', chilo: 'kg', chili: 'kg',
       millilitro: 'ml', millilitri: 'ml', litro: 'l', litri: 'l',
@@ -46,11 +49,15 @@ export const languagePacks: Record<string, LanguagePack> = {
       tazza: 'cup', tazze: 'cup', spicchio: 'clove', spicchi: 'clove',
       scatola: 'can', scatole: 'can', lattina: 'can', lattine: 'can', barattolo: 'jar', barattoli: 'jar',
       confezione: 'package', confezioni: 'package', mazzetto: 'bunch', mazzetti: 'bunch',
-      fetta: 'slice', fette: 'slice', pizzico: 'pinch', pizzichi: 'pinch', pezzo: 'piece', pezzi: 'piece'
+      fetta: 'slice', fette: 'slice', pizzico: 'pinch', pizzichi: 'pinch', pezzo: 'piece', pezzi: 'piece',
+      bustina: 'sachet', bustine: 'sachet', vasetto: 'jar', vasetti: 'jar', rotolo: 'roll', rotoli: 'roll',
+      costa: 'stalk', coste: 'stalk', foglia: 'leaf', foglie: 'leaf', foglioline: 'leaf', manciata: 'handful', manciate: 'handful',
+      panetto: 'block', panetti: 'block', cespo: 'head', cespi: 'head', ciuffo: 'bunch', ciuffetto: 'bunch', ciuffi: 'bunch',
+      rametto: 'sprig', rametti: 'sprig', centimetro: 'cm', centimetri: 'cm'
     },
     numberWords: { un: 1, uno: 1, una: 1, due: 2, tre: 3, quattro: 4, cinque: 5, sei: 6, mezzo: 0.5, mezza: 0.5 },
     preposition: /^(?:di\s+|d['’]\s*)/i,
-    trailingNote: /\s+((?:(?:cott[oaie]|scolat[oaie]|sciacquat[oaie]|tritat[oaie]|tagliat[oaie]|sbucciat[oaie]|grattugiat[oaie]|facoltativ[oaie])\b.*)|q\.?\s*b\.?|quanto basta|\+\s+q\.?\s*b\.?(?:\s+ma comunque meno possibile)?)$/i,
+    trailingNote: /\s+((?:(?:già|ben)\s+)?(?:(?:(?:pre)?cott[oaie]|scolat[oaie]|sciacquat[oaie]|tritat[oaie]|tagliat[oaie]|sbucciat[oaie]|grattugiat[oaie]|facoltativ[oaie]|bio(?:logic[oaie])?|da\s+\d|pesat[oaie]|ammollat[oaie]|divis[oaie]|sciolt[oaie]|spremut[oaie]|meglio\s+se|circa|a\s+(?:piacere|scelta|pezzi|rondelle|bastoncino|straccetti)|di\s+(?:medie|grandi|piccole)\s+dimensioni|per\s+(?:decorare|guarnire|servire|impanare|finire|completare|rivestire|allungare|aiutarsi|la|il|le|lo|i|gli)\b|come\s+quest[oa])(?![a-zà-ù]).*)|q\.?\s*b\.?(?:\s+per\s.*)?|quanto basta|\+\s+q\.?\s*b\.?(?:\s+ma comunque meno possibile)?)$/i,
     nonIngredient: /^(?:per (?:servire|guarnire|la decorazione)|nota|note|consiglio)\b/i,
     unsafeLearnedAlias: /\b(?:o|e|con|per|oppure|facoltativ[oaie]|piccol[oaie]|medi[oaie]|grand[ei]|inter[oaie]|mezz[oaie]|tritat[oaie]|tagliat[oaie]|sbucciat[oaie]|grattugiat[oaie]|fresc[hoaie]+|surgelat[oaie]|essiccat[oaie]|divis[oaie]|più)\b/i,
     optional: /\b(?:facoltativ[oaie]|opzional[ei])\b/i,

@@ -65,6 +65,8 @@ jobs:
         run: pnpm build
         env:
           BASE_PATH: /
+          # Cloudflare Web Analytics site token (a repository variable); without it no beacon is added.
+          CF_ANALYTICS_TOKEN: ${{ vars.CF_ANALYTICS_TOKEN }}
 
       - uses: actions/upload-pages-artifact@v4
         with:

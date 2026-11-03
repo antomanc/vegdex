@@ -8,7 +8,7 @@ test('footer language links keep filters and the saved view, including changes m
   await expect(page).toHaveURL('/it/?meal=dessert&max=30&free=gluten&view=saved');
   await expect(page.getByRole('heading', { name: 'Ricette salvate', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'vegdex, tutte le ricette', exact: true }).click();
-  await page.getByRole('button', { name: 'Dolci', exact: true }).click();
+  await page.getByRole('button', { name: 'Dessert', exact: true }).click();
   await page.getByRole('searchbox').fill('soup');
   const english = page.locator('footer').getByRole('link', { name: 'English', exact: true });
   await expect(english).toHaveAttribute('href', '/?q=soup&max=30&free=gluten');
@@ -45,7 +45,7 @@ test.describe('an Italian browser on the English page', () => {
     await page.goto('/?meal=dessert');
     await page.getByRole('link', { name: 'Disponibile in italiano', exact: true }).click();
     await expect(page).toHaveURL('/it/?meal=dessert');
-    await expect(page.getByRole('button', { name: 'Dolci', exact: true })).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.getByRole('button', { name: 'Dessert', exact: true })).toHaveAttribute('aria-pressed', 'true');
     await expect(page.getByRole('link', { name: 'Disponibile in italiano', exact: true })).toHaveCount(0);
   });
 });

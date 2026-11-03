@@ -285,6 +285,18 @@ const CUP_GRAMS: [RegExp, number][] = [
   [/^ice(?: cube)?s?$/, 140]
 ];
 
+/**
+ * Liquids a cook pours rather than weighs, so metric mode measures them in ml ("300 ml latte d'avena").
+ * Thick, solid or powdered forms stay weighed.
+ */
+const POURED = /\bwater\b|club soda|aquafaba|aquababa|coffee|espresso|kombucha|\btea$|\bmilk\b|milk$|creamer|\bcream$|juice$|wine$|sherry|beer|\bsake$|mirin|vinegar$|soy sauce|tamari|liquid aminos|coconut aminos?|(?:broth|stock)$|oil$/;
+const NOT_POURED = /chestnut|powder|granule|instant|condensed|whipped|chocolate|chips?$|coconut oil|cocoa butter|ice cream/;
+
+export function isPoured(name: string): boolean {
+  const n = name.toLowerCase().trim();
+  return POURED.test(n) && !NOT_POURED.test(n);
+}
+
 /** The table entry that weighs this ingredient: its pattern and grams per US cup. */
 export function cupWeight(name: string): { pattern: string; grams: number } | null {
   const n = name.toLowerCase().trim();

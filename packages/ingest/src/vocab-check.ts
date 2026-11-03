@@ -78,7 +78,8 @@ export function checkName(vocab: Vocabulary, language: string, id: string, value
   const concept = vocab.byId.get(id);
   if (!concept) return 'unknown-concept';
   if (concept.vegan === 'no') return 'animal-concept';
-  if (Object.keys(forms).some((k) => !['one', 'other', 'gender'].includes(k))) return 'malformed';
+  if (Object.keys(forms).some((k) => !['one', 'other', 'gender', 'plural'].includes(k))) return 'malformed';
+  if (forms.plural !== undefined && (forms.plural !== true || forms.one !== forms.other)) return 'malformed';
   for (const form of [forms.one, forms.other]) {
     const problem = nameText(language, form);
     if (problem) return problem;

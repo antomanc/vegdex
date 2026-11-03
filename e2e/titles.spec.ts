@@ -17,7 +17,7 @@ test('Italian search finds the displayed title and keeps original-title and ingr
 test('a translated-title search offers the filter removal that brings the recipe back', async ({ page }) => {
   await page.goto('/it/?q=Insalata%20di%20quinoa%20al%20limone&meal=dessert');
   await expect(page.getByTestId('recipe-card')).toHaveCount(0);
-  await page.getByRole('button', { name: /Togli “Dolci”/ }).click();
+  await page.getByRole('button', { name: /Togli “Dessert”/ }).click();
   await expect(page.getByTestId('recipe-card')).toHaveText(/Insalata di quinoa al limone/);
 });
 

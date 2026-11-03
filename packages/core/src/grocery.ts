@@ -168,10 +168,12 @@ export function groceryConcepts(parsed: ParsedIngredient[], lookup: IngredientLo
 /** Grams for a volume line through the density table, as metric mode weighs it; null when unknown. */
 function weighed(p: ParsedIngredient, multiplier: number): number | null {
   const m = toMetric(p);
-  if (m) return m.unit === 'g' ? (m.quantityMax ?? m.quantity) * multiplier : null;
-  // Spoons stay spoons in metric mode, so weigh them here.
+  if (m?.unit === 'g') return (m.quantityMax ?? m.quantity) * multiplier;
+  if (m && m.unit !== 'ml') return null;
+  // Spoons stay spoons in metric mode and liquids show in ml, so weigh them here.
   const perCup = gramsPerCup(p.densityName ?? p.name);
-  return perCup ? (((p.quantityMax ?? p.quantity!) * unitDef(p.unit!)!.factor * multiplier) / 240) * perCup : null;
+  const ml = m ? (m.quantityMax ?? m.quantity) : (p.quantityMax ?? p.quantity!) * unitDef(p.unit!)!.factor;
+  return perCup ? ((ml * multiplier) / 240) * perCup : null;
 }
 
 /**

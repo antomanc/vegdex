@@ -14,7 +14,6 @@ describe('metricLine', () => {
     expect(metricLine('1 cup all-purpose flour')).toEqual(['≈ 125 g', 'all-purpose flour']);
     expect(metricLine('3 cups chopped kale')).toEqual(['≈ 120 g', 'chopped kale']);
     expect(metricLine('1 cup + 2 tablespoons sugar')).toEqual(['≈ 225 g', 'sugar']);
-    expect(metricLine('1/2 to 1 cup water')).toEqual(['≈ 120–235 g', 'water']);
   });
 
   it("uses the blog's own grams as written, and drops the parenthetical that held them", () => {
@@ -31,14 +30,23 @@ describe('metricLine', () => {
     expect(metricLine('1 1/2 cups corn kernels (fresh, frozen, or canned)')).toEqual(['≈ 230 g', 'corn kernels (fresh, frozen, or canned)']);
   });
 
+  it('measures poured liquids in ml, keeping the blog\'s own ml', () => {
+    expect(metricLine('1/2 to 1 cup water')).toEqual(['120–240 ml', 'water']);
+    expect(metricLine('1 1/4 cups (300 mL) oat milk')).toEqual(['300 ml', 'oat milk']);
+    expect(metricLine('2 cups vegetable broth')).toEqual(['480 ml', 'vegetable broth']);
+    expect(metricLine('1/4 cup olive oil')).toEqual(['60 ml', 'olive oil']);
+    expect(metricLine('1/2 cup coconut oil, melted')).toEqual(['≈ 110 g', 'coconut oil, melted']);
+    expect(metricLine('1 cup dairy-free milk chocolate chips')![0]).toMatch(/g$/);
+  });
+
   it('weighs a cup measured in ml by the blog', () => {
-    expect(metricLine('1 cup (240 ml) plant milk')).toEqual(['≈ 245 g', 'plant milk']);
     expect(metricLine('1/4 cup pumpkin puree ((5 ml))')).toEqual(['≈ 60 g', 'pumpkin puree']);
   });
 
   it('converts pounds, ounces and inches exactly', () => {
     expect(metricLine('1 lb potatoes, diced')).toEqual(['450 g', 'potatoes, diced']);
     expect(metricLine('14 oz firm tofu')).toEqual(['400 g', 'firm tofu']);
+    expect(metricLine('8 ounces (227g) fresh blueberries')).toEqual(['225 g', 'fresh blueberries']);
     expect(metricLine('1 inch ginger, grated')).toEqual(['2.5 cm', 'ginger, grated']);
   });
 

@@ -22,4 +22,25 @@ it('retains Italian preparation and taste notes without making headings into pur
   expect(parseIngredient('200 grammi di ceci cotti, scolati', lookup, 'it')).toMatchObject({ concept: 'chickpea', quantity: 200, unit: 'g', note: 'cotti, scolati' });
   expect(parseIngredient('sale q.b.', lookup, 'it')).toMatchObject({ name: 'sale', concept: 'salt', quantity: null, note: 'q.b.' });
   expect(parseIngredient('Per servire: crostini', lookup, 'it').name).toBe('');
+  expect(parseIngredient('220 g ceci già cotti', lookup, 'it')).toMatchObject({ concept: 'chickpea', quantity: 220, unit: 'g' });
+  expect(parseIngredient('1 vasetto di ceci ben sciacquati', lookup, 'it')).toMatchObject({ concept: 'chickpea', quantity: 1, unit: 'jar' });
+  expect(parseIngredient('acqua qb per frullare', { acqua: 'water' }, 'it')).toMatchObject({ concept: 'water', quantity: null });
+});
+
+it('reads Italian packages, leaves and handfuls as units only after an amount', () => {
+  const lookup = { 'lievito per dolci': 'baking-powder', salvia: 'sage', menta: 'mint', sale: 'salt' };
+  expect(parseIngredient('Mezza bustina di lievito per dolci', lookup, 'it')).toMatchObject({ concept: 'baking-powder', quantity: 0.5, unit: 'sachet' });
+  expect(parseIngredient('6-7 foglie di salvia', lookup, 'it')).toMatchObject({ concept: 'sage', quantity: 6, quantityMax: 7, unit: 'leaf' });
+  expect(parseIngredient('Foglioline di menta', lookup, 'it')).toMatchObject({ unit: null, concept: null });
+  expect(parseIngredient('Pizzico di sale', lookup, 'it')).toMatchObject({ concept: 'salt', unit: 'pinch' });
+  expect(parseIngredient('circa 900 ml di acqua', { acqua: 'water' }, 'it')).toMatchObject({ concept: 'water', quantity: 900, unit: 'ml', approx: true });
+  expect(parseIngredient('1 cucchiaino colmo di lievito per dolci', lookup, 'it')).toMatchObject({ concept: 'baking-powder', quantity: 1, unit: 'tsp' });
+  expect(parseIngredient('Il succo di mezzo limone bio', { limone: 'lemon' }, 'it')).toMatchObject({ concept: 'lemon', quantity: 0.5 });
+  expect(parseIngredient('Succo di limone', { limone: 'lemon', 'succo di limone': 'lemon-juice' }, 'it').concept).toBe('lemon-juice');
+  expect(parseIngredient('Qualche foglia di salvia fresca', { 'salvia fresca': 'sage' }, 'it')).toMatchObject({ concept: 'sage', quantity: null });
+  expect(parseIngredient('300 g farina di tipo 0 (va bene anche la tipo 1)', { 'farina tipo 0': 'flour-0' }, 'it').concept).toBe('flour-0');
+  expect(parseIngredient('Un bel pizzico di sale', lookup, 'it')).toMatchObject({ concept: 'salt', quantity: 1, unit: 'pinch' });
+  expect(parseIngredient('Pane casereccio per servire', { 'pane casereccio': 'bread' }, 'it').concept).toBe('bread');
+  expect(parseIngredient('1 pomodoro tondo circa 100 g', { 'pomodoro tondo': 'tomato' }, 'it').concept).toBe('tomato');
+  expect(parseIngredient('1 cespo di radicchio', { radicchio: 'radicchio' }, 'it')).toMatchObject({ concept: 'radicchio', unit: 'head' });
 });

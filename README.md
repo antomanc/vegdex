@@ -41,7 +41,9 @@ vegdex stores recipe facts such as titles, ingredient lines, times, servings, ra
 
 Ingredient translations are composed from the vocabulary in `packages/ingest/data/vocab/`. Lines that cannot be composed stay as written; commentary is omitted. See [ADR 0005](docs/adr/0005-vocabulary-in-git-filled-by-any-worker.md) and the [vocabulary guide](docs/agents/vocabulary.md).
 
-The metric switch uses the publisher's gram measurements when available. Otherwise it estimates grams from a table based on USDA FoodData Central and the King Arthur Baking ingredient weight chart; estimates are marked `≈`. Spoons and whole items stay as written.
+The metric switch uses the publisher's gram measurements when available. Liquids such as water, broth, plant milk and oil are shown in ml. Other cup measures are estimated in grams from a table based on USDA FoodData Central and the King Arthur Baking ingredient weight chart; estimates are marked `≈`. Spoons and whole items stay as written.
+
+The public site counts visits with Cloudflare Web Analytics, which sets no cookies. The deploy adds it only when the `CF_ANALYTICS_TOKEN` repository variable is set.
 
 ## Development
 
