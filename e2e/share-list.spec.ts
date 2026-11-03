@@ -20,7 +20,7 @@ const listText = (garlic: boolean) => [
   '- Spinach: 4 cups (960 ml)',
   '',
   'Tofu & alternatives',
-  '- Tofu: 1 block',
+  '- Extra-firm tofu: 1 block',
   '',
   'Beans & legumes',
   '- Red lentil: 1 cup (240 ml)',

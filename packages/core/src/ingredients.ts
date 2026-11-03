@@ -368,7 +368,7 @@ function reduceSegment(segment: string): string {
 function reduceAlternative(text: string): string {
   let s = text;
   s = s.replace(/\b(to taste|as needed|for (?:serving|garnish|topping|frying|the pan|greasing|drizzling)|if needed|optional)\b.*$/, '');
-  s = s.replace(/[^a-z0-9&'\- ]/g, ' ');
+  s = s.replace(/[^\p{L}\p{N}&'\- ]/gu, ' ');
   const kept = s.split(/\s+/).filter((w) => w && !DESCRIPTORS.has(w) && !/^\d/.test(w));
   let name = kept.join(' ').trim();
   const direct = SYNONYMS[name];
@@ -572,7 +572,12 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
   }
 
   // "garlic cloves" written name-first.
-  if (!unit && quantity !== null && /^(?:(?:x-large|extra-large|large|medium|small|big|fat)\s+)?garlic cloves?\b/i.test(s)) unit = 'clove';
+  // The clove becomes the unit and the name keeps only the garlic, as "3 large cloves garlic" does.
+  const nameFirstClove = !unit && quantity !== null ? s.match(/^(?:(?:x-large|extra-large|large|medium|small|big|fat)\s+)?(garlic) cloves?\b/i) : null;
+  if (nameFirstClove) {
+    unit = 'clove';
+    s = nameFirstClove[1]! + s.slice(nameFirstClove[0].length);
+  }
 
   const paren = s.match(/^\(([^)]*)\)\s*/);
   const parenMetric = paren ? extractMetric(paren[1]!) : null;
