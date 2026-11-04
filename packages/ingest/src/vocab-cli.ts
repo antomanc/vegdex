@@ -82,6 +82,10 @@ function gaps() {
   const languages = (values.lang ?? '').split(',').map((s) => s.trim()).filter(Boolean);
   if (!kinds.length || !languages.length || kinds.some((k) => !KINDS.includes(k)))
     throw new Error(`Use --kind ${KINDS.join('|')} --lang <code>, comma-separated for several`);
+  // A typo in a language would otherwise finish the walk and write nothing for it.
+  const known = Object.keys(loadVocabulary().files);
+  const unknown = languages.filter((language) => !known.includes(language));
+  if (unknown.length) throw new Error(`Unknown language(s): ${unknown.join(', ')}; known: ${known.join(', ')}`);
   const { vocab, recipes } = prepared();
   const all = findGaps(recipes, vocab, Object.keys(vocab.files));
   const size = Number(values.size ?? 50);
