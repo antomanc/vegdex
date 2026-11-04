@@ -17,7 +17,7 @@ export default defineConfig({
   },
   webServer: [
     {
-      command: 'pnpm --filter @vegdex/web build && pnpm --filter @vegdex/web preview --port 4174 --strictPort',
+      command: 'LANDING_DATA=../../e2e/fixtures/data pnpm --filter @vegdex/web build && pnpm --filter @vegdex/web preview --port 4174 --strictPort',
       url: 'http://localhost:4174',
       reuseExistingServer: !process.env.CI,
       timeout: 120_000
