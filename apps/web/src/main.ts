@@ -1,7 +1,7 @@
 import { mount } from 'svelte'
-import '@fontsource-variable/dm-sans/wght.css'
-import '@fontsource/barlow-semi-condensed/latin-600.css'
-import '@fontsource/barlow-semi-condensed/latin-700.css'
+import '@fontsource-variable/besley/wght.css'
+import '@fontsource/courier-prime/400.css'
+import '@fontsource/courier-prime/700.css'
 import './app.css'
 import App from './App.svelte'
 

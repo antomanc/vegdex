@@ -254,7 +254,7 @@
   <div class="brand-row">
     <h1 class="brand-h">
       <button class="brand" bind:this={homeButton} onclick={home} aria-label={m.all_recipes()}>
-        vegdex
+        <img class="logo" src="{import.meta.env.BASE_URL}favicon.svg" alt="" width="28" height="28" /> vegdex
       </button>
     </h1>
     <div class="top-actions">

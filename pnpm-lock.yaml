@@ -187,10 +187,10 @@ importers:
 
   apps/web:
     dependencies:
-      '@fontsource-variable/dm-sans':
+      '@fontsource-variable/besley':
         specifier: ^5.3.0
         version: 5.3.0
-      '@fontsource/barlow-semi-condensed':
+      '@fontsource/courier-prime':
         specifier: ^5.3.0
         version: 5.3.0
       '@vegdex/core':
@@ -1016,11 +1016,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource-variable/dm-sans@5.3.0':
-    resolution: {integrity: sha512-BpUG5bqePiDFMBM4ZtLSlPdAIOM990uB1dlXzIf4aw21yQR7BmykedLXXXMqGWsR18aMLOsbWccwJNh3ztTQaA==}
+  '@fontsource-variable/besley@5.3.0':
+    resolution: {integrity: sha512-RTtCh7VsXhW+9PAX7EsEhXMYhLFZhFl2EkrVwgUYbgV27Doe7b3glhUCeNVP2XPUkaKre6LfTwLIXTzVbsfKnA==}
 
-  '@fontsource/barlow-semi-condensed@5.3.0':
-    resolution: {integrity: sha512-EdpQ1GlLMofGqDsQhEw+g6DonNKmzt21p8y/oNbTl4BFzEkqYkFyE2fj25YGxmZBL/LZZGAxe74FlvEWcgc31w==}
+  '@fontsource/courier-prime@5.3.0':
+    resolution: {integrity: sha512-KIi1k4VG1Wv+/CGpb1AUpLkUuOAQA6zmvthqxOZGN0AV8BEgQgbK7qAtquv14zsBJAY1bb5BHIEbWVFLgENh0w==}
 
   '@inlang/paraglide-js@2.29.2':
     resolution: {integrity: sha512-fbgYu7DT6b9m4dY5mAVEGipGE3yUOk1KTF+1964N9eg+vQ3qNGNa5Gy2HwqoX88B9ai97rvsqC2X/l+mEI9tuQ==}
@@ -4083,9 +4083,9 @@ snapshots:
   '@esbuild/win32-x64@0.28.2':
     optional: true
 
-  '@fontsource-variable/dm-sans@5.3.0': {}
+  '@fontsource-variable/besley@5.3.0': {}
 
-  '@fontsource/barlow-semi-condensed@5.3.0': {}
+  '@fontsource/courier-prime@5.3.0': {}
 
   '@inlang/paraglide-js@2.29.2(typescript@6.0.3)(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1))':
     dependencies:
