@@ -141,7 +141,7 @@
         <p class="hint" id="have-hint">{m.include_hint()} {m.pending_hint()}</p>
         <div class="input-row">
           <IngredientField id="have" bind:value={have} {names} {chosen} placeholder={m.include_example()} describedby="have-hint" onfocus={suggest} onpick={(v) => picked('include', v)} />
-          <button class="btn-sm" disabled={!have.trim()}>{m.add()}</button>
+          {#if have.trim()}<button class="btn-sm">{m.add()}</button>{/if}
         </div>
         {#if filters.include.length}
           <div class="chips">
@@ -157,7 +157,7 @@
         <p class="hint" id="avoid-hint">{m.exclude_hint()}</p>
         <div class="input-row">
           <IngredientField id="avoid" bind:value={avoid} {names} {chosen} placeholder={m.avoid_example()} describedby="avoid-hint" onfocus={suggest} onpick={(v) => picked('exclude', v)} />
-          <button class="btn-sm" disabled={!avoid.trim()}>{m.add()}</button>
+          {#if avoid.trim()}<button class="btn-sm">{m.add()}</button>{/if}
         </div>
         {#if filters.exclude.length}
           <div class="chips">

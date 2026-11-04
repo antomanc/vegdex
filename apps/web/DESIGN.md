@@ -29,8 +29,9 @@ colors:
   dark-crate-green: "#79c58a"
   dark-on-green: "#0e1a11"
   dark-green-wash: "#1f3324"
-  dark-sign-red: "#ff7a62"
-  dark-tag-red: "#ff7a62"
+  dark-sign-red: "#f2593f"
+  dark-tag-red: "#f2593f"
+  dark-label-yellow: "#e8bd2a"
   dark-on-tag: "#151515"
   dark-heart-disc: "rgb(18 18 17 / 0.85)"
 typography:
@@ -162,9 +163,9 @@ White ground, black ink and outlines. Three signal colors, each with one job.
 
 ### Signals
 - **Crate Green** (#2f6b3f; night #79c58a): the thing you can act on or the choice you made. Primary buttons, Pick for me, selected signs and pills, focus rings, the wordmark, links.
-- **Tag Red** (#d6311e; night #ff7a62): filled tags only. Time tags, the chosen time, the Saved key when on. White text by day, dark text at night.
-- **Sign Red** (#c92e1c; night #ff7a62): red as ink. Hearts, the saved state, text buttons (Clear, Uncheck all), aisle headings, the search caret. By day it is darker than Tag Red so text clears contrast. At night the two are the same color.
-- **Label Yellow** (#f3c623): the rating label and text selection, nothing else. It keeps its ink text in both themes.
+- **Tag Red** (#d6311e; night #f2593f): filled tags only. Time tags, the chosen time, the Saved key when on. White text by day, dark text at night.
+- **Sign Red** (#c92e1c; night #f2593f): red as ink. Hearts, the saved state, "avoid" chips, the search caret. Text buttons and aisle headings stay in ink. By day it is darker than Tag Red so text clears contrast. At night the two are the same color.
+- **Label Yellow** (#f3c623; night #e8bd2a): the rating label and text selection, nothing else. It keeps its ink text in both themes.
 
 ### Neutral
 - **Paper / Surface** (#ffffff; night #121211 / #1c1c1a): page and sheets.
@@ -192,7 +193,7 @@ Two voices. Bowlby One (`@fontsource/bowlby-one`) letters signs: anything that w
 - **Sign** (Bowlby 0.9rem): course and flavor signs, Pick for me, time choices (0.85rem).
 - **Tag** (Bowlby 0.95rem, tabular): the time.
 - **Screen title** (Bowlby 1.4rem): Saved recipes, a blog's shelf, More filters, Shopping list.
-- **Section title** (Bowlby 1.15rem): Ingredients. Aisle headings use Bowlby 0.95rem in Sign Red.
+- **Section title** (Bowlby 1.15rem): Ingredients. Aisle headings use Bowlby 0.95rem in ink.
 - **Recipe title** (Work Sans 720, 1.55rem): the open recipe. A recipe title is content, so it stays in Work Sans.
 - **Card title** (Work Sans 680, 1.0625rem; 0.95rem under 380px): clamped to three lines, balanced, with the first letter uppercased to absorb publisher casing.
 - **Body** (Work Sans 1rem): ingredient lines (`text-wrap: pretty`, 65ch max), with the leading amount in 700.
@@ -211,9 +212,9 @@ Mobile first, with a 1200px content width. Header and content share one left edg
 
 - **Header:** brand row and search, closed by a 3px rule. On phones, scrolling leaves only the search pinned and the brand row scrolls away; Back to top in the dock brings it back. From 900px, brand, search (640px at most) and keys share one row and the whole header stays.
 - **Signs:** two lines that scroll together, dinner courses first (Mains, Soups, Salads, Sides, Breakfast, Snacks, Desserts), then Savory, Sweet and the rest. Tab order follows the lines. On phones the row fades over its last 44px and the fade lets go at the end of the row; a chosen sign slides into view. Under 360px the signs are one row, so a full card reaches the first screen. From 700px the lines wrap and nothing scrolls.
-- **Filters:** Tonight and More filters share a row, the four times take the next one whole on phones. Each filter has one home: time lives only in the row, High protein only in More filters.
+- **Filters:** one row: Tonight, the four times and More filters. On phones More filters is a round key with a count badge, and only the last time spells out its unit (none under 380px); labels stay for screen readers. Each filter has one home: time lives only in the row, High protein only in More filters.
 - **Grid:** `repeat(auto-fill, minmax(160px, 1fr))`, 22px row and 10px column gaps. Under 380px, two fixed columns. From 700px, `minmax(220px, 1fr)` with 30px and 20px gaps.
-- **Dock:** Pick for me and Back to top. On phones it sits at the bottom centre over a fade of paper. From 700px it floats in the bottom-right corner, off the middle of the photos. `scroll-padding-bottom` keeps keyboard focus clear of it. It always says "Back to top", never "Filters", so nobody taps it expecting to keep their place.
+- **Dock:** Pick for me and Back to top. On phones it sits at the bottom centre over a fade of paper. From 900px Pick moves into the count row beside the sort, so it never covers a photo, and the dock keeps only Back to top in the bottom-right corner. `scroll-padding-bottom` keeps keyboard focus clear of it. It always says "Back to top", never "Filters", so nobody taps it expecting to keep their place.
 - **Sheets:** bottom sheets on phones (640px at most, up to the full height). Centred dialogs from 700px (92dvh). The recipe sheet becomes two columns at 900px: photo and facts stick on the left, ingredients scroll on the right.
 - **Sheet scrolling:** opening a modal fixes the background at its scroll position until the last sheet is removed. The dialog owns vertical scrolling, and gestures stay within it at both edges. Closing restores the grid position; opening a source shelf starts at its heading.
 - **Sheet bar:** Close sits in a sticky bar that is clear at the top and turns solid with a rule once the sheet scrolls, so content passes under the bar and never under the button. Without scroll-driven animation the bar is solid from the start and takes its own space.
@@ -266,15 +267,16 @@ Square-ish and painted. Radii come only from the scale: 2px (signs, tags, rating
 - Badges: outlined, diet in ink, cuisine in muted.
 
 ### Header keys
+- Language: a 44px round key reading the other language's code (IT, EN), named in full for screen readers. The footer spells it out.
 - Night mode: a 44px round key, the icon shows where a tap goes. Follows the system until tapped, then remembers (`lib/theme.svelte.ts`, `vegdex:theme`); an inline script sets `data-theme` before first paint.
 - Saved: the heart is outlined and muted when nothing is saved, red once something is. Under 420px it shows "♥ 3", still named "Saved · 3". Under 360px the leaf logo drops so the row holds.
 
 ### Inputs
 - **Search:** 2px outline, 8px radius, red caret, and a real 44px clear button that stays after the keyboard closes.
-- **Sheet fields:** 44px with an Add button, disabled while the field is empty. Comma-separated entries split into chips. Text left in a field applies when the sheet closes, and the footer then says "Add and show recipes" rather than a stale count.
+- **Sheet fields:** 44px; Add appears once there is text. Typing suggests up to five names in the sheet's flow, prefix matches first with the typed part in green (`IngredientField`, a combobox: arrows, Enter, Escape), never a native datalist, which rebuilds on every keystroke and lags on phones. Comma-separated entries split into chips. Text left in a field applies when the sheet closes, and the footer then says "Add and show recipes" rather than a stale count.
 
 ### Shopping list
-- Aisles in store-walk order under red Bowlby headings. Rows are 52px labels on hairlines with a 24px drawn checkbox. Checked rows sink to the bottom of their aisle: the name strikes through and dims, the amount keeps its contrast. Copy list is the sheet's solid action.
+- Aisles in store-walk order under Bowlby headings. Rows are 52px labels on hairlines with a 24px drawn checkbox. Checked rows sink to the bottom of their aisle: the name strikes through and dims, the amount keeps its contrast. Copy list is the sheet's solid action.
 
 ## Do's and Don'ts
 

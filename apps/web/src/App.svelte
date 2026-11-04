@@ -275,7 +275,7 @@
     <div class="top-actions">
       {#each LOCALES.filter((locale) => locale.code !== pageLocale.code) as locale (locale.code)}
         {#if isLocale(locale.code)}
-          <a class="language-switch" aria-label={m.switch_language({ language: m.language_name({}, { locale: locale.code }) })} href="{import.meta.env.BASE_URL}{locale.prefix ? `${locale.prefix}/` : ''}{queryString}" lang={locale.code} hreflang={locale.hreflang}>{m.language_name({}, { locale: locale.code })}</a>
+          <a class="language-switch" aria-label={m.switch_language({ language: m.language_name({}, { locale: locale.code }) })} href="{import.meta.env.BASE_URL}{locale.prefix ? `${locale.prefix}/` : ''}{queryString}" lang={locale.code} hreflang={locale.hreflang}>{locale.code.toUpperCase()}</a>
         {/if}
       {/each}
       <button class="night" aria-pressed={theme.dark} aria-label={m.night_mode()} title={m.night_mode()} onclick={toggleTheme}>
@@ -363,6 +363,8 @@
         <p>
           <span data-testid="result-count">{countText}</span>{#if !filters.saved && !kitchen}<span class="from">{' '}{m.blog_count(countArgs(blogCount))}</span>{/if}
         </p>
+        <!-- Wide screens: Pick sits here, so it never covers a photo; the dock's copy shows on phones. -->
+        {#if showPick}<button class="pick pick-inline" onclick={pick}><Icon name="shuffle" size={16} /> {m.pick()}</button>{/if}
         <label class="sort">
           <span class="visually-hidden">{m.sort_by()}</span>
           <select value={filters.sort ?? defaultSort()} onchange={(e) => setSort(e.currentTarget.value as Sort)}>
