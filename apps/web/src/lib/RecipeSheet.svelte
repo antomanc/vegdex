@@ -145,7 +145,7 @@
     </p>
     <!-- The printed fields of a recipe card, under its red line. -->
     <dl class="card-fields">
-      {#if recipe.minutes}<div><dt>{m.time()}</dt><dd>{formatMinutes(recipe.minutes)}</dd></div>{/if}
+      {#if recipe.minutes}<div><dt>{m.time()}</dt><dd class="tag">{formatMinutes(recipe.minutes)}</dd></div>{/if}
       {#if recipe.servings}<div><dt>{m.serves()}</dt><dd>{formatNumber(recipe.servings)}</dd></div>{/if}
       {#if recipe.calories || recipe.protein}
         <div>

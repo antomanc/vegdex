@@ -81,6 +81,21 @@
   }
 </script>
 
+<!-- The stall's signs: flavor, then the courses. -->
+<nav class="tabs" aria-label={m.categories()}>
+  <div class="tab-row">
+    <button class="tab savory" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
+      onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>{m.savory()}</button>
+    <button class="tab sweet" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
+      onclick={() => (filters.flavor = filters.flavor === 'sweet' ? null : 'sweet')}>{m.sweet()}</button>
+    <span class="tab-gap" aria-hidden="true"></span>
+    {#each MEAL_LABELS as [meal, label] (meal)}
+      <button class="tab" class:on={filters.meals.includes(meal)} aria-pressed={filters.meals.includes(meal)}
+        onclick={() => toggleMeal(meal)}>{label}</button>
+    {/each}
+  </div>
+</nav>
+
 <div class="pills controls">
   <button class="pill tonight" class:on={isTonight()} aria-pressed={isTonight()} title={m.tonight_hint()} onclick={toggleTonight}>
     <Icon name="clock" size={16} /> {m.tonight()}
@@ -95,21 +110,6 @@
     {/each}
   </div>
 </div>
-
-<!-- The recipe box's dividers: their tabs stand on the edge of the card stack below. -->
-<nav class="tabs" aria-label={m.categories()}>
-  <div class="tab-row">
-    <button class="tab savory" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
-      onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>{m.savory()}</button>
-    <button class="tab sweet" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
-      onclick={() => (filters.flavor = filters.flavor === 'sweet' ? null : 'sweet')}>{m.sweet()}</button>
-    <span class="tab-gap" aria-hidden="true"></span>
-    {#each MEAL_LABELS as [meal, label] (meal)}
-      <button class="tab" class:on={filters.meals.includes(meal)} aria-pressed={filters.meals.includes(meal)}
-        onclick={() => toggleMeal(meal)}>{label}</button>
-    {/each}
-  </div>
-</nav>
 
 {#if more}
   <dialog use:sheet class="sheet" aria-labelledby="more-title" onclose={closed}>

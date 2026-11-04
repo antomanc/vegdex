@@ -187,10 +187,10 @@ importers:
 
   apps/web:
     dependencies:
-      '@fontsource-variable/besley':
+      '@fontsource-variable/work-sans':
         specifier: ^5.3.0
         version: 5.3.0
-      '@fontsource/courier-prime':
+      '@fontsource/bowlby-one':
         specifier: ^5.3.0
         version: 5.3.0
       '@vegdex/core':
@@ -1016,11 +1016,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource-variable/besley@5.3.0':
-    resolution: {integrity: sha512-RTtCh7VsXhW+9PAX7EsEhXMYhLFZhFl2EkrVwgUYbgV27Doe7b3glhUCeNVP2XPUkaKre6LfTwLIXTzVbsfKnA==}
+  '@fontsource-variable/work-sans@5.3.0':
+    resolution: {integrity: sha512-le8h/OIIuhm5Z7TdvuMw0yKg2gaCZUiMec8zaumsVVjzeJRBPEF0bQI/MkaZDHCVzZDvZoP/O2LiGOSfDLSbaw==}
 
-  '@fontsource/courier-prime@5.3.0':
-    resolution: {integrity: sha512-KIi1k4VG1Wv+/CGpb1AUpLkUuOAQA6zmvthqxOZGN0AV8BEgQgbK7qAtquv14zsBJAY1bb5BHIEbWVFLgENh0w==}
+  '@fontsource/bowlby-one@5.3.0':
+    resolution: {integrity: sha512-mjHkM64RbN4I2xFpk+6sQt+aF/k46IHEWP6ul4/RwAYJF5ETDjUmDp1zgU2Tj/w2yYIjMGVyGVifCNNR5ZbyZQ==}
 
   '@inlang/paraglide-js@2.29.2':
     resolution: {integrity: sha512-fbgYu7DT6b9m4dY5mAVEGipGE3yUOk1KTF+1964N9eg+vQ3qNGNa5Gy2HwqoX88B9ai97rvsqC2X/l+mEI9tuQ==}
@@ -4083,9 +4083,9 @@ snapshots:
   '@esbuild/win32-x64@0.28.2':
     optional: true
 
-  '@fontsource-variable/besley@5.3.0': {}
+  '@fontsource-variable/work-sans@5.3.0': {}
 
-  '@fontsource/courier-prime@5.3.0': {}
+  '@fontsource/bowlby-one@5.3.0': {}
 
   '@inlang/paraglide-js@2.29.2(typescript@6.0.3)(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1))':
     dependencies:
