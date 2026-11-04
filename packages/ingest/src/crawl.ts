@@ -32,19 +32,34 @@ export interface SourceResult {
 const BLOCKED = new Set([403, 429, 503]);
 const today = () => new Date().toISOString().slice(0, 10);
 
-async function discover(source: CrawlSource, robots: Robots, queue: HostQueue): Promise<SitemapEntry[]> {
+export interface Discovery {
+  entries: SitemapEntry[];
+  /** Why the sitemap walk came back empty, so a blocked source is not reported as a quiet one. */
+  note?: string;
+}
+
+export async function discover(
+  source: CrawlSource,
+  robots: Robots,
+  queue: HostQueue,
+  fetchSitemap: typeof fetchText = fetchText
+): Promise<Discovery> {
   const roots = robots.sitemaps.length
     ? robots.sitemaps
     : ['/sitemap_index.xml', '/wp-sitemap.xml', '/sitemap.xml'].map((p) => source.url + p);
   const seen = new Set<string>();
   const entries = new Map<string, SitemapEntry>();
+  const failures: string[] = [];
   const todo = [...new Set(roots)];
   while (todo.length && seen.size < 60) {
     const url = todo.shift()!;
     if (seen.has(url)) continue;
     seen.add(url);
-    const res = await queue.run(() => fetchText(url)).catch(() => null);
-    if (!res || res.status !== 200) continue;
+    const res = await queue.run(() => fetchSitemap(url)).catch(() => null);
+    if (!res || res.status !== 200) {
+      failures.push(res ? `${url} HTTP ${res.status}` : `${url} unreachable`);
+      continue;
+    }
     const parsed = parseSitemap(res.text);
     for (const child of parsed.sitemaps) if (isContentSitemap(child)) todo.push(child);
     for (const e of parsed.urls) if (!/\.(?:jpe?g|png|webp|gif|pdf)$/i.test(e.url)) entries.set(e.url, e);
@@ -52,9 +67,13 @@ async function discover(source: CrawlSource, robots: Robots, queue: HostQueue): 
     if (parsed.sitemaps.length && !robots.sitemaps.length) todo.splice(0, todo.length, ...parsed.sitemaps.filter(isContentSitemap).filter((s) => !seen.has(s)));
   }
   const include = source.include ? new RegExp(source.include) : null;
-  return [...entries.values()].filter(
+  const fromSitemaps = [...entries.values()].filter(
     (e) => isCandidateUrl(e.url, source.url, source.contentLanguage ?? 'en') && (!include || include.test(new URL(e.url).pathname))
   );
+  const note = fromSitemaps.length || !failures.length
+    ? undefined
+    : `no sitemap entries: ${failures.slice(0, 3).join('; ')}${failures.length > 3 ? ` and ${failures.length - 3} more` : ''}`;
+  return { entries: fromSitemaps, note };
 }
 
 /** Is this URL worth (re)fetching today? */
@@ -74,10 +93,10 @@ export async function crawlSource(source: CrawlSource, store: Store, opts: Crawl
   const gap = Math.max(opts.gapMs, Math.min((robots.crawlDelay ?? 0) * 1000, 10_000));
   const queue = new HostQueue(gap);
 
-  const entries = await discover(source, robots, queue);
+  const { entries, note } = await discover(source, robots, queue);
   result.candidates = entries.length;
   if (!entries.length) {
-    result.note = 'no sitemap entries found';
+    result.note = note ?? 'no sitemap entries found';
     return result;
   }
 
