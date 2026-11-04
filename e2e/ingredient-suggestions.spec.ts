@@ -43,6 +43,40 @@ test('typing a name the list does not know still adds it', async ({ page }) => {
   await expect(page.getByRole('button', { name: 'Remove lent' })).toBeVisible();
 });
 
+test('hands the native datalist a short list, and typing still reaches names further down', async ({ page }) => {
+  // A long list: Safari rebuilds its suggestion popup from every option on each keystroke.
+  const names = Array.from({ length: 400 }, (_, i) => `ingredient ${i}`)
+  names.push('saffron')
+  await page.route('**/data/suggest/*.json', (route) => route.fulfill({ json: names }));
+  await page.goto('/');
+  await page.getByRole('button', { name: /More filters/ }).click();
+  const have = page.getByLabel('Must include');
+
+  await have.focus();
+  await expect.poll(() => options(have)).toHaveLength(50);
+  expect(await options(have)).not.toContain('saffron');
+
+  // A name past the cap is one keystroke away.
+  await have.fill('saff');
+  await expect.poll(() => options(have)).toEqual(['saffron']);
+});
+
+test('matching ignores case, and a mixed-case name can still be picked', async ({ page }) => {
+  // Real suggestions keep their case: "Old Bay", "senape di Digione", "lenticchie di Puy".
+  await page.route('**/data/suggest/*.json', (route) => route.fulfill({ json: ['aglio', 'senape di Digione'] }))
+  await page.goto('/it/')
+  await page.getByRole('button', { name: /Altri filtri/ }).click();
+  const have = page.getByLabel('Deve contenere');
+
+  await have.focus();
+  await have.fill('digione');
+  await expect.poll(() => options(have)).toEqual(['senape di Digione']);
+  await pick(have, 'senape di Digione');
+  await expect(page.getByRole('button', { name: 'Rimuovi senape di digione' })).toBeVisible();
+  // Already chosen, so no longer offered: the two sides compare in the same case.
+  expect(await options(have)).not.toContain('senape di Digione');
+});
+
 test('suggestions follow the page language', async ({ page }) => {
   await page.goto('/it/');
   await page.getByRole('button', { name: /Altri filtri/ }).click();
