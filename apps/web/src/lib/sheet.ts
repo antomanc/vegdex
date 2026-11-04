@@ -5,6 +5,11 @@
 
 const closers: (() => void)[] = []
 let ownBacks = 0
+let tappedCard: DOMRect | undefined
+// iOS does not always focus a tapped button; capture the card before Svelte opens its sheet.
+document.addEventListener('click', (event) => {
+  tappedCard = event.target instanceof Element ? event.target.closest('.card-open')?.getBoundingClientRect() : undefined
+}, true)
 let afterPop: () => void = () => {}
 
 /** Called after back closes a sheet: the entry below holds an older URL, so rewrite it. */
@@ -28,8 +33,8 @@ export function closeSheet(dialog: HTMLDialogElement | null) {
   const style = getComputedStyle(dialog)
   dialog.classList.add('closing')
   const exit = dialog.animate([
-    { translate: style.translate, rotate: style.rotate, opacity: style.opacity },
-    { translate: '0 24px', rotate: '-0.4deg', opacity: 0 }
+    { translate: style.translate, rotate: style.rotate, transform: style.transform, opacity: style.opacity },
+    { translate: '0 32px', rotate: '-0.7deg', transform: 'scale(0.97)', opacity: 0 }
   ], { duration: 180, easing: 'cubic-bezier(0.4, 0, 1, 1)', fill: 'forwards' })
   void exit.finished.then(() => {
     if (dialog.isConnected) dialog.close()
@@ -39,9 +44,21 @@ export function closeSheet(dialog: HTMLDialogElement | null) {
 /** Svelte action for a sheet `<dialog>`: opens it, closes on backdrop tap and on back. */
 export function sheet(dialog: HTMLDialogElement) {
   const close = () => closeSheet(dialog)
+  const origin = tappedCard ?? document.activeElement?.closest('.card')?.getBoundingClientRect()
+  tappedCard = undefined
   history.pushState(history.state, '', location.href)
   closers.push(close)
   dialog.showModal()
+  if (dialog.matches('.recipe-sheet') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const target = dialog.getBoundingClientRect()
+    const from = origin
+      ? `translate(${origin.x + origin.width / 2 - target.x - target.width / 2}px, ${origin.y + origin.height / 2 - target.y - target.height / 2}px) scale(${Math.max(0.42, Math.min(0.8, origin.width / target.width))}) rotate(-1.5deg)`
+      : 'translateY(28%) scale(0.96) rotate(-1.5deg)'
+    dialog.animate([
+      { transform: from, opacity: 0.35 },
+      { transform: 'none', opacity: 1 }
+    ], { duration: 460, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' })
+  }
 
   // Closed by the close button, Esc or the backdrop: drop the history entry it took.
   const release = () => {

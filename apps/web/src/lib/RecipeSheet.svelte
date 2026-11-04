@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { saveFeedback } from './save-feedback'
+  import { untrack } from 'svelte'
   import { display, recipeTitle } from './translations.svelte'
   import { isHiddenLine, lineParts, renderIngredient, scaleIngredient, type CatalogRecipe, type ParsedLine } from '@vegdex/core'
   import { loadDetails } from './data'
@@ -32,9 +34,22 @@
   let copiedTimer: ReturnType<typeof setTimeout> | undefined
   /** The link to copy by hand, when the clipboard refused it. */
   let manualLink = $state('')
-  // A new draw swaps the recipe in the open sheet: start it from the top.
+  let shownId: string | undefined
+  // A new draw slides the next card onto the counter without moving the controls.
   $effect(() => {
-    recipe.id
+    const id = recipe.id
+    const current = untrack(() => dialog)
+    if (current && shownId && shownId !== id) {
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches
+      for (const part of current.querySelectorAll('.recipe-head, .recipe-ingredients')) {
+        for (const animation of part.getAnimations()) animation.cancel()
+        part.animate([
+          { transform: still ? 'none' : 'translateX(28px) rotate(0.6deg)', opacity: 0.3 },
+          { transform: 'none', opacity: 1 }
+        ], { duration: still ? 120 : 320, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' })
+      }
+    }
+    shownId = id
     broken = false
     copied = false
     manualLink = ''
@@ -201,7 +216,7 @@
     {/if}
     <div class="sheet-footer actions">
       <div class="recipe-secondary-actions">
-        <button class="save" class:on={isSaved} aria-pressed={isSaved} onclick={() => toggleSaved(recipe.id)}>
+        <button use:saveFeedback class="save" class:on={isSaved} aria-pressed={isSaved} onclick={() => toggleSaved(recipe.id)}>
           <Icon name="heart" size={18} filled={isSaved} /> {isSaved ? m.saved_recipe() : m.save()}
         </button>
         {#if ondraw}

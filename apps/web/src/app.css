@@ -56,6 +56,7 @@
 }
 
 * { box-sizing: border-box; }
+html, .sheet { touch-action: pan-x pan-y; }
 body { margin: 0; min-height: 100dvh; }
 button, input, select { font: inherit; color: inherit; }
 button { cursor: pointer; }
@@ -65,7 +66,6 @@ button:disabled { cursor: default; }
 }
 :where(button, a.cta):not(:disabled, [aria-disabled='true'], .brand, .card-open):active { scale: 0.97; }
 :where(.heart, .save) .icon { transition: scale 200ms var(--ease-out); }
-:where(.heart, .save).on .icon { scale: 1.1; }
 :where(.heart, .save):active .icon { scale: 0.85; }
 :focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 ::placeholder { color: var(--muted); opacity: 1; }
@@ -285,6 +285,14 @@ li:nth-child(even) > .card .time { rotate: 1.5deg; }
 }
 .heart::before { content: ''; position: absolute; inset: 5px; border-radius: 50%; background: var(--heart-disc); z-index: -1; }
 .heart.on { color: var(--tomato); }
+.heart.saving::after {
+  content: ''; position: absolute; inset: 8px; border: 1.5px solid var(--tomato); border-radius: 50%;
+  pointer-events: none; animation: saved-ring 440ms var(--ease-out) both;
+}
+@keyframes saved-ring {
+  from { scale: 0.65; opacity: 0.7; }
+  to { scale: 1.65; opacity: 0; }
+}
 .sentinel { height: 1px; }
 .credits { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: auto; padding-top: 40px; line-height: 1.5; text-wrap: balance; }
 /* A separator stays with the link before it, never leading a line. */
@@ -302,9 +310,10 @@ li:nth-child(even) > .card .time { rotate: 1.5deg; }
 /* A sheet slides up into place, like a card pulled from the box. */
 .sheet[open] { transition: translate 320ms var(--ease-out), rotate 320ms var(--ease-out), opacity 180ms ease-out; transform-origin: 50% 100%; }
 @starting-style {
-  .sheet[open] { translate: 0 40px; rotate: -0.7deg; opacity: 0; }
+  .sheet[open]:not(.recipe-sheet) { translate: 0 40px; rotate: -0.7deg; opacity: 0; }
   .sheet[open]::backdrop { opacity: 0; }
 }
+.recipe-sheet { transform-origin: center; }
 .sheet-body { padding: 20px 20px 28px; position: relative; }
 .sheet-top { position: sticky; top: 20px; height: 0; z-index: 2; }
 .close {
@@ -426,7 +435,7 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
   .card:has(.card-open:hover) { translate: none; }
   .card-open:hover img { transform: none; }
   .share .bubble { translate: none; }
-  @starting-style { .sheet[open] { translate: none; rotate: none; } }
+  @starting-style { .sheet[open]:not(.recipe-sheet) { translate: none; rotate: none; } }
 }
 
 /* Keep the creator link readable beside long translated labels and publisher names. */

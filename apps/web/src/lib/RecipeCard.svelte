@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { saveFeedback } from './save-feedback'
   import { recipeTitle } from './translations.svelte'
   import type { CatalogRecipe } from '@vegdex/core'
   import { m, countArgs, formatRating } from './i18n'
@@ -36,6 +37,7 @@
     </p>
   </button>
   <button
+    use:saveFeedback
     class="heart"
     class:on={isSaved}
     aria-pressed={isSaved}

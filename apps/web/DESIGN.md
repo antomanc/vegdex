@@ -218,7 +218,7 @@ Flat by default, with tonal layering (paper → surface). Shadows appear only wh
 
 ### Shadow Vocabulary
 - **Card** (`0 1px 2px var(--card-shadow), 0 2px 8px var(--card-shadow)`): recipe cards resting on the paper; on hover the card lifts 3px out of the box and the shadow deepens. No border with it.
-- **Placed card** (motion): an opening sheet slides up 40px and settles from a 0.7° tilt in 320ms, a card set down on the counter. Closing takes 180ms, with a smaller 24px slide and 0.4° tilt. The backdrop fades with it. Reduced motion keeps the entrance fade and closes immediately, without translation or rotation.
+- **Placed card** (motion): a recipe expands from the tapped card into its sheet in 460ms, settling from a 1.5° tilt. A random pick rises from below; drawing another slides the new content into place in 320ms while the controls stay still. Other sheets enter with a 40px slide and 0.7° tilt in 320ms. Closing takes 180ms with a smaller 32px slide and 0.7° tilt. The backdrop fades with it. Reduced motion removes the recipe entrance and closes immediately; redraws keep a brief fade.
 - **Tag** (`box-shadow: 0 1px 3px var(--shadow)`): time tags stuck on a photo.
 - **Floating control** (`box-shadow: 0 1px 4px var(--shadow)`): the sheet close button.
 - **Floating action** (`0 2px 6px var(--shadow), 0 8px 24px var(--card-shadow)`): the "Pick for me" button docked at the bottom of the browse screen.
@@ -226,8 +226,9 @@ Flat by default, with tonal layering (paper → surface). Shadows appear only wh
 
 ## Interaction feedback
 
-- Controls respond to a press with a small compression (97%); selection colors transition in 160ms. Saving fills and slightly enlarges the heart, with a smaller pressed state so releasing the tap confirms the action.
+- Controls respond to a press with a small compression (97%); selection colors transition in 160ms. An explicit save compresses the heart, expands it to 140%, and settles it in 440ms; a small ring fades around the grid heart. Restored favorites stay still. Unsaving cancels any pending celebration.
 - Checked shopping rows fade their text and move to the end of their aisle in 180ms. Reduced motion keeps the check and text feedback, with immediate reordering.
+- Touch gestures scroll horizontally and vertically; double-tap and pinch page zoom are disabled on the page and modal sheets.
 - Search results appear immediately. No grid entrance choreography or scroll reveals.
 - Reduced motion preserves color and opacity feedback while removing spatial movement, including hover zoom and lift. Hover effects apply only on devices that support hover.
 

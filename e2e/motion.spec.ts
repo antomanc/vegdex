@@ -26,7 +26,7 @@ test('reduced motion preserves feedback without spatial sheet or button motion',
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
   const spatial = await dialog.evaluate((node) => node.getAnimations().some((a) =>
-    (a.effect as KeyframeEffect).getKeyframes().some((k) => k.translate || k.rotate)));
+    (a.effect as KeyframeEffect).getKeyframes().some((k) => k.translate || k.rotate || (k.transform && k.transform !== 'none'))));
   expect(spatial).toBe(false);
   await dialog.getByRole('button', { name: 'Save', exact: true }).click();
   const save = dialog.getByRole('button', { name: 'Saved', exact: true });
@@ -35,4 +35,32 @@ test('reduced motion preserves feedback without spatial sheet or button motion',
   await page.keyboard.press('Escape');
   await expect(dialog).toHaveCount(0);
   await expect(page).not.toHaveURL(/r=/);
+});
+
+
+test('saving pulses once on action and restored favorites stay still', async ({ page }) => {
+  await page.goto('/');
+  const heart = page.getByRole('button', { name: 'Save Red Lentil Soup', exact: true });
+  await heart.click();
+  const saved = page.getByRole('button', { name: 'Unsave Red Lentil Soup', exact: true });
+  await expect(saved).toHaveAttribute('aria-pressed', 'true');
+  expect(await saved.locator('.icon').evaluate((icon) => icon.getAnimations().some((a) =>
+    (a.effect as KeyframeEffect).getKeyframes().some((k) => Number(k.scale) > 1)))).toBe(true);
+  await expect(saved).not.toHaveClass(/saving/);
+  await page.reload();
+  await expect(saved).toBeVisible();
+  expect(await saved.locator('.icon').evaluate((icon) => icon.getAnimations().length)).toBe(0);
+  await saved.click();
+  await heart.click();
+  await saved.click();
+  await expect(heart).toHaveAttribute('aria-pressed', 'false');
+  expect(await heart.locator('.icon').evaluate((icon) => icon.getAnimations().some((a) =>
+    (a.effect as KeyframeEffect).getKeyframes().some((k) => Number(k.scale) > 1)))).toBe(false);
+});
+
+test('touch gestures allow scrolling without browser zoom on the page and sheets', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('html')).toHaveCSS('touch-action', 'pan-x pan-y');
+  await page.getByRole('button', { name: 'Red Lentil Soup', exact: true }).click();
+  await expect(page.getByRole('dialog')).toHaveCSS('touch-action', 'pan-x pan-y');
 });
