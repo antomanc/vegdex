@@ -139,12 +139,17 @@ function stable(value: unknown, indent = ''): string {
   return JSON.stringify(value);
 }
 
+/** The whole vocabulary file as writeVocabulary puts it on disk, so a hand edit can be checked against it. */
+export function formatVocabulary(file: VocabFile): string {
+  return stable({ ...file, commentary: [...new Set(file.commentary)].sort(), brands: [...new Set(file.brands)].sort() }) + '\n';
+}
+
 export function writeVocabulary(vocab: Vocabulary): void {
   fs.mkdirSync(vocab.dir, { recursive: true });
   for (const [language, file] of Object.entries(vocab.files)) {
     const empty = Object.values(file).every((v) => Array.isArray(v) ? !v.length : !Object.keys(v).length);
     if (empty && !fs.existsSync(path.join(vocab.dir, `${language}.json`))) continue;
-    writeAtomic(path.join(vocab.dir, `${language}.json`), stable({ ...file, commentary: [...new Set(file.commentary)].sort(), brands: [...new Set(file.brands)].sort() }) + '\n');
+    writeAtomic(path.join(vocab.dir, `${language}.json`), formatVocabulary(file));
   }
   const added = [...vocab.added].sort((a, b) => a.id.localeCompare(b.id));
   writeAtomic(path.join(vocab.dir, 'concepts.json'), (added.length ? `[\n${added.map((c) => `  ${JSON.stringify(c)}`).join(',\n')}\n]` : '[]') + '\n');

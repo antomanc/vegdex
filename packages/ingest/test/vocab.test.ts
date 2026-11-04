@@ -6,7 +6,7 @@ import { lookupConcept, lookupTerm, parseIngredient, parseLine } from '@vegdex/c
 import { applyAnswers, buildBatch } from '../src/fill';
 import { fillPayoff, findGaps, measureCoverage, type Gap } from '../src/gaps';
 import type { Prepared } from '../src/prepare';
-import { loadVocabulary, writeVocabulary } from '../src/vocab';
+import { formatVocabulary, loadVocabulary, writeVocabulary, type VocabFile } from '../src/vocab';
 import { checkVocabulary } from '../src/vocab-check';
 
 const dirs: string[] = [];
@@ -26,6 +26,15 @@ const VEGAN_BUTTER = 'veg:0001';
 
 it('keeps the committed vocabulary clean of every problem apply would reject', () => {
   expect(checkVocabulary(loadVocabulary())).toEqual([]);
+});
+
+it('keeps every vocabulary file in the format the writer produces', () => {
+  const vocab = loadVocabulary();
+  for (const language of Object.keys(vocab.files)) {
+    const file = path.join(vocab.dir, `${language}.json`);
+    const onDisk = fs.readFileSync(file, 'utf8');
+    expect(onDisk, language).toBe(formatVocabulary(JSON.parse(onDisk) as VocabFile));
+  }
 });
 
 it('parses with taxonomy names, name forms and explicit aliases, keeping terms apart from concepts', () => {
