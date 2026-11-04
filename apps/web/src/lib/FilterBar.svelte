@@ -13,12 +13,23 @@
   let have = $state('')
   let avoid = $state('')
   let names = $state<string[]>([])
+  // What the focused input holds: the datalist is native UI, and Safari rebuilds its popup from
+  // every option on each keystroke, so it only ever gets a short, matching list.
+  let query = $state('')
+  const OFFERED = 50
   // Fetched the first time an ingredient input gets focus, so the first card never waits for it.
-  async function suggest() {
+  async function suggest(e: FocusEvent) {
+    query = (e.currentTarget as HTMLInputElement).value
     if (!names.length) names = await loadSuggestions(pageLocale.code)
   }
   const chosen = $derived(new Set([...filters.include, ...filters.exclude]))
-  const offered = $derived(names.filter((n) => !chosen.has(n)))
+  const offered = $derived.by(() => {
+    const text = query.trim().toLowerCase()
+    const free = names.filter((n) => !chosen.has(n))
+    if (!text) return free.slice(0, OFFERED)
+    // Prefix matches first: that is what the browser itself still filters by.
+    return [...free.filter((n) => n.startsWith(text)), ...free.filter((n) => !n.startsWith(text) && n.includes(text))].slice(0, OFFERED)
+  })
 
   function toggleMeal(m: Meal) {
     filters.meals = filters.meals.includes(m) ? filters.meals.filter((x) => x !== m) : [...filters.meals, m]
@@ -32,6 +43,7 @@
     filters[kind] = [...new Set([...filters[kind], ...values])]
     if (kind === 'include') have = ''
     else avoid = ''
+    query = ''
   }
   function add(kind: 'include' | 'exclude', e: SubmitEvent) {
     e.preventDefault()
@@ -39,9 +51,13 @@
   }
   // Picking a suggestion replaces the text without typing it (no inputType, or insertReplacementText): add it right away.
   function picked(kind: 'include' | 'exclude', e: Event) {
-    const value = (e.currentTarget as HTMLInputElement).value.trim().toLowerCase()
+    const input = e.currentTarget as HTMLInputElement
+    const value = input.value.trim().toLowerCase()
     const typed = e instanceof InputEvent && e.inputType !== 'insertReplacementText'
-    if (typed || !offered.includes(value)) return
+    if (typed || !names.includes(value)) {
+      query = input.value
+      return
+    }
     if (kind === 'include') have = value
     else avoid = value
     commit(kind)
