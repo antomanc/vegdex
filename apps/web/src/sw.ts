@@ -18,7 +18,7 @@ const base = import.meta.env.BASE_URL
 registerRoute(new NavigationRoute((options) => {
   const locale = LOCALES.find((locale) => locale.prefix && options.url.pathname.startsWith(`${base}${locale.prefix}/`)) ?? BASE_LOCALE
   return createHandlerBoundToURL(`${base}${locale.prefix ? `${locale.prefix}/` : ''}index.html`)(options)
-}, { denylist: [/\/data\//, /\/(robots\.txt|sitemap\.xml)$/, /\.webmanifest$/] }))
+}, { denylist: [/\/data\//, /\/(recipes|ricette)\//, /\/(robots\.txt|sitemap\.xml)$/, /\.webmanifest$/] }))
 
 // The dataset changes once a day: serve the cached copy, refresh in the background.
 registerRoute(({ url }) => url.pathname.includes('/data/'), new StaleWhileRevalidate({

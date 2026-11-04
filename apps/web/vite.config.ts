@@ -1,8 +1,9 @@
 import { paraglideVitePlugin } from '@inlang/paraglide-js'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { defineConfig, type Plugin } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
+import { landingPages, type LandingPage } from './landing.ts'
 import { BASE_LOCALE, LOCALES, type Locale } from './src/lib/locales.ts'
 
 // GitHub Pages serves the site from /<repo>/; set BASE_PATH there.
@@ -98,6 +99,25 @@ const seo = (): Plugin => ({
           })
         })
       }
+      // Landing pages come from the emitted catalog (LANDING_DATA points e2e at its fixtures); a build without one skips them.
+      const dataDir = new URL(`${process.env.LANDING_DATA ?? 'public/data'}/`, import.meta.url)
+      const data = (file: string) => JSON.parse(readFileSync(new URL(file, dataDir), 'utf8'))
+      const landing: LandingPage[] = existsSync(new URL('catalog.json', dataDir))
+        ? landingPages({
+          catalog: data('catalog.json'),
+          dictionary: data('dictionary.json'),
+          overlays: Object.fromEntries(LOCALES.map((l) => [l.code, data(`overlay/${l.code}.json`)])),
+          locales: LOCALES,
+          siteUrl,
+          base,
+          mealLabel: (locale, meal) => String(messages(locale.code)[`meal_${meal}`])
+        })
+        : []
+      for (const p of landing) this.emitFile({ type: 'asset', fileName: p.fileName, source: p.html })
+      const entries = [
+        ...LOCALES.map((locale) => ({ url: pageUrl(locale), alternates })),
+        ...landing.map((p) => ({ url: p.url, alternates: p.alternates }))
+      ]
       this.emitFile({
         type: 'asset',
         fileName: 'robots.txt',
@@ -106,7 +126,7 @@ const seo = (): Plugin => ({
       this.emitFile({
         type: 'asset',
         fileName: 'sitemap.xml',
-        source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${LOCALES.map((locale) => `  <url>\n    <loc>${pageUrl(locale)}</loc>\n${alternates.map(({ language, url }) => `    <xhtml:link rel="alternate" hreflang="${language}" href="${url}" />`).join('\n')}\n  </url>`).join('\n')}\n</urlset>\n`
+        source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.map((e) => `  <url>\n    <loc>${e.url}</loc>\n${e.alternates.map(({ language, url }) => `    <xhtml:link rel="alternate" hreflang="${language}" href="${url}" />`).join('\n')}\n  </url>`).join('\n')}\n</urlset>\n`
       })
     }
   }
@@ -133,7 +153,7 @@ export default defineConfig({
       manifest: false,
       injectManifest: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2,webmanifest}'],
-        globIgnores: ['data/**']
+        globIgnores: ['data/**', 'recipes/**', 'it/ricette/**']
       }
     })
   ]
