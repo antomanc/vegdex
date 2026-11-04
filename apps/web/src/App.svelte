@@ -32,6 +32,7 @@
   // The catalog itself lives in a worker (lib/catalog.worker.ts); the page holds what it shows.
   let loaded = $state.raw<Loaded | null>(null)
   let found = $state.raw<Found | null>(null)
+  let searchInput = $state<HTMLInputElement>()
   // The best-rated recipes, shown on a plain landing until the catalog is searchable.
   let firstPage = $state.raw<Catalog | null>(null)
   // Titles the worker searches: bumped once it has the page language's titles.
@@ -285,24 +286,31 @@
         class:on={filters.saved}
         class:has={saved.ids.length > 0}
         aria-pressed={filters.saved}
-        onclick={() => (filters.saved = !filters.saved)}
+        onclick={() => { filters.saved = !filters.saved; scrollTo({ top: 0 }) }}
       >
         <Icon name="heart" size={16} filled={saved.ids.length > 0} />
         <span class="tight-hide">{m.saved()}{saved.ids.length ? ' · ' : ''}</span>{saved.ids.length ? formatNumber(saved.ids.length) : ''}
       </button>
     </div>
   </div>
-  <label class="search">
-    <span class="visually-hidden">{m.search_recipes()}</span>
-    <Icon name="search" size={18} />
-    <input
-      type="search"
-      placeholder={filters.saved ? m.search_saved() : m.search_placeholder()}
-      bind:value={filters.text}
-      autocomplete="off"
-      enterkeyhint="search"
-    />
-  </label>
+  <div class="search">
+    <label>
+      <span class="visually-hidden">{m.search_recipes()}</span>
+      <Icon name="search" size={18} />
+      <input
+        type="search"
+        placeholder={filters.saved ? m.search_saved() : m.search_placeholder()}
+        bind:value={filters.text}
+        bind:this={searchInput}
+        autocomplete="off"
+        enterkeyhint="search"
+      />
+    </label>
+    <!-- The browser's own clear only shows while the field has focus; this one stays after the keyboard closes. -->
+    {#if filters.text}
+      <button class="search-clear" aria-label={m.clear_search()} onclick={() => { filters.text = ''; searchInput?.focus() }}><Icon name="close" size={18} /></button>
+    {/if}
+  </div>
 </header>
 
 <main>

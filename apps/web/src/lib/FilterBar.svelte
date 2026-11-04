@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { tick } from 'svelte'
   import type { FreeFrom, Meal } from '@vegdex/core'
   import { loadSuggestions } from './data'
   import { m, countArgs, formatNumber, pageLocale } from './i18n'
@@ -11,6 +12,19 @@
   let { count }: { count: number | null } = $props()
 
   let more = $state(false)
+  let signRow = $state<HTMLElement>()
+  // A chosen sign, also one set by Tonight or a shared link, slides into the scrolling row's view.
+  $effect(() => {
+    void [filters.flavor, filters.meals]
+    tick().then(() => {
+      const on = signRow?.querySelector<HTMLElement>('.tab.on')
+      if (!signRow || !on) return
+      const left = on.offsetLeft - signRow.offsetLeft
+      const edge = 16
+      if (left < signRow.scrollLeft + edge) signRow.scrollLeft = left - edge
+      else if (left + on.offsetWidth > signRow.scrollLeft + signRow.clientWidth - 44) signRow.scrollLeft = left + on.offsetWidth - signRow.clientWidth + 56
+    })
+  })
   let have = $state('')
   let avoid = $state('')
   let names = $state<string[]>([])
@@ -85,7 +99,7 @@
 
 <!-- The stall's signs: flavor, then the courses. -->
 <nav class="tabs" aria-label={m.categories()}>
-  <div class="tab-row"><div class="tab-track">
+  <div class="tab-row" bind:this={signRow}><div class="tab-track">
     <button class="tab savory" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
       onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>{m.savory()}</button>
     <button class="tab sweet" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
