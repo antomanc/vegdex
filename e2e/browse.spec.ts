@@ -40,11 +40,11 @@ test('search matches titles and ingredients', async ({ page }) => {
 
 test('have / avoid ingredients', async ({ page }) => {
   await page.getByRole('button', { name: /More filters/ }).click();
-  await page.getByLabel('Must include').fill('tofu');
-  await page.getByLabel('Must include').press('Enter');
+  await page.getByRole('combobox', { name: 'Must include' }).fill('tofu');
+  await page.getByRole('combobox', { name: 'Must include' }).press('Enter');
   await expect(count(page)).toHaveText(/2 recipes/);
-  await page.getByLabel('Avoid').fill('mushrooms');
-  await page.getByLabel('Avoid').press('Enter');
+  await page.getByRole('combobox', { name: 'Avoid' }).fill('mushrooms');
+  await page.getByRole('combobox', { name: 'Avoid' }).press('Enter');
   await expect(cards(page)).toHaveText([/Spinach Tofu Curry/]);
 });
 
@@ -106,7 +106,7 @@ test('back closes More filters and keeps what was chosen in it', async ({ page }
 
 test('ingredients typed but not added still apply when More filters closes', async ({ page }) => {
   await page.getByRole('button', { name: /More filters/ }).click();
-  await page.getByLabel('Must include').fill('tofu, spinach');
+  await page.getByRole('combobox', { name: 'Must include' }).fill('tofu, spinach');
   await page.getByRole('dialog').getByRole('button', { name: 'Close' }).click();
   await expect(cards(page)).toHaveText([/Spinach Tofu Curry/]);
   const active = page.getByRole('list', { name: 'Active filters' });

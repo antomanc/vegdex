@@ -4,6 +4,7 @@
   import { loadSuggestions } from './data'
   import { m, countArgs, formatNumber, pageLocale } from './i18n'
   import Icon from './Icon.svelte'
+  import IngredientField from './IngredientField.svelte'
   import { FREE, MEAL_LABELS, TIMES } from './labels'
   import { closeSheet, sheet } from './sheet'
   import { activeCount, clearFilters, filters, isTonight, moreCount, toggleTonight } from './state.svelte'
@@ -29,33 +30,14 @@
   })
   let have = $state('')
   let avoid = $state('')
-  let names = $state<string[]>([])
+  let names = $state<{ name: string; lower: string }[]>([])
   const pending = $derived(Boolean(have.trim() || avoid.trim()))
-  // What the focused input holds: the datalist is native UI, and Safari rebuilds its popup from
-  // every option on each keystroke, so it only ever gets a short, matching list.
-  let query = $state('')
-  const OFFERED = 50
   // Fetched the first time an ingredient input gets focus, so the first card never waits for it.
-  async function suggest(e: FocusEvent) {
-    query = (e.currentTarget as HTMLInputElement).value
-    if (!names.length) names = await loadSuggestions(pageLocale.code)
+  async function suggest() {
+    if (!names.length) names = (await loadSuggestions(pageLocale.code)).map((name) => ({ name, lower: name.toLowerCase() }))
   }
   // Names keep their case for display ("Old Bay", "lenticchie di Puy"); the filters store what was typed, lowercased.
   const chosen = $derived(new Set([...filters.include, ...filters.exclude]))
-  const offered = $derived.by(() => {
-    const text = query.trim().toLowerCase()
-    const free = names.filter((n) => !chosen.has(n.toLowerCase()))
-    if (!text) return free.slice(0, OFFERED)
-    // Prefix matches first: that is what the browser itself still filters by.
-    const prefixes: string[] = []
-    const inside: string[] = []
-    for (const name of free) {
-      const lower = name.toLowerCase()
-      if (lower.startsWith(text)) prefixes.push(name)
-      else if (lower.includes(text)) inside.push(name)
-    }
-    return [...prefixes, ...inside].slice(0, OFFERED)
-  })
 
   function toggleMeal(m: Meal) {
     filters.meals = filters.meals.includes(m) ? filters.meals.filter((x) => x !== m) : [...filters.meals, m]
@@ -69,21 +51,12 @@
     filters[kind] = [...new Set([...filters[kind], ...values])]
     if (kind === 'include') have = ''
     else avoid = ''
-    query = ''
   }
   function add(kind: 'include' | 'exclude', e: SubmitEvent) {
     e.preventDefault()
     commit(kind)
   }
-  // Picking a suggestion replaces the text without typing it (no inputType, or insertReplacementText): add it right away.
-  function picked(kind: 'include' | 'exclude', e: Event) {
-    const input = e.currentTarget as HTMLInputElement
-    const value = input.value.trim().toLowerCase()
-    const typed = e instanceof InputEvent && e.inputType !== 'insertReplacementText'
-    if (typed || !names.some((n) => n.toLowerCase() === value)) {
-      query = input.value
-      return
-    }
+  function picked(kind: 'include' | 'exclude', value: string) {
     if (kind === 'include') have = value
     else avoid = value
     commit(kind)
@@ -99,6 +72,11 @@
   }
 </script>
 
+<!-- "≤ 15 min": on phones only the last time spells out its unit, so the row fits. -->
+{#snippet time(label: string)}
+  {@const cut = label.lastIndexOf(' ')}
+  {label.slice(0, cut)}<span class="seg-unit">{' '}{label.slice(cut + 1)}</span>
+{/snippet}
 <!-- The stall's signs, in two lines that scroll together: dinner courses lead, then flavor and the rest. -->
 {#snippet meal([meal, label]: [Meal, string])}
   <button class="tab" class:on={filters.meals.includes(meal)} aria-pressed={filters.meals.includes(meal)}
@@ -123,15 +101,17 @@
   <button class="pill tonight" class:on={isTonight()} aria-pressed={isTonight()} title={m.tonight_hint()} onclick={toggleTonight}>
     <Icon name="clock" size={16} /> {m.tonight()}
   </button>
-  <button class="pill outline" class:on={moreCount() > 0} aria-haspopup="dialog" onclick={() => (more = true)}>
-    <Icon name="sliders" size={16} /> {m.more_filters()}{moreCount() ? ` · ${formatNumber(moreCount())}` : ''}
-  </button>
   <div class="segmented" role="group" aria-label={m.ready_in()}>
     {#each TIMES as t (t)}
       <button class="seg" class:on={filters.maxMinutes === t} aria-pressed={filters.maxMinutes === t}
-        onclick={() => (filters.maxMinutes = filters.maxMinutes === t ? null : t)}>{m.time_limit({ count: formatNumber(t) })}</button>
+        onclick={() => (filters.maxMinutes = filters.maxMinutes === t ? null : t)}>{@render time(m.time_limit({ count: formatNumber(t) }))}</button>
     {/each}
   </div>
+  <!-- On phones this is a round key; its label stays for screen readers. -->
+  <button class="pill outline more-key" class:on={moreCount() > 0} aria-haspopup="dialog" onclick={() => (more = true)}>
+    <Icon name="sliders" size={16} /> <span class="more-label">{m.more_filters()}{moreCount() ? ` · ${formatNumber(moreCount())}` : ''}</span>
+    {#if moreCount()}<span class="more-count" aria-hidden="true">{formatNumber(moreCount())}</span>{/if}
+  </button>
 </div>
 
 {#if more}
@@ -160,7 +140,7 @@
         <label class="label" for="have">{m.must_include()}</label>
         <p class="hint" id="have-hint">{m.include_hint()} {m.pending_hint()}</p>
         <div class="input-row">
-          <input id="have" bind:value={have} list="ingredient-names" onfocus={suggest} oninput={(e) => picked('include', e)} placeholder={m.include_example()} autocomplete="off" enterkeyhint="done" aria-describedby="have-hint" />
+          <IngredientField id="have" bind:value={have} {names} {chosen} placeholder={m.include_example()} describedby="have-hint" onfocus={suggest} onpick={(v) => picked('include', v)} />
           <button class="btn-sm" disabled={!have.trim()}>{m.add()}</button>
         </div>
         {#if filters.include.length}
@@ -176,7 +156,7 @@
         <label class="label" for="avoid">{m.avoid()}</label>
         <p class="hint" id="avoid-hint">{m.exclude_hint()}</p>
         <div class="input-row">
-          <input id="avoid" bind:value={avoid} list="ingredient-names" onfocus={suggest} oninput={(e) => picked('exclude', e)} placeholder={m.avoid_example()} autocomplete="off" enterkeyhint="done" aria-describedby="avoid-hint" />
+          <IngredientField id="avoid" bind:value={avoid} {names} {chosen} placeholder={m.avoid_example()} describedby="avoid-hint" onfocus={suggest} onpick={(v) => picked('exclude', v)} />
           <button class="btn-sm" disabled={!avoid.trim()}>{m.add()}</button>
         </div>
         {#if filters.exclude.length}
@@ -187,10 +167,6 @@
           </div>
         {/if}
       </form>
-
-      <datalist id="ingredient-names">
-        {#each offered as name (name)}<option value={name}></option>{/each}
-      </datalist>
 
       <div class="sheet-footer">
         {#if activeCount()}<button class="text-btn" onclick={clearFilters}>{m.clear_all()}</button>{/if}

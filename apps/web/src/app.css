@@ -179,11 +179,24 @@ input { caret-color: var(--sign-red); }
 @property --sign-fade { syntax: '<length>'; inherits: false; initial-value: 44px; }
 @keyframes sign-fade { 0%, 88% { --sign-fade: 44px; } 100% { --sign-fade: 0px; } }
 /* Tonight and More filters share a row; the four times take the next one whole, so none is clipped. */
-.pills.controls { flex-wrap: wrap; overflow: visible; }
-.pills.controls .segmented { flex: 1 1 100%; }
+.pills.controls { overflow: visible; }
+.more-count { display: none; }
+@media (max-width: 699px) {
+  /* One row on phones: Tonight, the times, and More filters as a round key. */
+  .pills.controls { gap: 6px; }
+  .pills.controls .segmented { flex: 1 1 auto; min-width: 0; }
+  .pills.controls .seg { padding-inline: 4px; flex: 1 1 auto; }
+  .pill.tonight { padding: 0 12px; }
+  .seg:not(:last-child) .seg-unit, .more-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .more-key { position: relative; flex: none; width: 44px; padding: 0; justify-content: center; }
+  .more-count {
+    display: grid; place-items: center; position: absolute; top: -5px; right: -5px; min-width: 20px; height: 20px; padding: 0 5px;
+    border-radius: 999px; background: var(--tag); color: var(--on-tag); font-size: 0.75rem; font-weight: 700;
+  }
+}
+@media (max-width: 419px) { .pill.tonight .icon { display: none; } }
+@media (max-width: 379px) { .seg .seg-unit { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } }
 @media (min-width: 700px) {
-  .pills.controls { flex-wrap: nowrap; }
-  .pills.controls .segmented { flex: none; }
   /* Wide screens show every sign at once. */
   .tab-track { width: 100%; }
   .tab-line { flex-wrap: wrap; }
@@ -224,7 +237,7 @@ input { caret-color: var(--sign-red); }
 /* The time filter speaks in price tags: the chosen time turns into the red tag. */
 .pills .seg { padding-top: 2px; font-family: var(--display); font-size: 0.85rem; font-weight: 400; }
 .pills .seg.on { background: var(--tag); color: var(--on-tag); }
-@media (max-width: 359px) { .pills .seg { padding-inline: 4px; font-size: 0.75rem; } }
+@media (max-width: 359px) { .pills .seg { padding-inline: 2px; font-size: 0.75rem; } }
 
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .row.center { justify-content: center; }
@@ -234,9 +247,16 @@ input { caret-color: var(--sign-red); }
 .hint { margin: 0; font-size: 0.875rem; line-height: 1.4; color: var(--muted); }
 .choice-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
 .choice-grid .pill { justify-content: center; white-space: normal; padding: 6px 14px; }
-.input-row { display: flex; gap: 8px; }
-/* Suggestions show as you type; Chrome's arrow would only open the whole list. */
-.input-row input::-webkit-calendar-picker-indicator { display: none !important; }
+.input-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.combo { flex: 1 1 0; min-width: 0; display: flex; }
+.combo input { scroll-margin-top: 76px; }
+/* Suggestions sit in the sheet's flow: nothing to clip, and the field stays above the keyboard. */
+.suggestions { flex: 1 1 100%; order: 1; list-style: none; margin: 0; padding: 0; border: 2px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.suggestions[hidden] { display: none; }
+.suggestions li { padding: 11px 12px; line-height: 1.3; cursor: pointer; }
+.suggestions li + li { border-top: 1px solid var(--line); }
+.suggestions li.active { background: var(--green-soft); }
+.suggestions b { font-weight: 700; color: var(--green); }
 .field input {
   flex: 1; min-width: 0; min-height: 44px; padding: 0 12px; border-radius: 6px; border: 2px solid var(--rule); background: var(--surface);
 }
@@ -526,6 +546,7 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 
 @media (hover: hover) {
   .card:has(.card-open:hover) img { filter: brightness(1.06) saturate(1.08); }
+  .suggestions li:hover { background: var(--green-soft); }
   .pill:not(.on):hover, .stepper button:not([aria-disabled='true']):hover, .seg:not(.on):hover, .saved-toggle:not(.on):hover, .night:hover { border-color: var(--green); color: var(--green); }
   .seg:not(.on):hover { background: var(--green-soft); }
   .cta:hover, .grocery-btn:hover { filter: brightness(1.12); }

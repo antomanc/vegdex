@@ -45,7 +45,7 @@ test('filters and result plurals follow the page language', async ({ page }) => 
   await page.getByRole('button', { name: 'Altri filtri', exact: true }).click();
   const sheet = page.getByRole('dialog');
   await expect(sheet.getByRole('button', { name: 'Senza glutine', exact: true })).toBeVisible();
-  await expect(sheet.getByLabel('Deve contenere')).toBeVisible();
+  await expect(sheet.getByRole('combobox', { name: 'Deve contenere' })).toBeVisible();
   await sheet.getByRole('button', { name: 'Mostra 6 ricette', exact: true }).click();
   await page.getByRole('button', { name: 'Dessert', exact: true }).click();
   await expect(page.getByTestId('result-count')).toHaveText('1 ricetta');
