@@ -209,6 +209,7 @@ Mobile first, with a 1200px max container. The sticky header holds only the bran
 - **Filters:** a controls row first (Tonight, More filters, time). Each filter has one home: time lives only in the row, High protein only in More filters, then the divider tabs (Savory, Sweet, then meals) standing on a hairline that heads the results. The tabs sit next to the cards they sort.
 - **Grid:** `repeat(auto-fill, minmax(160px, 1fr))` with 10px gaps (two columns on a phone). At 700px and up, `minmax(220px, 1fr)` with 16px gaps.
 - **Sheets:** bottom sheets on phones (max 640px, 92dvh). Centred dialogs from 700px. The recipe sheet becomes two columns at 900px (920px wide): photo and facts stick on the left, ingredients scroll on the right.
+- **Sheet scrolling:** opening a modal fixes the background at its current scroll position until the last sheet is removed. The dialog owns vertical scrolling; gestures stay within the sheet at both edges, preserving the native elastic feedback without chaining to the page or triggering pull-to-refresh. Closing restores the grid position; opening a source shelf starts at its heading after history has settled. The close control and action footer stay reachable while the contents scroll.
 - **Sticky footers:** any sheet with a primary action pins it to the bottom (Save + "Cook it on…", Clear all + "Show N recipes").
 - `scroll-padding-top` follows the measured header height, so focus never lands under it.
 

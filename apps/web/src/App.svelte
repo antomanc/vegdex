@@ -176,7 +176,15 @@
     writeUrl(openId, groceryOpen)
     queryString = location.search
   })
-  onSheetPop(() => writeUrl(openId, groceryOpen))
+  let kitchenScrollPending = false
+  onSheetPop(() => {
+    writeUrl(openId, groceryOpen)
+    if (kitchenScrollPending) {
+      kitchenScrollPending = false
+      // History restores the old grid position after popstate; the new shelf starts at the top.
+      requestAnimationFrame(() => scrollTo({ top: 0, behavior: 'instant' }))
+    }
+  })
 
   // Leaving the saved view makes its unsaves final.
   $effect(() => {
@@ -233,6 +241,7 @@
   }
 
   function showKitchen(id: string) {
+    kitchenScrollPending = true
     openId = null
     drawn = false
     filters.saved = false

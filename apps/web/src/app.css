@@ -57,6 +57,8 @@
 
 * { box-sizing: border-box; }
 html, .sheet { touch-action: pan-x pan-y; }
+html { scrollbar-gutter: stable; }
+html.sheet-open { overflow: hidden; overscroll-behavior: none; }
 body { margin: 0; min-height: 100dvh; }
 button, input, select { font: inherit; color: inherit; }
 button { cursor: pointer; }
@@ -303,6 +305,7 @@ li:nth-child(even) > .card .time { rotate: 1.5deg; }
 .sheet {
   border: 0; padding: 0; width: 100%; max-width: 640px; max-height: 92dvh; margin: auto auto 0;
   border-radius: 20px 20px 0 0; background: var(--surface); color: var(--ink);
+  overflow: auto; overscroll-behavior: contain;
 }
 @media (min-width: 700px) { .sheet { margin: auto; border-radius: 20px; } }
 .sheet::backdrop { background: var(--scrim); transition: opacity 180ms ease-out; }

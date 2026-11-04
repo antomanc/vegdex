@@ -12,6 +12,25 @@ document.addEventListener('click', (event) => {
 }, true)
 let afterPop: () => void = () => {}
 
+let scrollLocks = 0
+let restorePage = () => {}
+
+function lockPageScroll() {
+  if (scrollLocks++ === 0) {
+    const { scrollX: x, scrollY: y } = window
+    const body = document.body
+    const previous = { position: body.style.position, top: body.style.top, left: body.style.left, width: body.style.width }
+    document.documentElement.classList.add('sheet-open')
+    Object.assign(body.style, { position: 'fixed', top: `${-y}px`, left: `${-x}px`, width: '100%' })
+    restorePage = () => {
+      Object.assign(body.style, previous)
+      document.documentElement.classList.remove('sheet-open')
+      window.scrollTo({ left: x, top: y, behavior: 'instant' })
+    }
+  }
+  return () => { if (--scrollLocks === 0) restorePage() }
+}
+
 /** Called after back closes a sheet: the entry below holds an older URL, so rewrite it. */
 export function onSheetPop(fn: () => void) {
   afterPop = fn
@@ -46,6 +65,7 @@ export function sheet(dialog: HTMLDialogElement) {
   const close = () => closeSheet(dialog)
   const origin = tappedCard ?? document.activeElement?.closest('.card')?.getBoundingClientRect()
   tappedCard = undefined
+  const unlock = lockPageScroll()
   history.pushState(history.state, '', location.href)
   closers.push(close)
   dialog.showModal()
@@ -84,6 +104,7 @@ export function sheet(dialog: HTMLDialogElement) {
       dialog.removeEventListener('cancel', oncancel)
       dialog.removeEventListener('close', release)
       dialog.removeEventListener('click', onclick)
+      unlock()
       release()
     }
   }
