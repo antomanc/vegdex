@@ -6,8 +6,8 @@
 :root {
   --paper: #eef0e9;
   --surface: #ffffff;
-  --rose: #fbedef;
-  --rose-line: #f0d5da;
+  --rose: #f7e1e6;
+  --rose-line: #e8c1cb;
   --ink: #18271d;
   --muted: #56635a;
   --line: #e3e2da;
@@ -21,6 +21,7 @@
   --shadow: rgb(0 0 0 / 0.16);
   --card-shadow: rgb(24 39 29 / 0.07);
   --scrim: rgb(10 15 12 / 0.55);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --radius: 14px;
   --display: 'Besley Variable', 'Besley', 'Clarendon', Georgia, serif;
   --body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -39,8 +40,8 @@
   color-scheme: dark;
   --paper: #121814;
   --surface: #1a221d;
-  --rose: #2a1f23;
-  --rose-line: #46333a;
+  --rose: #35242c;
+  --rose-line: #573b47;
   --ink: #edf0ea;
   --muted: #a1aca4;
   --line: #2c3830;
@@ -59,6 +60,13 @@ body { margin: 0; min-height: 100dvh; }
 button, input, select { font: inherit; color: inherit; }
 button { cursor: pointer; }
 button:disabled { cursor: default; }
+:where(button, a.cta) {
+  transition: background-color 160ms ease-out, color 160ms ease-out, border-color 160ms ease-out, scale 120ms var(--ease-out);
+}
+:where(button, a.cta):not(:disabled, [aria-disabled='true'], .brand, .card-open):active { scale: 0.97; }
+:where(.heart, .save) .icon { transition: scale 200ms var(--ease-out); }
+:where(.heart, .save).on .icon { scale: 1.1; }
+:where(.heart, .save):active .icon { scale: 0.85; }
 :focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 ::placeholder { color: var(--muted); opacity: 1; }
 ::selection { background: var(--green-soft); color: var(--ink); }
@@ -151,7 +159,6 @@ input { caret-color: var(--tomato); }
   flex: none; min-height: 40px; padding: 0 15px; white-space: nowrap; font-size: 0.88rem;
   border: 1px solid var(--line); border-bottom: 0; border-radius: 10px 10px 0 0;
   background: var(--green-soft); color: var(--ink);
-  transition: background-color 0.15s ease-out, color 0.15s ease-out;
 }
 .tab.savory:not(.on) { background: var(--surface); }
 .tab.sweet:not(.on) { background: var(--rose); border-color: var(--rose-line); }
@@ -256,7 +263,6 @@ main:has(~ .dock) { padding-bottom: 96px; }
 .card-open { display: flex; flex-direction: column; width: 100%; height: 100%; text-align: left; background: none; border: 0; padding: 0; border-radius: 8px; }
 .thumb { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; background: var(--green-soft); }
 .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease-out; }
-.card-open:hover img { transform: scale(1.03); }
 .placeholder { display: block; width: 40%; height: 100%; margin: 0 auto; color: var(--green); opacity: 0.35; }
 /* The time reads like a typed label stuck on the photo by hand, never quite straight. */
 .time {
@@ -291,10 +297,14 @@ li:nth-child(even) > .card .time { rotate: 1.5deg; }
   border-radius: 20px 20px 0 0; background: var(--surface); color: var(--ink);
 }
 @media (min-width: 700px) { .sheet { margin: auto; border-radius: 20px; } }
-.sheet::backdrop { background: var(--scrim); }
+.sheet::backdrop { background: var(--scrim); transition: opacity 180ms ease-out; }
+.sheet.closing::backdrop { opacity: 0; }
 /* A sheet slides up into place, like a card pulled from the box. */
-.sheet[open] { transition: translate 0.36s cubic-bezier(0.16, 1, 0.3, 1), rotate 0.36s cubic-bezier(0.16, 1, 0.3, 1); }
-@starting-style { .sheet[open] { translate: 0 48px; rotate: -1deg; } }
+.sheet[open] { transition: translate 320ms var(--ease-out), rotate 320ms var(--ease-out), opacity 180ms ease-out; transform-origin: 50% 100%; }
+@starting-style {
+  .sheet[open] { translate: 0 40px; rotate: -0.7deg; opacity: 0; }
+  .sheet[open]::backdrop { opacity: 0; }
+}
 .sheet-body { padding: 20px 20px 28px; position: relative; }
 .sheet-top { position: sticky; top: 20px; height: 0; z-index: 2; }
 .close {
@@ -369,6 +379,7 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .grocery label { display: flex; gap: 12px; align-items: center; min-height: 52px; padding: 8px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
 .grocery input { width: 22px; height: 22px; margin: 0; flex: none; accent-color: var(--green); }
 .grocery .name { flex: 1; }
+.grocery .name, .grocery .amount { transition: opacity 160ms ease-out; }
 .grocery .name::first-letter { text-transform: uppercase; }
 .grocery .amount { color: var(--muted); font-family: var(--typed); font-size: 0.94rem; text-align: right; }
 .grocery label.done .name, .grocery label.done .amount { text-decoration: line-through; opacity: 0.5; }
@@ -393,6 +404,7 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .skeleton .bar.short { width: 55%; margin-top: 6px; }
 
 @media (hover: hover) {
+  .card-open:hover img { transform: scale(1.03); }
   .pill:not(.on):hover, .stepper button:not([aria-disabled='true']):hover, .seg:not(.on):hover, .saved-toggle:not(.on):hover, .night:hover { border-color: var(--green); }
   .seg:not(.on):hover { background: var(--green-soft); }
   .cta:hover, .grocery-btn:hover { filter: brightness(1.12); }
@@ -408,7 +420,13 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  html { scroll-behavior: auto !important; }
+  :where(button, a.cta):active, :where(.heart, .save).on .icon, :where(.heart, .save):active .icon { scale: none; }
+  .card, .thumb img, .sheet[open] { transition-property: opacity, background-color, color, border-color; }
+  .card:has(.card-open:hover) { translate: none; }
+  .card-open:hover img { transform: none; }
+  .share .bubble { translate: none; }
+  @starting-style { .sheet[open] { translate: none; rotate: none; } }
 }
 
 /* Keep the creator link readable beside long translated labels and publisher names. */

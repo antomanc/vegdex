@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { flip } from 'svelte/animate'
+  import { cubicOut } from 'svelte/easing'
   import { display, recipeTitle } from './translations.svelte'
   import { groceryListText } from './grocery-text'
   import { compileGroceryList, displayGroceryName, parseIngredient, type CatalogRecipe, type GroceryItem, type ParsedLine } from '@vegdex/core'
@@ -7,7 +9,7 @@
   import { m, countArgs, formatNumber, pageLocale } from './i18n'
   import { AISLE_LABELS, MAX_BATCHES, formatGroceryAmount, perBatch, stepsLabel } from './labels'
   import Icon from './Icon.svelte'
-  import { sheet } from './sheet'
+  import { closeSheet, sheet } from './sheet'
   import { amounts, prefs, saved, setAmount } from './state.svelte'
   import UnitsToggle from './UnitsToggle.svelte'
 
@@ -141,7 +143,7 @@
 
 <dialog use:sheet class="sheet grocery-sheet" {onclose} aria-labelledby="grocery-title">
   <div class="sheet-body">
-    <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
+    <div class="sheet-top"><button class="close" onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
     <h2 id="grocery-title">{m.shopping_list()}</h2>
     <details class="amounts">
       <summary class="meta"><span>{m.list_recipes(countArgs(selected.length))}{adjusted ? m.adjusted_count(countArgs(adjusted)) : ''}</span> · {m.shop_choose()}</summary>
@@ -172,7 +174,7 @@
         <h3 class="aisle">{aisleLabel(aisle)}</h3>
         <ul class="grocery" data-testid="grocery-list">
           {#each items as item (item.name)}
-            <li>
+            <li animate:flip={{ duration: () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 180, easing: cubicOut }}>
               <label class:done={checked[key(item)]}>
                 <input type="checkbox" bind:checked={checked[key(item)]} />
                 <span class="name">{itemName(item)}</span>

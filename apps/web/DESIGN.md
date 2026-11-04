@@ -4,8 +4,8 @@ description: Vegan recipes from the best vegan blogs, filtered in a tap.
 colors:
   paper: "#eef0e9"
   surface: "#ffffff"
-  rose-stock: "#fbedef"
-  rose-line: "#f0d5da"
+  rose-stock: "#f7e1e6"
+  rose-line: "#e8c1cb"
   ink: "#18271d"
   muted: "#56635a"
   line: "#e3e2da"
@@ -20,8 +20,8 @@ colors:
   scrim: "rgb(10 15 12 / 0.55)"
   dark-paper: "#121814"
   dark-surface: "#1a221d"
-  dark-rose-stock: "#2a1f23"
-  dark-rose-line: "#46333a"
+  dark-rose-stock: "#35242c"
+  dark-rose-line: "#573b47"
   dark-ink: "#edf0ea"
   dark-muted: "#a1aca4"
   dark-line: "#2c3830"
@@ -162,7 +162,7 @@ The palette is restrained. Neutrals carry the page, ink green carries action and
 - **Star Gold** (#a8741c; dark #e0b252): rating stars, everywhere they appear.
 
 ### Card stock
-- **Rose Stock** (#fbedef; dark #2a1f23) with **Rose Line** (#f0d5da; dark #46333a): sweet recipes are filed on rose card stock, in the grid and in their open sheet; the Sweet tab rests on it, so the tab row is the legend. Set by the `.sweet` class, which swaps `--surface` and `--line`. Color is never the only signal: the Sweet filter and the recipe itself say it too.
+- **Rose Stock** (#f7e1e6; dark #35242c) with **Rose Line** (#e8c1cb; dark #573b47): sweet recipes are filed on rose card stock, in the grid and in their open sheet; the Sweet tab rests on it, so the tab row is the legend. Set by the `.sweet` class, which swaps `--surface` and `--line`. Color is never the only signal: the Sweet filter and the recipe itself say it too.
 
 ### Neutral
 - **Paper** (#eef0e9; dark #121814): the page ground the cards rest on, a cool sage-grey so white card stock reads as cards. Not beige.
@@ -218,11 +218,18 @@ Flat by default, with tonal layering (paper → surface). Shadows appear only wh
 
 ### Shadow Vocabulary
 - **Card** (`0 1px 2px var(--card-shadow), 0 2px 8px var(--card-shadow)`): recipe cards resting on the paper; on hover the card lifts 3px out of the box and the shadow deepens. No border with it.
-- **Placed card** (motion): an opening sheet slides up 48px and settles from a 1° tilt, a card set down on the counter. Reduced motion drops it.
+- **Placed card** (motion): an opening sheet slides up 40px and settles from a 0.7° tilt in 320ms, a card set down on the counter. Closing takes 180ms, with a smaller 24px slide and 0.4° tilt. The backdrop fades with it. Reduced motion keeps the entrance fade and closes immediately, without translation or rotation.
 - **Tag** (`box-shadow: 0 1px 3px var(--shadow)`): time tags stuck on a photo.
 - **Floating control** (`box-shadow: 0 1px 4px var(--shadow)`): the sheet close button.
 - **Floating action** (`0 2px 6px var(--shadow), 0 8px 24px var(--card-shadow)`): the "Pick for me" button docked at the bottom of the browse screen.
 - **Backdrop** (`var(--scrim)`): behind modal sheets.
+
+## Interaction feedback
+
+- Controls respond to a press with a small compression (97%); selection colors transition in 160ms. Saving fills and slightly enlarges the heart, with a smaller pressed state so releasing the tap confirms the action.
+- Checked shopping rows fade their text and move to the end of their aisle in 180ms. Reduced motion keeps the check and text feedback, with immediate reordering.
+- Search results appear immediately. No grid entrance choreography or scroll reveals.
+- Reduced motion preserves color and opacity feedback while removing spatial movement, including hover zoom and lift. Hover effects apply only on devices that support hover.
 
 ## Shapes
 

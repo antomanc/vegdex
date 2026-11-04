@@ -4,7 +4,7 @@
   import { m, countArgs, formatNumber, pageLocale } from './i18n'
   import Icon from './Icon.svelte'
   import { FREE, MEAL_LABELS, TIMES } from './labels'
-  import { sheet } from './sheet'
+  import { closeSheet, sheet } from './sheet'
   import { activeCount, clearFilters, filters, isTonight, moreCount, toggleTonight } from './state.svelte'
 
   let { count }: { count: number } = $props()
@@ -90,7 +90,7 @@
 {#if more}
   <dialog use:sheet class="sheet" aria-labelledby="more-title" onclose={closed}>
     <div class="sheet-body">
-      <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
+      <div class="sheet-top"><button class="close" onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
       <h2 id="more-title">{m.more_filters()}</h2>
       <fieldset class="field">
         <legend class="label">{m.high_protein()}</legend>
@@ -147,7 +147,7 @@
 
       <div class="sheet-footer">
         {#if activeCount()}<button class="text-btn" onclick={clearFilters}>{m.clear_all()}</button>{/if}
-        <button class="cta" class:none={count === 0} onclick={(e) => e.currentTarget.closest('dialog')?.close()}>
+        <button class="cta" class:none={count === 0} onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))}>
           {count === 0 ? m.no_matches_filter() : m.show_recipes(countArgs(count))}
         </button>
       </div>

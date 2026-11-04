@@ -5,7 +5,7 @@
   import Icon from './Icon.svelte'
   import { m, countArgs, formatNumber, formatRating, pageLocale } from './i18n'
   import { FREE, MAX_BATCHES, batchFactor, cuisineLabel, formatMinutes, perBatch, splitAmount, splitLine, splitParts, stepsLabel } from './labels'
-  import { sheet } from './sheet'
+  import { closeSheet, sheet } from './sheet'
   import { prefs, saved, toggleSaved } from './state.svelte'
   import UnitsToggle from './UnitsToggle.svelte'
 
@@ -117,7 +117,7 @@
 
 <dialog use:sheet bind:this={dialog} class="sheet recipe-sheet" class:sweet={recipe.tags.includes('flavor:sweet')} {onclose} aria-labelledby="sheet-title">
   <div class="sheet-body">
-    <div class="sheet-top"><button class="close" onclick={(e) => e.currentTarget.closest('dialog')?.close()} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
+    <div class="sheet-top"><button class="close" onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
     <div class="recipe-head">
     {#if recipe.image && !broken}
       <img class="hero" src={recipe.image} alt="" referrerpolicy="no-referrer" onerror={() => (broken = true)} />

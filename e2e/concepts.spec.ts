@@ -66,6 +66,7 @@ test('publication excludes animal concepts while qualified counterparts remain s
   await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText('plant milk');
   await expect(page.getByRole('dialog').getByTestId('ingredients')).toContainText('vegan butter');
   await page.getByRole('button', { name: 'Close', exact: true }).click();
+  await expect(page.getByRole('dialog')).toBeHidden();
   await page.getByRole('searchbox').fill('vegan parmesan');
   await expect(cards(page)).toHaveText([/Mushroom Tofu Stir Fry/]);
   await page.getByRole('button', { name: 'Mushroom Tofu Stir Fry', exact: true }).click();

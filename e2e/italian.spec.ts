@@ -119,6 +119,7 @@ test('empty states and the random pick flow read in Italian', async ({ page }) =
   await sheet.getByRole('button', { name: 'Un’altra', exact: true }).click();
   await expect(sheet.getByRole('heading', { level: 2 })).not.toHaveText(firstTitle!);
   await sheet.getByRole('button', { name: 'Chiudi', exact: true }).click();
+  await expect(page.getByRole('dialog')).toBeHidden();
   await page.getByRole('searchbox', { name: 'Cerca ricette', exact: true }).fill('zzzz');
   await expect(page.getByText('Nessuna ricetta trovata per “zzzz”.', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: /Cancella la ricerca/ }).click();

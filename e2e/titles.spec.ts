@@ -49,6 +49,7 @@ for (const unsafe of ['Pancake al burro', 'Pasta al cheddar', 'Pasta al gorgonzo
     await expect(page.getByRole('dialog').getByRole('heading', { name: 'Fluffy Vegan Pancakes', exact: true })).toBeVisible();
     await expect(page.getByText(unsafe, { exact: true })).toHaveCount(0);
     await page.getByRole('button', { name: 'Chiudi', exact: true }).click();
+    await expect(page.getByRole('dialog')).toBeHidden();
     await page.getByRole('searchbox').fill(unsafe);
     await expect(page.getByTestId('recipe-card')).toHaveCount(0);
   });
