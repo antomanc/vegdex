@@ -1,5 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
+  "switch_language": "Cambia lingua: {language}",
+  "back_to_top": "Torna su",
   "saved_device_hint": "Salvate in questo browser, su questo dispositivo.",
   "open_source": "Codice aperto su GitHub",
   "tonight_hint": "Piatti principali pronti in 45 minuti o meno",

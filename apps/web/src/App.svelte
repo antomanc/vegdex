@@ -49,6 +49,8 @@
   let headerHeight = $state(0)
   let filterBox = $state<HTMLElement>()
   let filtersOutOfView = $state(false)
+  let scrollY = $state(0)
+  let homeButton = $state<HTMLButtonElement>()
   let queryString = $state(location.search)
 
   function failed(e: Error) {
@@ -245,20 +247,22 @@
   }
 </script>
 
+<svelte:window bind:scrollY />
+
 <a class="skip-link" href="#results">{m.skip_to_recipes()}</a>
 <header class="top" bind:offsetHeight={headerHeight}>
   <div class="brand-row">
     <h1 class="brand-h">
-      <button class="brand" onclick={home} aria-label={m.all_recipes()}>
-        <img class="logo" src="{import.meta.env.BASE_URL}favicon.svg" alt="" width="28" height="28" /> vegdex
+      <button class="brand" bind:this={homeButton} onclick={home} aria-label={m.all_recipes()}>
+        vegdex
       </button>
     </h1>
     <div class="top-actions">
-      {#if filtersOutOfView && !filters.saved}
-        <button class="pill outline jump" onclick={toFilters}>
-          <Icon name="sliders" size={16} /> {m.filters()}{activeCount() ? ` · ${formatNumber(activeCount())}` : ''}
-        </button>
-      {/if}
+      {#each LOCALES.filter((locale) => locale.code !== pageLocale.code) as locale (locale.code)}
+        {#if isLocale(locale.code)}
+          <a class="language-switch" aria-label={m.switch_language({ language: m.language_name({}, { locale: locale.code }) })} href="{import.meta.env.BASE_URL}{locale.prefix ? `${locale.prefix}/` : ''}{queryString}" lang={locale.code} hreflang={locale.hreflang}>{m.language_name({}, { locale: locale.code })}</a>
+        {/if}
+      {/each}
       <button class="night" aria-pressed={theme.dark} aria-label={m.night_mode()} title={m.night_mode()} onclick={toggleTheme}>
         <Icon name={theme.dark ? 'sun' : 'moon'} size={18} />
       </button>
@@ -406,7 +410,19 @@
   {/if}
 </main>
 
-<!-- Pull a card from the box: within thumb reach while browsing. -->
+{#if scrollY > 600}
+  <button class="back-top" onclick={() => { toFilters(); homeButton?.focus({ preventScroll: true }) }}>
+    <Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span>
+  </button>
+{/if}
+
+{#if filtersOutOfView && !filters.saved}
+  <button class="filter-return" onclick={toFilters}>
+    <Icon name="sliders" size={18} /><span>{m.filters()}{activeCount() ? ` · ${formatNumber(activeCount())}` : ''}</span>
+  </button>
+{/if}
+
+<!-- One primary action, within thumb reach while browsing. -->
 {#if found && total > 0 && !filters.saved}
   <div class="pick-dock"><button class="pick" onclick={pick}><Icon name="shuffle" size={18} /> {m.pick()}</button></div>
 {/if}

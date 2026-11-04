@@ -15,7 +15,7 @@
   const LOW_AVERAGE = 4.5
 </script>
 
-<article class="card" class:unsaved={justUnsaved} class:sweet={recipe.tags.includes('flavor:sweet')} data-testid="recipe-card">
+<article class="card" class:unsaved={justUnsaved} data-testid="recipe-card">
   <button class="card-open" onclick={onopen} aria-labelledby="{id}-title" aria-describedby="{id}-meta">
     <div class="thumb">
       {#if recipe.image && !broken}
@@ -23,11 +23,10 @@
       {:else}
         <svg class="placeholder" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 44c0-16 10-26 28-28-1 18-10 28-26 28h-2z" fill="currentColor" /></svg>
       {/if}
-      {#if recipe.minutes}<span class="time">{formatMinutes(recipe.minutes)}</span>{/if}
     </div>
     <h2 id="{id}-title">{recipeTitle(recipe)}</h2>
     <p class="meta" id="{id}-meta">
-      {#if recipe.minutes}<span class="visually-hidden">{formatMinutes(recipe.minutes)}, </span>{/if}
+      {#if recipe.minutes}<span class="time">{formatMinutes(recipe.minutes)}</span>{/if}
       <span class="source">{sourceName}</span>
       {#if recipe.rating && recipe.ratingCount}
         <!-- Most recipes average 5.0, so the card shows how many cooks rated it; a low average still shows. -->

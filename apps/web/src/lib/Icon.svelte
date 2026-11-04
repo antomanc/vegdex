@@ -1,11 +1,13 @@
 <script lang="ts">
-  type Name = 'heart' | 'close' | 'star' | 'external' | 'search' | 'sliders' | 'clock' | 'list' | 'shuffle' | 'moon' | 'sun' | 'share' | 'check'
+  type Name = 'arrow-up' | 'heart' | 'close' | 'star' | 'external' | 'search' | 'sliders' | 'clock' | 'list' | 'shuffle' | 'moon' | 'sun' | 'share' | 'check'
   let { name, size = 18, filled = false }: { name: Name; size?: number; filled?: boolean } = $props()
 </script>
 
 <svg class="icon" width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" focusable="false"
   fill={filled ? 'currentColor' : 'none'} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  {#if name === 'heart'}
+  {#if name === 'arrow-up'}
+    <path d="M12 20V4M5 11l7-7 7 7" />
+  {:else if name === 'heart'}
     <path d="M12 20.5s-7.5-4.4-9.2-9.3C1.7 7.9 3.9 4.5 7.3 4.5c2 0 3.6 1.1 4.7 2.8 1.1-1.7 2.7-2.8 4.7-2.8 3.4 0 5.6 3.4 4.5 6.7-1.7 4.9-9.2 9.3-9.2 9.3z" />
   {:else if name === 'close'}
     <path d="M6 6l12 12M18 6L6 18" />
