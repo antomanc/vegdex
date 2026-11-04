@@ -275,7 +275,7 @@
     <div class="top-actions">
       {#each LOCALES.filter((locale) => locale.code !== pageLocale.code) as locale (locale.code)}
         {#if isLocale(locale.code)}
-          <a class="language-switch" aria-label={m.switch_language({ language: m.language_name({}, { locale: locale.code }) })} href="{import.meta.env.BASE_URL}{locale.prefix ? `${locale.prefix}/` : ''}{queryString}" lang={locale.code} hreflang={locale.hreflang}>{locale.code.toUpperCase()}</a>
+          <a class="language-switch" href="{import.meta.env.BASE_URL}{locale.prefix ? `${locale.prefix}/` : ''}{queryString}" hreflang={locale.hreflang}><span aria-hidden="true" lang={locale.code}>{locale.code.toUpperCase()}</span><span class="visually-hidden">{m.switch_language({ language: m.language_name({}, { locale: locale.code }) })}</span></a>
         {/if}
       {/each}
       <button class="night" aria-pressed={theme.dark} aria-label={m.night_mode()} title={m.night_mode()} onclick={toggleTheme}>

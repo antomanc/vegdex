@@ -131,11 +131,11 @@ input { caret-color: var(--sign-red); }
 .pill.jump { background: var(--surface); }
 /* Desktop: brand, search and keys share one row, so recipes start higher. */
 @media (min-width: 900px) {
-  .top { display: grid; grid-template-columns: auto minmax(0, 640px) 1fr auto; align-items: center; column-gap: 24px; padding-inline: max(var(--edge), (100% - 1200px) / 2); }
+  .top { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 24px; padding-inline: max(var(--edge), (100% - 1200px) / 2); }
   .brand-row { display: contents; }
   .brand-h { grid-column: 1; grid-row: 1; }
   .search { grid-column: 2; grid-row: 1; width: 100%; margin: 0; }
-  .top-actions { grid-column: 4; grid-row: 1; }
+  .top-actions { grid-column: 3; grid-row: 1; }
 }
 /* Night mode: a round key beside Saved; the icon shows where a tap takes you. */
 .night {
@@ -283,6 +283,8 @@ main {
   .view-head .grocery-btn { min-height: 48px; }
 }
 .summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0; margin: 4px 0 8px; min-height: 44px; }
+/* Narrow phones: the count stays on one line beside the sort. */
+@media (max-width: 379px) { .summary .from { display: none; } }
 .summary p { color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; margin: 0; text-wrap: balance; }
 .sort select {
   appearance: none; border: 0; background: transparent; color: var(--ink); font-size: 0.88rem; font-weight: 600;

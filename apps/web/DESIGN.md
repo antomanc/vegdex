@@ -210,7 +210,7 @@ Two voices. Bowlby One (`@fontsource/bowlby-one`) letters signs: anything that w
 
 Mobile first, with a 1200px content width. Header and content share one left edge (`--edge`: 16px, 12px under 420px).
 
-- **Header:** brand row and search, closed by a 3px rule. On phones, scrolling leaves only the search pinned and the brand row scrolls away; Back to top in the dock brings it back. From 900px, brand, search (640px at most) and keys share one row and the whole header stays.
+- **Header:** brand row and search, closed by a 3px rule. On phones, scrolling leaves only the search pinned and the brand row scrolls away; Back to top in the dock brings it back. From 900px, brand, search and keys share one row and the whole header stays.
 - **Signs:** two lines that scroll together, dinner courses first (Mains, Soups, Salads, Sides, Breakfast, Snacks, Desserts), then Savory, Sweet and the rest. Tab order follows the lines. On phones the row fades over its last 44px and the fade lets go at the end of the row; a chosen sign slides into view. Under 360px the signs are one row, so a full card reaches the first screen. From 700px the lines wrap and nothing scrolls.
 - **Filters:** one row: Tonight, the four times and More filters. On phones More filters is a round key with a count badge, and only the last time spells out its unit (none under 380px); labels stay for screen readers. Each filter has one home: time lives only in the row, High protein only in More filters.
 - **Grid:** `repeat(auto-fill, minmax(160px, 1fr))`, 22px row and 10px column gaps. Under 380px, two fixed columns. From 700px, `minmax(220px, 1fr)` with 30px and 20px gaps.
