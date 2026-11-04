@@ -79,7 +79,7 @@ export const languagePacks: Record<string, LanguagePack> = {
     },
     animalWords: /\b(?:uov[oa]|tuorl[oi]|album[ei]|burro|ghee|latte|panna|formaggi[oi]|parmigiano|parmesan|cheddar|gorgonzola|brie|gouda|gruy[eè]re|halloumi|paneer|emmental|provolone|fontina|taleggio|burrata|stracchino|caciotta|caciocavallo|asiago|scamorza|caprino|grana|pecorino|mozzarella|feta|ricotta|mascarpone|quark|yogurt|latticello|kefir|maionese|cacio|miele|gelatina|colla di pesce|caglio|carn[ei]|lardo|speck|w[uü]rstel|fegato|trippa|ciccioli|cappone|poll[oi]|manz[oi]|maial[ei]|bacon|prosciutt[oi]|pancetta|agnell[oi]|tacchin[oi]|vitell[oi]|anatr[ae]|conigli[o]?|cerv[oi]|caprett[oi]|guanciale|mortadella|bresaola|cotechino|chorizo|salsicc[ei]a|salsicce|salam[ei]|salumi|strutto|pesc[ei]|acciug[ah]e?|alici|tonn[oi]|salmon[ei]|gamber(?:[oi]|ett[oi])|granch(?:io|i)|aragost[ae]|ostric[ah]e?|vongol[ae]|cozz[ae]|calamar[oi]|cap[ae]sant[ae]|merluzz[oi]|baccal[aà]|sardin[ae]|trot[ae]|aringh[ae]|sgombr[oi]|polp[oi]|sepp(?:ia|ie)|frutti di mare|worcestershire|siero|caseina)(?![\wà-ÿ])/g,
     qualifier: /\b(?:vegan[oaie]?|vegetal[ei]|soia|tofu|seitan|tempeh|in stile|tipo|senza|funghi)\s*$/,
-    qualifierSuffix: /^\s+(?:vegan[oaie]?|vegetal[ei]|(?:di |d['’]|al |alla |all['’]|a base di )(?:soia|mandorl[ae]|avena|cocco|anacardi|arachidi|cacao|karit[eé]|riso|piselli|tofu|tempeh|seitan|ceci|lenticchie|fagioli|jackfruit|funghi))\b/
+    qualifierSuffix: /^\s+(?:vegan[oaie]?|vegetal[ei]|veg(?![\wà-ÿ])|(?:di |d['’]|al |alla |all['’]|a base di )(?:soia|mel[ae]|nocciol[ae]|frutta secca|mandorl[ae]|avena|cocco|anacardi|arachidi|cacao|karit[eé]|riso|piselli|tofu|tempeh|seitan|ceci|lenticchie|fagioli|jackfruit|funghi))\b/
   }
 };
 
