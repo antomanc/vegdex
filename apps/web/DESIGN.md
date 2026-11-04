@@ -204,7 +204,7 @@ Three families with separate jobs. Besley, a Clarendon revival self-hosted throu
 
 ## Layout
 
-Mobile first, with a 1200px max container. The sticky header holds only the brand row and search (about 120px on a phone) and closes with the tomato rule. Quick filters scroll with the page. Once they are out of view, a "Filters" button in the header jumps back to them. Horizontal pill rows fade at the right edge to show there is more.
+Mobile first, with a 1200px max container. The sticky header holds only the brand row and search (about 120px on a phone) and closes with the tomato rule. Quick filters scroll with the page. Once they are out of view, a floating "Filters" button jumps back to them. A separate "Back to top" button appears after 600px of scrolling and returns keyboard focus to the brand without opening the phone keyboard. Horizontal pill rows fade at the right edge to show there is more.
 
 - **Filters:** a controls row first (Tonight, More filters, time). Each filter has one home: time lives only in the row, High protein only in More filters, then the divider tabs (Savory, Sweet, then meals) standing on a hairline that heads the results. The tabs sit next to the cards they sort.
 - **Grid:** `repeat(auto-fill, minmax(160px, 1fr))` with 10px gaps (two columns on a phone). At 700px and up, `minmax(220px, 1fr)` with 16px gaps.
@@ -260,7 +260,13 @@ Soft rectangles for content, full pills for small controls, near-square tags for
 ### Night mode
 - A 40px round key in the header, left of Saved, labelled "Night mode" (`aria-pressed`). The icon shows where a tap goes: moon by day, sun by night.
 - Follows the system until tapped, then remembers the pick on the device (`lib/theme.svelte.ts`, `vegdex:theme`). An inline script in `index.html` sets `data-theme` before first paint. Dark tokens live once, under `:root[data-theme='dark']`. The switch cross-fades with a view transition unless reduced motion is on.
-- Under 420px, Saved shows "♥ 3" (still named "Saved · 3") so the header row holds Filters, Night mode and Saved on one line down to 360px.
+- Under 420px, Saved shows "♥ 3" (still named "Saved · 3") so the header row holds the language link, Night mode and Saved on one line down to 360px.
+
+### Language and scroll controls
+
+- The other UI language is linked directly in the header and remains available in the footer. Switching keeps URL filters and saved recipes on the device.
+- Return controls use the existing surface, line, ink and card-shadow tokens; they sit above the floating random-pick action.
+- The sort chevron uses an SVG mask in the current ink color so it remains readable in both themes.
 
 ### Inputs
 - **Search:** pill on surface with a muted search icon, green border and ring on focus, a themed clear icon, and a tomato caret.

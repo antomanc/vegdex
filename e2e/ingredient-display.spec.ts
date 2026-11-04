@@ -86,3 +86,17 @@ test('a line naming two measured ingredients shows each part in Italian and as w
   await expect(groceries.getByRole('checkbox', { name: /^water/ })).toHaveCount(1);
   await expect(groceries.locator('li').filter({ has: page.getByRole('checkbox', { name: /^water/ }) })).toContainText('½ cup');
 });
+
+test('an ingredient after an embedded weight is never dropped from the recipe sheet', async ({ page }) => {
+  const line = '4 x-large (15g) minced garlic cloves';
+  await page.route('**/data/details/15.json', (route) => {
+    const details = JSON.parse(readFileSync(new URL('./fixtures/data/details/15.json', import.meta.url), 'utf8'));
+    details['quinoa-salad'].ingredients = [line];
+    details['quinoa-salad'].parsedIngredients = [parseIngredient(line, { garlic: 'off:41024084d2e27b7d' })];
+    return route.fulfill({ json: details });
+  });
+  for (const path of ['/', '/it/']) {
+    await page.goto(`${path}?r=quinoa-salad`);
+    await expect(page.getByRole('dialog').getByTestId('ingredients').locator('li')).toHaveText(line);
+  }
+});
