@@ -74,6 +74,7 @@ pnpm test:e2e               # Playwright with fixture data
 pnpm knip                   # check unused files, exports and dependencies
 pnpm ingest run             # crawl and emit
 pnpm ingest run --pull      # start from the store the daily workflow saved, then crawl and emit
+pnpm ingest run --pull --publish   # crawl and emit here, then upload the store and deploy
 pnpm ingest emit            # emit from the local crawl store
 pnpm ingest crawl --sources <id> --max-per-source 30   # crawl one source on demand
 pnpm coverage               # translation coverage and gaps

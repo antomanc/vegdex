@@ -22,7 +22,9 @@ const { values, positionals } = parseArgs({
     'generated-at': { type: 'string' },
     blocklist: { type: 'string' },
     // Start from the store the daily workflow last saved, so a local crawl only fetches what is new.
-    pull: { type: 'boolean' }
+    pull: { type: 'boolean' },
+    // Put the freshly emitted store in the data release and deploy the site from it.
+    publish: { type: 'boolean' }
   }
 });
 
@@ -39,6 +41,28 @@ function pullStore() {
 }
 
 if (values.pull) pullStore();
+
+const REPO = 'antomanc/vegdex';
+
+/**
+ * Hand a locally emitted store to the daily workflow: the release is what the workflow restores,
+ * and dispatching it without a crawl rebuilds and deploys from that store.
+ */
+function publish() {
+  const dir = path.dirname(values.store!);
+  log('Uploading the crawl store to the data release…');
+  try {
+    execFileSync('gh', ['release', 'view', 'data', '--repo', REPO], { stdio: 'ignore' });
+  } catch {
+    execFileSync('gh', ['release', 'create', 'data', '--repo', REPO, '--title', 'Crawl state',
+      '--notes', 'Ingest store used by the daily workflow. Not a software release.'], { stdio: 'inherit' });
+  }
+  execFileSync('gh', ['release', 'upload', 'data', '--repo', REPO, '--clobber',
+    path.join(dir, path.basename(values.store!)), path.join(dir, 'excluded.json')], { stdio: 'inherit' });
+  log('Dispatching the deploy, which emits from that store…');
+  execFileSync('gh', ['workflow', 'run', 'daily.yml', '--repo', REPO, '-f', 'crawl=false'], { stdio: 'inherit' });
+  log('Deploy queued; watch it with: gh run list --workflow=daily.yml --limit 1');
+}
 
 async function crawl() {
   const store = loadStore(values.store!);
@@ -112,10 +136,13 @@ const VOLUME_UNITS = new Set(['cup', 'fl oz', 'pint', 'quart']);
 
 if (command === 'crawl') await crawl();
 else if (command === 'weights') weights();
-else if (command === 'emit') emit();
-else if (command === 'run') {
+else if (command === 'emit') {
+  emit();
+  if (values.publish) publish();
+} else if (command === 'run') {
   await crawl();
   emit();
+  if (values.publish) publish();
 } else {
   console.error(`unknown command ${command}; use crawl | emit | run | weights`);
   process.exit(1);
