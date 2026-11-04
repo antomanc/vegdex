@@ -61,6 +61,22 @@ test('hands the native datalist a short list, and typing still reaches names fur
   await expect.poll(() => options(have)).toEqual(['saffron']);
 });
 
+test('matching ignores case, and a mixed-case name can still be picked', async ({ page }) => {
+  // Real suggestions keep their case: "Old Bay", "senape di Digione", "lenticchie di Puy".
+  await page.route('**/data/suggest/*.json', (route) => route.fulfill({ json: ['aglio', 'senape di Digione'] }))
+  await page.goto('/it/')
+  await page.getByRole('button', { name: /Altri filtri/ }).click();
+  const have = page.getByLabel('Deve contenere');
+
+  await have.focus();
+  await have.fill('digione');
+  await expect.poll(() => options(have)).toEqual(['senape di Digione']);
+  await pick(have, 'senape di Digione');
+  await expect(page.getByRole('button', { name: 'Rimuovi senape di digione' })).toBeVisible();
+  // Already chosen, so no longer offered: the two sides compare in the same case.
+  expect(await options(have)).not.toContain('senape di Digione');
+});
+
 test('suggestions follow the page language', async ({ page }) => {
   await page.goto('/it/');
   await page.getByRole('button', { name: /Altri filtri/ }).click();
