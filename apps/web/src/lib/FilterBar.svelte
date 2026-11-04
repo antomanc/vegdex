@@ -85,17 +85,16 @@
 
 <!-- The stall's signs: flavor, then the courses. -->
 <nav class="tabs" aria-label={m.categories()}>
-  <div class="tab-row">
+  <div class="tab-row"><div class="tab-track">
     <button class="tab savory" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
       onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>{m.savory()}</button>
     <button class="tab sweet" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
       onclick={() => (filters.flavor = filters.flavor === 'sweet' ? null : 'sweet')}>{m.sweet()}</button>
-    <span class="tab-gap" aria-hidden="true"></span>
     {#each MEAL_LABELS as [meal, label] (meal)}
       <button class="tab" class:on={filters.meals.includes(meal)} aria-pressed={filters.meals.includes(meal)}
         onclick={() => toggleMeal(meal)}>{label}</button>
     {/each}
-  </div>
+  </div></div>
 </nav>
 
 <div class="pills controls">
@@ -119,9 +118,9 @@
       <div class="sheet-top"><button class="close" onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
       <h2 id="more-title">{m.more_filters()}</h2>
       <fieldset class="field">
-        <legend class="label">{m.high_protein()}</legend>
-        <p class="hint">{m.protein_hint()}</p>
+        <legend class="visually-hidden">{m.high_protein()}</legend>
         <div class="choice-grid"><button class="pill outline" class:on={filters.highProtein} aria-pressed={filters.highProtein} onclick={() => (filters.highProtein = !filters.highProtein)}>{m.high_protein()}</button></div>
+        <p class="hint">{m.protein_hint()}</p>
       </fieldset>
 
       <fieldset class="field">
@@ -140,7 +139,7 @@
         <p class="hint" id="have-hint">{m.include_hint()} {m.pending_hint()}</p>
         <div class="input-row">
           <input id="have" bind:value={have} list="ingredient-names" onfocus={suggest} oninput={(e) => picked('include', e)} placeholder={m.include_example()} autocomplete="off" enterkeyhint="done" aria-describedby="have-hint" />
-          <button class="btn-sm">{m.add()}</button>
+          <button class="btn-sm" disabled={!have.trim()}>{m.add()}</button>
         </div>
         {#if filters.include.length}
           <div class="chips">
@@ -156,7 +155,7 @@
         <p class="hint" id="avoid-hint">{m.exclude_hint()}</p>
         <div class="input-row">
           <input id="avoid" bind:value={avoid} list="ingredient-names" onfocus={suggest} oninput={(e) => picked('exclude', e)} placeholder={m.avoid_example()} autocomplete="off" enterkeyhint="done" aria-describedby="avoid-hint" />
-          <button class="btn-sm">{m.add()}</button>
+          <button class="btn-sm" disabled={!avoid.trim()}>{m.add()}</button>
         </div>
         {#if filters.exclude.length}
           <div class="chips">
