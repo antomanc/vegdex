@@ -71,3 +71,20 @@ describe('findNonVegan', () => {
     expect(findNonVegan([line])[0]?.term).toBe(term);
   });
 });
+
+describe('findNonVegan in Italian', () => {
+  it.each([
+    '120 ml di latte veg non zuccherato',
+    'stracchino veg',
+    '2 cucchiai di philadelphia vegetale (o altro formaggio spalmabile veg)',
+    '2 cucchiaini di burro di mele',
+    '1 cucchiaio di tahina o altro burro di frutta secca',
+    '50 g burro di nocciole (oppure di altra frutta secca)'
+  ])('passes %s', (line) => {
+    expect(findNonVegan([line], 'it')).toEqual([]);
+  });
+
+  it.each(['100 ml panna da aggiungere al momento di frullare tutto', '50 g burro', 'latte di vegetazione'])('flags %s', (line) => {
+    expect(findNonVegan([line], 'it')).not.toEqual([]);
+  });
+});

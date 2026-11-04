@@ -62,6 +62,18 @@ function emit() {
   const blocked = report.excluded.filter((r) => r.reason === 'blocklist').length;
   log(`published ${report.published} recipes (${(report.bytes / 1e6).toFixed(1)} MB raw), excluded ${report.excluded.length - blocked} by the vegan check, ${blocked} by the blocklist and ${report.otherLanguage} translated editions`);
   log(Object.entries(report.bySource).sort((a, b) => b[1] - a[1]).map(([s, n]) => `  ${s}: ${n}`).join('\n'));
+  // A jump in a source's vegan-check rate means the blog may have stopped being all-vegan (#5).
+  const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
+  const sourceOf = new Map(allSources.map((s) => [host(s.url), s.id]));
+  const flagged = new Map<string, number>();
+  for (const r of report.excluded) {
+    const id = !r.reason && sourceOf.get(host(r.url));
+    if (id) flagged.set(id, (flagged.get(id) ?? 0) + 1);
+  }
+  for (const [id, n] of flagged) {
+    const share = n / (n + (report.bySource[id] ?? 0));
+    if (share > 0.1) log(`::warning::${id}: ${Math.round(share * 100)}% of recipes flagged by the vegan check; is it still an all-vegan publisher?`);
+  }
 }
 
 /**
