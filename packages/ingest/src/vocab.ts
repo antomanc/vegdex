@@ -144,6 +144,12 @@ export function formatVocabulary(file: VocabFile): string {
   return stable({ ...file, commentary: [...new Set(file.commentary)].sort(), brands: [...new Set(file.brands)].sort() }) + '\n';
 }
 
+/** The concepts file as writeVocabulary puts it on disk, one concept per line, sorted by id. */
+export function formatConcepts(added: VocabConcept[]): string {
+  const sorted = [...added].sort((a, b) => a.id.localeCompare(b.id));
+  return (sorted.length ? `[\n${sorted.map((c) => `  ${JSON.stringify(c)}`).join(',\n')}\n]` : '[]') + '\n';
+}
+
 export function writeVocabulary(vocab: Vocabulary): void {
   fs.mkdirSync(vocab.dir, { recursive: true });
   for (const [language, file] of Object.entries(vocab.files)) {
@@ -152,7 +158,7 @@ export function writeVocabulary(vocab: Vocabulary): void {
     writeAtomic(path.join(vocab.dir, `${language}.json`), formatVocabulary(file));
   }
   const added = [...vocab.added].sort((a, b) => a.id.localeCompare(b.id));
-  writeAtomic(path.join(vocab.dir, 'concepts.json'), (added.length ? `[\n${added.map((c) => `  ${JSON.stringify(c)}`).join(',\n')}\n]` : '[]') + '\n');
+  writeAtomic(path.join(vocab.dir, 'concepts.json'), formatConcepts(added));
 }
 
 export function writeAtomic(file: string, text: string): void {

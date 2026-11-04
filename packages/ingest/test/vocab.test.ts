@@ -6,7 +6,7 @@ import { lookupConcept, lookupTerm, parseIngredient, parseLine } from '@vegdex/c
 import { applyAnswers, buildBatch } from '../src/fill';
 import { fillPayoff, findGaps, measureCoverage, type Gap } from '../src/gaps';
 import type { Prepared } from '../src/prepare';
-import { formatVocabulary, loadVocabulary, writeVocabulary, type VocabFile } from '../src/vocab';
+import { formatConcepts, formatVocabulary, loadVocabulary, writeVocabulary, type VocabConcept, type VocabFile } from '../src/vocab';
 import { checkVocabulary } from '../src/vocab-check';
 
 const dirs: string[] = [];
@@ -35,6 +35,9 @@ it('keeps every vocabulary file in the format the writer produces', () => {
     const onDisk = fs.readFileSync(file, 'utf8');
     expect(onDisk, language).toBe(formatVocabulary(JSON.parse(onDisk) as VocabFile));
   }
+  const concepts = path.join(vocab.dir, 'concepts.json');
+  const onDisk = fs.readFileSync(concepts, 'utf8');
+  expect(onDisk, 'concepts.json').toBe(formatConcepts(JSON.parse(onDisk) as VocabConcept[]));
 });
 
 it('parses with taxonomy names, name forms and explicit aliases, keeping terms apart from concepts', () => {

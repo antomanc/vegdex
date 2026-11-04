@@ -41,11 +41,23 @@ describe('Data release', () => {
       ['workflow', 'run']
     ]);
     expect(calls[0]!.stdio).toBe('ignore');
-    const upload = calls[2]!.args;
-    expect(upload).toContain(store);
-    expect(upload).toContain(path.join(path.dirname(store), 'excluded.json'));
-    expect(upload).toContain(path.join(path.dirname(store), 'crawl-report.json'));
+    expect(calls[2]!.args).toEqual(['release', 'upload', 'data', '--clobber', store,
+      path.join(path.dirname(store), 'excluded.json'), path.join(path.dirname(store), 'crawl-report.json')]);
     expect(calls[3]!.args).toEqual(['workflow', 'run', 'daily.yml', '-f', 'crawl=false']);
+  });
+
+  it('stops before uploading when the release cannot be created', () => {
+    const store = emitted([]);
+    const { gh, calls } = fakeGh((args) => args[1] === 'view' || args[1] === 'create');
+    expect(() => publishStore(store, gh)).toThrow();
+    expect(calls.map((c) => c.args[1])).toEqual(['view', 'create']);
+  });
+
+  it('stops before dispatching when the upload fails', () => {
+    const store = emitted([]);
+    const { gh, calls } = fakeGh((args) => args[1] === 'upload');
+    expect(() => publishStore(store, gh)).toThrow();
+    expect(calls.map((c) => c.args[1])).toEqual(['view', 'upload']);
   });
 
   it('leaves the release alone when it exists and uploads without a report when there is none', () => {
