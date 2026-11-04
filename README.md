@@ -73,13 +73,16 @@ pnpm test                   # Vitest
 pnpm test:e2e               # Playwright with fixture data
 pnpm knip                   # check unused files, exports and dependencies
 pnpm ingest run             # crawl and emit
+pnpm ingest run --pull      # start from the store the daily workflow saved, then crawl and emit
+pnpm ingest run --pull --publish   # crawl and emit here, then upload the store and deploy
 pnpm ingest emit            # emit from the local crawl store
+pnpm ingest crawl --sources <id> --max-per-source 30   # crawl one source on demand
 pnpm coverage               # translation coverage and gaps
 ```
 
 Playwright needs a Chromium installation; run `pnpm exec playwright install chromium` if it is missing. See the [testing guide](docs/agents/testing.md) for the full checks and [local model fills](docs/local-model-fills.md) for vocabulary work.
 
-The crawl store is kept in the `data` release, outside git. Ingest writes vegan-check rejections to `.data/excluded.json` and held recipes to `.data/held.json`.
+The crawl store is kept in the `data` release, outside git. Ingest writes vegan-check rejections to `.data/excluded.json`, held recipes to `.data/held.json` and the per-source crawl counts to `.data/crawl-report.json`.
 
 ## Contributing
 

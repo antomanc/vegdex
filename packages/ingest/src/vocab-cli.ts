@@ -15,7 +15,8 @@ const KINDS: GapKind[] = ['map', 'term', 'name', 'title'];
 const HELP = `Vocabulary fill loop (see docs/agents/vocabulary.md):
   pnpm coverage [--top 15] [--sample]                 score per language and the largest gaps; --sample adds an
                                                       example line per gap and the gap lines the top N gaps of each kind cover
-  pnpm gaps --kind <map|term|name|title> --lang <code> [--size 50] [--batches 1]
+  pnpm gaps --kind <map|term|name|title>[,...] --lang <code>[,...] [--size 50] [--batches 1]
+                                                      one catalog walk writes a batch per kind and language
                                                       write batch files to .data/fill/
   pnpm vocab:apply <file.answers.json> ...            check answers and merge them into data/vocab/
   pnpm enrich --kind <kind> --lang <code> [--size 40] [--batches 5]
@@ -77,18 +78,27 @@ function coverage() {
 }
 
 function gaps() {
-  const [kind, language] = kindAndLanguage();
+  const kinds = (values.kind ?? '').split(',').map((s) => s.trim()).filter(Boolean) as GapKind[];
+  const languages = (values.lang ?? '').split(',').map((s) => s.trim()).filter(Boolean);
+  if (!kinds.length || !languages.length || kinds.some((k) => !KINDS.includes(k)))
+    throw new Error(`Use --kind ${KINDS.join('|')} --lang <code>, comma-separated for several`);
+  // A typo in a language would otherwise finish the walk and write nothing for it.
+  const known = Object.keys(loadVocabulary().files);
+  const unknown = languages.filter((language) => !known.includes(language));
+  if (unknown.length) throw new Error(`Unknown language(s): ${unknown.join(', ')}; known: ${known.join(', ')}`);
   const { vocab, recipes } = prepared();
   const all = findGaps(recipes, vocab, Object.keys(vocab.files));
   const size = Number(values.size ?? 50);
-  for (let n = 0; n < Number(values.batches); n++) {
-    const batch = buildBatch(vocab, all, kind, language, size, n * size);
-    if (!batch.items.length) break;
-    const file = batchPath(kind, language, n + 1);
-    // One item per line: small for a model to read, easy for a person to skim.
-    const { items, ...head } = batch;
-    writeAtomic(file, `${JSON.stringify(head).slice(0, -1)},"items":[\n${items.map((i) => JSON.stringify(i)).join(',\n')}\n]}\n`);
-    console.log(`${path.relative(root, file)}: ${batch.items.length} items covering ${batch.items.reduce((a, i) => a + i.lines, 0)} lines`);
+  for (const kind of kinds) for (const language of languages) {
+    for (let n = 0; n < Number(values.batches); n++) {
+      const batch = buildBatch(vocab, all, kind, language, size, n * size);
+      if (!batch.items.length) break;
+      const file = batchPath(kind, language, n + 1);
+      // One item per line: small for a model to read, easy for a person to skim.
+      const { items, ...head } = batch;
+      writeAtomic(file, `${JSON.stringify(head).slice(0, -1)},"items":[\n${items.map((i) => JSON.stringify(i)).join(',\n')}\n]}\n`);
+      console.log(`${path.relative(root, file)}: ${batch.items.length} items covering ${batch.items.reduce((a, i) => a + i.lines, 0)} lines`);
+    }
   }
 }
 

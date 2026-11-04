@@ -4,6 +4,7 @@ import { parseArgs } from 'node:util';
 import { parseIngredient } from '@vegdex/core';
 import { crawlAll, type CrawlSource } from './crawl';
 import { emitDataset } from './emit';
+import { publishStore, pullStore } from './release';
 import { loadStore, saveStore } from './store';
 
 const root = path.resolve(import.meta.dirname, '../../..');
@@ -19,7 +20,11 @@ const { values, positionals } = parseArgs({
     'gap-ms': { type: 'string', default: '1000' },
     concurrency: { type: 'string', default: '8' },
     'generated-at': { type: 'string' },
-    blocklist: { type: 'string' }
+    blocklist: { type: 'string' },
+    // Start from the store the daily workflow last saved, so a local crawl only fetches what is new.
+    pull: { type: 'boolean' },
+    // Put the freshly emitted store in the data release and deploy the site from it.
+    publish: { type: 'boolean' }
   }
 });
 
@@ -28,6 +33,23 @@ const allSources = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, '..
 const only = values.sources?.split(',');
 const sources = only ? allSources.filter((s) => only.includes(s.id)) : allSources;
 const log = (msg: string) => console.log(msg);
+
+if (values.pull) {
+  log('Downloading the crawl store from the data release…');
+  pullStore(values.store!);
+}
+
+/** Hand a locally emitted store to the daily workflow, which rebuilds and deploys from it. */
+function publish() {
+  log('Uploading the crawl store to the data release and queuing the deploy…');
+  try {
+    publishStore(values.store!);
+  } catch (err) {
+    console.error((err as Error).message);
+    process.exit(1);
+  }
+  log('Deploy queued; watch it with: gh run list --workflow=daily.yml --limit 1');
+}
 
 async function crawl() {
   const store = loadStore(values.store!);
@@ -48,6 +70,10 @@ async function crawl() {
   saveStore(values.store!, store);
   const after = Object.keys(store.recipes).length;
   log(`\nstore: ${after} recipes (+${after - before}), ${Object.keys(store.urls).length} urls tracked`);
+  // The per-source report answers "how is the crawl?" without digging through the workflow log.
+  fs.writeFileSync(path.join(path.dirname(values.store!), 'crawl-report.json'), JSON.stringify({
+    generatedAt: new Date().toISOString(), recipes: after, urls: Object.keys(store.urls).length, sources: results
+  }, null, 1) + '\n');
   const failing = results.filter((r) => r.recipes === 0 && r.fetched > 0);
   if (failing.length) log(`no recipes from: ${failing.map((r) => `${r.id} (${r.note ?? `${r.errors} errors`})`).join(', ')}`);
 }
@@ -101,10 +127,13 @@ const VOLUME_UNITS = new Set(['cup', 'fl oz', 'pint', 'quart']);
 
 if (command === 'crawl') await crawl();
 else if (command === 'weights') weights();
-else if (command === 'emit') emit();
-else if (command === 'run') {
+else if (command === 'emit') {
+  emit();
+  if (values.publish) publish();
+} else if (command === 'run') {
   await crawl();
   emit();
+  if (values.publish) publish();
 } else {
   console.error(`unknown command ${command}; use crawl | emit | run | weights`);
   process.exit(1);
