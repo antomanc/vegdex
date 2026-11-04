@@ -1,12 +1,24 @@
-# vegdex
+# vegdex · Vegan recipe search
 
-vegdex is a searchable index of recipes from vegan food blogs. Find a recipe by ingredient, meal or cooking time, make a shopping list, and follow the link to the publisher for instructions.
+Find vegan recipes by ingredient, meal or cooking time. Save the ones you like, build a shopping list, and cook from the original publisher’s instructions.
 
-**[Open vegdex](https://vegdex.antomanc.com/)**
+[Open vegdex](https://vegdex.antomanc.com/) · [Report a bug](https://github.com/antomanc/vegdex/issues) · [Contribute](#contributing)
 
-The app runs in the browser and works offline after its data has been cached. It supports English and Italian, US and metric measurements, saved recipes, and shopping lists. Filters include ingredients to use or avoid, cooking time, meal type and dietary preferences. Check the original recipe for allergens: filters are derived from the available recipe data.
+[![CI](https://github.com/antomanc/vegdex/actions/workflows/ci.yml/badge.svg)](https://github.com/antomanc/vegdex/actions/workflows/ci.yml)
+[![Daily ingest and deploy](https://github.com/antomanc/vegdex/actions/workflows/daily.yml/badge.svg)](https://github.com/antomanc/vegdex/actions/workflows/daily.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-1d4a31)](LICENSE)
 
-Every source is an all-vegan publisher. An additional ingredient check excludes recipes that name an animal product without a plant-based qualifier.
+[![vegdex: recipe search with ingredient and time filters, shown on a phone](apps/web/public/share-en.png)](https://vegdex.antomanc.com/)
+
+## What you can do
+
+- Search recipes from all-vegan food blogs, with ingredients to use or avoid.
+- Filter by cooking time, meal type and dietary preferences.
+- Save recipes and turn your choices into a shopping list.
+- Switch between English and Italian, and US and metric measurements.
+- Use the app offline after its data has been cached.
+
+The app runs in your browser. Every source is an all-vegan publisher, and an additional ingredient check excludes recipes that name an animal product without a plant-based qualifier. Check the original recipe for allergens: filters are derived from the available recipe data.
 
 ## Run locally
 
