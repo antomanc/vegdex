@@ -416,17 +416,11 @@
 </main>
 
 <!-- One dock within thumb reach: the way back up and the one primary action, side by side.
-     Browsing, the way back is "Filters" (that's what sits up there); in Saved it's "Back to top". -->
+     It always says "Back to top", so nobody taps it expecting to keep their place. -->
 {#if showReturn || showPick}
   <div class="dock">
     {#if showReturn}
-      <button class="dock-return" onclick={backUp} aria-label={filters.saved ? undefined : `${m.filters()}${activeCount() ? ` · ${formatNumber(activeCount())}` : ''}`}>
-        {#if filters.saved}
-          <Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span>
-        {:else}
-          <Icon name="sliders" size={18} /><span>{m.filters()}</span>{#if activeCount()}<span class="dock-count" aria-hidden="true">{formatNumber(activeCount())}</span>{/if}
-        {/if}
-      </button>
+      <button class="dock-return" onclick={backUp}><Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span></button>
     {/if}
     {#if showPick}<button class="pick" onclick={pick}><Icon name="shuffle" size={18} /> {m.pick()}</button>{/if}
   </div>
