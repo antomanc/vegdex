@@ -37,30 +37,32 @@ const log = (msg: string) => console.log(msg);
 function pullStore() {
   log('Downloading the crawl store from the data release…');
   fs.mkdirSync(path.dirname(values.store!), { recursive: true });
-  execFileSync('gh', ['release', 'download', 'data', '--pattern', 'store.json.gz', '--dir', path.dirname(values.store!), '--clobber'], { stdio: 'inherit' });
+  execFileSync('gh', ['release', 'download', 'data', '--pattern', 'store.json.gz', '--output', values.store!, '--clobber'], { stdio: 'inherit' });
 }
 
 if (values.pull) pullStore();
-
-const REPO = 'antomanc/vegdex';
 
 /**
  * Hand a locally emitted store to the daily workflow: the release is what the workflow restores,
  * and dispatching it without a crawl rebuilds and deploys from that store.
  */
 function publish() {
+  // daily.yml restores the asset by this name, whatever --store the run used.
+  if (path.basename(values.store!) !== 'store.json.gz') {
+    console.error(`--publish needs --store to end in store.json.gz (the asset daily.yml restores), not ${path.basename(values.store!)}`);
+    process.exit(1);
+  }
   const dir = path.dirname(values.store!);
   log('Uploading the crawl store to the data release…');
   try {
-    execFileSync('gh', ['release', 'view', 'data', '--repo', REPO], { stdio: 'ignore' });
+    execFileSync('gh', ['release', 'view', 'data'], { stdio: 'ignore' });
   } catch {
-    execFileSync('gh', ['release', 'create', 'data', '--repo', REPO, '--title', 'Crawl state',
+    execFileSync('gh', ['release', 'create', 'data', '--title', 'Crawl state',
       '--notes', 'Ingest store used by the daily workflow. Not a software release.'], { stdio: 'inherit' });
   }
-  execFileSync('gh', ['release', 'upload', 'data', '--repo', REPO, '--clobber',
-    path.join(dir, path.basename(values.store!)), path.join(dir, 'excluded.json')], { stdio: 'inherit' });
+  execFileSync('gh', ['release', 'upload', 'data', '--clobber', values.store!, path.join(dir, 'excluded.json')], { stdio: 'inherit' });
   log('Dispatching the deploy, which emits from that store…');
-  execFileSync('gh', ['workflow', 'run', 'daily.yml', '--repo', REPO, '-f', 'crawl=false'], { stdio: 'inherit' });
+  execFileSync('gh', ['workflow', 'run', 'daily.yml', '-f', 'crawl=false'], { stdio: 'inherit' });
   log('Deploy queued; watch it with: gh run list --workflow=daily.yml --limit 1');
 }
 
