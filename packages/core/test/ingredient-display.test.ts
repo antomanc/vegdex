@@ -240,3 +240,11 @@ it('fixes one typo in a long name, never a substitution and never into an animal
   expect(parseIngredient('1 tsp tumeric', names)).toMatchObject({ concept: 'turmeric', conceptExact: true });
   expect(parseIngredient('2 tbsp parmesean', names).concept).toBeNull();
 });
+
+it('keeps the original when the ingredient name follows a parenthesized weight', () => {
+  const parsed = parseIngredient('4 x-large (15g) minced garlic cloves', lookup);
+  for (const units of ['us', 'metric'] as const) {
+    expect(renderIngredient(parsed, en, 'en', units)).toBeNull();
+    expect(renderIngredient(parsed, it_, 'it', units)).toBeNull();
+  }
+});

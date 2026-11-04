@@ -25,6 +25,8 @@ export function renderIngredient(
 ): [amount: string, rest: string] | null {
   const pack = languagePacks[language];
   if (!vocab || !pack || !p.terms || p.phrase === undefined || !p.name || p.kind) return null;
+  // A name after a parenthesized weight may have been parsed as commentary: keep the whole source line.
+  if (p.concept && p.conceptExact === false && !p.phrase.toLowerCase().includes(p.name.toLowerCase())) return null;
   const metric = units === 'metric' ? toMetric(p) : null;
   // "⅓ packed cup (50g)": how full the cup is matters only while the cup is the measure.
   const weighedExactly = !!metric && p.metric?.unit === metric.unit;
