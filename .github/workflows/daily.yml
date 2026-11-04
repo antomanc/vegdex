@@ -54,7 +54,7 @@ jobs:
         if: github.event_name == 'schedule' || inputs.crawl
         run: |
           gh release view data >/dev/null 2>&1 || gh release create data --title "Crawl state" --notes "Ingest store used by the daily workflow. Not a software release."
-          gh release upload data .data/store.json.gz .data/excluded.json --clobber
+          gh release upload data .data/store.json.gz .data/excluded.json .data/crawl-report.json --clobber
 
       # Coverage per language and held recipes; reporting never blocks a deploy.
       - name: Update translation backlog

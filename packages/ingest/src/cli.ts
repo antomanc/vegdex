@@ -1,10 +1,10 @@
-import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
 import { parseIngredient } from '@vegdex/core';
 import { crawlAll, type CrawlSource } from './crawl';
 import { emitDataset } from './emit';
+import { publishStore, pullStore } from './release';
 import { loadStore, saveStore } from './store';
 
 const root = path.resolve(import.meta.dirname, '../../..');
@@ -34,35 +34,20 @@ const only = values.sources?.split(',');
 const sources = only ? allSources.filter((s) => only.includes(s.id)) : allSources;
 const log = (msg: string) => console.log(msg);
 
-function pullStore() {
+if (values.pull) {
   log('Downloading the crawl store from the data release…');
-  fs.mkdirSync(path.dirname(values.store!), { recursive: true });
-  execFileSync('gh', ['release', 'download', 'data', '--pattern', 'store.json.gz', '--output', values.store!, '--clobber'], { stdio: 'inherit' });
+  pullStore(values.store!);
 }
 
-if (values.pull) pullStore();
-
-/**
- * Hand a locally emitted store to the daily workflow: the release is what the workflow restores,
- * and dispatching it without a crawl rebuilds and deploys from that store.
- */
+/** Hand a locally emitted store to the daily workflow, which rebuilds and deploys from it. */
 function publish() {
-  // daily.yml restores the asset by this name, whatever --store the run used.
-  if (path.basename(values.store!) !== 'store.json.gz') {
-    console.error(`--publish needs --store to end in store.json.gz (the asset daily.yml restores), not ${path.basename(values.store!)}`);
+  log('Uploading the crawl store to the data release and queuing the deploy…');
+  try {
+    publishStore(values.store!);
+  } catch (err) {
+    console.error((err as Error).message);
     process.exit(1);
   }
-  const dir = path.dirname(values.store!);
-  log('Uploading the crawl store to the data release…');
-  try {
-    execFileSync('gh', ['release', 'view', 'data'], { stdio: 'ignore' });
-  } catch {
-    execFileSync('gh', ['release', 'create', 'data', '--title', 'Crawl state',
-      '--notes', 'Ingest store used by the daily workflow. Not a software release.'], { stdio: 'inherit' });
-  }
-  execFileSync('gh', ['release', 'upload', 'data', '--clobber', values.store!, path.join(dir, 'excluded.json')], { stdio: 'inherit' });
-  log('Dispatching the deploy, which emits from that store…');
-  execFileSync('gh', ['workflow', 'run', 'daily.yml', '-f', 'crawl=false'], { stdio: 'inherit' });
   log('Deploy queued; watch it with: gh run list --workflow=daily.yml --limit 1');
 }
 
@@ -85,6 +70,10 @@ async function crawl() {
   saveStore(values.store!, store);
   const after = Object.keys(store.recipes).length;
   log(`\nstore: ${after} recipes (+${after - before}), ${Object.keys(store.urls).length} urls tracked`);
+  // The per-source report answers "how is the crawl?" without digging through the workflow log.
+  fs.writeFileSync(path.join(path.dirname(values.store!), 'crawl-report.json'), JSON.stringify({
+    generatedAt: new Date().toISOString(), recipes: after, urls: Object.keys(store.urls).length, sources: results
+  }, null, 1) + '\n');
   const failing = results.filter((r) => r.recipes === 0 && r.fetched > 0);
   if (failing.length) log(`no recipes from: ${failing.map((r) => `${r.id} (${r.note ?? `${r.errors} errors`})`).join(', ')}`);
 }

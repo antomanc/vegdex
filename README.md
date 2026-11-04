@@ -82,7 +82,7 @@ pnpm coverage               # translation coverage and gaps
 
 Playwright needs a Chromium installation; run `pnpm exec playwright install chromium` if it is missing. See the [testing guide](docs/agents/testing.md) for the full checks and [local model fills](docs/local-model-fills.md) for vocabulary work.
 
-The crawl store is kept in the `data` release, outside git. Ingest writes vegan-check rejections to `.data/excluded.json` and held recipes to `.data/held.json`.
+The crawl store is kept in the `data` release, outside git. Ingest writes vegan-check rejections to `.data/excluded.json`, held recipes to `.data/held.json` and the per-source crawl counts to `.data/crawl-report.json`.
 
 ## Contributing
 
