@@ -102,11 +102,11 @@ export function landingPages(opts: {
 <link rel="canonical" href="${url}" />
 ${alternates.map((a) => `<link rel="alternate" hreflang="${a.language}" href="${a.url}" />`).join('\n')}
 <link rel="icon" type="image/svg+xml" href="${base}favicon.svg" />
-<meta name="theme-color" content="#1d4a31" />
+<meta name="theme-color" content="#2f6b3f" />
 <style>
-body{margin:0 auto;max-width:42rem;padding:1.5rem 1rem 3rem;font:1rem/1.5 system-ui,sans-serif;background:#eef0e9;color:#1c241f}
-a{color:#1d4a31}h1{font-size:1.6rem;line-height:1.2;margin:.5rem 0}ul{padding:0;list-style:none}li{padding:.45rem 0;border-bottom:1px solid #d5dacd}
-li span{color:#5a6459;font-size:.875rem}.cta{display:inline-block;margin:.5rem 0 1rem;font-weight:600}
+body{margin:0 auto;max-width:42rem;padding:1.5rem 1rem 3rem;font:1rem/1.5 system-ui,sans-serif;background:#fff;color:#151515}
+a{color:#2f6b3f}h1{font-size:1.6rem;line-height:1.2;margin:.5rem 0}ul{padding:0;list-style:none}li{padding:.45rem 0;border-bottom:1px solid #dedcd4}
+li span{color:#5c5c55;font-size:.875rem}.cta{display:inline-block;margin:.5rem 0 1rem;font-weight:600}
 </style>
 </head>
 <body>
