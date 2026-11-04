@@ -421,7 +421,7 @@
     <footer class="credits">
       {m.credits(countArgs(loaded!.sources.length))}
       {m.credits_updated({ date: new Date(loaded!.generatedAt).toLocaleDateString(pageLocale.intl) })}
-      <div>{m.dictionary_credit()} <span class="nowrap"><a href="https://world.openfoodfacts.org/">Open Food Facts</a> ·</span> <span class="nowrap"><a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> ·</span> <a href="{import.meta.env.BASE_URL}data/dictionary.json">{m.dictionary_tables()}</a></div>
+      <div>{m.dictionary_credit()} <a href="https://world.openfoodfacts.org/">Open Food Facts</a> <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> <a href="{import.meta.env.BASE_URL}data/dictionary.json">{m.dictionary_tables()}</a></div>
       <div><a href="https://github.com/antomanc/vegdex">{m.open_source()}</a></div>
       <div class="row center">
         {#each LOCALES.filter((locale) => locale.code !== pageLocale.code) as locale (locale.code)}

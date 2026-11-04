@@ -98,6 +98,8 @@ input { caret-color: var(--sign-red); }
   padding: 10px var(--edge) 12px;
   border-bottom: 3px solid var(--rule);
 }
+/* Phones: scrolling leaves only the search pinned; Back to top is one tap away. */
+@media (max-width: 699px) { .top { top: -64px; } }
 .brand-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; max-width: 1200px; margin: 0 auto 10px; }
 .brand-h { margin: 0; font-size: inherit; }
 .brand {
@@ -159,14 +161,21 @@ input { caret-color: var(--sign-red); }
 .pills { display: flex; gap: 8px; align-items: center; overflow-x: auto; padding: 2px var(--edge); max-width: calc(1200px + 2 * var(--edge)); margin: 0 auto; scrollbar-width: none; }
 .pills::-webkit-scrollbar { display: none; }
 /* Rows that scroll sideways fade at the edge, so the clipped control reads as "more this way". */
-.tab-track { flex: none; display: flex; flex-wrap: wrap; gap: 8px; width: 780px; }
+.tab-track { flex: none; display: grid; gap: 8px; }
+.tab-line { display: flex; gap: 8px; }
 /* The smallest phones keep one scrolling row, so recipes reach the first screen. */
-@media (max-width: 359px) { .tab-track { flex-wrap: nowrap; width: max-content; } }
+@media (max-width: 359px) { .tab-track { display: flex; } .tab-line { display: contents; } }
 @media (max-width: 699px) {
   /* The cut sign and a short fade say the rows go on. */
-  .tabs .tab-row { mask-image: linear-gradient(to right, var(--ink) calc(100% - 44px), transparent); scroll-padding-inline: var(--edge); scroll-snap-type: x proximity; }
+  .tabs .tab-row { mask-image: linear-gradient(to right, var(--ink) calc(100% - var(--sign-fade)), transparent); scroll-padding-inline: var(--edge); scroll-snap-type: x proximity; }
   .tab { scroll-snap-align: start; }
+  /* At the end of the row there is nothing more to hint at: the fade lets go. */
+  @supports (animation-timeline: scroll()) {
+    .tabs .tab-row { animation: sign-fade linear both; animation-timeline: scroll(self inline); }
+  }
 }
+@property --sign-fade { syntax: '<length>'; inherits: false; initial-value: 44px; }
+@keyframes sign-fade { 0%, 88% { --sign-fade: 44px; } 100% { --sign-fade: 0px; } }
 /* Tonight and More filters share a row; the four times take the next one whole, so none is clipped. */
 .pills.controls { flex-wrap: wrap; overflow: visible; }
 .pills.controls .segmented { flex: 1 1 100%; }
@@ -174,7 +183,8 @@ input { caret-color: var(--sign-red); }
   .pills.controls { flex-wrap: nowrap; }
   .pills.controls .segmented { flex: none; }
   /* Wide screens show every sign at once. */
-  .tab-track { width: min(100%, 860px); }
+  .tab-track { width: 100%; }
+  .tab-line { flex-wrap: wrap; }
 }
 .pills.wrap { flex-wrap: wrap; overflow: visible; padding: 0; margin: 0; }
 .pill {
@@ -217,7 +227,7 @@ input { caret-color: var(--sign-red); }
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .row.center { justify-content: center; }
 .label { font-size: 0.88rem; color: var(--muted); min-width: 72px; }
-.field { border: 0; margin: 0 0 22px; padding: 0; display: grid; gap: 8px; }
+.field { border: 0; margin: 0 0 22px; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
 .field .label { padding: 0; font-weight: 600; color: var(--ink); font-size: 1rem; }
 .hint { margin: 0; font-size: 0.875rem; line-height: 1.4; color: var(--muted); }
 .choice-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
@@ -284,7 +294,8 @@ main {
   padding: 28px 16px calc(16px + env(safe-area-inset-bottom));
   background: linear-gradient(to top, var(--paper) 45%, transparent);
 }
-@media (min-width: 700px) { .dock { background: var(--paper); border-top: 3px solid var(--rule); padding: 10px 16px; } .pick, .dock-return { box-shadow: none; } .dock-return { box-shadow: inset 0 0 0 2px var(--rule); } }
+/* Wider screens: the dock floats in the corner, off the middle of the photos. */
+@media (min-width: 700px) { .dock { background: none; padding: 0 max(var(--edge), (100% - 1200px) / 2) 20px; justify-content: flex-end; } }
 .pick, .dock-return {
   pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 24px;
   border: 0; border-radius: 8px; background: var(--green); color: var(--on-green);
@@ -297,9 +308,9 @@ main {
 .pick, .dock-return { white-space: nowrap; }
 /* Both labels on one line down to a 320px phone, in English and Italian. */
 @media (max-width: 359px) {
-  .dock { gap: 8px; padding-inline: 12px; }
-  .pick { padding: 0 18px; }
-  .dock-return { padding: 0 14px; }
+  .dock { gap: 6px; padding-inline: 8px; }
+  .pick { padding: 0 12px; font-size: 0.9rem; gap: 6px; }
+  .dock-return { padding: 0 10px; font-size: 0.85rem; gap: 4px; }
 }
 /* Room under the last cards and the credits, so the dock never covers them. */
 main:has(~ .dock) { padding-bottom: 96px; }
@@ -308,7 +319,8 @@ main:has(~ .dock) { padding-bottom: 96px; }
 .card, .skeleton li { position: relative; height: 100%; }
 .card { display: flex; flex-direction: column; }
 .card { transition: opacity 0.2s ease-out; }
-.card.unsaved { opacity: 0.55; }
+.card.unsaved .thumb img { filter: grayscale(1); opacity: 0.45; }
+.removed { margin: 18px 2px -12px; font-size: 0.875rem; font-weight: 650; color: var(--sign-red); }
 .card-open { display: inline; text-align: left; background: none; border: 0; padding: 0; font-weight: inherit; letter-spacing: inherit; line-height: inherit; }
 .card-open::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius); }
 .card-open:focus-visible { outline: none; }
@@ -357,13 +369,11 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
 }
 .sentinel { height: 1px; }
 .credits { text-align: center; color: var(--muted); font-size: 0.875rem; margin-top: auto; padding-top: 40px; line-height: 1.5; text-wrap: balance; }
-/* A separator stays with the link before it, never leading a line. */
-.credits .nowrap { white-space: nowrap; }
 .credits a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; color: var(--green); text-underline-offset: 3px; }
 
 /* Sheets */
 .sheet {
-  border: 0; padding: 0; width: 100%; max-width: 640px; max-height: calc(100dvh - 8px); margin: auto auto 0;
+  border: 0; padding: 0; width: 100%; max-width: 640px; max-height: 100dvh; margin: auto auto 0;
   border-radius: 8px 8px 0 0; background: var(--surface); color: var(--ink);
   overflow: auto; overscroll-behavior: contain;
 }
@@ -429,6 +439,7 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
 .card-fields > div + div { border-left: 1px solid var(--line); }
 .card-fields dt { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .card-fields dd span { white-space: nowrap; }
+@media (max-width: 359px) { .card-fields dt { white-space: nowrap; font-size: 0.7rem; letter-spacing: 0.03em; } .card-fields > div { padding-inline: 6px; } .units-row .label { min-width: auto; } }
 .card-fields dd { margin: 4px 0 0; font-size: 0.95rem; font-weight: 600; line-height: 1.35; font-variant-numeric: tabular-nums; }
 .recipe-head h2 { margin-right: 0; }
 .card-fields .tag { white-space: nowrap; display: inline-block; margin-top: 6px; rotate: -3deg; font-size: 0.95rem; }
@@ -481,7 +492,8 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .grocery .name, .grocery .amount { transition: opacity 160ms ease-out; }
 .grocery .name::first-letter { text-transform: uppercase; }
 .grocery .amount { color: var(--muted); font-size: 0.92rem; font-variant-numeric: tabular-nums; text-align: right; }
-.grocery label.done .name, .grocery label.done .amount { text-decoration: line-through; opacity: 0.7; }
+.grocery label.done .name, .grocery label.done .amount { text-decoration: line-through; }
+.grocery label.done .name { opacity: 0.7; }
 .uncheck { margin-left: auto; }
 .amounts summary { cursor: pointer; min-height: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; list-style: none; }
 .amounts summary .for { flex: 1 1 100%; }

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { saveFeedback } from './save-feedback'
-  import { recipeTitle } from './translations.svelte'
+  import { recipeTitle, titleLang } from './translations.svelte'
   import type { CatalogRecipe } from '@vegdex/core'
   import { m, countArgs, formatRating } from './i18n'
   import Icon from './Icon.svelte'
@@ -25,8 +25,9 @@
     {/if}
     {#if recipe.minutes}<span class="time" aria-hidden="true">{formatMinutes(recipe.minutes)}</span>{/if}
   </div>
+  {#if justUnsaved}<span class="removed">{m.removed()}</span>{/if}
   <!-- The title is the card's heading; its button stretches over the whole card. -->
-  <h2 id="{id}-title"><button class="card-open" onclick={onopen} aria-describedby="{id}-meta">{recipeTitle(recipe)}</button></h2>
+  <h2 id="{id}-title"><button class="card-open" lang={titleLang(recipe)} onclick={onopen} aria-describedby="{id}-meta">{recipeTitle(recipe)}</button></h2>
   <p class="meta" id="{id}-meta">
     {#if recipe.minutes}<span class="visually-hidden">{formatMinutes(recipe.minutes)}, </span>{/if}
     <span class="source">{sourceName}</span>

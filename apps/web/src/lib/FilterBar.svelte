@@ -11,6 +11,8 @@
   // null until the catalog answers: the button says what it does without a count.
   let { count }: { count: number | null } = $props()
 
+  /** Mains through Desserts head the first line of signs. */
+  const FIRST_LINE = 7
   let more = $state(false)
   let signRow = $state<HTMLElement>()
   // A chosen sign, also one set by Tonight or a shared link, slides into the scrolling row's view.
@@ -97,17 +99,23 @@
   }
 </script>
 
-<!-- The stall's signs: flavor, then the courses. -->
+<!-- The stall's signs, in two lines that scroll together: dinner courses lead, then flavor and the rest. -->
+{#snippet meal([meal, label]: [Meal, string])}
+  <button class="tab" class:on={filters.meals.includes(meal)} aria-pressed={filters.meals.includes(meal)}
+    onclick={() => toggleMeal(meal)}>{label}</button>
+{/snippet}
 <nav class="tabs" aria-label={m.categories()}>
   <div class="tab-row" bind:this={signRow}><div class="tab-track">
-    <button class="tab savory" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
-      onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>{m.savory()}</button>
-    <button class="tab sweet" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
-      onclick={() => (filters.flavor = filters.flavor === 'sweet' ? null : 'sweet')}>{m.sweet()}</button>
-    {#each MEAL_LABELS as [meal, label] (meal)}
-      <button class="tab" class:on={filters.meals.includes(meal)} aria-pressed={filters.meals.includes(meal)}
-        onclick={() => toggleMeal(meal)}>{label}</button>
-    {/each}
+    <div class="tab-line">
+      {#each MEAL_LABELS.slice(0, FIRST_LINE) as entry (entry[0])}{@render meal(entry)}{/each}
+    </div>
+    <div class="tab-line">
+      <button class="tab savory" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
+        onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>{m.savory()}</button>
+      <button class="tab sweet" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
+        onclick={() => (filters.flavor = filters.flavor === 'sweet' ? null : 'sweet')}>{m.sweet()}</button>
+      {#each MEAL_LABELS.slice(FIRST_LINE) as entry (entry[0])}{@render meal(entry)}{/each}
+    </div>
   </div></div>
 </nav>
 

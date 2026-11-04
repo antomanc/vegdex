@@ -1,7 +1,7 @@
 <script lang="ts">
   import { saveFeedback } from './save-feedback'
   import { untrack } from 'svelte'
-  import { display, recipeTitle } from './translations.svelte'
+  import { display, recipeTitle, titleLang } from './translations.svelte'
   import { isHiddenLine, lineParts, renderIngredient, scaleIngredient, type CatalogRecipe, type ParsedLine } from '@vegdex/core'
   import { loadDetails } from './data'
   import Icon from './Icon.svelte'
@@ -137,7 +137,7 @@
     {#if recipe.image && !broken}
       <img class="hero" src={recipe.image} alt="" referrerpolicy="no-referrer" onerror={() => (broken = true)} />
     {/if}
-    <h2 id="sheet-title">{recipeTitle(recipe)}</h2>
+    <h2 id="sheet-title" lang={titleLang(recipe)}>{recipeTitle(recipe)}</h2>
     {#if recipeTitle(recipe) !== recipe.title}<p class="muted original-title" lang={recipe.contentLanguage ?? 'en'}>{recipe.title}</p>{/if}
     <p class="kitchen">
       <span>{m.from_kitchen()} <button class="kitchen-name" onclick={onkitchen} aria-label={m.source_recipes({ source: sourceName })}>{sourceName}</button></span>
