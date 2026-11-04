@@ -221,18 +221,24 @@ main {
 @media (min-width: 700px) { .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; } }
 
 /* The browse screen's one solid action, floating within thumb reach: pull a card from the box. */
-.pick-dock {
-  position: fixed; inset: auto 0 0; z-index: 4; display: flex; justify-content: center; pointer-events: none;
+.dock {
+  position: fixed; inset: auto 0 0; z-index: 4; display: flex; justify-content: center; gap: 10px; pointer-events: none;
   padding: 0 16px calc(16px + env(safe-area-inset-bottom));
 }
-.pick {
+.pick, .dock-return {
   pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 24px;
   border: 0; border-radius: 999px; background: var(--green); color: var(--paper); font-size: 1rem; font-weight: 600;
   box-shadow: 0 2px 6px var(--shadow), 0 8px 24px var(--card-shadow);
 }
-.pick:focus-visible { outline-offset: 3px; }
-/* Room under the last cards and the credits, so the button never covers them. */
-main:has(~ .pick-dock) { padding-bottom: 96px; }
+/* The way back sits on the same line as Pick, in card stock: same height and shape, quieter. */
+.dock-return { padding: 0 18px; background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line), 0 2px 6px var(--shadow), 0 8px 24px var(--card-shadow); }
+.dock-count {
+  min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; display: inline-grid; place-items: center;
+  background: var(--green); color: var(--paper); font-size: 0.8rem; font-variant-numeric: tabular-nums;
+}
+.pick:focus-visible, .dock-return:focus-visible { outline-offset: 3px; }
+/* Room under the last cards and the credits, so the dock never covers them. */
+main:has(~ .dock) { padding-bottom: 96px; }
 
 /* Sweet recipes are filed on rose card stock, savory on white. */
 .sweet { --surface: var(--rose); --line: var(--rose-line); }
@@ -393,6 +399,7 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
   .heart:hover { color: var(--tomato); }
   .tab:not(.on):hover { border-color: var(--green); }
   .pick:hover { filter: brightness(1.12); }
+  .dock-return:hover { background: var(--green-soft); }
   /* Hovered, the card lifts a little out of the box. */
   .card:has(.card-open:hover) { translate: 0 -3px; box-shadow: 0 2px 4px var(--card-shadow), 0 10px 24px var(--card-shadow); }
 }
@@ -429,6 +436,3 @@ p.small.scale-note { margin: 0 0 10px; }
 .amounts .title input { width: 20px; height: 20px; accent-color: var(--green); vertical-align: middle; }
 
 .language-switch { color: var(--green); display: inline-flex; align-items: center; min-height: 44px; padding: 0 6px; font-size: 0.82rem; text-underline-offset: 4px; }
-.back-top, .filter-return { position: fixed; z-index: 4; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); padding: 0 12px; font-size: 0.8rem; box-shadow: 0 2px 8px var(--card-shadow); }
-.back-top { right: 12px; bottom: calc(80px + env(safe-area-inset-bottom)); }
-.filter-return { left: 12px; bottom: calc(80px + env(safe-area-inset-bottom)); }

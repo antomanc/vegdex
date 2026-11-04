@@ -212,9 +212,14 @@
     return () => io.disconnect()
   })
 
-  function toFilters() {
+  const showPick = $derived(!!found && total > 0 && !filters.saved)
+  const showReturn = $derived(filters.saved ? scrollY > 600 : filtersOutOfView)
+
+  // Back up to the header and filters; focus lands on the brand without opening the phone keyboard.
+  function backUp() {
     const smooth = !matchMedia('(prefers-reduced-motion: reduce)').matches
     scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'instant' })
+    homeButton?.focus({ preventScroll: true })
   }
 
   // Draw from the best of the current matches, never the card already open.
@@ -410,21 +415,21 @@
   {/if}
 </main>
 
-{#if scrollY > 600}
-  <button class="back-top" onclick={() => { toFilters(); homeButton?.focus({ preventScroll: true }) }}>
-    <Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span>
-  </button>
-{/if}
-
-{#if filtersOutOfView && !filters.saved}
-  <button class="filter-return" onclick={toFilters}>
-    <Icon name="sliders" size={18} /><span>{m.filters()}{activeCount() ? ` · ${formatNumber(activeCount())}` : ''}</span>
-  </button>
-{/if}
-
-<!-- One primary action, within thumb reach while browsing. -->
-{#if found && total > 0 && !filters.saved}
-  <div class="pick-dock"><button class="pick" onclick={pick}><Icon name="shuffle" size={18} /> {m.pick()}</button></div>
+<!-- One dock within thumb reach: the way back up and the one primary action, side by side.
+     Browsing, the way back is "Filters" (that's what sits up there); in Saved it's "Back to top". -->
+{#if showReturn || showPick}
+  <div class="dock">
+    {#if showReturn}
+      <button class="dock-return" onclick={backUp} aria-label={filters.saved ? undefined : `${m.filters()}${activeCount() ? ` · ${formatNumber(activeCount())}` : ''}`}>
+        {#if filters.saved}
+          <Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span>
+        {:else}
+          <Icon name="sliders" size={18} /><span>{m.filters()}</span>{#if activeCount()}<span class="dock-count" aria-hidden="true">{formatNumber(activeCount())}</span>{/if}
+        {/if}
+      </button>
+    {/if}
+    {#if showPick}<button class="pick" onclick={pick}><Icon name="shuffle" size={18} /> {m.pick()}</button>{/if}
+  </div>
 {/if}
 
 {#if open}
