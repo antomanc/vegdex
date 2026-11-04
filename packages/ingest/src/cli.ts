@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
@@ -19,7 +20,9 @@ const { values, positionals } = parseArgs({
     'gap-ms': { type: 'string', default: '1000' },
     concurrency: { type: 'string', default: '8' },
     'generated-at': { type: 'string' },
-    blocklist: { type: 'string' }
+    blocklist: { type: 'string' },
+    // Start from the store the daily workflow last saved, so a local crawl only fetches what is new.
+    pull: { type: 'boolean' }
   }
 });
 
@@ -28,6 +31,14 @@ const allSources = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, '..
 const only = values.sources?.split(',');
 const sources = only ? allSources.filter((s) => only.includes(s.id)) : allSources;
 const log = (msg: string) => console.log(msg);
+
+function pullStore() {
+  log('Downloading the crawl store from the data release…');
+  fs.mkdirSync(path.dirname(values.store!), { recursive: true });
+  execFileSync('gh', ['release', 'download', 'data', '--pattern', 'store.json.gz', '--dir', path.dirname(values.store!), '--clobber'], { stdio: 'inherit' });
+}
+
+if (values.pull) pullStore();
 
 async function crawl() {
   const store = loadStore(values.store!);
