@@ -217,7 +217,7 @@
     <div class="sheet-footer actions">
       <div class="recipe-secondary-actions">
         <button use:saveFeedback class="save" class:on={isSaved} aria-pressed={isSaved} onclick={() => toggleSaved(recipe.id)}>
-          <Icon name="heart" size={18} filled={isSaved} /> {isSaved ? m.saved_recipe() : m.save()}
+          <Icon name="heart" size={18} filled={isSaved} /> <span class="save-label">{isSaved ? m.saved_recipe() : m.save()}</span>
         </button>
         {#if ondraw}
           <button class="save" onclick={ondraw}><Icon name="shuffle" size={18} /> {m.another()}</button>

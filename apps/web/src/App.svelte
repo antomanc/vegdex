@@ -283,10 +283,11 @@
       <button
         class="saved-toggle"
         class:on={filters.saved}
+        class:has={saved.ids.length > 0}
         aria-pressed={filters.saved}
         onclick={() => (filters.saved = !filters.saved)}
       >
-        <Icon name="heart" size={16} filled />
+        <Icon name="heart" size={16} filled={saved.ids.length > 0} />
         <span class="tight-hide">{m.saved()}{saved.ids.length ? ' · ' : ''}</span>{saved.ids.length ? formatNumber(saved.ids.length) : ''}
       </button>
     </div>
@@ -307,7 +308,7 @@
 <main>
   <LanguageSuggestion {queryString} />
   {#if !filters.saved}
-    <div class="filters" bind:this={filterBox}><FilterBar count={total} /></div>
+    <div class="filters" bind:this={filterBox}><FilterBar count={found ? total : null} /></div>
   {/if}
 
   {#if error}
@@ -390,6 +391,7 @@
       </div>
     {/if}
 
+    <h2 class="visually-hidden">{m.results()}</h2>
     <ul class="grid" id="results" tabindex="-1">
       {#each visible as recipe, i (recipe.id)}
         <li>

@@ -17,25 +17,24 @@
 </script>
 
 <article class="card" class:unsaved={justUnsaved} class:sweet={recipe.tags.includes('flavor:sweet')} data-testid="recipe-card">
-  <button class="card-open" onclick={onopen} aria-labelledby="{id}-title" aria-describedby="{id}-meta">
-    <div class="thumb">
-      {#if recipe.image && !broken}
-        <img src={recipe.image} alt="" loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async" referrerpolicy="no-referrer" onerror={() => (broken = true)} />
-      {:else}
-        <svg class="placeholder" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 44c0-16 10-26 28-28-1 18-10 28-26 28h-2z" fill="currentColor" /></svg>
-      {/if}
-      {#if recipe.minutes}<span class="time">{formatMinutes(recipe.minutes)}</span>{/if}
-    </div>
-    <h2 id="{id}-title">{recipeTitle(recipe)}</h2>
-    <p class="meta" id="{id}-meta">
-      {#if recipe.minutes}<span class="visually-hidden">{formatMinutes(recipe.minutes)}, </span>{/if}
-      <span class="source">{sourceName}</span>
-      {#if recipe.rating && recipe.ratingCount}
-        <!-- Most recipes average 5.0, so the card shows how many cooks rated it; a low average still shows. -->
-        <span class="rating"><Icon name="star" size={12} filled />{' '}{#if recipe.rating < LOW_AVERAGE}{formatRating(recipe.rating)} · {/if}{m.rating_count({ ...countArgs(recipe.ratingCount), count: formatCount(recipe.ratingCount) })}<span class="visually-hidden">{m.average({ rating: formatRating(recipe.rating) })}</span></span>
-      {/if}
-    </p>
-  </button>
+  <div class="thumb">
+    {#if recipe.image && !broken}
+      <img src={recipe.image} alt="" loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async" referrerpolicy="no-referrer" onerror={() => (broken = true)} />
+    {:else}
+      <svg class="placeholder" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 44c0-16 10-26 28-28-1 18-10 28-26 28h-2z" fill="currentColor" /></svg>
+    {/if}
+    {#if recipe.minutes}<span class="time" aria-hidden="true">{formatMinutes(recipe.minutes)}</span>{/if}
+  </div>
+  <!-- The title is the card's heading; its button stretches over the whole card. -->
+  <h2 id="{id}-title"><button class="card-open" onclick={onopen} aria-describedby="{id}-meta">{recipeTitle(recipe)}</button></h2>
+  <p class="meta" id="{id}-meta">
+    {#if recipe.minutes}<span class="visually-hidden">{formatMinutes(recipe.minutes)}, </span>{/if}
+    <span class="source">{sourceName}</span>
+    {#if recipe.rating && recipe.ratingCount}
+      <!-- Most recipes average 5.0, so the card shows how many cooks rated it; a low average still shows. -->
+      <span class="rating"><Icon name="star" size={12} filled />{' '}{#if recipe.rating < LOW_AVERAGE}{formatRating(recipe.rating)} · {/if}{m.rating_count({ ...countArgs(recipe.ratingCount), count: formatCount(recipe.ratingCount) })}<span class="visually-hidden">{m.average({ rating: formatRating(recipe.rating) })}</span></span>
+    {/if}
+  </p>
   <button
     use:saveFeedback
     class="heart"

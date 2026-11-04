@@ -13,10 +13,11 @@
   --green: #2f6b3f;
   --on-green: #ffffff;
   --green-soft: #e6efe5;
-  --tomato: #c92e1c;
-  --tomato-soft: #fbe4df;
+  --tomato: var(--sign-red);
   --on-tomato: #fff;
-  --sign-red: #d6311e;
+  --sign-red: #c92e1c;
+  --tag: #d6311e;
+  --edge: 16px;
   --label: #f3c623;
   --on-label: #151515;
   --heart-disc: rgb(255 255 255 / 0.92);
@@ -48,8 +49,7 @@
   --green: #79c58a;
   --on-green: #0e1a11;
   --green-soft: #1f3324;
-  --tomato: #ff7a62;
-  --tomato-soft: #3d211c;
+  --sign-red: #ff7a62;
   --on-tomato: #151515;
   --heart-disc: rgb(18 18 17 / 0.85);
   --card-shadow: rgb(0 0 0 / 0.4);
@@ -92,7 +92,7 @@ input { caret-color: var(--sign-red); }
 .top {
   position: sticky; top: 0; z-index: 5;
   background: var(--paper);
-  padding: 10px 16px 12px;
+  padding: 10px var(--edge) 12px;
   border-bottom: 3px solid var(--rule);
 }
 .brand-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; max-width: 1200px; margin: 0 auto 10px; }
@@ -104,8 +104,9 @@ input { caret-color: var(--sign-red); }
 }
 .logo { border-radius: 4px; }
 .top-actions { display: flex; gap: 8px; align-items: center; }
-.saved-toggle { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; border: 2px solid var(--rule); background: var(--surface); border-radius: 999px; padding: 0 14px; font-size: 0.88rem; font-weight: 600; font-variant-numeric: tabular-nums; }
-.saved-toggle .icon { color: var(--sign-red); }
+.saved-toggle { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; border: 2px solid var(--rule); background: var(--surface); border-radius: 999px; padding: 0 14px; font-size: 0.88rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.saved-toggle .icon { color: var(--muted); }
+.saved-toggle.has .icon { color: var(--sign-red); }
 .saved-toggle, .pill.jump { white-space: nowrap; }
 /* Narrow phones: the header row keeps its four controls on one line; Saved reads "♥ 3", still named "Saved · 3". */
 @media (max-width: 420px) {
@@ -113,17 +114,25 @@ input { caret-color: var(--sign-red); }
   .saved-toggle { padding: 0 11px; }
   .pill.jump { padding: 0 11px; }
   .top-actions { gap: 6px; }
-  .top { padding-inline: 12px; }
+  :root { --edge: 12px; }
   .brand { font-size: 1.5rem; gap: 6px; }
 }
 /* The smallest phones drop the leaf so the wordmark and all three keys stay on one line. */
 @media (max-width: 359px) { .logo { display: none; } }
-.saved-toggle.on { background: var(--sign-red); border-color: var(--sign-red); color: #fff; }
+.saved-toggle.on { background: var(--tag); border-color: var(--tag); color: #fff; }
 .saved-toggle.on .icon { color: inherit; }
 .pill.jump { background: var(--surface); }
+/* Desktop: brand, search and keys share one row, so recipes start higher. */
+@media (min-width: 900px) {
+  .top { display: grid; grid-template-columns: auto minmax(0, 640px) 1fr auto; align-items: center; column-gap: 24px; padding-inline: max(var(--edge), (100% - 1200px) / 2); }
+  .brand-row { display: contents; }
+  .brand-h { grid-column: 1; grid-row: 1; }
+  .search { grid-column: 2; grid-row: 1; width: 100%; margin: 0; }
+  .top-actions { grid-column: 4; grid-row: 1; }
+}
 /* Night mode: a round key beside Saved; the icon shows where a tap takes you. */
 .night {
-  flex: none; display: grid; place-items: center; width: 40px; height: 40px; padding: 0;
+  flex: none; display: grid; place-items: center; width: 44px; height: 44px; padding: 0;
   border: 2px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--ink);
 }
 
@@ -140,16 +149,28 @@ input { caret-color: var(--sign-red); }
 }
 
 /* Filters: scroll with the page; the header offers a way back to them. */
-.filters { margin: 0 -12px 6px; }
-.pills { display: flex; gap: 8px; align-items: center; overflow-x: auto; padding: 4px 16px 2px; max-width: 1200px; margin: 0 auto; scrollbar-width: none; }
+.filters { margin: 0 calc(-1 * var(--edge)) 6px; }
+.pills { display: flex; gap: 8px; align-items: center; overflow-x: auto; padding: 4px var(--edge) 2px; max-width: calc(1200px + 2 * var(--edge)); margin: 0 auto; scrollbar-width: none; }
 .pills::-webkit-scrollbar { display: none; }
 /* Rows that scroll sideways fade at the edge, so the clipped control reads as "more this way". */
-.pills.controls, .tab-row { mask-image: linear-gradient(to right, var(--ink) calc(100% - 28px), transparent); }
+@media (max-width: 699px) {
+  .tabs .tab-row { display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, auto); justify-content: start; gap: 8px; }
+  .tabs .tab-gap { display: none; }
+}
+/* Tonight and More filters share a row; the four times take the next one whole, so none is clipped. */
+.pills.controls { flex-wrap: wrap; overflow: visible; }
+.pills.controls .segmented { flex: 1 1 100%; }
+@media (min-width: 700px) {
+  .pills.controls { flex-wrap: nowrap; }
+  .pills.controls .segmented { flex: none; }
+  /* Wide screens show every sign at once. */
+  .tab-row { flex-wrap: wrap; }
+}
 .pills.wrap { flex-wrap: wrap; overflow: visible; padding: 0; margin: 0; }
 .pill {
   flex: none; display: inline-flex; align-items: center; gap: 6px;
-  border: 2px solid transparent; background: var(--green-soft); color: var(--ink);
-  border-radius: 999px; min-height: 40px; padding: 0 16px; font-size: 0.88rem; font-weight: 600; white-space: nowrap;
+  border: 2px solid var(--rule); background: var(--surface); color: var(--ink);
+  border-radius: 999px; min-height: 44px; padding: 0 16px; font-size: 0.88rem; font-weight: 600; white-space: nowrap;
 }
 .pill.outline { background: transparent; border-color: var(--rule); font-size: 0.88rem; padding: 0 14px; }
 .pill.on { background: var(--green); color: var(--on-green); border-color: var(--green); }
@@ -157,11 +178,11 @@ input { caret-color: var(--sign-red); }
 
 /* Signs: flavor and courses lettered on boards hung over the stall. */
 .tabs { margin: 14px 0 10px; }
-.tab-row { display: flex; gap: 8px; align-items: center; overflow-x: auto; padding: 0 16px; max-width: 1200px; margin: 0 auto; scrollbar-width: none; }
+.tab-row { display: flex; gap: 8px; align-items: center; overflow-x: auto; padding: 0 var(--edge); max-width: calc(1200px + 2 * var(--edge)); margin: 0 auto; scrollbar-width: none; }
 .tab-row::-webkit-scrollbar { display: none; }
 .tab {
-  flex: none; min-height: 44px; padding: 2px 14px 0; white-space: nowrap;
-  font-family: var(--display); font-size: 0.95rem; letter-spacing: 0.005em;
+  flex: none; min-height: 44px; padding: 2px 12px 0; white-space: nowrap;
+  font-family: var(--display); font-size: 0.9rem; letter-spacing: 0.005em;
   border: 2px solid var(--rule); border-radius: 2px;
   background: var(--surface); color: var(--ink);
 }
@@ -170,16 +191,20 @@ input { caret-color: var(--sign-red); }
 
 /* Time is one choice: four joined segments. */
 .segmented { flex: none; display: inline-flex; border: 2px solid var(--rule); border-radius: 999px; overflow: hidden; }
-.seg { border: 0; background: transparent; min-height: 36px; padding: 0 12px; font-size: 0.88rem; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.seg { flex: 1; border: 0; background: transparent; min-height: 40px; padding: 0 10px; font-size: 0.88rem; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .seg + .seg { border-left: 2px solid var(--rule); }
 .seg.on { background: var(--green); color: var(--on-green); }
+/* The time filter speaks in price tags: the chosen time turns into the red tag. */
+.pills .seg { padding-top: 2px; font-family: var(--display); font-size: 0.85rem; font-weight: 400; }
+.pills .seg.on { background: var(--tag); color: #fff; }
+@media (max-width: 359px) { .pills .seg { padding-inline: 4px; font-size: 0.75rem; } }
 
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .row.center { justify-content: center; }
 .label { font-size: 0.88rem; color: var(--muted); min-width: 72px; }
 .field { border: 0; margin: 0 0 22px; padding: 0; display: grid; gap: 8px; }
 .field .label { padding: 0; font-weight: 600; color: var(--ink); font-size: 1rem; }
-.hint { margin: 0; font-size: 0.8rem; color: var(--muted); }
+.hint { margin: 0; font-size: 0.875rem; line-height: 1.4; color: var(--muted); }
 .choice-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
 .choice-grid .pill { justify-content: center; white-space: normal; padding: 6px 14px; }
 .input-row { display: flex; gap: 8px; }
@@ -191,29 +216,35 @@ input { caret-color: var(--sign-red); }
 /* Add is a step inside the sheet, not its action: "Show N recipes" stays the one solid button. */
 .btn-sm { min-height: 44px; padding: 0 18px; border-radius: 6px; border: 2px solid var(--green); background: transparent; color: var(--green); font-size: 0.88rem; font-weight: 600; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip { display: inline-flex; align-items: center; gap: 4px; border: 0; border-radius: 4px; font-weight: 500; min-height: 32px; padding: 4px 10px 4px 12px; font-size: 0.88rem; background: var(--green-soft); }
-.chip.avoid { background: var(--tomato-soft); }
+.chip { display: inline-flex; align-items: center; gap: 4px; border: 2px solid var(--green); color: var(--ink); border-radius: 4px; font-weight: 600; min-height: 40px; padding: 4px 10px 4px 12px; font-size: 0.88rem; background: var(--green-soft); }
+.chip { background: var(--surface); }
+.chip.avoid { border-color: var(--sign-red); }
 
 /* Results */
 /* The credits sit at the bottom of the screen even when the list is short or empty. */
 main {
-  max-width: 1200px; margin: 0 auto; padding: 12px 12px 32px;
+  max-width: calc(1200px + 2 * var(--edge)); margin: 0 auto; padding: 12px var(--edge) 32px;
   display: flex; flex-direction: column; min-height: calc(100dvh - var(--header-h, 0px));
 }
 .more { display: grid; justify-items: center; gap: 6px; margin-top: 28px; }
 .more .meta { margin: 0; }
-.view-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 4px 0; }
-.view-head h2 { font-family: var(--display); font-size: 1.4rem; font-weight: 400; margin: 0; }
-.summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0 4px; margin: 6px 0 12px; min-height: 40px; }
+.view-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 0 0; }
+.view-head h2 { font-family: var(--display); font-size: 1.4rem; font-weight: 400; line-height: 1.15; margin: 0; }
+/* Phones: the heading takes its row, the shopping list a full-width button under it. */
+@media (max-width: 479px) {
+  .view-head { flex-direction: column; align-items: stretch; gap: 10px; }
+  .view-head .grocery-btn { min-height: 48px; }
+}
+.summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0; margin: 6px 0 12px; min-height: 44px; }
 .summary p { color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; margin: 0; text-wrap: balance; }
 .sort select {
   appearance: none; border: 0; background: transparent; color: var(--ink); font-size: 0.88rem; font-weight: 600;
-  min-height: 40px; padding: 0 22px 0 8px; border-radius: 6px; cursor: pointer;
+  min-height: 44px; padding: 0 22px 0 8px; border-radius: 6px; cursor: pointer;
 
 }
 .sort { position: relative; }
 .sort::after { content: ''; pointer-events: none; position: absolute; right: 2px; top: 50%; translate: 0 -50%; width: 18px; height: 18px; background: var(--ink); mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2356635a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E") center / contain no-repeat; }
-.grocery-btn { display: inline-flex; align-items: center; gap: 6px; border: 0; background: var(--green); color: var(--on-green); border-radius: 6px; font-family: var(--display); font-weight: 400; min-height: 40px; padding: 0 16px; font-size: 0.88rem; font-weight: 600; }
+.grocery-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap; border: 0; background: var(--green); color: var(--on-green); border-radius: 8px; font-weight: 650; min-height: 40px; padding: 0 16px; font-size: 0.88rem; font-weight: 600; }
 .status { text-align: center; color: var(--muted); padding: 48px 16px; }
 .status p { margin: 0 0 12px; }
 .status.empty { padding-top: 32px; }
@@ -223,18 +254,20 @@ main {
   border: 2px solid var(--green); border-radius: 6px; background: var(--surface); color: var(--green); font-weight: 600;
 }
 .loosen .n { font-weight: 400; color: var(--muted); font-variant-numeric: tabular-nums; }
-.text-btn { border: 0; background: none; padding: 8px 10px; min-height: 40px; color: var(--tomato); font-weight: 600; font-size: 0.88rem; }
+.text-btn { border: 0; background: none; padding: 8px 10px; min-height: 44px; color: var(--tomato); font-weight: 600; font-size: 0.88rem; }
 .text-btn:disabled { color: var(--muted); opacity: 0.6; }
-.active-filters { list-style: none; margin: 0 0 14px; padding: 0 4px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.active-filters .text-btn { min-height: 32px; padding: 4px 8px; font-size: 0.88rem; }
+.active-filters { list-style: none; margin: 0 0 14px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.active-filters .text-btn { min-height: 40px; padding: 4px 8px; font-size: 0.88rem; }
 .grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px 10px; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 @media (min-width: 700px) { .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 30px 20px; } }
 
 /* The browse screen's one solid action, floating within thumb reach: let the stall pick. */
 .dock {
   position: fixed; inset: auto 0 0; z-index: 4; display: flex; justify-content: center; gap: 10px; pointer-events: none;
-  padding: 0 16px calc(16px + env(safe-area-inset-bottom));
+  padding: 28px 16px calc(16px + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, var(--paper) 45%, transparent);
 }
+@media (min-width: 700px) { .dock { background: none; padding-top: 0; } }
 .pick, .dock-return {
   pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 24px;
   border: 0; border-radius: 8px; background: var(--green); color: var(--on-green);
@@ -256,15 +289,20 @@ main:has(~ .dock) { padding-bottom: 96px; }
 
 /* A crate on the stall: the publisher's photo, its price tag, the facts under it. No card stock. */
 .card, .skeleton li { position: relative; height: 100%; }
+.card { display: flex; flex-direction: column; }
 .card { transition: opacity 0.2s ease-out; }
 .card.unsaved { opacity: 0.55; }
-.card-open { display: flex; flex-direction: column; width: 100%; height: 100%; text-align: left; background: none; border: 0; padding: 0; border-radius: var(--radius); }
+.card-open { display: inline; text-align: left; background: none; border: 0; padding: 0; font-weight: inherit; letter-spacing: inherit; line-height: inherit; }
+.card-open::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius); }
+.card-open:focus-visible { outline: none; }
+.card-open:focus-visible::after { outline: 2px solid var(--green); outline-offset: 4px; }
+.heart { z-index: 1; }
 .thumb { position: relative; aspect-ratio: 1; border-radius: var(--radius); background: var(--green-soft); }
 .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--radius); transition: filter 0.2s ease-out; }
 .placeholder { display: block; width: 40%; height: 100%; margin: 0 auto; color: var(--green); opacity: 0.35; }
 /* The time is a red price tag hung off the crate's edge, never quite straight. */
 .time, .card-fields .tag {
-  background: var(--sign-red); color: #fff;
+  background: var(--tag); color: #fff;
   font-family: var(--display); font-weight: 400; font-variant-numeric: tabular-nums; line-height: 1.1;
   padding: 5px 9px 3px; border-radius: 2px; box-shadow: 0 2px 4px var(--shadow);
 }
@@ -274,7 +312,7 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
 .card h2::first-letter, .sheet h2::first-letter { text-transform: uppercase; }
 .card .meta { margin: auto 2px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
 .card .source { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
-.meta { color: var(--muted); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+.meta { color: var(--muted); font-size: 0.875rem; line-height: 1.4; font-variant-numeric: tabular-nums; }
 /* Ratings ride on a yellow shelf label. */
 .rating { white-space: nowrap; background: var(--label); color: var(--on-label); font-weight: 650; padding: 1px 6px; border-radius: 2px; }
 .rating .icon { color: var(--on-label); vertical-align: -0.1em; }
@@ -316,9 +354,21 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
 }
 .recipe-sheet { transform-origin: center; }
 .sheet-body { padding: 20px 20px 28px; position: relative; }
-.sheet-top { position: sticky; top: 20px; height: 0; z-index: 2; }
+.sheet-top {
+  position: sticky; top: 0; z-index: 2; display: flex; justify-content: flex-end; align-items: center;
+  height: 64px; margin: -20px -20px -44px; padding: 0 10px; pointer-events: none;
+}
+.sheet-top .close { pointer-events: auto; }
+/* Once the sheet scrolls, the bar turns solid, so content slides under it instead of under the button. */
+@supports (animation-timeline: scroll()) {
+  .sheet-top { animation: sheet-bar linear both; animation-timeline: scroll(nearest); animation-range: 0 24px; }
+}
+@keyframes sheet-bar {
+  from { background: transparent; box-shadow: none; }
+  to { background: var(--surface); box-shadow: 0 2px 0 var(--rule); }
+}
 .close {
-  position: absolute; top: -10px; right: -10px; width: 44px; height: 44px; border-radius: 50%; border: 0;
+  width: 44px; height: 44px; border-radius: 50%; border: 0;
   display: grid; place-items: center; padding: 0; background: var(--surface); box-shadow: inset 0 0 0 2px var(--rule);
 }
 .sheet-footer {
@@ -328,7 +378,7 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
 .sheet-footer .cta { flex: 1; border: 0; min-height: 48px; font-size: 1rem; }
 .cta.none { background: transparent; color: var(--ink); border: 2px solid var(--rule); font-family: var(--body); font-weight: 600; }
 .hero { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); margin-bottom: 14px; display: block; }
-.sheet h2 { font-size: 1.55rem; line-height: 1.15; font-weight: 720; margin: 0 40px 6px 0; text-wrap: balance; letter-spacing: -0.02em; }
+.sheet h2 { font-size: 1.55rem; line-height: 1.15; font-weight: 720; margin: 0 48px 6px 0; text-wrap: balance; letter-spacing: -0.02em; }
 #more-title { margin-bottom: 20px; }
 .sheet h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 400; margin: 26px 0 8px; }
 .sheet .meta { margin: 2px 0; font-size: 0.88rem; }
@@ -342,7 +392,7 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
 .kitchen-name:hover { text-decoration-color: currentColor; }
 
 /* One blog's shelf: its name, and the way to its site. */
-.kitchen-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; padding: 4px 4px 0; }
+.kitchen-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; padding: 4px 0 0; }
 .kitchen-head h2 { font-family: var(--display); font-size: 1.4rem; font-weight: 400; line-height: 1.15; margin: 0; text-wrap: balance; }
 .kitchen-head a { color: var(--green); font-size: 0.88rem; font-weight: 600; text-underline-offset: 3px; }
 .card-fields { display: flex; margin: 14px 0 0; border-top: 3px solid var(--rule); border-bottom: 1px solid var(--line); }
@@ -354,12 +404,12 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
 .card-fields dd { margin: 4px 0 0; font-size: 0.95rem; font-weight: 600; line-height: 1.35; font-variant-numeric: tabular-nums; }
 .card-fields .tag { display: inline-block; margin-top: 6px; rotate: -3deg; font-size: 0.95rem; }
 .badges { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
-.badges li { background: var(--green-soft); border: 1px solid transparent; border-radius: 4px; padding: 3px 10px; font-size: 0.8rem; }
-.badges li.cuisine { background: transparent; border-color: var(--line); color: var(--muted); }
+.badges li { background: transparent; border: 1.5px solid var(--rule); border-radius: 4px; font-weight: 600; padding: 3px 10px; font-size: 0.8rem; }
+.badges li.cuisine { border-color: var(--line); color: var(--muted); font-weight: 400; }
 .cta { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-align: center; background: var(--green); color: var(--on-green); text-decoration: none; padding: 10px 16px; border-radius: 8px; font-weight: 650; }
 .cta span { text-wrap: balance; }
 .save { display: inline-flex; align-items: center; gap: 6px; flex: none; min-height: 48px; border: 2px solid var(--rule); background: transparent; border-radius: 8px; padding: 0 16px; font-weight: 600; }
-.save.on { color: var(--sign-red); border-color: var(--sign-red); }
+.save.on { color: var(--tomato); border-color: var(--tomato); }
 /* Ingredients on ruled lines, the amount first and in bold. */
 .ingredients { list-style: none; padding: 0; margin: 0; line-height: 1.45; max-width: 65ch; border-top: 1px solid var(--line); }
 .ingredients li { padding: 9px 0 8px; border-bottom: 1px solid var(--line); text-wrap: pretty; }
@@ -395,7 +445,9 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .grocery .amount { color: var(--muted); font-size: 0.92rem; font-variant-numeric: tabular-nums; text-align: right; }
 .grocery label.done .name, .grocery label.done .amount { text-decoration: line-through; opacity: 0.5; }
 .uncheck { margin-left: auto; }
-.amounts summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; gap: 6px; width: fit-content; list-style: none; }
+.amounts summary { cursor: pointer; min-height: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; list-style: none; }
+.amounts summary .for { flex: 1 1 100%; }
+.amounts summary .choose { flex: 1; min-height: 44px; display: flex; align-items: center; color: var(--green); font-weight: 600; }
 .amounts summary::-webkit-details-marker { display: none; }
 .amounts summary::after { content: '▸'; content: '▸' / ''; transition: rotate 0.15s; }
 .amounts[open] summary::after { rotate: 90deg; }
@@ -408,6 +460,7 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .stepper .value { min-width: 6.5em; text-align: center; font-size: 0.88rem; font-variant-numeric: tabular-nums; }
 .grocery-sheet .units-row { margin-top: 10px; padding-bottom: 12px; border-bottom: 3px solid var(--rule); }
 .grocery-sheet .aisle { margin-top: 20px !important; }
+.aisle::first-letter { text-transform: uppercase; }
 
 /* Loading: the shape of the grid, still, so nothing jumps when recipes arrive. */
 .skeleton li { list-style: none; }
@@ -415,7 +468,7 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .skeleton .bar.short { width: 55%; margin-top: 6px; }
 
 @media (hover: hover) {
-  .card-open:hover img { filter: brightness(1.06) saturate(1.08); }
+  .card:has(.card-open:hover) img { filter: brightness(1.06) saturate(1.08); }
   .pill:not(.on):hover, .stepper button:not([aria-disabled='true']):hover, .seg:not(.on):hover, .saved-toggle:not(.on):hover, .night:hover { border-color: var(--green); color: var(--green); }
   .seg:not(.on):hover { background: var(--green-soft); }
   .cta:hover, .grocery-btn:hover { filter: brightness(1.12); }
@@ -427,15 +480,15 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
   .pick:hover { filter: brightness(1.12); }
   .dock-return:hover { background: var(--green-soft); }
   /* Hovered, the tag swings a little on its string. */
-  .card-open:hover .time { rotate: -8deg; }
-  li:nth-child(even) > .card .card-open:hover .time { rotate: 3deg; }
+  .card:has(.card-open:hover) .time { rotate: -8deg; }
+  li:nth-child(even) > .card:has(.card-open:hover) .time { rotate: 3deg; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
   :where(button, a.cta):active, :where(.heart, .save).on .icon, :where(.heart, .save):active .icon { scale: none; }
   .card, .thumb img, .sheet[open] { transition-property: opacity, background-color, color, border-color, filter; }
-  .card-open:hover .time, li:nth-child(even) > .card .card-open:hover .time { rotate: -4deg; }
+  .card:has(.card-open:hover) .time, li:nth-child(even) > .card:has(.card-open:hover) .time { rotate: -4deg; }
   .share .bubble { translate: none; }
   @starting-style { .sheet[open]:not(.recipe-sheet) { translate: none; rotate: none; } }
 }
@@ -446,6 +499,14 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .recipe-secondary-actions { display: flex; gap: 10px; flex: 1 1 auto; }
 .recipe-secondary-actions .save { flex: 1 1 auto; justify-content: center; }
 .recipe-sheet .actions .cta { flex: 3 1 220px; }
+@media (max-width: 699px) {
+  .recipe-sheet .actions .cta { flex-basis: 170px; }
+  .recipe-secondary-actions { flex: none; }
+  .recipe-secondary-actions .save:first-child { flex: none; width: 48px; padding: 0; justify-content: center; }
+  .recipe-secondary-actions .save:first-child .save-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  /* With Another, the creator link takes its own full row. */
+  .recipe-secondary-actions:has(.save + .save:not(.share)) { flex: 1 1 100%; }
+}
 /* Share is an icon: the footer is full on a phone. Copied, the icon turns into a check in place and a note floats above, so nothing moves. */
 .recipe-secondary-actions .share { flex: none; position: relative; width: 48px; padding: 0; justify-content: center; }
 .share .swap { display: grid; }
@@ -458,12 +519,12 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .share-link input, .share-link textarea { font: inherit; font-size: 0.88rem; min-height: 44px; padding: 0 10px; border: 2px solid var(--rule); border-radius: 8px; background: transparent; color: var(--ink); }
 .share-link textarea { padding: 8px 10px; resize: vertical; }
 /* The shopping list's one action: full width, so "Condividi lista" fits at 320px. */
-.grocery-sheet .sheet-footer .share { flex: 1; position: relative; justify-content: center; }
+.grocery-sheet .sheet-footer .share { flex: 1; position: relative; justify-content: center; background: var(--green); color: var(--on-green); border: 0; }
 /* Servings for this visit sit under the Ingredients heading; the blog's yield stays in the card fields above. */
 .servings-row { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; }
 p.small.scale-note { margin: 0 0 10px; }
 .not-scaled { font-size: 0.8em; }
-.device-hint { margin: 0; padding: 0 4px; color: var(--muted); font-size: 0.8rem; line-height: 1.5; text-wrap: balance; }
+.device-hint { margin: 0; padding: 0; color: var(--muted); font-size: 0.875rem; line-height: 1.45; text-wrap: balance; }
 
 .amounts .title input { width: 20px; height: 20px; accent-color: var(--green); vertical-align: middle; }
 

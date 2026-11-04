@@ -7,12 +7,14 @@
   import { closeSheet, sheet } from './sheet'
   import { activeCount, clearFilters, filters, isTonight, moreCount, toggleTonight } from './state.svelte'
 
-  let { count }: { count: number } = $props()
+  // null until the catalog answers: the button says what it does without a count.
+  let { count }: { count: number | null } = $props()
 
   let more = $state(false)
   let have = $state('')
   let avoid = $state('')
   let names = $state<string[]>([])
+  const pending = $derived(Boolean(have.trim() || avoid.trim()))
   // What the focused input holds: the datalist is native UI, and Safari rebuilds its popup from
   // every option on each keystroke, so it only ever gets a short, matching list.
   let query = $state('')
@@ -171,8 +173,9 @@
 
       <div class="sheet-footer">
         {#if activeCount()}<button class="text-btn" onclick={clearFilters}>{m.clear_all()}</button>{/if}
-        <button class="cta" class:none={count === 0} onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))}>
-          {count === 0 ? m.no_matches_filter() : m.show_recipes(countArgs(count))}
+        <!-- Text still in a field joins the filters on close, so the count would be stale: say what the tap does instead. -->
+        <button class="cta" class:none={!pending && count === 0} onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))}>
+          {pending ? m.add_and_show() : count === null ? m.show_results() : count === 0 ? m.no_matches_filter() : m.show_recipes(countArgs(count))}
         </button>
       </div>
     </div>
