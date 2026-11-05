@@ -10,7 +10,7 @@
       "ignoreDependencies": ["@inlang/plugin-message-format"]
     },
     "packages/ingest": {
-      "entry": ["src/nightly-cli.ts", "src/parse-diff.ts", "scripts/*.ts"]
+      "entry": ["src/nightly-cli.ts", "src/parse-diff.ts", "src/golden-lines.ts", "scripts/*.ts"]
     }
   }
 }

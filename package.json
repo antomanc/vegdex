@@ -25,7 +25,9 @@
     "gaps": "pnpm --filter @vegdex/ingest vocab gaps",
     "vocab:apply": "pnpm --filter @vegdex/ingest vocab apply",
     "enrich": "pnpm --filter @vegdex/ingest vocab enrich",
-    "parse:diff": "pnpm --filter @vegdex/ingest exec tsx src/parse-diff.ts"
+    "parse:diff": "pnpm --filter @vegdex/ingest exec tsx src/parse-diff.ts",
+    "golden": "pnpm --filter @vegdex/ingest exec tsx src/golden-lines.ts",
+    "golden:select": "pnpm --filter @vegdex/ingest exec tsx src/golden-lines.ts --select"
   },
   "engines": {
     "node": ">=22.12.0"
