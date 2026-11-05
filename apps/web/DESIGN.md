@@ -61,9 +61,9 @@ typography:
     fontWeight: 400
   recipe-title:
     fontFamily: "Work Sans Variable, system-ui, sans-serif"
-    fontSize: "1.55rem"
-    fontWeight: 720
-    lineHeight: 1.15
+    fontSize: "1.75rem"
+    fontWeight: 760
+    lineHeight: 1.12
     letterSpacing: "-0.02em"
   card-title:
     fontFamily: "Work Sans Variable, system-ui, sans-serif"
@@ -194,7 +194,7 @@ Two voices. Bowlby One (`@fontsource/bowlby-one`) letters signs: anything that w
 - **Tag** (Bowlby 0.95rem, tabular): the time.
 - **Screen title** (Bowlby 1.4rem): Saved recipes, a blog's shelf, More filters, Shopping list.
 - **Section title** (Bowlby 1.15rem): Ingredients. Aisle headings use Bowlby 0.95rem in ink.
-- **Recipe title** (Work Sans 720, 1.55rem): the open recipe. A recipe title is content, so it stays in Work Sans.
+- **Recipe title** (Work Sans 760, 1.75rem): the open recipe. A recipe title is content, so it stays in Work Sans.
 - **Card title** (Work Sans 680, 1.0625rem; 0.95rem under 380px): clamped to three lines, balanced, with the first letter uppercased to absorb publisher casing.
 - **Body** (Work Sans 1rem): ingredient lines (`text-wrap: pretty`, 65ch max), with the leading amount in 700.
 - **Label** (Work Sans 600, 0.88rem, tabular): pills, chips, counts, form labels.

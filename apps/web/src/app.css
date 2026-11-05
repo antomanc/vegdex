@@ -447,7 +447,7 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
 .sheet-footer .cta { flex: 1; border: 0; min-height: 48px; font-size: 1rem; }
 .cta.none { background: transparent; color: var(--ink); border: 2px solid var(--rule); font-family: var(--body); font-weight: 600; }
 .hero { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); margin-bottom: 14px; display: block; }
-.sheet h2 { font-size: 1.55rem; line-height: 1.15; font-weight: 720; margin: 0 48px 6px 0; text-wrap: balance; letter-spacing: -0.02em; }
+.sheet h2 { font-size: 1.75rem; line-height: 1.12; font-weight: 760; margin: 0 48px 6px 0; text-wrap: balance; letter-spacing: -0.02em; }
 #more-title { margin-bottom: 20px; }
 #more-title, #grocery-title { font-family: var(--display); font-size: 1.4rem; font-weight: 400; letter-spacing: 0; }
 .sheet h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 400; margin: 26px 0 8px; }

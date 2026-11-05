@@ -140,7 +140,7 @@
 
       <form class="field" onsubmit={(e) => add('include', e)}>
         <label class="label" for="have">{m.must_include()}</label>
-        <p class="hint" id="have-hint">{m.include_hint()} {m.pending_hint()}</p>
+        <p class="hint" id="have-hint">{m.include_hint()}</p>
         <div class="input-row">
           <IngredientField id="have" bind:value={have} {names} {chosen} placeholder={m.include_example()} describedby="have-hint" onfocus={suggest} onpick={(v) => picked('include', v)} />
           {#if have.trim()}<button class="btn-sm">{m.add()}</button>{/if}
