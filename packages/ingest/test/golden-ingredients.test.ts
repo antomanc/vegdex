@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { goldenLine, type GoldenFile, type GoldenLine } from '../src/golden-lines';
@@ -9,6 +10,7 @@ const file = new URL('../../core/test/golden/ingredient-lines.json', import.meta
 const golden = JSON.parse(fs.readFileSync(file, 'utf8')) as GoldenFile;
 const vocab = loadVocabulary();
 
+const LINES_HASH = '51195c26be74cb29784ba6e8204b161c464cfcb992884ab4c78cde945b0ed13a';
 const show = (value: unknown) => JSON.stringify(value);
 
 function describeLine(line: GoldenLine): string {
@@ -40,19 +42,23 @@ describe('golden ingredient lines', () => {
         continue;
       }
       const fixed = current.en === stored.expected.en && current.it === stored.expected.it;
-      const untouched = current.en === stored.en && current.it === stored.it;
+      const untouched = current.en === stored.en && current.it === stored.it && show(current.parsed) === show(stored.parsed);
       if (fixed) {
         failures.push(`PROMOTE ${line}\n  now matches the expected correction; set status to ok and run \`pnpm golden --update\`.`);
       } else if (!untouched) {
-        failures.push(`KNOWN-BAD changed but does not match expected: ${line}\n${changed(stored, current, false).join('\n')}\n  expected en ${show(stored.expected.en)}\n  expected it ${show(stored.expected.it)}`);
+        failures.push(`KNOWN-BAD changed but does not match expected: ${line}\n${changed(stored, current, true).join('\n')}\n  expected en ${show(stored.expected.en)}\n  expected it ${show(stored.expected.it)}`);
       }
     }
     expect(failures, `Golden ingredient output changed. Review below, then run \`pnpm golden --update\` only for intended changes.\n\n${failures.join('\n\n')}`).toEqual([]);
   });
 
   it('has the hand-reviewed shape the checklist expects', () => {
-    const counts = { randomEnglish: 0, hard: 0, italianSource: 0, total: golden.lines.length };
-    if (counts.total !== 500) throw new Error(`expected 500 golden lines, found ${counts.total}`);
+    expect(golden.units).toBe('metric');
+    expect(golden.counts).toEqual({ randomEnglish: 300, hard: 100, italianSource: 100, total: 500 });
+    expect(golden.lines).toHaveLength(500);
+    // A swapped or reworded line would drop its review silently: a new selection must change this on purpose.
+    const keys = golden.lines.map((l) => `${l.contentLanguage}\t${l.line}`).sort().join('\n');
+    expect(createHash('sha256').update(keys).digest('hex')).toBe(LINES_HASH);
     if (golden.lines.filter((l) => l.contentLanguage === 'en').length !== 400) throw new Error('expected 400 English-source lines');
     if (golden.lines.filter((l) => l.contentLanguage === 'it').length !== 100) throw new Error('expected 100 Italian-source lines');
     if (golden.lines.filter((l) => l.status === 'known-bad').length === 0) throw new Error('expected known-bad lines');

@@ -74,8 +74,13 @@
       "en": "135 ml non-dairy milk",
       "it": "135 ml di latte vegetale",
       "source": "veganricha",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "B",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "135–150 ml non-dairy milk",
+        "it": "135–150 ml di latte vegetale"
+      }
     },
     {
       "line": "a few thyme sprigs",
@@ -439,8 +444,13 @@
       "en": "1 handful chives",
       "it": "1 manciata di erba cipollina",
       "source": "lazycatkitchen",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "1 small handful chives",
+        "it": "1 piccola manciata di erba cipollina"
+      }
     },
     {
       "line": "¼ cup olive oil (56 grams)",
@@ -782,8 +792,13 @@
       "en": "575 g purple sweet potato, peeled, diced",
       "it": "575 g di patate dolci viola, sbucciate, a dadini",
       "source": "shortgirltallorder",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "575 g purple sweet potato, peeled, diced and steamed",
+        "it": "575 g di patate dolci viola, sbucciate, a dadini e cotte al vapore"
+      }
     },
     {
       "line": "1/2 cup almond flour*",
@@ -2365,8 +2380,13 @@
       "en": "≈ 50 g unsalted roasted almonds",
       "it": "≈ 50 g di mandorle tostate",
       "source": "pickuplimes",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "≈ 50 g unsalted roasted almonds",
+        "it": "≈ 50 g di mandorle tostate non salate"
+      }
     },
     {
       "line": "1/2 cup non-dairy milk (, unsweetened (more if needed))",
@@ -2690,8 +2710,13 @@
       "en": "1 small courgette",
       "it": "1 zucchina piccola",
       "source": "lazycatkitchen",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "1 small courgette, shaved into ribbons",
+        "it": "1 zucchina piccola, tagliata a nastri"
+      }
     },
     {
       "line": "1/4 teaspoon lye water (lihiya)",
@@ -3047,8 +3072,13 @@
       "en": "1 medium carrot, chopped small",
       "it": "1 carota, tritata finemente",
       "source": "thehiddenveggies",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "1 medium carrot, chopped small",
+        "it": "1 carota media, tritata finemente"
+      }
     },
     {
       "line": "1 3/4 cups all-purpose flour (*See note)",
@@ -3258,8 +3288,13 @@
       "en": "1 can whole peeled tomatoes",
       "it": "1 lattina di pomodori pelati interi",
       "source": "rainbowplantlife",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "1 800 g can whole peeled tomatoes, crushed by hand (include juices)",
+        "it": "1 lattina (800 g) di pomodori pelati interi, schiacciati a mano (con il loro succo)"
+      }
     },
     {
       "line": "1/2 pound spaghetti noodles",
@@ -3501,8 +3536,13 @@
       "en": "≈ 35 g finely ground cashews",
       "it": "≈ 35 g di anacardi fini",
       "source": "veganricha",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "≈ 35 g finely ground cashews",
+        "it": "≈ 35 g di anacardi macinati finemente"
+      }
     },
     {
       "line": "1 teaspoon of vanilla extract ((optional))",
@@ -4098,8 +4138,13 @@
       "en": "2 medium potatoes",
       "it": "2 patate medie",
       "source": "holycowvegan",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "2 medium potatoes, diced and boiled until just tender",
+        "it": "2 patate medie, a dadini e lessate fino a renderle tenere"
+      }
     },
     {
       "line": "1 can diced tomatoes (14,5 oz)",
@@ -4918,8 +4963,13 @@
       "en": "≈ 95 g Blanched Almond Flour",
       "it": "≈ 95 g di farina di mandorle",
       "source": "frommybowl",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "≈ 95 g Blanched Almond Flour",
+        "it": "≈ 95 g di farina di mandorle pelate"
+      }
     },
     {
       "line": "2 celery stalks (diced)",
@@ -5226,8 +5276,13 @@
       "en": "1 clove garlic, finely minced",
       "it": "1 spicchio di aglio, tritato finemente",
       "source": "lazycatkitchen",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "1 large clove garlic, finely minced",
+        "it": "1 spicchio d’aglio grande, tritato finemente"
+      }
     },
     {
       "line": "2 tablespoons parsley ((chopped))",
@@ -5845,8 +5900,13 @@
       "en": "120 ml unsweetened almond milk",
       "it": "120 ml di latte di mandorla",
       "source": "jessicainthekitchen",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "120 ml unsweetened almond milk",
+        "it": "120 ml di latte di mandorla senza zucchero"
+      }
     },
     {
       "line": "1 tablespoon lemon zest (about the zest of 2 lemons)",
@@ -6110,8 +6170,13 @@
       "en": "≈ 170 g long beans",
       "it": null,
       "source": "sweetsimplevegan",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "≈ 170 g long beans, cut into 2-inch pieces",
+        "it": null
+      }
     },
     {
       "line": "1/2 cup chopped tomato (or 2 teaspoons tomato paste )",
@@ -6517,8 +6582,13 @@
       "en": "2 medium Russet potatoes",
       "it": "2 patate da forno medie",
       "source": "connoisseurusveg",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "2 medium Russet potatoes, peeled and cut into ½-inch pieces",
+        "it": "2 patate da forno medie, sbucciate e tagliate a pezzi"
+      }
     },
     {
       "line": "1 teaspoon of oil or water",
@@ -6580,8 +6650,13 @@
       "en": "≈ 130 g shredded carrots",
       "it": "≈ 130 g di carote",
       "source": "connoisseurusveg",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "≈ 130 g shredded carrots",
+        "it": "≈ 130 g di carote grattugiate"
+      }
     },
     {
       "line": "2 cups or more chopped greens (, I use chard and spinach)",
@@ -6658,8 +6733,13 @@
       "en": "2 tbsp chopped sun-dried tomato",
       "it": "2 cucchiai di pomodori secchi",
       "source": "veganricha",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "2 tbsp chopped sun-dried tomato",
+        "it": "2 cucchiai di pomodori secchi tritati"
+      }
     },
     {
       "line": "2 tbsp shiro miso / white miso",
@@ -7899,8 +7979,13 @@
       "en": "397 g coconut cream or full fat coconut milk",
       "it": "397 g di crema di cocco o latte di cocco",
       "source": "jessicainthekitchen",
-      "status": "ok",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "397 g coconut cream or full fat coconut milk",
+        "it": "397 g di crema di cocco o latte di cocco intero"
+      }
     },
     {
       "line": "1 1/2 cups almond, oat, or soy milk",
@@ -8328,8 +8413,13 @@
       "en": "210 g raw cashews",
       "it": "210 g di anacardi crudi",
       "source": "rainbowplantlife",
-      "status": "ok",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "210 g raw cashews, soaked in cool water for 8 hours or in boiling water for 1 hour",
+        "it": "210 g di anacardi crudi, ammollati in acqua fredda per 8 ore o in acqua bollente per 1 ora"
+      }
     },
     {
       "line": "1 1/2 cups boiling water ((or use cold water if you are using agar))",
@@ -8504,8 +8594,13 @@
       "en": "150 g raw cashews",
       "it": "150 g di anacardi crudi",
       "source": "rainbowplantlife",
-      "status": "ok",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "150 g raw cashews, soaked in boiling water for 1 hour",
+        "it": "150 g di anacardi crudi, ammollati in acqua bollente per 1 ora"
+      }
     },
     {
       "line": "1 1/4 cups very hot or boiling water",
@@ -8738,8 +8833,13 @@
       "en": "112 g raw cashews",
       "it": "112 g di anacardi crudi",
       "source": "rainbowplantlife",
-      "status": "ok",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "112 g raw cashews, soaked for 1 hour in boiling water",
+        "it": "112 g di anacardi crudi, ammollati per 1 ora in acqua bollente"
+      }
     },
     {
       "line": "1 cup (130-140g) raw cashews, (soaked overnight (or soaked in boiling water for 1 hour))",
@@ -8785,8 +8885,13 @@
       "en": "140 g raw cashews",
       "it": "140 g di anacardi crudi",
       "source": "rainbowplantlife",
-      "status": "ok",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "140 g raw cashews, soaked in boiling water for 1 hour",
+        "it": "140 g di anacardi crudi, ammollati in acqua bollente per 1 ora"
+      }
     },
     {
       "line": "green onion, sesame seeds, pepper flakes",
@@ -8926,8 +9031,13 @@
       "en": "397 g extra firm tofu, drained, pressed",
       "it": "397 g di tofu extra compatto, scolato, pressato",
       "source": "connoisseurusveg",
-      "status": "ok",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "397 g extra firm tofu, drained, pressed and cut into ½-inch cubes",
+        "it": "397 g di tofu extra compatto, scolato, pressato e tagliato a cubetti"
+      }
     },
     {
       "line": "1 1/2 cups cooked garbanzo beans (chickpeas), or 1 can (15 oz), drained, rinsed and patted dry",
@@ -9006,8 +9116,13 @@
       "en": "575 g mixed mushrooms",
       "it": "575 g di funghi misti",
       "source": "itdoesnttastelikechicken",
-      "status": "ok",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "575 g mixed mushrooms, torn or sliced",
+        "it": "575 g di funghi misti, strappati o affettati"
+      }
     },
     {
       "line": "1 ½ cups (~24g) fresh soft herbs such as basil, mint, parsley, and/or cilantro, (chopped (See Note 3))",
@@ -9072,8 +9187,13 @@
       "en": "397 g extra firm tofu, drained, pressed",
       "it": "397 g di tofu extra compatto, scolato, pressato",
       "source": "connoisseurusveg",
-      "status": "ok",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "397 g extra firm tofu, drained, pressed and cut into 1-inch cubes",
+        "it": "397 g di tofu extra compatto, scolato, pressato e tagliato a cubetti"
+      }
     },
     {
       "line": "1 14-ounce package of extra firm tofu, drained, pressed, and cubed",
@@ -9132,8 +9252,13 @@
       "en": "800 g Russet potatoes, peeled",
       "it": "800 g di patate da forno, sbucciate",
       "source": "connoisseurusveg",
-      "status": "ok",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "800 g Russet potatoes, scrubbed, peeled and cut into 1-inch pieces",
+        "it": "800 g di patate da forno, spazzolate, sbucciate e tagliate a pezzi"
+      }
     },
     {
       "line": "1 baguette, cut into 4 sections, or 4 long sandwich rolls, (sliced open)",
@@ -9188,8 +9313,13 @@
       "en": "1 block (350 g) extra-firm or firm tofu, drained, pressed",
       "it": "1 panetto (350 g) di tofu extra compatto o tofu compatto, scolati, pressati",
       "source": "itdoesnttastelikechicken",
-      "status": "ok",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "E",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "1 block (350 g) extra-firm or firm tofu, drained, pressed and sliced into 8 pieces",
+        "it": "1 panetto (350 g) di tofu extra compatto o tofu compatto, scolato, pressato e tagliato in 8 fette"
+      }
     },
     {
       "line": "1 bunch curly kale ((approximately 8 oz., but precision is not required), stems removed, roughly chopped)",
@@ -10201,8 +10331,13 @@
       "en": "1 tsp mustard",
       "it": "1 cucchiaino di senape",
       "source": "cucinaverza",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "1 tsp mustard (not wholegrain)",
+        "it": "1 cucchiaino di senape (non in grani)"
+      }
     },
     {
       "line": "1 cipolla piccola dorata",
@@ -10222,8 +10357,13 @@
       "en": "1 yellow onion",
       "it": "1 cipolla piccola dorata",
       "source": "cucinaverza",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "1 small yellow onion",
+        "it": "1 cipolla piccola dorata"
+      }
     },
     {
       "line": "mezzo cucchiaino di vaniglia in polvere",
@@ -10392,8 +10532,13 @@
       "en": "100 g soy milk",
       "it": "100 g di latte di soia non zuccherato",
       "source": "cucinaverza",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "100 g unsweetened soy milk",
+        "it": "100 g di latte di soia non zuccherato"
+      }
     },
     {
       "line": "Semi di sesamo",
@@ -10544,8 +10689,13 @@
       "en": "1 tbsp chickpea flour",
       "it": "1 cucchiaio di farina di ceci",
       "source": "cucinaverza",
-      "status": "ok",
-      "reviewNeeded": false
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": false,
+      "expected": {
+        "en": "1 heaping tbsp chickpea flour",
+        "it": "1 cucchiaio abbondante di farina di ceci"
+      }
     },
     {
       "line": "260 g latte di soia",

@@ -25,7 +25,8 @@ const ITALIAN = 100;
 
 export type Units = 'us' | 'metric';
 export type GoldenStatus = 'ok' | 'known-bad' | 'unreviewed';
-export type GoldenClass = 'A' | 'B' | 'C' | 'D' | 'E';
+/** A vegan qualifier, B amount or "or" line, C qualifier or size, D ingredient, E Italian wording, F preparation. */
+export type GoldenClass = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
 
 /** What a reader sees of one part: the fields that decide its amount, name and Italian wording. */
 export interface GoldenPart {
@@ -35,6 +36,7 @@ export interface GoldenPart {
   name: string;
   concept: string | null;
   conceptExact?: boolean;
+  densityName?: string;
   kind?: 'heading' | 'other';
   note: string;
   terms: { id: string; text: string; inName?: true }[];
@@ -69,6 +71,7 @@ const part = (p: ParsedIngredient): GoldenPart => ({
   name: p.name,
   concept: p.concept,
   ...(p.concept !== null ? { conceptExact: p.conceptExact === true } : {}),
+  ...(p.densityName ? { densityName: p.densityName } : {}),
   ...(p.kind ? { kind: p.kind } : {}),
   note: p.note,
   terms: (p.terms ?? []).map((t) => ({ id: t.id, text: t.text, ...(t.inName ? { inName: true as const } : {}) }))
