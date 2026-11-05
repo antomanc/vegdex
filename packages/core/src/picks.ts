@@ -67,12 +67,19 @@ const savoury = (r: CatalogRecipe) => r.tags.includes('flavor:savory');
 /**
  * Arrange a filtered list (already in Today's picks order) for the grid: no blog fills a screen — at most
  * {@link SOURCE_CAP} recipes from one source in any {@link SOURCE_WINDOW} consecutive cards — and, on the
- * default screen, savoury leads three cards of every four. Blogs with more cards still to place go first,
- * so one cannot pile up at the tail; otherwise the earliest card in picks order wins, so the daily order
- * survives where the cap allows. A cap that cannot be met is relaxed per card rather than dropping
- * recipes; a list from one blog has no cap to meet.
+ * default screen, savoury leads three cards of every four. Blogs take turns: the next card comes from the
+ * blog shown least so far, the earliest in picks order on a tie, so small blogs share the first screen and
+ * the daily shuffle decides who leads. The pool is arranged before the rest, so a weak recipe never moves
+ * up just because its blog has few strong ones. A cap that cannot be met is relaxed per card rather than
+ * dropping recipes; a list from one blog has no cap to meet.
  */
-export function mixPicks<R extends CatalogRecipe>(recipes: R[], { savouryLead = false }: MixOptions = {}): R[] {
+export function mixPicks<R extends CatalogRecipe>(recipes: R[], options: MixOptions = {}): R[] {
+  const pool = recipes.filter(inPool);
+  if (pool.length === recipes.length || !pool.length) return arrange(recipes, options);
+  return [...arrange(pool, options), ...arrange(recipes.filter((r) => !inPool(r)), options)];
+}
+
+function arrange<R extends CatalogRecipe>(recipes: R[], { savouryLead = false }: MixOptions): R[] {
   const sourceAt = new Map<string, number>();
   const queues: number[][] = [];
   recipes.forEach((r, at) => {
@@ -90,7 +97,7 @@ export function mixPicks<R extends CatalogRecipe>(recipes: R[], { savouryLead = 
 
   const sources = queues.length;
   const cursor = new Int32Array(sources);
-  const left = Int32Array.from(queues, (queue) => queue.length);
+  const placed = new Int32Array(sources);
   const inWindow = new Int32Array(sources);
   const isSavoury = Uint8Array.from(recipes, (r) => Number(savoury(r)));
   // The sources of the last SOURCE_WINDOW - 1 cards: with the card being placed, that is one window.
@@ -102,7 +109,7 @@ export function mixPicks<R extends CatalogRecipe>(recipes: R[], { savouryLead = 
   /** The pending card that is most behind, matches `want` (any when -1) and does not overfill `limit`. */
   const choose = (want: number, limit: number): number => {
     let best = -1;
-    let mostLeft = -1;
+    let fewest = Infinity;
     for (let source = 0; source < sources; source++) {
       if (inWindow[source]! >= limit) continue;
       const at = cursor[source]!;
@@ -110,12 +117,10 @@ export function mixPicks<R extends CatalogRecipe>(recipes: R[], { savouryLead = 
       if (at >= queue.length) continue;
       const candidate = queue[at]!;
       if (want >= 0 && isSavoury[candidate] !== want) continue;
-      // Blogs with more cards still to place go first, so one cannot pile up at the tail; within a blog,
-      // the earliest card in picks order wins, so the daily order survives where the cap allows.
-      const remaining = left[source]!;
-      if (remaining > mostLeft || (remaining === mostLeft && candidate < best)) {
+      const shown = placed[source]!;
+      if (shown < fewest || (shown === fewest && candidate < best)) {
         best = candidate;
-        mostLeft = remaining;
+        fewest = shown;
       }
     }
     return best;
@@ -133,7 +138,7 @@ export function mixPicks<R extends CatalogRecipe>(recipes: R[], { savouryLead = 
     const source = sourceAt.get(pick.source)!;
     out.push(pick);
     cursor[source]! += 1;
-    left[source]! -= 1;
+    placed[source]! += 1;
     inWindow[source]! += 1;
     recent[recentAt] = source;
     recentAt = (recentAt + 1) % SOURCE_WINDOW;

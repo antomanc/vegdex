@@ -57,6 +57,27 @@ describe('mixPicks', () => {
     }
   });
 
+  it('lets blogs take turns, so a big blog does not lead every day', () => {
+    // One blog with 100 strong recipes beside eleven with three each: size must not buy the first screen.
+    const recipes = [
+      ...Array.from({ length: 100 }, (_, i) => pictured(`big-${i}`, { source: 'big' })),
+      ...Array.from({ length: 11 }, (_, source) =>
+        Array.from({ length: 3 }, (_, i) => pictured(`s${source}-${i}`, { source: `small-${source}` }))
+      ).flat()
+    ];
+    for (const day of ['2026-11-05', '2026-11-06', '2026-11-07']) {
+      const first = mixPicks(picksOrder(recipes, day)).slice(0, 12);
+      expect(new Set(first.map((x) => x.source)).size).toBe(12);
+    }
+  });
+
+  it('keeps weak recipes after the pool even when their blog has few strong ones', () => {
+    const strong = Array.from({ length: 6 }, (_, i) => pictured(`strong-${i}`, { source: 'big' }));
+    const weak = [r('weak', { source: 'small', rating: 3.9, ratingCount: 2 })];
+    const mixed = mixPicks(picksOrder([...weak, ...strong], '2026-11-05'));
+    expect(mixed.at(-1)!.id).toBe('weak');
+  });
+
   it('relaxes the cap when one blog cannot meet it, without dropping recipes', () => {
     const recipes = [
       ...Array.from({ length: 30 }, (_, i) => pictured(`loud-${i}`, { source: 'loud' })),
