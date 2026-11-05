@@ -86,7 +86,7 @@ input { caret-color: var(--sign-red); }
 
 /* Keyboard users jump past the header and filters straight to the cards. */
 .skip-link {
-  position: fixed; top: 8px; left: 8px; z-index: 10; padding: 10px 16px; border-radius: 8px;
+  position: fixed; top: 8px; left: 8px; z-index: 10; min-height: 44px; padding: 12px 16px; border-radius: 8px;
   background: var(--green); color: var(--on-green); font-weight: 600; text-decoration: none;
   translate: 0 -200%;
 }
@@ -105,13 +105,13 @@ input { caret-color: var(--sign-red); }
 .brand-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; max-width: 1200px; margin: 0 auto 6px; }
 .brand-h { margin: 0; font-size: inherit; }
 .brand {
-  display: flex; align-items: center; gap: 8px; min-height: 40px;
+  display: flex; align-items: center; gap: 8px; min-height: 44px;
   font-family: var(--display); font-size: 1.75rem; font-weight: 400; letter-spacing: -0.01em; line-height: 1;
   background: none; border: 0; padding: 0; color: var(--green);
 }
 .logo { border-radius: 4px; }
 .top-actions { display: flex; gap: 8px; align-items: center; }
-.saved-toggle { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; border: 2px solid var(--rule); background: var(--surface); border-radius: 999px; padding: 0 14px; font-size: 0.88rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.saved-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 44px; min-height: 44px; border: 2px solid var(--rule); background: var(--surface); border-radius: 999px; padding: 0 14px; font-size: 0.88rem; font-weight: 600; font-variant-numeric: tabular-nums; }
 .saved-toggle .icon { color: var(--muted); }
 .saved-toggle.has .icon { color: var(--sign-red); }
 .saved-toggle, .pill.jump { white-space: nowrap; }
@@ -195,7 +195,13 @@ input { caret-color: var(--sign-red); }
   }
 }
 @media (max-width: 419px) { .pill.tonight .icon { display: none; } }
-@media (max-width: 379px) { .pills.controls { gap: 4px; } .pill.tonight { padding: 0 9px; font-size: 0.82rem; } .pills.controls .seg { padding-inline: 1px; font-size: 0.72rem; } }
+/* Every time stays at least 44px wide: under 360px the times take their own line. */
+.seg { min-width: 44px; }
+@media (max-width: 359px) {
+  .pills.controls { flex-wrap: wrap; }
+  .pills.controls .segmented { order: 1; flex: 1 1 100%; }
+  .more-key { margin-left: auto; }
+}
 @media (max-width: 379px) { .seg .seg-unit { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } }
 @media (min-width: 700px) {
   /* Wide screens show every sign at once. */
@@ -254,7 +260,7 @@ input { caret-color: var(--sign-red); }
 /* Suggestions sit in the sheet's flow: nothing to clip, and the field stays above the keyboard. */
 .suggestions { flex: 1 1 100%; order: 1; list-style: none; margin: 0; padding: 0; border: 2px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); }
 .suggestions[hidden] { display: none; }
-.suggestions li { padding: 11px 12px; line-height: 1.3; cursor: pointer; }
+.suggestions li { min-height: 44px; padding: 12px; line-height: 1.3; cursor: pointer; }
 .suggestions li + li { border-top: 1px solid var(--line); }
 .suggestions li.active { background: var(--green-soft); }
 .suggestions b { font-weight: 700; color: var(--green); }
@@ -456,7 +462,7 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
 /* The open recipe: title and kitchen, then the facts boxed under a black rule, the time on its tag. */
 .kitchen { margin: 0; font-size: 0.88rem; color: var(--muted); font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; gap: 8px 10px; }
 .kitchen-name {
-  border: 0; background: none; padding: 10px 0; margin: -10px 0; font-size: 0.92rem; font-weight: 700; color: var(--ink);
+  border: 0; background: none; min-height: 44px; padding: 13px 0; margin: -13px 0; font-size: 0.92rem; font-weight: 700; color: var(--ink);
   text-decoration: underline; text-decoration-color: var(--muted); text-decoration-thickness: 1px; text-underline-offset: 3px;
 }
 .kitchen-name:hover { text-decoration-color: currentColor; }
@@ -494,7 +500,7 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
 .muted { color: var(--muted); }
 .small { font-size: 0.875rem; }
 p.small { margin-top: 18px; }
-p.small a { color: var(--green); text-underline-offset: 3px; }
+p.small a { display: inline-flex; align-items: center; min-height: 44px; color: var(--green); text-underline-offset: 3px; }
 
 /* Wide screens: photo and facts on the left, ingredients on the right, both above the fold. */
 @media (min-width: 900px) {

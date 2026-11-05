@@ -64,6 +64,12 @@
   function remove(kind: 'include' | 'exclude', v: string) {
     filters[kind] = filters[kind].filter((x) => x !== v)
   }
+  // Text still in a field would otherwise come back when the sheet closes.
+  function clearAll() {
+    have = ''
+    avoid = ''
+    clearFilters()
+  }
   // Text typed but not added still counts when the sheet closes.
   function closed() {
     commit('include')
@@ -171,7 +177,7 @@
       </form>
 
       <div class="sheet-footer">
-        {#if activeCount()}<button class="text-btn" onclick={clearFilters}>{m.clear_all()}</button>{/if}
+        {#if activeCount()}<button class="text-btn" onclick={clearAll}>{m.clear_all()}</button>{/if}
         <!-- Text still in a field joins the filters on close, so the count would be stale: say what the tap does instead. -->
         <button class="cta" class:none={!pending && count === 0} onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))}>
           {pending ? m.add_and_show() : count === null ? m.show_results() : count === 0 ? m.no_matches_filter() : m.show_recipes(countArgs(count))}

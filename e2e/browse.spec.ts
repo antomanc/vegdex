@@ -113,6 +113,18 @@ test('ingredients typed but not added still apply when More filters closes', asy
   await expect(active.getByRole('button', { name: 'Remove with spinach' })).toBeVisible();
 });
 
+test('Clear all also drops text still in the ingredient fields', async ({ page }) => {
+  await page.getByRole('button', { name: /More filters/ }).click();
+  const have = page.getByRole('combobox', { name: 'Must include' });
+  await have.fill('tofu');
+  await have.press('Enter');
+  await have.fill('spinach');
+  await page.getByRole('dialog').getByRole('button', { name: 'Clear all' }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Close' }).click();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(page).not.toHaveURL(/have=/);
+});
+
 test('Tonight is one tap to a weeknight main', async ({ page }) => {
   await page.getByRole('button', { name: 'Tonight', exact: true }).click();
   await expect(count(page)).toHaveText(/2 recipes/);
