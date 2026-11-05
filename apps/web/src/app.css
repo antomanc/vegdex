@@ -101,7 +101,7 @@ input { caret-color: var(--sign-red); }
   border-bottom: 3px solid var(--rule);
 }
 /* Phones: scrolling leaves only the search pinned; Back to top is one tap away. */
-@media (max-width: 699px) { .top { top: -56px; } }
+@media (max-width: 699px) { .top { top: -50px; } }
 .brand-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; max-width: 1200px; margin: 0 auto 6px; }
 .brand-h { margin: 0; font-size: inherit; }
 .brand {
