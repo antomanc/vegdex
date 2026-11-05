@@ -53,8 +53,16 @@ const localize = (html: string, locale: Locale) => {
 // Cloudflare Web Analytics: cookieless visit counts, added to built pages only when the site token is set.
 const analyticsToken = process.env.CF_ANALYTICS_TOKEN?.trim()
 const analytics = analyticsToken && /^[\w-]+$/.test(analyticsToken)
-  ? `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"${analyticsToken}"}'></script>\n  </head>`
-  : '</head>'
+  ? `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"${analyticsToken}"}'></script>`
+  : ''
+
+// GoatCounter events: cookieless creator-link taps, added to built pages only when the site code is set.
+// no_onload leaves page views to Cloudflare; only the explicit cook event is counted here.
+const goatcounterSite = process.env.GOATCOUNTER_SITE?.trim()
+const goatcounter = goatcounterSite && /^[a-z0-9-]+$/.test(goatcounterSite)
+  ? `<script data-goatcounter="https://${goatcounterSite}.goatcounter.com/count" data-goatcounter-settings='{"no_onload":true}' async src="https://gc.zgo.at/count.js"></script>`
+  : ''
+const headScripts = [analytics, goatcounter].filter(Boolean).map((script) => `${script}\n  `).join('')
 
 const seo = (): Plugin => ({
   name: 'vegdex-seo',
@@ -72,7 +80,7 @@ const seo = (): Plugin => ({
       // Each UI language is its own page, built from the same bundle: / for the base language, /<prefix>/ for the rest.
       const page = bundle['index.html']
       if (page?.type !== 'asset') throw new Error('index.html missing from the bundle')
-      const template = String(page.source).replace('</head>', analytics)
+      const template = String(page.source).replace('</head>', `${headScripts}</head>`)
       for (const locale of LOCALES) {
         const source = localize(template, locale)
         if (locale === BASE_LOCALE) page.source = source
