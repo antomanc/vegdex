@@ -16,17 +16,18 @@
   const FIRST_LINE = 7
   let more = $state(false)
   let signRow = $state<HTMLElement>()
-  // A chosen sign, also one set by Tonight or a shared link, slides into the scrolling row's view.
+  /** Brings a sign fully into the scrolling row, clear of the fade at its right edge. */
+  function reveal(sign: HTMLElement | null | undefined) {
+    if (!signRow || !sign) return
+    const left = sign.offsetLeft - signRow.offsetLeft
+    const edge = 16
+    if (left < signRow.scrollLeft + edge) signRow.scrollLeft = left - edge
+    else if (left + sign.offsetWidth > signRow.scrollLeft + signRow.clientWidth - 44) signRow.scrollLeft = left + sign.offsetWidth - signRow.clientWidth + 56
+  }
+  // A chosen sign, also one set by Tonight or a shared link, slides into view.
   $effect(() => {
     void [filters.flavor, filters.meals]
-    tick().then(() => {
-      const on = signRow?.querySelector<HTMLElement>('.tab.on')
-      if (!signRow || !on) return
-      const left = on.offsetLeft - signRow.offsetLeft
-      const edge = 16
-      if (left < signRow.scrollLeft + edge) signRow.scrollLeft = left - edge
-      else if (left + on.offsetWidth > signRow.scrollLeft + signRow.clientWidth - 44) signRow.scrollLeft = left + on.offsetWidth - signRow.clientWidth + 56
-    })
+    tick().then(() => reveal(signRow?.querySelector<HTMLElement>('.tab.on')))
   })
   let have = $state('')
   let avoid = $state('')
@@ -89,7 +90,7 @@
     onclick={() => toggleMeal(meal)}>{label}</button>
 {/snippet}
 <nav class="tabs" aria-label={m.categories()}>
-  <div class="tab-row" bind:this={signRow}><div class="tab-track">
+  <div class="tab-row" bind:this={signRow} onfocusin={(e) => reveal(e.target as HTMLElement)}><div class="tab-track">
     <div class="tab-line">
       {#each MEAL_LABELS.slice(0, FIRST_LINE) as entry (entry[0])}{@render meal(entry)}{/each}
     </div>

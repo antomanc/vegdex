@@ -541,7 +541,7 @@ p.small a { display: inline-flex; align-items: center; min-height: 44px; color: 
 .amounts[open] summary::after { rotate: 90deg; }
 .amounts ul { list-style: none; padding: 0; margin: 0 0 4px; }
 .amounts li { display: flex; align-items: center; gap: 12px; min-height: 52px; border-bottom: 1px solid var(--line); }
-.amounts .title { flex: 1; min-width: 0; }
+.amounts .title { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; }
 .stepper { display: flex; align-items: center; flex: none; }
 @media (max-width: 419px) {
   .amounts li { flex-wrap: wrap; row-gap: 4px; padding: 8px 0; }
@@ -626,6 +626,5 @@ p.small.scale-note { margin: 0 0 10px; }
 .not-scaled { font-size: 0.8em; }
 .device-hint { margin: 10px 0 0; padding: 0; color: var(--muted); font-size: 0.875rem; line-height: 1.45; text-wrap: balance; }
 
-.amounts .title input { vertical-align: middle; margin-right: 4px; }
 
 .language-switch { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border: 2px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: 0.82rem; font-weight: 700; text-decoration: none; }

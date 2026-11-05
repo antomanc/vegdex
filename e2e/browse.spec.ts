@@ -1,3 +1,4 @@
+import type { Locator } from '@playwright/test';
 import { expect, test } from './fixtures';
 
 const cards = (page: import('@playwright/test').Page) => page.getByTestId('recipe-card');
@@ -123,6 +124,17 @@ test('Clear all also drops text still in the ingredient fields', async ({ page }
   await page.getByRole('dialog').getByRole('button', { name: 'Close' }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);
   await expect(page).not.toHaveURL(/have=/);
+});
+
+test('a sign reached by keyboard scrolls fully into view on a phone', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  const signs = page.getByRole('navigation', { name: 'Categories' }).getByRole('button');
+  const clearance = (sign: Locator) => sign.evaluate((el) => el.closest('.tab-row')!.getBoundingClientRect().right - el.getBoundingClientRect().right);
+  // Mid-row a sign clears the fade; at the end of the row the fade lets go.
+  await signs.nth(5).focus();
+  await expect.poll(() => clearance(signs.nth(5))).toBeGreaterThanOrEqual(44);
+  await signs.last().focus();
+  await expect.poll(() => clearance(signs.last())).toBeGreaterThanOrEqual(0);
 });
 
 test('Tonight is one tap to a weeknight main', async ({ page }) => {
