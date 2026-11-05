@@ -25,11 +25,15 @@ test('a plain landing shows Today’s picks while the catalog loads', async ({ p
   await page.getByRole('dialog').getByRole('button', { name: 'Close', exact: true }).click();
   const top = () => page.getByTestId('recipe-card').first().evaluate((card) => Math.round(card.getBoundingClientRect().top));
   const before = await top();
+  const titles = await first.locator('h2').allTextContents();
   release();
   await expect(page.getByTestId('result-count')).toHaveText('6 recipes');
   await expect(page.getByTestId('first-page')).toHaveCount(0);
   // The count line had its place kept: the cards do not jump when the catalog arrives.
   expect(await top()).toBe(before);
+  // Same cards in the same order: first.json is the opening of the catalog's Today's picks.
+  const after = await page.getByTestId('recipe-card').locator('h2').allTextContents();
+  expect(after.slice(0, titles.length)).toEqual(titles);
   expect(errors).toEqual([]);
 });
 
