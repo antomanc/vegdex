@@ -10,7 +10,7 @@ export async function loadCatalogData(): Promise<ArrayBuffer> {
   return res.arrayBuffer()
 }
 
-/** The best-rated recipes, a few kilobytes; null when the dataset predates it or it fails. */
+/** Today's picks, a few kilobytes; null when the dataset predates it or it fails. */
 export async function loadFirstPage(): Promise<Catalog | null> {
   try {
     const res = await fetch(`${base}data/first.json`)

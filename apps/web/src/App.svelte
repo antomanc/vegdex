@@ -1,6 +1,6 @@
 <script lang="ts">
   import { untrack } from 'svelte'
-  import { searchRecipes, type Catalog, type CatalogRecipe } from '@vegdex/core'
+  import { type Catalog, type CatalogRecipe } from '@vegdex/core'
   import { catalog, type Found, type Loaded } from './lib/catalog-client'
   import { loadCatalogData, loadFirstPage, loadLookup } from './lib/data'
   import {
@@ -9,7 +9,7 @@
   } from './lib/state.svelte'
   import { m, countArgs, formatNumber, pageLocale } from './lib/i18n'
   import { BASE_LOCALE, LOCALES } from './lib/locales'
-  import { display, loadTranslations, recipeTitles } from './lib/translations.svelte'
+  import { display, loadTranslations } from './lib/translations.svelte'
   import { isLocale } from './paraglide/runtime'
   import { SORTS } from './lib/labels'
   import { onSheetPop } from './lib/sheet'
@@ -33,7 +33,7 @@
   let loaded = $state.raw<Loaded | null>(null)
   let found = $state.raw<Found | null>(null)
   let searchInput = $state<HTMLInputElement>()
-  // The best-rated recipes, shown on a plain landing until the catalog is searchable.
+  // Today's picks, shown on a plain landing until the catalog is searchable.
   let firstPage = $state.raw<Catalog | null>(null)
   // Titles the worker searches: bumped once it has the page language's titles.
   let titlesVersion = $state(0)
@@ -110,10 +110,10 @@
   const total = $derived(found?.total ?? 0)
   const resultCount = $derived(found?.counted ?? 0)
   const visible = $derived(results.slice(0, limit))
-  // Before the catalog, a plain landing lists the first page; on other languages, once titles can be shown.
+  // first.json ships in Today's picks order, the same cards the catalog's first page will show.
   const early = $derived(
     !found && firstPage && isLanding() && (pageLocale.code === BASE_LOCALE.code || display.loaded)
-      ? searchRecipes(firstPage.recipes, toQuery([]), {}, recipeTitles()).slice(0, PAGE)
+      ? firstPage.recipes.slice(0, PAGE)
       : null
   )
 

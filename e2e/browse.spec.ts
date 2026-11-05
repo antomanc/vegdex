@@ -1,5 +1,5 @@
 import type { Locator } from '@playwright/test';
-import { expect, test } from './fixtures';
+import { expect, italianFixtureData, test } from './fixtures';
 
 const cards = (page: import('@playwright/test').Page) => page.getByTestId('recipe-card');
 const count = (page: import('@playwright/test').Page) => page.getByTestId('result-count');
@@ -9,10 +9,27 @@ test.beforeEach(async ({ page }) => {
   await expect(count(page)).toHaveText(/6 recipes/);
 });
 
-test('shows only vegan recipes, best rated first', async ({ page }) => {
-  await expect(cards(page).first()).toContainText('Fluffy Vegan Pancakes');
+test('shows only vegan recipes, savoury picks first by default', async ({ page }) => {
+  await expect(cards(page).first()).toContainText('Spinach Tofu Curry');
   // The fixture's honey recipe is dropped by the vegan check at emit time.
   await expect(page.getByText('Honey Glazed Carrots')).toHaveCount(0);
+  // Today's picks is the default and stays out of the URL; Top rated is a choice and keeps the rating order.
+  await expect(page.getByLabel('Sort by')).toHaveValue('picks');
+  await expect(page).not.toHaveURL(/sort=/);
+  await page.getByLabel('Sort by').selectOption('rating');
+  await expect(cards(page).first()).toContainText('Fluffy Vegan Pancakes');
+  await expect(page).toHaveURL(/sort=rating/);
+});
+
+test('search keeps relevance instead of Today’s picks', async ({ page }) => {
+  await page.route('**/data/**', italianFixtureData);
+  await page.goto('/it/');
+  await page.getByRole('searchbox').fill('insalata');
+  await expect(cards(page)).toHaveCount(2);
+  // An equal title match falls back to the rating order, not the daily picks order.
+  await expect(cards(page).first()).toContainText('Insalata di quinoa al limone');
+  await expect(page.getByRole('combobox', { name: 'Ordina per' })).toHaveValue('relevance');
+  await expect(page).not.toHaveURL(/sort=/);
 });
 
 test('flavor and meal pills narrow the grid', async ({ page }) => {

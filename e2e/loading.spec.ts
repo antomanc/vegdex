@@ -11,7 +11,7 @@ async function holdCatalog(page: import('@playwright/test').Page) {
   return release;
 }
 
-test('a plain landing shows the best-rated recipes while the catalog loads', async ({ page }) => {
+test('a plain landing shows Today’s picks while the catalog loads', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   const release = await holdCatalog(page);

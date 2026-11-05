@@ -5,7 +5,8 @@ test('a recipe contains scrolling at both edges and preserves the underlying gri
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   await expect(page.getByTestId('result-count')).toHaveText(/6 recipes/);
-  const card = page.getByRole('button', { name: 'Red Lentil Soup', exact: true });
+  // A card far enough down the grid that opening it needs the page scrolled first.
+  const card = page.getByRole('button', { name: 'Fudgy Vegan Brownies', exact: true });
   await card.scrollIntoViewIfNeeded();
   const before = await card.evaluate((node) => ({ top: node.getBoundingClientRect().top, scroll: scrollY }));
   expect(before.scroll).toBeGreaterThan(0);

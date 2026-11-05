@@ -23,7 +23,7 @@ Guaranteed vegan. Every source is an all-vegan publisher, and a second check dro
 - Saved recipes and the shopping list live in the browser on that device.
 
 ## Capabilities and Constraints
-- Search by text; quick filters for savory/sweet and meal type; time (≤15/30/45/60 min); high protein; "free from" (gluten, nut, soy, oil); "I have" and "avoid" ingredient lists; sort (top rated, newest, fastest, best match).
+- Search by text; quick filters for savory/sweet and meal type; time (≤15/30/45/60 min); high protein; "free from" (gluten, nut, soy, oil); "I have" and "avoid" ingredient lists; sort (Today's picks by default, top rated, newest, fastest, best match).
 - "Pick for me": a random recipe from the best current matches, with "Another" to draw again.
 - Recipe sheet: photo, meta, nutrition, diet badges, ingredient list, "Cook it on <blog>" link, save. The blog name opens that blog's shelf (all its recipes, plus a link to the site).
 - Saved view with a combined shopping list built from saved recipes.

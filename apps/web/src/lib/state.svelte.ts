@@ -22,9 +22,24 @@ export const filters = $state({
 
 export type Filters = typeof filters
 
+/** Any browse filter is chosen: the page is no longer the default screen. */
+function hasFilters(f: Filters): boolean {
+  return !!(
+    f.meals.length ||
+    f.flavor ||
+    f.maxMinutes ||
+    f.freeFrom.length ||
+    f.highProtein ||
+    f.include.length ||
+    f.exclude.length ||
+    f.from
+  )
+}
+
 export function toQuery(savedIds: string[], f: Filters = filters): RecipeQuery {
   // The saved view is a list the user built by hand: browse filters never hide its recipes.
   if (f.saved) return { text: f.text.trim() || undefined, sort: f.sort ?? undefined, ids: savedIds, preferredContentLanguage: pageLocale.code }
+  const sort = f.sort ?? (f.text.trim() ? 'relevance' : f.from ? 'rating' : 'picks')
   return {
     text: f.text.trim() || undefined,
     preferredContentLanguage: pageLocale.code,
@@ -36,7 +51,9 @@ export function toQuery(savedIds: string[], f: Filters = filters): RecipeQuery {
     include: f.include,
     exclude: f.exclude,
     sources: f.from ? [f.from] : undefined,
-    sort: f.sort ?? undefined
+    sort,
+    // Savoury leads only the default screen: a chosen filter says what the cook wants to see.
+    savouryLead: sort === 'picks' && !f.text.trim() && !hasFilters(f)
   }
 }
 
@@ -108,9 +125,12 @@ export function toggleTonight() {
   filters.maxMinutes = on ? null : TONIGHT.maxMinutes
 }
 
-/** Sort used when none is picked: best match while searching, top rated otherwise. */
+/** Sort used when none is picked: best match while searching, a blog's shelf stays top rated, else Today's picks. */
 export function defaultSort(): Sort {
-  return filters.text.trim() ? 'relevance' : 'rating'
+  if (filters.text.trim()) return 'relevance'
+  // The saved view and a blog's shelf keep the order they had: rating.
+  if (filters.saved || filters.from) return 'rating'
+  return 'picks'
 }
 
 export function clearFilters() {
