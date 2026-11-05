@@ -7,7 +7,9 @@ import {
   type Catalog,
   groceryConcepts,
   packCatalog,
-  ratingScore,
+  picksOrder,
+  picksSeed,
+  mixPicks,
   aisleFor,
   isTermId,
   searchRecipes,
@@ -88,7 +90,7 @@ function overlay(language: string, vocab: LanguageVocabulary, recipes: Recipe[],
 /**
  * Write the public dataset:
  * - catalog.json: everything the grid and filters need (packed, see packCatalog)
- * - first.json: the best-rated recipes, shown while catalog.json loads
+ * - first.json: Today's picks, the same order catalog.json's first page shows while it loads
  * - details/NN.json: original lines and parsed ingredients, loaded when a recipe is opened
  * - recipes.full.json: catalog + ingredient lines in one file
  * - overlay/<lang>.json: the vocabulary each UI language needs to display them
@@ -173,8 +175,9 @@ export function emitDataset(all: Recipe[], sources: Source[], outDir: string, { 
   for (const language of languages) write(`suggest/${language}.json`, suggestions(language));
   // Packed: each concept, ingredient name and tag once, and only the concepts a family does not imply.
   write('catalog.json', packCatalog(catalog, (id) => vocab.byId.get(id)?.parents ?? []));
-  // The best-rated recipes, a few kilobytes: a plain landing shows them while catalog.json downloads.
-  const first = [...rows].sort((a, b) => ratingScore(b) - ratingScore(a)).slice(0, FIRST_PAGE);
+  // Today's picks for the emit day, a few kilobytes: a plain landing shows these while catalog.json downloads.
+  // The mix (blog cap, savoury lead) is the same one the app applies, so the cards do not change order.
+  const first = mixPicks(picksOrder(rows, picksSeed(generatedAt)), { savouryLead: true }).slice(0, FIRST_PAGE);
   const firstSources = usedSources.filter((s) => first.some((r) => r.source === s.id));
   write('first.json', packCatalog({ ...catalog, sources: firstSources, recipes: first }, (id) => vocab.byId.get(id)?.parents ?? []));
   write('recipes.full.json', full);

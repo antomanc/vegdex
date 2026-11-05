@@ -90,6 +90,7 @@ export const FREE: [FreeFrom, string][] = [
   ['oil-free', m.free_oil()]
 ]
 export const SORTS: [Sort, string][] = [
+  ['picks', m.sort_picks()],
   ['rating', m.sort_rating()],
   ['newest', m.sort_newest()],
   ['fastest', m.sort_fastest()],

@@ -1,5 +1,6 @@
 import { singularize } from './ingredients';
 import { isQualifiedIngredient, lookupConcept, type IngredientLookup } from './concepts';
+import { mixPicks, picksOrder } from './picks';
 import type { CatalogRecipe, Flavor, FreeFrom, Meal } from './types';
 
 export interface RecipeQuery {
@@ -21,7 +22,15 @@ export interface RecipeQuery {
   cuisine?: string;
   minRating?: number;
   ids?: string[];
-  sort?: 'relevance' | 'rating' | 'newest' | 'fastest';
+  /**
+   * 'picks': Today's picks, the daily seeded browsing order (see picks.ts). Without `seed` it keeps the
+   * rating order. Text search defaults to 'relevance': picks is for browsing.
+   */
+  sort?: 'relevance' | 'rating' | 'newest' | 'fastest' | 'picks';
+  /** The day (YYYY-MM-DD) that seeds Today's picks: the catalog's generatedAt day. */
+  seed?: string;
+  /** Today's picks only: savoury leads three cards of every four (the default screen, no filters). */
+  savouryLead?: boolean;
 }
 
 function tokenize(text: string): string[] {
@@ -121,6 +130,8 @@ interface Prepared<R> {
   scores: Float64Array;
   /** The full ranking per preferred language: rating, then recipes in that language first on ties. */
   ranked: Map<string, { order: R[]; rank: Int32Array }>;
+  /** Today's picks for one seed and page language: each recipe's position in the browsing order. */
+  picks?: { seed: string; preferred: string; rank: Map<string, number> };
   words?: Words;
   /** Display titles, per title function: a new function means new titles. */
   shown: WeakMap<object, WordIndex>;
@@ -263,6 +274,16 @@ export function ratingScore(r: Pick<CatalogRecipe, 'rating' | 'ratingCount'>): n
   return (avg * n + 4.2 * 10) / (n + 10);
 }
 
+/** Today's picks rank for this catalog, day and page language, shuffled once per seed rather than once per query. */
+function picksRank<R extends CatalogRecipe>(p: Prepared<R>, seed: string, preferred: string): Map<string, number> {
+  if (p.picks?.seed !== seed || p.picks.preferred !== preferred) {
+    // The rating walk already puts the page's language first on ties, as every other order does.
+    const order = picksOrder(rankedBy(p, preferred).order, seed);
+    p.picks = { seed, preferred, rank: new Map(order.map((r, at) => [r.id, at])) };
+  }
+  return p.picks.rank;
+}
+
 /**
  * A caller can add its guarded display title without replacing the original catalog text.
  * Indexes are kept per `recipes` array and per `displayTitle` function: pass a new array when recipes
@@ -351,8 +372,15 @@ export function searchRecipes<R extends CatalogRecipe>(recipes: R[], q: RecipeQu
   // The walk is already in rating order with the preferred language first on ties; sorts are stable,
   // so every other order falls back to it.
   const sort = q.sort ?? (textTerms.length ? 'relevance' : 'rating');
+  if (sort === 'picks') {
+    // Without the catalog's emit day there is no daily order to apply: keep the rating walk.
+    if (!q.seed) return scored.map((s) => s.r);
+    const rank = picksRank(p, q.seed, q.preferredContentLanguage ?? '');
+    // Every match is in `rank`, so this puts the filtered list in Today's picks order; the mix caps blogs.
+    return mixPicks(scored.map((s) => s.r).sort((a, b) => rank.get(a.id)! - rank.get(b.id)!), { savouryLead: q.savouryLead });
+  }
   type Scored = (typeof scored)[number];
-  const cmp: Record<Exclude<NonNullable<RecipeQuery['sort']>, 'rating'>, (a: Scored, b: Scored) => number> = {
+  const cmp: Record<'relevance' | 'newest' | 'fastest', (a: Scored, b: Scored) => number> = {
     relevance: (a, b) => b.score - a.score,
     newest: (a, b) => (b.r.published ?? '').localeCompare(a.r.published ?? ''),
     fastest: (a, b) => (a.r.minutes ?? Infinity) - (b.r.minutes ?? Infinity)

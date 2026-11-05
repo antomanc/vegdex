@@ -16,6 +16,10 @@ _Avoid_: Post, entry
 All recipes from one source, opened from the source's name.
 _Avoid_: Blog page, source view
 
+**Today's picks**:
+The default browse order: the day's emit seeds a shuffle of the well-rated pictured recipes, a blog never fills a screen, and savoury leads. Top rated is a separate, chosen order.
+_Avoid_: Recommended, featured, personalized
+
 **Vegan check**:
 The publication gate that drops any recipe naming an animal product without a plant-based qualifier.
 _Avoid_: Filter, validation
