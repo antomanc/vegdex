@@ -229,7 +229,7 @@
         </button>
         <span class="visually-hidden" role="status">{copied ? m.link_copied() : ''}</span>
       </div>
-      <a class="cta" href={recipe.url} target="_blank" rel="noopener" onclick={() => countCook(recipe.source)}>
+      <a class="cta" href={recipe.url} target="_blank" rel="noopener" onclick={() => countCook(recipe.source)} onauxclick={(e) => e.button === 1 && countCook(recipe.source)}>
         <span>{m.cook_on({ source: sourceName })}&nbsp;<Icon name="external" size={16} /></span>
       </a>
     </div>
