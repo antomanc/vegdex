@@ -136,7 +136,7 @@
     <div class="sheet-top"><button class="close" onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
     <div class="recipe-head">
     {#if recipe.image && !broken}
-      <img class="hero" src={recipe.image} alt="" referrerpolicy="no-referrer" onerror={() => (broken = true)} />
+      <img class="hero" src={recipe.image} alt="" onerror={() => (broken = true)} />
     {/if}
     <h2 id="sheet-title" lang={titleLang(recipe)}>{recipeTitle(recipe)}</h2>
     {#if recipeTitle(recipe) !== recipe.title}<p class="muted original-title" lang={recipe.contentLanguage ?? 'en'}>{recipe.title}</p>{/if}

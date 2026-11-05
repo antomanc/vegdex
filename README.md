@@ -49,7 +49,9 @@ The [GitHub CLI](https://cli.github.com/) is needed for that download. Alternati
 
 A GitHub Actions workflow crawls the configured sources daily, extracts recipe JSON-LD, checks ingredients and emits static data for the web app. The crawler identifies itself, respects `robots.txt` and crawl delays, and makes at most one request per second per site. After the first crawl it fetches pages that are new or changed. It does not work around sites that block it.
 
-vegdex stores recipe facts such as titles, ingredient lines, times, servings, ratings, nutrition and image URLs. It does not store cooking methods or the publisher's writing. Images load from the publisher, and recipe links lead to the original instructions.
+vegdex stores recipe facts such as titles, ingredient lines, times, servings, ratings, nutrition and image URLs. It does not store cooking methods or the publisher's writing. Images load from the publisher, and recipe links lead to the original instructions. Image requests name vegdex as the referrer, so a site that blocks hotlinking blocks vegdex too, and the card shows a placeholder instead.
+
+Publishers can ask for a photo, a recipe or a whole blog to be removed by writing to hello@antomanc.com, linked in the site footer. Removed recipes go in `packages/ingest/data/blocklist.json`.
 
 Ingredient translations are composed from the vocabulary in `packages/ingest/data/vocab/`. Lines that cannot be composed stay as written; commentary is omitted. See [ADR 0005](docs/adr/0005-vocabulary-in-git-filled-by-any-worker.md) and the [vocabulary guide](docs/agents/vocabulary.md).
 

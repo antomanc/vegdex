@@ -16,6 +16,16 @@ for (const [prefix, label] of [['/', 'Report a problem'], ['/it/', 'Segnala un p
   });
 }
 
+for (const [prefix, label] of [['/', 'Your blog? Request removal'], ['/it/', 'È il tuo blog? Chiedi la rimozione']] as const) {
+  test(`publishers can request removal from the footer on ${prefix}`, async ({ page }) => {
+    await page.goto(prefix);
+    const url = new URL((await page.locator('.credits').getByRole('link', { name: label, exact: true }).getAttribute('href'))!);
+    expect(url.protocol + url.pathname).toBe('mailto:hello@antomanc.com');
+    expect(decodeURIComponent(url.search)).toContain('subject=vegdex removal request');
+    expect(decodeURIComponent(url.search)).toContain('a photo, a recipe or the whole blog');
+  });
+}
+
 test('a recipe removed after a confirmed report cannot be found or opened', async ({ page }) => {
   await page.goto('/?q=Reported%20Fixture%20Recipe&r=reported-fixture');
   await expect(page.getByTestId('result-count')).toHaveText(/0 recipes/);

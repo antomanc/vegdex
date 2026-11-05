@@ -12,10 +12,13 @@ const serveFixture = (route: Route, variant: 'data' | 'italian-data') => {
 export const fixtureData = (route: Route) => serveFixture(route, 'data');
 export const italianFixtureData = (route: Route) => serveFixture(route, 'italian-data');
 
+const PHOTO = Buffer.from('R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', 'base64');
+
 /** Every test sees the small fixture dataset instead of whatever was last crawled. */
 export const test = base.extend({
   page: async ({ page }, use) => {
     await page.route('**/data/**', fixtureData);
+    await page.route('https://example.com/**', (route) => route.fulfill({ contentType: 'image/gif', body: PHOTO }));
     await use(page);
   }
 });
