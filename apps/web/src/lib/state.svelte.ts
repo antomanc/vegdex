@@ -181,7 +181,7 @@ export const saved = $state({ ids: loadSaved(), unsaved: [] as string[] })
 export function toggleSaved(id: string) {
   const was = saved.ids.includes(id)
   saved.ids = was ? saved.ids.filter((x) => x !== id) : [id, ...saved.ids]
-  saved.unsaved = was ? [...saved.unsaved, id] : saved.unsaved.filter((x) => x !== id)
+  saved.unsaved = was && filters.saved ? [...saved.unsaved, id] : saved.unsaved.filter((x) => x !== id)
   localStorage.setItem(SAVED_KEY, JSON.stringify(saved.ids))
   // Only the saved view offers an undo; anywhere else an unsave is final straight away.
   if (was && !filters.saved) forgetUnsavedAmounts()

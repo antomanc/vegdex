@@ -34,3 +34,9 @@ export function recipeTitles(): (recipe: CatalogRecipe) => string {
 }
 
 export const recipeTitle = (recipe: CatalogRecipe): string => recipeTitles()(recipe)
+
+/** The `lang` of a title still in its source language, so screen readers pronounce it right; undefined when it matches the page. */
+export function titleLang(recipe: CatalogRecipe): string | undefined {
+  const source = recipe.contentLanguage ?? 'en'
+  return source !== pageLocale.code && recipeTitle(recipe) === recipe.title ? source : undefined
+}

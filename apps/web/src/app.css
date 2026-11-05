@@ -1,58 +1,63 @@
 /*
- * vegdex: a recipe box in a home kitchen. White card stock for savory, rose for sweet, green ink, one tomato rule per card.
- * Besley (a Clarendon) for the wordmark and recipe titles; Courier Prime for the facts typed onto a card;
- * the system sans for everything you operate.
+ * vegdex: a market stall. Photos are the crates, the cooking time is a red price tag.
+ * White ground, black ink and outlines, crate green to act, sign red for tags and saved things, label yellow behind ratings.
+ * Bowlby One letters the signs (wordmark, categories, tags, Pick); Work Sans sets everything else.
  */
 :root {
-  --paper: #eef0e9;
+  --paper: #ffffff;
   --surface: #ffffff;
-  --rose: #f7e1e6;
-  --rose-line: #e8c1cb;
-  --ink: #18271d;
-  --muted: #56635a;
-  --line: #e3e2da;
-  --green: #1d4a31;
-  --green-soft: #e4ede2;
-  --tomato: #b23f2a;
-  --tomato-soft: #f6e3de;
+  --ink: #151515;
+  --muted: #5c5c55;
+  --line: #dedcd4;
+  --rule: #151515;
+  --green: #2f6b3f;
+  --on-green: #ffffff;
+  --green-soft: #e6efe5;
   --on-tomato: #fff;
-  --gold: #a8741c;
-  --heart-disc: rgb(255 255 255 / 0.9);
-  --shadow: rgb(0 0 0 / 0.16);
-  --card-shadow: rgb(24 39 29 / 0.07);
-  --scrim: rgb(10 15 12 / 0.55);
+  --sign-red: #c92e1c;
+  --tag: #d6311e;
+  --on-tag: #ffffff;
+  --edge: 16px;
+  --label: #f3c623;
+  --on-label: #151515;
+  --heart-disc: rgb(255 255 255 / 0.92);
+  --shadow: rgb(0 0 0 / 0.2);
+  --card-shadow: rgb(0 0 0 / 0.08);
+  --scrim: rgb(10 10 10 / 0.6);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --radius: 14px;
-  --display: 'Besley Variable', 'Besley', 'Clarendon', Georgia, serif;
-  --body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --typed: 'Courier Prime', 'Courier New', ui-monospace, monospace;
+  --radius: 4px;
+  --display: 'Bowlby One', 'Arial Black', sans-serif;
+  --body: 'Work Sans Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   color-scheme: light dark;
   font-family: var(--body);
   color: var(--ink);
   background: var(--paper);
   -webkit-text-size-adjust: 100%;
   scroll-padding-top: calc(var(--header-h, 0px) + 12px);
+  /* Focus never lands under the dock. */
+  scroll-padding-bottom: calc(96px + env(safe-area-inset-bottom));
 }
 
-/* Night: set by data-theme (lib/theme.svelte.ts), which follows the system until the cook picks. */
+/* Night: the market after dark. Set by data-theme (lib/theme.svelte.ts), which follows the system until the cook picks. */
 :root[data-theme='light'] { color-scheme: light; }
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --paper: #121814;
-  --surface: #1a221d;
-  --rose: #35242c;
-  --rose-line: #573b47;
-  --ink: #edf0ea;
-  --muted: #a1aca4;
-  --line: #2c3830;
-  --green: #9fd29a;
-  --green-soft: #233528;
-  --tomato: #f08a6c;
-  --tomato-soft: #3a2621;
-  --on-tomato: #121814;
-  --gold: #e0b252;
-  --heart-disc: rgb(18 24 20 / 0.82);
-  --card-shadow: rgb(0 0 0 / 0.3);
+  --paper: #121211;
+  --surface: #1c1c1a;
+  --ink: #f4f2ea;
+  --muted: #aaa89f;
+  --line: #34332f;
+  --rule: #e9e7df;
+  --green: #79c58a;
+  --on-green: #0e1a11;
+  --green-soft: #1f3324;
+  --sign-red: #f2593f;
+  --tag: #f2593f;
+  --label: #e8bd2a;
+  --on-tag: #151515;
+  --on-tomato: #151515;
+  --heart-disc: rgb(18 18 17 / 0.85);
+  --card-shadow: rgb(0 0 0 / 0.4);
 }
 
 * { box-sizing: border-box; }
@@ -71,8 +76,8 @@ button:disabled { cursor: default; }
 :where(.heart, .save):active .icon { scale: 0.85; }
 :focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 ::placeholder { color: var(--muted); opacity: 1; }
-::selection { background: var(--green-soft); color: var(--ink); }
-input { caret-color: var(--tomato); }
+::selection { background: var(--label); color: var(--on-label); }
+input { caret-color: var(--sign-red); }
 .icon { flex: none; vertical-align: -0.15em; }
 
 .visually-hidden {
@@ -81,32 +86,34 @@ input { caret-color: var(--tomato); }
 
 /* Keyboard users jump past the header and filters straight to the cards. */
 .skip-link {
-  position: fixed; top: 8px; left: 8px; z-index: 10; padding: 10px 16px; border-radius: 12px;
-  background: var(--green); color: var(--paper); font-weight: 600; text-decoration: none;
+  position: fixed; top: 8px; left: 8px; z-index: 10; min-height: 44px; padding: 12px 16px; border-radius: 8px;
+  background: var(--green); color: var(--on-green); font-weight: 600; text-decoration: none;
   translate: 0 -200%;
 }
 .skip-link:focus-visible { translate: none; }
 #results:focus { outline: none; }
 
-/* Header: the card's top band, closed by the red rule. */
+/* Header: the stall's awning board, closed by a heavy black rule. */
 .top {
   position: sticky; top: 0; z-index: 5;
-  background: color-mix(in srgb, var(--paper) 94%, transparent);
-  backdrop-filter: blur(10px);
-  padding: 10px 16px 12px;
-  border-bottom: 2px solid var(--tomato);
+  background: var(--paper);
+  padding: 6px var(--edge) 10px;
+  border-bottom: 3px solid var(--rule);
 }
-.brand-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; max-width: 1200px; margin: 0 auto 10px; }
+/* Phones: scrolling leaves only the search pinned; Back to top is one tap away. */
+@media (max-width: 699px) { .top { top: -50px; } }
+.brand-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; max-width: 1200px; margin: 0 auto 6px; }
 .brand-h { margin: 0; font-size: inherit; }
 .brand {
-  display: flex; align-items: center; gap: 8px; min-height: 40px;
-  font-family: var(--display); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em;
+  display: flex; align-items: center; gap: 8px; min-height: 44px;
+  font-family: var(--display); font-size: 1.75rem; font-weight: 400; letter-spacing: -0.01em; line-height: 1;
   background: none; border: 0; padding: 0; color: var(--green);
 }
-.logo { border-radius: 6px; }
+.logo { border-radius: 4px; }
 .top-actions { display: flex; gap: 8px; align-items: center; }
-.saved-toggle { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 0 14px; font-size: 0.88rem; font-variant-numeric: tabular-nums; }
-.saved-toggle .icon { color: var(--tomato); }
+.saved-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 44px; min-height: 44px; border: 2px solid var(--rule); background: var(--surface); border-radius: 999px; padding: 0 14px; font-size: 0.88rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.saved-toggle .icon { color: var(--muted); }
+.saved-toggle.has .icon { color: var(--sign-red); }
 .saved-toggle, .pill.jump { white-space: nowrap; }
 /* Narrow phones: the header row keeps its four controls on one line; Saved reads "♥ 3", still named "Saved · 3". */
 @media (max-width: 420px) {
@@ -114,181 +121,282 @@ input { caret-color: var(--tomato); }
   .saved-toggle { padding: 0 11px; }
   .pill.jump { padding: 0 11px; }
   .top-actions { gap: 6px; }
-  .top { padding-inline: 12px; }
+  :root { --edge: 12px; }
+  .brand { font-size: 1.5rem; gap: 6px; }
 }
-.saved-toggle.on { background: var(--tomato); border-color: var(--tomato); color: var(--on-tomato); }
+/* The smallest phones drop the leaf so the wordmark and all three keys stay on one line. */
+@media (max-width: 359px) { .logo { display: none; } }
+.saved-toggle.on { background: var(--tag); border-color: var(--tag); color: var(--on-tag); }
 .saved-toggle.on .icon { color: inherit; }
 .pill.jump { background: var(--surface); }
-/* Night mode: a quiet round key beside Saved; the icon shows where a tap takes you. */
+/* Desktop: brand, search and keys share one row, so recipes start higher. */
+@media (min-width: 900px) {
+  .top { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 24px; padding-inline: max(var(--edge), (100% - 1200px) / 2); }
+  .brand-row { display: contents; }
+  .brand-h { grid-column: 1; grid-row: 1; }
+  .search { grid-column: 2; grid-row: 1; width: 100%; margin: 0; }
+  .top-actions { grid-column: 3; grid-row: 1; }
+}
+/* Night mode: a round key beside Saved; the icon shows where a tap takes you. */
 .night {
-  flex: none; display: grid; place-items: center; width: 40px; height: 40px; padding: 0;
-  border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink);
+  flex: none; display: grid; place-items: center; width: 44px; height: 44px; padding: 0;
+  border: 2px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--ink);
 }
 
 .search { position: relative; display: block; max-width: 1200px; margin: 0 auto; }
-.search .icon { position: absolute; left: 14px; top: 50%; translate: 0 -50%; color: var(--muted); pointer-events: none; }
+.search .icon { position: absolute; left: 14px; top: 50%; translate: 0 -50%; color: var(--ink); pointer-events: none; }
 .search input {
-  width: 100%; padding: 12px 16px 12px 42px; border-radius: 999px; border: 1px solid var(--line);
+  width: 100%; min-height: 44px; padding: 8px 16px 8px 42px; border-radius: 8px; border: 2px solid var(--rule);
   background: var(--surface); font-size: 1rem;
 }
-.search input:focus-visible { outline-offset: 0; border-color: var(--green); }
+.search input:focus-visible { outline-offset: 0; border-color: var(--green); outline-width: 2px; }
 .search input::-webkit-search-cancel-button {
-  -webkit-appearance: none; appearance: none; width: 18px; height: 18px; cursor: pointer; background: var(--muted);
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E") center / contain no-repeat;
+  -webkit-appearance: none; appearance: none; display: none; background: var(--ink);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E") center / 18px no-repeat;
 }
+.search input, .search input::placeholder { text-overflow: ellipsis; }
+.search input { padding-right: 46px; }
+.search-clear { position: absolute; right: 2px; top: 50%; translate: 0 -50%; width: 44px; height: 44px; display: grid; place-items: center; border: 0; padding: 0; background: none; color: var(--ink); }
 
 /* Filters: scroll with the page; the header offers a way back to them. */
-.filters { margin: 0 -12px 6px; }
-.pills { display: flex; gap: 8px; align-items: center; overflow-x: auto; padding: 4px 16px 2px; max-width: 1200px; margin: 0 auto; scrollbar-width: none; }
+.filters { margin: 0 calc(-1 * var(--edge)) 6px; }
+.pills { display: flex; gap: 8px; align-items: center; overflow-x: auto; padding: 2px var(--edge); max-width: calc(1200px + 2 * var(--edge)); margin: 0 auto; scrollbar-width: none; }
 .pills::-webkit-scrollbar { display: none; }
 /* Rows that scroll sideways fade at the edge, so the clipped control reads as "more this way". */
-.pills.controls, .tab-row { mask-image: linear-gradient(to right, var(--ink) calc(100% - 28px), transparent); }
+.tab-track { flex: none; display: grid; gap: 8px; }
+.tab-line { display: flex; gap: 8px; }
+/* Phones: one scrolling row, dinner courses first, so recipes come up the first screen. */
+@media (max-width: 699px) { .tab-track { display: flex; } .tab-line { display: contents; } }
+@media (max-width: 699px) {
+  /* The cut sign and a short fade say the rows go on. */
+  .tabs .tab-row { mask-image: linear-gradient(to right, var(--ink) calc(100% - var(--sign-fade)), transparent); scroll-padding-inline: var(--edge); scroll-snap-type: x proximity; }
+  .tab { scroll-snap-align: start; }
+  /* At the end of the row there is nothing more to hint at: the fade lets go. */
+  @supports (animation-timeline: scroll()) {
+    .tabs .tab-row { animation: sign-fade linear both; animation-timeline: scroll(self inline); }
+  }
+}
+@property --sign-fade { syntax: '<length>'; inherits: false; initial-value: 44px; }
+@keyframes sign-fade { 0%, 88% { --sign-fade: 44px; } 100% { --sign-fade: 0px; } }
+/* Tonight and More filters share a row; the four times take the next one whole, so none is clipped. */
+.pills.controls { overflow: visible; }
+.more-count { display: none; }
+@media (max-width: 699px) {
+  /* One row on phones: Tonight, the times, and More filters as a round key. */
+  .pills.controls { gap: 6px; }
+  .pills.controls .segmented { flex: 1 1 auto; min-width: 0; }
+  .pills.controls .seg { padding-inline: 4px; flex: 1 1 auto; }
+  .pill.tonight { padding: 0 12px; }
+  .seg:not(:last-child) .seg-unit, .more-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .more-key { position: relative; flex: none; width: 44px; padding: 0; justify-content: center; }
+  .more-count {
+    display: grid; place-items: center; position: absolute; top: -5px; right: -5px; min-width: 20px; height: 20px; padding: 0 5px;
+    border-radius: 999px; background: var(--tag); color: var(--on-tag); font-size: 0.75rem; font-weight: 700;
+  }
+}
+@media (max-width: 419px) { .pill.tonight .icon { display: none; } }
+/* Every time stays at least 44px wide: under 360px the times take their own line. */
+.seg { min-width: 44px; }
+@media (max-width: 359px) {
+  .pills.controls { flex-wrap: wrap; }
+  .pills.controls .segmented { order: 1; flex: 1 1 100%; }
+  .more-key { margin-left: auto; }
+}
+@media (max-width: 379px) { .seg .seg-unit { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } }
+@media (min-width: 700px) {
+  /* Wide screens show every sign at once. */
+  .tab-track { width: 100%; }
+  .tab-line { flex-wrap: wrap; }
+}
 .pills.wrap { flex-wrap: wrap; overflow: visible; padding: 0; margin: 0; }
 .pill {
   flex: none; display: inline-flex; align-items: center; gap: 6px;
-  border: 1px solid transparent; background: var(--green-soft); color: var(--ink);
-  border-radius: 999px; min-height: 40px; padding: 0 16px; font-size: 0.88rem; white-space: nowrap;
+  border: 2px solid var(--rule); background: var(--surface); color: var(--ink);
+  border-radius: 999px; min-height: 44px; padding: 0 16px; font-size: 0.88rem; font-weight: 600; white-space: nowrap;
 }
-.pill.outline { background: transparent; border-color: var(--line); font-size: 0.88rem; padding: 0 14px; }
-.pill.on { background: var(--green); color: var(--paper); border-color: var(--green); }
-.pill.tonight:not(.on) { background: var(--surface); border-color: var(--green); color: var(--green); font-weight: 600; }
+.pill.outline { background: transparent; border-color: var(--rule); font-size: 0.88rem; padding: 0 14px; }
+.pill.on { background: var(--green); color: var(--on-green); border-color: var(--green); }
+.pill.tonight:not(.on) { background: var(--surface); border-color: var(--rule); color: var(--ink); }
 
-/* Divider tabs: the recipe box's sections stand on the edge of the card stack. */
-.tabs { margin-top: 14px; box-shadow: inset 0 -1px var(--line); }
-.tab-row { display: flex; gap: 4px; align-items: end; overflow-x: auto; padding: 0 16px; max-width: 1200px; margin: 0 auto; scrollbar-width: none; }
+/* Signs: flavor and courses lettered on boards hung over the stall. */
+.tabs { margin: 8px 0 6px; }
+.tab-row { display: flex; gap: 8px; align-items: center; overflow-x: auto; padding: 0 var(--edge); max-width: calc(1200px + 2 * var(--edge)); margin: 0 auto; scrollbar-width: none; }
 .tab-row::-webkit-scrollbar { display: none; }
 .tab {
-  flex: none; min-height: 40px; padding: 0 15px; white-space: nowrap; font-size: 0.88rem;
-  border: 1px solid var(--line); border-bottom: 0; border-radius: 10px 10px 0 0;
-  background: var(--green-soft); color: var(--ink);
+  flex: none; min-height: 44px; padding: 2px 12px 0; white-space: nowrap;
+  font-family: var(--display); font-size: 0.9rem; letter-spacing: 0.005em;
+  border: 2px solid var(--rule); border-radius: 2px;
+  background: var(--surface); color: var(--ink);
 }
-.tab.savory:not(.on) { background: var(--surface); }
-.tab.sweet:not(.on) { background: var(--rose); border-color: var(--rose-line); }
-.tab.on { background: var(--green); border-color: var(--green); color: var(--paper); font-weight: 600; }
-.tab-gap { flex: none; width: 10px; }
+/* Inset: the scrolling row would clip an outer ring. */
+.tab:focus-visible { outline-offset: -6px; }
+.tab.on:focus-visible { outline-color: var(--on-green); }
+.tab.on { background: var(--green); border-color: var(--green); color: var(--on-green); }
 
 /* Time is one choice: four joined segments. */
-.segmented { flex: none; display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
-.seg { border: 0; background: transparent; min-height: 38px; padding: 0 12px; font-size: 0.88rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.seg + .seg { border-left: 1px solid var(--line); }
-.seg.on { background: var(--green); color: var(--paper); }
+.segmented { flex: none; display: inline-flex; border: 2px solid var(--rule); border-radius: 999px; overflow: hidden; }
+.seg { flex: 1; border: 0; background: transparent; min-height: 44px; padding: 0 10px; font-size: 0.88rem; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.seg + .seg { border-left: 2px solid var(--rule); }
+.seg:focus-visible { outline: 3px solid var(--green); outline-offset: -6px; }
+.seg.on:focus-visible { outline-color: var(--on-green); }
+.pills .seg.on:focus-visible { outline-color: var(--on-tag); }
+.seg.on { background: var(--green); color: var(--on-green); }
+/* The time filter speaks in price tags: the chosen time turns into the red tag. */
+.pills .seg { padding-top: 2px; font-family: var(--display); font-size: 0.85rem; font-weight: 400; }
+.pills .seg.on { background: var(--tag); color: var(--on-tag); }
 
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .row.center { justify-content: center; }
 .label { font-size: 0.88rem; color: var(--muted); min-width: 72px; }
-.field { border: 0; margin: 0 0 22px; padding: 0; display: grid; gap: 8px; }
+.field { border: 0; margin: 0 0 28px; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
 .field .label { padding: 0; font-weight: 600; color: var(--ink); font-size: 1rem; }
-.hint { margin: -4px 0 0; font-size: 0.8rem; color: var(--muted); }
+.field label + .hint { margin-top: -6px; }
+.hint { margin: 0; font-size: 0.875rem; line-height: 1.4; color: var(--muted); }
 .choice-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
 .choice-grid .pill { justify-content: center; white-space: normal; padding: 6px 14px; }
-.input-row { display: flex; gap: 8px; }
-/* Suggestions show as you type; Chrome's arrow would only open the whole list. */
-.input-row input::-webkit-calendar-picker-indicator { display: none !important; }
+.input-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.combo { flex: 1 1 0; min-width: 0; display: flex; }
+.combo input { scroll-margin-top: 76px; }
+/* Suggestions sit in the sheet's flow: nothing to clip, and the field stays above the keyboard. */
+.suggestions { flex: 1 1 100%; order: 1; list-style: none; margin: 0; padding: 0; border: 2px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.suggestions[hidden] { display: none; }
+.suggestions li { min-height: 44px; padding: 12px; line-height: 1.3; cursor: pointer; }
+.suggestions li + li { border-top: 1px solid var(--line); }
+.suggestions li.active { background: var(--green-soft); }
+.suggestions b { font-weight: 700; color: var(--green); }
 .field input {
-  flex: 1; min-width: 0; min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper);
+  flex: 1; min-width: 0; min-height: 44px; padding: 0 12px; border-radius: 6px; border: 2px solid var(--rule); background: var(--surface);
 }
 /* Add is a step inside the sheet, not its action: "Show N recipes" stays the one solid button. */
-.btn-sm { min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid transparent; background: var(--green-soft); color: var(--green); font-size: 0.88rem; font-weight: 600; }
+.btn-sm { min-height: 44px; padding: 0 18px; border-radius: 6px; border: 2px solid var(--green); background: transparent; color: var(--green); font-size: 0.88rem; font-weight: 600; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip { display: inline-flex; align-items: center; gap: 4px; border: 0; border-radius: 999px; min-height: 32px; padding: 4px 10px 4px 12px; font-size: 0.88rem; background: var(--green-soft); }
-.chip.avoid { background: var(--tomato-soft); }
+.chip { display: inline-flex; align-items: center; gap: 4px; border: 2px solid var(--green); color: var(--ink); border-radius: 4px; font-weight: 600; min-height: 44px; padding: 4px 10px 4px 12px; font-size: 0.88rem; background: var(--green-soft); }
+.chip { background: var(--surface); }
+.chip.avoid { border-color: var(--sign-red); }
 
 /* Results */
 /* The credits sit at the bottom of the screen even when the list is short or empty. */
 main {
-  max-width: 1200px; margin: 0 auto; padding: 12px 12px 32px;
+  max-width: calc(1200px + 2 * var(--edge)); margin: 0 auto; padding: 8px var(--edge) 32px;
   display: flex; flex-direction: column; min-height: calc(100dvh - var(--header-h, 0px));
 }
 .more { display: grid; justify-items: center; gap: 6px; margin-top: 28px; }
 .more .meta { margin: 0; }
-.view-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 4px 0; }
-.view-head h2 { font-family: var(--display); font-size: 1.5rem; margin: 0; letter-spacing: -0.01em; }
-.summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0 4px; margin: 6px 0 12px; min-height: 40px; }
-.summary p { color: var(--muted); font-family: var(--typed); font-size: 0.82rem; margin: 0; text-wrap: balance; }
+.view-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 0 0; }
+.view-head h2 { font-family: var(--display); font-size: 1.4rem; font-weight: 400; line-height: 1.15; margin: 0; }
+/* Phones: the heading takes its row, the shopping list a full-width button under it. */
+@media (max-width: 479px) {
+  .view-head { flex-direction: column; align-items: stretch; gap: 14px; }
+  .view-head .grocery-btn { min-height: 48px; }
+}
+.summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0; margin: 2px 0 6px; min-height: 44px; }
+/* Phones: the count stays on one line beside the sort. */
+@media (max-width: 479px) { .summary .from { display: none; } }
+.summary p { color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; margin: 0; text-wrap: balance; }
 .sort select {
   appearance: none; border: 0; background: transparent; color: var(--ink); font-size: 0.88rem; font-weight: 600;
-  min-height: 40px; padding: 0 22px 0 8px; border-radius: 10px; cursor: pointer;
+  min-height: 44px; padding: 0 32px 0 14px; border: 2px solid var(--rule); border-radius: 999px; cursor: pointer;
 
 }
 .sort { position: relative; }
-.sort::after { content: ''; pointer-events: none; position: absolute; right: 2px; top: 50%; translate: 0 -50%; width: 18px; height: 18px; background: var(--ink); mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2356635a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E") center / contain no-repeat; }
-.grocery-btn { display: inline-flex; align-items: center; gap: 6px; border: 0; background: var(--green); color: var(--paper); border-radius: 999px; min-height: 40px; padding: 0 16px; font-size: 0.88rem; font-weight: 600; }
+.sort::after { content: ''; pointer-events: none; position: absolute; right: 10px; top: 50%; translate: 0 -50%; width: 18px; height: 18px; background: var(--ink); mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2356635a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E") center / contain no-repeat; }
+.grocery-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap; border: 0; background: var(--green); color: var(--on-green); border-radius: 8px; font-weight: 650; min-height: 40px; padding: 0 16px; font-size: 0.88rem; font-weight: 600; }
 .status { text-align: center; color: var(--muted); padding: 48px 16px; }
 .status p { margin: 0 0 12px; }
 .status.empty { padding-top: 32px; }
 .status.empty > p { color: var(--ink); font-size: 1rem; max-width: 34ch; margin: 0 auto 16px; text-wrap: balance; }
 .loosen {
-  display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 18px; margin-bottom: 6px;
-  border: 1px solid var(--green); border-radius: 12px; background: var(--surface); color: var(--green); font-weight: 600;
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; min-height: 56px; padding: 6px 24px; margin-bottom: 6px;
+  border: 0; border-radius: 8px; background: var(--green); color: var(--on-green); font-weight: 650;
 }
-.loosen .n { font-weight: 400; color: var(--muted); font-variant-numeric: tabular-nums; }
-.text-btn { border: 0; background: none; padding: 8px 10px; min-height: 40px; color: var(--tomato); font-weight: 600; font-size: 0.88rem; }
-.text-btn:disabled { color: var(--muted); opacity: 0.6; }
-.active-filters { list-style: none; margin: 0 0 14px; padding: 0 4px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.active-filters .text-btn { min-height: 32px; padding: 4px 8px; font-size: 0.88rem; }
-.grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-@media (min-width: 700px) { .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; } }
+.loosen .n { font-size: 0.875rem; font-weight: 450; font-variant-numeric: tabular-nums; }
+.text-btn { border: 0; background: none; padding: 8px 10px; min-height: 44px; color: var(--ink); font-weight: 600; font-size: 0.88rem; text-decoration: underline; text-underline-offset: 3px; }
+.text-btn:disabled { text-decoration: none; }
+.text-btn:disabled { color: var(--muted); }
+.active-filters { list-style: none; margin: 0 0 14px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.active-filters .text-btn { min-height: 44px; padding: 4px 8px; font-size: 0.88rem; }
+.grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px 10px; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+@media (max-width: 379px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .card h2 { font-size: 0.95rem; } .time { font-size: 0.85rem; left: 6px; } .card .rating { font-size: 0.75rem; padding-inline: 4px; } }
+@media (min-width: 700px) { .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 30px 20px; } }
 
-/* The browse screen's one solid action, floating within thumb reach: pull a card from the box. */
+/* The browse screen's one solid action, floating within thumb reach: let the stall pick. */
 .dock {
   position: fixed; inset: auto 0 0; z-index: 4; display: flex; justify-content: center; gap: 10px; pointer-events: none;
-  padding: 0 16px calc(16px + env(safe-area-inset-bottom));
+  padding: 28px 16px calc(16px + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, var(--paper) 45%, transparent);
 }
+/* Wider screens: the dock floats in the corner, off the middle of the photos. */
+@media (min-width: 700px) { .dock { background: none; padding: 0 max(var(--edge), (100% - 1200px) / 2) 20px; justify-content: flex-end; } }
 .pick, .dock-return {
   pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 24px;
-  border: 0; border-radius: 999px; background: var(--green); color: var(--paper); font-size: 1rem; font-weight: 600;
+  border: 0; border-radius: 8px; background: var(--green); color: var(--on-green);
+  font-family: var(--display); font-size: 1rem; font-weight: 400; letter-spacing: 0.005em;
   box-shadow: 0 2px 6px var(--shadow), 0 8px 24px var(--card-shadow);
 }
-/* The way back sits on the same line as Pick, in card stock: same height and shape, quieter. */
-.dock-return { padding: 0 18px; background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line), 0 2px 6px var(--shadow), 0 8px 24px var(--card-shadow); }
+/* The way back sits on the same line as Pick: same height and shape, outlined and quieter. */
+.dock-return { padding: 0 18px; background: var(--surface); color: var(--ink); font-family: var(--body); font-weight: 600; box-shadow: inset 0 0 0 2px var(--rule), 0 2px 6px var(--shadow), 0 8px 24px var(--card-shadow); }
 .pick:focus-visible, .dock-return:focus-visible { outline-offset: 3px; }
+.pick-inline { display: none; }
+@media (min-width: 900px) {
+  .pick-inline { display: inline-flex; flex: none; min-height: 44px; margin-left: auto; padding: 0 18px; font-size: 0.9rem; box-shadow: none; }
+  .dock .pick { display: none; }
+}
 .pick, .dock-return { white-space: nowrap; }
 /* Both labels on one line down to a 320px phone, in English and Italian. */
 @media (max-width: 359px) {
-  .dock { gap: 8px; padding-inline: 12px; }
-  .pick { padding: 0 18px; }
-  .dock-return { padding: 0 14px; }
+  .dock { gap: 6px; padding-inline: 8px; }
+  .pick { padding: 0 12px; font-size: 0.9rem; gap: 6px; }
+  .dock-return { padding: 0 10px; font-size: 0.85rem; gap: 4px; }
 }
 /* Room under the last cards and the credits, so the dock never covers them. */
 main:has(~ .dock) { padding-bottom: 96px; }
 
-/* Sweet recipes are filed on rose card stock, savory on white. */
-.sweet { --surface: var(--rose); --line: var(--rose-line); }
-
-/* A filed card: the publisher's photo mounted on card stock, the facts ruled underneath. */
-.card, .skeleton li {
-  position: relative; height: 100%; padding: 6px 6px 10px; border-radius: var(--radius);
-  background: var(--surface); box-shadow: 0 1px 2px var(--card-shadow), 0 2px 8px var(--card-shadow);
+/* A crate on the stall: the publisher's photo, its price tag, the facts under it. No card stock. */
+.card, .skeleton li { position: relative; height: 100%; }
+.card { display: flex; flex-direction: column; }
+.card { transition: opacity 0.2s ease-out; }
+.card.unsaved .thumb img { filter: grayscale(1); opacity: 0.45; }
+.removed { margin: 18px 2px -12px; font-size: 0.875rem; font-weight: 650; color: var(--sign-red); }
+.card-open { display: inline; text-align: left; background: none; border: 0; padding: 0; font-weight: inherit; letter-spacing: inherit; line-height: inherit; }
+.card-open::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius); }
+.card-open:focus-visible { outline: none; }
+.card-open:focus-visible::after { outline: 2px solid var(--green); outline-offset: 4px; }
+.heart { z-index: 1; }
+.thumb { position: relative; aspect-ratio: 1; border-radius: var(--radius); background: var(--green-soft); }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--radius); transition: filter 0.2s ease-out; }
+/* Every crate waiting for its photo shows the leaf. */
+.thumb::before {
+  content: ''; position: absolute; inset: 30%; background: var(--green); opacity: 0.3;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M18 44c0-16 10-26 28-28-1 18-10 28-26 28h-2z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
-.card { transition: opacity 0.2s ease-out, box-shadow 0.2s ease-out, translate 0.2s ease-out; }
-.card.unsaved { opacity: 0.55; }
-.card-open { display: flex; flex-direction: column; width: 100%; height: 100%; text-align: left; background: none; border: 0; padding: 0; border-radius: 8px; }
-.thumb { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; background: var(--green-soft); }
-.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease-out; }
+.thumb img { position: relative; }
+.thumb:has(.placeholder)::before { content: none; }
 .placeholder { display: block; width: 40%; height: 100%; margin: 0 auto; color: var(--green); opacity: 0.35; }
-/* The time reads like a typed label stuck on the photo by hand, never quite straight. */
-.time {
-  position: absolute; left: 8px; bottom: 9px; background: var(--surface); color: var(--ink);
-  font-family: var(--typed); font-size: 0.8rem; font-weight: 700; line-height: 1.2; padding: 3px 7px 2px; border-radius: 3px;
-  box-shadow: 0 1px 3px var(--shadow); rotate: -2deg;
+/* The time is a red price tag hung off the crate's edge, never quite straight. */
+.time, .card-fields .tag {
+  background: var(--tag); color: var(--on-tag);
+  font-family: var(--display); font-weight: 400; font-variant-numeric: tabular-nums; line-height: 1.1;
+  padding: 5px 9px 3px; border-radius: 2px; box-shadow: 0 2px 4px var(--shadow);
 }
-li:nth-child(even) > .card .time { rotate: 1.5deg; }
-.card h2 { font-family: var(--display); font-size: 1rem; line-height: 1.25; margin: 9px 4px 8px; font-weight: 600; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.time { white-space: nowrap; position: absolute; left: 8px; bottom: -11px; font-size: 0.95rem; rotate: -4deg; }
+li:nth-child(even) > .card .time { rotate: -2deg; }
+.card h2 { font-size: 1.0625rem; line-height: 1.22; margin: 19px 2px 6px; font-weight: 680; letter-spacing: -0.01em; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .card h2::first-letter, .sheet h2::first-letter { text-transform: uppercase; }
-/* The rule sits at the same height on every card in a row, one-line title or two. */
-.card .meta { margin: auto 4px 0; padding-top: 6px; border-top: 1px solid var(--line); display: flex; flex-direction: column; }
-.card .source { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
-.meta { color: var(--muted); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
-.rating { white-space: nowrap; }
-.rating .icon { color: var(--gold); vertical-align: -0.1em; }
+.card .meta { margin: auto 2px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.card .source { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; max-width: 100%; }
+.meta { color: var(--muted); font-size: 0.875rem; line-height: 1.4; font-variant-numeric: tabular-nums; }
+/* Ratings ride on a yellow shelf label. */
+.rating { white-space: nowrap; background: var(--label); color: var(--on-label); font-weight: 650; padding: 1px 6px; border-radius: 2px; }
+.rating .icon { color: var(--on-label); vertical-align: -0.1em; }
+.rating .muted { color: inherit; font-weight: 450; }
 .heart {
   position: absolute; top: 9px; right: 9px; width: 44px; height: 44px; display: grid; place-items: center; isolation: isolate;
   border: 0; padding: 0; background: none; color: var(--muted); font-size: 1rem; line-height: 1;
 }
 .heart::before { content: ''; position: absolute; inset: 5px; border-radius: 50%; background: var(--heart-disc); z-index: -1; }
-.heart.on { color: var(--tomato); }
+.heart.on { color: var(--sign-red); }
 .heart.saving::after {
-  content: ''; position: absolute; inset: 8px; border: 1.5px solid var(--tomato); border-radius: 50%;
+  content: ''; position: absolute; inset: 8px; border: 2px solid var(--sign-red); border-radius: 50%;
   pointer-events: none; animation: saved-ring 440ms var(--ease-out) both;
 }
 @keyframes saved-ring {
@@ -296,21 +404,19 @@ li:nth-child(even) > .card .time { rotate: 1.5deg; }
   to { scale: 1.65; opacity: 0; }
 }
 .sentinel { height: 1px; }
-.credits { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: auto; padding-top: 40px; line-height: 1.5; text-wrap: balance; }
-/* A separator stays with the link before it, never leading a line. */
-.credits .nowrap { white-space: nowrap; }
-.credits a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 8px; color: var(--green); text-underline-offset: 3px; }
+.credits { text-align: center; color: var(--muted); font-size: 0.875rem; margin-top: auto; padding-top: 40px; line-height: 1.5; text-wrap: balance; }
+.credits a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; color: var(--green); text-underline-offset: 3px; }
 
 /* Sheets */
 .sheet {
-  border: 0; padding: 0; width: 100%; max-width: 640px; max-height: 92dvh; margin: auto auto 0;
-  border-radius: 20px 20px 0 0; background: var(--surface); color: var(--ink);
+  border: 0; padding: 0; width: 100%; max-width: 640px; max-height: 100dvh; margin: auto auto 0;
+  border-radius: 8px 8px 0 0; background: var(--surface); color: var(--ink);
   overflow: auto; overscroll-behavior: contain;
 }
-@media (min-width: 700px) { .sheet { margin: auto; border-radius: 20px; } }
+@media (min-width: 700px) { .sheet { margin: auto; border-radius: 8px; max-height: 92dvh; } }
 .sheet::backdrop { background: var(--scrim); transition: opacity 180ms ease-out; }
 .sheet.closing::backdrop { opacity: 0; }
-/* A sheet slides up into place, like a card pulled from the box. */
+/* A sheet slides up into place. */
 .sheet[open] { transition: translate 320ms var(--ease-out), rotate 320ms var(--ease-out), opacity 180ms ease-out; transform-origin: 50% 100%; }
 @starting-style {
   .sheet[open]:not(.recipe-sheet) { translate: 0 40px; rotate: -0.7deg; opacity: 0; }
@@ -318,62 +424,83 @@ li:nth-child(even) > .card .time { rotate: 1.5deg; }
 }
 .recipe-sheet { transform-origin: center; }
 .sheet-body { padding: 20px 20px 28px; position: relative; }
-.sheet-top { position: sticky; top: 20px; height: 0; z-index: 2; }
+.sheet-top {
+  position: sticky; top: 0; z-index: 2; display: flex; justify-content: flex-end; align-items: center;
+  height: 64px; margin: -20px -20px -44px; padding: 0 10px; pointer-events: none;
+}
+.sheet-top .close { pointer-events: auto; }
+/* Once the sheet scrolls, the bar turns solid, so content slides under it instead of under the button. */
+@supports not (animation-timeline: scroll()) {
+  .sheet-top { background: var(--surface); margin-bottom: 0; }
+}
+@supports (animation-timeline: scroll()) {
+  .sheet-top { animation: sheet-bar linear both; animation-timeline: scroll(nearest); animation-range: 0 24px; }
+}
+@keyframes sheet-bar {
+  from { background: transparent; box-shadow: none; }
+  to { background: var(--surface); box-shadow: 0 2px 0 var(--rule); }
+}
 .close {
-  position: absolute; top: -10px; right: -10px; width: 44px; height: 44px; border-radius: 50%; border: 0;
-  display: grid; place-items: center; padding: 0; background: var(--paper); box-shadow: 0 1px 4px var(--shadow);
+  width: 44px; height: 44px; border-radius: 50%; border: 0;
+  display: grid; place-items: center; padding: 0; background: var(--surface); box-shadow: inset 0 0 0 2px var(--rule);
 }
 .sheet-footer {
   position: sticky; bottom: 0; z-index: 1; margin: 8px -20px -28px; padding: 12px 20px calc(16px + env(safe-area-inset-bottom));
-  display: flex; gap: 10px; align-items: center; justify-content: flex-end; background: var(--surface); border-top: 1px solid var(--line);
+  display: flex; gap: 10px; align-items: center; justify-content: flex-end; background: var(--surface); border-top: 2px solid var(--rule);
 }
+/* Rows fade into the footer instead of being sliced by its rule. */
+.sheet-footer::before { content: ''; position: absolute; inset: auto 0 calc(100% + 2px); height: 20px; pointer-events: none; background: linear-gradient(to top, var(--surface), transparent); }
 .sheet-footer .cta { flex: 1; border: 0; min-height: 48px; font-size: 1rem; }
-.cta.none { background: transparent; color: var(--ink); border: 1px solid var(--line); font-weight: 600; }
-.hero { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); margin-bottom: 14px; display: block; }
-.sheet h2 { font-family: var(--display); font-size: 1.5rem; line-height: 1.2; margin: 0 40px 6px 0; text-wrap: balance; letter-spacing: -0.01em; }
+.cta.none { background: transparent; color: var(--ink); border: 2px solid var(--rule); font-family: var(--body); font-weight: 600; }
+.hero { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); margin-bottom: 14px; display: block; }
+.sheet h2 { font-size: 1.75rem; line-height: 1.12; font-weight: 760; margin: 0 48px 6px 0; text-wrap: balance; letter-spacing: -0.02em; }
 #more-title { margin-bottom: 20px; }
-.sheet h3 { font-family: var(--display); font-size: 1.25rem; margin: 26px 0 8px; }
+#more-title, #grocery-title { font-family: var(--display); font-size: 1.4rem; font-weight: 400; letter-spacing: 0; }
+.sheet h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 400; margin: 26px 0 8px; }
 .sheet .meta { margin: 2px 0; font-size: 0.88rem; }
 
-/* The open recipe is the card itself: title above the red line, printed fields below it. */
-.kitchen { margin: 0; font-size: 0.88rem; color: var(--muted); font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; column-gap: 10px; }
+/* The open recipe: title and kitchen, then the facts boxed under a black rule, the time on its tag. */
+.kitchen { margin: 0; font-size: 0.88rem; color: var(--muted); font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; gap: 8px 10px; }
 .kitchen-name {
-  border: 0; background: none; padding: 10px 0; margin: -10px 0; font-family: var(--typed); font-size: 0.94rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink);
+  border: 0; background: none; min-height: 44px; padding: 13px 0; margin: -13px 0; font-size: 0.92rem; font-weight: 700; color: var(--ink);
   text-decoration: underline; text-decoration-color: var(--muted); text-decoration-thickness: 1px; text-underline-offset: 3px;
 }
 .kitchen-name:hover { text-decoration-color: currentColor; }
 
 /* One blog's shelf: its name, and the way to its site. */
-.kitchen-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; padding: 4px 4px 0; }
-.kitchen-head h2 { font-family: var(--display); font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+.kitchen-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; padding: 4px 0 0; }
+.kitchen-head h2 { font-family: var(--display); font-size: 1.4rem; font-weight: 400; line-height: 1.15; margin: 0; text-wrap: balance; }
 .kitchen-head a { color: var(--green); font-size: 0.88rem; font-weight: 600; text-underline-offset: 3px; }
-.card-fields { display: flex; margin: 12px 0 0; border-top: 2px solid var(--tomato); border-bottom: 1px solid var(--line); }
+.card-fields { display: flex; margin: 14px 0 0; border-top: 3px solid var(--rule); border-bottom: 1px solid var(--line); }
 .card-fields > div { flex: 1 1 auto; padding: 8px 10px 9px; min-width: 0; }
 .card-fields > div:first-child { padding-left: 0; }
 .card-fields > div + div { border-left: 1px solid var(--line); }
-.card-fields dt { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.card-fields dt { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .card-fields dd span { white-space: nowrap; }
-.card-fields dd { margin: 4px 0 0; font-family: var(--typed); font-size: 0.94rem; line-height: 1.35; }
+@media (max-width: 359px) { .card-fields dt { white-space: nowrap; font-size: 0.7rem; letter-spacing: 0.03em; } .card-fields > div { padding-inline: 6px; } .units-row .label { min-width: auto; } }
+.card-fields dd { margin: 4px 0 0; font-size: 0.95rem; font-weight: 600; line-height: 1.35; font-variant-numeric: tabular-nums; }
+.recipe-head h2 { margin-right: 0; }
+.card-fields .tag { white-space: nowrap; display: inline-block; margin-top: 6px; rotate: -3deg; font-size: 0.95rem; }
 .badges { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
-.badges li { background: var(--green-soft); border: 1px solid transparent; border-radius: 999px; padding: 3px 10px; font-size: 0.8rem; }
-.badges li.cuisine { background: transparent; border-color: var(--line); color: var(--muted); }
-.cta { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-align: center; background: var(--green); color: var(--paper); text-decoration: none; padding: 10px 16px; border-radius: 12px; font-weight: 600; }
+.badges li { background: transparent; border: 1.5px solid var(--rule); border-radius: 4px; font-weight: 600; padding: 3px 10px; font-size: 0.8rem; }
+.badges li.cuisine { border-color: var(--muted); font-weight: 500; }
+.cta { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-align: center; background: var(--green); color: var(--on-green); text-decoration: none; padding: 10px 16px; border-radius: 8px; font-weight: 650; }
 .cta span { text-wrap: balance; }
-.save { display: inline-flex; align-items: center; gap: 6px; flex: none; min-height: 48px; border: 1px solid var(--line); background: transparent; border-radius: 12px; padding: 0 16px; }
-.save.on { color: var(--tomato); border-color: var(--tomato); }
-/* Ingredients sit on the card's ruled lines, the amount first and in bold. */
+.save { display: inline-flex; align-items: center; gap: 6px; flex: none; min-height: 48px; border: 2px solid var(--rule); background: transparent; border-radius: 8px; padding: 0 16px; font-weight: 600; }
+.save.on { color: var(--sign-red); border-color: var(--sign-red); }
+/* Ingredients on ruled lines, the amount first and in bold. */
 .ingredients { list-style: none; padding: 0; margin: 0; line-height: 1.45; max-width: 65ch; border-top: 1px solid var(--line); }
 .ingredients li { padding: 9px 0 8px; border-bottom: 1px solid var(--line); text-wrap: pretty; }
-.ingredients .amount { font-family: var(--typed); font-weight: 700; font-size: 0.94em; letter-spacing: -0.02em; }
-/* The units switch sits on the Ingredients heading's line, like a note in the card's margin. */
+.ingredients .amount { font-weight: 700; font-variant-numeric: tabular-nums; }
+/* The units switch sits on the Ingredients heading's line. */
 .original-ingredients { margin-top: 12px; }
 .original-ingredients summary { cursor: pointer; min-height: 44px; padding: 10px 0; color: var(--green); }
 .ingredients-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 26px 0 8px; }
 .ingredients-head h3 { margin: 0; }
 .muted { color: var(--muted); }
-.small { font-size: 0.8rem; }
+.small { font-size: 0.875rem; }
 p.small { margin-top: 18px; }
-p.small a { color: var(--green); text-underline-offset: 3px; }
+p.small a { display: inline-flex; align-items: center; min-height: 44px; color: var(--green); text-underline-offset: 3px; }
 
 /* Wide screens: photo and facts on the left, ingredients on the right, both above the fold. */
 @media (min-width: 900px) {
@@ -385,58 +512,77 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
   .recipe-sheet .recipe-head { position: sticky; top: 0; align-self: start; }
 }
 
-/* Shopping list: ruled like a card, one row per thing to grab. */
-.aisle { font-family: var(--body) !important; font-size: 0.8rem !important; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tomato); margin: 26px 0 2px !important; }
+/* Shopping list: ruled lines, one row per thing to grab, grouped by stall aisle. */
+.aisle { font-family: var(--display) !important; font-size: 0.95rem !important; font-weight: 400; color: var(--ink); margin: 26px 0 2px !important; }
 .grocery { list-style: none; padding: 0; margin: 0; }
 .grocery label { display: flex; gap: 12px; align-items: center; min-height: 52px; padding: 8px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
-.grocery input { width: 22px; height: 22px; margin: 0; flex: none; accent-color: var(--green); }
+.grocery input { margin: 0; flex: none; }
+.grocery input, .amounts .title input {
+  appearance: none; width: 24px; height: 24px; margin: 0; flex: none; display: inline-grid; place-items: center; cursor: pointer;
+  border: 2px solid var(--rule); border-radius: 4px; background: var(--surface); transition: background-color 160ms ease-out, border-color 160ms ease-out;
+}
+.grocery input:checked, .amounts .title input:checked { background: var(--green); border-color: var(--green); }
+.grocery input:checked::before, .amounts .title input:checked::before {
+  content: ''; width: 16px; height: 16px; background: var(--on-green);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 .grocery .name { flex: 1; }
 .grocery .name, .grocery .amount { transition: opacity 160ms ease-out; }
 .grocery .name::first-letter { text-transform: uppercase; }
-.grocery .amount { color: var(--muted); font-family: var(--typed); font-size: 0.94rem; text-align: right; }
-.grocery label.done .name, .grocery label.done .amount { text-decoration: line-through; opacity: 0.5; }
+.grocery .amount { color: var(--muted); font-size: 0.92rem; font-variant-numeric: tabular-nums; text-align: right; }
+.grocery label.done .name, .grocery label.done .amount { text-decoration: line-through; }
+.grocery label.done .name { opacity: 0.7; }
 .uncheck { margin-left: auto; }
-.amounts summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; gap: 6px; width: fit-content; list-style: none; }
+.amounts summary { cursor: pointer; min-height: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; list-style: none; }
+.amounts summary .for { flex: 1 1 100%; }
+.amounts summary .choose { flex: none; min-height: 44px; display: flex; align-items: center; color: var(--green); font-weight: 600; }
 .amounts summary::-webkit-details-marker { display: none; }
 .amounts summary::after { content: '▸'; content: '▸' / ''; transition: rotate 0.15s; }
 .amounts[open] summary::after { rotate: 90deg; }
 .amounts ul { list-style: none; padding: 0; margin: 0 0 4px; }
 .amounts li { display: flex; align-items: center; gap: 12px; min-height: 52px; border-bottom: 1px solid var(--line); }
-.amounts .title { flex: 1; min-width: 0; }
+.amounts .title { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; }
 .stepper { display: flex; align-items: center; flex: none; }
-.stepper button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); font-size: 1.25rem; line-height: 1; padding: 0; }
+@media (max-width: 419px) {
+  .amounts li { flex-wrap: wrap; row-gap: 4px; padding: 8px 0; }
+  .amounts .title { flex: 1 1 100%; }
+  .amounts .stepper { margin-left: 28px; }
+}
+.stepper button { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--rule); background: transparent; color: var(--ink); font-size: 1.25rem; line-height: 1; padding: 0; }
 .stepper button[aria-disabled='true'] { opacity: 0.35; cursor: default; }
 .stepper .value { min-width: 6.5em; text-align: center; font-size: 0.88rem; font-variant-numeric: tabular-nums; }
-.grocery-sheet .units-row { margin-top: 10px; padding-bottom: 12px; border-bottom: 2px solid var(--tomato); }
+.grocery-sheet .units-row { margin-top: 10px; padding-bottom: 12px; border-bottom: 3px solid var(--rule); }
 .grocery-sheet .aisle { margin-top: 20px !important; }
+.aisle::first-letter { text-transform: uppercase; }
 
 /* Loading: the shape of the grid, still, so nothing jumps when recipes arrive. */
-.skeleton li { list-style: none; box-shadow: none; }
-.skeleton .bar { height: 14px; margin: 10px 2px 0; border-radius: 6px; background: var(--green-soft); }
+.skeleton li { list-style: none; }
+.skeleton .bar { height: 14px; margin: 12px 2px 0; border-radius: 2px; background: var(--green-soft); }
 .skeleton .bar.short { width: 55%; margin-top: 6px; }
 
 @media (hover: hover) {
-  .card-open:hover img { transform: scale(1.03); }
-  .pill:not(.on):hover, .stepper button:not([aria-disabled='true']):hover, .seg:not(.on):hover, .saved-toggle:not(.on):hover, .night:hover { border-color: var(--green); }
+  .card:has(.card-open:hover) img { filter: brightness(1.06) saturate(1.08); }
+  .suggestions li:hover { background: var(--green-soft); }
+  .pill:not(.on):hover, .stepper button:not([aria-disabled='true']):hover, .seg:not(.on):hover, .saved-toggle:not(.on):hover, .night:hover { border-color: var(--green); color: var(--green); }
   .seg:not(.on):hover { background: var(--green-soft); }
   .cta:hover, .grocery-btn:hover { filter: brightness(1.12); }
   .btn-sm:hover { border-color: var(--green); }
-  .text-btn:not(:disabled):hover { text-decoration: underline; text-underline-offset: 3px; }
-  .loosen:hover { background: var(--green-soft); }
-  .heart:hover { color: var(--tomato); }
-  .tab:not(.on):hover { border-color: var(--green); }
+  .text-btn:not(:disabled):hover { color: var(--green); }
+  .loosen:hover { filter: brightness(1.12); }
+  .heart:hover { color: var(--sign-red); }
+  .tab:not(.on):hover { border-color: var(--green); color: var(--green); }
   .pick:hover { filter: brightness(1.12); }
   .dock-return:hover { background: var(--green-soft); }
-  /* Hovered, the card lifts a little out of the box. */
-  .card:has(.card-open:hover) { translate: 0 -3px; box-shadow: 0 2px 4px var(--card-shadow), 0 10px 24px var(--card-shadow); }
+  /* Hovered, the tag swings a little on its string. */
+  .card:has(.card-open:hover) .time { rotate: -8deg; }
+  li:nth-child(even) > .card:has(.card-open:hover) .time { rotate: 3deg; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
   :where(button, a.cta):active, :where(.heart, .save).on .icon, :where(.heart, .save):active .icon { scale: none; }
-  .card, .thumb img, .sheet[open] { transition-property: opacity, background-color, color, border-color; }
-  .card:has(.card-open:hover) { translate: none; }
-  .card-open:hover img { transform: none; }
+  .card, .thumb img, .sheet[open] { transition-property: opacity, background-color, color, border-color, filter; }
+  .card:has(.card-open:hover) .time, li:nth-child(even) > .card:has(.card-open:hover) .time { rotate: -4deg; }
   .share .bubble { translate: none; }
   @starting-style { .sheet[open]:not(.recipe-sheet) { translate: none; rotate: none; } }
 }
@@ -447,6 +593,20 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .recipe-secondary-actions { display: flex; gap: 10px; flex: 1 1 auto; }
 .recipe-secondary-actions .save { flex: 1 1 auto; justify-content: center; }
 .recipe-sheet .actions .cta { flex: 3 1 220px; }
+@media (max-width: 379px) {
+  .recipe-sheet .sheet-footer { padding-inline: 14px; margin-inline: -20px; gap: 8px; }
+  .recipe-sheet .actions:not(:has(.save + .save:not(.share))) { flex-wrap: nowrap; }
+  .recipe-sheet .actions:not(:has(.save + .save:not(.share))) .cta { flex: 1 1 0; min-width: 0; padding: 6px 10px; font-size: 0.88rem; line-height: 1.2; }
+  .recipe-sheet .actions .recipe-secondary-actions { gap: 8px; }
+}
+@media (max-width: 699px) {
+  .recipe-sheet .actions .cta { flex-basis: 170px; }
+  .recipe-secondary-actions { flex: none; }
+  .recipe-secondary-actions .save:first-child { flex: none; width: 48px; padding: 0; justify-content: center; }
+  .recipe-secondary-actions .save:first-child .save-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  /* With Another, the creator link takes its own full row. */
+  .recipe-secondary-actions:has(.save + .save:not(.share)) { flex: 1 1 100%; }
+}
 /* Share is an icon: the footer is full on a phone. Copied, the icon turns into a check in place and a note floats above, so nothing moves. */
 .recipe-secondary-actions .share { flex: none; position: relative; width: 48px; padding: 0; justify-content: center; }
 .share .swap { display: grid; }
@@ -456,16 +616,15 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .share .bubble { position: absolute; bottom: calc(100% + 8px); right: 0; translate: 0 4px; white-space: nowrap; padding: 6px 10px; border-radius: 8px; background: var(--ink); color: var(--paper); font-size: 0.8rem; opacity: 0; pointer-events: none; transition: opacity 0.15s, translate 0.15s; }
 .share.copied .bubble { opacity: 1; translate: 0 0; }
 .share-link { display: grid; gap: 4px; margin-top: 12px; }
-.share-link input, .share-link textarea { font: inherit; font-size: 0.88rem; min-height: 44px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--ink); }
+.share-link input, .share-link textarea { font: inherit; font-size: 0.88rem; min-height: 44px; padding: 0 10px; border: 2px solid var(--rule); border-radius: 8px; background: transparent; color: var(--ink); }
 .share-link textarea { padding: 8px 10px; resize: vertical; }
 /* The shopping list's one action: full width, so "Condividi lista" fits at 320px. */
-.grocery-sheet .sheet-footer .share { flex: 1; position: relative; justify-content: center; }
+.grocery-sheet .sheet-footer .share { flex: 1; position: relative; justify-content: center; background: var(--green); color: var(--on-green); border: 0; }
 /* Servings for this visit sit under the Ingredients heading; the blog's yield stays in the card fields above. */
 .servings-row { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; }
 p.small.scale-note { margin: 0 0 10px; }
 .not-scaled { font-size: 0.8em; }
-.device-hint { margin: 0; padding: 0 4px; color: var(--muted); font-size: 0.8rem; line-height: 1.5; text-wrap: balance; }
+.device-hint { margin: 10px 0 0; padding: 0; color: var(--muted); font-size: 0.875rem; line-height: 1.45; text-wrap: balance; }
 
-.amounts .title input { width: 20px; height: 20px; accent-color: var(--green); vertical-align: middle; }
 
-.language-switch { color: var(--green); display: inline-flex; align-items: center; min-height: 44px; padding: 0 6px; font-size: 0.82rem; text-underline-offset: 4px; }
+.language-switch { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border: 2px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: 0.82rem; font-weight: 700; text-decoration: none; }

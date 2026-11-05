@@ -133,6 +133,14 @@ test('unsaving in the saved view can be undone until you leave it', async ({ pag
   await expect(page.getByTestId('result-count')).toHaveText(/2 recipes saved/);
 });
 
+test('a recipe unsaved while browsing is gone from the saved view, with nothing to undo', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: 'Unsave Spinach Tofu Curry' }).click();
+  await page.getByRole('button', { name: /^Saved/ }).click();
+  await expect(page.getByTestId('recipe-card')).toHaveCount(0);
+});
+
 test('shopping list ticks belong to that list', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();

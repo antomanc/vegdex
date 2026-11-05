@@ -1,87 +1,109 @@
-import type { Locator } from '@playwright/test';
 import { expect, test } from './fixtures';
 
-/** What Chrome does when a datalist option is picked: the value is replaced and a plain input event fires. */
-const pick = (input: Locator, value: string) =>
-  input.evaluate((el: HTMLInputElement, v) => {
-    el.value = v;
-    el.dispatchEvent(new Event('input', { bubbles: true }));
-  }, value);
-
-const options = (input: Locator) =>
-  input.evaluate((el: HTMLInputElement) => [...(el.list?.options ?? [])].map((o) => o.value));
-
-test('Must include and Avoid suggest known ingredients; picking one adds it', async ({ page }) => {
+test('Must include and Avoid suggest known ingredients as you type; picking one adds it', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByTestId('result-count')).toHaveText(/6 recipes/);
   await page.getByRole('button', { name: /More filters/ }).click();
-  const have = page.getByLabel('Must include');
-  const avoid = page.getByLabel('Avoid');
+  const have = page.getByRole('combobox', { name: 'Must include' });
+  const avoid = page.getByRole('combobox', { name: 'Avoid' });
 
-  await have.focus();
-  await expect.poll(() => options(have)).toContain('red lentil');
   await have.pressSequentially('lent');
-  await pick(have, 'red lentil');
+  await page.getByRole('dialog').getByRole('option', { name: 'red lentil' }).click();
   await expect(page.getByRole('button', { name: 'Remove red lentil' })).toBeVisible();
   await expect(have).toHaveValue('');
+  await expect(have).toBeFocused();
   await expect(page.getByTestId('result-count')).toHaveText(/1 recipe/);
-  // An ingredient already chosen is not offered again.
-  expect(await options(have)).not.toContain('red lentil');
 
-  await avoid.focus();
-  expect(await options(avoid)).toContain('coconut milk');
-  expect(await options(avoid)).not.toContain('red lentil');
+  // An ingredient already chosen is not offered again, on either side.
+  await avoid.pressSequentially('lent');
+  await expect(page.getByRole('dialog').getByRole('option', { name: 'red lentil' })).toHaveCount(0);
+  await avoid.fill('coco');
+  await expect(page.getByRole('dialog').getByRole('option', { name: 'coconut milk' })).toBeVisible();
 });
 
 test('typing a name the list does not know still adds it', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: /More filters/ }).click();
-  const have = page.getByLabel('Must include');
+  const have = page.getByRole('combobox', { name: 'Must include' });
   await have.fill('lent');
   await expect(page.getByRole('button', { name: /^Remove/ })).toHaveCount(0);
   await have.press('Enter');
   await expect(page.getByRole('button', { name: 'Remove lent' })).toBeVisible();
 });
 
-test('hands the native datalist a short list, and typing still reaches names further down', async ({ page }) => {
-  // A long list: Safari rebuilds its suggestion popup from every option on each keystroke.
-  const names = Array.from({ length: 400 }, (_, i) => `ingredient ${i}`)
-  names.push('saffron')
+test('shows a handful of matches, prefix first, and typing reaches any name', async ({ page }) => {
+  const names = Array.from({ length: 400 }, (_, i) => `ingredient ${i}`);
+  names.push('saffron', 'black salt', 'salt');
   await page.route('**/data/suggest/*.json', (route) => route.fulfill({ json: names }));
   await page.goto('/');
   await page.getByRole('button', { name: /More filters/ }).click();
-  const have = page.getByLabel('Must include');
+  const have = page.getByRole('combobox', { name: 'Must include' });
 
   await have.focus();
-  await expect.poll(() => options(have)).toHaveLength(50);
-  expect(await options(have)).not.toContain('saffron');
-
-  // A name past the cap is one keystroke away.
+  await expect(page.getByRole('dialog').getByRole('option')).toHaveCount(0);
+  await have.fill('ingredient');
+  await expect(page.getByRole('dialog').getByRole('option')).toHaveCount(5);
   await have.fill('saff');
-  await expect.poll(() => options(have)).toEqual(['saffron']);
+  await expect(page.getByRole('dialog').getByRole('option')).toHaveText(['saffron']);
+  await have.fill('salt');
+  await expect(page.getByRole('dialog').getByRole('option')).toHaveText(['salt', 'black salt']);
+});
+
+test('the keyboard walks the list, Enter picks, and Escape closes it without closing the sheet', async ({ page }) => {
+  await page.route('**/data/suggest/*.json', (route) => route.fulfill({ json: ['tofu', 'tomato', 'tempeh'] }));
+  await page.goto('/');
+  await page.getByRole('button', { name: /More filters/ }).click();
+  const have = page.getByRole('combobox', { name: 'Must include' });
+
+  await have.fill('to');
+  await have.press('ArrowDown');
+  await have.press('ArrowDown');
+  await expect(page.getByRole('dialog').getByRole('option', { name: 'tomato' })).toHaveAttribute('aria-selected', 'true');
+  await have.press('Enter');
+  await expect(page.getByRole('button', { name: 'Remove tomato' })).toBeVisible();
+
+  await have.fill('to');
+  await expect(page.getByRole('dialog').getByRole('option')).toHaveText(['tofu']);
+  await have.press('Escape');
+  await expect(page.getByRole('dialog').getByRole('option')).toHaveCount(0);
+  await expect(page.getByRole('dialog')).toBeVisible();
+});
+
+test('a comma list suggests for the last ingredient and keeps the earlier ones', async ({ page }) => {
+  await page.route('**/data/suggest/*.json', (route) => route.fulfill({ json: ['tofu', 'spinach'] }));
+  await page.goto('/');
+  await page.getByRole('button', { name: /More filters/ }).click();
+  const have = page.getByRole('combobox', { name: 'Must include' });
+  await have.focus();
+  await have.fill('tofu, spi');
+  await page.getByRole('dialog').getByRole('option', { name: 'spinach' }).click();
+  await expect(page.getByRole('button', { name: 'Remove tofu' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Remove spinach' })).toBeVisible();
 });
 
 test('matching ignores case, and a mixed-case name can still be picked', async ({ page }) => {
   // Real suggestions keep their case: "Old Bay", "senape di Digione", "lenticchie di Puy".
-  await page.route('**/data/suggest/*.json', (route) => route.fulfill({ json: ['aglio', 'senape di Digione'] }))
-  await page.goto('/it/')
+  await page.route('**/data/suggest/*.json', (route) => route.fulfill({ json: ['aglio', 'senape di Digione'] }));
+  await page.goto('/it/');
   await page.getByRole('button', { name: /Altri filtri/ }).click();
-  const have = page.getByLabel('Deve contenere');
+  const have = page.getByRole('combobox', { name: 'Deve contenere' });
 
   await have.focus();
   await have.fill('digione');
-  await expect.poll(() => options(have)).toEqual(['senape di Digione']);
-  await pick(have, 'senape di Digione');
+  await page.getByRole('dialog').getByRole('option', { name: 'senape di Digione' }).click();
   await expect(page.getByRole('button', { name: 'Rimuovi senape di digione' })).toBeVisible();
   // Already chosen, so no longer offered: the two sides compare in the same case.
-  expect(await options(have)).not.toContain('senape di Digione');
+  await have.fill('digione');
+  await expect(page.getByRole('dialog').getByRole('option')).toHaveCount(0);
 });
 
 test('suggestions follow the page language', async ({ page }) => {
   await page.goto('/it/');
   await page.getByRole('button', { name: /Altri filtri/ }).click();
-  const have = page.getByLabel('Deve contenere');
+  const have = page.getByRole('combobox', { name: 'Deve contenere' });
   await have.focus();
-  await expect.poll(() => options(have)).toContain('lenticchie rosse');
-  expect(await options(have)).not.toContain('red lentil');
+  await have.fill('lenticchie');
+  await expect(page.getByRole('dialog').getByRole('option', { name: 'lenticchie rosse' })).toBeVisible();
+  await have.fill('red lentil');
+  await expect(page.getByRole('dialog').getByRole('option')).toHaveCount(0);
 });

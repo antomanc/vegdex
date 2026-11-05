@@ -29,14 +29,14 @@ test('Italian ingredient search loads only its lookup and keeps original details
 test('Italian have and avoid keep all-includes and any-exclude semantics across reloads', async ({ page }) => {
   await page.goto('/it/');
   await page.getByRole('button', { name: 'Altri filtri', exact: true }).click();
-  await page.getByLabel('Deve contenere').fill('zucca');
-  await page.getByLabel('Deve contenere').press('Enter');
+  await page.getByRole('combobox', { name: 'Deve contenere' }).fill('zucca');
+  await page.getByRole('combobox', { name: 'Deve contenere' }).press('Enter');
   await expect(cards(page)).toHaveCount(2);
   await page.getByLabel('Da evitare').fill('funghi');
   await page.getByLabel('Da evitare').press('Enter');
   await expect(cards(page)).toHaveText([/Insalata di quinoa al limone/]);
-  await page.getByLabel('Deve contenere').fill('ceci');
-  await page.getByLabel('Deve contenere').press('Enter');
+  await page.getByRole('combobox', { name: 'Deve contenere' }).fill('ceci');
+  await page.getByRole('combobox', { name: 'Deve contenere' }).press('Enter');
   await page.getByRole('dialog').getByRole('button', { name: 'Chiudi', exact: true }).click();
   await expect(page).toHaveURL(/have=zucca%2Cceci/);
   await expect(page).toHaveURL(/avoid=funghi/);

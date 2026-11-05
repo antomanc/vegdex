@@ -26,6 +26,8 @@ export interface GroceryItem {
 }
 
 const AISLES: [string, RegExp][] = [
+  // Vinegars named after fruit ("apple cider vinegar") are bottles, not produce.
+  ['oils, vinegars & sauces', /\bvinegar\b/],
   // Dried spices named after produce ("garlic powder", "black pepper") are sold with the spices.
   ['spices', /\b(?:black pepper|white pepper|peppercorn|cayenne|paprika|(?:chili|chilli|chile|garlic|onion|ginger|curry|chipotle|mustard) powder|(?:chili|chilli|pepper) flake)/],
   ['produce', /\b(?:onion|garlic|ginger|lemon|lime|orange|apple|banana|berr|tomato|potato|carrot|celery|spinach|kale|lettuce|cabbage|broccoli|cauliflower|zucchini|squash|pumpkin|pepper(?!corn)|chili|jalape|cucumber|avocado|mushroom|herb|cilantro|parsley|basil|mint|dill|thyme|rosemary|green onion|leek|shallot|eggplant|corn(?! ?(?:starch|flour|meal|flake|bread|syrup))|pea\b|bean sprout|beet|radish|fruit|grape|mango|pineapple|peach|pear|plum|cherry|date|fig|sweet potato|arugula|chard|bok choy|fennel|asparagus|okra|green bean|edamame|sprout)/],

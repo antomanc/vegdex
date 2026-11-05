@@ -8,7 +8,7 @@ let ownBacks = 0
 let tappedCard: DOMRect | undefined
 // iOS does not always focus a tapped button; capture the card before Svelte opens its sheet.
 document.addEventListener('click', (event) => {
-  tappedCard = event.target instanceof Element ? event.target.closest('.card-open')?.getBoundingClientRect() : undefined
+  tappedCard = event.target instanceof Element ? event.target.closest('.card-open')?.closest('.card')?.getBoundingClientRect() : undefined
 }, true)
 let afterPop: () => void = () => {}
 

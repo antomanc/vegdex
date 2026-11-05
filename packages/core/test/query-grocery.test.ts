@@ -201,6 +201,11 @@ describe('compileGroceryList', () => {
     expect(aisle['garlic powder']).toBe('spices');
     expect(aisle.tomato).toBe('canned & jarred');
   });
+
+  it('files a vinegar named after fruit with the bottles, not the produce', () => {
+    const list = compileGroceryList([{ recipeId: 'a', multiplier: 1, ingredients: ['2 tsp apple cider vinegar'] }]);
+    expect(list[0]?.aisle).toBe('oils, vinegars & sauces');
+  });
 });
 
 describe('compileGroceryList with ingredient concepts', () => {

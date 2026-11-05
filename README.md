@@ -6,7 +6,7 @@ Find vegan recipes by ingredient, meal or cooking time. Save the ones you like, 
 
 [![CI](https://github.com/antomanc/vegdex/actions/workflows/ci.yml/badge.svg)](https://github.com/antomanc/vegdex/actions/workflows/ci.yml)
 [![Daily ingest and deploy](https://github.com/antomanc/vegdex/actions/workflows/daily.yml/badge.svg)](https://github.com/antomanc/vegdex/actions/workflows/daily.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-1d4a31)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-2f6b3f)](LICENSE)
 
 [![vegdex: recipe search with ingredient and time filters, shown on a phone](apps/web/public/share-en.png)](https://vegdex.antomanc.com/)
 

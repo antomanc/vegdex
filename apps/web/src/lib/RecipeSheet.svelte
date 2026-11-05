@@ -1,7 +1,7 @@
 <script lang="ts">
   import { saveFeedback } from './save-feedback'
   import { untrack } from 'svelte'
-  import { display, recipeTitle } from './translations.svelte'
+  import { display, recipeTitle, titleLang } from './translations.svelte'
   import { isHiddenLine, lineParts, renderIngredient, scaleIngredient, type CatalogRecipe, type ParsedLine } from '@vegdex/core'
   import { loadDetails } from './data'
   import Icon from './Icon.svelte'
@@ -137,7 +137,7 @@
     {#if recipe.image && !broken}
       <img class="hero" src={recipe.image} alt="" referrerpolicy="no-referrer" onerror={() => (broken = true)} />
     {/if}
-    <h2 id="sheet-title">{recipeTitle(recipe)}</h2>
+    <h2 id="sheet-title" lang={titleLang(recipe)}>{recipeTitle(recipe)}</h2>
     {#if recipeTitle(recipe) !== recipe.title}<p class="muted original-title" lang={recipe.contentLanguage ?? 'en'}>{recipe.title}</p>{/if}
     <p class="kitchen">
       <span>{m.from_kitchen()} <button class="kitchen-name" onclick={onkitchen} aria-label={m.source_recipes({ source: sourceName })}>{sourceName}</button></span>
@@ -145,7 +145,7 @@
     </p>
     <!-- The printed fields of a recipe card, under its red line. -->
     <dl class="card-fields">
-      {#if recipe.minutes}<div><dt>{m.time()}</dt><dd>{formatMinutes(recipe.minutes)}</dd></div>{/if}
+      {#if recipe.minutes}<div><dt>{m.time()}</dt><dd class="tag">{formatMinutes(recipe.minutes)}</dd></div>{/if}
       {#if recipe.servings}<div><dt>{m.serves()}</dt><dd>{formatNumber(recipe.servings)}</dd></div>{/if}
       {#if recipe.calories || recipe.protein}
         <div>
@@ -161,7 +161,7 @@
         {#each diet as b (b)}<li>{b}</li>{/each}
         {#each cuisines as b (b)}<li class="cuisine">{b}</li>{/each}
       </ul>
-      <p class="muted small">{m.diet_note()}</p>
+      <p class="muted small">{m.diet_note_recipe()}</p>
     {/if}
     </div>
 
@@ -217,7 +217,7 @@
     <div class="sheet-footer actions">
       <div class="recipe-secondary-actions">
         <button use:saveFeedback class="save" class:on={isSaved} aria-pressed={isSaved} onclick={() => toggleSaved(recipe.id)}>
-          <Icon name="heart" size={18} filled={isSaved} /> {isSaved ? m.saved_recipe() : m.save()}
+          <Icon name="heart" size={18} filled={isSaved} /> <span class="save-label">{isSaved ? m.saved_recipe() : m.save()}</span>
         </button>
         {#if ondraw}
           <button class="save" onclick={ondraw}><Icon name="shuffle" size={18} /> {m.another()}</button>

@@ -1,3 +1,4 @@
+import type { Locator } from '@playwright/test';
 import { expect, test } from './fixtures';
 
 const cards = (page: import('@playwright/test').Page) => page.getByTestId('recipe-card');
@@ -40,11 +41,11 @@ test('search matches titles and ingredients', async ({ page }) => {
 
 test('have / avoid ingredients', async ({ page }) => {
   await page.getByRole('button', { name: /More filters/ }).click();
-  await page.getByLabel('Must include').fill('tofu');
-  await page.getByLabel('Must include').press('Enter');
+  await page.getByRole('combobox', { name: 'Must include' }).fill('tofu');
+  await page.getByRole('combobox', { name: 'Must include' }).press('Enter');
   await expect(count(page)).toHaveText(/2 recipes/);
-  await page.getByLabel('Avoid').fill('mushrooms');
-  await page.getByLabel('Avoid').press('Enter');
+  await page.getByRole('combobox', { name: 'Avoid' }).fill('mushrooms');
+  await page.getByRole('combobox', { name: 'Avoid' }).press('Enter');
   await expect(cards(page)).toHaveText([/Spinach Tofu Curry/]);
 });
 
@@ -106,11 +107,34 @@ test('back closes More filters and keeps what was chosen in it', async ({ page }
 
 test('ingredients typed but not added still apply when More filters closes', async ({ page }) => {
   await page.getByRole('button', { name: /More filters/ }).click();
-  await page.getByLabel('Must include').fill('tofu, spinach');
+  await page.getByRole('combobox', { name: 'Must include' }).fill('tofu, spinach');
   await page.getByRole('dialog').getByRole('button', { name: 'Close' }).click();
   await expect(cards(page)).toHaveText([/Spinach Tofu Curry/]);
   const active = page.getByRole('list', { name: 'Active filters' });
   await expect(active.getByRole('button', { name: 'Remove with spinach' })).toBeVisible();
+});
+
+test('Clear all also drops text still in the ingredient fields', async ({ page }) => {
+  await page.getByRole('button', { name: /More filters/ }).click();
+  const have = page.getByRole('combobox', { name: 'Must include' });
+  await have.fill('tofu');
+  await have.press('Enter');
+  await have.fill('spinach');
+  await page.getByRole('dialog').getByRole('button', { name: 'Clear all' }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Close' }).click();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(page).not.toHaveURL(/have=/);
+});
+
+test('a sign reached by keyboard scrolls fully into view on a phone', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  const signs = page.getByRole('navigation', { name: 'Categories' }).getByRole('button');
+  const clearance = (sign: Locator) => sign.evaluate((el) => el.closest('.tab-row')!.getBoundingClientRect().right - el.getBoundingClientRect().right);
+  // Mid-row a sign clears the fade; at the end of the row the fade lets go.
+  await signs.nth(5).focus();
+  await expect.poll(() => clearance(signs.nth(5))).toBeGreaterThanOrEqual(44);
+  await signs.last().focus();
+  await expect.poll(() => clearance(signs.last())).toBeGreaterThanOrEqual(0);
 });
 
 test('Tonight is one tap to a weeknight main', async ({ page }) => {

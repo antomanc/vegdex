@@ -4,11 +4,11 @@ import { BASE_LOCALE } from './locales'
 import type { Sort } from './state.svelte'
 
 export const MEAL_LABELS: [Meal, string][] = [
-  ['breakfast', m.meal_breakfast()],
   ['main', m.meal_main()],
   ['soup', m.meal_soup()],
   ['salad', m.meal_salad()],
   ['side', m.meal_side()],
+  ['breakfast', m.meal_breakfast()],
   ['snack', m.meal_snack()],
   ['dessert', m.meal_dessert()],
   ['baking', m.meal_baking()],

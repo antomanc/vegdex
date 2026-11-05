@@ -28,8 +28,8 @@
     "workbox-strategies": "^7.4.1"
   },
   "dependencies": {
-    "@fontsource-variable/besley": "^5.3.0",
-    "@fontsource/courier-prime": "^5.3.0",
+    "@fontsource-variable/work-sans": "^5.3.0",
+    "@fontsource/bowlby-one": "^5.3.0",
     "@vegdex/core": "workspace:*"
   }
 }

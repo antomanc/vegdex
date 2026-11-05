@@ -193,6 +193,7 @@ it('marks headings and asides so no language shows them as ingredients', async (
   const kinds = ['For the sauce:', 'For the dressing', 'Serve with my Vegan Lemon Cream Sauce', 'I use this scale.', 'Medium and Large Mixing Bowls', '2 tbsp olive oil', 'salt to taste']
     .map((line) => parseIngredient(line, lookup).kind ?? null);
   expect(kinds).toEqual(['heading', 'heading', 'other', 'other', 'other', null, null]);
+  expect(parseIngredient('It is not recommended to sub or eliminate any of these ingredients', lookup).kind).toBe('other');
   const heading = parseIngredient('For the sauce:', lookup);
   expect([isHiddenLine(heading, 'en'), isHiddenLine(heading, 'it'), isHiddenLine(parseIngredient('I use this scale.'), 'en')]).toEqual([false, true, true]);
   expect(render('Serve with rice')).toBeNull();

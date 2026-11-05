@@ -146,7 +146,7 @@
     <div class="sheet-top"><button class="close" onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
     <h2 id="grocery-title">{m.shopping_list()}</h2>
     <details class="amounts">
-      <summary class="meta"><span>{m.list_recipes(countArgs(selected.length))}{adjusted ? m.adjusted_count(countArgs(adjusted)) : ''}</span> · {m.shop_choose()}</summary>
+      <summary class="meta"><span class="for">{m.list_recipes(countArgs(selected.length))}{adjusted ? m.adjusted_count(countArgs(adjusted)) : ''}</span> <span class="choose">{m.shop_choose()}</span></summary>
       <ul>
         {#each rows as r (r.id)}
           {@const n = steps(r)}
