@@ -211,10 +211,10 @@ Two voices. Bowlby One (`@fontsource/bowlby-one`) letters signs: anything that w
 Mobile first, with a 1200px content width. Header and content share one left edge (`--edge`: 16px, 12px under 420px).
 
 - **Header:** brand row and search, closed by a 3px rule. On phones, scrolling leaves only the search pinned and the brand row scrolls away; Back to top in the dock brings it back. From 900px, brand, search and keys share one row and the whole header stays.
-- **Signs:** two lines that scroll together, dinner courses first (Mains, Soups, Salads, Sides, Breakfast, Snacks, Desserts), then Savory, Sweet and the rest. Tab order follows the lines. On phones the row fades over its last 44px and the fade lets go at the end of the row; a chosen sign slides into view. Under 360px the signs are one row, so a full card reaches the first screen. From 700px the lines wrap and nothing scrolls.
+- **Signs:** dinner courses first (Mains, Soups, Salads, Sides, Breakfast, Snacks, Desserts), then Savory, Sweet and the rest. On phones they are one scrolling row that fades over its last 44px; the fade lets go at the end of the row and a chosen sign slides into view. From 700px they sit in two lines that wrap, and nothing scrolls.
 - **Filters:** one row: Tonight, the four times and More filters. On phones More filters is a round key with a count badge, and only the last time spells out its unit (none under 380px); labels stay for screen readers. Each filter has one home: time lives only in the row, High protein only in More filters.
 - **Grid:** `repeat(auto-fill, minmax(160px, 1fr))`, 22px row and 10px column gaps. Under 380px, two fixed columns. From 700px, `minmax(220px, 1fr)` with 30px and 20px gaps.
-- **Dock:** Pick for me and Back to top. On phones it sits at the bottom centre over a fade of paper. From 900px Pick moves into the count row beside the sort, so it never covers a photo, and the dock keeps only Back to top in the bottom-right corner. `scroll-padding-bottom` keeps keyboard focus clear of it. It always says "Back to top", never "Filters", so nobody taps it expecting to keep their place.
+- **Dock:** Pick for me and Back to top. On phones it sits at the bottom centre over a fade of paper. From 900px Pick ends the filter row, so it never covers a photo, and the dock keeps only Back to top in the bottom-right corner. `scroll-padding-bottom` keeps keyboard focus clear of it. It always says "Back to top", never "Filters", so nobody taps it expecting to keep their place.
 - **Sheets:** bottom sheets on phones (640px at most, up to the full height). Centred dialogs from 700px (92dvh). The recipe sheet becomes two columns at 900px: photo and facts stick on the left, ingredients scroll on the right.
 - **Sheet scrolling:** opening a modal fixes the background at its scroll position until the last sheet is removed. The dialog owns vertical scrolling, and gestures stay within it at both edges. Closing restores the grid position; opening a source shelf starts at its heading.
 - **Sheet bar:** Close sits in a sticky bar that is clear at the top and turns solid with a rule once the sheet scrolls, so content passes under the bar and never under the button. Without scroll-driven animation the bar is solid from the start and takes its own space.
@@ -261,6 +261,9 @@ Square-ish and painted. Radii come only from the scale: 2px (signs, tags, rating
 - **Pill:** outlined, 44px, crate green when on. Tonight sets Mains and 45 minutes and shows as one chip that spells it out.
 - **Time segments:** one joined control. The chosen time turns into the red tag. The units switch uses the same control with green.
 - Focus on signs and segments is inset, since their rows clip an outer ring.
+
+### Sort
+- An outlined pill in the count row with a chevron, so it reads as a control.
 
 ### Chips and badges
 - Active-filter chips: 44px, 2px green outline ("avoid" in Sign Red), with a close icon.

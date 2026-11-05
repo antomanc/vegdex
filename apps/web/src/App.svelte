@@ -316,7 +316,7 @@
 <main>
   <LanguageSuggestion {queryString} />
   {#if !filters.saved}
-    <div class="filters" bind:this={filterBox}><FilterBar count={found ? total : null} /></div>
+    <div class="filters" bind:this={filterBox}><FilterBar count={found ? total : null} onpick={showPick ? pick : undefined} /></div>
   {/if}
 
   {#if error}
@@ -363,8 +363,6 @@
         <p>
           <span data-testid="result-count">{countText}</span>{#if !filters.saved && !kitchen}<span class="from">{' '}{m.blog_count(countArgs(blogCount))}</span>{/if}
         </p>
-        <!-- Wide screens: Pick sits here, so it never covers a photo; the dock's copy shows on phones. -->
-        {#if showPick}<button class="pick pick-inline" onclick={pick}><Icon name="shuffle" size={16} /> {m.pick()}</button>{/if}
         <label class="sort">
           <span class="visually-hidden">{m.sort_by()}</span>
           <select value={filters.sort ?? defaultSort()} onchange={(e) => setSort(e.currentTarget.value as Sort)}>

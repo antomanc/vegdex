@@ -10,7 +10,7 @@
   import { activeCount, clearFilters, filters, isTonight, moreCount, toggleTonight } from './state.svelte'
 
   // null until the catalog answers: the button says what it does without a count.
-  let { count }: { count: number | null } = $props()
+  let { count, onpick }: { count: number | null; onpick?: () => void } = $props()
 
   /** Mains through Desserts head the first line of signs. */
   const FIRST_LINE = 7
@@ -112,6 +112,8 @@
     <Icon name="sliders" size={16} /> <span class="more-label">{m.more_filters()}{moreCount() ? ` · ${formatNumber(moreCount())}` : ''}</span>
     {#if moreCount()}<span class="more-count" aria-hidden="true">{formatNumber(moreCount())}</span>{/if}
   </button>
+  <!-- Wide screens: Pick ends this row, so it never covers a photo; the dock's copy shows on phones. -->
+  {#if onpick}<button class="pick pick-inline" onclick={onpick}><Icon name="shuffle" size={16} /> {m.pick()}</button>{/if}
 </div>
 
 {#if more}

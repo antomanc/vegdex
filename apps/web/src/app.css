@@ -165,8 +165,8 @@ input { caret-color: var(--sign-red); }
 /* Rows that scroll sideways fade at the edge, so the clipped control reads as "more this way". */
 .tab-track { flex: none; display: grid; gap: 8px; }
 .tab-line { display: flex; gap: 8px; }
-/* The smallest phones keep one scrolling row, so recipes reach the first screen. */
-@media (max-width: 359px) { .tab-track { display: flex; } .tab-line { display: contents; } }
+/* Phones: one scrolling row, dinner courses first, so recipes come up the first screen. */
+@media (max-width: 699px) { .tab-track { display: flex; } .tab-line { display: contents; } }
 @media (max-width: 699px) {
   /* The cut sign and a short fade say the rows go on. */
   .tabs .tab-row { mask-image: linear-gradient(to right, var(--ink) calc(100% - var(--sign-fade)), transparent); scroll-padding-inline: var(--edge); scroll-snap-type: x proximity; }
@@ -242,8 +242,9 @@ input { caret-color: var(--sign-red); }
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .row.center { justify-content: center; }
 .label { font-size: 0.88rem; color: var(--muted); min-width: 72px; }
-.field { border: 0; margin: 0 0 22px; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.field { border: 0; margin: 0 0 28px; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
 .field .label { padding: 0; font-weight: 600; color: var(--ink); font-size: 1rem; }
+.field label + .hint { margin-top: -6px; }
 .hint { margin: 0; font-size: 0.875rem; line-height: 1.4; color: var(--muted); }
 .choice-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
 .choice-grid .pill { justify-content: center; white-space: normal; padding: 6px 14px; }
@@ -283,16 +284,16 @@ main {
   .view-head .grocery-btn { min-height: 48px; }
 }
 .summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0; margin: 4px 0 8px; min-height: 44px; }
-/* Narrow phones: the count stays on one line beside the sort. */
-@media (max-width: 379px) { .summary .from { display: none; } }
+/* Phones: the count stays on one line beside the sort. */
+@media (max-width: 479px) { .summary .from { display: none; } }
 .summary p { color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; margin: 0; text-wrap: balance; }
 .sort select {
   appearance: none; border: 0; background: transparent; color: var(--ink); font-size: 0.88rem; font-weight: 600;
-  min-height: 44px; padding: 0 22px 0 8px; border-radius: 6px; cursor: pointer;
+  min-height: 44px; padding: 0 32px 0 14px; border: 2px solid var(--rule); border-radius: 999px; cursor: pointer;
 
 }
 .sort { position: relative; }
-.sort::after { content: ''; pointer-events: none; position: absolute; right: 2px; top: 50%; translate: 0 -50%; width: 18px; height: 18px; background: var(--ink); mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2356635a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E") center / contain no-repeat; }
+.sort::after { content: ''; pointer-events: none; position: absolute; right: 10px; top: 50%; translate: 0 -50%; width: 18px; height: 18px; background: var(--ink); mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2356635a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E") center / contain no-repeat; }
 .grocery-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap; border: 0; background: var(--green); color: var(--on-green); border-radius: 8px; font-weight: 650; min-height: 40px; padding: 0 16px; font-size: 0.88rem; font-weight: 600; }
 .status { text-align: center; color: var(--muted); padding: 48px 16px; }
 .status p { margin: 0 0 12px; }
@@ -331,7 +332,7 @@ main {
 .pick:focus-visible, .dock-return:focus-visible { outline-offset: 3px; }
 .pick-inline { display: none; }
 @media (min-width: 900px) {
-  .pick-inline { display: inline-flex; min-height: 44px; margin-left: auto; padding: 0 18px; font-size: 0.9rem; box-shadow: none; }
+  .pick-inline { display: inline-flex; flex: none; min-height: 44px; margin-left: auto; padding: 0 18px; font-size: 0.9rem; box-shadow: none; }
   .dock .pick { display: none; }
 }
 .pick, .dock-return { white-space: nowrap; }
@@ -441,6 +442,8 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
   position: sticky; bottom: 0; z-index: 1; margin: 8px -20px -28px; padding: 12px 20px calc(16px + env(safe-area-inset-bottom));
   display: flex; gap: 10px; align-items: center; justify-content: flex-end; background: var(--surface); border-top: 2px solid var(--rule);
 }
+/* Rows fade into the footer instead of being sliced by its rule. */
+.sheet-footer::before { content: ''; position: absolute; inset: auto 0 calc(100% + 2px); height: 20px; pointer-events: none; background: linear-gradient(to top, var(--surface), transparent); }
 .sheet-footer .cta { flex: 1; border: 0; min-height: 48px; font-size: 1rem; }
 .cta.none { background: transparent; color: var(--ink); border: 2px solid var(--rule); font-family: var(--body); font-weight: 600; }
 .hero { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); margin-bottom: 14px; display: block; }
