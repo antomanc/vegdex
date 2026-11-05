@@ -97,12 +97,12 @@ input { caret-color: var(--sign-red); }
 .top {
   position: sticky; top: 0; z-index: 5;
   background: var(--paper);
-  padding: 10px var(--edge) 12px;
+  padding: 6px var(--edge) 10px;
   border-bottom: 3px solid var(--rule);
 }
 /* Phones: scrolling leaves only the search pinned; Back to top is one tap away. */
-@media (max-width: 699px) { .top { top: -64px; } }
-.brand-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; max-width: 1200px; margin: 0 auto 10px; }
+@media (max-width: 699px) { .top { top: -56px; } }
+.brand-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; max-width: 1200px; margin: 0 auto 6px; }
 .brand-h { margin: 0; font-size: inherit; }
 .brand {
   display: flex; align-items: center; gap: 8px; min-height: 40px;
@@ -146,7 +146,7 @@ input { caret-color: var(--sign-red); }
 .search { position: relative; display: block; max-width: 1200px; margin: 0 auto; }
 .search .icon { position: absolute; left: 14px; top: 50%; translate: 0 -50%; color: var(--ink); pointer-events: none; }
 .search input {
-  width: 100%; padding: 11px 16px 11px 42px; border-radius: 8px; border: 2px solid var(--rule);
+  width: 100%; min-height: 44px; padding: 8px 16px 8px 42px; border-radius: 8px; border: 2px solid var(--rule);
   background: var(--surface); font-size: 1rem;
 }
 .search input:focus-visible { outline-offset: 0; border-color: var(--green); outline-width: 2px; }
@@ -213,7 +213,7 @@ input { caret-color: var(--sign-red); }
 .pill.tonight:not(.on) { background: var(--surface); border-color: var(--rule); color: var(--ink); }
 
 /* Signs: flavor and courses lettered on boards hung over the stall. */
-.tabs { margin: 10px 0 8px; }
+.tabs { margin: 8px 0 6px; }
 .tab-row { display: flex; gap: 8px; align-items: center; overflow-x: auto; padding: 0 var(--edge); max-width: calc(1200px + 2 * var(--edge)); margin: 0 auto; scrollbar-width: none; }
 .tab-row::-webkit-scrollbar { display: none; }
 .tab {
@@ -280,10 +280,10 @@ main {
 .view-head h2 { font-family: var(--display); font-size: 1.4rem; font-weight: 400; line-height: 1.15; margin: 0; }
 /* Phones: the heading takes its row, the shopping list a full-width button under it. */
 @media (max-width: 479px) {
-  .view-head { flex-direction: column; align-items: stretch; gap: 10px; }
+  .view-head { flex-direction: column; align-items: stretch; gap: 14px; }
   .view-head .grocery-btn { min-height: 48px; }
 }
-.summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0; margin: 4px 0 8px; min-height: 44px; }
+.summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0; margin: 2px 0 6px; min-height: 44px; }
 /* Phones: the count stays on one line beside the sort. */
 @media (max-width: 479px) { .summary .from { display: none; } }
 .summary p { color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; margin: 0; text-wrap: balance; }
@@ -618,7 +618,7 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
 .servings-row { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; }
 p.small.scale-note { margin: 0 0 10px; }
 .not-scaled { font-size: 0.8em; }
-.device-hint { margin: 0; padding: 0; color: var(--muted); font-size: 0.875rem; line-height: 1.45; text-wrap: balance; }
+.device-hint { margin: 10px 0 0; padding: 0; color: var(--muted); font-size: 0.875rem; line-height: 1.45; text-wrap: balance; }
 
 .amounts .title input { vertical-align: middle; margin-right: 4px; }
 
