@@ -1742,8 +1742,13 @@
       "en": "900 g sweet potatoes",
       "it": "900 g di patate dolci",
       "source": "makeitdairyfree",
-      "status": "unreviewed",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "900 g sweet potatoes, peeled, cubed",
+        "it": "900 g di patate dolci, sbucciate e tagliate a cubetti"
+      }
     },
     {
       "line": "50 g / 2 oz rocket / arugula",
@@ -2318,8 +2323,13 @@
       "en": "≈ 900 g frozen blueberries",
       "it": "≈ 900 g di mirtilli surgelati",
       "source": "noracooks",
-      "status": "unreviewed",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "≈ 900 g fresh or frozen blueberries",
+        "it": "≈ 900 g di mirtilli freschi o surgelati"
+      }
     },
     {
       "line": "6 tbsp. vegan butter, (I use Miyoko's)",
@@ -3004,8 +3014,13 @@
       "en": "680 g spaghetti sauce",
       "it": "680 g di sugo per spaghetti",
       "source": "thehiddenveggies",
-      "status": "unreviewed",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "E",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "680 g spaghetti sauce",
+        "it": "680 g di salsa di pomodoro per pasta"
+      }
     },
     {
       "line": "1 ½ cups of bbq sauce",
@@ -3693,8 +3708,13 @@
       "en": "340 g frozen blueberries",
       "it": "340 g di mirtilli surgelati",
       "source": "frommybowl",
-      "status": "unreviewed",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "340 g fresh or frozen blueberries",
+        "it": "340 g di mirtilli freschi o surgelati"
+      }
     },
     {
       "line": "2-4 tbsp olive oil",
@@ -4278,8 +4298,13 @@
       "en": "¼ tsp cardamom powder or spice",
       "it": "¼ cucchiaino di cardamomo o spezie",
       "source": "veganricha",
-      "status": "unreviewed",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "¼ tsp cardamom powder or spice of choice",
+        "it": "¼ cucchiaino di cardamomo in polvere o spezia a piacere"
+      }
     },
     {
       "line": "1/2 small white onion, peeled and roughly chopped",
@@ -4402,8 +4427,13 @@
       "en": "≈ 4 g Fresh Mint or Basil leaves, Optional",
       "it": "≈ 4 g di menta o foglie di basilico fresche, facoltative",
       "source": "frommybowl",
-      "status": "unreviewed",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "≈ 4 g fresh mint or basil leaves, optional",
+        "it": "≈ 4 g di foglie fresche di menta o basilico, facoltative"
+      }
     },
     {
       "line": "1 cup full-fat coconut milk (or vegan cooking cream)",
@@ -5229,7 +5259,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "1 can (425 g) coconut milk, light or full-fat",
-        "it": "1 lattina (425 g) di latte di cocco leggero o intero"
+        "it": "1 lattina (425 g) di latte di cocco light o intero"
       }
     },
     {
@@ -5599,8 +5629,13 @@
       "en": "4 cloves garlic",
       "it": "4 spicchi di aglio",
       "source": "holycowvegan",
-      "status": "unreviewed",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "F",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "4 cloves garlic, thinly sliced or minced",
+        "it": "4 spicchi d'aglio, affettati finemente o tritati"
+      }
     },
     {
       "line": "Small round decorating tip for snowmen noses ((I used Wilton #3 tip))",
@@ -6587,7 +6622,7 @@
       "reviewNeeded": false,
       "expected": {
         "en": "2 medium Russet potatoes, peeled and cut into ½-inch pieces",
-        "it": "2 patate da forno medie, sbucciate e tagliate a pezzi"
+        "it": "2 patate farinose medie, sbucciate e tagliate a pezzi"
       }
     },
     {
@@ -7363,7 +7398,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "1 recipe vegan biscuits",
-        "it": "1 ricetta di biscotti vegani"
+        "it": "1 ricetta di focaccine vegane"
       }
     },
     {
@@ -7495,7 +7530,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "12 vegan biscuits",
-        "it": "12 biscotti vegani"
+        "it": "12 focaccine vegane"
       }
     },
     {
@@ -7630,7 +7665,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "18 vegan chocolate sandwich cookies, crushed",
-        "it": "18 biscotti vegani al cioccolato, schiacciati"
+        "it": "18 biscotti vegani farciti al cioccolato, sbriciolati"
       }
     },
     {
@@ -7656,7 +7691,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "18 vegan oreo cookies",
-        "it": "18 biscotti vegani al cioccolato"
+        "it": "18 biscotti vegani farciti al cioccolato"
       }
     },
     {
@@ -7765,7 +7800,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "200 g vegan oreos",
-        "it": "200 g di biscotti vegani al cioccolato"
+        "it": "200 g di biscotti vegani farciti al cioccolato"
       }
     },
     {
@@ -7791,7 +7826,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "24 vegan chocolate sandwich cookies",
-        "it": "24 biscotti vegani al cioccolato"
+        "it": "24 biscotti vegani farciti al cioccolato"
       }
     },
     {
@@ -7817,7 +7852,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "24 vegan chocolate sandwich cookies",
-        "it": "24 biscotti vegani al cioccolato"
+        "it": "24 biscotti vegani farciti al cioccolato"
       }
     },
     {
@@ -7843,7 +7878,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "319 g coconut or oat sweetened condensed milk",
-        "it": "319 g di latte condensato dolce di cocco o avena"
+        "it": "319 g di latte condensato zuccherato di cocco o avena"
       }
     },
     {
@@ -8068,7 +8103,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "≈ 360 ml unflavored soy or almond milk",
-        "it": "≈ 360 ml di latte di soia o latte di mandorla non aromatizzati"
+        "it": "≈ 360 ml di latte di soia o latte di mandorla al naturale"
       }
     },
     {
@@ -8163,7 +8198,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "≈ 360 ml unsweetened unflavored soy, almond or cashew milk",
-        "it": "≈ 360 ml di latte di soia, mandorla o anacardi senza zucchero e non aromatizzato"
+        "it": "≈ 360 ml di latte di soia, mandorla o anacardi senza zucchero e al naturale"
       }
     },
     {
@@ -8225,7 +8260,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "≈ 320 ml unflavored soy or almond milk, room temperature",
-        "it": "≈ 320 ml di latte di soia o latte di mandorla non aromatizzati, a temperatura ambiente"
+        "it": "≈ 320 ml di latte di soia o latte di mandorla al naturale, a temperatura ambiente"
       }
     },
     {
@@ -8257,7 +8292,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "≈ 300 g unflavored soy or almond milk",
-        "it": "≈ 300 ml di latte di soia o latte di mandorla non aromatizzati"
+        "it": "≈ 300 ml di latte di soia o latte di mandorla al naturale"
       }
     },
     {
@@ -8293,7 +8328,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "≈ 300 ml unflavored soy or almond milk, divided",
-        "it": "≈ 300 ml di latte di soia o latte di mandorla non aromatizzati, da dividere"
+        "it": "≈ 300 ml di latte di soia o latte di mandorla al naturale, da dividere"
       }
     },
     {
@@ -8941,7 +8976,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "Toppings of choice: carrot, mushrooms, green onion, sesame seeds, bok choy, nori, tofu, seitan, shelled edamame, Thai basil or corn kernels",
-        "it": "Toppings a piacere: carota, funghi, cipollotto, semi di sesamo, bok choy, nori, tofu, seitan, edamame sgusciati, basilico thai o chicchi di mais"
+        "it": "Condimenti a piacere: carota, funghi, cipollotto, semi di sesamo, bok choy, nori, tofu, seitan, edamame sgusciati, basilico thai o chicchi di mais"
       }
     },
     {
@@ -9068,7 +9103,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "≈ 245 g cooked chickpeas or 1 can (425 g)",
-        "it": "≈ 245 g di ceci cotti o 1 lattina (425 g)"
+        "it": "≈ 245 g di ceci cotti o 1 lattina (425 g), scolati, sciacquati e asciugati"
       }
     },
     {
@@ -9121,7 +9156,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "575 g mixed mushrooms, torn or sliced",
-        "it": "575 g di funghi misti, strappati o affettati"
+        "it": "575 g di funghi misti, spezzettati o affettati"
       }
     },
     {
@@ -9157,8 +9192,13 @@
       "en": "24 g fresh soft herbs, chopped",
       "it": "24 g di erbe aromatiche fresche morbide, tritate",
       "source": "rainbowplantlife",
-      "status": "ok",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "E",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "24 g fresh soft herbs, chopped",
+        "it": "24 g di erbe aromatiche fresche, tritate"
+      }
     },
     {
       "line": "1 14 ounce package extra firm tofu, drained, pressed, and cut into 1-inch cubes",
@@ -9257,7 +9297,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "800 g Russet potatoes, scrubbed, peeled and cut into 1-inch pieces",
-        "it": "800 g di patate da forno, spazzolate, sbucciate e tagliate a pezzi"
+        "it": "800 g di patate farinose, spazzolate, sbucciate e tagliate a pezzi"
       }
     },
     {
@@ -9283,7 +9323,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "1 baguette, cut into 4 sections, or 4 long sandwich rolls",
-        "it": "1 baguette, tagliata in 4 parti, o 4 panini lunghi"
+        "it": "1 baguette, tagliata in 4 parti, o 4 panini lunghi, tagliati a metà"
       }
     },
     {
@@ -9503,7 +9543,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "1 head butter lettuce",
-        "it": "1 cespo di lattuga burrosa"
+        "it": "1 cespo di lattuga cappuccina"
       }
     },
     {
@@ -9529,7 +9569,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "1 head butter lettuce",
-        "it": "1 cespo di lattuga burrosa"
+        "it": "1 cespo di lattuga cappuccina, a foglie separate"
       }
     },
     {
@@ -9555,7 +9595,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "1 head butter lettuce",
-        "it": "1 cespo di lattuga burrosa"
+        "it": "1 cespo di lattuga cappuccina, a foglie separate"
       }
     },
     {
@@ -9607,7 +9647,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "1 head cabbage",
-        "it": "1 cespo di cavolo"
+        "it": "1 cespo di cavolo, tagliato grossolanamente a dadini"
       }
     },
     {
@@ -9659,7 +9699,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "1 head cauliflower",
-        "it": "1 cespo di cavolfiore"
+        "it": "1 cespo di cavolfiore, diviso in cimette"
       }
     },
     {
@@ -9685,7 +9725,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "1 head cauliflower",
-        "it": "1 cespo di cavolfiore"
+        "it": "1 cespo grande di cavolfiore"
       }
     },
     {
@@ -9711,7 +9751,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "1 head cauliflower",
-        "it": "1 cespo di cavolfiore"
+        "it": "1 cespo (450 g) di cavolfiore, diviso in cimette"
       }
     },
     {
@@ -9789,7 +9829,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "1 head cauliflower",
-        "it": "1 cespo di cavolfiore"
+        "it": "1 cespo di cavolfiore, tagliato a cimette"
       }
     },
     {
@@ -9877,7 +9917,7 @@
       "reviewNeeded": true,
       "expected": {
         "en": "1 head cauliflower",
-        "it": "1 cespo di cavolfiore"
+        "it": "1 cespo di cavolfiore, a pezzetti"
       }
     },
     {
@@ -11239,8 +11279,13 @@
       "en": "200 g flour type 0",
       "it": "200 g di farina tipo 0",
       "source": "cucinaverza",
-      "status": "unreviewed",
-      "reviewNeeded": true
+      "status": "known-bad",
+      "class": "C",
+      "reviewNeeded": true,
+      "expected": {
+        "en": "200 g flour type 0 or 1",
+        "it": "200 g di farina tipo 0 o tipo 1"
+      }
     },
     {
       "line": "50 g mandorle (con la pellicina, tagliate al coltellogrossolanamente)",
