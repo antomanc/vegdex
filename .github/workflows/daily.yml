@@ -67,6 +67,8 @@ jobs:
           BASE_PATH: /
           # Cloudflare Web Analytics site token (a repository variable); without it no beacon is added.
           CF_ANALYTICS_TOKEN: ${{ vars.CF_ANALYTICS_TOKEN }}
+          # GoatCounter site code (a repository variable); without it no creator-link event script is added.
+          GOATCOUNTER_SITE: ${{ vars.GOATCOUNTER_SITE }}
 
       - uses: actions/upload-pages-artifact@v4
         with:

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { saveFeedback } from './save-feedback'
   import { untrack } from 'svelte'
+  import { countCook } from './analytics'
   import { display, recipeTitle, titleLang } from './translations.svelte'
   import { isHiddenLine, lineParts, renderIngredient, scaleIngredient, type CatalogRecipe, type ParsedLine } from '@vegdex/core'
   import { loadDetails } from './data'
@@ -228,7 +229,7 @@
         </button>
         <span class="visually-hidden" role="status">{copied ? m.link_copied() : ''}</span>
       </div>
-      <a class="cta" href={recipe.url} target="_blank" rel="noopener">
+      <a class="cta" href={recipe.url} target="_blank" rel="noopener" onclick={() => countCook(recipe.source)} onauxclick={(e) => e.button === 1 && countCook(recipe.source)}>
         <span>{m.cook_on({ source: sourceName })}&nbsp;<Icon name="external" size={16} /></span>
       </a>
     </div>
