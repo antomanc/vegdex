@@ -1,5 +1,7 @@
 // Regenerate: pnpm ingest emit && pnpm build; serve apps/web/dist on :4173,
-// then pnpm share-card. Requires real crawl data and publisher images.
+// then pnpm share-card. Requires real crawl data.
+// This PNG is hosted here, so publisher photos stay out of it: their requests are refused
+// and the cards show the leaf placeholder. Photos only ever load from the publisher.
 // PNG compression requires Pillow (uv pip install pillow); set PYTHON for a venv.
 import { chromium } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
@@ -12,13 +14,12 @@ try {
     ['it', '/it/', 'Trova ricette per ingredienti e tempo.', 'Dai blog interamente vegani.']
   ]) {
     const page = await browser.newPage({ viewport: { width: 430, height: 780 }, deviceScaleFactor: 1, colorScheme: 'light', serviceWorkers: 'block' });
+    await page.route((url) => url.hostname !== 'localhost', (route) => route.abort());
     await page.goto(`http://localhost:4173${path}`);
     await page.getByTestId('recipe-card').first().waitFor();
     await page.waitForFunction(() => !/Loading recipes|Caricamento ricette/.test(document.body.innerText));
-    await page.evaluate(async () => {
-      await document.fonts.ready;
-      await Promise.all([...document.querySelectorAll('[data-testid="recipe-card"] img')].slice(0, 4).map(img => img.decode()));
-    });
+    await page.evaluate(() => document.fonts.ready);
+    await page.waitForFunction(() => [...document.querySelectorAll('[data-testid="recipe-card"]')].slice(0, 4).every(card => !card.querySelector('img')));
     const shot = await page.screenshot();
     const font = await page.evaluate(() => [...document.styleSheets].flatMap(sheet => { try { return [...sheet.cssRules].map(rule => rule.cssText); } catch { return []; } }).filter(rule => rule.startsWith('@font-face')).join('\n'));
     const card = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });

@@ -23,6 +23,7 @@
   import LanguageSuggestion from './lib/LanguageSuggestion.svelte'
 
   const PAGE = 48
+  const REMOVAL_URL = `mailto:hello@antomanc.com?subject=${encodeURIComponent('vegdex removal request')}&body=${encodeURIComponent('Blog or recipe links:\n\nWhat should go (a photo, a recipe or the whole blog):\n')}`
   // Past this many, more recipes load on request, so the credits at the bottom can be reached.
   const AUTO_LIMIT = PAGE * 4
   // Cards in the first rows on a phone or a wide screen.
@@ -422,7 +423,7 @@
       {m.credits(countArgs(loaded!.sources.length))}
       {m.credits_updated({ date: new Date(loaded!.generatedAt).toLocaleDateString(pageLocale.intl) })}
       <div>{m.dictionary_credit()} <a href="https://world.openfoodfacts.org/">Open Food Facts</a> <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> <a href="{import.meta.env.BASE_URL}data/dictionary.json">{m.dictionary_tables()}</a></div>
-      <div><a href="https://github.com/antomanc/vegdex">{m.open_source()}</a></div>
+      <div><a href="https://github.com/antomanc/vegdex">{m.open_source()}</a> <a href={REMOVAL_URL}>{m.request_removal()}</a></div>
       <div class="row center">
         {#each LOCALES.filter((locale) => locale.code !== pageLocale.code) as locale (locale.code)}
           {#if isLocale(locale.code)}

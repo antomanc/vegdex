@@ -56,6 +56,8 @@ test('the keyboard walks the list, Enter picks, and Escape closes it without clo
   const have = page.getByRole('combobox', { name: 'Must include' });
 
   await have.fill('to');
+  // The arrows only walk a list that has arrived.
+  await expect(page.getByRole('dialog').getByRole('option', { name: 'tomato' })).toBeVisible();
   await have.press('ArrowDown');
   await have.press('ArrowDown');
   await expect(page.getByRole('dialog').getByRole('option', { name: 'tomato' })).toHaveAttribute('aria-selected', 'true');
