@@ -161,7 +161,7 @@
         {#each diet as b (b)}<li>{b}</li>{/each}
         {#each cuisines as b (b)}<li class="cuisine">{b}</li>{/each}
       </ul>
-      <p class="muted small">{m.diet_note()}</p>
+      <p class="muted small">{m.diet_note_recipe()}</p>
     {/if}
     </div>
 

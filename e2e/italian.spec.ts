@@ -61,7 +61,7 @@ test('recipe details and the source shelf read in Italian', async ({ page }) => 
   await expect(sheet.locator('.rating')).toContainText('4,8');
   await expect(sheet.getByText('(120 valutazioni)', { exact: true })).toBeVisible();
   await expect(sheet.getByText('Ricche di proteine', { exact: true })).toBeVisible();
-  await expect(sheet.getByRole('link', { name: 'Cucina la ricetta su Vegan Richa', exact: true })).toBeVisible();
+  await expect(sheet.getByRole('link', { name: 'Cucina su Vegan Richa', exact: true })).toBeVisible();
   await expect(sheet.getByText('Procedimento, foto e consigli sono su Vegan Richa. Visitare il blog sostiene chi crea le ricette.', { exact: true })).toBeVisible();
   await sheet.getByRole('button', { name: 'Vegan Richa: tutte le ricette', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Vegan Richa', exact: true })).toBeVisible();

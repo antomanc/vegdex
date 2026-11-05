@@ -29,7 +29,7 @@ test('Italian titles preserve source titles and appear in saved recipes and the 
   const sheet = page.getByRole('dialog');
   await expect(sheet.getByRole('heading', { name: 'Pancake vegani soffici', exact: true })).toBeVisible();
   await expect(sheet.getByText('Fluffy Vegan Pancakes', { exact: true })).toBeVisible();
-  await expect(sheet.getByRole('link', { name: /Cucina la ricetta su/ })).toHaveAttribute('href', 'https://example.com/pancakes/');
+  await expect(sheet.getByRole('link', { name: /Cucina su/ })).toHaveAttribute('href', 'https://example.com/pancakes/');
   await page.getByRole('button', { name: 'Chiudi', exact: true }).click();
   await page.getByRole('button', { name: /Salvate/ }).first().click();
   await expect(page.getByRole('button', { name: 'Pancake vegani soffici', exact: true })).toBeVisible();

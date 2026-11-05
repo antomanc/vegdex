@@ -300,10 +300,10 @@ main {
 .status.empty { padding-top: 32px; }
 .status.empty > p { color: var(--ink); font-size: 1rem; max-width: 34ch; margin: 0 auto 16px; text-wrap: balance; }
 .loosen {
-  display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 18px; margin-bottom: 6px;
-  border: 2px solid var(--green); border-radius: 6px; background: var(--surface); color: var(--green); font-weight: 600;
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; min-height: 56px; padding: 6px 24px; margin-bottom: 6px;
+  border: 0; border-radius: 8px; background: var(--green); color: var(--on-green); font-weight: 650;
 }
-.loosen .n { font-weight: 400; color: var(--muted); font-variant-numeric: tabular-nums; }
+.loosen .n { font-size: 0.875rem; font-weight: 450; font-variant-numeric: tabular-nums; }
 .text-btn { border: 0; background: none; padding: 8px 10px; min-height: 44px; color: var(--ink); font-weight: 600; font-size: 0.88rem; text-decoration: underline; text-underline-offset: 3px; }
 .text-btn:disabled { text-decoration: none; }
 .text-btn:disabled { color: var(--muted); }
@@ -562,7 +562,7 @@ p.small a { color: var(--green); text-underline-offset: 3px; }
   .cta:hover, .grocery-btn:hover { filter: brightness(1.12); }
   .btn-sm:hover { border-color: var(--green); }
   .text-btn:not(:disabled):hover { color: var(--green); }
-  .loosen:hover { background: var(--green-soft); }
+  .loosen:hover { filter: brightness(1.12); }
   .heart:hover { color: var(--sign-red); }
   .tab:not(.on):hover { border-color: var(--green); color: var(--green); }
   .pick:hover { filter: brightness(1.12); }
