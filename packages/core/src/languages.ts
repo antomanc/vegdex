@@ -8,6 +8,8 @@ export interface LanguagePack {
   or: string;
   /** "about 2 cups", "circa 2 tazze". */
   about: string;
+  /** "circa 1 litro d'acqua": the word before an amount that means "about". */
+  circa?: RegExp;
   /** Genders that preparation terms agree with; absent when they don't agree. */
   genders?: Gender[];
   /** "large carrots": descriptive words come before the noun; otherwise after it ("carote grandi"). */
@@ -17,7 +19,11 @@ export interface LanguagePack {
   /** Units that count pieces of the ingredient, by gender: notes agree with them ("4 spicchi di aglio, tritati"). */
   countUnits?: Record<string, Gender>;
   units?: Record<string, string>;
+  /** "cucchiaino colmo", "a testa": how full a spoon is, or per person, written after the unit. */
+  fillNote?: RegExp;
   numberWords?: Record<string, number>;
+  /** "oppure" → "o", "il succo di mezzo limone" → "mezzo limone": shapes rewritten so the parser reads them. */
+  shapes?: (text: string, leading: string[]) => string;
   preposition?: RegExp;
   trailingNote?: RegExp;
   nonIngredient?: RegExp;
@@ -33,12 +39,34 @@ export interface LanguagePack {
   ingredientRisks?: { nuts: RegExp; soy: RegExp; oil: RegExp; gluten: RegExp };
 }
 
+/**
+ * Italian shapes rewritten to ones the parser reads, with what they said moved to `leading` notes:
+ * "il succo di mezzo limone" → "mezzo limone" (juiced), "qualche foglia di salvia" → "salvia" (to taste),
+ * "farina di tipo 0, 1 o 2" → "farina 0", "un bel pizzico" → "un pizzico", "oppure" → "o".
+ */
+function italianShapes(text: string, leading: string[]): string {
+  let s = text.replace(/(?<!\p{L})oppure(?!\p{L})/giu, 'o');
+  const part = s.match(/^(?:(?:il|la)\s+|un\s+cucchiaino\s+(?:di\s+|della\s+))?(succo|scorza)(?:\s+grattugiata)?\s+(?:di|del|della)\s+(un[oa]?|mezz[oa]|1\/2|\d+(?:[.,]\d+)?)\s+(limon[ei]|lim[ei]|arance?|aranc[ia]a)\b(?:\s+(?:bio(?:logic[oaie])?|non\s+trattat[oaie]))?\s*/iu);
+  if (part && !/^(?:\+|,|e\s)/.test(s.slice(part[0].length))) {
+    leading.push(part[1]!.toLowerCase() === 'succo' ? 'spremuto' : 'solo la scorza');
+    s = `${part[2]} ${part[3]}${s.slice(part[0].length) ? ` ${s.slice(part[0].length)}` : ''}`;
+  }
+  const few = s.match(/^qualche\s+(?:(?:foglia|fogliolina|rametto|goccia|chicco|ciuffo)\s+(?:di\s+|d['’]\s*)?)?/i);
+  if (few) {
+    leading.push('quanto basta');
+    s = s.slice(few[0].length);
+  }
+  s = s.replace(/\bfarina\s+(?:bianca\s+)?(?:di\s+)?tipo\s+(00|0|1|2)\b(?:\s*(?:,|o)\s*(?:(?:la\s+)?tipo\s+)?(?:00|0|1|2|integrale)\b)*/i, (_, type: string) => `farina tipo ${type}`);
+  return s.replace(/^(un[oa]?|1)\s+(?:bel|buon|grande|abbondante)\s+(?=pizzic|mazzett|manciat)/i, '$1 ');
+}
+
 export const languagePacks: Record<string, LanguagePack> = {
   en: { and: 'and', or: 'or', about: 'about', adjectivesFirst: true },
   it: {
     and: 'e',
     or: 'o',
     about: 'circa',
+    circa: /^circa\s+(?=\d|un[oa']?\s|mezz[oa]\s)/i,
     genders: ['m', 'f'],
     unitLink: 'di',
     countUnits: { clove: 'm', slice: 'f', piece: 'm', stalk: 'm', head: 'm' },
@@ -56,6 +84,8 @@ export const languagePacks: Record<string, LanguagePack> = {
       rametto: 'sprig', rametti: 'sprig', centimetro: 'cm', centimetri: 'cm'
     },
     numberWords: { un: 1, uno: 1, una: 1, due: 2, tre: 3, quattro: 4, cinque: 5, sei: 6, mezzo: 0.5, mezza: 0.5 },
+    fillNote: /^(colm[oaie]|abbondant[ei]|ras[oaie]|scars[oaie]|grand[ei]|piccol[oaie]|a testa|circa)\s+/i,
+    shapes: italianShapes,
     preposition: /^(?:di\s+|d['’]\s*)/i,
     trailingNote: /\s+((?:(?:già|ben)\s+)?(?:(?:(?:pre)?cott[oaie]|scolat[oaie]|sciacquat[oaie]|tritat[oaie]|tagliat[oaie]|sbucciat[oaie]|grattugiat[oaie]|facoltativ[oaie]|bio(?:logic[oaie])?|da\s+\d|pesat[oaie]|ammollat[oaie]|divis[oaie]|sciolt[oaie]|spremut[oaie]|meglio\s+se|circa|a\s+(?:piacere|scelta|pezzi|rondelle|bastoncino|straccetti)|di\s+(?:medie|grandi|piccole)\s+dimensioni|per\s+(?:decorare|guarnire|servire|impanare|finire|completare|rivestire|allungare|aiutarsi|la|il|le|lo|i|gli)\b|come\s+quest[oa])(?![a-zà-ù]).*)|q\.?\s*b\.?(?:\s+per\s.*)?|quanto basta|\+\s+q\.?\s*b\.?(?:\s+ma comunque meno possibile)?)$/i,
     nonIngredient: /^(?:per (?:servire|guarnire|la decorazione)|nota|note|consiglio)\b/i,
