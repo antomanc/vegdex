@@ -5,6 +5,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 import { lineKey, validateRecord, type LineRecord, type Recipe, type Source } from '@vegdex/core';
 import { answerLines, modelConfig } from './enrich';
@@ -164,37 +165,39 @@ export async function fillLines(options: FillOptions): Promise<FillSummary> {
   return { missing: missing.length, shown: capped.length, accepted: report.accepted, skipped: report.skipped, rejected: report.rejected };
 }
 
-const { values } = parseArgs({ options: {
-  store: { type: 'string', default: path.join(root, '.data/store.json.gz') },
-  records: { type: 'string', default: lineStoreDirectory },
-  'dry-run': { type: 'boolean' },
-  limit: { type: 'string', default: '500' },
-  answers: { type: 'string' },
-  help: { type: 'boolean' }
-} });
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+  const { values } = parseArgs({ options: {
+    store: { type: 'string', default: path.join(root, '.data/store.json.gz') },
+    records: { type: 'string', default: lineStoreDirectory },
+    'dry-run': { type: 'boolean' },
+    limit: { type: 'string', default: '500' },
+    answers: { type: 'string' },
+    help: { type: 'boolean' }
+  } });
 
-async function main() {
-  const limit = Number(values.limit ?? 500);
-  if (values['dry-run'] || values.answers) {
-    await fillLines({ store: values.store!, records: values.records!, limit, dryRun: values['dry-run'] ?? false, answers: values.answers, model: process.env.ENRICH_MODEL ?? 'agent' });
-    return;
+  async function main() {
+    const limit = Number(values.limit ?? 500);
+    if (values['dry-run'] || values.answers) {
+      await fillLines({ store: values.store!, records: values.records!, limit, dryRun: values['dry-run'] ?? false, answers: values.answers, model: process.env.ENRICH_MODEL ?? 'agent' });
+      return;
+    }
+    const config = modelConfig();
+    const instructions = fs.readFileSync(new URL('../data/line-prompt.md', import.meta.url), 'utf8');
+    await fillLines({ store: values.store!, records: values.records!, limit, dryRun: false, model: config.model, ask: (rows) => answerLines(config, instructions, rows) });
   }
-  const config = modelConfig();
-  const instructions = fs.readFileSync(new URL('../data/line-prompt.md', import.meta.url), 'utf8');
-  await fillLines({ store: values.store!, records: values.records!, limit, dryRun: false, model: config.model, ask: (rows) => answerLines(config, instructions, rows) });
-}
 
-if (values.help) {
-  console.log(`Give new ingredient lines records (see docs/agents/vocabulary.md):
-  pnpm lines:fill [--store .data/store.json.gz] [--records packages/ingest/data/lines]
-  pnpm lines:fill --dry-run                 print the lines with no record and write nothing
-  pnpm lines:fill --limit 500               cap lines per run (a spending cap), default 500
-  pnpm lines:fill --answers file.jsonl      apply JSONL answers instead of calling the endpoint
-The endpoint is ENRICH_BASE_URL / ENRICH_MODEL (ENRICH_API_KEY optional), the same as pnpm enrich.`);
-} else {
-  try { await main(); }
-  catch (error) {
-    console.error(error instanceof Error && !/ENRICH|fetch/i.test(error.stack ?? '') ? error.message : 'Failed. Check ENRICH_BASE_URL / ENRICH_MODEL.');
-    process.exitCode = 1;
+  if (values.help) {
+    console.log(`Give new ingredient lines records (see docs/agents/vocabulary.md):
+    pnpm lines:fill [--store .data/store.json.gz] [--records packages/ingest/data/lines]
+    pnpm lines:fill --dry-run                 print the lines with no record and write nothing
+    pnpm lines:fill --limit 500               cap lines per run (a spending cap), default 500
+    pnpm lines:fill --answers file.jsonl      apply JSONL answers instead of calling the endpoint
+  The endpoint is ENRICH_BASE_URL / ENRICH_MODEL (ENRICH_API_KEY optional), the same as pnpm enrich.`);
+  } else {
+    try { await main(); }
+    catch (error) {
+      console.error(error instanceof Error && !/ENRICH|fetch/i.test(error.stack ?? '') ? error.message : 'Failed. Check ENRICH_BASE_URL / ENRICH_MODEL.');
+      process.exitCode = 1;
+    }
   }
 }
