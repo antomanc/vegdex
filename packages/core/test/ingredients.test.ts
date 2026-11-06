@@ -48,7 +48,8 @@ describe('parseIngredient', () => {
     ['1 (14 ounce/400 gram) package extra firm tofu', 400],
     ['2 cans pumpkin puree (15-ounces each) (850g)', 850],
     ['2 cans (15 oz / 425g each) butter beans', 850],
-    ['2 (400g total) packages firm tofu', 400]
+    ['2 (400g total) packages firm tofu', 400],
+    ['3 15-ounce cans (425g) great northern beans', 1275]
   ])('keeps package metric weights: %s', (line, quantity) => {
     expect(parseIngredient(line).metric).toEqual({ quantity, unit: 'g' });
     expect(toMetric(parseIngredient(line))?.quantity).toBe(quantity);

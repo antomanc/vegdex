@@ -50,7 +50,7 @@ const PIECE_OF_RE = /^(?:pieces?|knobs?|chunks?|slices?)\s+(?:of\s+)?(?=\p{L})/i
 const PACK_COUNT_RE = /^\d+\s+(?=\p{L})/u;
 const EACH_RE = /\beach\b/i;
 const TOTAL_RE = /\btotal\b/i;
-const METRIC_RANGE_RE = /(\d+(?:[.,]\d+)?)\s*[-–]\s*(\d+(?:[.,]\d+)?)\s*(g|grams?|kg|ml|l)\b/i;
+const METRIC_RANGE_RE = /(\d+(?:[.,]\d+)?)\s*(?:-|–|to)\s*(\d+(?:[.,]\d+)?)\s*(g|grams?|kg|ml|l)\b/i;
 const NESTED_RANGE_NAME_RE = /^\(\([^)]*\)\s*\p{L}/u;
 const RANGE_BRACKET_RE = /\(\s*((?:~|about\s+)?\d+\s*[-–]\s*\d+\s*(?:g|grams?|kg|ml|l))\s*\)/i;
 const ADDED_TOTAL_RE = /(?:\+|plus)\s*([\d /.,]+)\s*(cups?|tablespoons?|tbsp|teaspoons?|tsp)\s*(?:\/|\()\s*(\d+(?:[.,]\d+)?\s*(?:ml|milliliters?)\b)/i;
@@ -265,6 +265,12 @@ function readMetric(input: Pick<AmountResult, 'text' | 'unit' | 'sizeNote' | 'qu
   const metricSource = altMeasure || (unit && ['cup', 'tbsp', 'tsp', 'oz', 'lb'].includes(unit) ? sizeNote : '');
   let metric = parenMetric ?? (metricSource ? extractMetric(metricSource) : null);
   if (metric && paren && unit && CONTAINER_RE.test(unit) && EACH_RE.test(paren[1]!) && quantity !== null) metric = { ...metric, quantity: metric.quantity * quantity };
+  const sizeAmount = sizeNote.match(QTY_RE);
+  const sizeToken = sizeAmount ? sizeNote.slice(sizeAmount[0].length).replace(HYPHEN_JOIN_RE, '').match(UNIT_RE) : null;
+  const sizeDef = sizeToken ? lookupUnit(sizeToken[1]!) : undefined;
+  const packageGrams = sizeAmount && sizeDef?.dimension === 'mass' ? parseNumber(sizeAmount[1]!) * sizeDef.factor : null;
+  if (unit && CONTAINER_RE.test(unit) && parenMetric?.unit === 'g' && metric && quantity !== null && packageGrams && !TOTAL_RE.test(paren![1]!) && !EACH_RE.test(paren![1]!)
+    && Math.abs(parenMetric.quantity / packageGrams - 1) < 0.1) metric = { ...metric, quantity: parenMetric.quantity * quantity };
   let afterMeasure = unit ? (parenMetric ? text.slice(paren![0].length) : text) : null;
   // "2 cups flour (280g)": a parenthetical that is only a metric amount, after the name.
   const dim = unit ? unitDef(unit)?.dimension : undefined;
