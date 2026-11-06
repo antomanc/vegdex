@@ -40,6 +40,10 @@ describe('parseIngredient', () => {
     if (metric) expect(p.metric).toEqual(metric);
   });
 
+  it.each(['70% dark chocolate', '70-85% dark chocolate'])('does not count percentages: %s', (line) => {
+    expect(parseIngredient(line).quantity).toBeNull();
+  });
+
   it('keeps ranges', () => {
     expect(parseIngredient('2-3 tbsp maple syrup').quantityMax).toBe(3);
   });

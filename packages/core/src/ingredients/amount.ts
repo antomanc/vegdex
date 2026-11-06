@@ -29,6 +29,7 @@ const ARTICLE_RE = /^(?:an?|the)\s+(?=\p{L})/iu;
 /** "a few basil leaves": no amount, to taste. */
 const FEW_RE = /^few\s+/i;
 /** "70% dark chocolate": the percentage is detail, kept in the original. */
+const LEADING_PERCENT_RE = /^\d+(?:[.,]\d+)?(?:\s*[-–]\s*\d+(?:[.,]\d+)?)?\s*%\s*/;
 const PERCENT_RE = /\b\d+(?:[.,]\d+)?(?:\s*[-–]\s*\d+(?:[.,]\d+)?)?\s*%\s*/;
 /** "2 x 400 g / 14 oz canned tomatoes": a count of packages of a stated size. */
 const TIMES_SIZE_RE = /^x\s*(\d+(?:[.,]\d+)?\s*(?:g|ml|oz|ounces?))(?:\s*\/\s*\d+(?:[.,]\d+)?\s*(?:g|ml|oz|ounces?))?\s+/i;
@@ -68,6 +69,7 @@ export function amount(input: Normalised, language: string, pack: LanguagePack):
 
 function readAmount(input: Pick<AmountResult, 'text' | 'quantity' | 'quantityMax' | 'written' | 'approx'>, pack: LanguagePack) {
   let { text, quantity, quantityMax, written, approx } = input;
+  if (LEADING_PERCENT_RE.test(text)) return { text: text.replace(LEADING_PERCENT_RE, ''), quantity, quantityMax, written, approx };
   const words = pack.numberWords ?? NUMBER_WORDS;
   const word = text.match(new RegExp(`^(${Object.keys(words).join('|')})\\s+`, 'i'));
   const q = text.match(QTY_RE);
