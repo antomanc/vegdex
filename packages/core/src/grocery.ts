@@ -92,7 +92,7 @@ export function scaleIngredient(p: ParsedIngredient, factor: number, units: Unit
     ...p,
     quantity: p.quantity * factor,
     quantityMax: p.quantityMax === null ? null : p.quantityMax * factor,
-    metric: p.metric && { ...p.metric, quantity: p.metric.quantity * factor }
+    metric: p.metric && { ...p.metric, quantity: p.metric.quantity * factor, ...(p.metric.quantityMax !== undefined ? { quantityMax: p.metric.quantityMax * factor } : {}) }
   };
   if (units === 'metric' && toMetric(exact)) return exact;
   const snap = (n: number) => (p.unit === 'g' || p.unit === 'ml' ? roundKitchen(n) : snapKitchen(n));

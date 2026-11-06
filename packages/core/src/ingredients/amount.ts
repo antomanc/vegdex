@@ -29,6 +29,7 @@ const ARTICLE_RE = /^(?:an?|the)\s+(?=\p{L})/iu;
 /** "a few basil leaves": no amount, to taste. */
 const FEW_RE = /^few\s+/i;
 /** "70% dark chocolate": the percentage is detail, kept in the original. */
+const LEADING_PERCENT_RE = /^\d+(?:[.,]\d+)?(?:\s*[-–]\s*\d+(?:[.,]\d+)?)?\s*%\s*/;
 const PERCENT_RE = /\b\d+(?:[.,]\d+)?(?:\s*[-–]\s*\d+(?:[.,]\d+)?)?\s*%\s*/;
 /** "2 x 400 g / 14 oz canned tomatoes": a count of packages of a stated size. */
 const TIMES_SIZE_RE = /^x\s*(\d+(?:[.,]\d+)?\s*(?:g|ml|oz|ounces?))(?:\s*\/\s*\d+(?:[.,]\d+)?\s*(?:g|ml|oz|ounces?))?\s+/i;
@@ -47,6 +48,14 @@ const OF_ARTICLE_RE = /^of\s+(?:an?\s+)?/i;
 const PIECE_OF_RE = /^(?:pieces?|knobs?|chunks?|slices?)\s+(?:of\s+)?(?=\p{L})/iu;
 /** "1 package of 4 sausages": the count inside the package. */
 const PACK_COUNT_RE = /^\d+\s+(?=\p{L})/u;
+const EACH_RE = /\beach\b/i;
+const TOTAL_RE = /\btotal\b/i;
+const METRIC_RANGE_RE = /(\d+(?:[.,]\d+)?)\s*(?:-|–|to)\s*(\d+(?:[.,]\d+)?)\s*(g|grams?|kg|ml|l)\b/i;
+const NESTED_RANGE_NAME_RE = /^\(\([^)]*\)\s*\p{L}/u;
+const RANGE_BRACKET_RE = /\(\s*((?:~|about\s+)?\d+\s*[-–]\s*\d+\s*(?:g|grams?|kg|ml|l))\s*\)/i;
+const ADDED_TOTAL_RE = /(?:\+|plus)\s*([\d /.,]+)\s*(cups?|tablespoons?|tbsp|teaspoons?|tsp)\s*(?:\/|\()\s*(\d+(?:[.,]\d+)?\s*(?:ml|milliliters?)\b)/i;
+const METRIC_UNITS = new Set(['g', 'kg', 'ml', 'l']);
+const ALTERNATIVE_RE = /\bor\b/i;
 const EACH_OF_RE = /^each\s+(?:of\s+)?/i;
 /** "1/3 tsp or more cumin": an amount left open-ended. */
 const MORE_RE = /^(?:or|plus|\+)\s+more\s+/i;
@@ -62,12 +71,13 @@ export function amount(input: Normalised, language: string, pack: LanguagePack):
   const sized = { ...trimmed, ...readSize(trimmed, language, pack) };
   const { altMeasure, ...measured } = { ...sized, ...readUnit(sized, language, pack) };
   const named = { ...measured, ...readOrSoAndClove(measured, language) };
-  const metric = readMetric(named, altMeasure);
+  const metric = readMetric(named, altMeasure, input.text);
   return { ...named, ...metric, ...finishName(named, language, pack) };
 }
 
 function readAmount(input: Pick<AmountResult, 'text' | 'quantity' | 'quantityMax' | 'written' | 'approx'>, pack: LanguagePack) {
   let { text, quantity, quantityMax, written, approx } = input;
+  if (LEADING_PERCENT_RE.test(text)) return { text: text.replace(LEADING_PERCENT_RE, ''), quantity, quantityMax, written, approx };
   const words = pack.numberWords ?? NUMBER_WORDS;
   const word = text.match(new RegExp(`^(${Object.keys(words).join('|')})\\s+`, 'i'));
   const q = text.match(QTY_RE);
@@ -100,7 +110,12 @@ function readAmount(input: Pick<AmountResult, 'text' | 'quantity' | 'quantityMax
 function trimAmountText(input: Pick<AmountResult, 'quantity' | 'text' | 'quantityMax' | 'written' | 'leading'>, language: string) {
   let { quantity, text, quantityMax, written, leading } = input;
   leading = [...leading];
-  if (quantity !== null && language === 'en') text = text.replace(ARTICLE_RE, '');
+  if (quantity !== null && language === 'en') {
+    const withoutOf = text.replace(OF_ARTICLE_RE, '');
+    const packageSize = withoutOf.match(PACK_SIZE_RE) ?? (CONTAINER_RE.test(withoutOf.replace(PAREN_RE, '')) ? withoutOf.match(PAREN_RE) : null);
+    if (packageSize && extractMetric(packageSize[1]!)) text = withoutOf;
+    text = text.replace(ARTICLE_RE, '');
+  }
   // "a few basil leaves", "a few drops of rum extract": no amount, to taste.
   const few = language === 'en' && (quantity === null || quantity === 1) && quantityMax === null ? text.match(FEW_RE) : null;
   if (few) {
@@ -176,6 +191,8 @@ function readUnit(input: Pick<AmountResult, 'text' | 'quantity' | 'unit' | 'writ
       const alt = skipAltMeasure(text, def.dimension === 'mass' || def.dimension === 'volume');
       altMeasure = text.slice(0, text.length - alt.length);
       text = alt;
+      ({ text, quantityMax } = readRange(text, quantityMax, def));
+      text = skipAltMeasure(text, def.dimension === 'mass' || def.dimension === 'volume');
       const bracket = text.match(BRACKET_RE);
       if (bracket) {
         altMeasure ||= bracket[1]!;
@@ -186,7 +203,7 @@ function readUnit(input: Pick<AmountResult, 'text' | 'quantity' | 'unit' | 'writ
       const plusDef = plusUnit ? lookupUnit(plusUnit[1]!) : undefined;
       if (plus && plusUnit && plusDef) {
         // Only same-dimension amounts add up; anything else is dropped rather than misread as the name.
-        if (plusDef.dimension === def.dimension && def.dimension !== 'other') {
+        if (plusDef.dimension === def.dimension && def.dimension !== 'other' && !(METRIC_UNITS.has(unit) && altMeasure && !METRIC_UNITS.has(plusDef.unit))) {
           const extra = (parseNumber(plus[1]!) * plusDef.factor) / def.factor;
           quantity += extra;
           if (quantityMax !== null) quantityMax += extra;
@@ -241,17 +258,26 @@ function readOrSoAndClove(input: Pick<AmountResult, 'unit' | 'text' | 'approx' |
   return { approx, text, unit };
 }
 
-function readMetric(input: Pick<AmountResult, 'text' | 'unit' | 'sizeNote' | 'quantity'>, altMeasure: string) {
+function readMetric(input: Pick<AmountResult, 'text' | 'unit' | 'sizeNote' | 'quantity'>, altMeasure: string, source: string) {
   const { text, unit, sizeNote, quantity } = input;
   const paren = text.match(PAREN_RE);
   const parenMetric = paren ? extractMetric(paren[1]!) : null;
   const metricSource = altMeasure || (unit && ['cup', 'tbsp', 'tsp', 'oz', 'lb'].includes(unit) ? sizeNote : '');
   let metric = parenMetric ?? (metricSource ? extractMetric(metricSource) : null);
+  if (metric && paren && unit && CONTAINER_RE.test(unit) && EACH_RE.test(paren[1]!) && quantity !== null) metric = { ...metric, quantity: metric.quantity * quantity };
+  const sizeAmount = sizeNote.match(QTY_RE);
+  const sizeToken = sizeAmount ? sizeNote.slice(sizeAmount[0].length).replace(HYPHEN_JOIN_RE, '').match(UNIT_RE) : null;
+  const sizeDef = sizeToken ? lookupUnit(sizeToken[1]!) : undefined;
+  const packageGrams = sizeAmount && sizeDef?.dimension === 'mass' ? parseNumber(sizeAmount[1]!) * sizeDef.factor : null;
+  if (unit && CONTAINER_RE.test(unit) && parenMetric?.unit === 'g' && metric && quantity !== null && packageGrams && !TOTAL_RE.test(paren![1]!) && !EACH_RE.test(paren![1]!)
+    && Math.abs(parenMetric.quantity / packageGrams - 1) < 0.1) metric = { ...metric, quantity: parenMetric.quantity * quantity };
   let afterMeasure = unit ? (parenMetric ? text.slice(paren![0].length) : text) : null;
   // "2 cups flour (280g)": a parenthetical that is only a metric amount, after the name.
   const dim = unit ? unitDef(unit)?.dimension : undefined;
-  const lateMetric = !metric && afterMeasure && (dim === 'volume' || dim === 'mass') ? afterMeasure.match(LATE_METRIC_RE) : null;
-  if (lateMetric) {
+  const packageMetric = unit && CONTAINER_RE.test(unit) && sizeNote && !METRIC_RANGE_RE.test(sizeNote) ? extractMetric(sizeNote) : null;
+  if (!metric && packageMetric && quantity !== null) metric = { ...packageMetric, quantity: packageMetric.quantity * (TOTAL_RE.test(sizeNote) ? 1 : quantity) };
+  const lateMetric = (!metric || packageMetric) && afterMeasure && (dim === 'volume' || dim === 'mass' || (unit && CONTAINER_RE.test(unit) && quantity !== null && quantity >= 1)) ? afterMeasure.match(LATE_METRIC_RE) : null;
+  if (lateMetric && !(unit && CONTAINER_RE.test(unit) && ALTERNATIVE_RE.test(afterMeasure!.slice(0, lateMetric.index)))) {
     metric = extractMetric(lateMetric[2]!);
     const words = lateMetric[1]!.replace(/^\s*(?:about|approx\.?|~)?\s*$/i, '').trim();
     afterMeasure = afterMeasure!.replace(lateMetric[0], words ? `(${words})` : ' ').replace(/\s+([,)])/g, '$1').replace(/\s{2,}/g, ' ').trim();
@@ -260,7 +286,20 @@ function readMetric(input: Pick<AmountResult, 'text' | 'unit' | 'sizeNote' | 'qu
     metric = { quantity: quantity * (unit === 'kg' ? 1000 : 1), unit: 'g' };
   if (unit && (unit === 'ml' || unit === 'l') && quantity !== null)
     metric = { quantity: quantity * (unit === 'l' ? 1000 : 1), unit: 'ml' };
-  return { metric, afterMeasure };
+  const rangeBracket = text.match(RANGE_BRACKET_RE);
+  const explicitRange = (paren?.[1] ?? altMeasure).match(METRIC_RANGE_RE) ?? (!metric && rangeBracket && !ALTERNATIVE_RE.test(text.slice(0, rangeBracket.index)) ? rangeBracket[1]!.match(METRIC_RANGE_RE) : null);
+  if (explicitRange && !NESTED_RANGE_NAME_RE.test(text) && unit && ['cup', 'tbsp', 'tsp', 'oz', 'lb'].includes(unit)) {
+    const low = extractMetric(explicitRange[1]! + explicitRange[3]!);
+    const high = extractMetric(explicitRange[2]! + explicitRange[3]!);
+    if (low && high) return { metric: { ...low, quantityMax: high.quantity },
+      afterMeasure: rangeBracket && !parenMetric ? text.replace(rangeBracket[0], '').trim() : afterMeasure };
+  }
+  const added = source.match(ADDED_TOTAL_RE);
+  const extra = added ? parseNumber(added[1]!) * (lookupUnit(added[2]!)?.factor ?? 0) : 0;
+  const stated = added ? extractMetric(added[3]!) : null;
+  // A bracket matching the extra spoonful measures that spoonful, rather than the combined total.
+  const total = stated && stated.quantity > extra * 1.5 && (dim === 'volume' || dim === 'mass') ? stated : null;
+  return { metric: total ? { ...total, total: true as const } : metric, afterMeasure };
 }
 
 function finishName(input: Pick<AmountResult, 'text' | 'written' | 'unit' | 'cutNote' | 'leading'>, language: string, pack: LanguagePack) {

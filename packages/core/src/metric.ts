@@ -19,6 +19,7 @@ const KEPT = new Set(['tsp', 'tbsp']);
  * spoons, whole items, unmeasured lines and lines already in metric.
  */
 export function toMetric(p: ParsedIngredient): MetricAmount | null {
+  if (p.metric && (p.metric.total || p.metric.quantityMax !== undefined)) return { quantity: p.metric.quantity, quantityMax: p.metric.quantityMax ?? null, unit: p.metric.unit, estimate: false };
   if (p.quantity === null || (!p.unit && !p.size) || (p.unit && KEPT.has(p.unit))) return null;
   const range = (factor: number) => ({ quantity: p.quantity! * factor, quantityMax: p.quantityMax === null ? null : p.quantityMax * factor });
   // "1 (16 ounce) block tofu", "2 x 400 g tomatoes" weigh what their package says.

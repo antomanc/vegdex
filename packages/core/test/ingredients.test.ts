@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseIngredient, parseLine } from '../src';
+import { parseIngredient, parseLine, toMetric, scaleIngredient } from '../src';
 
 describe('parseIngredient', () => {
   it.each([
@@ -38,6 +38,53 @@ describe('parseIngredient', () => {
     expect(p.unit).toBe(unit);
     expect(p.name).toBe(name);
     if (metric) expect(p.metric).toEqual(metric);
+  });
+
+  it.each(['70% dark chocolate', '70-85% dark chocolate'])('does not count percentages: %s', (line) => {
+    expect(parseIngredient(line).quantity).toBeNull();
+  });
+
+  it.each([
+    ['1 (14 ounce/400 gram) package extra firm tofu', 400],
+    ['2 cans pumpkin puree (15-ounces each) (850g)', 850],
+    ['2 cans (15 oz / 425g each) butter beans', 850],
+    ['2 (400g total) packages firm tofu', 400],
+    ['3 15-ounce cans (425g) great northern beans', 1275]
+  ])('keeps package metric weights: %s', (line, quantity) => {
+    expect(parseIngredient(line).metric).toEqual({ quantity, unit: 'g' });
+  });
+
+  it.each(['2 cans full-fat coconut milk (3 cups)', '2 sticks vegan butter (16 tablespoons or 1 cup)'])('keeps honest counts: %s', (line) => {
+    expect(parseIngredient(line).quantity).toBe(2);
+    expect(parseIngredient(line).metric).toBeNull();
+  });
+
+  it.each([
+    ['2 3/4 cups (265-280g) rolled oats', 265, 280],
+    ['2-3 tablespoons (30-45g) chocolate chips', 30, 45],
+    ['400 g / 14 oz - 800 g / 28 oz firm tofu', 400, 800]
+  ])('preserves explicit metric ranges: %s', (line, quantity, quantityMax) => {
+    const p = parseIngredient(line);
+    expect(p.metric?.quantityMax !== undefined ? toMetric(p) : p).toMatchObject({ quantity, quantityMax, unit: 'g' });
+  });
+
+  it('scales both ends of a stated metric range', () => {
+    const p = parseIngredient('2 3/4 cups (265-280g) rolled oats');
+    expect(toMetric(scaleIngredient(p, 2, 'metric'))).toMatchObject({ quantity: 530, quantityMax: 560, unit: 'g' });
+  });
+
+  it('weighs a fraction of a stated package size', () => {
+    const p = parseIngredient('1/2 of a 420g block firm tofu (210g or about 1 1/2 cups)');
+    expect(toMetric(p)).toMatchObject({ quantity: 210, unit: 'g' });
+  });
+
+  it.each([
+    ['750 ml / 3 cups + 2 tbsp creamy plant milk', 750],
+    ['1/2 cup nondairy milk + 2 tablespoons (150ml, any vegan milk works)', 150],
+    ['1 cup + 2 tbsp / 90 ml flour', 90]
+  ])('keeps the metric total beside an addition: %s', (line, quantity) => {
+    const p = parseIngredient(line);
+    expect(p.metric).toMatchObject({ quantity, unit: 'ml' });
   });
 
   it('keeps ranges', () => {

@@ -3300,8 +3300,8 @@
           ]
         }
       ],
-      "en": "1 can whole peeled tomatoes",
-      "it": "1 lattina di pomodori pelati interi",
+      "en": "1 can (800 g) whole peeled tomatoes",
+      "it": "1 lattina (800 g) di pomodori pelati interi",
       "source": "rainbowplantlife",
       "status": "known-bad",
       "class": "F",
@@ -3395,12 +3395,12 @@
           "terms": []
         }
       ],
-      "en": "1 package super-firm tofu",
-      "it": "1 confezione di tofu extra compatto",
+      "en": "1 package (454 g) super-firm tofu",
+      "it": "1 confezione (454 g) di tofu extra compatto",
       "source": "connoisseurusveg",
-      "status": "known-bad",
+      "status": "ok",
       "class": "C",
-      "reviewNeeded": true,
+      "reviewNeeded": false,
       "expected": {
         "en": "1 package (454 g) super-firm tofu",
         "it": "1 confezione (454 g) di tofu extra compatto"
@@ -3495,8 +3495,8 @@
           ]
         }
       ],
-      "en": "1 can red kidney beans, drained and rinsed",
-      "it": "1 lattina di fagioli rossi, scolati e sciacquati",
+      "en": "1 can (400 g) red kidney beans, drained and rinsed",
+      "it": "1 lattina (400 g) di fagioli rossi, scolati e sciacquati",
       "source": "connoisseurusveg",
       "status": "ok",
       "reviewNeeded": false
@@ -6301,8 +6301,8 @@
           "terms": []
         }
       ],
-      "en": "1 can tomato sauce",
-      "it": "1 lattina di salsa di pomodoro",
+      "en": "1 can (397 g) tomato sauce",
+      "it": "1 lattina (397 g) di salsa di pomodoro",
       "source": "connoisseurusveg",
       "status": "ok",
       "reviewNeeded": false
@@ -8445,8 +8445,8 @@
           "terms": []
         }
       ],
-      "en": "210 g raw cashews",
-      "it": "210 g di anacardi crudi",
+      "en": "200–210 g raw cashews",
+      "it": "200–210 g di anacardi crudi",
       "source": "rainbowplantlife",
       "status": "known-bad",
       "class": "F",
@@ -8626,8 +8626,8 @@
           "terms": []
         }
       ],
-      "en": "150 g raw cashews",
-      "it": "150 g di anacardi crudi",
+      "en": "140–150 g raw cashews",
+      "it": "140–150 g di anacardi crudi",
       "source": "rainbowplantlife",
       "status": "known-bad",
       "class": "F",
@@ -8896,8 +8896,8 @@
           ]
         }
       ],
-      "en": "140 g raw cashews, soaked overnight",
-      "it": "140 g di anacardi crudi, ammollati per una notte",
+      "en": "130–140 g raw cashews, soaked overnight",
+      "it": "130–140 g di anacardi crudi, ammollati per una notte",
       "source": "rainbowplantlife",
       "status": "ok",
       "reviewNeeded": true
