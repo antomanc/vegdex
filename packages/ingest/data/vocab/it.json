@@ -1827,7 +1827,7 @@
     "vocab:vegan-sweetened-condensed-milk": {"one":"latte condensato vegano","other":"latte condensato vegano","gender":"m"},
     "vocab:vegan-tzatziki": {"one":"tzatziki vegano","other":"tzatziki vegani","gender":"m"},
     "vocab:vegan-tzatziki-sauce": {"one":"salsa tzatziki vegana","other":"salsa tzatziki vegana","gender":"f"},
-    "vocab:vegan-vanilla-frosting": {"one":"crema alla vaniglia vegana per glassare","other":"crema alla vaniglia vegana per glassare","gender":"f"},
+    "vocab:vegan-vanilla-frosting": {"one":"glassa alla vaniglia vegana","other":"glassa alla vaniglia vegana","gender":"f"},
     "vocab:vegan-vanilla-ice-cream": {"one":"gelato vegano alla vaniglia","other":"gelato vegano alla vaniglia","gender":"m"},
     "vocab:vegan-vanilla-protein-powder": {"one":"proteine vegane in polvere alla vaniglia","other":"proteine vegane in polvere alla vaniglia","gender":"f","plural":true},
     "vocab:vegan-vanilla-wafers": {"one":"wafer alla vaniglia vegano","other":"wafer alla vaniglia vegani","gender":"m"},
