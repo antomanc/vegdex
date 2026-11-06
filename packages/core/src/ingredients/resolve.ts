@@ -6,7 +6,11 @@ import { findUnsafeRenderedTerms } from '../translations';
 import { canonicalName } from './names';
 import { lookupUnit, unitDef } from './units';
 import { parseNumber } from './measure';
-import type { ParseState, ParsedIngredient, PreparationTerm } from './types';
+import type { ParsedIngredient, PreparationTerm } from './types';
+import type { NameResult } from './name';
+import type { AmountResult } from './amount';
+
+export type Resolution = { concept: string | null; conceptExact: boolean; phrase: string; terms: PreparationTerm[]; also: ParsedIngredient['also']; size: ParsedIngredient['size'] };
 
 /** "romano or ramiro pepper": a one-word first option shares the noun when that names a known ingredient. */
 const SHARED_NOUN_RE = /^\s*([\p{L}'-]+)\s+or\s+[\p{L}'-]+(?:\s+[\p{L}'-]+)*\s+([\p{L}'-]+)\s*$/iu;
@@ -17,22 +21,22 @@ const SLASH_ALT_NAME_RE = /([\p{L}'-]+)\/([\p{L}'-]+)/u;
 type Resolved = { concept: string; also: ParsedIngredient['also']; phrase?: string; sideTerms?: PreparationTerm[] };
 
 /** Resolve the name to a concept, splitting or peeling terms until every written word is accounted for. */
-export function resolve(state: ParseState, raw: string, language: string, lookup: IngredientLookup): void {
-  let phrase = state.phrase;
+export function resolve(named: NameResult, measure: Pick<AmountResult, 'written' | 'unit' | 'sizeNote'>, raw: string, language: string, lookup: IngredientLookup): Resolution {
+  let phrase = named.phrase;
   const shared = phrase.match(SHARED_NOUN_RE);
   // Qualifiers in notes or unknown names must never disappear through canonicalization.
   // "butter (vegan)": the qualifier is outside an animal name, so the name alone must not map to butter.
   const qualifierOutsideName = isQualifiedIngredient(raw) && !isQualifiedIngredient(phrase)
     && Object.keys(languagePacks).some((l) => findUnsafeRenderedTerms(phrase, l).length > 0);
-  const legacy = `${state.written}${state.uncut}`.trim();
+  const legacy = `${measure.written}${named.uncut}`.trim();
   // "can white beans" names the canned product: a name with its container comes before the name alone.
   // Every tail of the dropped words is tried ("inch piece cinnamon", "piece cinnamon").
-  const tails = state.written.split(/(?<=\s)/).map((_, i, parts) => parts.slice(i).join(''));
-  const asWritten = [...new Set(tails.flatMap((t) => [`${t}${state.uncut}`, `${t}${phrase}`]))].map((t) => lookupConcept(t.trim(), lookup)).find(Boolean)
-    ?? (state.uncut !== phrase ? lookupConcept(state.uncut.trim(), lookup) : null);
+  const tails = measure.written.split(/(?<=\s)/).map((_, i, parts) => parts.slice(i).join(''));
+  const asWritten = [...new Set(tails.flatMap((t) => [`${t}${named.uncut}`, `${t}${phrase}`]))].map((t) => lookupConcept(t.trim(), lookup)).find(Boolean)
+    ?? (named.uncut !== phrase ? lookupConcept(named.uncut.trim(), lookup) : null);
   let concept = qualifierOutsideName ? null : isQualifiedIngredient(phrase)
-    ? (state.written ? asWritten : null) ?? lookupConcept(phrase, lookup) ?? asWritten
-    : (state.written ? asWritten : null) ?? lookupConcept(phrase, lookup) ?? asWritten ?? (shared && lookupConcept(canonicalName(`${shared[1]} ${shared[2]}`), lookup)) ?? lookupConcept(state.name, lookup);
+    ? (measure.written ? asWritten : null) ?? lookupConcept(phrase, lookup) ?? asWritten
+    : (measure.written ? asWritten : null) ?? lookupConcept(phrase, lookup) ?? asWritten ?? (shared && lookupConcept(canonicalName(`${shared[1]} ${shared[2]}`), lookup)) ?? lookupConcept(named.name, lookup);
   phrase = phrase.trim();
   let conceptExact = !!concept && (lookupConcept(phrase, lookup) === concept || asWritten === concept);
   const terms: PreparationTerm[] = [];
@@ -64,16 +68,11 @@ export function resolve(state: ParseState, raw: string, language: string, lookup
       conceptExact = true;
     }
   }
-  terms.push(...noteTerms(state.preparation, lookup).filter((t) => !terms.some((other) => other.id === t.id)));
-  const sizeDef = state.unit ? unitDef(state.unit) : undefined;
-  const measuredSize = state.sizeNote && (!sizeDef || sizeDef.dimension === 'other') ? parseSize(state.sizeNote) : null;
+  terms.push(...noteTerms(named.preparation, lookup).filter((t) => !terms.some((other) => other.id === t.id)));
+  const sizeDef = measure.unit ? unitDef(measure.unit) : undefined;
+  const measuredSize = measure.sizeNote && (!sizeDef || sizeDef.dimension === 'other') ? parseSize(measure.sizeNote) : null;
 
-  state.concept = concept;
-  state.conceptExact = conceptExact;
-  state.phrase = phrase;
-  state.terms = terms;
-  state.also = also;
-  state.size = measuredSize;
+  return { concept, conceptExact, phrase, terms, also, size: measuredSize };
 }
 
 /**

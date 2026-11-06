@@ -54,7 +54,7 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
   Object.assign(state, normalise(raw, language, pack));
   Object.assign(state, amount(state, language, pack));
   Object.assign(state, nameAndNotes(state, language, pack, lookup));
-  resolve(state, raw, language, lookup);
+  Object.assign(state, resolve(state, state, raw, language, lookup));
   return classify(state, raw);
 }
 
