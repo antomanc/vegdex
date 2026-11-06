@@ -9,7 +9,7 @@
   { "id": "thehiddenveggies", "name": "The Hidden Veggies", "url": "https://thehiddenveggies.com" },
   { "id": "sweetsimplevegan", "name": "Sweet Simple Vegan", "url": "https://sweetsimplevegan.com" },
   { "id": "pickuplimes", "name": "Pick Up Limes", "url": "https://www.pickuplimes.com", "include": "/recipe/" },
-  { "id": "makeitdairyfree", "name": "Make It Dairy Free", "url": "https://makeitdairyfree.com" },
+  { "id": "makeitdairyfree", "name": "Make It Dairy Free", "url": "https://makeitdairyfree.com", "photosBlocked": true },
   { "id": "plantbasedonabudget", "name": "Plant Based on a Budget", "url": "https://plantbasedonabudget.com" },
   { "id": "veganheaven", "name": "Vegan Heaven", "url": "https://veganheaven.org" },
   { "id": "jessicainthekitchen", "name": "Jessica in the Kitchen", "url": "https://jessicainthekitchen.com" },

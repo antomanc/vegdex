@@ -29,6 +29,7 @@
     "parse:diff": "pnpm --filter @vegdex/ingest exec tsx src/parse-diff.ts",
     "golden": "pnpm --filter @vegdex/ingest exec tsx src/golden-lines.ts",
     "golden:select": "pnpm --filter @vegdex/ingest exec tsx src/golden-lines.ts --select",
+    "photos:check": "pnpm --filter @vegdex/ingest exec tsx src/photos-check.ts",
     "lines:fill": "pnpm --filter @vegdex/ingest exec tsx src/lines-fill.ts"
   },
   "engines": {
