@@ -24,13 +24,14 @@ export function renderIngredient(
   p: ParsedIngredient, vocab: LanguageVocabulary | undefined, language: string, units: Units, source = 'en'
 ): [amount: string, rest: string] | null {
   const pack = languagePacks[language];
-  if (!vocab || !pack || !p.terms || p.phrase === undefined || !p.name || p.kind) return null;
+  const written = p.text?.[language];
+  if (!vocab || !pack || p.kind || (!written && (!p.terms || p.phrase === undefined || !p.name))) return null;
   // A name after a parenthesized weight may have been parsed as commentary: keep the whole source line.
-  if (p.concept && p.conceptExact === false && !p.phrase.toLowerCase().includes(p.name.toLowerCase())) return null;
-  const metric = units === 'metric' ? toMetric(p) : null;
+  if (!written && p.concept && p.conceptExact === false && !p.phrase!.toLowerCase().includes(p.name.toLowerCase())) return null;
+  const metric = units === 'metric' && !(written && ['can', 'jar', 'package'].includes(p.unit ?? '')) ? toMetric(p) : null;
   // "⅓ packed cup (50g)": how full the cup is matters only while the cup is the measure.
   const weighedExactly = !!metric && p.metric?.unit === metric.unit;
-  if (hasDroppedMeasureWords(p) && !weighedExactly) return null;
+  if (!written && hasDroppedMeasureWords(p) && !weighedExactly) return null;
   const same = language === source;
   const number = new Intl.NumberFormat(language, { useGrouping: false, maximumFractionDigits: 10 });
   const label = (unit: string, quantity: number) => vocab.units[unit]?.[quantity <= 1 ? 0 : 1];
@@ -52,7 +53,8 @@ export function renderIngredient(
     if (p.size) {
       const unit = label(p.size.unit, p.size.quantity);
       if (!unit) return null;
-      amount += ` (${formatAmount(p.size.quantity, language)} ${unit})`;
+      const sizeMetric = written && units === 'metric' ? toMetric({ ...p, quantity: p.size.quantity, quantityMax: null, unit: p.size.unit, metric: null, size: null }) : null;
+      amount += sizeMetric ? ` (${formatMetric(sizeMetric, true)})` : ` (${formatAmount(p.size.quantity, language)} ${unit})`;
     }
     // One bracket per amount: "2 cans (400 g)" already says it, and a second one reads as a different size.
     if (p.metric && !p.size && p.unit && !METRIC_UNITS.has(p.unit)) amount += ` (${number.format(p.metric.quantity)}${p.metric.quantityMax !== undefined ? '–' + number.format(p.metric.quantityMax) : ''} ${p.metric.unit})`;
@@ -60,8 +62,12 @@ export function renderIngredient(
   }
   if (metric && p.approx && !amount.startsWith('≈')) amount = `≈ ${amount}`;
 
+  if (written) {
+    const rest = `${linked && pack.unitLink ? pack.unitLink + ' ' : ''}${written.name}${written.note ? ', ' + written.note : ''}`;
+    return findUnsafeRenderedTerms(`${amount} ${rest}`, language).length ? null : [amount, rest];
+  }
   const measured = !!metric || !!p.unit;
-  let name = p.phrase;
+  let name = p.phrase ?? p.name;
   let forms: NounForms | undefined;
   let plural = false;
   if (!same) {
@@ -80,7 +86,7 @@ export function renderIngredient(
   const notes: string[] = [];
   // "4 spicchi di aglio, tritati": what is chopped is the counted pieces, so notes agree with the unit.
   const counted = !metric && p.unit ? pack.countUnits?.[p.unit] : undefined;
-  for (const term of p.terms) {
+  for (const term of p.terms ?? []) {
     if (same && term.inName) continue;
     if (metric && CUP_FILL.has(term.id)) continue;
     const [gender, many] = counted && !term.inName ? [counted, (p.quantityMax ?? p.quantity ?? 1) > 1] : [forms?.gender, plural];
@@ -96,5 +102,5 @@ export function renderIngredient(
 
 /** Translate the label after aggregation; the original name still owns the checked-state key. */
 export function displayGroceryName(item: GroceryItem, vocab: LanguageVocabulary | undefined, language: string): string {
-  return safeTranslation(item.name, item.concept && vocab?.names[item.concept]?.other, language);
+  return safeTranslation(item.name, item.text?.[language]?.name ?? (item.concept && vocab?.names[item.concept]?.other), language);
 }

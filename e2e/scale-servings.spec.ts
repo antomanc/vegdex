@@ -49,5 +49,5 @@ test('a recipe without a yield scales in half batches, and unmeasured lines stay
   await expect(sheet.getByText('×1½', { exact: true })).toBeVisible();
   const ingredients = sheet.getByTestId('ingredients');
   await expect(ingredients.locator('li', { hasText: 'red lentils' })).toHaveText('1 ½ cups red lentils');
-  await expect(ingredients.locator('li', { hasText: 'salt' })).toHaveText('salt to taste');
+  await expect(ingredients.locator('li', { hasText: 'salt' })).toHaveText('salt, to taste');
 });

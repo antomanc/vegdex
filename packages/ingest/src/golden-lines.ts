@@ -11,7 +11,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import type { ParsedIngredient } from '@vegdex/core';
-import { parseLine, renderIngredient } from '@vegdex/core';
+import { applyLineRecord, parseLine, renderIngredient } from '@vegdex/core';
+import { shippedLineRecord } from './line-records';
 import { loadVocabulary, type Vocabulary } from './vocab';
 
 const root = path.resolve(import.meta.dirname, '../../..');
@@ -79,7 +80,7 @@ const part = (p: ParsedIngredient): GoldenPart => ({
 
 /** Parse one line and render it in English and Italian, the way the emit and the recipe sheet do. */
 export function goldenLine(line: string, contentLanguage: string, vocab: Vocabulary, units: Units = 'metric'): Omit<GoldenLine, 'source' | 'status' | 'reviewNeeded'> {
-  const parts = parseLine(line, vocab.lookup(contentLanguage), contentLanguage);
+  const parts = applyLineRecord(parseLine(line, vocab.lookup(contentLanguage), contentLanguage), shippedLineRecord(contentLanguage, line), vocab.lookup('en'), { en: vocab.display('en'), it: vocab.display('it') });
   const render = (language: string) => {
     const out = parts.map((p) => renderIngredient(p, vocab.display(language), language, units, contentLanguage));
     return out.every((part): part is [string, string] => part !== null) ? out.map(([amount, rest]) => `${amount} ${rest}`.trim()).join(' + ') : null;

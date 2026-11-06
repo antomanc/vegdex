@@ -352,7 +352,7 @@
 {"line":"Optional: red pepper flakes, garlic chili sauce, or sriracha, to taste","language":"en","parts":[{"en":"red pepper flakes","it":"peperoncino in fiocchi","optional":true,"toTaste":true,"alternatives":[{"en":"garlic chili sauce","it":"salsa al peperoncino e aglio"},{"en":"sriracha","it":"salsa sriracha"}]}]}
 {"line":"Peanut oil ((or high heat oil of choice), as needed (about 1/4 to 1/3 cup))","language":"en","parts":[{"quantity":0.25,"quantityMax":0.333,"unit":"cup","en":"peanut oil","it":"olio di arachidi","alternatives":[{"en":"high-heat oil of choice","it":"olio a scelta adatto alle alte temperature"}]}]}
 {"line":"Powdered sugar for dusting ((optional))","language":"en","parts":[{"en":"powdered sugar","it":"zucchero a velo","purposeEn":"for dusting","purposeIt":"per spolverizzare","optional":true}]}
-{"line":"Serve with my Vegan Lemon Cream Sauce","language":"en","parts":[{"en":"vegan lemon cream sauce","it":"salsa cremosa vegana al limone","purposeEn":"for serving","purposeIt":"per servire"}]}
+{"line":"Serve with my Vegan Lemon Cream Sauce","language":"en","kind":"other"}
 {"line":"Sesame oil (to fry)","language":"en","parts":[{"en":"sesame oil","it":"olio di sesamo","purposeEn":"for frying","purposeIt":"per friggere"}]}
 {"line":"Slivered almonds","language":"en","parts":[{"en":"slivered almonds","it":"mandorle a bastoncini"}]}
 {"line":"Spray or cooking oil (for frying/baking)","language":"en","parts":[{"en":"cooking oil spray","it":"olio spray da cucina","alternatives":[{"en":"cooking oil","it":"olio da cucina"}]}]}
