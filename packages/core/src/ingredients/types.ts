@@ -38,7 +38,7 @@ export interface ParsedIngredient {
   quantityMax: number | null;
   unit: string | null;
   /** Metric weight or volume from a parenthetical like "(240 g)" or a dual measure like "1 cup / 240 ml". */
-  metric: { quantity: number; quantityMax?: number; unit: 'g' | 'ml' } | null;
+  metric: { quantity: number; quantityMax?: number; total?: true; unit: 'g' | 'ml' } | null;
   /** When the line has a unit: the text after its amount, unit and any metric equivalent ("flour, sifted"). */
   afterMeasure: string | null;
   /** Canonical, singular, lowercase name used for matching and aggregation. */

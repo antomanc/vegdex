@@ -78,6 +78,15 @@ describe('parseIngredient', () => {
     expect(toMetric(p)).toMatchObject({ quantity: 210, unit: 'g' });
   });
 
+  it.each([
+    ['750 ml / 3 cups + 2 tbsp creamy plant milk', 750],
+    ['1/2 cup nondairy milk + 2 tablespoons (150ml, any vegan milk works)', 150],
+    ['1 cup + 2 tbsp / 90 ml flour', 90]
+  ])('keeps the metric total beside an addition: %s', (line, quantity) => {
+    const p = parseIngredient(line);
+    expect(p.metric).toMatchObject({ quantity, unit: 'ml' });
+  });
+
   it('keeps ranges', () => {
     expect(parseIngredient('2-3 tbsp maple syrup').quantityMax).toBe(3);
   });

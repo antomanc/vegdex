@@ -53,6 +53,8 @@ const TOTAL_RE = /\btotal\b/i;
 const METRIC_RANGE_RE = /(\d+(?:[.,]\d+)?)\s*[-–]\s*(\d+(?:[.,]\d+)?)\s*(g|grams?|kg|ml|l)\b/i;
 const NESTED_RANGE_NAME_RE = /^\(\([^)]*\)\s*\p{L}/u;
 const RANGE_BRACKET_RE = /\(\s*((?:~|about\s+)?\d+\s*[-–]\s*\d+\s*(?:g|grams?|kg|ml|l))\s*\)/i;
+const ADDED_TOTAL_RE = /(?:\+|plus)\s*([\d /.,]+)\s*(cups?|tablespoons?|tbsp|teaspoons?|tsp)\s*(?:\/|\()\s*(\d+(?:[.,]\d+)?\s*(?:ml|milliliters?)\b)/i;
+const METRIC_UNITS = new Set(['g', 'kg', 'ml', 'l']);
 const ALTERNATIVE_RE = /\bor\b/i;
 const EACH_OF_RE = /^each\s+(?:of\s+)?/i;
 /** "1/3 tsp or more cumin": an amount left open-ended. */
@@ -69,7 +71,7 @@ export function amount(input: Normalised, language: string, pack: LanguagePack):
   const sized = { ...trimmed, ...readSize(trimmed, language, pack) };
   const { altMeasure, ...measured } = { ...sized, ...readUnit(sized, language, pack) };
   const named = { ...measured, ...readOrSoAndClove(measured, language) };
-  const metric = readMetric(named, altMeasure);
+  const metric = readMetric(named, altMeasure, input.text);
   return { ...named, ...metric, ...finishName(named, language, pack) };
 }
 
@@ -201,7 +203,7 @@ function readUnit(input: Pick<AmountResult, 'text' | 'quantity' | 'unit' | 'writ
       const plusDef = plusUnit ? lookupUnit(plusUnit[1]!) : undefined;
       if (plus && plusUnit && plusDef) {
         // Only same-dimension amounts add up; anything else is dropped rather than misread as the name.
-        if (plusDef.dimension === def.dimension && def.dimension !== 'other') {
+        if (plusDef.dimension === def.dimension && def.dimension !== 'other' && !(METRIC_UNITS.has(unit) && altMeasure && !METRIC_UNITS.has(plusDef.unit))) {
           const extra = (parseNumber(plus[1]!) * plusDef.factor) / def.factor;
           quantity += extra;
           if (quantityMax !== null) quantityMax += extra;
@@ -256,7 +258,7 @@ function readOrSoAndClove(input: Pick<AmountResult, 'unit' | 'text' | 'approx' |
   return { approx, text, unit };
 }
 
-function readMetric(input: Pick<AmountResult, 'text' | 'unit' | 'sizeNote' | 'quantity'>, altMeasure: string) {
+function readMetric(input: Pick<AmountResult, 'text' | 'unit' | 'sizeNote' | 'quantity'>, altMeasure: string, source: string) {
   const { text, unit, sizeNote, quantity } = input;
   const paren = text.match(PAREN_RE);
   const parenMetric = paren ? extractMetric(paren[1]!) : null;
@@ -286,7 +288,12 @@ function readMetric(input: Pick<AmountResult, 'text' | 'unit' | 'sizeNote' | 'qu
     if (low && high) return { metric: { ...low, quantityMax: high.quantity },
       afterMeasure: rangeBracket && !parenMetric ? text.replace(rangeBracket[0], '').trim() : afterMeasure };
   }
-  return { metric, afterMeasure };
+  const added = source.match(ADDED_TOTAL_RE);
+  const extra = added ? parseNumber(added[1]!) * (lookupUnit(added[2]!)?.factor ?? 0) : 0;
+  const stated = added ? extractMetric(added[3]!) : null;
+  // A bracket matching the extra spoonful measures that spoonful, rather than the combined total.
+  const total = stated && stated.quantity > extra * 1.5 && (dim === 'volume' || dim === 'mass') ? stated : null;
+  return { metric: total ? { ...total, total: true as const } : metric, afterMeasure };
 }
 
 function finishName(input: Pick<AmountResult, 'text' | 'written' | 'unit' | 'cutNote' | 'leading'>, language: string, pack: LanguagePack) {
