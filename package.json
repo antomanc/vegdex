@@ -28,7 +28,8 @@
     "audit:score": "pnpm --filter @vegdex/ingest exec tsx src/audit-score.ts",
     "parse:diff": "pnpm --filter @vegdex/ingest exec tsx src/parse-diff.ts",
     "golden": "pnpm --filter @vegdex/ingest exec tsx src/golden-lines.ts",
-    "golden:select": "pnpm --filter @vegdex/ingest exec tsx src/golden-lines.ts --select"
+    "golden:select": "pnpm --filter @vegdex/ingest exec tsx src/golden-lines.ts --select",
+    "lines:import": "pnpm --filter @vegdex/ingest exec tsx src/lines-import.ts"
   },
   "engines": {
     "node": ">=22.12.0"
