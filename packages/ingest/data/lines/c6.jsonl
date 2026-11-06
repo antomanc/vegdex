@@ -132,6 +132,7 @@
 {"line":"1/2 cup raisins","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"raisins","it":"uvetta"}]}
 {"line":"1/2 cup sugar (, 2 tbsp more for sweeter)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"sugar","it":"zucchero"}]}
 {"line":"1/2 cup unflavored and unsweetened non-dairy milk, (divided)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unflavored and unsweetened non-dairy milk","it":"latte vegetale non aromatizzato e senza zuccheri","preparationEn":"divided","preparationIt":"diviso"}]}
+{"line":"1/2 cup up to 2 tablespoons more non-dairy milk (cashew, soy or \"lite\" coconut will all work, creamy is best)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","plus":{"quantity":2,"unit":"tbsp"},"alternatives":[{"en":"cashew milk","it":"latte di anacardi"},{"en":"soy milk","it":"latte di soia"},{"en":"light coconut milk","it":"latte di cocco leggero"}]}]}
 {"line":"1/2 cup vegan butter (*room temperature)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"1/2 green bell pepper (sliced)","language":"en","parts":[{"quantity":0.5,"en":"green bell pepper","it":"peperone verde","preparationEn":"sliced","preparationIt":"tagliato a fette"}]}
 {"line":"1/2 recipe harvest carrot and ginger hummus","language":"en","parts":[{"quantity":0.5,"unit":"recipe","en":"harvest carrot and ginger hummus","it":"hummus di carote e zenzero"}]}

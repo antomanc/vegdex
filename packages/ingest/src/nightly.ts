@@ -15,7 +15,7 @@ export interface HeldRecipe {
 const TITLE = 'Translation backlog';
 const marker = (id: string) => `<!-- held:${createHash('sha256').update(id).digest('hex')} -->`;
 
-export function backlogBody(coverage: Coverage, held: HeldRecipe[]): string {
+export function backlogBody(coverage: Coverage, held: HeldRecipe[], linesWithoutRecord?: number): string {
   const rows = Object.entries(coverage.languages).map(([language, c]) => {
     const s = score(c);
     return `| ${language} | ${s.rendered}% of ${c.lines} | ${s.unknown}% | ${c.unnamed} | ${s.titles}% of ${c.titles} |`;
@@ -28,17 +28,19 @@ export function backlogBody(coverage: Coverage, held: HeldRecipe[]): string {
     '| Language | Lines rendered | Unknown ingredients | Lines missing a name | Titles translated |',
     '| --- | --- | --- | --- | --- |',
     ...rows, '',
-    `Held recipes (not published until every ingredient is known): ${held.length}`, '',
+    `Held recipes (not published until every ingredient is known): ${held.length}`,
+    ...(linesWithoutRecord === undefined ? [] : [`Catalog lines with no record: ${linesWithoutRecord}`]),
+    '',
     '## Largest gaps', ...gaps, '',
     'Fill them with `pnpm gaps` and `pnpm vocab:apply`, or `pnpm enrich` (docs/agents/vocabulary.md).', ''
   ].join('\n');
 }
 
 /** Routine edits mention nobody; each newly held recipe is mentioned once, deduplicated by a marker comment. */
-export function updateBacklog(coverage: Coverage, held: HeldRecipe[], repo: string, gh = runGh): number {
+export function updateBacklog(coverage: Coverage, held: HeldRecipe[], repo: string, gh = runGh, linesWithoutRecord?: number): number {
   const issues = JSON.parse(gh(['issue', 'list', '--repo', repo, '--state', 'all', '--search', `in:title "${TITLE}"`, '--json', 'number,title', '--limit', '100'])) as { number: number; title: string }[];
   let number = issues.find((issue) => issue.title === TITLE)?.number;
-  const body = backlogBody(coverage, held);
+  const body = backlogBody(coverage, held, linesWithoutRecord);
   if (number) gh(['issue', 'edit', String(number), '--repo', repo, '--body-file', '-'], body);
   else {
     number = Number(gh(['issue', 'create', '--repo', repo, '--title', TITLE, '--body-file', '-'], body).trim().split('/').at(-1));

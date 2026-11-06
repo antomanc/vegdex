@@ -309,6 +309,7 @@
 {"line":"4 oz ramen noodles (( 2 ramen noodle packets))","language":"en","parts":[{"quantity":4,"unit":"oz","en":"ramen noodles","it":"noodles ramen"}]}
 {"line":"4 oz. mushrooms","language":"en","parts":[{"quantity":4,"unit":"oz","en":"mushrooms","it":"funghi"}]}
 {"line":"4 pieces dried kombu (kelp), about 4×4 inches each","language":"en","parts":[{"quantity":4,"unit":"piece","en":"dried kombu","it":"alga kombu essiccata"}]}
+{"line":"4 tablespoons vegan Panang curry paste, (plus up to 2 additional tablespoons, to taste)","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"vegan Panang curry paste","it":"pasta vegana per curry Panang","plus":{"quantity":2,"unit":"tbsp"},"toTaste":true}]}
 {"line":"4 vegan breakfast sausage patties ((optional))","language":"en","parts":[{"quantity":4,"en":"vegan breakfast sausage patties","it":"polpette di salsiccia vegetale per colazione","optional":true}]}
 {"line":"4-5 drops red or pink vegan friendly food coloring, optional","language":"en","parts":[{"quantity":4,"quantityMax":5,"unit":"drop","en":"red vegan food coloring","it":"colorante alimentare vegano rosso","optional":true,"alternatives":[{"en":"pink vegan food coloring","it":"colorante alimentare vegano rosa"}]}]}
 {"line":"40 ml / 2½ tbsp olive oil, divided","language":"en","parts":[{"quantity":40,"unit":"ml","en":"olive oil","it":"olio d'oliva","preparationEn":"divided","preparationIt":"diviso"}]}

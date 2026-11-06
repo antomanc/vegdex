@@ -108,6 +108,7 @@
 {"line":"1 ½ tablespoons ketchup","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"ketchup","it":"ketchup"}]}
 {"line":"1 ½ tablespoons organic brown sugar","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"organic brown sugar","it":"zucchero di canna biologico"}]}
 {"line":"1-1 1/2 cups plain coconut or oat milk","language":"en","parts":[{"quantity":1,"quantityMax":1.5,"unit":"cup","en":"plain coconut milk","it":"latte di cocco al naturale","alternatives":[{"en":"plain oat milk","it":"latte d'avena al naturale"}]}]}
+{"line":"1-1 teaspoons fresh lemon juice, (optional)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"fresh lemon juice","it":"succo di limone fresco","optional":true}]}
 {"line":"1-2 tbsp vegan butter (for topping, optional)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","purposeEn":"for topping","purposeIt":"per guarnire","optional":true}]}
 {"line":"1-3 tablespoons olive oil","language":"en","parts":[{"quantity":1,"quantityMax":3,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"1-inch piece ginger ((grated or julienned))","language":"en","parts":[{"quantity":1,"unit":"piece","en":"ginger","it":"zenzero","preparationEn":"grated or julienned","preparationIt":"grattugiato o tagliato a julienne"}]}

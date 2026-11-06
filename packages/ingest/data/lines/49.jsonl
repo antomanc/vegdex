@@ -434,3 +434,4 @@
 {"line":"⅛ to ¼ tsp salt","language":"en","parts":[{"quantity":0.125,"quantityMax":0.25,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"1 cucchiaino di lievito istantaneo per torte salate (oppure mezzo cucchiaino di bicarbonato)","language":"it","parts":[{"quantity":1,"unit":"tsp","en":"instant baking powder for savory dishes","it":"lievito istantaneo per torte salate","alternatives":[{"quantity":0.5,"unit":"tsp","en":"baking soda","it":"bicarbonato di sodio"}]}]}
 {"line":"20 g lievito alimentare in scaglie (vedi note)","language":"it","parts":[{"quantity":20,"unit":"g","en":"nutritional yeast flakes","it":"lievito alimentare in scaglie"}]}
+{"line":"400 g patate sbucciate crude","language":"it","parts":[{"quantity":400,"unit":"g","en":"raw potatoes","it":"patate crude","preparationEn":"peeled","preparationIt":"sbucciate"}]}
