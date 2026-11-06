@@ -45,3 +45,15 @@ Split the batch files across cheap subagents (Haiku is enough; medium thinking f
 ## Landing a fill
 
 Commit `packages/ingest/data/vocab/` on a branch and open a PR with the `pnpm coverage` output before and after, plus the rejected count. Nobody reviews rows one by one; the checks, the animal-word list on every rendered line, and the vegan check at publish time are the safeguards.
+
+## Filling line records
+
+A line is read once by a model and saved as a structured record (ADR 0008). Lines with no record still use the parser, so a new recipe publishes at once and improves when its record lands. Fill them with the same loop as gaps:
+
+```bash
+pnpm lines:fill --dry-run                     # count and list lines with no record, writes nothing
+pnpm lines:fill --limit 500                   # answer up to 500 lines via ENRICH_BASE_URL / ENRICH_MODEL
+pnpm lines:fill --answers .data/fill/lines.answers.jsonl   # apply JSONL answers, no endpoint
+```
+
+`--dry-run` prints `index<TAB>language<TAB>text` rows; a worker answers them as JSON Lines with the `packages/ingest/data/line-prompt.md` rules (`{"i":id,"p":[…]}` or `{"i":id,"k":"h"|"o"}`). Rejected records are reported and skipped, so that line stays on the parser path. Records land in `packages/ingest/data/lines/`, sharded and sorted.

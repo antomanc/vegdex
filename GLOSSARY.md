@@ -81,6 +81,10 @@ _Avoid_: Translation progress
 A title or ingredient line exactly as the source wrote it, shown whenever the vocabulary cannot compose it in the page language.
 _Avoid_: Raw text, source text
 
+**Line record**:
+A model's reading of one ingredient line, saved in git: what each part is and how to write it in English and Italian. Deterministic code owns amounts, conversion, scaling, the shopping list and the vegan check.
+_Avoid_: Translation, parsed line
+
 **Held recipe**:
 A recipe that is crawled but not published until every ingredient maps to a concept.
 _Avoid_: Pending, quarantined
