@@ -52,7 +52,6 @@ describe('parseIngredient', () => {
     ['3 15-ounce cans (425g) great northern beans', 1275]
   ])('keeps package metric weights: %s', (line, quantity) => {
     expect(parseIngredient(line).metric).toEqual({ quantity, unit: 'g' });
-    expect(toMetric(parseIngredient(line))?.quantity).toBe(quantity);
   });
 
   it.each(['2 cans full-fat coconut milk (3 cups)', '2 sticks vegan butter (16 tablespoons or 1 cup)'])('keeps honest counts: %s', (line) => {

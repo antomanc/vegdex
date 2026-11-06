@@ -45,7 +45,7 @@ Generated from the golden set (metric renders). Each row is one real source line
 | 39 | 1 3/4 pounds Russet potatoes ((about 4 medium potatoes), scrubbed, peeled, and cut into 1-inch pieces) | 800 g di patate da forno, sbucciate | 800 g di patate farinose, spazzolate, sbucciate e tagliate a pezzi | F |
 | 40 | 1 and 1/4 tsp cumin seeds (lightly toasted) | 1 ¼ cucchiaini di cumino, leggermente tostato | 1 ¼ cucchiaini di semi di cumino, leggermente tostati | C |
 | 41 | 1 baguette, cut into 4 sections, or 4 long sandwich rolls, (sliced open) | 1 baguette | 1 baguette, tagliata in 4 parti, o 4 panini lunghi, tagliati a metà | B |
-| 42 | 1 block (350g) extra-firm or firm tofu, (drained, pressed, and sliced into 8 pieces (see notes)) | 350 g di tofu extra compatto o tofu compatto, scolati, pressati | 1 panetto (350 g) di tofu extra compatto o tofu compatto, scolato, pressato e tagliato in 8 fette | E |
+| 42 | 1 block (350g) extra-firm or firm tofu, (drained, pressed, and sliced into 8 pieces (see notes)) | 1 panetto (350 g) di tofu extra compatto o tofu compatto, scolati, pressati | 1 panetto (350 g) di tofu extra compatto o tofu compatto, scolato, pressato e tagliato in 8 fette | E |
 | 43 | 1 can ( 15oz) coconut milk (light or full fat) | 1 lattina di latte di cocco | 1 lattina (425 g) di latte di cocco light o intero | C |
 | 44 | 1 centimetro di zenzero grattugiato fresco | 1 cm di zenzero | 1 cm di zenzero fresco grattugiato | C |
 | 45 | 1 cup (112g) raw cashews, soaked for 1 hour in boiling water | 112 g di anacardi crudi | 112 g di anacardi crudi, ammollati per 1 ora in acqua bollente | F |

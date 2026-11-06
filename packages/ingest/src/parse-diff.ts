@@ -41,7 +41,8 @@ const partsOf = (parser: Parser, line: string, lookup: IngredientLookup, languag
 function summary(p: ParsedIngredient): string {
   const amount = p.quantity === null ? '' : `${p.quantity}${p.quantityMax !== null ? `-${p.quantityMax}` : ''}${p.unit ? ` ${p.unit}` : ''}`;
   const concept = p.concept ? `${p.concept}${p.conceptExact === true ? '' : '?'}${p.also ? ` ${p.also.joiner} ${p.also.concept}` : ''}` : `"${p.name}"`;
-  return [p.kind ?? '', amount, concept].filter(Boolean).join(' · ');
+  const metric = p.metric ? `= ${p.metric.quantity}${p.metric.quantityMax !== undefined ? `-${p.metric.quantityMax}` : ''} ${p.metric.unit}` : '';
+  return [p.kind ?? '', amount, metric, concept].filter(Boolean).join(' · ');
 }
 
 const resolved = (parts: ParsedIngredient[]) => parts.every((p) => p.kind || !p.name || (p.concept && p.conceptExact === true));
@@ -52,7 +53,7 @@ function category(before: ParsedIngredient[], after: ParsedIngredient[]): string
   if (was !== is) return is ? 'gained' : 'LOST';
   if (before.some((p, i) => (p.kind ?? '') !== (after[i]!.kind ?? ''))) return 'kind';
   if (before.some((p, i) => p.concept !== after[i]!.concept)) return is ? 'concept' : 'name (unresolved)';
-  if (before.some((p, i) => p.quantity !== after[i]!.quantity || p.quantityMax !== after[i]!.quantityMax || p.unit !== after[i]!.unit)) return 'amount';
+  if (before.some((p, i) => p.quantity !== after[i]!.quantity || p.quantityMax !== after[i]!.quantityMax || p.unit !== after[i]!.unit || JSON.stringify(p.metric) !== JSON.stringify(after[i]!.metric))) return 'amount';
   return is ? 'other' : 'name (unresolved)';
 }
 

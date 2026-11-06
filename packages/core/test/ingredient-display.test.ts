@@ -249,3 +249,12 @@ it('keeps the original when the ingredient name follows a parenthesized weight',
     expect(renderIngredient(parsed, it_, 'it', units)).toBeNull();
   }
 });
+
+it('keeps one bracket on a package with a stated size', () => {
+  expect(render('2 x 400 g / 14 oz tins chopped tomatoes', 'us', { ...en, units: { ...en.units, can: ['can', 'cans'] } }, 'en')?.[0]).toBe('2 cans (400 g)');
+});
+
+it('shows the container beside its weight, since 400 g of dried chickpeas is not a can', () => {
+  const vocab = { ...en, units: { ...en.units, can: ['can', 'cans'] } } as LanguageVocabulary;
+  expect(render('1 (14 ounce/400 gram) can chickpeas', 'metric', vocab, 'en')?.[0]).toBe('1 can (400 g)');
+});
