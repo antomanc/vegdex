@@ -52,7 +52,7 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
 
   const state = newParseState();
   Object.assign(state, normalise(raw, language, pack));
-  amount(state, language, pack);
+  Object.assign(state, amount(state, language, pack));
   nameAndNotes(state, language, pack, lookup);
   resolve(state, raw, language, lookup);
   return classify(state, raw);

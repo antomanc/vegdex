@@ -5,7 +5,17 @@ import {
   UNIT_SIZE_RE, PIECE_SIZE_RE, PACK_SIZE_RE, COUNT_SIZE_RE, SLASH_ALT_RE, LATE_METRIC_RE,
   parseNumber, extractMetric, skipAltMeasure, stripMeasureWords
 } from './measure';
-import type { ParseState } from './types';
+import type { ParsedIngredient } from './types';
+import type { Normalised } from './normalise';
+
+export interface AmountResult {
+  text: string; approx: boolean; leading: string[];
+  // Resolution retries removed words to preserve legacy concept matches.
+  written: string;
+  quantity: number | null; quantityMax: number | null; unit: string | null;
+  sizeNote: string; cutNote: string;
+  metric: ParsedIngredient['metric']; afterMeasure: string | null;
+}
 
 const NUMBER_WORDS: Record<string, number> = {
   a: 1, an: 1, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8,
@@ -45,223 +55,240 @@ const MORE_RE = /^(?:or|plus|\+)\s+more\s+/i;
 /** A unit word with no amount when it names the measure ("a pinch of salt"). */
 const COUNT_WORD_RE = /^(pinch|dash|handful|splash|sprinkle|bunch|sprig|can|tin|jar|bag|package|block|packet|sachet)/i;
 
-/** Read the amount: quantity, range and unit, leaving the name in `state.text`. */
-export function amount(state: ParseState, language: string, pack: LanguagePack): void {
-  readAmount(state, pack);
-  trimAmountText(state, language);
-  readSize(state, language, pack);
-  const altMeasure = readUnit(state, language, pack);
-  readOrSoAndClove(state, language);
-  readMetric(state, altMeasure);
-  finishName(state, language, pack);
+/** Read the amount, leaving the remaining name text for the next stage. */
+export function amount(input: Normalised, language: string, pack: LanguagePack): AmountResult {
+  const initial: AmountResult = { text: input.text, approx: input.approx, leading: [...input.leading],
+    written: '', quantity: null, quantityMax: null, unit: null, sizeNote: '', cutNote: '', metric: null, afterMeasure: null };
+  const counted = { ...initial, ...readAmount(initial, pack) };
+  const trimmed = { ...counted, ...trimAmountText(counted, language) };
+  const sized = { ...trimmed, ...readSize(trimmed, language, pack) };
+  const measured = { ...sized, ...readUnit(sized, language, pack) };
+  const named = { ...measured, ...readOrSoAndClove(measured, language) };
+  const metric = readMetric(named, measured.altMeasure);
+  return { ...named, ...metric, ...finishName(named, language, pack) };
 }
 
-function readAmount(state: ParseState, pack: LanguagePack): void {
+function readAmount(input: Pick<AmountResult, 'text' | 'quantity' | 'quantityMax' | 'written' | 'approx'>, pack: LanguagePack) {
+  let { text, quantity, quantityMax, written, approx } = input;
   const words = pack.numberWords ?? NUMBER_WORDS;
-  const word = state.text.match(new RegExp(`^(${Object.keys(words).join('|')})\\s+`, 'i'));
-  const q = state.text.match(QTY_RE);
+  const word = text.match(new RegExp(`^(${Object.keys(words).join('|')})\\s+`, 'i'));
+  const q = text.match(QTY_RE);
   if (q) {
-    state.quantity = parseNumber(q[1]!);
-    state.quantityMax = q[2] ? parseNumber(q[2]) : null;
-    state.text = state.text.slice(q[0].length);
-    const more = state.text.match(AND_FRACTION_RE);
+    quantity = parseNumber(q[1]!);
+    quantityMax = q[2] ? parseNumber(q[2]) : null;
+    text = text.slice(q[0].length);
+    const more = text.match(AND_FRACTION_RE);
     if (more) {
-      state.quantity += parseNumber(more[1]!);
-      state.text = state.text.slice(more[0].length);
+      quantity += parseNumber(more[1]!);
+      text = text.slice(more[0].length);
     }
-    state.text = state.text.replace(HYPHEN_JOIN_RE, (m) => { state.written += m; return ''; });
+    text = text.replace(HYPHEN_JOIN_RE, (m) => { written += m; return ''; });
   } else if (word) {
-    state.quantity = words[word[1]!.toLowerCase()] ?? null;
-    state.text = state.text.slice(word[0].length);
+    quantity = words[word[1]!.toLowerCase()] ?? null;
+    text = text.slice(word[0].length);
     // "a generous ¾ cup": the article only introduced the amount.
-    const stripped = /^an?$/i.test(word[1]!) ? stripMeasureWords(state.text, pack) : null;
+    const stripped = /^an?$/i.test(word[1]!) ? stripMeasureWords(text, pack) : null;
     const amount = stripped ? stripped.text.match(QTY_RE) : null;
     if (amount) {
-      state.quantity = parseNumber(amount[1]!);
-      state.quantityMax = amount[2] ? parseNumber(amount[2]) : null;
-      state.approx ||= stripped!.approx;
-      state.text = stripped!.text.slice(amount[0].length);
+      quantity = parseNumber(amount[1]!);
+      quantityMax = amount[2] ? parseNumber(amount[2]) : null;
+      approx ||= stripped!.approx;
+      text = stripped!.text.slice(amount[0].length);
     }
   }
+  return { text, quantity, quantityMax, written, approx };
 }
 
-function trimAmountText(state: ParseState, language: string): void {
-  if (state.quantity !== null && language === 'en') state.text = state.text.replace(ARTICLE_RE, '');
+function trimAmountText(input: Pick<AmountResult, 'quantity' | 'text' | 'quantityMax' | 'written' | 'leading'>, language: string) {
+  let { quantity, text, quantityMax, written, leading } = input;
+  leading = [...leading];
+  if (quantity !== null && language === 'en') text = text.replace(ARTICLE_RE, '');
   // "a few basil leaves", "a few drops of rum extract": no amount, to taste.
-  const few = language === 'en' && (state.quantity === null || state.quantity === 1) && state.quantityMax === null ? state.text.match(FEW_RE) : null;
+  const few = language === 'en' && (quantity === null || quantity === 1) && quantityMax === null ? text.match(FEW_RE) : null;
   if (few) {
-    state.written += few[0];
-    state.text = state.text.slice(few[0].length);
-    const fewUnit = state.text.match(UNIT_RE);
+    written += few[0];
+    text = text.slice(few[0].length);
+    const fewUnit = text.match(UNIT_RE);
     // "a few cloves" names the cloves; "a few cloves of garlic" measures the garlic.
-    if (fewUnit && lookupUnit(fewUnit[1]!)?.dimension === 'other' && /^(?:of\s+)?\p{L}/iu.test(state.text.slice(fewUnit[0].length))) {
-      const of = state.text.slice(fewUnit[0].length).match(/^of\s+/i)?.[0] ?? '';
-      state.written += fewUnit[0] + of;
-      state.text = state.text.slice(fewUnit[0].length + of.length);
+    if (fewUnit && lookupUnit(fewUnit[1]!)?.dimension === 'other' && /^(?:of\s+)?\p{L}/iu.test(text.slice(fewUnit[0].length))) {
+      const of = text.slice(fewUnit[0].length).match(/^of\s+/i)?.[0] ?? '';
+      written += fewUnit[0] + of;
+      text = text.slice(fewUnit[0].length + of.length);
     }
-    state.quantity = null;
-    state.leading.push('to taste');
+    quantity = null;
+    leading.push('to taste');
   }
-  if (language === 'en') state.text = state.text.replace(PERCENT_RE, '');
+  if (language === 'en') text = text.replace(PERCENT_RE, '');
+  return { quantity, text, quantityMax, written, leading };
 }
 
-function readSize(state: ParseState, language: string, pack: LanguagePack): void {
-  const stripped = stripMeasureWords(state.text, pack);
-  state.approx ||= stripped.approx;
-  state.text = stripped.text.replace(UNIT_SIZE_RE, '');
-  const times = state.quantity !== null ? state.text.match(TIMES_SIZE_RE) : null;
+function readSize(input: Pick<AmountResult, 'text' | 'approx' | 'quantity' | 'sizeNote' | 'quantityMax'>, language: string, pack: LanguagePack) {
+  let { text, approx, quantity, sizeNote, quantityMax } = input;
+  const stripped = stripMeasureWords(text, pack);
+  approx ||= stripped.approx;
+  text = stripped.text.replace(UNIT_SIZE_RE, '');
+  const times = quantity !== null ? text.match(TIMES_SIZE_RE) : null;
   if (times) {
-    state.sizeNote = times[1]!;
-    state.text = state.text.slice(times[0].length);
+    sizeNote = times[1]!;
+    text = text.slice(times[0].length);
   }
   // A unit word reads as a unit after an amount; "Pizzico di sale" alone still means one pinch, "Foglioline di menta" is the name.
-  if (pack.units) state.text = state.text.replace(languageUnitPatterns[language]!, (all, token: string) => (state.quantity !== null || pack.units![token.toLowerCase()] === 'pinch' ? `${pack.units![token.toLowerCase()]} ` : all));
-  const size = times ? null : state.text.match(PAREN_RE) ?? state.text.match(PIECE_SIZE_RE) ?? state.text.match(PACK_SIZE_RE);
+  if (pack.units) text = text.replace(languageUnitPatterns[language]!, (all, token: string) => (quantity !== null || pack.units![token.toLowerCase()] === 'pinch' ? `${pack.units![token.toLowerCase()]} ` : all));
+  const size = times ? null : text.match(PAREN_RE) ?? text.match(PIECE_SIZE_RE) ?? text.match(PACK_SIZE_RE);
   if (size) {
-    state.sizeNote = size[1]!;
-    state.text = state.text.slice(size[0].length);
+    sizeNote = size[1]!;
+    text = text.slice(size[0].length);
   }
-  const counted = !size && !times && state.quantity !== null && state.quantityMax === null && language === 'en' ? state.text.match(COUNT_SIZE_RE) : null;
+  const counted = !size && !times && quantity !== null && quantityMax === null && language === 'en' ? text.match(COUNT_SIZE_RE) : null;
   if (counted) {
-    state.quantity! *= parseNumber(counted[1]!);
-    state.text = state.text.slice(counted[0].length);
+    quantity! *= parseNumber(counted[1]!);
+    text = text.slice(counted[0].length);
   }
+  return { text, approx, quantity, sizeNote, quantityMax };
 }
 
 /** Read the unit word and how it combines with the amount (fill, container, range, alternatives); returns the alternative measure. */
-function readUnit(state: ParseState, language: string, pack: LanguagePack): string {
+function readUnit(input: Pick<AmountResult, 'text' | 'quantity' | 'unit' | 'written' | 'leading' | 'quantityMax' | 'sizeNote'>, language: string, pack: LanguagePack) {
+  let { text, quantity, unit, written, leading, quantityMax, sizeNote } = input;
+  leading = [...leading];
   let altMeasure = '';
-  const u = state.text.match(UNIT_RE);
-  if (u && state.quantity !== null) {
+  const u = text.match(UNIT_RE);
+  if (u && quantity !== null) {
     const def = lookupUnit(u[1]!);
     if (def) {
-      state.unit = def.unit;
-      if (def.dimension === 'other') state.written += u[0];
-      state.text = state.text.slice(u[0].length);
+      unit = def.unit;
+      if (def.dimension === 'other') written += u[0];
+      text = text.slice(u[0].length);
       // "1 cucchiaino colmo di curry", "1 cucchiaio a testa di anacardi": how full, or per person, is a note.
-      const fill = pack.fillNote ? state.text.match(pack.fillNote) : null;
+      const fill = pack.fillNote ? text.match(pack.fillNote) : null;
       if (fill) {
-        state.leading.push(fill[1]!.toLowerCase());
-        state.text = state.text.slice(fill[0].length);
+        leading.push(fill[1]!.toLowerCase());
+        text = text.slice(fill[0].length);
       }
-      const container = (def.dimension === 'mass' || def.dimension === 'volume') && state.quantityMax === null && !altMeasure && language === 'en'
-        ? state.text.match(CONTAINER_RE) : null;
+      const container = (def.dimension === 'mass' || def.dimension === 'volume') && quantityMax === null && language === 'en'
+        ? text.match(CONTAINER_RE) : null;
       if (container) {
-        state.sizeNote ||= `${state.quantity} ${def.unit}`;
-        state.unit = lookupUnit(container[0].trim().split(/\s/)[0]!)!.unit;
-        state.quantity = 1;
-        state.written += container[0];
-        state.text = state.text.slice(container[0].length);
+        sizeNote ||= `${quantity} ${def.unit}`;
+        unit = lookupUnit(container[0].trim().split(/\s/)[0]!)!.unit;
+        quantity = 1;
+        written += container[0];
+        text = text.slice(container[0].length);
       }
-      const range = state.text.match(RANGE_TAIL_RE);
-      const rangeUnit = range ? state.text.slice(range[0].length).match(UNIT_RE) : null;
+      const range = text.match(RANGE_TAIL_RE);
+      const rangeUnit = range ? text.slice(range[0].length).match(UNIT_RE) : null;
       const rangeDef = rangeUnit ? lookupUnit(rangeUnit[1]!) : undefined;
       if (range && rangeDef && (rangeDef.unit === def.unit || (rangeDef.dimension === def.dimension && def.dimension !== 'other'))) {
-        state.quantityMax = (parseNumber(range[1]!) * rangeDef.factor) / def.factor;
-        state.text = state.text.slice(range[0].length + rangeUnit![0].length);
+        quantityMax = (parseNumber(range[1]!) * rangeDef.factor) / def.factor;
+        text = text.slice(range[0].length + rangeUnit![0].length);
       }
-      const alt = skipAltMeasure(state.text, def.dimension === 'mass' || def.dimension === 'volume');
-      altMeasure = state.text.slice(0, state.text.length - alt.length);
-      state.text = alt;
-      const bracket = state.text.match(BRACKET_RE);
+      const alt = skipAltMeasure(text, def.dimension === 'mass' || def.dimension === 'volume');
+      altMeasure = text.slice(0, text.length - alt.length);
+      text = alt;
+      const bracket = text.match(BRACKET_RE);
       if (bracket) {
         altMeasure ||= bracket[1]!;
-        state.text = state.text.slice(bracket[0].length);
+        text = text.slice(bracket[0].length);
       }
-      const plus = state.text.match(PLUS_MEASURE_RE);
-      const plusUnit = plus ? state.text.slice(plus[0].length).match(UNIT_RE) : null;
+      const plus = text.match(PLUS_MEASURE_RE);
+      const plusUnit = plus ? text.slice(plus[0].length).match(UNIT_RE) : null;
       const plusDef = plusUnit ? lookupUnit(plusUnit[1]!) : undefined;
       if (plus && plusUnit && plusDef) {
         // Only same-dimension amounts add up; anything else is dropped rather than misread as the name.
         if (plusDef.dimension === def.dimension && def.dimension !== 'other') {
           const extra = (parseNumber(plus[1]!) * plusDef.factor) / def.factor;
-          state.quantity += extra;
-          if (state.quantityMax !== null) state.quantityMax += extra;
+          quantity += extra;
+          if (quantityMax !== null) quantityMax += extra;
         }
-        state.text = state.text.slice(plus[0].length + plusUnit[0].length);
+        text = text.slice(plus[0].length + plusUnit[0].length);
         // "¼ cup + 2 tbsp / 90 ml".
-        state.text = skipAltMeasure(state.text, false);
+        text = skipAltMeasure(text, false);
       }
       // "1 cup 180g rice": the second measure repeats the first; grams or ml are kept as its metric.
-      const second = state.text.match(SECOND_MEASURE_RE);
-      const secondUnit = second ? state.text.slice(second[0].length).match(UNIT_RE) : null;
+      const second = text.match(SECOND_MEASURE_RE);
+      const secondUnit = second ? text.slice(second[0].length).match(UNIT_RE) : null;
       if (second && secondUnit && lookupUnit(secondUnit[1]!)) {
-        altMeasure ||= state.text.slice(0, second[0].length + secondUnit[0].length);
-        state.text = skipAltMeasure(state.text.slice(second[0].length + secondUnit[0].length), false);
+        altMeasure ||= text.slice(0, second[0].length + secondUnit[0].length);
+        text = skipAltMeasure(text.slice(second[0].length + secondUnit[0].length), false);
       }
     }
-  } else if (!u && state.quantity !== null && /^\/\s/.test(state.text)) {
+  } else if (!u && quantity !== null && /^\/\s/.test(text)) {
     // "30-45 / 2-3 tbsp oil": the first amount has no unit, so the second measure is the one kept.
-    const alt = state.text.match(SLASH_ALT_RE);
-    const altUnit = alt ? state.text.slice(alt[0].length).match(UNIT_RE) : null;
+    const alt = text.match(SLASH_ALT_RE);
+    const altUnit = alt ? text.slice(alt[0].length).match(UNIT_RE) : null;
     const altDef = altUnit ? lookupUnit(altUnit[1]!) : undefined;
     if (alt && altUnit && altDef) {
-      state.quantity = parseNumber(alt[1]!);
-      state.quantityMax = alt[2] ? parseNumber(alt[2]) : null;
-      state.unit = altDef.unit;
-      state.text = state.text.slice(alt[0].length + altUnit[0].length);
+      quantity = parseNumber(alt[1]!);
+      quantityMax = alt[2] ? parseNumber(alt[2]) : null;
+      unit = altDef.unit;
+      text = text.slice(alt[0].length + altUnit[0].length);
     }
   } else if (u && COUNT_WORD_RE.test(u[1]!)) {
-    state.unit = lookupUnit(u[1]!)?.unit ?? null;
-    state.quantity = 1;
-    state.written += u[0];
-    state.text = state.text.slice(u[0].length);
+    unit = lookupUnit(u[1]!)?.unit ?? null;
+    quantity = 1;
+    written += u[0];
+    text = text.slice(u[0].length);
   }
-  return altMeasure;
+
+  return { text, quantity, unit, written, leading, quantityMax, sizeNote, altMeasure };
 }
 
-function readOrSoAndClove(state: ParseState, language: string): void {
-  const orSo = state.unit && language === 'en' ? state.text.match(OR_SO_RE) : null;
+function readOrSoAndClove(input: Pick<AmountResult, 'unit' | 'text' | 'approx' | 'quantity'>, language: string) {
+  let { unit, text, approx, quantity } = input;
+  const orSo = unit && language === 'en' ? text.match(OR_SO_RE) : null;
   if (orSo) {
-    state.approx = true;
-    state.text = state.text.slice(orSo[0].length);
+    approx = true;
+    text = text.slice(orSo[0].length);
   }
 
   // "garlic cloves" written name-first. The clove becomes the unit and the name keeps only the garlic.
-  const nameFirstClove = !state.unit && state.quantity !== null ? state.text.match(NAME_FIRST_CLOVE_RE) : null;
+  const nameFirstClove = !unit && quantity !== null ? text.match(NAME_FIRST_CLOVE_RE) : null;
   if (nameFirstClove) {
-    state.unit = 'clove';
-    state.text = nameFirstClove[1]! + state.text.slice(nameFirstClove[0].length);
+    unit = 'clove';
+    text = nameFirstClove[1]! + text.slice(nameFirstClove[0].length);
   }
+  return { unit, text, approx, quantity };
 }
 
-function readMetric(state: ParseState, altMeasure: string): void {
-  const paren = state.text.match(PAREN_RE);
+function readMetric(input: Pick<AmountResult, 'text' | 'unit' | 'sizeNote' | 'quantity'>, altMeasure: string) {
+  const { text, unit, sizeNote, quantity } = input;
+  const paren = text.match(PAREN_RE);
   const parenMetric = paren ? extractMetric(paren[1]!) : null;
-  const metricSource = altMeasure || (state.unit && ['cup', 'tbsp', 'tsp', 'oz', 'lb'].includes(state.unit) ? state.sizeNote : '');
+  const metricSource = altMeasure || (unit && ['cup', 'tbsp', 'tsp', 'oz', 'lb'].includes(unit) ? sizeNote : '');
   let metric = parenMetric ?? (metricSource ? extractMetric(metricSource) : null);
-  let afterMeasure = state.unit ? (parenMetric ? state.text.slice(paren![0].length) : state.text) : null;
+  let afterMeasure = unit ? (parenMetric ? text.slice(paren![0].length) : text) : null;
   // "2 cups flour (280g)": a parenthetical that is only a metric amount, after the name.
-  const dim = state.unit ? unitDef(state.unit)?.dimension : undefined;
+  const dim = unit ? unitDef(unit)?.dimension : undefined;
   const lateMetric = !metric && afterMeasure && (dim === 'volume' || dim === 'mass') ? afterMeasure.match(LATE_METRIC_RE) : null;
   if (lateMetric) {
     metric = extractMetric(lateMetric[2]!);
     const words = lateMetric[1]!.replace(/^\s*(?:about|approx\.?|~)?\s*$/i, '').trim();
     afterMeasure = afterMeasure!.replace(lateMetric[0], words ? `(${words})` : ' ').replace(/\s+([,)])/g, '$1').replace(/\s{2,}/g, ' ').trim();
   }
-  if (state.unit && (state.unit === 'g' || state.unit === 'kg') && state.quantity !== null)
-    metric = { quantity: state.quantity * (state.unit === 'kg' ? 1000 : 1), unit: 'g' };
-  if (state.unit && (state.unit === 'ml' || state.unit === 'l') && state.quantity !== null)
-    metric = { quantity: state.quantity * (state.unit === 'l' ? 1000 : 1), unit: 'ml' };
-  state.metric = metric;
-  state.afterMeasure = afterMeasure;
+  if (unit && (unit === 'g' || unit === 'kg') && quantity !== null)
+    metric = { quantity: quantity * (unit === 'kg' ? 1000 : 1), unit: 'g' };
+  if (unit && (unit === 'ml' || unit === 'l') && quantity !== null)
+    metric = { quantity: quantity * (unit === 'l' ? 1000 : 1), unit: 'ml' };
+  return { text, unit, sizeNote, quantity, metric, afterMeasure };
 }
 
-function finishName(state: ParseState, language: string, pack: LanguagePack): void {
-  state.text = state.text.replace(PAREN_STRIP_RE, '').replace(OF_ARTICLE_RE, (m) => { if (state.written) state.written += m; return ''; });
-  const cut = state.unit && language === 'en' ? state.text.match(CUT_SIZE_RE) : null;
+function finishName(input: Pick<AmountResult, 'text' | 'written' | 'unit' | 'cutNote' | 'leading'>, language: string, pack: LanguagePack) {
+  let { text, written, unit, cutNote, leading } = input;
+  leading = [...leading];
+  text = text.replace(PAREN_STRIP_RE, '').replace(OF_ARTICLE_RE, (m) => { if (written) written += m; return ''; });
+  const cut = unit && language === 'en' ? text.match(CUT_SIZE_RE) : null;
   if (cut) {
-    state.cutNote = cut[1]!;
-    state.text = state.text.slice(cut[0].length);
+    cutNote = cut[1]!;
+    text = text.slice(cut[0].length);
   }
-  if (state.unit && ['inch', 'cm'].includes(state.unit) && language === 'en') state.text = state.text.replace(PIECE_OF_RE, (m) => { state.written += m; return ''; });
-  if (state.unit && ['package', 'bag', 'box', 'can', 'jar', 'container'].includes(state.unit) && language === 'en') state.text = state.text.replace(PACK_COUNT_RE, '');
-  if (pack.preposition) state.text = state.text.replace(pack.preposition, '');
+  if (unit && ['inch', 'cm'].includes(unit) && language === 'en') text = text.replace(PIECE_OF_RE, (m) => { written += m; return ''; });
+  if (unit && ['package', 'bag', 'box', 'can', 'jar', 'container'].includes(unit) && language === 'en') text = text.replace(PACK_COUNT_RE, '');
+  if (pack.preposition) text = text.replace(pack.preposition, '');
   // "½ tsp each salt & pepper", "1/3 tsp or more cumin": amounts shared or open-ended.
-  state.text = state.text.replace(EACH_OF_RE, '');
-  const more = language === 'en' ? state.text.match(MORE_RE) : null;
+  text = text.replace(EACH_OF_RE, '');
+  const more = language === 'en' ? text.match(MORE_RE) : null;
   if (more) {
-    state.text = state.text.slice(more[0].length);
-    state.leading.push('as needed');
+    text = text.slice(more[0].length);
+    leading.push('as needed');
   }
+  return { text, written, unit, cutNote, leading };
 }
