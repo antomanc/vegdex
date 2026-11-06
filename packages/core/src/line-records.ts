@@ -1,3 +1,6 @@
+import { termForm, nounForm, type LanguageVocabulary } from './vocabulary';
+import { lookupConcept, type IngredientLookup } from './concepts';
+import { parseIngredient, type ParsedIngredient } from './ingredients';
 import { findUnsafeRenderedTerms } from './translations';
 import { lookupUnit } from './ingredients/units';
 
@@ -103,4 +106,45 @@ export function validateRecord(value: unknown): RecordFinding[] {
   const all = preserved.join(' ').toLowerCase();
   for (const q of qualifiers) if (new RegExp('\\b' + q.replace('-', '[ -]') + '\\b', 'i').test(String(r.line)) && !new RegExp('\\b' + q.replace('-', '[ -]') + '\\b', 'i').test(all)) add('qualifier-lost', 'review');
   return [...findings.values()];
+}
+
+function exactConcept(name: string, lookup: IngredientLookup): string | null {
+  const read = parseIngredient(name, lookup);
+  return read.conceptExact === true ? read.concept : null;
+}
+
+/** Parser measurements survive unless the record changes the number of ingredients. */
+export function applyLineRecord(parsed: ParsedIngredient[], record: LineRecord | undefined, lookup: IngredientLookup, displays: Record<string, LanguageVocabulary> = {}): ParsedIngredient[] {
+  if (!record) return parsed;
+  const first = parsed[0]!;
+  if (record.kind) return [{ ...first, kind: record.kind, name: '' }];
+  // "¼ cup milk (plus 2 tablespoons)": the parser did not add it, and the record's text would hide the rest.
+  if (parsed.length === 1 && record.parts!.some(part => part.plus && part.quantity === first.quantity && part.unit === first.unit)) return parsed;
+  return record.parts!.map((part, i) => {
+    const base = parsed[i] ?? first;
+    const same = parsed.length === record.parts!.length;
+    const present = (n: number | undefined) => n !== undefined && numbers(record.line).some(v => Math.abs(v - n) < 0.01);
+    // A part the parser did not split out still has to find its ingredient, or shopping rows stop adding up.
+    const concept = lookupConcept(part.en, lookup) ?? (same ? null : exactConcept(part.en, lookup));
+    const exact = concept !== null;
+    const name = same && (!exact || concept === base.concept) && base.name ? base.name : part.en;
+    const text = Object.fromEntries(['en', 'it'].map(language => {
+      const en = language === 'en';
+      const name = [part[en ? 'en' : 'it'], ...(part.alternatives ?? []).filter(a => a.quantity === undefined || (a.quantity === part.quantity && a.unit === part.unit)).slice(0, 3).map(a => a[en ? 'en' : 'it'])].join(en ? ' or ' : ' o ');
+      const display = displays[language];
+      const forms = display?.names[exact ? concept : base.concept ?? ''];
+      const marker = (id: string, fallback: string) => display?.terms[id] ? termForm(display.terms[id]!, forms?.gender, forms ? nounForm(forms, base.quantityMax ?? base.quantity, !!base.unit).plural : false) : fallback;
+      const note = [part[en ? 'preparationEn' : 'preparationIt'], part[en ? 'purposeEn' : 'purposeIt'],
+        part.optional ? marker('term:optional', en ? 'optional' : 'facoltativo') : '', part.toTaste ? marker('term:to-taste', en ? 'to taste' : 'quanto basta') : ''].filter(Boolean).join(', ');
+      return [language, { name, note }];
+    }));
+    return { ...base, ...(!same ? {
+      quantity: present(part.quantity) ? part.quantity! : null,
+      quantityMax: present(part.quantityMax) ? part.quantityMax! : null,
+      unit: present(part.quantity) ? part.unit ?? null : null,
+      metric: record.parts!.length === 1 ? first.metric : null, size: null, approx: undefined
+    } : {}), kind: undefined, densityName: same ? base.densityName ?? (name !== base.name ? base.name : undefined) : part.en, text, name, phrase: same ? base.phrase : record.language === 'it' ? part.it : part.en, note: '', terms: same ? base.terms : [], also: null,
+      optional: part.optional ?? false, concept: exact ? concept : parsed[i]?.concept ?? null,
+      conceptExact: exact ? true : parsed[i]?.conceptExact };
+  });
 }

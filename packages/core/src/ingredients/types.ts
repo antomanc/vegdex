@@ -16,6 +16,7 @@ export interface PreparationTerm {
 }
 
 export interface ParsedIngredient {
+  text?: Record<string, { name: string; note: string }>;
   /** English name of a mapped concept, used only with the existing density table. */
   densityName?: string;
   /** False when mapping discarded source wording that display must retain. Absent in older datasets. */

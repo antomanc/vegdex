@@ -11,7 +11,7 @@ for (const language of ['en', 'it'] as const) {
     await page.getByRole('button', { name: title, exact: true }).click();
     let sheet = page.getByRole('dialog');
     await expect(sheet.getByRole('link', { name: /Cucinaverza/ })).toHaveAttribute('href', 'https://cucinaverza.com/piatti-unici/primi/gnocchi-di-barbabietola-e-patate-senza-uova/');
-    await expect(sheet.getByTestId('ingredients')).toContainText(italian ? '300 g di barbabietola precotta' : '300 g cooked beetroot');
+    await expect(sheet.getByTestId('ingredients')).toContainText(italian ? '300 g di barbabietola precotta' : '300 g precooked beetroot');
     if (!italian) await expect(sheet.locator('.original-title')).toHaveText('Gnocchi di barbabietola e patate (senza uova)');
     await sheet.getByRole('button', { name: italian ? 'Salva' : 'Save', exact: true }).click();
     await sheet.getByRole('button', { name: italian ? 'Chiudi' : 'Close', exact: true }).click();

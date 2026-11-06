@@ -34,10 +34,9 @@ it('extracts and publishes a real Italian source once the vocabulary knows every
   expect(searchRecipes(full.recipes, { include: ['beetroot'] }, full.lookup).map((r) => r.id)).toEqual([gnocchi.id]);
   const overlay = JSON.parse(fs.readFileSync(path.join(out, 'overlay/en.json'), 'utf8'));
   expect(overlay.titles[gnocchi.title]).toBe('Vegan Beetroot and Potato Gnocchi');
-  expect(renderIngredient(lineParts(gnocchi.parsedIngredients![0]!)[0]!, overlay, 'en', 'metric', 'it')).toEqual(['300 g', 'cooked beetroot']);
+  expect(renderIngredient(lineParts(gnocchi.parsedIngredients![0]!)[0]!, overlay, 'en', 'metric', 'it')).toEqual(['300 g', 'precooked beetroot']);
   expect(renderIngredient(lineParts(gnocchi.parsedIngredients![2]!)[0]!, overlay, 'en', 'metric', 'it')).toEqual(['350 g', 'flour type 0, plus more as needed']);
-  // The weighing note is commentary: left out of the English line, kept in the original.
-  expect(renderIngredient(lineParts(gnocchi.parsedIngredients![1]!)[0]!, overlay, 'en', 'metric', 'it')).toEqual(['600 g', 'potatoes']);
+  expect(renderIngredient(lineParts(gnocchi.parsedIngredients![1]!)[0]!, overlay, 'en', 'metric', 'it')).toEqual(['600 g', 'potatoes, weighed raw with the skin on']);
   const list = compileGroceryList([{ recipeId: gnocchi.id, ingredients: gnocchi.ingredients, parsedIngredients: gnocchi.parsedIngredients, contentLanguage: 'it', multiplier: 2 }], { concepts: full.grocery, lookup: full.lookup, units: 'metric' });
   expect(list.find((item) => item.name === 'cooked beetroot')).toMatchObject({ amounts: ['600 g'] });
   expect(list.find((item) => item.name === 'flour type 0')).toMatchObject({ amounts: ['700 g'] });

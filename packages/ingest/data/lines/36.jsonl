@@ -458,6 +458,6 @@
 {"line":"⅛ tsp dried dill","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"dried dill","it":"aneto essiccato"}]}
 {"line":"15-20 asparagi verdi","language":"it","parts":[{"quantity":15,"quantityMax":20,"en":"green asparagus","it":"asparagi verdi"}]}
 {"line":"20 g olio di semi di girasole","language":"it","parts":[{"quantity":20,"unit":"g","en":"sunflower seed oil","it":"olio di semi di girasole"}]}
-{"line":"350 g farina di tipo 2 (va bene anche la tipo 1, oppure 250 g tipo 0 + 100 g integrale)","language":"it","parts":[{"quantity":350,"unit":"g","en":"type 2 flour","it":"farina di tipo 2","alternatives":[{"en":"type 1 flour","it":"farina tipo 1"}]},{"quantity":250,"unit":"g","en":"type 0 flour","it":"farina 0","optional":true},{"quantity":100,"unit":"g","en":"whole wheat flour","it":"farina integrale","optional":true}]}
+{"line":"350 g farina di tipo 2 (va bene anche la tipo 1, oppure 250 g tipo 0 + 100 g integrale)","language":"it","parts":[{"quantity":350,"unit":"g","en":"type 2 flour","it":"farina di tipo 2","alternatives":[{"en":"type 1 flour","it":"farina tipo 1"},{"en":"type 0 flour mixed with whole wheat flour","it":"farina tipo 0 mescolata a farina integrale"}]}]}
 {"line":"600 g patate (pesate a crudo con la buccia)","language":"it","parts":[{"quantity":600,"unit":"g","en":"potatoes","it":"patate","preparationEn":"weighed raw with the skin on","preparationIt":"pesate crude con la buccia"}]}
 {"line":"Piselli","language":"it","parts":[{"en":"peas","it":"piselli"}]}

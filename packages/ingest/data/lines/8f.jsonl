@@ -430,7 +430,7 @@
 {"line":"1 cucchiaio di semi di lino (facoltativi però aiutano molto a rendere l'impasto elastico e che non si spezza)","language":"it","parts":[{"quantity":1,"unit":"tbsp","en":"flax seeds","it":"semi di lino","optional":true}]}
 {"line":"2 cucchiai di olio evo","language":"it","parts":[{"quantity":2,"unit":"tbsp","en":"extra virgin olive oil","it":"olio extravergine d'oliva"}]}
 {"line":"20 g cipolla bianca (circa 1/4)","language":"it","parts":[{"quantity":20,"unit":"g","en":"white onion","it":"cipolla bianca"}]}
-{"line":"350 g farina 0 + q.b. ma comunque meno possibile","language":"it","parts":[{"quantity":350,"unit":"g","en":"type 0 flour","it":"farina 0"}]}
+{"line":"350 g farina 0 + q.b. ma comunque meno possibile","language":"it","parts":[{"quantity":350,"unit":"g","en":"flour type 0","it":"farina 0","purposeEn":"plus more as needed","purposeIt":"più altra quanto basta"}]}
 {"line":"Curry (facoltativo)","language":"it","parts":[{"en":"curry powder","it":"curry in polvere","optional":true}]}
 {"line":"Due cucchiai d’acqua","language":"it","parts":[{"quantity":2,"unit":"tbsp","en":"water","it":"acqua"}]}
 {"line":"Il succo di un limone - circa 4 cucchiai","language":"it","parts":[{"quantity":4,"unit":"tbsp","en":"lemon juice","it":"succo di limone"}]}

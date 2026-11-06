@@ -13,6 +13,7 @@ export interface GroceryInput {
 }
 
 export interface GroceryItem {
+  text?: Record<string, { name: string; note: string }>;
   /** Present when every mapped contribution agrees on one concept. The row name remains stable across UI languages. */
   concept?: string;
   name: string;
@@ -90,6 +91,8 @@ export function scaleIngredient(p: ParsedIngredient, factor: number, units: Unit
   if (!p.quantity || factor === 1) return p;
   const exact: ParsedIngredient = {
     ...p,
+    // Written text has one number: "1 cipolla, tritata" cannot read as three, so a counted part goes back to the vocabulary.
+    ...(!p.unit && ((p.quantityMax ?? p.quantity) <= 1) !== ((p.quantityMax ?? p.quantity) * factor <= 1) ? { text: undefined } : {}),
     quantity: p.quantity * factor,
     quantityMax: p.quantityMax === null ? null : p.quantityMax * factor,
     metric: p.metric && { ...p.metric, quantity: p.metric.quantity * factor, ...(p.metric.quantityMax !== undefined ? { quantityMax: p.metric.quantityMax * factor } : {}) }
@@ -188,6 +191,7 @@ export function compileGroceryList(
   { units = 'us', lookup = {}, concepts = {} }: { units?: Units; lookup?: IngredientLookup; concepts?: GroceryConcepts } = {}
 ): GroceryItem[] {
   interface Acc {
+    text?: ParsedIngredient['text'];
     concepts: Set<string>;
     name: string;
     aisle: string;
@@ -245,7 +249,7 @@ export function compileGroceryList(
     if (canned) aisle = 'canned & jarred';
     const key = canned ? `${name} canned` : name;
     const acc: Acc = groups.get(key) ?? {
-      concepts: new Set(), name, aisle, volume: 0, volumeGrams: 0, unweighedMl: 0, blogMl: 0, blogGrams: 0,
+      text: p.text, concepts: new Set(), name, aisle, volume: 0, volumeGrams: 0, unweighedMl: 0, blogMl: 0, blogGrams: 0,
       mass: 0, estimate: false, count: 0, other: new Map(), toTaste: false, recipeIds: new Set(), lines: []
     };
     groups.set(key, acc);
@@ -309,6 +313,7 @@ export function compileGroceryList(
     items.push({
       ...(acc.concepts.size === 1 ? { concept: [...acc.concepts][0]! } : {}),
       name: acc.name,
+      ...(!acc.concepts.size ? { text: acc.text } : {}),
       aisle: acc.aisle,
       amounts,
       toTaste: acc.toTaste && amounts.length === 0,

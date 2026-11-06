@@ -19,6 +19,7 @@ export const test = base.extend({
   page: async ({ page }, use) => {
     await page.route('**/data/**', fixtureData);
     await page.route('https://example.com/**', (route) => route.fulfill({ contentType: 'image/gif', body: PHOTO }));
+    await page.route('https://cucinaverza.com/wp-content/**', (route) => route.fulfill({ contentType: 'image/gif', body: PHOTO }));
     await use(page);
   }
 });

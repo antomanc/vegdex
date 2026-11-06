@@ -370,7 +370,7 @@
 {"line":"Toppings of choice, such as vegan mayo, ketchup, mustard, lettuce, tomato, onion, pickles, and avocado","language":"en","parts":[{"en":"toppings of choice","it":"guarnizioni a scelta","alternatives":[{"en":"vegan mayo","it":"maionese vegana"},{"en":"ketchup","it":"ketchup"},{"en":"mustard","it":"senape"},{"en":"lettuce","it":"lattuga"},{"en":"tomato","it":"pomodoro"},{"en":"onion","it":"cipolla"},{"en":"pickles","it":"cetriolini sottaceto"},{"en":"avocado","it":"avocado"}]}]}
 {"line":"Zest of ½ lemon","language":"en","parts":[{"quantity":0.5,"en":"lemon zest","it":"scorza di limone"}]}
 {"line":"a few springs of thyme, leaves picked","language":"en","parts":[{"unit":"sprig","en":"thyme","it":"timo","preparationEn":"leaves picked","preparationIt":"foglie staccate dai rametti"}]}
-{"line":"a few thyme sprigs","language":"en","parts":[{"unit":"sprig","en":"fresh thyme","it":"timo fresco"}]}
+{"line":"a few thyme sprigs","language":"en","parts":[{"unit":"sprig","en":"thyme sprigs","it":"rametti di timo","toTaste":true}]}
 {"line":"a good pinch of turmeric, for colour (optional)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"turmeric","it":"curcuma","optional":true}]}
 {"line":"brown or white rice","language":"en","parts":[{"en":"brown rice","it":"riso integrale","alternatives":[{"en":"white rice","it":"riso bianco"}]}]}
 {"line":"cooked basmati rice, quinoa, millet, or sorghum","language":"en","parts":[{"en":"cooked basmati rice","it":"riso basmati cotto","alternatives":[{"en":"cooked quinoa","it":"quinoa cotta"},{"en":"cooked millet","it":"miglio cotto"},{"en":"cooked sorghum","it":"sorgo cotto"}]}]}

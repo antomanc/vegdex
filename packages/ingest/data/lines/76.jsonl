@@ -394,7 +394,7 @@
 {"line":"another 1/2 cup vegetable broth","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"baby kale and spinach","language":"en","parts":[{"en":"baby kale","it":"cavolo riccio tenero"},{"en":"spinach","it":"spinaci"}]}
 {"line":"chilis, cut into rings (optional)","language":"en","parts":[{"en":"chilis","it":"peperoncini","preparationEn":"cut into rings","preparationIt":"tagliati a rondelle","optional":true}]}
-{"line":"chopped fresh basil and black pepper to taste for garnish","language":"en","parts":[{"en":"fresh cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"for garnish","purposeIt":"per guarnire","toTaste":true},{"en":"black pepper","it":"pepe nero","purposeEn":"for garnish","purposeIt":"per guarnire","toTaste":true}]}
+{"line":"chopped fresh basil and black pepper to taste for garnish","language":"en","parts":[{"en":"fresh basil","it":"basilico fresco","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"for garnish","purposeIt":"per guarnire","toTaste":true},{"en":"black pepper","it":"pepe nero","purposeEn":"for garnish","purposeIt":"per guarnire","toTaste":true}]}
 {"line":"cilantro sprigs, optional","language":"en","parts":[{"en":"cilantro sprigs","it":"rametti di coriandolo","optional":true}]}
 {"line":"cilantro, lemon juice","language":"en","parts":[{"en":"cilantro","it":"coriandolo fresco"},{"en":"lemon juice","it":"succo di limone"}]}
 {"line":"crushed almonds (or hazelnuts)","language":"en","parts":[{"en":"almonds","it":"mandorle","preparationEn":"crushed","preparationIt":"tritate","alternatives":[{"en":"hazelnuts","it":"nocciole"}]}]}
