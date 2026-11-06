@@ -317,6 +317,7 @@
 {"line":"6 ounces dried udon noodles","language":"en","parts":[{"quantity":6,"unit":"oz","en":"dried udon noodles","it":"udon secchi"}]}
 {"line":"6 tablespoons vegan butter, (chilled)","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"chilled","preparationIt":"freddo"}]}
 {"line":"60 ml / 4 tbsp maple syrup, adjust to taste","language":"en","parts":[{"quantity":60,"unit":"ml","en":"maple syrup","it":"sciroppo d'acero","toTaste":true}]}
+{"line":"7 cups water, (plus up to one additional cup, if needed)","language":"en","parts":[{"quantity":7,"unit":"cup","en":"water","it":"acqua","plus":{"quantity":1,"unit":"cup"}}]}
 {"line":"75 g icing sugar (aka confectioners sugar)","language":"en","parts":[{"quantity":75,"unit":"g","en":"icing sugar","it":"zucchero a velo"}]}
 {"line":"8 cups vegan \"chicken\" broth (or vegetable broth)","language":"en","parts":[{"quantity":8,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"8 ounces white mushrooms (sliced, 227 grams )","language":"en","parts":[{"quantity":227,"unit":"g","en":"white mushrooms","it":"funghi champignon bianchi","preparationEn":"sliced","preparationIt":"affettati"}]}

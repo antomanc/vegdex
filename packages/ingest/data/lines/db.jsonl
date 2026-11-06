@@ -410,7 +410,9 @@
 {"line":"¾ cup nut or seed butter*","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"nut butter","it":"burro di frutta secca","alternatives":[{"en":"seed butter","it":"burro di semi"}]}]}
 {"line":"⅓ cup of hot plant-based milk","language":"en","parts":[{"quantity":0.3333,"unit":"cup","en":"plant-based milk","it":"latte vegetale","preparationEn":"hot","preparationIt":"caldo"}]}
 {"line":"⅔ cup maple syrup","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero"}]}
+{"line":"1 cucchiaino di fecola di patate","language":"it","parts":[{"quantity":1,"unit":"tsp","en":"potato starch","it":"fecola di patate"}]}
 {"line":"1 pizzico di sale","language":"it","parts":[{"quantity":1,"unit":"pinch","en":"salt","it":"sale"}]}
+{"line":"160 ml di acqua","language":"it","parts":[{"quantity":160,"unit":"ml","en":"water","it":"acqua"}]}
 {"line":"2-3 cucchiai di pangrattato","language":"it","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"breadcrumbs","it":"pangrattato"}]}
 {"line":"30 g olio di semi","language":"it","parts":[{"quantity":30,"unit":"g","en":"seed oil","it":"olio di semi"}]}
 {"line":"30 g semi girasole","language":"it","parts":[{"quantity":30,"unit":"g","en":"sunflower seeds","it":"semi di girasole"}]}

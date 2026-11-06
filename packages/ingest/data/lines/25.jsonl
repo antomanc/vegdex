@@ -412,5 +412,6 @@
 {"line":"⅓ cup vegan milk (+ 1 tablespoon extra if needed)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"vegan milk","it":"latte vegetale","plus":{"quantity":1,"unit":"tbsp"}}]}
 {"line":"⅛ teaspoon cayenne pepper (or 1/4 tsp for spicy cheese sauce)","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna"}]}
 {"line":"15 ciliegie","language":"it","parts":[{"quantity":15,"en":"cherries","it":"ciliegie"}]}
+{"line":"2 rotoli di pasta sfoglia","language":"it","parts":[{"quantity":2,"unit":"roll","en":"puff pastry","it":"pasta sfoglia"}]}
 {"line":"200-220 ml bevanda vegetale senza zucchero (soia o avena)","language":"it","parts":[{"quantity":200,"quantityMax":220,"unit":"ml","en":"unsweetened soy milk","it":"latte di soia senza zucchero","alternatives":[{"en":"unsweetened oat milk","it":"latte d'avena senza zucchero"}]}]}
 {"line":"Cetrioli a cubetti","language":"it","parts":[{"en":"cucumbers","it":"cetrioli","preparationEn":"diced","preparationIt":"tagliati a cubetti"}]}

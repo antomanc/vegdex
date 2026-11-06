@@ -245,6 +245,7 @@
 {"line":"2 cups shredded zucchini, ((about 1 medium zucchini - 2 cups measured before squeezing))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"zucchini","it":"zucchine","preparationEn":"shredded and measured before squeezing","preparationIt":"grattugiate e misurate prima di strizzarle"}]}
 {"line":"2 cups sliced napa cabbage","language":"en","parts":[{"quantity":2,"unit":"cup","en":"napa cabbage","it":"cavolo cinese","preparationEn":"sliced","preparationIt":"affettato"}]}
 {"line":"2 cups vegan coconut whipped cream (480ml)","language":"en","parts":[{"quantity":480,"unit":"ml","en":"vegan coconut whipped cream","it":"panna montata vegetale al cocco"}]}
+{"line":"2 cups vegetable broth, (plus up to 1 additional cup)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","plus":{"quantity":1,"unit":"cup"}}]}
 {"line":"2 cups veggies (chopped small or thin slices - zucchini, sweet potato or potato, carrots, eggplant, broccoflower etc)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetables","it":"verdure","preparationEn":"chopped small or thinly sliced","preparationIt":"tagliate a pezzetti piccoli o a fettine sottili","alternatives":[{"en":"zucchini","it":"zucchine"},{"en":"sweet potato","it":"patata dolce"},{"en":"potato","it":"patata"},{"en":"carrots","it":"carote"},{"en":"eggplant","it":"melanzana"},{"en":"broccoflower","it":"broccolo romanesco"}]}]}
 {"line":"2 cups warm vegetable broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","preparationEn":"warm","preparationIt":"caldo"}]}
 {"line":"2 cups water (or broth )","language":"en","parts":[{"quantity":2,"unit":"cup","en":"water","it":"acqua","alternatives":[{"en":"broth","it":"brodo"}]}]}
@@ -434,3 +435,4 @@
 {"line":"1 vasetto di ceci, scolati e sciacquati","language":"it","parts":[{"quantity":1,"unit":"jar","en":"jarred chickpeas","it":"ceci in barattolo","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"125 g yogurt di soia bianco","language":"it","parts":[{"quantity":125,"unit":"g","en":"plain soy yogurt","it":"yogurt di soia bianco"}]}
 {"line":"270 g farina di tipo 0 o 1","language":"it","parts":[{"quantity":270,"unit":"g","en":"type 0 flour","it":"farina 0","alternatives":[{"en":"type 1 flour","it":"farina tipo 1"}]}]}
+{"line":"due foglie di salvia e una di alloro","language":"it","parts":[{"quantity":2,"unit":"leaf","en":"sage","it":"salvia"},{"quantity":1,"unit":"leaf","en":"bay leaf","it":"foglia di alloro"}]}

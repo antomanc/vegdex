@@ -427,6 +427,7 @@
 {"line":"10 g di lievito di birra fresco o 3 g di quello secco","language":"it","parts":[{"quantity":10,"unit":"g","en":"fresh brewer's yeast","it":"lievito di birra fresco","alternatives":[{"quantity":3,"unit":"g","en":"dry brewer's yeast","it":"lievito di birra secco"}]}]}
 {"line":"100 g cioccolato","language":"it","parts":[{"quantity":100,"unit":"g","en":"chocolate","it":"cioccolato"}]}
 {"line":"130 g farina 0","language":"it","parts":[{"quantity":130,"unit":"g","en":"type 0 flour","it":"farina 0"}]}
+{"line":"2 vasetti di lenticchie già cotte (o 480 g di lenticchie peso da cotto)","language":"it","parts":[{"quantity":2,"unit":"jar","en":"cooked lentils","it":"lenticchie cotte","alternatives":[{"quantity":480,"unit":"g","en":"cooked lentils","it":"lenticchie cotte"}]}]}
 {"line":"50 g olio di semi","language":"it","parts":[{"quantity":50,"unit":"g","en":"seed oil","it":"olio di semi"}]}
 {"line":"700 g di patate","language":"it","parts":[{"quantity":700,"unit":"g","en":"potatoes","it":"patate"}]}
 {"line":"Grattugiato vegetale per completare","language":"it","parts":[{"en":"vegan grated cheese","it":"formaggio vegetale grattugiato","purposeEn":"for serving","purposeIt":"per completare"}]}
