@@ -1,6 +1,9 @@
 import type { Flavor, FreeFrom, Meal, RecipeQuery, Units } from '@vegdex/core'
+import { browseMode } from './browse-mode'
 import { m, formatNumber, pageLocale } from './i18n'
 import { FREE, MEAL_LABELS } from './labels'
+
+export { browseMode, showCatalog, showSaved, showShelf } from './browse-mode'
 
 export type Sort = NonNullable<RecipeQuery['sort']>
 
@@ -37,9 +40,10 @@ function hasFilters(f: Filters): boolean {
 }
 
 export function toQuery(savedIds: string[], f: Filters = filters): RecipeQuery {
+  const mode = browseMode(f)
   // The saved view is a list the user built by hand: browse filters never hide its recipes.
-  if (f.saved) return { text: f.text.trim() || undefined, sort: f.sort ?? undefined, ids: savedIds, preferredContentLanguage: pageLocale.code }
-  const sort = f.sort ?? (f.text.trim() ? 'relevance' : f.from ? 'rating' : 'picks')
+  if (mode === 'saved') return { text: f.text.trim() || undefined, sort: f.sort ?? undefined, ids: savedIds, preferredContentLanguage: pageLocale.code }
+  const sort = f.sort ?? (f.text.trim() ? 'relevance' : mode === 'shelf' ? 'rating' : 'picks')
   return {
     text: f.text.trim() || undefined,
     preferredContentLanguage: pageLocale.code,
@@ -50,7 +54,7 @@ export function toQuery(savedIds: string[], f: Filters = filters): RecipeQuery {
     highProtein: f.highProtein,
     include: f.include,
     exclude: f.exclude,
-    sources: f.from ? [f.from] : undefined,
+    sources: mode === 'shelf' ? [f.from!] : undefined,
     sort,
     // Savoury leads only the default screen: a chosen filter says what the cook wants to see.
     savouryLead: sort === 'picks' && !f.text.trim() && !hasFilters(f)
@@ -104,7 +108,7 @@ export function activeCount(): number {
 
 /** No search, filter, saved view or chosen order: the page a shared link opens, and the one first.json can fill. */
 export function isLanding(): boolean {
-  return !filters.text.trim() && !filters.saved && !filters.sort && activeCount() === 0
+  return browseMode(filters) === 'catalog' && !filters.text.trim() && !filters.sort && activeCount() === 0
 }
 
 /** Filters that live behind "More filters" (the quick pills show their own state). */
@@ -129,7 +133,7 @@ export function toggleTonight() {
 export function defaultSort(): Sort {
   if (filters.text.trim()) return 'relevance'
   // The saved view and a blog's shelf keep the order they had: rating.
-  if (filters.saved || filters.from) return 'rating'
+  if (browseMode(filters) !== 'catalog') return 'rating'
   return 'picks'
 }
 
@@ -176,8 +180,9 @@ export function writeUrl(openId: string | null, listOpen = false) {
   if (filters.exclude.length) p.set('avoid', filters.exclude.join(','))
   if (filters.from) p.set('from', filters.from)
   if (filters.sort) p.set('sort', filters.sort)
-  if (filters.saved) p.set('view', 'saved')
-  if (filters.saved && listOpen) p.set('list', '1')
+  const mode = browseMode(filters)
+  if (mode === 'saved') p.set('view', 'saved')
+  if (mode === 'saved' && listOpen) p.set('list', '1')
   if (openId) p.set('r', openId)
   const qs = p.toString()
   const url = location.pathname + (qs ? `?${qs}` : '')
@@ -200,11 +205,12 @@ export const saved = $state({ ids: loadSaved(), unsaved: [] as string[] })
 
 export function toggleSaved(id: string) {
   const was = saved.ids.includes(id)
+  const inSaved = browseMode(filters) === 'saved'
   saved.ids = was ? saved.ids.filter((x) => x !== id) : [id, ...saved.ids]
-  saved.unsaved = was && filters.saved ? [...saved.unsaved, id] : saved.unsaved.filter((x) => x !== id)
+  saved.unsaved = was && inSaved ? [...saved.unsaved, id] : saved.unsaved.filter((x) => x !== id)
   localStorage.setItem(SAVED_KEY, JSON.stringify(saved.ids))
   // Only the saved view offers an undo; anywhere else an unsave is final straight away.
-  if (was && !filters.saved) forgetUnsavedAmounts()
+  if (was && !inSaved) forgetUnsavedAmounts()
 }
 
 const AMOUNTS_KEY = 'vegdex:grocery-amounts'

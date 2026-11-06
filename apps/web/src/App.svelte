@@ -4,7 +4,7 @@
   import { catalog, type Found, type Loaded } from './lib/catalog-client'
   import { loadCatalogData, loadFirstPage, loadLookup } from './lib/data'
   import {
-    activeCount, activeFilters, clearFilters, defaultSort, filters, forgetUnsavedAmounts, isLanding, readUrl, removeFilter, saved, sourceNames, toQuery, writeUrl,
+    activeCount, activeFilters, browseMode, clearFilters, defaultSort, filters, forgetUnsavedAmounts, isLanding, readUrl, removeFilter, saved, showCatalog, showSaved, showShelf, sourceNames, toQuery, writeUrl,
     type Sort
   } from './lib/state.svelte'
   import { m, countArgs, formatNumber, pageLocale } from './lib/i18n'
@@ -92,7 +92,8 @@
     catalog.titles(titles).then(() => titlesVersion++, failed)
   })
 
-  const kitchen = $derived(filters.from && !filters.saved ? loaded?.sources.find((s) => s.id === filters.from) ?? null : null)
+  const mode = $derived(browseMode(filters))
+  const kitchen = $derived(mode === 'shelf' ? loaded?.sources.find((s) => s.id === filters.from) ?? null : null)
   // Recipes unsaved in this visit to the saved view stay listed, so a mis-tap on the heart can be undone.
   const listedIds = $derived([...saved.ids, ...saved.unsaved])
 
@@ -101,7 +102,7 @@
   $effect(() => {
     if (!loaded) return
     const query = $state.snapshot(toQuery(listedIds))
-    const countIds = filters.saved ? $state.snapshot(saved.ids) : undefined
+    const countIds = mode === 'saved' ? $state.snapshot(saved.ids) : undefined
     const n = limit
     void titlesVersion
     const id = ++asked
@@ -137,7 +138,7 @@
     catalog.rows(ids).then((rows) => (savedRecipes = rows), failed)
   })
 
-  const countText = $derived(filters.saved ? m.saved_count(countArgs(resultCount)) : m.recipe_count(countArgs(resultCount)))
+  const countText = $derived(mode === 'saved' ? m.saved_count(countArgs(resultCount)) : m.recipe_count(countArgs(resultCount)))
   const blogCount = $derived(found?.blogs ?? 0)
   const sorts = $derived(SORTS.filter(([s]) => s !== 'relevance' || filters.text.trim()))
 
@@ -146,7 +147,7 @@
   let loosenAsked = 0
   $effect(() => {
     const id = ++loosenAsked
-    if (!found || found.total || filters.saved) return void (loosen = null)
+    if (!found || found.total || mode === 'saved') return void (loosen = null)
     const active = activeFilters()
     const options = active.map((f) => ({ label: m.remove_suggestion({ label: f.label }), apply: () => removeFilter(f), patch: f.patch, isSearch: false }))
     if (filters.text.trim()) options.push({ label: m.clear_the_search(), apply: () => (filters.text = ''), patch: { text: '' }, isSearch: true })
@@ -190,7 +191,7 @@
 
   // Leaving the saved view makes its unsaves final.
   $effect(() => {
-    if (!filters.saved) {
+    if (mode !== 'saved') {
       saved.unsaved = []
       untrack(forgetUnsavedAmounts)
     }
@@ -222,8 +223,8 @@
     return () => io.disconnect()
   })
 
-  const showPick = $derived(!!found && total > 0 && !filters.saved)
-  const showReturn = $derived(filters.saved ? scrollY > 600 : filtersOutOfView)
+  const showPick = $derived(!!found && total > 0 && mode !== 'saved')
+  const showReturn = $derived(mode === 'saved' ? scrollY > 600 : filtersOutOfView)
 
   // Back up to the header and filters; focus lands on the brand without opening the phone keyboard.
   function backUp() {
@@ -246,15 +247,13 @@
     kitchenScrollPending = true
     openId = null
     drawn = false
-    filters.saved = false
-    filters.from = id
+    showShelf(filters, id)
     scrollTo({ top: 0 })
   }
 
   // The logo leaves the saved view and a blog's shelf for the whole box; the cook's other filters stay.
   function home() {
-    filters.saved = false
-    filters.from = null
+    showCatalog(filters)
     scrollTo({ top: 0 })
   }
 
@@ -284,10 +283,10 @@
       </button>
       <button
         class="saved-toggle"
-        class:on={filters.saved}
+        class:on={mode === 'saved'}
         class:has={saved.ids.length > 0}
-        aria-pressed={filters.saved}
-        onclick={() => { filters.saved = !filters.saved; scrollTo({ top: 0 }) }}
+        aria-pressed={mode === 'saved'}
+        onclick={() => { showSaved(filters, mode !== 'saved'); scrollTo({ top: 0 }) }}
       >
         <Icon name="heart" size={16} filled={saved.ids.length > 0} />
         <span class="tight-hide">{m.saved()}{saved.ids.length ? ' · ' : ''}</span>{saved.ids.length ? formatNumber(saved.ids.length) : ''}
@@ -300,7 +299,7 @@
       <Icon name="search" size={18} />
       <input
         type="search"
-        placeholder={filters.saved ? m.search_saved() : m.search_placeholder()}
+        placeholder={mode === 'saved' ? m.search_saved() : m.search_placeholder()}
         bind:value={filters.text}
         bind:this={searchInput}
         autocomplete="off"
@@ -316,7 +315,7 @@
 
 <main>
   <LanguageSuggestion {queryString} />
-  {#if !filters.saved}
+  {#if mode !== 'saved'}
     <div class="filters" bind:this={filterBox}><FilterBar count={found ? total : null} onpick={showPick ? pick : undefined} /></div>
   {/if}
 
@@ -341,7 +340,7 @@
       </ul>
     {/if}
   {:else}
-    {#if filters.saved}
+    {#if mode === 'saved'}
       <div class="view-head">
         <h2>{m.saved_recipes()}</h2>
         {#if savedRecipes?.length}
@@ -350,7 +349,7 @@
       </div>
     {/if}
 
-    {#if filters.saved}<p class="device-hint">{m.saved_device_hint()}</p>{/if}
+    {#if mode === 'saved'}<p class="device-hint">{m.saved_device_hint()}</p>{/if}
 
     {#if kitchen}
       <div class="kitchen-head">
@@ -362,7 +361,7 @@
     {#if results.length}
       <div class="summary">
         <p>
-          <span data-testid="result-count">{countText}</span>{#if !filters.saved && !kitchen}<span class="from">{' '}{m.blog_count(countArgs(blogCount))}</span>{/if}
+          <span data-testid="result-count">{countText}</span>{#if mode !== 'saved' && !kitchen}<span class="from">{' '}{m.blog_count(countArgs(blogCount))}</span>{/if}
         </p>
         <label class="sort">
           <span class="visually-hidden">{m.sort_by()}</span>
@@ -376,16 +375,16 @@
     {/if}
     <p class="visually-hidden" role="status">{announced}</p>
 
-    {#if !filters.saved}<ActiveFilters showClear={results.length > 0} />{/if}
+    {#if mode !== 'saved'}<ActiveFilters showClear={results.length > 0} />{/if}
 
     {#if results.length === 0}
       <div class="status empty">
-        {#if filters.saved && !saved.ids.length}
+        {#if mode === 'saved' && !saved.ids.length}
           <p>{m.saved_empty()}</p>
-          <button class="text-btn" onclick={() => (filters.saved = false)}>{m.browse()}</button>
+          <button class="text-btn" onclick={() => showSaved(filters, false)}>{m.browse()}</button>
         {:else}
           <p>
-            {(filters.saved ? m.no_saved_match : m.no_match)({ search: filters.text.trim() ? m.search_term({ text: filters.text.trim() }) : '', filters: !filters.saved && activeCount() ? m.with_filters() : '' })}
+            {(mode === 'saved' ? m.no_saved_match : m.no_match)({ search: filters.text.trim() ? m.search_term({ text: filters.text.trim() }) : '', filters: mode !== 'saved' && activeCount() ? m.with_filters() : '' })}
           </p>
           {#if loosen}
             <button class="loosen" onclick={loosen.apply}>
@@ -394,7 +393,7 @@
           {/if}
           <div class="row center">
             {#if filters.text.trim() && !loosen?.isSearch}<button class="text-btn" onclick={() => (filters.text = '')}>{m.clear_search()}</button>{/if}
-            {#if !filters.saved && activeCount()}<button class="text-btn" onclick={clearFilters}>{m.clear_filters()}</button>{/if}
+            {#if mode !== 'saved' && activeCount()}<button class="text-btn" onclick={clearFilters}>{m.clear_filters()}</button>{/if}
           </div>
         {/if}
       </div>
