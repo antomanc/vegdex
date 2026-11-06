@@ -199,11 +199,11 @@ function nameListParts(body: string, label: string, lookup: IngredientLookup, la
   const optionalTerm = optional ? lookupTerm('optional', lookup) : null;
   if (purpose && !purposeTerm) return null;
   const parts = list.items.map((item) => parseIngredient(item, lookup, language));
-  // Every item must be exactly one known, named ingredient. A comma list where only some items carry an amount
-  // reads as a note or an alternative ("60 ml amaretto, marsala, port", "1 head garlic, 6-8 cloves"), so those
-  // lines stay one, as before.
+  // Every item must be exactly one known, named ingredient. When only some items carry an amount the line stays
+  // one: the amount may be shared ("2 tsp ground cumin and coriander"), a note ("1 head garlic, 6-8 cloves") or
+  // one product ("28 ounce canned Ro-tel tomatoes and green chiles"), and a part with none would misstate it.
   if (!parts.every((p) => !p.kind && !!p.concept && p.conceptExact === true && !p.also && !!p.phrase)) return null;
-  if (list.comma && parts.some((p) => p.quantity !== null) && !parts.every((p) => p.quantity !== null)) return null;
+  if (parts.some((p) => p.quantity !== null) && !parts.every((p) => p.quantity !== null)) return null;
   return parts.map((p) => {
     const terms = [...p.terms ?? []];
     if (purposeTerm && !terms.some((t) => t.id === purposeTerm)) terms.push({ id: purposeTerm, text: purpose });

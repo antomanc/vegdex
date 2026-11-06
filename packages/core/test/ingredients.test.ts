@@ -40,6 +40,11 @@ describe('parseIngredient', () => {
     if (metric) expect(p.metric).toEqual(metric);
   });
 
+  it.each(['2 tsp ground cumin and coriander', '½ tsp dried marjoram and thyme', '28 ounce canned Ro-tel tomatoes and green chiles'])('keeps a line whose amount only one item would carry: %s', (line) => {
+    const known = { 'ground cumin': 'cumin', coriander: 'coriander', 'dried marjoram': 'marjoram', thyme: 'thyme', 'canned ro-tel tomatoes': 'tomatoes', 'green chiles': 'chiles' };
+    expect(parseLine(line, known, 'en')).toHaveLength(1);
+  });
+
   it.each(['70% dark chocolate', '70-85% dark chocolate'])('does not count percentages: %s', (line) => {
     expect(parseIngredient(line).quantity).toBeNull();
   });
