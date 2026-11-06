@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseIngredient, parseLine } from '../src';
+import { parseIngredient, parseLine, toMetric } from '../src';
 
 describe('parseIngredient', () => {
   it.each([
@@ -42,6 +42,21 @@ describe('parseIngredient', () => {
 
   it.each(['70% dark chocolate', '70-85% dark chocolate'])('does not count percentages: %s', (line) => {
     expect(parseIngredient(line).quantity).toBeNull();
+  });
+
+  it.each([
+    ['1 (14 ounce/400 gram) package extra firm tofu', 400],
+    ['2 cans pumpkin puree (15-ounces each) (850g)', 850],
+    ['2 cans (15 oz / 425g each) butter beans', 850],
+    ['2 (400g total) packages firm tofu', 400]
+  ])('keeps package metric weights: %s', (line, quantity) => {
+    expect(parseIngredient(line).metric).toEqual({ quantity, unit: 'g' });
+    expect(toMetric(parseIngredient(line))?.quantity).toBe(quantity);
+  });
+
+  it.each(['2 cans full-fat coconut milk (3 cups)', '2 sticks vegan butter (16 tablespoons or 1 cup)'])('keeps honest counts: %s', (line) => {
+    expect(parseIngredient(line).quantity).toBe(2);
+    expect(parseIngredient(line).metric).toBeNull();
   });
 
   it('keeps ranges', () => {

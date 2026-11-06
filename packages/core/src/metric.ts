@@ -12,6 +12,7 @@ export interface MetricAmount {
 }
 
 /** Spoons stay spoons: metric kitchens use them too, and scales are unreliable below a few grams. */
+const PACKAGES = new Set(['can', 'jar', 'block', 'bag', 'package', 'packet', 'box', 'bottle', 'container']);
 const KEPT = new Set(['tsp', 'tbsp']);
 
 /**
@@ -27,6 +28,7 @@ export function toMetric(p: ParsedIngredient): MetricAmount | null {
   const def = unitDef(p.unit ?? p.size!.unit);
   if (!def) return null;
   if (def.unit === 'inch' && p.unit) return { ...range(2.54), unit: 'cm', estimate: false };
+  if (p.unit && PACKAGES.has(p.unit) && p.metric?.unit === 'g' && !hasDroppedMeasureWords(p)) return { quantity: p.metric.quantity, quantityMax: null, unit: 'g', estimate: false };
   const size = packaged;
   if (size?.unit === 'inch') return { ...range(p.size!.quantity * 2.54), unit: 'cm', estimate: false };
   if (size && (size.dimension === 'mass' || size.dimension === 'volume'))

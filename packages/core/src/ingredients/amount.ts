@@ -48,6 +48,10 @@ const OF_ARTICLE_RE = /^of\s+(?:an?\s+)?/i;
 const PIECE_OF_RE = /^(?:pieces?|knobs?|chunks?|slices?)\s+(?:of\s+)?(?=\p{L})/iu;
 /** "1 package of 4 sausages": the count inside the package. */
 const PACK_COUNT_RE = /^\d+\s+(?=\p{L})/u;
+const EACH_RE = /\beach\b/i;
+const TOTAL_RE = /\btotal\b/i;
+const METRIC_RANGE_RE = /\d+\s*[-–]\s*\d+\s*(?:g|grams?|kg|ml|l)\b/i;
+const ALTERNATIVE_RE = /\bor\b/i;
 const EACH_OF_RE = /^each\s+(?:of\s+)?/i;
 /** "1/3 tsp or more cumin": an amount left open-ended. */
 const MORE_RE = /^(?:or|plus|\+)\s+more\s+/i;
@@ -249,11 +253,14 @@ function readMetric(input: Pick<AmountResult, 'text' | 'unit' | 'sizeNote' | 'qu
   const parenMetric = paren ? extractMetric(paren[1]!) : null;
   const metricSource = altMeasure || (unit && ['cup', 'tbsp', 'tsp', 'oz', 'lb'].includes(unit) ? sizeNote : '');
   let metric = parenMetric ?? (metricSource ? extractMetric(metricSource) : null);
+  if (metric && paren && unit && CONTAINER_RE.test(unit) && EACH_RE.test(paren[1]!) && quantity !== null) metric = { ...metric, quantity: metric.quantity * quantity };
   let afterMeasure = unit ? (parenMetric ? text.slice(paren![0].length) : text) : null;
   // "2 cups flour (280g)": a parenthetical that is only a metric amount, after the name.
   const dim = unit ? unitDef(unit)?.dimension : undefined;
-  const lateMetric = !metric && afterMeasure && (dim === 'volume' || dim === 'mass') ? afterMeasure.match(LATE_METRIC_RE) : null;
-  if (lateMetric) {
+  const packageMetric = unit && CONTAINER_RE.test(unit) && sizeNote && !METRIC_RANGE_RE.test(sizeNote) ? extractMetric(sizeNote) : null;
+  if (!metric && packageMetric && quantity !== null) metric = { ...packageMetric, quantity: packageMetric.quantity * (TOTAL_RE.test(sizeNote) ? 1 : quantity) };
+  const lateMetric = (!metric || packageMetric) && afterMeasure && (dim === 'volume' || dim === 'mass' || (unit && CONTAINER_RE.test(unit) && quantity !== null && quantity >= 1)) ? afterMeasure.match(LATE_METRIC_RE) : null;
+  if (lateMetric && !(unit && CONTAINER_RE.test(unit) && ALTERNATIVE_RE.test(afterMeasure!.slice(0, lateMetric.index)))) {
     metric = extractMetric(lateMetric[2]!);
     const words = lateMetric[1]!.replace(/^\s*(?:about|approx\.?|~)?\s*$/i, '').trim();
     afterMeasure = afterMeasure!.replace(lateMetric[0], words ? `(${words})` : ' ').replace(/\s+([,)])/g, '$1').replace(/\s{2,}/g, ' ').trim();
