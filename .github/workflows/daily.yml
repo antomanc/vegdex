@@ -87,3 +87,6 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # A run that changes every recipe detail file syncs for longer than the default ten minutes.
+          timeout: 1800000
