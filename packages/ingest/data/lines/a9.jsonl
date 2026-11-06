@@ -1,0 +1,431 @@
+{"model":"gpt-6.1-terra-medium","schema":1}
+{"line":"(2) 15-ounce cans chickpeas, drained and rinsed","language":"en","parts":[{"quantity":30,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
+{"line":"1 (1-pound) block of super firm tofu (pressed and dried)","language":"en","parts":[{"quantity":1,"unit":"lb","en":"super firm tofu","it":"tofu molto compatto","preparationEn":"pressed and dried","preparationIt":"pressato e asciugato"}]}
+{"line":"1 (15 oz.) can chickpeas (drained and thoroughly rinsed)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and thoroughly rinsed","preparationIt":"scolati e sciacquati accuratamente"}]}
+{"line":"1 (16 ounce/454 gram) package super firm tofu, (cut into 1-inch cubes)","language":"en","parts":[{"quantity":454,"unit":"g","en":"super firm tofu","it":"tofu molto compatto","preparationEn":"cut into cubes","preparationIt":"tagliato a cubetti"}]}
+{"line":"1 1/2 cup Bob's Red Mill, All-Purpose Flour","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"all-purpose flour","it":"farina 00"}]}
+{"line":"1 1/2 cups almond milk (divided)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"almond milk","it":"latte di mandorla","preparationEn":"divided","preparationIt":"diviso"}]}
+{"line":"1 1/2 tablespoons agave nectar or maple syrup","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"agave nectar","it":"sciroppo d'agave","alternatives":[{"en":"maple syrup","it":"sciroppo d'acero"}]}]}
+{"line":"1 1/2 teaspoons fine salt","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"fine salt","it":"sale fino"}]}
+{"line":"1 1/3 cups unbleached all-purpose flour","language":"en","parts":[{"quantity":1.333333,"unit":"cup","en":"unbleached all-purpose flour","it":"farina multiuso non sbiancata"}]}
+{"line":"1 1/4 cup dry Red Kidney Beans","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"dried red kidney beans","it":"fagioli rossi kidney secchi"}]}
+{"line":"1 1/4 cup granulated sugar","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"granulated sugar","it":"zucchero semolato"}]}
+{"line":"1 10-ounce (280 g) bag of frozen spinach, thawed and drained*","language":"en","parts":[{"quantity":280,"unit":"g","en":"frozen spinach","it":"spinaci surgelati","preparationEn":"thawed and drained","preparationIt":"scongelati e scolati"}]}
+{"line":"1 15 oz can black beans, drained and rinsed","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned black beans","it":"fagioli neri in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
+{"line":"1 15 oz. can Chickpeas / Garbanzo Beans, drained and rinsed","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
+{"line":"1 Gingerbread Crust (Recipe above)","language":"en","parts":[{"quantity":1,"en":"gingerbread crust","it":"base di pan di zenzero"}]}
+{"line":"1 Recipe Vegan Chocolate Ganache","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"vegan chocolate ganache","it":"ganache al cioccolato vegana"}]}
+{"line":"1 Tablespoon Coconut oil (optional. Omit to make Oilfree)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"coconut oil","it":"olio di cocco","optional":true}]}
+{"line":"1 Tablespoon of chopped fresh rosemary","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"fresh rosemary","it":"rosmarino fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
+{"line":"1 Tbsp ground coriander","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"ground coriander","it":"coriandolo macinato"}]}
+{"line":"1 Tbsp hoisin sauce","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"hoisin sauce","it":"salsa hoisin"}]}
+{"line":"1 Tbsp. white miso paste","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"white miso paste","it":"pasta di miso bianco"}]}
+{"line":"1 and 1/2 cups cooked white beans ((equal to 1 standard can))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"cooked white beans","it":"fagioli bianchi cotti"}]}
+{"line":"1 block (14 oz / 400 g) extra-firm tofu (drained)","language":"en","parts":[{"quantity":400,"unit":"g","en":"extra-firm tofu","it":"tofu extra compatto","preparationEn":"drained","preparationIt":"scolato"}]}
+{"line":"1 can (14oz) diced tomatoes with juices, or 2 – 3 roma tomatoes diced","language":"en","parts":[{"quantity":14,"unit":"oz","en":"canned diced tomatoes with juices","it":"pomodori a cubetti in scatola con il loro succo","alternatives":[{"quantity":2,"quantityMax":3,"en":"Roma tomatoes, diced","it":"pomodori Roma tagliati a cubetti"}]}]}
+{"line":"1 can (15.5 oz / 439 g) kidney beans (drained and rinsed (or 1½ cups cooked))","language":"en","parts":[{"quantity":439,"unit":"g","en":"canned kidney beans","it":"fagioli rossi in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati","alternatives":[{"quantity":1.5,"unit":"cup","en":"cooked kidney beans","it":"fagioli rossi cotti"}]}]}
+{"line":"1 corn cob","language":"en","parts":[{"quantity":1,"en":"corn cob","it":"pannocchia di mais"}]}
+{"line":"1 cup (150g) blueberries","language":"en","parts":[{"quantity":150,"unit":"g","en":"blueberries","it":"mirtilli"}]}
+{"line":"1 cup (240 ml) imitation “chicken” broth","language":"en","parts":[{"quantity":240,"unit":"ml","en":"vegan chicken-style broth","it":"brodo vegetale gusto pollo"}]}
+{"line":"1 cup (240-250g) canned pumpkin purée*","language":"en","parts":[{"quantity":240,"quantityMax":250,"unit":"g","en":"canned pumpkin purée","it":"purea di zucca in scatola"}]}
+{"line":"1 cup (27 g) puffed rice cereal","language":"en","parts":[{"quantity":27,"unit":"g","en":"puffed rice cereal","it":"cereali di riso soffiato"}]}
+{"line":"1 cup (70 g) sliced button mushrooms","language":"en","parts":[{"quantity":70,"unit":"g","en":"button mushrooms","it":"funghi champignon","preparationEn":"sliced","preparationIt":"affettati"}]}
+{"line":"1 cup Kidney beans (cooked or canned)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cooked kidney beans","it":"fagioli rossi cotti","alternatives":[{"en":"canned kidney beans","it":"fagioli rossi in scatola"}]}]}
+{"line":"1 cup asparagus, sliced in 1 inch pieces","language":"en","parts":[{"quantity":1,"unit":"cup","en":"asparagus","it":"asparagi","preparationEn":"sliced into pieces","preparationIt":"tagliati a pezzi"}]}
+{"line":"1 cup cherry tomatoes (quartered)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cherry tomatoes","it":"pomodorini ciliegino","preparationEn":"quartered","preparationIt":"tagliati in quattro"}]}
+{"line":"1 cup dried quinoa, (rinse if you pref)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dried quinoa","it":"quinoa secca","preparationEn":"rinse if preferred","preparationIt":"sciacquare se si preferisce"}]}
+{"line":"1 cup frozen green beans","language":"en","parts":[{"quantity":1,"unit":"cup","en":"frozen green beans","it":"fagiolini surgelati"}]}
+{"line":"1 cup full-fat coconut milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"full-fat coconut milk","it":"latte di cocco intero"}]}
+{"line":"1 cup green lentils (cooked or from the can, 7 oz, 200g )","language":"en","parts":[{"quantity":200,"unit":"g","en":"cooked or canned green lentils","it":"lenticchie verdi cotte o in scatola"}]}
+{"line":"1 cup guacamole (or smashed avocado with salt, lime, and garlic powder)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"guacamole","it":"guacamole","alternatives":[{"en":"smashed avocado with salt, lime and garlic powder","it":"avocado schiacciato con sale, lime e aglio in polvere"}]}]}
+{"line":"1 cup lima beans ((cooked or canned))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cooked lima beans","it":"fagioli di Lima cotti","alternatives":[{"en":"canned lima beans","it":"fagioli di Lima in scatola"}]}]}
+{"line":"1 cup non dairy milk such as almond or soy","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"}]}]}
+{"line":"1 cup of dairy-free chocolate chips","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dairy-free chocolate chips","it":"gocce di cioccolato senza latte"}]}
+{"line":"1 cup peeled and diced carrots (about 2 small carrots)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"carrots","it":"carote","preparationEn":"peeled and diced","preparationIt":"sbucciate e tagliate a dadini"}]}
+{"line":"1 cup peeled and diced russet potato ((about 8 ounces or half of a medium potato))","language":"en","parts":[{"quantity":8,"unit":"oz","en":"russet potato","it":"patata russet","preparationEn":"peeled and diced","preparationIt":"sbucciata e tagliata a dadini"}]}
+{"line":"1 cup purple cabbage, cut into thin stripes","language":"en","parts":[{"quantity":1,"unit":"cup","en":"purple cabbage","it":"cavolo cappuccio viola","preparationEn":"cut into thin strips","preparationIt":"tagliato a striscioline sottili"}]}
+{"line":"1 cup raw cashews (soaked overnight, drained and rinsed)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked overnight, drained and rinsed","preparationIt":"ammollati per una notte, scolati e sciacquati"}]}
+{"line":"1 cup red grapes (sliced in half)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"red grapes","it":"uva rossa","preparationEn":"sliced in half","preparationIt":"tagliata a metà"}]}
+{"line":"1 cup roasted kabocha squash (or squash of choice)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"kabocha squash","it":"zucca kabocha","preparationEn":"roasted","preparationIt":"arrostita","alternatives":[{"en":"squash of choice","it":"zucca a scelta"}]}]}
+{"line":"1 cup sugar ((cane sugar works best here))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"sugar","it":"zucchero"}]}
+{"line":"1 cup tomato ketchup","language":"en","parts":[{"quantity":1,"unit":"cup","en":"tomato ketchup","it":"ketchup di pomodoro"}]}
+{"line":"1 cup unsweetened soy milk (or almond)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened soy milk","it":"latte di soia senza zucchero","alternatives":[{"en":"unsweetened almond milk","it":"latte di mandorla senza zucchero"}]}]}
+{"line":"1 cup vegan meatloaf (or cooked down veggie burgers, crumbled)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan meatloaf","it":"polpettone vegano","alternatives":[{"en":"cooked-down veggie burgers, crumbled","it":"burger vegetali ben cotti e sbriciolati"}]}]}
+{"line":"1 heaped tbsp capers, chopped finely","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"capers","it":"capperi","preparationEn":"chopped finely","preparationIt":"tritati finemente"}]}
+{"line":"1 jar spaghetti sauce","language":"en","parts":[{"quantity":1,"unit":"jar","en":"spaghetti sauce","it":"sugo per spaghetti"}]}
+{"line":"1 large butternut squash ((5 cups cubed))","language":"en","parts":[{"quantity":1,"en":"large butternut squash","it":"zucca butternut grande","preparationEn":"cubed","preparationIt":"tagliata a cubetti"}]}
+{"line":"1 large shallot (, finely diced)","language":"en","parts":[{"quantity":1,"en":"large shallot","it":"scalogno grande","preparationEn":"finely diced","preparationIt":"tagliato a dadini piccoli"}]}
+{"line":"1 lb 8 ounces (24 ounces yukon gold potatoes, cut in half & peeled)","language":"en","parts":[{"quantity":24,"unit":"oz","en":"Yukon Gold potatoes","it":"patate Yukon Gold","preparationEn":"cut in half and peeled","preparationIt":"tagliate a metà e sbucciate"}]}
+{"line":"1 lb pasta, (optional)","language":"en","parts":[{"quantity":1,"unit":"lb","en":"pasta","it":"pasta","optional":true}]}
+{"line":"1 lb. brussels sprouts","language":"en","parts":[{"quantity":1,"unit":"lb","en":"Brussels sprouts","it":"cavoletti di Bruxelles"}]}
+{"line":"1 medium carrots, shredded","language":"en","parts":[{"quantity":1,"en":"medium carrot","it":"carota media","preparationEn":"shredded","preparationIt":"grattugiata"}]}
+{"line":"1 medium lemon, zested*","language":"en","parts":[{"quantity":1,"en":"medium lemon","it":"limone medio","preparationEn":"zested","preparationIt":"scorza grattugiata"}]}
+{"line":"1 medium potato ((I used Japanese Sweet))","language":"en","parts":[{"quantity":1,"en":"medium potato","it":"patata media"}]}
+{"line":"1 medium potato (peeled and diced; reserve the peels)","language":"en","parts":[{"quantity":1,"en":"medium potato","it":"patata media","preparationEn":"peeled and diced; reserve the peels","preparationIt":"sbucciata e tagliata a dadini; conservare le bucce"}]}
+{"line":"1 onion ((finely minced))","language":"en","parts":[{"quantity":1,"en":"onion","it":"cipolla","preparationEn":"finely minced","preparationIt":"tritata finemente"}]}
+{"line":"1 orange ((peeled, seeded and blended into a puree. Or use ¾ cup orange juice.))","language":"en","parts":[{"quantity":1,"en":"orange","it":"arancia","preparationEn":"peeled, seeded and blended into a puree","preparationIt":"sbucciata, privata dei semi e frullata fino a ottenere una purea","alternatives":[{"quantity":0.75,"unit":"cup","en":"orange juice","it":"succo d'arancia"}]}]}
+{"line":"1 ounce fresh basil, de-stemmed (about 1 packed cup)","language":"en","parts":[{"quantity":1,"unit":"oz","en":"fresh basil","it":"basilico fresco","preparationEn":"de-stemmed","preparationIt":"privato dei gambi"}]}
+{"line":"1 package (9 oz) soba noodles","language":"en","parts":[{"quantity":9,"unit":"oz","en":"soba noodles","it":"soba"}]}
+{"line":"1 recipe Vegan Tartar Sauce ((Page 144 in Fuss-Free Vegan))","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"vegan tartar sauce","it":"salsa tartara vegana"}]}
+{"line":"1 recipe air fryer tofu","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"air fryer tofu","it":"tofu in friggitrice ad aria"}]}
+{"line":"1 small bunch of scallions (4-5 scallions), (white and light green parts only, sliced thinly))","language":"en","parts":[{"quantity":1,"unit":"bunch","en":"small bunch of scallions","it":"mazzetto piccolo di cipollotti","preparationEn":"white and light green parts only, thinly sliced","preparationIt":"solo le parti bianche e verde chiaro, affettate sottilmente"}]}
+{"line":"1 small head cauliflower ((grated))","language":"en","parts":[{"quantity":1,"unit":"head","en":"small cauliflower","it":"cavolfiore piccolo","preparationEn":"grated","preparationIt":"grattugiato"}]}
+{"line":"1 small head of cauliflower (cut into bite-sized pieces)","language":"en","parts":[{"quantity":1,"en":"small head of cauliflower","it":"cavolfiore piccolo","preparationEn":"cut into bite-sized pieces","preparationIt":"tagliato a bocconcini"}]}
+{"line":"1 small red bell pepper, julienned","language":"en","parts":[{"quantity":1,"en":"small red bell pepper","it":"peperone rosso piccolo","preparationEn":"julienned","preparationIt":"tagliato a julienne"}]}
+{"line":"1 stalk of leek","language":"en","parts":[{"quantity":1,"unit":"stalk","en":"leek","it":"porro"}]}
+{"line":"1 tablespoon brown sugar","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"brown sugar","it":"zucchero di canna"}]}
+{"line":"1 tablespoon chili paste or sriracha","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"chili paste","it":"pasta di peperoncino","alternatives":[{"en":"sriracha","it":"salsa sriracha"}]}]}
+{"line":"1 tablespoon kelp granules ((*see note for sub))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"kelp granules","it":"alga kelp in granuli"}]}
+{"line":"1 tablespoon lemon juice (about 1/2 medium lemon)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"lemon juice","it":"succo di limone"}]}
+{"line":"1 tablespoon liquid smoke ((hickory flavored))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"hickory-flavored liquid smoke","it":"fumo liquido al gusto hickory"}]}
+{"line":"1 tablespoon of garlic","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"garlic","it":"aglio"}]}
+{"line":"1 tablespoon soy sauce (15 milliliters)","language":"en","parts":[{"quantity":15,"unit":"ml","en":"soy sauce","it":"salsa di soia"}]}
+{"line":"1 tablespoon sriracha, + more to taste OR 1/4 to 1/2 teaspoon cayenne","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"sriracha","it":"salsa sriracha","plus":{},"alternatives":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna"}]}]}
+{"line":"1 tablespoon tomato paste (or use ketchup)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"tomato paste","it":"concentrato di pomodoro","alternatives":[{"en":"ketchup","it":"ketchup"}]}]}
+{"line":"1 tablespoon unsweetened plant-based milk of choice","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"unsweetened plant-based milk of choice","it":"latte vegetale non zuccherato a scelta"}]}
+{"line":"1 tablespoon vegan worcestershire (I use Annie’s)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegan Worcestershire sauce","it":"salsa Worcestershire vegana"}]}
+{"line":"1 tablespoon vegan worcestershire sauce, (optional)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegan Worcestershire sauce","it":"salsa Worcestershire vegana","optional":true}]}
+{"line":"1 tbsp caper brine","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"caper brine","it":"salamoia dei capperi"}]}
+{"line":"1 tbsp cornstarch ((or use pastry flour))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"cornstarch","it":"amido di mais","alternatives":[{"en":"pastry flour","it":"farina per dolci"}]}]}
+{"line":"1 tbsp fresh oregano ((optional))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"fresh oregano","it":"origano fresco","optional":true}]}
+{"line":"1 tbsp mirin ((or use apple cider vinegar or another \"sweet\" tasting vinegar))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"mirin","it":"mirin","alternatives":[{"en":"apple cider vinegar","it":"aceto di mele"},{"en":"sweet-tasting vinegar","it":"aceto dal gusto dolce"}]}]}
+{"line":"1 tbsp rice wine vinegar","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"rice wine vinegar","it":"aceto di riso"}]}
+{"line":"1 tbsp sugar ((adjust to your liking))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"sugar","it":"zucchero"}]}
+{"line":"1 tbsp vegan cane sugar","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegan cane sugar","it":"zucchero di canna vegano"}]}
+{"line":"1 tbsp white wine vinegar ((or use lemon juice))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"white wine vinegar","it":"aceto di vino bianco","alternatives":[{"en":"lemon juice","it":"succo di limone"}]}]}
+{"line":"1 teaspoon (smoked paprika)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"smoked paprika","it":"paprika affumicata"}]}
+{"line":"1 teaspoon Aleppo pepper (1 ½ to 2 tsp for spicy)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"Aleppo pepper","it":"peperoncino di Aleppo"}]}
+{"line":"1 teaspoon agave nectar ((optional))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"agave nectar","it":"sciroppo d'agave","optional":true}]}
+{"line":"1 teaspoon dried thyme (1.4 grams)","language":"en","parts":[{"quantity":1.4,"unit":"g","en":"dried thyme","it":"timo essiccato"}]}
+{"line":"1 teaspoon ginger chopped","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"ginger","it":"zenzero","preparationEn":"chopped","preparationIt":"tritato"}]}
+{"line":"1 teaspoon old bay seasoning","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"Old Bay seasoning","it":"miscela di spezie Old Bay"}]}
+{"line":"1 teaspoon soy sauce or use tamari for gluten-free","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"tamari","it":"tamari"}]}]}
+{"line":"1 teaspoon turmeric","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"turmeric","it":"curcuma"}]}
+{"line":"1 to 3 tsp lime juice to preference","language":"en","parts":[{"quantity":1,"quantityMax":3,"unit":"tsp","en":"lime juice","it":"succo di lime"}]}
+{"line":"1 tsp Irish whiskey ((optional))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"Irish whiskey","it":"whiskey irlandese","optional":true}]}
+{"line":"1 tsp fresh rosemary ((or sage, If using dried herbs, reduce to 1 tsp))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"fresh rosemary","it":"rosmarino fresco","preparationEn":"if using dried herbs, reduce to 1 tsp","preparationIt":"se si usano erbe essiccate, ridurre a 1 cucchiaino","alternatives":[{"en":"sage","it":"salvia"}]}]}
+{"line":"1 tsp fresh thyme ( or 1/2 tsp dried)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"fresh thyme","it":"timo fresco","alternatives":[{"quantity":0.5,"unit":"tsp","en":"dried thyme","it":"timo essiccato"}]}]}
+{"line":"1 tsp ground cumin ((or 1 tsp cumin seeds, ground))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"ground cumin","it":"cumino macinato","alternatives":[{"quantity":1,"unit":"tsp","en":"cumin seeds","it":"semi di cumino"}]}]}
+{"line":"1 tsp oil (, or use 2 tbsp broth to saute)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"oil","it":"olio","alternatives":[{"quantity":2,"unit":"tbsp","en":"broth","it":"brodo"}]}]}
+{"line":"1 tsp pickle juice","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"pickle juice","it":"liquido dei cetriolini sottaceto"}]}
+{"line":"1 tsp xantham gum (for GF version only)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"xanthan gum","it":"gomma di xantano"}]}
+{"line":"1 ½ Frozen Bananas, cut into pieces","language":"en","parts":[{"quantity":1.5,"en":"frozen bananas","it":"banane congelate","preparationEn":"cut into pieces","preparationIt":"tagliate a pezzi"}]}
+{"line":"1 ½ cups of carrots (diced)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"carrots","it":"carote","preparationEn":"diced","preparationIt":"tagliate a dadini"}]}
+{"line":"1 ½ loosely packed cups (20g) flat-leaf parsley (leaves only) ((see Note 1))","language":"en","parts":[{"quantity":20,"unit":"g","en":"flat-leaf parsley","it":"prezzemolo a foglia liscia","preparationEn":"leaves only","preparationIt":"solo foglie"}]}
+{"line":"1-2 Jalapeños or serrano peppers","language":"en","parts":[{"quantity":1,"quantityMax":2,"en":"jalapeño peppers","it":"peperoncini jalapeño","alternatives":[{"en":"serrano peppers","it":"peperoncini serrano"}]}]}
+{"line":"1-2 cloves garlic ((minced))","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato finemente"}]}
+{"line":"1-2 serrano peppers, diced ((see recipe note below on spice level) )","language":"en","parts":[{"quantity":1,"quantityMax":2,"en":"serrano peppers","it":"peperoncini serrano","preparationEn":"diced","preparationIt":"tagliati a dadini"}]}
+{"line":"1-2 tsp maple syrup","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"maple syrup","it":"sciroppo d'acero"}]}
+{"line":"1.5 cup non dairy milk (such as almond, soy, light coconut, or oat milk)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"},{"en":"light coconut milk","it":"latte di cocco leggero"},{"en":"oat milk","it":"latte d'avena"}]}]}
+{"line":"1.5 cups chopped asparagus (1 to 2 inch pieces)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"asparagus","it":"asparagi","preparationEn":"chopped into 1 to 2 inch pieces","preparationIt":"tagliati a pezzi di 2,5-5 cm"}]}
+{"line":"1.5 tablespoon avocado oil","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"avocado oil","it":"olio di avocado"}]}
+{"line":"1.5 tablespoon ground cumin","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"ground cumin","it":"cumino macinato"}]}
+{"line":"1.5 tablespoon water","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"water","it":"acqua"}]}
+{"line":"1.5 tbsp vegan worchestershire sauce (or use soy sauce or coconut aminos for soyfree)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"vegan Worcestershire sauce","it":"salsa Worcestershire vegana","alternatives":[{"en":"soy sauce","it":"salsa di soia"},{"en":"coconut aminos","it":"salsa di cocco aminos"}]}]}
+{"line":"1.75 oz dairy-free chocolate (chopped (optional))","language":"en","parts":[{"quantity":1.75,"unit":"oz","en":"dairy-free chocolate","it":"cioccolato senza latte","preparationEn":"chopped","preparationIt":"tritato","optional":true}]}
+{"line":"1/2 - 1 chipotle chili","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"en":"chipotle chili","it":"peperoncino chipotle"}]}
+{"line":"1/2 Spanish onion","language":"en","parts":[{"quantity":0.5,"en":"Spanish onion","it":"cipolla spagnola"}]}
+{"line":"1/2 cup (48g) unsweetend natural cocoa powder","language":"en","parts":[{"quantity":48,"unit":"g","en":"unsweetened natural cocoa powder","it":"cacao naturale amaro in polvere"}]}
+{"line":"1/2 cup (48g) unsweetened cocoa powder (I used Hershey's)","language":"en","parts":[{"quantity":48,"unit":"g","en":"unsweetened cocoa powder","it":"cacao amaro in polvere"}]}
+{"line":"1/2 cup (60 g) pecan pieces","language":"en","parts":[{"quantity":60,"unit":"g","en":"pecan pieces","it":"noci pecan a pezzi"}]}
+{"line":"1/2 cup (60g) pecans, ground into a flour","language":"en","parts":[{"quantity":60,"unit":"g","en":"pecans","it":"noci pecan","preparationEn":"ground into a flour","preparationIt":"macinate fino a ottenere una farina"}]}
+{"line":"1/2 cup Coconut Oil","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"coconut oil","it":"olio di cocco"}]}
+{"line":"1/2 cup Semolina flour (or Brown rice flour for Glutenfree)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"semolina flour","it":"farina di semola","alternatives":[{"en":"brown rice flour","it":"farina di riso integrale"}]}]}
+{"line":"1/2 cup almond butter","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almond butter","it":"burro di mandorle"}]}
+{"line":"1/2 cup canola oil (or any neutral-flavored oil )","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"canola oil","it":"olio di colza","alternatives":[{"en":"neutral-flavored oil","it":"olio dal sapore neutro"}]}]}
+{"line":"1/2 cup cashew nuts ((divided))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cashews","it":"anacardi","preparationEn":"divided","preparationIt":"divisi"}]}
+{"line":"1/2 cup celery ((chopped))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"celery","it":"sedano","preparationEn":"chopped","preparationIt":"tritato"}]}
+{"line":"1/2 cup chopped Leek (washed well)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"leek","it":"porro","preparationEn":"chopped and washed well","preparationIt":"tritato e lavato bene"}]}
+{"line":"1/2 cup neutral oil","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"neutral oil","it":"olio dal sapore neutro"}]}
+{"line":"1/2 cup packed parsley, (minced)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"parsley","it":"prezzemolo","preparationEn":"packed and minced","preparationIt":"pressato nella tazza e tritato"}]}
+{"line":"1/2 cup powdered sugar*","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"powdered sugar","it":"zucchero a velo"}]}
+{"line":"1/2 cup pumpkin seeds, untoasted","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"untoasted pumpkin seeds","it":"semi di zucca non tostati"}]}
+{"line":"1/2 cup roasted pecans (roughly chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"roasted pecans","it":"noci pecan tostate","preparationEn":"roughly chopped","preparationIt":"tritate grossolanamente"}]}
+{"line":"1/2 inch ginger (peeled)","language":"en","parts":[{"quantity":0.5,"unit":"inch","en":"ginger","it":"zenzero","preparationEn":"peeled","preparationIt":"sbucciato"}]}
+{"line":"1/2 inch piece ginger ((finely grated or minced))","language":"en","parts":[{"quantity":0.5,"unit":"inch","en":"ginger","it":"zenzero","preparationEn":"finely grated or minced","preparationIt":"grattugiato finemente o tritato"}]}
+{"line":"1/2 inch piece of ginger (chopped)","language":"en","parts":[{"quantity":1,"unit":"piece","en":"ginger","it":"zenzero","preparationEn":"chopped","preparationIt":"tritato"}]}
+{"line":"1/2 lemon, juiced (*about 2 Tbsp lemon juice)","language":"en","parts":[{"quantity":0.5,"en":"lemon","it":"limone","preparationEn":"juiced","preparationIt":"spremuto"}]}
+{"line":"1/2 of a red onion (, sliced (you can use other onions, but red is pretty))","language":"en","parts":[{"quantity":0.5,"en":"red onion","it":"cipolla rossa","preparationEn":"sliced","preparationIt":"affettata"}]}
+{"line":"1/2 red bell pepper and 1/2 of a green bell pepper cut in strips (I used both for color, but 1 is fine)","language":"en","parts":[{"quantity":0.5,"en":"red bell pepper","it":"peperone rosso","preparationEn":"cut into strips","preparationIt":"tagliato a strisce"},{"quantity":0.5,"en":"green bell pepper","it":"peperone verde","preparationEn":"cut into strips","preparationIt":"tagliato a strisce"}]}
+{"line":"1/2 tbsp natural peanut butter","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"natural peanut butter","it":"burro di arachidi naturale"}]}
+{"line":"1/2 teaspoon chili flakes ( or to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"chili flakes","it":"peperoncino in fiocchi","toTaste":true}]}
+{"line":"1/2 teaspoon red chili flakes ((add more to taste if you want it spicy))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"red chili flakes","it":"peperoncino rosso in fiocchi"}]}
+{"line":"1/2 teaspoon salt (, more to taste )","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
+{"line":"1/2 tsp cumin powder ((optional))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"ground cumin","it":"cumino macinato","optional":true}]}
+{"line":"1/2 tsp paprika ((regular or smoked))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"paprika","it":"paprika","alternatives":[{"en":"smoked paprika","it":"paprika affumicata"}]}]}
+{"line":"1/2 tsp pepper flakes","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"pepper flakes","it":"peperoncino in fiocchi"}]}
+{"line":"1/2 tsp turmeric ((divided))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"turmeric","it":"curcuma","preparationEn":"divided","preparationIt":"divisa"}]}
+{"line":"1/2 tsp vinegar","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"vinegar","it":"aceto"}]}
+{"line":"1/3 cup chopped herbs ((I used a mix of mint, green onions, and cilantro))","language":"en","parts":[{"quantity":0.3333333,"unit":"cup","en":"herbs","it":"erbe aromatiche","preparationEn":"chopped","preparationIt":"tritate"}]}
+{"line":"1/3 cup chopped sun dried tomatoes, or cherry tomatoes sliced in half","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"sun-dried tomatoes","it":"pomodori secchi","preparationEn":"chopped","preparationIt":"tritati","alternatives":[{"en":"cherry tomatoes","it":"pomodorini ciliegino"}]}]}
+{"line":"1/3 cup currants or raisins","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"currants","it":"uva di Corinto","alternatives":[{"en":"raisins","it":"uvetta"}]}]}
+{"line":"1/3 cup kalamata olives, (chopped (65g))","language":"en","parts":[{"quantity":65,"unit":"g","en":"Kalamata olives","it":"olive Kalamata","preparationEn":"chopped","preparationIt":"tritate"}]}
+{"line":"1/3 cup roasted, unsalted peanuts, (chopped)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"roasted unsalted peanuts","it":"arachidi tostate non salate","preparationEn":"chopped","preparationIt":"tritate"}]}
+{"line":"1/3 cup sorghum flour ((jowar))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"sorghum flour","it":"farina di sorgo"}]}
+{"line":"1/3 cup vegan chocolate chips (+ more for topping (55g))","language":"en","parts":[{"quantity":55,"unit":"g","en":"vegan chocolate chips","it":"gocce di cioccolato vegano","preparationEn":"plus more for topping","preparationIt":"più altre per guarnire"}]}
+{"line":"1/3 cup vegan ranch (plus more for serving)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"vegan ranch dressing","it":"salsa ranch vegana"}]}
+{"line":"1/3 tsp ground turmeric (divided)","language":"en","parts":[{"quantity":0.333333,"unit":"tsp","en":"ground turmeric","it":"curcuma in polvere","preparationEn":"divided","preparationIt":"divisa"}]}
+{"line":"1/4 cup (20 g) cacao powder","language":"en","parts":[{"quantity":20,"unit":"g","en":"cacao powder","it":"cacao in polvere"}]}
+{"line":"1/4 cup (40g) raw pumpkin seeds","language":"en","parts":[{"quantity":40,"unit":"g","en":"raw pumpkin seeds","it":"semi di zucca crudi"}]}
+{"line":"1/4 cup Earl Grey lemon sugar (*made above)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"Earl Grey lemon sugar","it":"zucchero al limone e tè Earl Grey"}]}
+{"line":"1/4 cup Plant Based Milk (Hemp, Oat, Soy, etc.)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"plant-based milk","it":"latte vegetale"}]}
+{"line":"1/4 cup Unsalted Almond Butter","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsalted almond butter","it":"burro di mandorle senza sale"}]}
+{"line":"1/4 cup chopped basil (I used Thai basil)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"basil","it":"basilico","preparationEn":"chopped","preparationIt":"tritato"}]}
+{"line":"1/4 cup chopped strawberries","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"strawberries","it":"fragole","preparationEn":"chopped","preparationIt":"tagliate a pezzi"}]}
+{"line":"1/4 cup coconut milk (canned (see notes))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"canned coconut milk","it":"latte di cocco in lattina"}]}
+{"line":"1/4 cup dairy free butter","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"dairy-free butter","it":"burro vegetale"}]}
+{"line":"1/4 cup dairy free milk ((may need more for consistency))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"dairy-free milk","it":"latte vegetale"}]}
+{"line":"1/4 cup diced onion ((1 small onion))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"onion","it":"cipolla","preparationEn":"diced","preparationIt":"tagliata a dadini"}]}
+{"line":"1/4 cup fresh chopped dill ( + more for serving)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh dill","it":"aneto fresco","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"plus more for serving","purposeIt":"più altro per servire"}]}
+{"line":"1/4 cup golden raisins","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"golden raisins","it":"uvetta dorata"}]}
+{"line":"1/4 cup granola","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"granola","it":"granola"}]}
+{"line":"1/4 cup maple syrup ((can sub with same amount of vegan cane sugar))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"quantity":0.25,"unit":"cup","en":"vegan cane sugar","it":"zucchero di canna vegano"}]}]}
+{"line":"1/4 cup olive oil (plus more to taste)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"olive oil","it":"olio d'oliva"}]}
+{"line":"1/4 cup peanut oil","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"peanut oil","it":"olio di arachidi"}]}
+{"line":"1/4 cup pumpkin puree ((not pumpkin pie filling))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"pumpkin puree","it":"purea di zucca"}]}
+{"line":"1/4 cup toasted white and/or black sesame seeds (or a mix of both)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"white and/or black sesame seeds","it":"semi di sesamo bianchi e/o neri","preparationEn":"toasted","preparationIt":"tostati"}]}
+{"line":"1/4 heaping cup + 2 tablespoons (75g) dairy-free semi-sweet mini chocolate chips","language":"en","parts":[{"quantity":75,"unit":"g","en":"dairy-free semi-sweet mini chocolate chips","it":"gocce di cioccolato semidolce piccole senza latte"}]}
+{"line":"1/4 teaspoon asafetida (hing or use 1/2 teaspoon of garlic powder, add later with the yogurt)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"asafetida","it":"assafetida","preparationEn":"if using garlic powder, add later with the yogurt","preparationIt":"se si usa aglio in polvere, aggiungerlo più tardi con lo yogurt","alternatives":[{"quantity":0.5,"unit":"tsp","en":"garlic powder","it":"aglio in polvere"}]}]}
+{"line":"1/4 teaspoon dried parsley (or 3/4 teaspoon finely chopped fresh parsley)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"dried parsley","it":"prezzemolo essiccato","alternatives":[{"quantity":0.75,"unit":"tsp","en":"finely chopped fresh parsley","it":"prezzemolo fresco tritato finemente"}]}]}
+{"line":"1/4 to 1/3 cup bbq sauce (, store bought or soy-free bbq sauce from Everyday Kitchen book)","language":"en","parts":[{"quantity":0.25,"quantityMax":0.333333,"unit":"cup","en":"barbecue sauce","it":"salsa barbecue","alternatives":[{"en":"soy-free barbecue sauce","it":"salsa barbecue senza soia"}]}]}
+{"line":"1/4 tsp Salt","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale"}]}
+{"line":"1/4 tsp ground fenugreek","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground fenugreek","it":"fieno greco macinato"}]}
+{"line":"1/4 tsp pure agar powder ((see notes))","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"pure agar powder","it":"agar agar puro in polvere"}]}
+{"line":"1/4 tsp salt ((use black salt for a more egg-like taste))","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale","alternatives":[{"en":"black salt","it":"sale nero"}]}]}
+{"line":"1/4 – 1/2 teaspoon red pepper flakes","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi"}]}
+{"line":"1/8 teaspoon turmeric","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"turmeric","it":"curcuma"}]}
+{"line":"10 ml / 2 tsp oil (optional)","language":"en","parts":[{"quantity":10,"unit":"ml","en":"oil","it":"olio","optional":true}]}
+{"line":"100 g / 3.5 oz radishes, sliced thickly or 2 carrots, shaved into ribbons","language":"en","parts":[{"quantity":100,"unit":"g","en":"radishes","it":"ravanelli","preparationEn":"sliced thickly","preparationIt":"tagliati a fette spesse","alternatives":[{"quantity":2,"en":"carrots","it":"carote"}]}]}
+{"line":"12 cups vegetable broth","language":"en","parts":[{"quantity":12,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
+{"line":"13.5 oz. canned coconut milk","language":"en","parts":[{"quantity":13.5,"unit":"oz","en":"canned coconut milk","it":"latte di cocco in lattina"}]}
+{"line":"14 ounce can full-fat coconut milk","language":"en","parts":[{"quantity":14,"unit":"oz","en":"canned full-fat coconut milk","it":"latte di cocco intero in lattina"}]}
+{"line":"14.5 ounce can diced tomatoes","language":"en","parts":[{"quantity":14.5,"unit":"oz","en":"canned diced tomatoes","it":"pomodori a cubetti in scatola"}]}
+{"line":"14.5 ounces canned fire roasted tomatoes, ((411g))","language":"en","parts":[{"quantity":411,"unit":"g","en":"canned fire-roasted tomatoes","it":"pomodori arrostiti alla fiamma in scatola"}]}
+{"line":"140 g / 1 rounded cup buckwheat flour or wholemeal flour","language":"en","parts":[{"quantity":140,"unit":"g","en":"buckwheat flour","it":"farina di grano saraceno","alternatives":[{"en":"wholemeal flour","it":"farina integrale"}]}]}
+{"line":"15 graham crackers, crushed ((use gluten free crackers for a gluten free cheesecake))","language":"en","parts":[{"quantity":15,"en":"graham crackers","it":"biscotti graham","preparationEn":"crushed","preparationIt":"sbriciolati"}]}
+{"line":"15 oz can black beans drained well (or 1.5 cups cooked)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned black beans","it":"fagioli neri in scatola","preparationEn":"drained well","preparationIt":"scolati bene","alternatives":[{"quantity":1.5,"unit":"cup","en":"cooked black beans","it":"fagioli neri cotti"}]}]}
+{"line":"15 vegan graham crackers, (crushed)","language":"en","parts":[{"quantity":15,"en":"vegan graham crackers","it":"graham cracker vegani","preparationEn":"crushed","preparationIt":"sbriciolati"}]}
+{"line":"16 ounces vegan ground beef (Beyond or Impossible)","language":"en","parts":[{"quantity":16,"unit":"oz","en":"vegan ground beef","it":"macinato vegetale tipo manzo"}]}
+{"line":"16 oz pasta ((1 box of any pasta that you wish))","language":"en","parts":[{"quantity":16,"unit":"oz","en":"pasta","it":"pasta"}]}
+{"line":"18 corn tortillas","language":"en","parts":[{"quantity":18,"en":"corn tortillas","it":"tortillas di mais"}]}
+{"line":"18.3 oz (~1 3/4 cups) black bean soup, strained with 1/4 cup reserved","language":"en","parts":[{"quantity":18.3,"unit":"oz","en":"black bean soup","it":"zuppa di fagioli neri","preparationEn":"strained, with 1/4 cup reserved","preparationIt":"filtrata, tenendone da parte 1/4 di tazza"}]}
+{"line":"1½ tsp cinnamon (optional)","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"cinnamon","it":"cannella","optional":true}]}
+{"line":"2 1/2 tsp matcha green tea","language":"en","parts":[{"quantity":2.5,"unit":"tsp","en":"matcha green tea","it":"tè verde matcha"}]}
+{"line":"2 Tablespoons vegan butter (softened)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}
+{"line":"2 Tbsp coriander seeds","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"coriander seeds","it":"semi di coriandolo"}]}
+{"line":"2 Tbsp flax seeds (or chia seeds)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"flax seeds","it":"semi di lino","alternatives":[{"en":"chia seeds","it":"semi di chia"}]}]}
+{"line":"2 Tbsp pine nuts","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"pine nuts","it":"pinoli"}]}
+{"line":"2 cup fresh raspberries","language":"en","parts":[{"quantity":2,"unit":"cup","en":"fresh raspberries","it":"lamponi freschi"}]}
+{"line":"2 cups (140 g) fresh mushrooms (sliced)","language":"en","parts":[{"quantity":140,"unit":"g","en":"fresh mushrooms","it":"funghi freschi","preparationEn":"sliced","preparationIt":"affettati"}]}
+{"line":"2 cups broccoli (chopped)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"broccoli","it":"broccoli","preparationEn":"chopped","preparationIt":"tagliati"}]}
+{"line":"2 cups canned or cooked chickpeas","language":"en","parts":[{"quantity":2,"unit":"cup","en":"canned chickpeas","it":"ceci in scatola","alternatives":[{"en":"cooked chickpeas","it":"ceci cotti"}]}]}
+{"line":"2 cups cremini mushrooms or button mushrooms ((finely chopped))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cremini mushrooms","it":"funghi cremini","preparationEn":"finely chopped","preparationIt":"tritati finemente","alternatives":[{"en":"button mushrooms","it":"funghi champignon"}]}]}
+{"line":"2 cups fresh okra, (tails and caps removed, cut into 1-inch pieces (measure after cutting) (Note 1))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"fresh okra","it":"okra fresca","preparationEn":"tails and caps removed, cut into pieces and measured after cutting","preparationIt":"privata delle estremità e delle calotte, tagliata a pezzi e misurata dopo il taglio"}]}
+{"line":"2 cups of thinly sliced sweet potatoes","language":"en","parts":[{"quantity":2,"unit":"cup","en":"sweet potatoes","it":"patate dolci","preparationEn":"thinly sliced","preparationIt":"tagliate a fette sottili"}]}
+{"line":"2 heaped cups okra","language":"en","parts":[{"quantity":2,"unit":"cup","en":"okra","it":"okra"}]}
+{"line":"2 heaping cups of raw brussels sprouts","language":"en","parts":[{"quantity":2,"unit":"cup","en":"raw Brussels sprouts","it":"cavoletti di Bruxelles crudi"}]}
+{"line":"2 heaping tablespoons brown coconut sugar* (or sweetener of choice)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"brown coconut sugar","it":"zucchero di cocco bruno","alternatives":[{"en":"sweetener of choice","it":"dolcificante a scelta"}]}]}
+{"line":"2 jalapeno peppers ((make a slit in each pepper and leave the peppers whole. Use only one pepper if sensitive to heat and deseed.))","language":"en","parts":[{"quantity":2,"en":"jalapeño peppers","it":"peperoncini jalapeño","preparationEn":"left whole with a slit in each pepper; deseeded if sensitive to heat","preparationIt":"lasciati interi con un'incisione su ciascun peperoncino; privati dei semi se sensibili al piccante"}]}
+{"line":"2 large jalapeños (deseeded and finely diced)","language":"en","parts":[{"quantity":2,"en":"large jalapeños","it":"jalapeños grandi","preparationEn":"deseeded and finely diced","preparationIt":"privati dei semi e tagliati a dadini piccoli"}]}
+{"line":"2 lbs russet or yukon gold potatoes (peeled and cut into 1-inch chunks)","language":"en","parts":[{"quantity":2,"unit":"lb","en":"russet potatoes","it":"patate russet","preparationEn":"peeled and cut into chunks","preparationIt":"sbucciate e tagliate a pezzi","alternatives":[{"en":"Yukon Gold potatoes","it":"patate Yukon Gold"}]}]}
+{"line":"2 limes, (cut into wedges)","language":"en","parts":[{"quantity":2,"en":"limes","it":"lime","preparationEn":"cut into wedges","preparationIt":"tagliati a spicchi"}]}
+{"line":"2 medium potatoes ((yellow or red is fine, diced into ½-inch cubes))","language":"en","parts":[{"quantity":2,"en":"medium yellow potatoes","it":"patate gialle medie","preparationEn":"diced into cubes","preparationIt":"tagliate a dadini","alternatives":[{"en":"medium red potatoes","it":"patate rosse medie"}]}]}
+{"line":"2 medium red boiling potatoes, cubed","language":"en","parts":[{"quantity":2,"en":"medium red boiling potatoes","it":"patate rosse medie da lessare","preparationEn":"cubed","preparationIt":"tagliate a cubetti"}]}
+{"line":"2 new potatoes (finely diced)","language":"en","parts":[{"quantity":2,"en":"new potatoes","it":"patate novelle","preparationEn":"finely diced","preparationIt":"tagliate a dadini piccoli"}]}
+{"line":"2 oz of fresh baby spinach","language":"en","parts":[{"quantity":2,"unit":"oz","en":"fresh baby spinach","it":"spinacini freschi"}]}
+{"line":"2 oz. mushroom, diced","language":"en","parts":[{"quantity":2,"unit":"oz","en":"mushrooms","it":"funghi","preparationEn":"diced","preparationIt":"tagliati a cubetti"}]}
+{"line":"2 pounds on the vine tomatoes, (halved (Note 1))","language":"en","parts":[{"quantity":2,"unit":"lb","en":"on-the-vine tomatoes","it":"pomodori a grappolo","preparationEn":"halved","preparationIt":"tagliati a metà"}]}
+{"line":"2 tablespoon coconut oil (melted)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"coconut oil","it":"olio di cocco","preparationEn":"melted","preparationIt":"fuso"}]}
+{"line":"2 tablespoon tapioca starch ((aka tapioca flour) use corn starch if you don't have tapioca starch)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"tapioca starch","it":"amido di tapioca","alternatives":[{"en":"cornstarch","it":"amido di mais"}]}]}
+{"line":"2 tablespoons Organic olive oil.","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"organic olive oil","it":"olio d'oliva biologico"}]}
+{"line":"2 tablespoons all-purpose flour* (see notes)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"all-purpose flour","it":"farina 00"}]}
+{"line":"2 tablespoons cacao/cocoa powder","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"cacao powder","it":"cacao in polvere","alternatives":[{"en":"cocoa powder","it":"cacao in polvere"}]}]}
+{"line":"2 tablespoons vegan milk","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan milk","it":"latte vegetale"}]}
+{"line":"2 tbs white vinegar","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"white vinegar","it":"aceto bianco"}]}
+{"line":"2 tbsp 100% natural peanut butter (I make it from roasted peanuts)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"100% natural peanut butter","it":"burro di arachidi 100% naturale"}]}
+{"line":"2 tbsp almonds, sliced","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"almonds","it":"mandorle","preparationEn":"sliced","preparationIt":"tagliate a lamelle"}]}
+{"line":"2 tbsp capers, to serve","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"capers","it":"capperi","purposeEn":"for serving","purposeIt":"per servire"}]}
+{"line":"2 tbsp coconut sugar or light brown sugar or other fine sugar","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"coconut sugar","it":"zucchero di cocco","alternatives":[{"en":"light brown sugar","it":"zucchero di canna chiaro"},{"en":"fine sugar","it":"zucchero fine"}]}]}
+{"line":"2 tbsp peanuts","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"peanuts","it":"arachidi"}]}
+{"line":"2 tbsp vegetable stock ( or water)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegetable stock","it":"brodo vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
+{"line":"2 tbsp. capers","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"capers","it":"capperi"}]}
+{"line":"2 teaspoons coconut flour (for slight thickening, optional)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"coconut flour","it":"farina di cocco","optional":true}]}
+{"line":"2 teaspoons coconut sugar","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"coconut sugar","it":"zucchero di cocco"}]}
+{"line":"2 teaspoons finely chopped fresh rosemary ((or 3/4 teaspoon dried))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"fresh rosemary","it":"rosmarino fresco","preparationEn":"finely chopped","preparationIt":"tritato finemente","alternatives":[{"quantity":0.75,"unit":"tsp","en":"dried rosemary","it":"rosmarino essiccato"}]}]}
+{"line":"2 teaspoons garlic powder (4g)","language":"en","parts":[{"quantity":4,"unit":"g","en":"garlic powder","it":"aglio in polvere"}]}
+{"line":"2 teaspoons ginger garlic paste (or use minced ginger and garlic)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"ginger garlic paste","it":"pasta di zenzero e aglio","alternatives":[{"en":"minced ginger and garlic","it":"zenzero e aglio tritati"}]}]}
+{"line":"2 teaspoons of fresh ginger (minced)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"fresh ginger","it":"zenzero fresco","preparationEn":"minced","preparationIt":"tritato"}]}
+{"line":"2 to 3 cloves of roasted garlic","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"clove","en":"roasted garlic","it":"aglio arrostito"}]}
+{"line":"2 tsp cornflour (dissolved in 2 tbsp of water)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"cornflour","it":"amido di mais","preparationEn":"dissolved in 2 tablespoons of water","preparationIt":"sciolto in 2 cucchiai d'acqua"}]}
+{"line":"2 tsp minced garlic","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato finemente"}]}
+{"line":"2 tsp oil or aquafaba","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"oil","it":"olio","alternatives":[{"en":"aquafaba","it":"acquafaba"}]}]}
+{"line":"2 tsp soy sauce (or tamari )","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"tamari","it":"tamari"}]}]}
+{"line":"2 tsp vanilla extract*","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia"}]}
+{"line":"2 tsp vanilla paste, optional","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"vanilla paste","it":"pasta di vaniglia","optional":true}]}
+{"line":"2 ¼ tsp active dry yeast ((or instant yeast))","language":"en","parts":[{"quantity":2.25,"unit":"tsp","en":"active dry yeast","it":"lievito di birra secco attivo","alternatives":[{"en":"instant yeast","it":"lievito di birra secco istantaneo"}]}]}
+{"line":"2 – 4 tablespoons fresh dill, chopped","language":"en","parts":[{"quantity":2,"quantityMax":4,"unit":"tbsp","en":"fresh dill","it":"aneto fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
+{"line":"2+ tbsp filtered water or neutral vegetable oil, to thin","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"filtered water","it":"acqua filtrata","alternatives":[{"en":"neutral vegetable oil","it":"olio vegetale dal sapore neutro"}]}]}
+{"line":"2-3 tbsp Gochujang (Korean chilli paste)*","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"gochujang","it":"gochujang"}]}
+{"line":"2-3 teaspoons almond milk (as needed)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tsp","en":"almond milk","it":"latte di mandorla"}]}
+{"line":"2-4 tbsp filtered water","language":"en","parts":[{"quantity":2,"quantityMax":4,"unit":"tbsp","en":"filtered water","it":"acqua filtrata"}]}
+{"line":"2.5 cups crushed tomatoes","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"crushed tomatoes","it":"polpa di pomodoro"}]}
+{"line":"2/3 cup rolled oats","language":"en","parts":[{"quantity":0.667,"unit":"cup","en":"rolled oats","it":"fiocchi d'avena"}]}
+{"line":"2/3 cup tapioca flour","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"tapioca flour","it":"farina di tapioca"}]}
+{"line":"2/3 cups cane sugar (*add more to top after baking for sparkly cookies)","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"cane sugar","it":"zucchero di canna"}]}
+{"line":"20 g / 0.7 oz mint* leaves","language":"en","parts":[{"quantity":20,"unit":"g","en":"mint leaves","it":"foglie di menta"}]}
+{"line":"24 yellow skittles","language":"en","parts":[{"quantity":24,"en":"yellow Skittles","it":"Skittles gialle"}]}
+{"line":"240 ml / 1 cup plant milk (I used almond) at room temperature","language":"en","parts":[{"quantity":240,"unit":"ml","en":"plant milk","it":"latte vegetale","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
+{"line":"3 - 4 tablespoons olive oil","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}
+{"line":"3 Tablespoons of sesame seeds","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"sesame seeds","it":"semi di sesamo"}]}
+{"line":"3 cans chickpeas (drained and rinsed (about 3 cups))","language":"en","parts":[{"quantity":3,"unit":"can","en":"chickpeas","it":"ceci","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
+{"line":"3 cups chickpeas","language":"en","parts":[{"quantity":3,"unit":"cup","en":"chickpeas","it":"ceci"}]}
+{"line":"3 cups short pasta such as shells or macaroni ((gluten-free if preferred))","language":"en","parts":[{"quantity":3,"unit":"cup","en":"short pasta","it":"pasta corta","alternatives":[{"en":"pasta shells","it":"conchiglie"},{"en":"macaroni","it":"maccheroni"}]}]}
+{"line":"3 cups thinly sliced Chinese cabbage","language":"en","parts":[{"quantity":3,"unit":"cup","en":"Chinese cabbage","it":"cavolo cinese","preparationEn":"thinly sliced","preparationIt":"affettato finemente"}]}
+{"line":"3 dried Guajillo chiles","language":"en","parts":[{"quantity":3,"en":"dried Guajillo chiles","it":"peperoncini Guajillo secchi"}]}
+{"line":"3 green cardamom pods or 1/2 a teaspoon ground cardamom","language":"en","parts":[{"quantity":3,"en":"green cardamom pods","it":"bacche di cardamomo verde","alternatives":[{"quantity":0.5,"unit":"tsp","en":"ground cardamom","it":"cardamomo macinato"}]}]}
+{"line":"3 limes, juiced","language":"en","parts":[{"quantity":3,"en":"limes","it":"lime","preparationEn":"juiced","preparationIt":"spremuti"}]}
+{"line":"3 rice cakes","language":"en","parts":[{"quantity":3,"en":"rice cakes","it":"gallette di riso"}]}
+{"line":"3 scallions ((green and white parts chopped, optional))","language":"en","parts":[{"quantity":3,"en":"scallions","it":"cipollotti","preparationEn":"green and white parts chopped","preparationIt":"parte verde e bianca tritate","optional":true}]}
+{"line":"3 scallions, chopped; white and green parts divided","language":"en","parts":[{"quantity":3,"en":"scallions","it":"cipollotti","preparationEn":"chopped, white and green parts divided","preparationIt":"tritati, con la parte bianca separata da quella verde"}]}
+{"line":"3 tablespoons (36g) pure cane sugar","language":"en","parts":[{"quantity":36,"unit":"g","en":"pure cane sugar","it":"zucchero di canna puro"}]}
+{"line":"3 tablespoons Bob’s Red Mill Fine Turbinado Sugar","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"fine turbinado sugar","it":"zucchero turbinado fine"}]}
+{"line":"3 tablespoons coconut oil","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"coconut oil","it":"olio di cocco"}]}
+{"line":"3 tablespoons coconut oil or vegan butter","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"coconut oil","it":"olio di cocco","alternatives":[{"en":"vegan butter","it":"burro vegetale"}]}]}
+{"line":"3 tablespoons grade A maple syrup (plus more to taste)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"grade A maple syrup","it":"sciroppo d'acero di grado A","toTaste":true}]}
+{"line":"3 tablespoons oil, divided","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"oil","it":"olio","preparationEn":"divided","preparationIt":"diviso"}]}
+{"line":"3 tablespoons tamari","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"tamari","it":"tamari"}]}
+{"line":"3 tbsp green peas","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"green peas","it":"piselli"}]}
+{"line":"3 to 6 garlic cloves (thinly sliced)","language":"en","parts":[{"quantity":3,"quantityMax":6,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"thinly sliced","preparationIt":"tagliato a fettine sottili"}]}
+{"line":"3-4 scallions (green and white parts, finely chopped)","language":"en","parts":[{"quantity":3,"quantityMax":4,"en":"scallions","it":"cipollotti","preparationEn":"green and white parts finely chopped","preparationIt":"parte verde e bianca tritate finemente"}]}
+{"line":"3.5 oz vegan cookies (or tea biscuits, crushed)","language":"en","parts":[{"quantity":3.5,"unit":"oz","en":"vegan cookies","it":"biscotti vegani","preparationEn":"crushed","preparationIt":"sbriciolati","alternatives":[{"en":"vegan tea biscuits","it":"biscotti vegani da tè"}]}]}
+{"line":"3/4 cup (75g) gluten-free quick-cooking/instant oats","language":"en","parts":[{"quantity":75,"unit":"g","en":"gluten-free instant oats","it":"fiocchi d'avena istantanei senza glutine"}]}
+{"line":"3/4 cup BBQ Sauce","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"BBQ sauce","it":"salsa barbecue"}]}
+{"line":"3/4 cup almond milk (or non dairy milk)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"non-dairy milk","it":"latte vegetale"}]}]}
+{"line":"3/4 cup cane sugar","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"cane sugar","it":"zucchero di canna"}]}
+{"line":"3/4 cup oil","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"oil","it":"olio"}]}
+{"line":"3/4 cup unbleached all purpose flour (+ 1 to 2 tbsp more as needed )","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"unbleached all-purpose flour","it":"farina multiuso non sbiancata","plus":{"quantity":1,"quantityMax":2,"unit":"tbsp"}}]}
+{"line":"3/4 teaspoon salt or to taste (divided)","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"salt","it":"sale","preparationEn":"divided","preparationIt":"diviso","toTaste":true}]}
+{"line":"300 g / 2 cups ready roasted chestnuts","language":"en","parts":[{"quantity":300,"unit":"g","en":"ready roasted chestnuts","it":"castagne già arrostite"}]}
+{"line":"4 1/4 cups water","language":"en","parts":[{"quantity":4.25,"unit":"cup","en":"water","it":"acqua"}]}
+{"line":"4 cups arugula","language":"en","parts":[{"quantity":4,"unit":"cup","en":"arugula","it":"rucola"}]}
+{"line":"4 cups cashew milk ((if you want to keep this nut-free, use a nut-free nondairy milk))","language":"en","parts":[{"quantity":4,"unit":"cup","en":"cashew milk","it":"latte di anacardi","alternatives":[{"en":"nut-free nondairy milk","it":"latte vegetale senza frutta a guscio"}]}]}
+{"line":"4 cups sliced mushrooms (any variety)","language":"en","parts":[{"quantity":4,"unit":"cup","en":"mushrooms","it":"funghi","preparationEn":"sliced","preparationIt":"affettati"}]}
+{"line":"4 cups water ((plus ¼ cup for sautéing if oil-free))","language":"en","parts":[{"quantity":4,"unit":"cup","en":"water","it":"acqua","plus":{"quantity":0.25,"unit":"cup"},"purposeEn":"for sautéing if oil-free","purposeIt":"per il soffritto senza olio"}]}
+{"line":"4 garlic cloves, (chopped)","language":"en","parts":[{"quantity":4,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"chopped","preparationIt":"tritato"}]}
+{"line":"4 large poblano peppers","language":"en","parts":[{"quantity":4,"en":"large poblano peppers","it":"peperoni poblano grandi"}]}
+{"line":"4 ounces (120 g) green beans","language":"en","parts":[{"quantity":120,"unit":"g","en":"green beans","it":"fagiolini"}]}
+{"line":"4 oz vegan cream cheese ((softened, at room temperature))","language":"en","parts":[{"quantity":4,"unit":"oz","en":"vegan cream cheese","it":"formaggio spalmabile vegetale","preparationEn":"softened, at room temperature","preparationIt":"ammorbidito, a temperatura ambiente"}]}
+{"line":"4 stalk green onion","language":"en","parts":[{"quantity":4,"unit":"stalk","en":"green onion","it":"cipollotto"}]}
+{"line":"4 tablespoons vegan butter ((or oil))","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","alternatives":[{"en":"oil","it":"olio"}]}]}
+{"line":"4 tbsp Unsweetened Almond Milk (divided (or plant milk of choice))","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"unsweetened almond milk","it":"latte di mandorla senza zucchero","preparationEn":"divided","preparationIt":"diviso","alternatives":[{"en":"plant milk of choice","it":"latte vegetale a scelta"}]}]}
+{"line":"4-5 chives, (thinly sliced)","language":"en","parts":[{"quantity":4,"quantityMax":5,"en":"chives","it":"erba cipollina","preparationEn":"thinly sliced","preparationIt":"tagliati a fettine sottili"}]}
+{"line":"4-6 tablespoons ice water","language":"en","parts":[{"quantity":4,"quantityMax":6,"unit":"tbsp","en":"ice water","it":"acqua ghiacciata"}]}
+{"line":"40 g plant milk ((I used oat))","language":"en","parts":[{"quantity":40,"unit":"g","en":"plant milk","it":"latte vegetale"}]}
+{"line":"5 - 6 teaspoons lemon juice","language":"en","parts":[{"quantity":5,"quantityMax":6,"unit":"tsp","en":"lemon juice","it":"succo di limone"}]}
+{"line":"5 cooking apples (peeled, cored and sliced)","language":"en","parts":[{"quantity":5,"en":"cooking apples","it":"mele da cuocere","preparationEn":"peeled, cored and sliced","preparationIt":"sbucciate, private del torsolo e tagliate a fette"}]}
+{"line":"5 ears fresh sweet corn (about 4 cups kernels, divided)","language":"en","parts":[{"quantity":5,"unit":"ear","en":"fresh sweet corn","it":"mais dolce fresco","preparationEn":"divided","preparationIt":"diviso"}]}
+{"line":"5 tbsp ground hemp seeds (or any ground nuts/seeds (see notes))","language":"en","parts":[{"quantity":5,"unit":"tbsp","en":"ground hemp seeds","it":"semi di canapa macinati","alternatives":[{"en":"ground nuts or seeds","it":"frutta secca o semi macinati"}]}]}
+{"line":"50 g / 1.5 oz baby spinach","language":"en","parts":[{"quantity":50,"unit":"g","en":"baby spinach","it":"spinacini"}]}
+{"line":"56 ounces fresh or canned tomatoes (chopped, keep liquids)","language":"en","parts":[{"quantity":56,"unit":"oz","en":"fresh tomatoes","it":"pomodori freschi","preparationEn":"chopped, keep liquids","preparationIt":"tagliati a pezzi, conservando il liquido","alternatives":[{"en":"canned tomatoes","it":"pomodori in scatola"}]}]}
+{"line":"6 1/2 heaping cups (845g) peeled and diced zucchini, 1/2 inch pieces (I used 6 medium to large zucchini, but please weigh for accuracy if possible.)","language":"en","parts":[{"quantity":845,"unit":"g","en":"zucchini","it":"zucchine","preparationEn":"peeled and diced","preparationIt":"sbucciate e tagliate a cubetti"}]}
+{"line":"6 Tablespoons brown sugar","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"brown sugar","it":"zucchero di canna"}]}
+{"line":"6 beets","language":"en","parts":[{"quantity":6,"en":"beets","it":"barbabietole"}]}
+{"line":"6 slices of red onion","language":"en","parts":[{"quantity":6,"unit":"slice","en":"red onion","it":"cipolla rossa"}]}
+{"line":"6 slices thick sandwich bread (like brioche or sourdough (you can also cut into slices))","language":"en","parts":[{"quantity":6,"unit":"slice","en":"thick sandwich bread","it":"pane per sandwich spesso"}]}
+{"line":"6 tbsp / 90 ml balsamic vinegar","language":"en","parts":[{"quantity":90,"unit":"ml","en":"balsamic vinegar","it":"aceto balsamico"}]}
+{"line":"6 to 7 cups (1.5 to 1.7 L) filtered water ((see Note 3))","language":"en","parts":[{"quantity":1.5,"quantityMax":1.7,"unit":"l","en":"filtered water","it":"acqua filtrata"}]}
+{"line":"6-8 cremini mushrooms or button mushrooms ((minced))","language":"en","parts":[{"quantity":6,"quantityMax":8,"en":"cremini mushrooms","it":"funghi cremini","preparationEn":"minced","preparationIt":"tritati finemente","alternatives":[{"en":"button mushrooms","it":"funghi champignon"}]}]}
+{"line":"7 digestive cookie","language":"en","parts":[{"quantity":7,"en":"digestive cookies","it":"biscotti digestive"}]}
+{"line":"7 tbsp olive oil","language":"en","parts":[{"quantity":7,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}
+{"line":"75 g / 6 tbsp vegan butter (I used Violife), at room temp.","language":"en","parts":[{"quantity":75,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
+{"line":"8 ounces crimini mushrooms, finely chopped","language":"en","parts":[{"quantity":8,"unit":"oz","en":"cremini mushrooms","it":"funghi cremini","preparationEn":"finely chopped","preparationIt":"tritati finemente"}]}
+{"line":"8 ounces dried pasta (any shape)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"dried pasta","it":"pasta secca"}]}
+{"line":"8 ounces smoked tofu, (sliced as thin as you can get it)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"smoked tofu","it":"tofu affumicato","preparationEn":"sliced as thin as possible","preparationIt":"tagliato a fette più sottili possibile"}]}
+{"line":"8 oz. button mushrooms, (cleaned, stemmed and sliced)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"button mushrooms","it":"funghi champignon","preparationEn":"cleaned, stemmed and sliced","preparationIt":"puliti, privati dei gambi e tagliati a fette"}]}
+{"line":"8 oz. dry pasta","language":"en","parts":[{"quantity":8,"unit":"oz","en":"dry pasta","it":"pasta secca"}]}
+{"line":"8 pieces lasagna noodles ((6 ounces), broken into small pieces)","language":"en","parts":[{"quantity":6,"unit":"oz","en":"lasagna noodles","it":"sfoglie per lasagne","preparationEn":"broken into small pieces","preparationIt":"spezzettate"}]}
+{"line":"8 white button mushrooms (diced (I used canned))","language":"en","parts":[{"quantity":8,"en":"white button mushrooms","it":"funghi champignon bianchi","preparationEn":"diced; canned mushrooms were used","preparationIt":"tagliati a dadini; sono stati usati funghi in scatola"}]}
+{"line":"8-10 dried curry leaves (optional)","language":"en","parts":[{"quantity":8,"quantityMax":10,"unit":"leaf","en":"dried curry leaves","it":"foglie di curry essiccate","optional":true}]}
+{"line":"9 oz whole wheat penne","language":"en","parts":[{"quantity":9,"unit":"oz","en":"whole wheat penne","it":"penne integrali"}]}
+{"line":"9.524 oz vegan puff pastry dough","language":"en","parts":[{"quantity":9.524,"unit":"oz","en":"vegan puff pastry dough","it":"pasta sfoglia vegana"}]}
+{"line":"A drizzle of toasted sesame oil ((optional))","language":"en","parts":[{"quantity":1,"unit":"drizzle","en":"toasted sesame oil","it":"olio di sesamo tostato","optional":true}]}
+{"line":"All-purpose flour (for coating rolling pin)","language":"en","parts":[{"en":"all-purpose flour","it":"farina 00","purposeEn":"for coating rolling pin","purposeIt":"per infarinare il matterello"}]}
+{"line":"Chopped green onions, for garnish","language":"en","parts":[{"en":"green onions","it":"cipollotti","preparationEn":"chopped","preparationIt":"tritati","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
+{"line":"Crispy chickpeas","language":"en","parts":[{"en":"crispy chickpeas","it":"ceci croccanti"}]}
+{"line":"Dairy Free Vanilla Frosting","language":"en","parts":[{"en":"dairy-free vanilla frosting","it":"glassa alla vaniglia senza latticini"}]}
+{"line":"Fresh pomegranate or raspberries or strawberries (anything red)","language":"en","parts":[{"en":"fresh pomegranate","it":"melagrana fresca","alternatives":[{"en":"fresh raspberries","it":"lamponi freschi"},{"en":"fresh strawberries","it":"fragole fresche"}]}]}
+{"line":"Hot sauce for serving ((I like Cholula or Tapatio) )","language":"en","parts":[{"en":"hot sauce","it":"salsa piccante","purposeEn":"for serving","purposeIt":"per servire"}]}
+{"line":"I always recommend to use a scale for accuracy when with my recipes, following MY gram weights listed, since we all measure differently. This greatly improves your chance for success and reduces room for error. You never need cups or to compare them to the weights, just use the scale and bowl and make sure to zero out in between each ingredient.","language":"en","kind":"other"}
+{"line":"Lime rice or lettuce or wraps to serve","language":"en","parts":[{"en":"lime rice","it":"riso al lime","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"lettuce","it":"lattuga"},{"en":"wraps","it":"wrap"}]}]}
+{"line":"Optional toppings: vegan parmesan*, fresh parsley, fresh basil, red pepper flakes","language":"en","parts":[{"en":"vegan parmesan","it":"parmigiano vegano","optional":true},{"en":"fresh parsley","it":"prezzemolo fresco","optional":true},{"en":"fresh basil","it":"basilico fresco","optional":true},{"en":"red pepper flakes","it":"peperoncino in fiocchi","optional":true}]}
+{"line":"Powdered sugar (for coating (or powdered Erythritol))","language":"en","parts":[{"en":"powdered sugar","it":"zucchero a velo","purposeEn":"for coating","purposeIt":"per ricoprire","alternatives":[{"en":"powdered erythritol","it":"eritritolo in polvere"}]}]}
+{"line":"Romaine lettuce, shredded","language":"en","parts":[{"en":"romaine lettuce","it":"lattuga romana","preparationEn":"shredded","preparationIt":"tagliata a striscioline"}]}
+{"line":"Smoky tofu","language":"en","kind":"heading"}
+{"line":"To garnish: chopped cilantro, lime juice","language":"en","parts":[{"en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"for garnish","purposeIt":"per guarnire"},{"en":"lime juice","it":"succo di lime","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
+{"line":"Tortillas or lavash bread","language":"en","parts":[{"en":"tortillas","it":"tortillas","alternatives":[{"en":"lavash bread","it":"pane lavash"}]}]}
+{"line":"Vegan Buttercream Frosting","language":"en","parts":[{"en":"vegan buttercream frosting","it":"crema al burro vegetale"}]}
+{"line":"a generous pinch of asafetida (hing)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"asafetida","it":"assafetida"}]}
+{"line":"a handful of fresh coriander, to serve","language":"en","parts":[{"quantity":1,"unit":"handful","en":"fresh coriander","it":"coriandolo fresco","purposeEn":"for serving","purposeIt":"per servire"}]}
+{"line":"chopped pistachios","language":"en","parts":[{"en":"pistachios","it":"pistacchi","preparationEn":"chopped","preparationIt":"tritati"}]}
+{"line":"cinnamon (to sprinkle)","language":"en","parts":[{"en":"cinnamon","it":"cannella","purposeEn":"for sprinkling","purposeIt":"per spolverizzare"}]}
+{"line":"cooked wild rice ((recipe above))","language":"en","parts":[{"en":"wild rice","it":"riso selvatico","preparationEn":"cooked","preparationIt":"cotto"}]}
+{"line":"fresh basil or herbs","language":"en","parts":[{"en":"fresh basil","it":"basilico fresco","alternatives":[{"en":"fresh herbs","it":"erbe aromatiche fresche"}]}]}
+{"line":"granulated salt (sea salt or kosher)","language":"en","parts":[{"en":"granulated sea salt","it":"sale marino granulato","alternatives":[{"en":"granulated kosher salt","it":"sale kosher granulato"}]}]}
+{"line":"handful of parsley or/and basil, to serve","language":"en","parts":[{"quantity":1,"unit":"handful","en":"parsley","it":"prezzemolo","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"basil","it":"basilico"}]}]}
+{"line":"heaped ¾ tsp salt","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"salt","it":"sale"}]}
+{"line":"juice of approx. ½ lemon","language":"en","parts":[{"quantity":0.5,"en":"lemon","it":"limone","preparationEn":"juiced","preparationIt":"spremuto"}]}
+{"line":"juice of ½ lemon","language":"en","parts":[{"quantity":0.5,"en":"lemon","it":"limone","preparationEn":"juiced","preparationIt":"spremuto"}]}
+{"line":"pepper flakes or cayenne (for heat, optional)","language":"en","parts":[{"en":"pepper flakes","it":"peperoncino in fiocchi","optional":true,"alternatives":[{"en":"cayenne pepper","it":"peperoncino di Cayenna"}]}]}
+{"line":"pinch of black pepper (1/8 tsp or less, optional)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"black pepper","it":"pepe nero","optional":true}]}
+{"line":"pinch of turmeric (will give it a yellow color), optional","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"turmeric","it":"curcuma","optional":true}]}
+{"line":"pinch salt and ground black pepper","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"salt","it":"sale"},{"quantity":1,"unit":"pinch","en":"ground black pepper","it":"pepe nero macinato"}]}
+{"line":"raita (see note), chutney or lemon to serve with","language":"en","parts":[{"en":"vegan raita","it":"raita vegana","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"chutney","it":"chutney"},{"en":"lemon","it":"limone"}]}]}
+{"line":"roasted walnuts, to garnish","language":"en","parts":[{"en":"roasted walnuts","it":"noci tostate","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
+{"line":"seeds from 1 green cardamom","language":"en","parts":[{"quantity":1,"en":"green cardamom","it":"cardamomo verde","preparationEn":"seeds removed","preparationIt":"semi estratti"}]}
+{"line":"sliced celery or cucumber","language":"en","parts":[{"en":"celery","it":"sedano","preparationEn":"sliced","preparationIt":"affettato","alternatives":[{"en":"cucumber","it":"cetriolo"}]}]}
+{"line":"taco-spiced lentils ((above))","language":"en","parts":[{"en":"taco-spiced lentils","it":"lenticchie speziate per tacos"}]}
+{"line":"turbinado sugar ((shown in photos))","language":"en","parts":[{"en":"turbinado sugar","it":"zucchero turbinado"}]}
+{"line":"vegan butter, for toasting bread","language":"en","parts":[{"en":"vegan butter","it":"burro vegetale","purposeEn":"for toasting bread","purposeIt":"per tostare il pane"}]}
+{"line":"vegan cheese (optional )","language":"en","parts":[{"en":"vegan cheese","it":"formaggio vegetale","optional":true}]}
+{"line":"vegan feta cheese","language":"en","parts":[{"en":"vegan feta cheese","it":"feta vegana"}]}
+{"line":"vegan sprinkles (optional)","language":"en","parts":[{"en":"vegan sprinkles","it":"codette vegane","optional":true}]}
+{"line":"zest of 3 limes","language":"en","parts":[{"quantity":3,"en":"limes","it":"lime","preparationEn":"zested","preparationIt":"scorza grattugiata"}]}
+{"line":"¼ block of extra firm tofu (pressed, about 100g)","language":"en","parts":[{"quantity":100,"unit":"g","en":"extra firm tofu","it":"tofu extra compatto","preparationEn":"pressed","preparationIt":"pressato"}]}
+{"line":"¼ cup of freshly chopped cilantro, ((optional))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato","optional":true}]}
+{"line":"¼ cup old-fashioned oats","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"old-fashioned oats","it":"fiocchi d'avena tradizionali"}]}
+{"line":"¼ cup olives","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"olives","it":"olive"}]}
+{"line":"¼ cup quality olive oil (59 ml )","language":"en","parts":[{"quantity":59,"unit":"ml","en":"quality olive oil","it":"olio d'oliva di qualità"}]}
+{"line":"¼ tsp cream of tartar or ½ tsp white wine vinegar","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"cream of tartar","it":"cremor tartaro","alternatives":[{"quantity":0.5,"unit":"tsp","en":"white wine vinegar","it":"aceto di vino bianco"}]}]}
+{"line":"½ -¾ cup Filtered Water","language":"en","parts":[{"quantity":0.5,"quantityMax":0.75,"unit":"cup","en":"filtered water","it":"acqua filtrata"}]}
+{"line":"½ cucumber, thinly sliced or diced","language":"en","parts":[{"quantity":0.5,"en":"cucumber","it":"cetriolo","preparationEn":"thinly sliced or diced","preparationIt":"tagliato a fettine sottili o a dadini"}]}
+{"line":"½ cup (60 g) powdered sugar (for coating)","language":"en","parts":[{"quantity":60,"unit":"g","en":"powdered sugar","it":"zucchero a velo","purposeEn":"for coating","purposeIt":"per ricoprire"}]}
+{"line":"½ cup Cranberries (or other dried fruit of choice)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cranberries","it":"mirtilli rossi","alternatives":[{"en":"other dried fruit of choice","it":"altra frutta essiccata a scelta"}]}]}
+{"line":"½ cup butternut squash flesh (scooped from the roasted squash, 120g)","language":"en","parts":[{"quantity":120,"unit":"g","en":"butternut squash flesh","it":"polpa di zucca butternut","preparationEn":"scooped from the roasted squash","preparationIt":"prelevata dalla zucca arrostita"}]}
+{"line":"½ cup chopped carrots (chopped small, or more, to taste)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"carrots","it":"carote","preparationEn":"chopped small","preparationIt":"tagliate a pezzetti piccoli","toTaste":true}]}
+{"line":"½ cup chopped cilantro","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
+{"line":"½ cup maple syrup (or Agave Nectar)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"agave nectar","it":"sciroppo d'agave"}]}]}
+{"line":"½ cup of fresh parsley, (chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
+{"line":"½ cup raw cashews (soaked overnight or for 30 min in hot water, 65g )","language":"en","parts":[{"quantity":65,"unit":"g","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked overnight or for 30 minutes in hot water","preparationIt":"ammollati per una notte oppure per 30 minuti in acqua calda"}]}
+{"line":"½ cup sunflower seeds (or nuts/seeds of choice)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"sunflower seeds","it":"semi di girasole","alternatives":[{"en":"nuts or seeds of choice","it":"frutta secca o semi a scelta"}]}]}
+{"line":"½ daikon radish","language":"en","parts":[{"quantity":0.5,"en":"daikon radish","it":"daikon"}]}
+{"line":"½ of a yellow onion (roughly sliced)","language":"en","parts":[{"quantity":0.5,"en":"yellow onion","it":"cipolla dorata","preparationEn":"roughly sliced","preparationIt":"tagliata grossolanamente a fette"}]}
+{"line":"½ tsp liquid smoke (I use hickory flavour)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"liquid smoke","it":"fumo liquido"}]}
+{"line":"½ tsp orange blossom water or almond extract","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"orange blossom water","it":"acqua di fiori d'arancio","alternatives":[{"en":"almond extract","it":"estratto di mandorla"}]}]}
+{"line":"¾ cup uncooked farro (rinsed – 150g)","language":"en","parts":[{"quantity":150,"unit":"g","en":"uncooked farro","it":"farro crudo","preparationEn":"rinsed","preparationIt":"sciacquato"}]}
+{"line":"¾ cup vegan parmesan, divided","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan parmesan","it":"parmigiano vegano","preparationEn":"divided","preparationIt":"diviso"}]}
+{"line":"¾ teaspoon sea salt, (more or less to taste)","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"sea salt","it":"sale marino","toTaste":true}]}
+{"line":"⅓ cup (74g) granulated sugar","language":"en","parts":[{"quantity":74,"unit":"g","en":"granulated sugar","it":"zucchero semolato"}]}
+{"line":"⅓ cup + 1/2 teaspoon olive oil (separated (76 grams))","language":"en","parts":[{"quantity":76,"unit":"g","en":"olive oil","it":"olio d'oliva","preparationEn":"divided","preparationIt":"diviso"}]}
+{"line":"⅓ cup all-purpose flour (39g)","language":"en","parts":[{"quantity":39,"unit":"g","en":"all-purpose flour","it":"farina 00"}]}
+{"line":"⅓ cup canned coconut cream (room temperature – 80mL)","language":"en","parts":[{"quantity":80,"unit":"ml","en":"canned coconut cream","it":"crema di cocco in scatola","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
+{"line":"⅓ cup of yellow curry paste","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"yellow curry paste","it":"pasta di curry giallo"}]}
+{"line":"⅛ to ¼ teaspoon turmeric","language":"en","parts":[{"quantity":0.125,"quantityMax":0.25,"unit":"tsp","en":"turmeric","it":"curcuma"}]}
+{"line":"1/2 cucchiaino di paprika affumicata (facoltativa)","language":"it","parts":[{"quantity":0.5,"unit":"tsp","en":"smoked paprika","it":"paprika affumicata","optional":true}]}
+{"line":"120 g sorgo (peso da secco)","language":"it","parts":[{"quantity":120,"unit":"g","en":"dry sorghum","it":"sorgo secco"}]}
+{"line":"20 g amido di mais","language":"it","parts":[{"quantity":20,"unit":"g","en":"cornstarch","it":"amido di mais"}]}
+{"line":"3 cucchiai di olio evo","language":"it","parts":[{"quantity":3,"unit":"tbsp","en":"extra virgin olive oil","it":"olio extravergine d'oliva"}]}
+{"line":"330 g farina 0","language":"it","parts":[{"quantity":330,"unit":"g","en":"type 0 flour","it":"farina 0"}]}
+{"line":"4 cucchiai di pangrattato","language":"it","parts":[{"quantity":4,"unit":"tbsp","en":"breadcrumbs","it":"pangrattato"}]}
+{"line":"Cipollotto o cipolla","language":"it","parts":[{"en":"spring onion","it":"cipollotto","alternatives":[{"en":"onion","it":"cipolla"}]}]}
+{"line":"Un mazzetto di aromi misti a piacere (io rosmarino, salvia e basilico)","language":"it","parts":[{"quantity":1,"unit":"bunch","en":"mixed herbs of choice","it":"aromi misti a piacere"}]}
+{"line":"pepe","language":"it","parts":[{"en":"pepper","it":"pepe"}]}

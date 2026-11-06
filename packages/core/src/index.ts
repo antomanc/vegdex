@@ -15,3 +15,4 @@ export * from './languages';
 export * from './vocabulary';
 export * from './spelling';
 export * from './catalog';
+export * from './line-records';
