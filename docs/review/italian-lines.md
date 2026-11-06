@@ -120,36 +120,34 @@ Generated from the golden set (metric renders). Each row is one real source line
 | 114 | 60 ml / ¼ cup maple syrup OR 50 g / ¼ cup superfine caster sugar | 60 ml di sciroppo d'acero | 60 ml di sciroppo d'acero o 50 g di zucchero semolato extrafine | B |
 | 115 | 600 g patate (pesate a crudo con la buccia, circa 5-6) | 600 g di patate | 600 g di patate, pesate a crudo con la buccia | C |
 | 116 | 80 g zucchero integrale o di cocco | 80 g di zucchero integrale | 80 g di zucchero integrale o di cocco | B |
-| 117 | green onion, sesame seeds, pepper flakes | cipollotti | cipollotti, semi di sesamo, peperoncino in fiocchi | D |
-| 118 | Mezzo limone bio spremuto + la sua buccia grattugiata | ½ limone | ½ limone biologico, spremuto, con la buccia grattugiata | C |
-| 119 | sesame seeds, hemp seeds, chopped cilantro, green onion, lime juice | semi di sesamo | semi di sesamo, semi di canapa, coriandolo tritato, cipollotto, succo di lime | D |
-| 120 | Toppings of choice such as: carrot, mushrooms, green onion, sesame seeds, bok choy, nori, tofu, seitan, shelled edamame, Thai basil, or corn kernels | (shown as written; no composed Italian) | Condimenti a piacere: carota, funghi, cipollotto, semi di sesamo, bok choy, nori, tofu, seitan, edamame sgusciati, basilico thai o chicchi di mais | D |
-| 121 | 1 - 6 tablespoons sweetener of choice- agave, maple syrup, brown sugar, white sugar, low calorie sweetener ((optional) *see notes) | (shown as written; no composed Italian) |  |  |
-| 122 | 1 (13.5 oz) can coconut milk ((or swap coconut milk and water for 2 1/2 cups of plain plant-based milk)) | 383 g di latte di cocco |  |  |
-| 123 | 1 (13.5 oz) can coconut milk (or coconut cream (or see note to use other plant milk) ) | 383 g di latte di cocco |  |  |
-| 124 | 1 (13.5-ounce) can “lite” or reduced-fat coconut milk** (or oat milk) | 383 g di latte di cocco light |  |  |
-| 125 | 1 1/2 cups raw cashews soaked for 1 hour in boiling water (drained and rinsed) | (shown as written; no composed Italian) |  |  |
-| 126 | 1 1/2 to 2 cups chopped vegetables, a mix of carrots, greens beans, peas, potato etc , (I use frozen vegetables.) | ≈ 195–260 g di verdure tritate |  |  |
-| 127 | 1 13.5 oz can coconut milk (or 2 cups of any plain plant-based milk plus 3 tsp oil.) | 383 g di latte di cocco |  |  |
-| 128 | 1 14-ounce package of extra firm tofu, drained, pressed, and cubed | 397 g di tofu extra compatto, scolato, pressato, a cubetti |  |  |
-| 129 | 1 bunch curly kale ((approximately 8 oz., but precision is not required), stems removed, roughly chopped) | 1 mazzetto di cavolo riccio, senza gambi, tritato grossolanamente |  |  |
-| 130 | 1 can (14oz.) beans (black-eyed peas, chickpeas, or cannellini), drained and rinsed (optional) | 1 lattina di fagioli, scolati e sciacquati, facoltativi |  |  |
-| 131 | 1 can (15 oz) beans (cannellini, chickpeas, kidney or black beans), drained and rinsed | 1 lattina di fagioli, scolati e sciacquati |  |  |
-| 132 | 1 cup (~120g) raw cashews, soaked in water overnight (or soaked in boiling water for 1 hour; soak overnight if you don’t have a high-powered blender) | 120 g di anacardi crudi, ammollati per una notte |  |  |
-| 133 | 1 cup (130-140g) raw cashews, (soaked overnight (or soaked in boiling water for 1 hour)) | 130–140 g di anacardi crudi, ammollati per una notte |  |  |
-| 134 | 1 cup (240 mL) creamy, unsweetened plant-based milk, such as oat milk, “lite” coconut milk, or soy milk | (shown as written; no composed Italian) |  |  |
-| 135 | 1 cup all purpose flour ((148g) OR All Purpose Gluten Free Flour Mix (NOT Baking Mix)) | 148 g di farina 00 |  |  |
-| 136 | 1 sheet puff pastry (rolled out and then cut into 2.5" circles with a biscuit cutter or cookie cutter, or use vegan biscuit dough) | 1 foglio di pasta sfoglia |  |  |
-| 137 | 1 small shallot, diced (or sub ~1/4 cup red onion) | 1 scalogno piccolo, a dadini |  |  |
-| 138 | 1 to 2 teaspoons Italian herbs (or use a mix of Italian herb blend and dried dill) | 1–2 cucchiaini di mix di erbe italiane |  |  |
-| 139 | 1 vasetto di fagioli cannellini (di solito sono 240 g peso sgocciolato) | 1 barattolo di fagioli cannellini |  |  |
-| 140 | 1/2 cup ground raw sugar or brown sugar (any other fine vegan sugar (1/3 cup for less sweet, brown sugar makes the cookies more chewy)) | ≈ 100 g di zucchero grezzo o zucchero di canna macinati |  |  |
-| 141 | 1/4 cup vegan shortening (can be subbed 1:1 for more vegan butter) | ≈ 50 g di grasso vegetale solido |  |  |
-| 142 | 1/4 tsp cayenne or ancho chilli powder | ¼ cucchiaino di pepe di cayenna |  |  |
-| 143 | 100 g bevanda vegetale senza zucchero ( per me di soia) | 100 g di bevanda vegetale senza zucchero |  |  |
-| 144 | 2 tbsp pecans (or walnuts or almond flakes) | 2 cucchiai di noci pecan |  |  |
-| 145 | 30 g burro d'arachidi (oppure di mandorle, di nocciole o tahina) | 30 g di burro d'arachidi |  |  |
-| 146 | 75 g / 2.6 oz (1/3 cup) chilled vegan butter (I used Naturli) or odourless coconut oil | 75 g di burro vegano freddo |  |  |
-| 147 | 8 foglie di verza grandi | 8 foglie di verza grandi |  |  |
-| 148 | la parte verde di un cipollotto | la parte verde di un cipollotto |  |  |
-| 149 | Rametto di rosmarino | Rametto di rosmarino |  |  |
+| 117 | Mezzo limone bio spremuto + la sua buccia grattugiata | ½ limone | ½ limone biologico, spremuto, con la buccia grattugiata | C |
+| 118 | Toppings of choice such as: carrot, mushrooms, green onion, sesame seeds, bok choy, nori, tofu, seitan, shelled edamame, Thai basil, or corn kernels | (shown as written; no composed Italian) | Condimenti a piacere: carota, funghi, cipollotto, semi di sesamo, bok choy, nori, tofu, seitan, edamame sgusciati, basilico thai o chicchi di mais | D |
+| 119 | 1 - 6 tablespoons sweetener of choice- agave, maple syrup, brown sugar, white sugar, low calorie sweetener ((optional) *see notes) | (shown as written; no composed Italian) |  |  |
+| 120 | 1 (13.5 oz) can coconut milk ((or swap coconut milk and water for 2 1/2 cups of plain plant-based milk)) | 383 g di latte di cocco |  |  |
+| 121 | 1 (13.5 oz) can coconut milk (or coconut cream (or see note to use other plant milk) ) | 383 g di latte di cocco |  |  |
+| 122 | 1 (13.5-ounce) can “lite” or reduced-fat coconut milk** (or oat milk) | 383 g di latte di cocco light |  |  |
+| 123 | 1 1/2 cups raw cashews soaked for 1 hour in boiling water (drained and rinsed) | (shown as written; no composed Italian) |  |  |
+| 124 | 1 1/2 to 2 cups chopped vegetables, a mix of carrots, greens beans, peas, potato etc , (I use frozen vegetables.) | ≈ 195–260 g di verdure tritate |  |  |
+| 125 | 1 13.5 oz can coconut milk (or 2 cups of any plain plant-based milk plus 3 tsp oil.) | 383 g di latte di cocco |  |  |
+| 126 | 1 14-ounce package of extra firm tofu, drained, pressed, and cubed | 397 g di tofu extra compatto, scolato, pressato, a cubetti |  |  |
+| 127 | 1 bunch curly kale ((approximately 8 oz., but precision is not required), stems removed, roughly chopped) | 1 mazzetto di cavolo riccio, senza gambi, tritato grossolanamente |  |  |
+| 128 | 1 can (14oz.) beans (black-eyed peas, chickpeas, or cannellini), drained and rinsed (optional) | 1 lattina di fagioli, scolati e sciacquati, facoltativi |  |  |
+| 129 | 1 can (15 oz) beans (cannellini, chickpeas, kidney or black beans), drained and rinsed | 1 lattina di fagioli, scolati e sciacquati |  |  |
+| 130 | 1 cup (~120g) raw cashews, soaked in water overnight (or soaked in boiling water for 1 hour; soak overnight if you don’t have a high-powered blender) | 120 g di anacardi crudi, ammollati per una notte |  |  |
+| 131 | 1 cup (130-140g) raw cashews, (soaked overnight (or soaked in boiling water for 1 hour)) | 130–140 g di anacardi crudi, ammollati per una notte |  |  |
+| 132 | 1 cup (240 mL) creamy, unsweetened plant-based milk, such as oat milk, “lite” coconut milk, or soy milk | (shown as written; no composed Italian) |  |  |
+| 133 | 1 cup all purpose flour ((148g) OR All Purpose Gluten Free Flour Mix (NOT Baking Mix)) | 148 g di farina 00 |  |  |
+| 134 | 1 sheet puff pastry (rolled out and then cut into 2.5" circles with a biscuit cutter or cookie cutter, or use vegan biscuit dough) | 1 foglio di pasta sfoglia |  |  |
+| 135 | 1 small shallot, diced (or sub ~1/4 cup red onion) | 1 scalogno piccolo, a dadini |  |  |
+| 136 | 1 to 2 teaspoons Italian herbs (or use a mix of Italian herb blend and dried dill) | 1–2 cucchiaini di mix di erbe italiane |  |  |
+| 137 | 1 vasetto di fagioli cannellini (di solito sono 240 g peso sgocciolato) | 1 barattolo di fagioli cannellini |  |  |
+| 138 | 1/2 cup ground raw sugar or brown sugar (any other fine vegan sugar (1/3 cup for less sweet, brown sugar makes the cookies more chewy)) | ≈ 100 g di zucchero grezzo o zucchero di canna macinati |  |  |
+| 139 | 1/4 cup vegan shortening (can be subbed 1:1 for more vegan butter) | ≈ 50 g di grasso vegetale solido |  |  |
+| 140 | 1/4 tsp cayenne or ancho chilli powder | ¼ cucchiaino di pepe di cayenna |  |  |
+| 141 | 100 g bevanda vegetale senza zucchero ( per me di soia) | 100 g di bevanda vegetale senza zucchero |  |  |
+| 142 | 2 tbsp pecans (or walnuts or almond flakes) | 2 cucchiai di noci pecan |  |  |
+| 143 | 30 g burro d'arachidi (oppure di mandorle, di nocciole o tahina) | 30 g di burro d'arachidi |  |  |
+| 144 | 75 g / 2.6 oz (1/3 cup) chilled vegan butter (I used Naturli) or odourless coconut oil | 75 g di burro vegano freddo |  |  |
+| 145 | 8 foglie di verza grandi | 8 foglie di verza grandi |  |  |
+| 146 | la parte verde di un cipollotto | la parte verde di un cipollotto |  |  |
+| 147 | Rametto di rosmarino | Rametto di rosmarino |  |  |

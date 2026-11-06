@@ -1,6 +1,6 @@
 import { cleanText } from './text';
 import { lookupTerm, type IngredientLookup } from './concepts';
-import { languagePacks } from './languages';
+import { languagePacks, type LanguagePack } from './languages';
 import { normalizeLine, normalise } from './ingredients/normalise';
 import { amount } from './ingredients/amount';
 import { nameAndNotes } from './ingredients/name';
@@ -69,6 +69,43 @@ const SHARED_AMOUNT = /(?<!\p{L})(?:each|ciascun[oa]|ognuno)(?!\p{L})/iu;
 /** "each" right after the amount, followed by a list; "(15 oz each)" sizing a package was taken out first. */
 const SHARED_LIST = /^[^,(]*?(?<!\p{L})(?:each|ciascun[oa]|ognuno)(?!\p{L}).*?(?:[,&+(]|\s(?:and|e)\s)/iu;
 
+/** "for garnish", "to taste", "optional": a purpose a list shares, written after its last item. */
+const TRAIL_PURPOSE = /(?:\s*,\s*|\s+\(\s*|\s+)(for\s+(?:garnish|serving|topping)|to\s+taste|optional)(?=\s*\)?\s*[.]?\s*$)/i;
+
+/** What a list label means: the purpose it adds to every part, and whether that part is optional. */
+function labelPurpose(label: string): { purpose: string; optional: boolean } {
+  const text = label.replace(/:\s*$/, '');
+  const optional = /optional|option/i.test(text);
+  if (/garnish|decorat/i.test(text)) return { purpose: 'for garnish', optional };
+  if (/topping|top\b/i.test(text)) return { purpose: 'for topping', optional };
+  if (/serv(?:ing|e)\b/i.test(text)) return { purpose: 'for serving', optional };
+  return { purpose: '', optional };
+}
+
+/** Split a list into its items at top-level "," "&" "+" and the language's "and"; null when it is one item. */
+function splitList(body: string, and: string): { items: string[]; comma: boolean } | null {
+  const items: string[] = [];
+  let start = 0;
+  let depth = 0;
+  let comma = false;
+  const push = (end: number) => { const text = body.slice(start, end).trim(); if (text) items.push(text); };
+  for (let i = 0; i < body.length; i++) {
+    const c = body[i]!;
+    if (c === '(') depth++;
+    else if (c === ')') depth = Math.max(depth - 1, 0);
+    else if (depth === 0) {
+      if (c === ',' || c === '&' || c === '+') { if (c === ',') comma = true; push(i); start = i + 1; }
+      else if (body.slice(i, i + and.length).toLowerCase() === and.toLowerCase()
+        && (i === 0 || !/\p{L}/u.test(body[i - 1]!))
+        && (i + and.length >= body.length || !/\p{L}/u.test(body[i + and.length]!))) {
+        push(i); start = i + and.length; i += and.length - 1;
+      }
+    }
+  }
+  push(body.length);
+  return items.length > 1 ? { items, comma } : null;
+}
+
 /**
  * "2 tsp cornstarch + 2 tbsp water": a line naming several ingredients, each with its own amount, as its parts.
  * It splits only where every part is a known ingredient and each later part has its own amount; any other
@@ -97,7 +134,7 @@ export function parseLine(raw: string, lookup: IngredientLookup = {}, language =
   }
   const shared = sharedAmountParts(body, label, lookup, language);
   if (shared) return shared;
-  if (!points.length) return [whole(raw, lookup, language)];
+  if (!points.length) return nameListParts(body, label, lookup, language, pack) ?? [whole(raw, lookup, language)];
   const alternative = new RegExp(String.raw`(?<!\p{L})${pack.or}(?!\p{L})`, 'iu');
   const known = (p: ParsedIngredient) => !p.kind && !!p.concept && p.conceptExact === true;
   // A later part needs its own amount and its own name: "3 large cloves" after a head of garlic is not the spice.
@@ -120,6 +157,59 @@ export function parseLine(raw: string, lookup: IngredientLookup = {}, language =
     return known(last) && own(last) && !SHARED_AMOUNT.test(body.slice(from)) ? [last] : null;
   };
   return split(0, 0) ?? [whole(raw, lookup, language)];
+}
+
+/**
+ * "salt & pepper to taste", "green onion, sesame seeds, pepper flakes": a line naming several ingredients
+ * without their own amounts. It splits into parts only when the whole phrase is not one known ingredient and
+ * every listed item resolves to exactly one known ingredient. A purpose written after the list ("for garnish",
+ * "to taste") or in the label ("Garnish:", "For serving:") applies to every part.
+ */
+function nameListParts(body: string, label: string, lookup: IngredientLookup, language: string, pack: LanguagePack): ParsedIngredient[] | null {
+  // Alternatives ("or") stay one line, as before.
+  if (new RegExp(String.raw`(?<!\p{L})${pack.or}(?!\p{L})`, 'iu').test(body)) return null;
+  let core = body;
+  let purpose = '';
+  let optional = false;
+  const trail = core.match(TRAIL_PURPOSE);
+  if (trail) {
+    core = core.slice(0, trail.index).replace(/[\s,(]+$/, '');
+    const text = trail[1]!.toLowerCase();
+    if (/optional/.test(text)) optional = true;
+    else purpose = trail[1]!;
+  }
+  // A bracketed note other than the shared purpose ("(chopped)", "(facoltativi)") belongs to one item; a split
+  // would drop it from the rest, so the line stays as it was.
+  if (/[()]/.test(core)) return null;
+  if (label) {
+    const fromLabel = labelPurpose(label);
+    optional = optional || fromLabel.optional;
+    if (!purpose) purpose = fromLabel.purpose;
+  }
+  const list = splitList(core, pack.and);
+  if (!list) return null;
+  // Try the whole phrase first: a known ingredient written in several words stays one.
+  if (!list.comma) {
+    const single = parseIngredient(`${label}${body}`, lookup, language);
+    if (single.concept && single.conceptExact === true && !single.also && !single.kind) return [single];
+  }
+  // The shared purpose and optional marker, as terms every part carries. Parsed on the bare items so a
+  // purpose never changes how an item reads ("black pepper to taste" would peel "black" off the name).
+  const purposeTerm = purpose ? lookupTerm(purpose, lookup) : null;
+  const optionalTerm = optional ? lookupTerm('optional', lookup) : null;
+  if (purpose && !purposeTerm) return null;
+  const parts = list.items.map((item) => parseIngredient(item, lookup, language));
+  // Every item must be exactly one known, named ingredient. A comma list where only some items carry an amount
+  // reads as a note or an alternative ("60 ml amaretto, marsala, port", "1 head garlic, 6-8 cloves"), so those
+  // lines stay one, as before.
+  if (!parts.every((p) => !p.kind && !!p.concept && p.conceptExact === true && !p.also && !!p.phrase)) return null;
+  if (list.comma && parts.some((p) => p.quantity !== null) && !parts.every((p) => p.quantity !== null)) return null;
+  return parts.map((p) => {
+    const terms = [...p.terms ?? []];
+    if (purposeTerm && !terms.some((t) => t.id === purposeTerm)) terms.push({ id: purposeTerm, text: purpose });
+    if (optionalTerm && !terms.some((t) => t.id === optionalTerm)) terms.push({ id: optionalTerm, text: 'optional' });
+    return { ...p, optional: p.optional || optional, terms };
+  });
 }
 
 /** The line as one part. A shared-amount list ("1 tsp each salt, cumin") is more than its first item, so that name is not exact. */

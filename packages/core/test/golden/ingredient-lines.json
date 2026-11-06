@@ -704,8 +704,18 @@
           "quantity": null,
           "quantityMax": null,
           "unit": null,
-          "name": "salt black pepper",
+          "name": "salt",
           "concept": "off:69a9d240344e1e06",
+          "conceptExact": true,
+          "note": "",
+          "terms": []
+        },
+        {
+          "quantity": null,
+          "quantityMax": null,
+          "unit": null,
+          "name": "black pepper",
+          "concept": "off:4cb189665ff62a96",
           "conceptExact": true,
           "note": "",
           "terms": [
@@ -717,8 +727,8 @@
           ]
         }
       ],
-      "en": "Sea salt and freshly cracked black pepper",
-      "it": "sale marino e pepe nero macinati al momento",
+      "en": "Sea salt + freshly cracked black pepper",
+      "it": "sale marino + pepe nero macinato al momento",
       "source": "rainbowplantlife",
       "status": "ok",
       "reviewNeeded": false
@@ -861,8 +871,27 @@
           "quantity": null,
           "quantityMax": null,
           "unit": null,
-          "name": "vegan parmesan parsley",
+          "name": "vegan parmesan",
           "concept": "veg:0003",
+          "conceptExact": true,
+          "note": "",
+          "terms": [
+            {
+              "id": "term:for-topping",
+              "text": "for topping"
+            },
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
+        },
+        {
+          "quantity": null,
+          "quantityMax": null,
+          "unit": null,
+          "name": "parsley",
+          "concept": "off:2c8dcb8d7db2089f",
           "conceptExact": true,
           "note": "",
           "terms": [
@@ -877,14 +906,18 @@
               "inName": true
             },
             {
+              "id": "term:for-topping",
+              "text": "for topping"
+            },
+            {
               "id": "term:optional",
               "text": "optional"
             }
           ]
         }
       ],
-      "en": "vegan parmesan and fresh chopped parsley, optional",
-      "it": "parmigiano vegano e prezzemolo freschi tritati, facoltativi",
+      "en": "vegan parmesan, for topping, optional + fresh chopped parsley, for topping, optional",
+      "it": "parmigiano vegano, per guarnire, facoltativo + prezzemolo fresco tritato, per guarnire, facoltativo",
       "source": "itdoesnttastelikechicken",
       "status": "ok",
       "reviewNeeded": false
@@ -2284,20 +2317,62 @@
           "name": "sesame seed",
           "concept": "off:b35ac13eb4361e93",
           "conceptExact": true,
-          "note": "hemp seeds, chopped cilantro, green onion, lime juice",
+          "note": "",
+          "terms": []
+        },
+        {
+          "quantity": null,
+          "quantityMax": null,
+          "unit": null,
+          "name": "hemp seed",
+          "concept": "off:7280764e4a59bb9f",
+          "conceptExact": true,
+          "note": "",
+          "terms": []
+        },
+        {
+          "quantity": null,
+          "quantityMax": null,
+          "unit": null,
+          "name": "cilantro",
+          "concept": "off:03ebf4acf9cf727d",
+          "conceptExact": true,
+          "note": "",
+          "terms": [
+            {
+              "id": "term:chopped",
+              "text": "chopped",
+              "inName": true
+            }
+          ]
+        },
+        {
+          "quantity": null,
+          "quantityMax": null,
+          "unit": null,
+          "name": "green onion",
+          "concept": "off:885e64fbba0a02fe",
+          "conceptExact": true,
+          "note": "",
+          "terms": []
+        },
+        {
+          "quantity": null,
+          "quantityMax": null,
+          "unit": null,
+          "name": "lime juice",
+          "concept": "off:7a27b49d802e7afe",
+          "conceptExact": true,
+          "note": "",
           "terms": []
         }
       ],
-      "en": "sesame seeds",
-      "it": "semi di sesamo",
+      "en": "sesame seeds + hemp seeds + chopped cilantro + green onion + lime juice",
+      "it": "semi di sesamo + semi di canapa + coriandolo tritato + cipollotti + succo di lime",
       "source": "veganricha",
-      "status": "known-bad",
+      "status": "ok",
       "class": "D",
-      "reviewNeeded": true,
-      "expected": {
-        "en": "sesame seeds, hemp seeds, chopped cilantro, green onion, lime juice",
-        "it": "semi di sesamo, semi di canapa, coriandolo tritato, cipollotto, succo di lime"
-      }
+      "reviewNeeded": false
     },
     {
       "line": "6 cups fresh or frozen blueberries",
@@ -5558,14 +5633,31 @@
           "quantity": 0.25,
           "quantityMax": null,
           "unit": "tsp",
-          "name": "black pepper pinch salt",
-          "concept": null,
+          "name": "black pepper",
+          "concept": "off:4cb189665ff62a96",
+          "conceptExact": true,
+          "note": "",
+          "terms": [
+            {
+              "id": "term:ground",
+              "text": "ground",
+              "inName": true
+            }
+          ]
+        },
+        {
+          "quantity": 1,
+          "quantityMax": null,
+          "unit": "pinch",
+          "name": "salt",
+          "concept": "off:69a9d240344e1e06",
+          "conceptExact": true,
           "note": "",
           "terms": []
         }
       ],
-      "en": "¼ tsp ground black pepper and pinch of sea salt",
-      "it": null,
+      "en": "¼ tsp ground black pepper + 1 pinch sea salt",
+      "it": "¼ cucchiaino di pepe nero macinato + 1 pizzico di sale marino",
       "source": "thevegan8",
       "status": "ok",
       "reviewNeeded": false
@@ -8939,20 +9031,36 @@
           "name": "green onion",
           "concept": "off:885e64fbba0a02fe",
           "conceptExact": true,
-          "note": "sesame seeds, pepper flakes",
+          "note": "",
+          "terms": []
+        },
+        {
+          "quantity": null,
+          "quantityMax": null,
+          "unit": null,
+          "name": "sesame seed",
+          "concept": "off:b35ac13eb4361e93",
+          "conceptExact": true,
+          "note": "",
+          "terms": []
+        },
+        {
+          "quantity": null,
+          "quantityMax": null,
+          "unit": null,
+          "name": "pepper flakes",
+          "concept": "vocab:red-pepper-flakes",
+          "conceptExact": true,
+          "note": "",
           "terms": []
         }
       ],
-      "en": "green onion",
-      "it": "cipollotti",
+      "en": "green onion + sesame seeds + pepper flakes",
+      "it": "cipollotti + semi di sesamo + peperoncino in fiocchi",
       "source": "veganricha",
-      "status": "known-bad",
+      "status": "ok",
       "class": "D",
-      "reviewNeeded": true,
-      "expected": {
-        "en": "green onion, sesame seeds, pepper flakes",
-        "it": "cipollotti, semi di sesamo, peperoncino in fiocchi"
-      }
+      "reviewNeeded": false
     },
     {
       "line": "Toppings of choice such as: carrot, mushrooms, green onion, sesame seeds, bok choy, nori, tofu, seitan, shelled edamame, Thai basil, or corn kernels",

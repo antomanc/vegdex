@@ -6,6 +6,8 @@ The parser now turns such a line into parts. `parseLine` returns one `ParsedIngr
 
 A line splits at "+", "plus", "and", "&" or "mixed with" only when the right side has its own amount and both sides map to a concept. Otherwise it stays one line as before. A split whose sides do not both map would turn one line kept as written into a half-translated pair. Lines with one amount keep using `also` ("salt and pepper to taste"). Alternatives that each have an amount ("1 tbsp fresh thyme or ½ tsp dried") are not split: the second option is still dropped as commentary, because two lines would read as needing both.
 
+This was later extended, superseding the "only with its own amount" decision: a line naming several ingredients without their own amounts also splits, when every listed item maps to exactly one known concept and the whole phrase is not itself one known concept. It splits at ",", "&", "+" and the language's "and", never inside brackets or after an alternative ("or"). A purpose written after the list ("for garnish", "to taste") or in a label ("Garnish:", "For serving:") and the optional marker apply to every part. A comma list where only some items carry an amount reads as a note or an alternative and stays one line, and a whole phrase that is one known ingredient ("sweet and sour sauce", "mac and cheese") stays one part.
+
 In the recipe's own language the line is shown as written. In another language each part is a line of its own. The shopping list adds each part to its own row. Coverage counts a raw line as rendered only when every part renders, and gaps report the part that does not.
 
 ## Considered Options
