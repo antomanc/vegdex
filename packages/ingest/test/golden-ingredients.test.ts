@@ -50,7 +50,8 @@ describe('golden ingredient lines', () => {
       }
     }
     expect(failures, `Golden ingredient output changed. Review below, then run \`pnpm golden --update\` only for intended changes.\n\n${failures.join('\n\n')}`).toEqual([]);
-  });
+    // Reading the 22 MB record store takes seconds when the whole suite runs at once.
+  }, 30_000);
 
   it('has the hand-reviewed shape the checklist expects', () => {
     expect(golden.units).toBe('metric');
