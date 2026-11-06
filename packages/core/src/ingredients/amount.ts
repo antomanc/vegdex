@@ -5,7 +5,7 @@ import {
   UNIT_SIZE_RE, PIECE_SIZE_RE, PACK_SIZE_RE, COUNT_SIZE_RE, SLASH_ALT_RE, LATE_METRIC_RE,
   parseNumber, extractMetric, skipAltMeasure, stripMeasureWords
 } from './measure';
-import type { ParsedIngredient } from './types';
+import type { ParsedIngredient, UnitDef } from './types';
 import type { Normalised } from './normalise';
 
 export interface AmountResult {
@@ -42,8 +42,6 @@ const BRACKET_RE = /^\(([^()]*)\)\s*(?=(?:\+|plus\s))/i;
 const OR_SO_RE = /^or\s+(?:two|so)\b\s*(?:of\s+)?/i;
 /** "garlic cloves" written name-first: the clove becomes the unit and the name keeps only the garlic. */
 const NAME_FIRST_CLOVE_RE = /^(?:(?:x-large|extra-large|large|medium|small|big|fat)\s+)?(garlic) cloves?\b/i;
-/** A leading parenthetical already read as a metric amount is dropped before the name. */
-const PAREN_STRIP_RE = /^\([^)]*\)\s*/;
 const OF_ARTICLE_RE = /^of\s+(?:an?\s+)?/i;
 /** "2-inch piece of ginger": the piece is the measure. */
 const PIECE_OF_RE = /^(?:pieces?|knobs?|chunks?|slices?)\s+(?:of\s+)?(?=\p{L})/iu;
@@ -62,9 +60,9 @@ export function amount(input: Normalised, language: string, pack: LanguagePack):
   const counted = { ...initial, ...readAmount(initial, pack) };
   const trimmed = { ...counted, ...trimAmountText(counted, language) };
   const sized = { ...trimmed, ...readSize(trimmed, language, pack) };
-  const measured = { ...sized, ...readUnit(sized, language, pack) };
+  const { altMeasure, ...measured } = { ...sized, ...readUnit(sized, language, pack) };
   const named = { ...measured, ...readOrSoAndClove(measured, language) };
-  const metric = readMetric(named, measured.altMeasure);
+  const metric = readMetric(named, altMeasure);
   return { ...named, ...metric, ...finishName(named, language, pack) };
 }
 
@@ -96,7 +94,7 @@ function readAmount(input: Pick<AmountResult, 'text' | 'quantity' | 'quantityMax
       text = stripped!.text.slice(amount[0].length);
     }
   }
-  return { text, quantity, quantityMax, written, approx };
+  return { quantity, quantityMax, text, written, approx };
 }
 
 function trimAmountText(input: Pick<AmountResult, 'quantity' | 'text' | 'quantityMax' | 'written' | 'leading'>, language: string) {
@@ -119,7 +117,7 @@ function trimAmountText(input: Pick<AmountResult, 'quantity' | 'text' | 'quantit
     leading.push('to taste');
   }
   if (language === 'en') text = text.replace(PERCENT_RE, '');
-  return { quantity, text, quantityMax, written, leading };
+  return { text, written, quantity, leading };
 }
 
 function readSize(input: Pick<AmountResult, 'text' | 'approx' | 'quantity' | 'sizeNote' | 'quantityMax'>, language: string, pack: LanguagePack) {
@@ -144,7 +142,7 @@ function readSize(input: Pick<AmountResult, 'text' | 'approx' | 'quantity' | 'si
     quantity! *= parseNumber(counted[1]!);
     text = text.slice(counted[0].length);
   }
-  return { text, approx, quantity, sizeNote, quantityMax };
+  return { approx, text, sizeNote, quantity };
 }
 
 /** Read the unit word and how it combines with the amount (fill, container, range, alternatives); returns the alternative measure. */
@@ -174,13 +172,7 @@ function readUnit(input: Pick<AmountResult, 'text' | 'quantity' | 'unit' | 'writ
         written += container[0];
         text = text.slice(container[0].length);
       }
-      const range = text.match(RANGE_TAIL_RE);
-      const rangeUnit = range ? text.slice(range[0].length).match(UNIT_RE) : null;
-      const rangeDef = rangeUnit ? lookupUnit(rangeUnit[1]!) : undefined;
-      if (range && rangeDef && (rangeDef.unit === def.unit || (rangeDef.dimension === def.dimension && def.dimension !== 'other'))) {
-        quantityMax = (parseNumber(range[1]!) * rangeDef.factor) / def.factor;
-        text = text.slice(range[0].length + rangeUnit![0].length);
-      }
+      ({ text, quantityMax } = readRange(text, quantityMax, def));
       const alt = skipAltMeasure(text, def.dimension === 'mass' || def.dimension === 'volume');
       altMeasure = text.slice(0, text.length - alt.length);
       text = alt;
@@ -229,7 +221,7 @@ function readUnit(input: Pick<AmountResult, 'text' | 'quantity' | 'unit' | 'writ
     text = text.slice(u[0].length);
   }
 
-  return { text, quantity, unit, written, leading, quantityMax, sizeNote, altMeasure };
+  return { unit, written, text, sizeNote, quantity, quantityMax, leading, altMeasure };
 }
 
 function readOrSoAndClove(input: Pick<AmountResult, 'unit' | 'text' | 'approx' | 'quantity'>, language: string) {
@@ -246,7 +238,7 @@ function readOrSoAndClove(input: Pick<AmountResult, 'unit' | 'text' | 'approx' |
     unit = 'clove';
     text = nameFirstClove[1]! + text.slice(nameFirstClove[0].length);
   }
-  return { unit, text, approx, quantity };
+  return { approx, text, unit };
 }
 
 function readMetric(input: Pick<AmountResult, 'text' | 'unit' | 'sizeNote' | 'quantity'>, altMeasure: string) {
@@ -268,13 +260,14 @@ function readMetric(input: Pick<AmountResult, 'text' | 'unit' | 'sizeNote' | 'qu
     metric = { quantity: quantity * (unit === 'kg' ? 1000 : 1), unit: 'g' };
   if (unit && (unit === 'ml' || unit === 'l') && quantity !== null)
     metric = { quantity: quantity * (unit === 'l' ? 1000 : 1), unit: 'ml' };
-  return { text, unit, sizeNote, quantity, metric, afterMeasure };
+  return { metric, afterMeasure };
 }
 
 function finishName(input: Pick<AmountResult, 'text' | 'written' | 'unit' | 'cutNote' | 'leading'>, language: string, pack: LanguagePack) {
   let { text, written, unit, cutNote, leading } = input;
   leading = [...leading];
-  text = text.replace(PAREN_STRIP_RE, '').replace(OF_ARTICLE_RE, (m) => { if (written) written += m; return ''; });
+  // A leading parenthetical already read as a metric amount is dropped before the name.
+  text = text.replace(PAREN_RE, '').replace(OF_ARTICLE_RE, (m) => { if (written) written += m; return ''; });
   const cut = unit && language === 'en' ? text.match(CUT_SIZE_RE) : null;
   if (cut) {
     cutNote = cut[1]!;
@@ -290,5 +283,16 @@ function finishName(input: Pick<AmountResult, 'text' | 'written' | 'unit' | 'cut
     text = text.slice(more[0].length);
     leading.push('as needed');
   }
-  return { text, written, unit, cutNote, leading };
+  return { text, written, cutNote, leading };
+}
+
+function readRange(text: string, quantityMax: number | null, def: UnitDef) {
+  const range = text.match(RANGE_TAIL_RE);
+  const rangeUnit = range ? text.slice(range[0].length).match(UNIT_RE) : null;
+  const rangeDef = rangeUnit ? lookupUnit(rangeUnit[1]!) : undefined;
+  if (range && rangeDef && (rangeDef.unit === def.unit || (rangeDef.dimension === def.dimension && def.dimension !== 'other'))) {
+    quantityMax = (parseNumber(range[1]!) * rangeDef.factor) / def.factor;
+    text = text.slice(range[0].length + rangeUnit![0].length);
+  }
+  return { text, quantityMax };
 }
