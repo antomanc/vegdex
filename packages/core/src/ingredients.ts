@@ -51,7 +51,7 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
   if (labelled) return labelled;
 
   const state = newParseState();
-  normalise(state, raw, language, pack);
+  Object.assign(state, normalise(raw, language, pack));
   amount(state, language, pack);
   nameAndNotes(state, language, pack, lookup);
   resolve(state, raw, language, lookup);

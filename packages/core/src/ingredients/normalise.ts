@@ -1,7 +1,7 @@
 import { cleanText } from '../text';
 import type { LanguagePack } from '../languages';
 import { stripMeasureWords } from './measure';
-import type { ParseState } from './types';
+export interface Normalised { text: string; optional: boolean; approx: boolean; leading: string[] }
 
 const VULGAR: Record<string, string> = {
   '½': '1/2', '⅓': '1/3', '⅔': '2/3', '¼': '1/4', '¾': '3/4', '⅕': '1/5', '⅖': '2/5',
@@ -36,22 +36,22 @@ export function normalizeLine(raw: string): string {
  * Normalise the raw line: fix unicode and punctuation, detect the optional flag, and move leading notes
  * ("Juice of 1 lemon", "Optional: …") and language shapes ("il succo di mezzo limone") out of the text.
  */
-export function normalise(state: ParseState, raw: string, language: string, pack: LanguagePack): void {
-  state.text = normalizeLine(raw).replace(/^\.(?=\d)/, '0.');
-  state.optional = (pack.optional ?? /\boptional\b/i).test(state.text);
-  state.approx = false;
-  state.written = '';
-  state.leading = [];
+export function normalise(raw: string, language: string, pack: LanguagePack): Normalised {
+  let text = normalizeLine(raw).replace(/^\.(?=\d)/, '0.');
+  const optional = (pack.optional ?? /\boptional\b/i).test(text);
+  let approx = false;
+  const leading: string[] = [];
 
-  const lead = state.text.match(LEADING_NOTE_RE);
+  const lead = text.match(LEADING_NOTE_RE);
   if (lead && language === 'en') {
-    state.text = state.text.slice(lead[0].length);
-    if (lead[1]) state.leading.push(...[lead[1], lead[2]].filter(Boolean).map((w) => (w!.toLowerCase() === 'juice' ? 'juiced' : 'zested')));
-    else state.leading.push(lead[3] ? 'optional' : 'as needed');
+    text = text.slice(lead[0].length);
+    if (lead[1]) leading.push(...[lead[1], lead[2]].filter(Boolean).map((w) => (w!.toLowerCase() === 'juice' ? 'juiced' : 'zested')));
+    else leading.push(lead[3] ? 'optional' : 'as needed');
   }
-  if (pack.shapes) state.text = pack.shapes(state.text, state.leading);
-  state.text = state.text.replace(LIST_NUMBER_RE, '$1 ');
-  const stripped = stripMeasureWords(state.text, pack);
-  state.text = stripped.text;
-  state.approx ||= stripped.approx;
+  if (pack.shapes) text = pack.shapes(text, leading);
+  text = text.replace(LIST_NUMBER_RE, '$1 ');
+  const stripped = stripMeasureWords(text, pack);
+  text = stripped.text;
+  approx ||= stripped.approx;
+  return { text, optional, approx, leading };
 }
