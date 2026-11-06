@@ -127,16 +127,6 @@ function peelTerms(phrase: string, resolve: (text: string) => Resolved | null, l
   return resolved ? { ...resolved, terms: [...lead, ...trail.reverse()] } : null;
 }
 
-/** Whether the words are all preparation terms ("plain", "unsweetened, plain"). */
-export function onlyTerms(text: string, lookup: IngredientLookup): boolean {
-  let words = text.toLowerCase().split(/[\s,]+/).filter(Boolean);
-  while (words.length) {
-    const n = [3, 2, 1].find((k) => k <= words.length && lookupTerm(words.slice(0, k).join(' '), lookup));
-    if (!n) return false;
-    words = words.slice(n);
-  }
-  return true;
-}
 
 /**
  * "salt and ground pepper", "salt + pepper": two ingredients when both sides are known.
