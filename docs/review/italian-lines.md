@@ -12,7 +12,7 @@ Generated from the golden set (metric renders). Each row is one real source line
 | 6 | 1 (14-ounce) can coconut cream or full fat coconut milk (425 grams ) | 397 g di crema di cocco o latte di cocco | 397 g di crema di cocco o latte di cocco intero | C |
 | 7 | 1 (16 oz) package vegan gnocchi ((about 2 cups) use GF if needed) | 454 g di gnocchi | 454 g di gnocchi vegani | A |
 | 8 | 1 1 ⁄2 teaspoons whole cumin seeds | 1 ½ cucchiaini di cumino | 1 ½ cucchiaini di semi di cumino interi | C |
-| 9 | 1 1/2 cups (~200-210g) raw cashews, soaked in cool water for 8 hours or in boiling water for 1 hour | 210 g di anacardi crudi | 210 g di anacardi crudi, ammollati in acqua fredda per 8 ore o in acqua bollente per 1 ora | F |
+| 9 | 1 1/2 cups (~200-210g) raw cashews, soaked in cool water for 8 hours or in boiling water for 1 hour | 200–210 g di anacardi crudi | 210 g di anacardi crudi, ammollati in acqua fredda per 8 ore o in acqua bollente per 1 ora | F |
 | 10 | 1 1/2 cups almond, oat, or soy milk | ≈ 215 g di mandorle | ≈ 360 ml di latte di mandorla, avena o soia | B |
 | 11 | 1 1/2 cups boiling water ((or use cold water if you are using agar)) | 360 ml di acqua | 360 ml di acqua bollente | C |
 | 12 | 1 1/2 cups cooked garbanzo beans (chickpeas), or 1 can (15 oz), drained, rinsed and patted dry | ≈ 245 g di ceci cotti | ≈ 245 g di ceci cotti o 1 lattina (425 g), scolati, sciacquati e asciugati | B |
@@ -27,7 +27,7 @@ Generated from the golden set (metric renders). Each row is one real source line
 | 21 | 1 1/2 tsp cumin seeds | 1 ½ cucchiaini di cumino | 1 ½ cucchiaini di semi di cumino | C |
 | 22 | 1 1/2-2 cups* full-fat oat or coconut milk | ≈ 120–160 g di latte vegetale d'avena intero o latte di cocco | ≈ 360–480 ml di latte d'avena intero o latte di cocco | B |
 | 23 | 1 1/3 cup unflavored soy or almond milk, (room temperature) | ≈ 320 g di soia o latte di mandorla non aromatizzate, a temperatura ambiente | ≈ 320 ml di latte di soia o latte di mandorla al naturale, a temperatura ambiente | B |
-| 24 | 1 1/4 cups (140-150g) raw cashews, soaked in boiling water for 1 hour * | 150 g di anacardi crudi | 150 g di anacardi crudi, ammollati in acqua bollente per 1 ora | F |
+| 24 | 1 1/4 cups (140-150g) raw cashews, soaked in boiling water for 1 hour * | 140–150 g di anacardi crudi | 150 g di anacardi crudi, ammollati in acqua bollente per 1 ora | F |
 | 25 | 1 1/4 cups unflavored soy or almond milk | ≈ 300 g di soia o latte di mandorla non aromatizzate | ≈ 300 ml di latte di soia o latte di mandorla al naturale | B |
 | 26 | 1 1/4 cups unflavored soy or almond milk, (divided) | ≈ 300 g di soia o latte di mandorla non aromatizzate, da dividere | ≈ 300 ml di latte di soia o latte di mandorla al naturale, da dividere | B |
 | 27 | 1 1/4 cups very hot or boiling water | 300 ml di acqua | 300 ml di acqua bollente | C |
@@ -136,7 +136,7 @@ Generated from the golden set (metric renders). Each row is one real source line
 | 130 | 1 can (14oz.) beans (black-eyed peas, chickpeas, or cannellini), drained and rinsed (optional) | 1 lattina di fagioli, scolati e sciacquati, facoltativi |  |  |
 | 131 | 1 can (15 oz) beans (cannellini, chickpeas, kidney or black beans), drained and rinsed | 1 lattina di fagioli, scolati e sciacquati |  |  |
 | 132 | 1 cup (~120g) raw cashews, soaked in water overnight (or soaked in boiling water for 1 hour; soak overnight if you don’t have a high-powered blender) | 120 g di anacardi crudi, ammollati per una notte |  |  |
-| 133 | 1 cup (130-140g) raw cashews, (soaked overnight (or soaked in boiling water for 1 hour)) | 140 g di anacardi crudi, ammollati per una notte |  |  |
+| 133 | 1 cup (130-140g) raw cashews, (soaked overnight (or soaked in boiling water for 1 hour)) | 130–140 g di anacardi crudi, ammollati per una notte |  |  |
 | 134 | 1 cup (240 mL) creamy, unsweetened plant-based milk, such as oat milk, “lite” coconut milk, or soy milk | (shown as written; no composed Italian) |  |  |
 | 135 | 1 cup all purpose flour ((148g) OR All Purpose Gluten Free Flour Mix (NOT Baking Mix)) | 148 g di farina 00 |  |  |
 | 136 | 1 sheet puff pastry (rolled out and then cut into 2.5" circles with a biscuit cutter or cookie cutter, or use vegan biscuit dough) | 1 foglio di pasta sfoglia |  |  |

@@ -50,7 +50,9 @@ const PIECE_OF_RE = /^(?:pieces?|knobs?|chunks?|slices?)\s+(?:of\s+)?(?=\p{L})/i
 const PACK_COUNT_RE = /^\d+\s+(?=\p{L})/u;
 const EACH_RE = /\beach\b/i;
 const TOTAL_RE = /\btotal\b/i;
-const METRIC_RANGE_RE = /\d+\s*[-–]\s*\d+\s*(?:g|grams?|kg|ml|l)\b/i;
+const METRIC_RANGE_RE = /(\d+(?:[.,]\d+)?)\s*[-–]\s*(\d+(?:[.,]\d+)?)\s*(g|grams?|kg|ml|l)\b/i;
+const NESTED_RANGE_NAME_RE = /^\(\([^)]*\)\s*\p{L}/u;
+const RANGE_BRACKET_RE = /\(\s*((?:~|about\s+)?\d+\s*[-–]\s*\d+\s*(?:g|grams?|kg|ml|l))\s*\)/i;
 const ALTERNATIVE_RE = /\bor\b/i;
 const EACH_OF_RE = /^each\s+(?:of\s+)?/i;
 /** "1/3 tsp or more cumin": an amount left open-ended. */
@@ -182,6 +184,8 @@ function readUnit(input: Pick<AmountResult, 'text' | 'quantity' | 'unit' | 'writ
       const alt = skipAltMeasure(text, def.dimension === 'mass' || def.dimension === 'volume');
       altMeasure = text.slice(0, text.length - alt.length);
       text = alt;
+      ({ text, quantityMax } = readRange(text, quantityMax, def));
+      text = skipAltMeasure(text, def.dimension === 'mass' || def.dimension === 'volume');
       const bracket = text.match(BRACKET_RE);
       if (bracket) {
         altMeasure ||= bracket[1]!;
@@ -269,6 +273,14 @@ function readMetric(input: Pick<AmountResult, 'text' | 'unit' | 'sizeNote' | 'qu
     metric = { quantity: quantity * (unit === 'kg' ? 1000 : 1), unit: 'g' };
   if (unit && (unit === 'ml' || unit === 'l') && quantity !== null)
     metric = { quantity: quantity * (unit === 'l' ? 1000 : 1), unit: 'ml' };
+  const rangeBracket = text.match(RANGE_BRACKET_RE);
+  const explicitRange = (paren?.[1] ?? altMeasure).match(METRIC_RANGE_RE) ?? (!metric && rangeBracket && !ALTERNATIVE_RE.test(text.slice(0, rangeBracket.index)) ? rangeBracket[1]!.match(METRIC_RANGE_RE) : null);
+  if (explicitRange && !NESTED_RANGE_NAME_RE.test(text) && unit && ['cup', 'tbsp', 'tsp', 'oz', 'lb'].includes(unit)) {
+    const low = extractMetric(explicitRange[1]! + explicitRange[3]!);
+    const high = extractMetric(explicitRange[2]! + explicitRange[3]!);
+    if (low && high) return { metric: { ...low, quantityMax: high.quantity },
+      afterMeasure: rangeBracket && !parenMetric ? text.replace(rangeBracket[0], '').trim() : afterMeasure };
+  }
   return { metric, afterMeasure };
 }
 

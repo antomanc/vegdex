@@ -54,7 +54,7 @@ export function renderIngredient(
       if (!unit) return null;
       amount += ` (${formatAmount(p.size.quantity, language)} ${unit})`;
     }
-    if (p.metric && p.unit && !METRIC_UNITS.has(p.unit)) amount += ` (${number.format(p.metric.quantity)} ${p.metric.unit})`;
+    if (p.metric && p.unit && !METRIC_UNITS.has(p.unit)) amount += ` (${number.format(p.metric.quantity)}${p.metric.quantityMax !== undefined ? '–' + number.format(p.metric.quantityMax) : ''} ${p.metric.unit})`;
     if (p.approx) amount = `${pack.about} ${amount}`;
   }
   if (metric && p.approx && !amount.startsWith('≈')) amount = `≈ ${amount}`;

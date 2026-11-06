@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseIngredient, parseLine, toMetric } from '../src';
+import { parseIngredient, parseLine, toMetric, scaleIngredient } from '../src';
 
 describe('parseIngredient', () => {
   it.each([
@@ -57,6 +57,20 @@ describe('parseIngredient', () => {
   it.each(['2 cans full-fat coconut milk (3 cups)', '2 sticks vegan butter (16 tablespoons or 1 cup)'])('keeps honest counts: %s', (line) => {
     expect(parseIngredient(line).quantity).toBe(2);
     expect(parseIngredient(line).metric).toBeNull();
+  });
+
+  it.each([
+    ['2 3/4 cups (265-280g) rolled oats', 265, 280],
+    ['2-3 tablespoons (30-45g) chocolate chips', 30, 45],
+    ['400 g / 14 oz - 800 g / 28 oz firm tofu', 400, 800]
+  ])('preserves explicit metric ranges: %s', (line, quantity, quantityMax) => {
+    const p = parseIngredient(line);
+    expect(p.metric?.quantityMax !== undefined ? toMetric(p) : p).toMatchObject({ quantity, quantityMax, unit: 'g' });
+  });
+
+  it('scales both ends of a stated metric range', () => {
+    const p = parseIngredient('2 3/4 cups (265-280g) rolled oats');
+    expect(toMetric(scaleIngredient(p, 2, 'metric'))).toMatchObject({ quantity: 530, quantityMax: 560, unit: 'g' });
   });
 
   it('keeps ranges', () => {
