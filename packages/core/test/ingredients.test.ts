@@ -40,6 +40,11 @@ describe('parseIngredient', () => {
     if (metric) expect(p.metric).toEqual(metric);
   });
 
+  it.each(['2 tsp ground cumin and coriander', '½ tsp dried marjoram and thyme', '28 ounce canned Ro-tel tomatoes and green chiles'])('keeps a line whose amount only one item would carry: %s', (line) => {
+    const known = { 'ground cumin': 'cumin', coriander: 'coriander', 'dried marjoram': 'marjoram', thyme: 'thyme', 'canned ro-tel tomatoes': 'tomatoes', 'green chiles': 'chiles' };
+    expect(parseLine(line, known, 'en')).toHaveLength(1);
+  });
+
   it.each(['70% dark chocolate', '70-85% dark chocolate'])('does not count percentages: %s', (line) => {
     expect(parseIngredient(line).quantity).toBeNull();
   });
@@ -292,5 +297,55 @@ describe('parseLine: lines naming two ingredients with their own amounts', () =>
     const [first, second] = parseLine('Optional: 2 tsp smoked paprika + 1 tsp garlic powder', lookup);
     expect([first!.concept, second!.concept]).toEqual(['paprika', 'garlic-powder']);
     expect(second!.terms).toContainEqual({ id: 'term:optional', text: 'optional' });
+  });
+});
+
+describe('parseLine: lines naming several ingredients without their own amounts', () => {
+  const lookup: Record<string, string> = {
+    salt: 'salt', pepper: 'pepper', salvia: 'sage', rosmarino: 'rosemary', 'fresh basil': 'basil', basil: 'basil',
+    'red pepper flakes': 'chili-flakes', 'green onion': 'green-onion', 'sesame seeds': 'sesame', 'pepper flakes': 'chili-flakes',
+    tortillas: 'tortilla', guacamole: 'guacamole', 'lime wedges': 'lime', 'plant milk': 'plant-milk', 'maple syrup': 'maple',
+    'soy sauce': 'soy', 'salt and vinegar chips': 'salt-and-vinegar-chips', 'sweet and sour sauce': 'sweet-sour-sauce',
+    'mac and cheese': 'mac-and-cheese', 'peanut butter and jelly': 'pbj',
+    'for garnish': 'term:for-garnish', 'for serving': 'term:for-serving', 'to taste': 'term:to-taste', optional: 'term:optional'
+  };
+
+  it.each([
+    ['salt & pepper to taste', ['salt', 'pepper']],
+    ['salt+pepper', ['salt', 'pepper']],
+    ['fresh basil and red pepper flakes for garnish', ['basil', 'chili-flakes']],
+    ['green onion, sesame seeds, pepper flakes', ['green-onion', 'sesame', 'chili-flakes']],
+    ['For serving: tortillas, guacamole, lime wedges', ['tortilla', 'guacamole', 'lime']],
+    ['eggwash: 2 tbsp plant milk, 1 tsp maple syrup, ½ tsp soy sauce', ['plant-milk', 'maple', 'soy']]
+  ])('%s splits into its parts', (line, expected) => {
+    const concepts = parseLine(line, lookup).map((p) => p.concept);
+    expect(concepts).toEqual(expected);
+  });
+
+  it.each([
+    ['Salvia e rosmarino', 'it', ['sage', 'rosemary']]
+  ])('%s (Italian) splits into its parts', (line, language, expected) => {
+    expect(parseLine(line, lookup, language).map((p) => p.concept)).toEqual(expected);
+  });
+
+  it('applies the trailing purpose to every part', () => {
+    const parts = parseLine('salt & pepper to taste', lookup);
+    expect(parts.map((p) => p.terms?.map((t) => t.id)).every((ids) => ids?.includes('term:to-taste'))).toBe(true);
+  });
+
+  it.each([
+    'salt and vinegar chips',
+    'sweet and sour sauce',
+    'mac and cheese',
+    'half and half',
+    'peanut butter and jelly'
+  ])('keeps the whole phrase together: %s', (line) => {
+    expect(parseLine(line, lookup)).toHaveLength(1);
+  });
+
+  it('leaves a line with a bracketed note or an alternative as one part', () => {
+    expect(parseLine('1 cup water (mixed with 1 teaspoon cornstarch)', lookup)).toHaveLength(1);
+    expect(parseLine('1 small head of garlic, 6-8 cloves', { ...lookup, garlic: 'garlic' })).toHaveLength(1);
+    expect(parseLine('1 cup walnuts or almonds', lookup)).toHaveLength(1);
   });
 });
