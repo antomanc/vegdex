@@ -1,5 +1,8 @@
 import { cleanText } from '../text';
-import type { ParseState, ParsedIngredient } from './types';
+import type { ParsedIngredient } from './types';
+import type { AmountResult } from './amount';
+import type { NameResult } from './name';
+import type { Resolution } from './resolve';
 
 /** Headings, equipment, instructions and asides written among the ingredients. */
 function lineKind(raw: string, quantity: number | null, concept: string | null, name: string): ParsedIngredient['kind'] {
@@ -12,25 +15,25 @@ function lineKind(raw: string, quantity: number | null, concept: string | null, 
 }
 
 /** Decide whether the line is an ingredient or not, and build the final parsed shape. */
-export function classify(state: ParseState, raw: string): ParsedIngredient {
-  const kind = lineKind(cleanText(raw), state.quantity, state.concept, state.name);
+export function classify(raw: string, optional: boolean, measure: Pick<AmountResult, 'quantity' | 'quantityMax' | 'unit' | 'metric' | 'afterMeasure' | 'approx'>, named: Pick<NameResult, 'name' | 'note'>, resolved: Resolution): ParsedIngredient {
+  const kind = lineKind(cleanText(raw), measure.quantity, resolved.concept, named.name);
   return {
-    conceptExact: state.conceptExact,
-    phrase: state.phrase,
-    terms: state.terms,
-    size: state.size,
-    also: state.also,
-    ...(state.approx ? { approx: true as const } : {}),
+    conceptExact: resolved.conceptExact,
+    phrase: resolved.phrase,
+    terms: resolved.terms,
+    size: resolved.size,
+    also: resolved.also,
+    ...(measure.approx ? { approx: true as const } : {}),
     ...(kind ? { kind } : {}),
     raw: cleanText(raw),
-    quantity: state.quantity,
-    quantityMax: state.quantityMax,
-    unit: state.unit,
-    metric: state.metric,
-    afterMeasure: state.afterMeasure,
-    name: kind ? '' : state.name,
-    concept: kind ? null : state.concept,
-    note: state.note,
-    optional: state.optional
+    quantity: measure.quantity,
+    quantityMax: measure.quantityMax,
+    unit: measure.unit,
+    metric: measure.metric,
+    afterMeasure: measure.afterMeasure,
+    name: kind ? '' : named.name,
+    concept: kind ? null : resolved.concept,
+    note: named.note,
+    optional: optional
   };
 }

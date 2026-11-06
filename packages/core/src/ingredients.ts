@@ -7,7 +7,7 @@ import { nameAndNotes } from './ingredients/name';
 import { resolve } from './ingredients/resolve';
 import { classify } from './ingredients/classify';
 import { MEASURE_QUALIFIERS_RE, FILL_QUALIFIERS_RE } from './ingredients/measure';
-import { newParseState, type ParsedIngredient, type ParsedLine } from './ingredients/types';
+import { type ParsedIngredient, type ParsedLine } from './ingredients/types';
 
 export { normalizeLine };
 export { unitDef } from './ingredients/units';
@@ -50,12 +50,11 @@ export function parseIngredient(raw: string, lookup: IngredientLookup = {}, lang
   const labelled = labelPart(raw, language, lookup);
   if (labelled) return labelled;
 
-  const state = newParseState();
-  Object.assign(state, normalise(raw, language, pack));
-  Object.assign(state, amount(state, language, pack));
-  Object.assign(state, nameAndNotes(state, language, pack, lookup));
-  Object.assign(state, resolve(state, state, raw, language, lookup));
-  return classify(state, raw);
+  const normalised = normalise(raw, language, pack);
+  const measured = amount(normalised, language, pack);
+  const named = nameAndNotes(measured, language, pack, lookup);
+  const resolved = resolve(named, measured, raw, language, lookup);
+  return classify(raw, normalised.optional, measured, named, resolved);
 }
 
 /** The parts of a shipped line; datasets before parts hold one object per line. */
