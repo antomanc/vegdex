@@ -21,7 +21,12 @@
           "concept": "vocab:red-pepper-flakes",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "½–1 tsp red pepper flakes, optional",
@@ -89,7 +94,12 @@
           "concept": "off:4c611a44d2f34143",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:to-taste",
+              "text": "to taste"
+            }
+          ]
         }
       ],
       "en": "thyme sprigs, to taste",
@@ -151,7 +161,12 @@
           "concept": "off:3748fbd132cd645a",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:chopped",
+              "text": "chopped"
+            }
+          ]
         }
       ],
       "en": "1 handful walnuts, chopped",
@@ -214,7 +229,23 @@
           "concept": "off:2c8dcb8d7db2089f",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:chopped",
+              "text": "chopped",
+              "inName": true
+            },
+            {
+              "id": "term:fresh",
+              "text": "fresh",
+              "inName": true
+            },
+            {
+              "id": "term:for-garnish",
+              "text": "for garnish",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "1 tbsp fresh parsley or fresh oregano, chopped, for garnish",
@@ -261,7 +292,12 @@
           "concept": "off:efbaa8cbfffc1af3",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:zested",
+              "text": "zested"
+            }
+          ]
         }
       ],
       "en": "½ lime, zested",
@@ -282,7 +318,17 @@
           "concept": "off:5ed728c2fa5d767b",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:small",
+              "text": "small",
+              "inName": true
+            },
+            {
+              "id": "term:diced",
+              "text": "diced"
+            }
+          ]
         }
       ],
       "en": "2 small Roma tomatoes, diced",
@@ -345,7 +391,12 @@
           "concept": "off:6b2553f0dd087e2d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:minced",
+              "text": "finely chopped"
+            }
+          ]
         }
       ],
       "en": "≈ 60 g shelled pistachios, finely chopped",
@@ -455,7 +506,17 @@
           "concept": "off:510e9cd005e36223",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:sweet",
+              "text": "sweet",
+              "inName": true
+            },
+            {
+              "id": "term:peeled-sliced",
+              "text": "peeled and thinly sliced"
+            }
+          ]
         }
       ],
       "en": "2 sweet red apples, peeled and thinly sliced",
@@ -497,7 +558,12 @@
           "concept": "off:41024084d2e27b7d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:minced",
+              "text": "minced"
+            }
+          ]
         }
       ],
       "en": "1 clove garlic, minced",
@@ -539,7 +605,12 @@
           "concept": "off:782f0a13661ebc63",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:as-needed",
+              "text": "plus more as needed"
+            }
+          ]
         }
       ],
       "en": "120–240 ml unsweetened almond milk or vegan cream, plus more as needed",
@@ -580,7 +651,12 @@
           "concept": "vocab:balsamic-reduction",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "balsamic reduction, optional",
@@ -601,7 +677,17 @@
           "concept": "off:77e619c950c05b23",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:cooked",
+              "text": "cooked",
+              "inName": true
+            },
+            {
+              "id": "term:drained-rinsed",
+              "text": "rinsed and drained"
+            }
+          ]
         }
       ],
       "en": "≈ 170 g white beans or cannellini beans or navy beans, cooked, rinsed and drained",
@@ -632,7 +718,13 @@
           "concept": "off:4cb189665ff62a96",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:freshly-ground",
+              "text": "freshly cracked",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "sea salt + black pepper, freshly cracked",
@@ -695,7 +787,16 @@
           "concept": "off:f1003249947bc776",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:peeled",
+              "text": "peeled"
+            },
+            {
+              "id": "term:diced",
+              "text": "diced"
+            }
+          ]
         }
       ],
       "en": "575 g purple sweet potato, peeled, diced and steamed",
@@ -742,7 +843,13 @@
           "concept": "off:22b3cf5281ba12d7",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:dried",
+              "text": "dried",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "¾ tsp dried dill",
@@ -768,7 +875,16 @@
           "concept": "veg:0003",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:for-topping",
+              "text": "for topping"
+            },
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         },
         {
           "quantity": null,
@@ -778,7 +894,26 @@
           "concept": "off:2c8dcb8d7db2089f",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:fresh",
+              "text": "fresh",
+              "inName": true
+            },
+            {
+              "id": "term:chopped",
+              "text": "chopped",
+              "inName": true
+            },
+            {
+              "id": "term:for-topping",
+              "text": "for topping"
+            },
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "vegan parmesan, for garnish, optional + fresh parsley, chopped, for garnish, optional",
@@ -820,7 +955,12 @@
           "concept": "off:895f1f6184a69a8c",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:minced",
+              "text": "minced"
+            }
+          ]
         }
       ],
       "en": "10 cremini mushrooms or button mushrooms, minced",
@@ -842,7 +982,18 @@
           "conceptExact": true,
           "densityName": "green onion",
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:green",
+              "text": "Green",
+              "inName": true
+            },
+            {
+              "id": "term:for-garnish",
+              "text": "for garnish",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "green onions, for garnish",
@@ -883,7 +1034,12 @@
           "concept": "off:f37125564ba7f7d1",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:for-frying",
+              "text": "for frying"
+            }
+          ]
         }
       ],
       "en": "avocado oil, for frying",
@@ -993,7 +1149,13 @@
           "concept": "off:22b3cf5281ba12d7",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:dried",
+              "text": "dried",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "1 ½ tsp dried dill",
@@ -1035,7 +1197,12 @@
           "concept": "off:7ed0f0da39d5b63b",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:drained-rinsed",
+              "text": "drained and rinsed"
+            }
+          ]
         }
       ],
       "en": "1 can (425 g) canned chickpeas, drained and rinsed",
@@ -1056,7 +1223,12 @@
           "concept": "vocab:vegan-feta-cheese",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:crumbled",
+              "text": "crumbled"
+            }
+          ]
         }
       ],
       "en": "75 g vegan feta cheese, crumbled",
@@ -1098,7 +1270,13 @@
           "concept": "off:f02990135436f221",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:prepared",
+              "text": "prepared",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "360–480 ml prepared stuffing",
@@ -1140,7 +1318,13 @@
           "concept": "off:d58d417d2d19e23d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:dried",
+              "text": "dried",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "2 fresh bay leaves or dried bay leaves",
@@ -1166,7 +1350,12 @@
           "concept": "off:78d5ee058cac78a0",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:sliced",
+              "text": "sliced"
+            }
+          ]
         }
       ],
       "en": "90 g mushrooms, sliced",
@@ -1208,7 +1397,12 @@
           "concept": "veg:0001",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:room-temperature",
+              "text": "at room temperature"
+            }
+          ]
         }
       ],
       "en": "≈ 115 g vegan butter, at room temperature",
@@ -1271,7 +1465,12 @@
           "concept": "off:f37125564ba7f7d1",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "Optional"
+            }
+          ]
         }
       ],
       "en": "1 tbsp avocado oil, optional",
@@ -1293,7 +1492,12 @@
           "conceptExact": true,
           "densityName": "corn",
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:drained",
+              "text": "drained"
+            }
+          ]
         }
       ],
       "en": "1 can canned corn, drained",
@@ -1335,7 +1539,12 @@
           "concept": "off:fa6598317163f260",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:sliced",
+              "text": "sliced"
+            }
+          ]
         }
       ],
       "en": "8 olives, sliced",
@@ -1356,7 +1565,13 @@
           "concept": "off:d037e316bcc269c4",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:fresh",
+              "text": "fresh",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 165 g fresh cranberries",
@@ -1377,7 +1592,12 @@
           "concept": "off:04084a303eaa6863",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:for-dusting",
+              "text": "plus more for dusting"
+            }
+          ]
         }
       ],
       "en": "300 g all-purpose flour, plus more for dusting",
@@ -1461,7 +1681,13 @@
           "concept": "off:ed230b47425ce1df",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:unsweetened",
+              "text": "unsweetened",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "480 ml unsweetened plain soy milk",
@@ -1613,7 +1839,12 @@
           "concept": "vocab:sweetener",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "1 pinch sweetener or sugar or agave syrup, optional",
@@ -1655,7 +1886,12 @@
           "concept": "off:1e67037bc5e90f88",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:thinly-sliced",
+              "text": "thinly sliced"
+            }
+          ]
         }
       ],
       "en": "4 mandarins, thinly sliced",
@@ -1676,7 +1912,13 @@
           "concept": "off:9857e117dd0722da",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:chopped",
+              "text": "chopped",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 80 g kale or spinach, chopped",
@@ -1698,7 +1940,12 @@
           "conceptExact": true,
           "densityName": "seeds from half a vanilla bean",
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "vanilla bean, seeds scraped out, optional",
@@ -1745,7 +1992,12 @@
           "concept": "vocab:extra-firm-tofu",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:pressed",
+              "text": "pressed"
+            }
+          ]
         }
       ],
       "en": "397 g extra-firm tofu, pressed",
@@ -1871,7 +2123,17 @@
           "concept": "off:b35ac13eb4361e93",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:toasted",
+              "text": "toasted",
+              "inName": true
+            },
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "toasted sesame seeds, optional",
@@ -1892,7 +2154,12 @@
           "concept": "off:eb31a331ca00003e",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:sliced",
+              "text": "sliced"
+            }
+          ]
         }
       ],
       "en": "¼ red onion, sliced",
@@ -1955,7 +2222,13 @@
           "concept": "off:0f4168490e38b844",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:warm",
+              "text": "lukewarm",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "160 ml water, lukewarm, at 100–110°F",
@@ -1976,7 +2249,12 @@
           "concept": "off:41024084d2e27b7d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:minced",
+              "text": "minced"
+            }
+          ]
         }
       ],
       "en": "1 clove garlic, minced",
@@ -2018,7 +2296,12 @@
           "concept": "off:ee59869c3e259d9f",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:pitted-and-chopped",
+              "text": "pitted and chopped"
+            }
+          ]
         }
       ],
       "en": "≈ 145 g Medjool dates, pitted and chopped",
@@ -2059,7 +2342,13 @@
           "concept": "off:03ebf4acf9cf727d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:chopped",
+              "text": "chopped",
+              "inName": true
+            }
+          ]
         },
         {
           "quantity": null,
@@ -2101,7 +2390,13 @@
           "concept": "off:ab45e8474269b026",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:frozen",
+              "text": "frozen",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 900 g fresh blueberries or frozen blueberries",
@@ -2194,7 +2489,16 @@
           "concept": "veg:0002",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:unsweetened",
+              "text": "unsweetened"
+            },
+            {
+              "id": "term:as-needed",
+              "text": "more if needed"
+            }
+          ]
         }
       ],
       "en": "120 ml unsweetened non-dairy milk",
@@ -2215,7 +2519,13 @@
           "concept": "off:a0d92592fbf2d89f",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:fresh",
+              "text": "Fresh",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "1 tsp fresh lemon juice",
@@ -2257,7 +2567,13 @@
           "concept": "off:5e737f891db11754",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:fresh",
+              "text": "fresh",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "400 g fresh strawberries",
@@ -2278,7 +2594,17 @@
           "concept": "off:0cd903a1eb6be1ec",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:small",
+              "text": "small",
+              "inName": true
+            },
+            {
+              "id": "term:diced",
+              "text": "diced"
+            }
+          ]
         }
       ],
       "en": "1 small shallot, diced",
@@ -2321,7 +2647,13 @@
           "conceptExact": true,
           "densityName": "tomato",
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:diced",
+              "text": "diced",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "800 g fresh tomatoes or canned tomatoes, diced",
@@ -2342,7 +2674,12 @@
           "concept": "off:cc767fb1c6efc232",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:to-taste",
+              "text": "adjust to taste"
+            }
+          ]
         }
       ],
       "en": "1 tbsp sugar, to taste",
@@ -2451,7 +2788,13 @@
           "concept": "off:591a1c804dc45922",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:small",
+              "text": "small",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "1 small courgette, shaved into ribbons with a speed peeler",
@@ -2497,7 +2840,13 @@
           "concept": "off:bf35a2d3261f8ec8",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:florets",
+              "text": "cut into florets",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "1 head small cauliflower, cut into florets",
@@ -2544,7 +2893,13 @@
           "concept": "off:eadbe31162395fef",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:medium",
+              "text": "medium",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "500 g medium ripe tomatoes",
@@ -2591,7 +2946,13 @@
           "concept": "off:0f4168490e38b844",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:hot",
+              "text": "hot",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "60 ml hot water",
@@ -2612,7 +2973,12 @@
           "concept": "off:9d878568dfd615a0",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:finely-diced",
+              "text": "finely diced"
+            }
+          ]
         }
       ],
       "en": "1 red bell pepper, finely diced",
@@ -2696,7 +3062,12 @@
           "concept": "off:63af2c97e2f9f9fa",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "1 tsp instant coffee, optional",
@@ -2786,7 +3157,12 @@
           "concept": "off:b96482290a873ee9",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:minced",
+              "text": "chopped small"
+            }
+          ]
         }
       ],
       "en": "1 medium carrot, chopped small",
@@ -2880,7 +3256,13 @@
           "concept": "off:71587f8b3cf6dc3b",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:cooked",
+              "text": "Cooked",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "cooked jasmine rice",
@@ -2922,7 +3304,13 @@
           "concept": "off:5e737f891db11754",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:fresh",
+              "text": "fresh",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 150 g fresh strawberries",
@@ -2986,7 +3374,13 @@
           "concept": "off:851e9f42b04124e1",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:whole",
+              "text": "whole",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "1 can (800 g) canned whole peeled tomatoes, crushed by hand, including juices",
@@ -3054,7 +3448,13 @@
           "concept": "off:985604c2b6024312",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:white",
+              "text": "white",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "500–675 g white bread",
@@ -3122,7 +3522,13 @@
           "concept": "off:3a7bd3e2360a3d29",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:freeze-dried",
+              "text": "FREEZE-DRIED",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "30 g freeze-dried apples",
@@ -3164,7 +3570,12 @@
           "concept": "off:bb1b99381526af25",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:drained-rinsed",
+              "text": "drained and rinsed"
+            }
+          ]
         }
       ],
       "en": "1 can (400 g) canned red kidney beans, drained and rinsed",
@@ -3185,7 +3596,12 @@
           "concept": "vocab:vegan-whipped-cream",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:for-topping",
+              "text": "for topping"
+            }
+          ]
         }
       ],
       "en": "vegan whipped cream, for topping",
@@ -3206,7 +3622,13 @@
           "concept": "off:be89e6594f1b879c",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:fine",
+              "text": "finely ground",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 35 g cashews, finely ground",
@@ -3232,7 +3654,12 @@
           "concept": "off:d7aa0adb091bc1b3",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "1 tsp vanilla extract, optional",
@@ -3253,7 +3680,12 @@
           "concept": "off:d2c06460ecdfd846",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:for-garnish",
+              "text": "to garnish"
+            }
+          ]
         }
       ],
       "en": "fresh herbs or fresh cilantro, for garnish",
@@ -3274,7 +3706,12 @@
           "concept": "off:41024084d2e27b7d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:minced",
+              "text": "finely chopped"
+            }
+          ]
         }
       ],
       "en": "3 cloves garlic, finely chopped",
@@ -3316,7 +3753,12 @@
           "concept": "off:c210f90ec8761891",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:cleaned",
+              "text": "cleaned"
+            }
+          ]
         }
       ],
       "en": "750 g chestnut mushrooms, cleaned",
@@ -3337,7 +3779,13 @@
           "concept": "off:ab45e8474269b026",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:frozen",
+              "text": "frozen",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "340 g fresh blueberries or frozen blueberries",
@@ -3447,7 +3895,18 @@
           "concept": "off:6815f3c300383519",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:medium",
+              "text": "medium",
+              "inName": true
+            },
+            {
+              "id": "term:chopped",
+              "text": "chopped",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "½ medium mango, chopped",
@@ -3511,7 +3970,12 @@
           "conceptExact": true,
           "densityName": "rice flour",
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:white",
+              "text": "white"
+            }
+          ]
         }
       ],
       "en": "≈ 160 g white rice flour",
@@ -3532,7 +3996,12 @@
           "concept": "off:36ae583609d7fb39",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "Optional"
+            }
+          ]
         }
       ],
       "en": "½ tsp orange zest, optional",
@@ -3553,7 +4022,16 @@
           "concept": "off:f9c9baac9006160a",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:sliced",
+              "text": "sliced"
+            },
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "½ avocado, sliced, optional",
@@ -3658,7 +4136,12 @@
           "concept": "off:9ec9441a1714e128",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "1 tbsp cornstarch or other starch, optional",
@@ -3701,7 +4184,13 @@
           "concept": "off:abe10a7b1ab725a9",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:regular",
+              "text": "regular",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "80 g regular unsulphured molasses, not blackstrap",
@@ -3743,7 +4232,13 @@
           "concept": "off:e91c254ad58860a0",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:medium",
+              "text": "medium",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "2 medium red potatoes or medium yellow potatoes, diced and boiled until just tender, not mushy",
@@ -3790,7 +4285,12 @@
           "concept": "off:a0d92592fbf2d89f",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:for-garnish",
+              "text": "for garnish"
+            }
+          ]
         }
       ],
       "en": "1–2 tsp lemon juice, for garnish",
@@ -3853,7 +4353,12 @@
           "concept": "off:9cf67ed55eccd9aa",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:for-garnish",
+              "text": "to garnish"
+            }
+          ]
         }
       ],
       "en": "pepitas or sunflower seeds, for garnish",
@@ -3900,7 +4405,12 @@
           "concept": "off:52b549084074bc23",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:peeled-chopped",
+              "text": "peeled and roughly chopped"
+            }
+          ]
         }
       ],
       "en": "½ small white onion, peeled and roughly chopped",
@@ -3984,7 +4494,21 @@
           "concept": "off:dc6f17bbec824fff",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:fresh",
+              "text": "Fresh",
+              "inName": true
+            },
+            {
+              "id": "term:packed",
+              "text": "loosely packed"
+            },
+            {
+              "id": "term:optional",
+              "text": "Optional"
+            }
+          ]
         }
       ],
       "en": "≈ 4 g fresh mint leaves or fresh basil leaves, optional",
@@ -4057,7 +4581,12 @@
           "concept": "off:11f29ed5ef47d667",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:melted",
+              "text": "melted"
+            }
+          ]
         }
       ],
       "en": "≈ 220 g coconut oil, melted",
@@ -4120,7 +4649,17 @@
           "concept": "off:0f4168490e38b844",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:cold",
+              "text": "cold",
+              "inName": true
+            },
+            {
+              "id": "term:if-needed",
+              "text": "if needed"
+            }
+          ]
         }
       ],
       "en": "water, cold, optional",
@@ -4224,7 +4763,13 @@
           "concept": "off:5ed728c2fa5d767b",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:small",
+              "text": "small",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "1 small tomato",
@@ -4245,7 +4790,13 @@
           "concept": "veg:0001",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:melted",
+              "text": "melted",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "56 g vegan butter or olive oil or oil, melted",
@@ -4266,7 +4817,12 @@
           "concept": "off:b702ec770c1848d1",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:soaked-overnight",
+              "text": "soaked overnight"
+            }
+          ]
         }
       ],
       "en": "≈ 70 g raw cashews, soaked overnight",
@@ -4307,7 +4863,12 @@
           "concept": "off:782f0a13661ebc63",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:unsweetened",
+              "text": "unsweetened"
+            }
+          ]
         }
       ],
       "en": "320 ml unsweetened almond milk",
@@ -4328,7 +4889,12 @@
           "concept": "off:2ccfaf0f1e83e4fe",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "Optional"
+            }
+          ]
         }
       ],
       "en": "¼ tsp turmeric, optional",
@@ -4349,7 +4915,12 @@
           "concept": "off:01c617ca22b9f445",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:cubed",
+              "text": "cubed"
+            }
+          ]
         }
       ],
       "en": "2 packages (227 g) tempeh, cubed",
@@ -4391,7 +4962,13 @@
           "concept": "vocab:brewed-espresso",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:ground",
+              "text": "ground",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "½–1 tsp ground espresso",
@@ -4412,7 +4989,13 @@
           "concept": "veg:0001",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:cold",
+              "text": "chilled",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "75 g vegan butter or odourless coconut oil, chilled",
@@ -4433,7 +5016,23 @@
           "concept": "off:4a7ce928c59008dd",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:hot",
+              "text": "hot",
+              "inName": true
+            },
+            {
+              "id": "term:green",
+              "text": "green",
+              "inName": true
+            },
+            {
+              "id": "term:minced",
+              "text": "minced",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "1 hot green chili, minced, optional",
@@ -4501,7 +5100,12 @@
           "concept": "off:ddc5177b9204093a",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:diced",
+              "text": "diced"
+            }
+          ]
         }
       ],
       "en": "2 celery, diced",
@@ -4568,7 +5172,12 @@
           "concept": "off:9a3a19edb1089e4b",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:sliced",
+              "text": "sliced"
+            }
+          ]
         }
       ],
       "en": "½ bell pepper, sliced",
@@ -4615,7 +5224,18 @@
           "concept": "off:9c2cb65da8c281e5",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:warm",
+              "text": "warm",
+              "inName": true
+            },
+            {
+              "id": "term:low-sodium",
+              "text": "low-sodium",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "1.1 l low-sodium vegetable broth, warm",
@@ -4637,7 +5257,12 @@
           "conceptExact": true,
           "densityName": "vegan white",
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "15 g vegan white chocolate or vegan dark chocolate, shaved, optional",
@@ -4663,7 +5288,13 @@
           "concept": "veg:0003",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:grated",
+              "text": "grated",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "40 g vegan Parmesan cheese, grated",
@@ -4752,7 +5383,12 @@
           "concept": "off:41024084d2e27b7d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:minced",
+              "text": "finely minced"
+            }
+          ]
         }
       ],
       "en": "1 clove large garlic, finely minced",
@@ -4778,7 +5414,12 @@
           "concept": "off:2c8dcb8d7db2089f",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:chopped",
+              "text": "chopped"
+            }
+          ]
         }
       ],
       "en": "2 tbsp parsley, chopped",
@@ -4841,7 +5482,13 @@
           "concept": "off:1339d4c96dd42dc1",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:dried",
+              "text": "dried",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "450 g dried penne pasta or medium-sized pasta of choice",
@@ -4884,7 +5531,13 @@
           "concept": "off:2c8dcb8d7db2089f",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:fresh",
+              "text": "fresh",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 8 g fresh parsley or basil",
@@ -4973,7 +5626,12 @@
           "concept": "vocab:vegan-white-chocolate",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:divided",
+              "text": "divided"
+            }
+          ]
         }
       ],
       "en": "260 g vegan white chocolate, divided",
@@ -4994,7 +5652,13 @@
           "concept": "off:4cb189665ff62a96",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:ground",
+              "text": "ground",
+              "inName": true
+            }
+          ]
         },
         {
           "quantity": 1,
@@ -5134,7 +5798,21 @@
           "concept": "off:2ccfaf0f1e83e4fe",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:ground",
+              "text": "ground",
+              "inName": true
+            },
+            {
+              "id": "term:optional",
+              "text": "optional"
+            },
+            {
+              "id": "term:for-color",
+              "text": "for color"
+            }
+          ]
         }
       ],
       "en": "¼ tsp ground turmeric, for color, optional",
@@ -5217,7 +5895,12 @@
           "concept": "off:549819b27ee092f8",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "2 tbsp maple syrup, optional",
@@ -5238,7 +5921,13 @@
           "concept": "off:ee59869c3e259d9f",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:pitted",
+              "text": "pitted",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 290 g Medjool dates, pitted",
@@ -5322,7 +6011,12 @@
           "concept": "vocab:canned-white-beans",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:drained-rinsed",
+              "text": "drained and rinsed"
+            }
+          ]
         }
       ],
       "en": "1 can (425 g) canned white beans, drained and rinsed",
@@ -5411,7 +6105,12 @@
           "concept": "off:03ebf4acf9cf727d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:chopped",
+              "text": "chopped"
+            }
+          ]
         }
       ],
       "en": "≈ 5 g cilantro, chopped",
@@ -5453,7 +6152,12 @@
           "concept": "vocab:pumpkin-spice",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:divided",
+              "text": "divided"
+            }
+          ]
         }
       ],
       "en": "3 tsp pumpkin spice, divided",
@@ -5557,7 +6261,12 @@
           "concept": "off:749b0454b89226f5",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "1 pinch nutmeg, optional",
@@ -5645,7 +6354,12 @@
           "concept": "off:0c0cdeee72eb7ff6",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:to-taste",
+              "text": "plus more to taste"
+            }
+          ]
         }
       ],
       "en": "1 tsp flaked sea salt, to taste",
@@ -5666,7 +6380,12 @@
           "concept": "off:885e64fbba0a02fe",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:thinly-sliced",
+              "text": "thinly sliced"
+            }
+          ]
         }
       ],
       "en": "2–3 scallions, thinly sliced",
@@ -5838,7 +6557,13 @@
           "concept": "off:0f4168490e38b844",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:cold",
+              "text": "cold",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "960 ml cold water or sparkling water",
@@ -5880,7 +6605,17 @@
           "concept": "off:0f4168490e38b844",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:cold",
+              "text": "Cold",
+              "inName": true
+            },
+            {
+              "id": "term:as-needed",
+              "text": "as needed"
+            }
+          ]
         }
       ],
       "en": "cold water, as needed",
@@ -5922,7 +6657,12 @@
           "concept": "off:9a3a19edb1089e4b",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:pieces",
+              "text": "cut into bite-sized pieces"
+            }
+          ]
         }
       ],
       "en": "2 bell peppers, cut into bite-sized pieces",
@@ -5943,7 +6683,17 @@
           "concept": "off:288971671685b8da",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:medium",
+              "text": "medium",
+              "inName": true
+            },
+            {
+              "id": "term:chopped",
+              "text": "chopped"
+            }
+          ]
         }
       ],
       "en": "1 medium onion, chopped",
@@ -5964,7 +6714,13 @@
           "concept": "off:f81ec4c4cb5bbe75",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:medium",
+              "text": "medium",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "2 medium Russet potatoes, peeled and cut into pieces",
@@ -6058,7 +6814,12 @@
           "concept": "off:c6c3fa689e291bba",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:as-needed",
+              "text": "as needed"
+            }
+          ]
         }
       ],
       "en": "≈ 95 g greens, chopped",
@@ -6079,7 +6840,17 @@
           "concept": "off:f464d7d71c06e47a",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:small",
+              "text": "small",
+              "inName": true
+            },
+            {
+              "id": "term:juiced",
+              "text": "juiced"
+            }
+          ]
         }
       ],
       "en": "1 small lemon, juiced",
@@ -6189,7 +6960,12 @@
           "concept": "off:f7bdd34908774f39",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:rinsed",
+              "text": "rinsed"
+            }
+          ]
         }
       ],
       "en": "2 cans black beans, rinsed",
@@ -6210,7 +6986,13 @@
           "concept": "off:288971671685b8da",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:sliced",
+              "text": "sliced",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 80 g onion, sliced",
@@ -6231,7 +7013,13 @@
           "concept": "off:08ddff4ebe39249a",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:finely-grated",
+              "text": "finely grated",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "4 tsp ginger, finely grated",
@@ -6274,7 +7062,13 @@
           "conceptExact": true,
           "densityName": "almond",
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:unsweetened",
+              "text": "unsweetened",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 145 g unsweetened almond milk or unsweetened oat milk or unsweetened soy milk",
@@ -6342,7 +7136,13 @@
           "concept": "off:0f4168490e38b844",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:hot",
+              "text": "hot",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "60 ml water, hot",
@@ -6384,7 +7184,12 @@
           "concept": "off:885e64fbba0a02fe",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:chopped",
+              "text": "chopped"
+            }
+          ]
         }
       ],
       "en": "3 scallions, chopped",
@@ -6427,7 +7232,12 @@
           "concept": "vocab:extra-firm-tofu",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:drained",
+              "text": "drained"
+            }
+          ]
         }
       ],
       "en": "200 g extra-firm tofu, drained",
@@ -6469,7 +7279,13 @@
           "concept": "off:9c2cb65da8c281e5",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:low-sodium",
+              "text": "low sodium",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "950 ml low-sodium vegetable broth",
@@ -6532,7 +7348,17 @@
           "concept": "off:8a7feb4abff5cc24",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:fresh",
+              "text": "fresh",
+              "inName": true
+            },
+            {
+              "id": "term:for-serving",
+              "text": "for serving"
+            }
+          ]
         }
       ],
       "en": "spinach or fresh coriander, for serving",
@@ -6553,7 +7379,12 @@
           "concept": "vocab:extra-firm-tofu",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:pressed",
+              "text": "drained and pressed"
+            }
+          ]
         }
       ],
       "en": "340 g extra-firm tofu or firm tofu, drained and pressed",
@@ -6695,7 +7526,13 @@
           "concept": "vocab:puff-pastry",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:frozen",
+              "text": "frozen",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "1 sheet frozen vegan puff pastry, defrosted",
@@ -6742,7 +7579,13 @@
           "concept": "off:2542ebbe6b6ec4d3",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:ground",
+              "text": "ground",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 100 g ground raw sugar or brown sugar or fine vegan sugar",
@@ -6919,7 +7762,12 @@
           "concept": "vocab:chocolate-sandwich-cookies",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:crushed",
+              "text": "crushed"
+            }
+          ]
         }
       ],
       "en": "18 vegan chocolate sandwich cookies, crushed including the filling",
@@ -7024,7 +7872,12 @@
           "concept": "vocab:puff-pastry",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:thawed",
+              "text": "thawed"
+            }
+          ]
         }
       ],
       "en": "2 vegan puff pastry sheets, thawed",
@@ -7361,7 +8214,13 @@
           "concept": "off:d8ff4fb00a24e53d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:unflavored",
+              "text": "unflavored",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 360 g unflavored soy milk or unflavored almond milk",
@@ -7413,7 +8272,13 @@
           "concept": "off:be89e6594f1b879c",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:unsweetened",
+              "text": "unsweetened",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 205 g unsweetened cashew milk or unsweetened soy milk or unsweetened almond milk",
@@ -7439,7 +8304,18 @@
           "concept": "off:d8ff4fb00a24e53d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:unsweetened",
+              "text": "unsweetened",
+              "inName": true
+            },
+            {
+              "id": "term:unflavored",
+              "text": "unflavored",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 360 g unsweetened, unflavored soy milk or unsweetened, unflavored almond milk or unsweetened, unflavored cashew milk",
@@ -7491,7 +8367,17 @@
           "concept": "off:d8ff4fb00a24e53d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:unflavored",
+              "text": "unflavored",
+              "inName": true
+            },
+            {
+              "id": "term:room-temperature",
+              "text": "room temperature"
+            }
+          ]
         }
       ],
       "en": "≈ 320 g unflavored soy milk or unflavored almond milk, at room temperature",
@@ -7517,7 +8403,13 @@
           "concept": "off:d8ff4fb00a24e53d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:unflavored",
+              "text": "unflavored",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 300 g unflavored soy milk or unflavored almond milk",
@@ -7543,7 +8435,17 @@
           "concept": "off:d8ff4fb00a24e53d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:unflavored",
+              "text": "unflavored",
+              "inName": true
+            },
+            {
+              "id": "term:divided",
+              "text": "divided"
+            }
+          ]
         }
       ],
       "en": "≈ 300 g unflavored soy milk or unflavored almond milk, divided",
@@ -7721,7 +8623,12 @@
           "conceptExact": true,
           "densityName": "cashews soaked hour in water",
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:drained-rinsed",
+              "text": "drained and rinsed"
+            }
+          ]
         }
       ],
       "en": "360 ml raw cashews, soaked in boiling water for 1 hour, drained and rinsed",
@@ -8028,7 +8935,12 @@
           "concept": "off:15c245583e5a02ab",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:lightly-toasted",
+              "text": "lightly toasted"
+            }
+          ]
         }
       ],
       "en": "1 ¼ tsp cumin seeds, lightly toasted",
@@ -8054,7 +8966,12 @@
           "concept": "off:b702ec770c1848d1",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:soaked-overnight",
+              "text": "soaked in water overnight"
+            }
+          ]
         }
       ],
       "en": "120 g raw cashews, soaked in water overnight or in boiling water for 1 hour",
@@ -8101,7 +9018,12 @@
           "concept": "off:b702ec770c1848d1",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:soaked-overnight",
+              "text": "soaked overnight"
+            }
+          ]
         }
       ],
       "en": "130–140 g raw cashews, soaked overnight or in boiling water for 1 hour",
@@ -8234,14 +9156,15 @@
           "quantityMax": null,
           "unit": null,
           "name": "fresh red onion",
-          "concept": null,
+          "concept": "off:eb31a331ca00003e",
+          "conceptExact": true,
           "densityName": "fresh red onion",
           "note": "",
           "terms": []
         }
       ],
       "en": "green onions, for serving, optional + sesame seeds, for serving, optional + fresh red onion, for serving, optional",
-      "it": "cipollotti, per servire, facoltativi + semi di sesamo, per servire, facoltativi + cipolla rossa fresca, per servire, facoltativi",
+      "it": "cipollotti, per servire, facoltativi + semi di sesamo, per servire, facoltativi + cipolla rossa fresca, per servire, facoltative",
       "source": "yupitsvegan",
       "status": "known-bad",
       "class": "D",
@@ -8262,7 +9185,12 @@
           "name": "sweetener choice- agave",
           "concept": null,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "1–6 tbsp sweetener of choice or agave syrup or maple syrup or brown sugar, optional",
@@ -8283,7 +9211,16 @@
           "concept": "vocab:extra-firm-tofu",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:drained",
+              "text": "drained"
+            },
+            {
+              "id": "term:pressed",
+              "text": "pressed"
+            }
+          ]
         }
       ],
       "en": "1 package (397 g) extra-firm tofu, drained, pressed and cut into cubes",
@@ -8310,7 +9247,13 @@
           "conceptExact": true,
           "densityName": "chickpea",
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:cooked",
+              "text": "cooked",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 245 g cooked chickpeas, drained, rinsed and patted dry",
@@ -8336,7 +9279,13 @@
           "concept": "off:4715b734085d8d9c",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:chopped",
+              "text": "chopped",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "≈ 195–260 g vegetables, chopped; frozen vegetables were used",
@@ -8383,7 +9332,22 @@
           "concept": "off:25852c87d6e47fb8",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:fresh",
+              "text": "fresh",
+              "inName": true
+            },
+            {
+              "id": "term:soft",
+              "text": "soft",
+              "inName": true
+            },
+            {
+              "id": "term:chopped",
+              "text": "chopped"
+            }
+          ]
         }
       ],
       "en": "24 g fresh soft herbs or basil or mint or parsley, chopped",
@@ -8409,7 +9373,16 @@
           "concept": "vocab:extra-firm-tofu",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:drained",
+              "text": "drained"
+            },
+            {
+              "id": "term:pressed",
+              "text": "pressed"
+            }
+          ]
         }
       ],
       "en": "1 package (397 g) extra-firm tofu, drained, pressed and cubed",
@@ -8435,7 +9408,20 @@
           "concept": "vocab:extra-firm-tofu",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:drained",
+              "text": "drained"
+            },
+            {
+              "id": "term:pressed",
+              "text": "pressed"
+            },
+            {
+              "id": "term:cubed",
+              "text": "and cubed"
+            }
+          ]
         }
       ],
       "en": "1 package (397 g) extra firm tofu, drained, pressed, and cubed",
@@ -8456,7 +9442,12 @@
           "concept": "off:f81ec4c4cb5bbe75",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:peeled",
+              "text": "peeled"
+            }
+          ]
         }
       ],
       "en": "800 g Russet potatoes, scrubbed, peeled and cut into pieces",
@@ -8508,7 +9499,16 @@
           "concept": "vocab:extra-firm-tofu",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:drained",
+              "text": "drained"
+            },
+            {
+              "id": "term:pressed",
+              "text": "pressed"
+            }
+          ]
         }
       ],
       "en": "1 block (350 g) extra-firm tofu or firm tofu, drained, pressed, and sliced into 8 pieces",
@@ -8534,7 +9534,16 @@
           "concept": "off:9857e117dd0722da",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:stems-removed",
+              "text": "stems removed"
+            },
+            {
+              "id": "term:roughly-chopped",
+              "text": "roughly chopped"
+            }
+          ]
         }
       ],
       "en": "1 bunch curly kale, stems removed, roughly chopped",
@@ -8555,7 +9564,16 @@
           "concept": "off:6eb228fb5b59ab49",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:drained-rinsed",
+              "text": "drained and rinsed"
+            },
+            {
+              "id": "term:optional",
+              "text": "optional"
+            }
+          ]
         }
       ],
       "en": "1 can canned beans or black-eyed peas or chickpeas or cannellini beans, drained and rinsed, optional",
@@ -8576,7 +9594,12 @@
           "concept": "off:6eb228fb5b59ab49",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:drained-rinsed",
+              "text": "drained and rinsed"
+            }
+          ]
         }
       ],
       "en": "1 can canned beans or cannellini beans or chickpeas or kidney beans, drained and rinsed",
@@ -8983,7 +10006,12 @@
           "concept": "off:bf35a2d3261f8ec8",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:chopped",
+              "text": "chopped"
+            }
+          ]
         }
       ],
       "en": "1 head cauliflower, chopped",
@@ -9009,7 +10037,12 @@
           "concept": "off:bf35a2d3261f8ec8",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:pieces",
+              "text": "cut into bite sized pieces"
+            }
+          ]
         }
       ],
       "en": "1 head cauliflower, cut into bite-sized pieces",
@@ -9061,7 +10094,12 @@
           "concept": "off:bf35a2d3261f8ec8",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:pieces",
+              "text": "cut into bite-sized pieces"
+            }
+          ]
         }
       ],
       "en": "1 head cauliflower, cut into bite-sized pieces",
@@ -9087,7 +10125,12 @@
           "concept": "off:bf35a2d3261f8ec8",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:florets",
+              "text": "cut into florets"
+            }
+          ]
         }
       ],
       "en": "1 head cauliflower, cut into florets",
@@ -9113,7 +10156,12 @@
           "concept": "off:bf35a2d3261f8ec8",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:florets",
+              "text": "cut into small florets"
+            }
+          ]
         }
       ],
       "en": "1 head cauliflower, cut into small florets",
@@ -9139,7 +10187,12 @@
           "concept": "off:bf35a2d3261f8ec8",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:minced",
+              "text": "finely-chopped"
+            }
+          ]
         }
       ],
       "en": "1 head cauliflower, finely chopped, smaller than florets",
@@ -9165,7 +10218,12 @@
           "concept": "off:bf35a2d3261f8ec8",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:medium",
+              "text": "medium-large"
+            }
+          ]
         }
       ],
       "en": "1 head medium to large cauliflower",
@@ -9233,7 +10291,12 @@
           "concept": "off:41024084d2e27b7d",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "facoltativo"
+            }
+          ]
         }
       ],
       "en": "1 clove garlic, optional",
@@ -9280,7 +10343,12 @@
           "concept": "vocab:vegan-deli-slices",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:to-taste",
+              "text": "a piacere"
+            }
+          ]
         }
       ],
       "en": "vegan cold cuts, to taste",
@@ -9301,7 +10369,13 @@
           "concept": "vocab:non-dairy-yogurt",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:white",
+              "text": "bianco",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "60 g plain plant-based yogurt",
@@ -9323,7 +10397,12 @@
           "conceptExact": true,
           "densityName": "limone",
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:zested",
+              "text": "solo la scorza"
+            }
+          ]
         }
       ],
       "en": "½ lemon zest",
@@ -9522,7 +10601,13 @@
           "concept": "off:9c2cb65da8c281e5",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:salted",
+              "text": "salata",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "vegetable broth or salted water",
@@ -9543,7 +10628,13 @@
           "concept": "off:3c5a1594d077ab0b",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:large",
+              "text": "grandi",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "8 leaves large savoy cabbage leaves",
@@ -9585,7 +10676,12 @@
           "concept": "off:7ed0f0da39d5b63b",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:rinsed",
+              "text": "sciacquati"
+            }
+          ]
         }
       ],
       "en": "1 jar chickpeas, rinsed",
@@ -9606,7 +10702,13 @@
           "concept": "off:af8378fd29c209e2",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:hot",
+              "text": "caldo",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "seed oil, hot",
@@ -9962,7 +11064,12 @@
           "concept": "off:b5d1d979680671b1",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:to-taste",
+              "text": "qb"
+            }
+          ]
         }
       ],
       "en": "extra virgin olive oil, to taste",
@@ -9983,7 +11090,13 @@
           "concept": "vocab:non-dairy-yogurt",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:unsweetened",
+              "text": "senza zucchero",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "350 g unsweetened plant-based yogurt",
@@ -10030,7 +11143,17 @@
           "concept": "off:2c8dcb8d7db2089f",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:fresh",
+              "text": "fresco",
+              "inName": true
+            },
+            {
+              "id": "term:chopped",
+              "text": "tritato"
+            }
+          ]
         }
       ],
       "en": "fresh parsley, chopped",
@@ -10152,7 +11275,18 @@
           "concept": "off:b96482290a873ee9",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:large",
+              "text": "grandi",
+              "inName": true
+            },
+            {
+              "id": "term:julienned",
+              "text": "a julienne",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "2 large carrots, julienned",
@@ -10487,7 +11621,12 @@
           "concept": "off:bb1b99381526af25",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:cooked",
+              "text": "precotti"
+            }
+          ]
         }
       ],
       "en": "200 g jarred cooked red beans",
@@ -10661,7 +11800,13 @@
           "concept": "off:dd832404e8eeb907",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:large",
+              "text": "grande",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "1 large cucumber",
@@ -11002,7 +12147,12 @@
           "concept": "off:b96482290a873ee9",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:grated",
+              "text": "grattugiate"
+            }
+          ]
         }
       ],
       "en": "150 g carrots, grated",
@@ -11086,7 +12236,12 @@
           "concept": "off:b96482290a873ee9",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:julienned",
+              "text": "a bastoncino"
+            }
+          ]
         }
       ],
       "en": "carrots, cut into sticks",
@@ -11107,7 +12262,12 @@
           "concept": "vocab:vegan-cream-cheese",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:optional",
+              "text": "facoltativo"
+            }
+          ]
         }
       ],
       "en": "2 tbsp vegan cream cheese, optional",
@@ -11149,7 +12309,13 @@
           "concept": "off:5ed728c2fa5d767b",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:cubed",
+              "text": "a cubetti",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "tomatoes, diced",
@@ -11191,7 +12357,12 @@
           "concept": "off:76299b83f7ce63ae",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:cooked",
+              "text": "cotti"
+            }
+          ]
         }
       ],
       "en": "200 g cooked cannellini beans",
@@ -11254,7 +12425,13 @@
           "concept": "veg:0002",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:unsweetened",
+              "text": "senza zucchero",
+              "inName": true
+            }
+          ]
         }
       ],
       "en": "100 g unsweetened plant-based milk",
@@ -11275,7 +12452,12 @@
           "concept": "off:bb4e2f1b63e855bc",
           "conceptExact": true,
           "note": "",
-          "terms": []
+          "terms": [
+            {
+              "id": "term:cooked",
+              "text": "cotte"
+            }
+          ]
         }
       ],
       "en": "200 g lentils, cooked",

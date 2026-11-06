@@ -4,7 +4,7 @@ Generated from the golden set (metric renders). Each row is one real source line
 
 | # | Source line | Current Italian | Proposed correction | Class |
 | --- | --- | --- | --- | --- |
-| 1 | (optional) green onions, sesame seeds, and fresh red onion, for serving | cipollotti, per servire, facoltativi + semi di sesamo, per servire, facoltativi + cipolla rossa fresca, per servire, facoltativi | cipollotti, semi di sesamo e cipolla rossa fresca, per servire, facoltativi | D |
+| 1 | (optional) green onions, sesame seeds, and fresh red onion, for serving | cipollotti, per servire, facoltativi + semi di sesamo, per servire, facoltativi + cipolla rossa fresca, per servire, facoltative | cipollotti, semi di sesamo e cipolla rossa fresca, per servire, facoltativi | D |
 | 2 | 1 (11.25 ounce) can coconut or oat sweetened condensed milk (or homemade*) | 1 lattina (319 g) di latte di cocco condensato zuccherato o latte d'avena condensato zuccherato o latte vegetale condensato zuccherato fatto in casa | 319 g di latte condensato zuccherato di cocco o avena | B |
 | 3 | 1 (13 oz) can full-fat coconut milk (or coconut cream) ((or 1 1/2 cups oat milk mix with 1 1/2 teaspoons cornstarch)) | 370 g di latte di cocco intero o crema di cocco + 1 ½ cucchiaini di amido di mais, mescolare con il latte d'avena se utilizzato | 369 g di latte di cocco intero | C |
 | 4 | 1 (13.5 ounce) can “lite” coconut milk, or equivalent amount of oat milk, cashew milk, or soy milk | 1 lattina (383 g) di latte di cocco leggero o latte d'avena o latte di anacardi o latte di soia | 383 g di latte di cocco light o di latte d'avena, anacardi o soia | B |

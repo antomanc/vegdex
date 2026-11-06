@@ -91,6 +91,8 @@ export function scaleIngredient(p: ParsedIngredient, factor: number, units: Unit
   if (!p.quantity || factor === 1) return p;
   const exact: ParsedIngredient = {
     ...p,
+    // Written text has one number: "1 cipolla, tritata" cannot read as three, so a counted part goes back to the vocabulary.
+    ...(!p.unit && ((p.quantityMax ?? p.quantity) <= 1) !== ((p.quantityMax ?? p.quantity) * factor <= 1) ? { text: undefined } : {}),
     quantity: p.quantity * factor,
     quantityMax: p.quantityMax === null ? null : p.quantityMax * factor,
     metric: p.metric && { ...p.metric, quantity: p.metric.quantity * factor, ...(p.metric.quantityMax !== undefined ? { quantityMax: p.metric.quantityMax * factor } : {}) }
