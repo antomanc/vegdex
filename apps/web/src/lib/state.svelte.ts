@@ -27,16 +27,7 @@ export type Filters = typeof filters
 
 /** Any browse filter is chosen: the page is no longer the default screen. */
 function hasFilters(f: Filters): boolean {
-  return !!(
-    f.meals.length ||
-    f.flavor ||
-    f.maxMinutes ||
-    f.freeFrom.length ||
-    f.highProtein ||
-    f.include.length ||
-    f.exclude.length ||
-    f.from
-  )
+  return activeCount(f) > 0
 }
 
 export function toQuery(savedIds: string[], f: Filters = filters): RecipeQuery {
@@ -44,17 +35,12 @@ export function toQuery(savedIds: string[], f: Filters = filters): RecipeQuery {
   // The saved view is a list the user built by hand: browse filters never hide its recipes.
   if (mode === 'saved') return { text: f.text.trim() || undefined, sort: f.sort ?? undefined, ids: savedIds, preferredContentLanguage: pageLocale.code }
   const sort = f.sort ?? (f.text.trim() ? 'relevance' : mode === 'shelf' ? 'rating' : 'picks')
+  const filterQuery: Partial<RecipeQuery> = {}
+  for (const spec of FILTERS) Object.assign(filterQuery, spec.query(f))
   return {
+    ...filterQuery,
     text: f.text.trim() || undefined,
     preferredContentLanguage: pageLocale.code,
-    meals: f.meals,
-    flavor: f.flavor ?? undefined,
-    maxMinutes: f.maxMinutes ?? undefined,
-    freeFrom: f.freeFrom,
-    highProtein: f.highProtein,
-    include: f.include,
-    exclude: f.exclude,
-    sources: mode === 'shelf' ? [f.from!] : undefined,
     sort,
     // Savoury leads only the default screen: a chosen filter says what the cook wants to see.
     savouryLead: sort === 'picks' && !f.text.trim() && !hasFilters(f)
@@ -70,40 +56,146 @@ export interface ActiveFilter {
 /** Source id → blog name, filled once the catalog loads. */
 export const sourceNames = new Map<string, string>()
 
+const list = (v: string | null) => (v ? v.split(',').filter(Boolean) : [])
+const without = <T,>(items: T[], v: T) => items.filter((x) => x !== v)
+const mealLabels = new Map(MEAL_LABELS)
+const freeLabels = new Map(FREE)
+
+/**
+ * Every browse filter in one place: how it travels in the URL, how it counts, what removes it,
+ * what it asks the catalog, and what clearing sets. Adding a filter means adding one entry here.
+ */
+interface BrowseFilter {
+  /** The URL parameter, when it has one; Tonight sets other filters instead. */
+  param?: string
+  /** Where it sits in a shared URL, so links keep the order they always had as filters are added. */
+  urlAt?: number
+  /** Counted behind "More filters", not on the quick row. */
+  more?: boolean
+  /** Tonight already spells out this filter's chip. */
+  hiddenByTonight?: boolean
+  /** The chips that remove it, one per chosen value. */
+  chips(f: Filters): ActiveFilter[]
+  /** What clearing every filter sets for this one. */
+  clear: Partial<Filters>
+  /** How many active filters this one contributes. */
+  count(f: Filters): number
+  /** The search query fields it sets. */
+  query(f: Filters): Partial<RecipeQuery>
+  read?(p: URLSearchParams): Partial<Filters>
+  write?(f: Filters, p: URLSearchParams): void
+}
+
+const FILTERS: BrowseFilter[] = [
+  {
+    param: 'from',
+    urlAt: 80,
+    count: (f) => (f.from ? 1 : 0),
+    chips: (f) => (f.from ? [{ label: m.from_source({ source: sourceNames.get(f.from) ?? f.from }), patch: { from: null } }] : []),
+    clear: { from: null },
+    query: (f) => ({ sources: f.from ? [f.from] : undefined }),
+    read: (p) => ({ from: p.get('from') }),
+    write: (f, p) => { if (f.from) p.set('from', f.from) }
+  },
+  {
+    // Not a filter of its own: the chip replaces the meal and time it sets, spelled out for phones.
+    count: () => 0,
+    chips: () => (isTonight() ? [{ label: m.tonight_chip(), patch: { meals: [], maxMinutes: null } }] : []),
+    clear: {},
+    query: () => ({})
+  },
+  {
+    param: 'flavor',
+    urlAt: 20,
+    count: (f) => (f.flavor ? 1 : 0),
+    chips: (f) => (f.flavor ? [{ label: f.flavor === 'sweet' ? m.sweet() : m.savory(), patch: { flavor: null } }] : []),
+    clear: { flavor: null },
+    query: (f) => ({ flavor: f.flavor ?? undefined }),
+    read: (p) => ({ flavor: (p.get('flavor') as Flavor | null) ?? null }),
+    write: (f, p) => { if (f.flavor) p.set('flavor', f.flavor) }
+  },
+  {
+    param: 'meal',
+    urlAt: 10,
+    hiddenByTonight: true,
+    count: (f) => f.meals.length,
+    chips: (f) => f.meals.map((v) => ({ label: mealLabels.get(v) ?? v, patch: { meals: without(f.meals, v) } })),
+    clear: { meals: [] },
+    query: (f) => ({ meals: f.meals }),
+    read: (p) => ({ meals: list(p.get('meal')) as Meal[] }),
+    write: (f, p) => { if (f.meals.length) p.set('meal', f.meals.join(',')) }
+  },
+  {
+    param: 'max',
+    urlAt: 30,
+    hiddenByTonight: true,
+    count: (f) => (f.maxMinutes ? 1 : 0),
+    chips: (f) => (f.maxMinutes ? [{ label: m.time_limit({ count: formatNumber(f.maxMinutes) }), patch: { maxMinutes: null } }] : []),
+    clear: { maxMinutes: null },
+    query: (f) => ({ maxMinutes: f.maxMinutes ?? undefined }),
+    read: (p) => ({ maxMinutes: p.get('max') ? Number(p.get('max')) : null }),
+    write: (f, p) => { if (f.maxMinutes) p.set('max', String(f.maxMinutes)) }
+  },
+  {
+    param: 'protein',
+    urlAt: 50,
+    more: true,
+    count: (f) => (f.highProtein ? 1 : 0),
+    chips: (f) => (f.highProtein ? [{ label: m.high_protein(), patch: { highProtein: false } }] : []),
+    clear: { highProtein: false },
+    query: (f) => ({ highProtein: f.highProtein }),
+    read: (p) => ({ highProtein: p.get('protein') === '1' }),
+    write: (f, p) => { if (f.highProtein) p.set('protein', '1') }
+  },
+  {
+    param: 'free',
+    urlAt: 40,
+    more: true,
+    count: (f) => f.freeFrom.length,
+    chips: (f) => f.freeFrom.map((v) => ({ label: freeLabels.get(v) ?? v, patch: { freeFrom: without(f.freeFrom, v) } })),
+    clear: { freeFrom: [] },
+    query: (f) => ({ freeFrom: f.freeFrom }),
+    read: (p) => ({ freeFrom: list(p.get('free')) as FreeFrom[] }),
+    write: (f, p) => { if (f.freeFrom.length) p.set('free', f.freeFrom.join(',')) }
+  },
+  {
+    param: 'have',
+    urlAt: 60,
+    more: true,
+    count: (f) => f.include.length,
+    chips: (f) => f.include.map((v) => ({ label: m.with({ ingredient: v }), patch: { include: without(f.include, v) } })),
+    clear: { include: [] },
+    query: (f) => ({ include: f.include }),
+    read: (p) => ({ include: list(p.get('have')) }),
+    write: (f, p) => { if (f.include.length) p.set('have', f.include.join(',')) }
+  },
+  {
+    param: 'avoid',
+    urlAt: 70,
+    more: true,
+    count: (f) => f.exclude.length,
+    chips: (f) => f.exclude.map((v) => ({ label: m.without({ ingredient: v }), patch: { exclude: without(f.exclude, v) } })),
+    clear: { exclude: [] },
+    query: (f) => ({ exclude: f.exclude }),
+    read: (p) => ({ exclude: list(p.get('avoid')) }),
+    write: (f, p) => { if (f.exclude.length) p.set('avoid', f.exclude.join(',')) }
+  }
+]
+
+/** Links keep the parameter order they have always had. */
+const URL_FILTERS = FILTERS.filter((spec) => spec.param).sort((a, b) => (a.urlAt ?? 0) - (b.urlAt ?? 0))
+
 export function activeFilters(): ActiveFilter[] {
-  const meal = new Map(MEAL_LABELS)
-  const free = new Map(FREE)
-  const without = <T,>(list: T[], v: T) => list.filter((x) => x !== v)
   const tonight = isTonight()
-  return [
-    ...(filters.from ? [{ label: m.from_source({ source: sourceNames.get(filters.from) ?? filters.from }), patch: { from: null } }] : []),
-    // The chip spells out what Tonight set: on a phone the pill's tooltip never shows.
-    ...(tonight ? [{ label: m.tonight_chip(), patch: { meals: [], maxMinutes: null } }] : []),
-    ...(filters.flavor ? [{ label: filters.flavor === 'sweet' ? m.sweet() : m.savory(), patch: { flavor: null } }] : []),
-    ...(tonight ? [] : filters.meals.map((m) => ({ label: meal.get(m) ?? m, patch: { meals: without(filters.meals, m) } }))),
-    ...(filters.maxMinutes && !tonight ? [{ label: m.time_limit({ count: formatNumber(filters.maxMinutes) }), patch: { maxMinutes: null } }] : []),
-    ...(filters.highProtein ? [{ label: m.high_protein(), patch: { highProtein: false } }] : []),
-    ...filters.freeFrom.map((f) => ({ label: free.get(f) ?? f, patch: { freeFrom: without(filters.freeFrom, f) } })),
-    ...filters.include.map((v) => ({ label: m.with({ ingredient: v }), patch: { include: without(filters.include, v) } })),
-    ...filters.exclude.map((v) => ({ label: m.without({ ingredient: v }), patch: { exclude: without(filters.exclude, v) } }))
-  ]
+  return FILTERS.flatMap((spec) => (tonight && spec.hiddenByTonight ? [] : spec.chips(filters)))
 }
 
 export function removeFilter(f: ActiveFilter) {
   Object.assign(filters, f.patch)
 }
 
-export function activeCount(): number {
-  return (
-    filters.meals.length +
-    (filters.flavor ? 1 : 0) +
-    (filters.maxMinutes ? 1 : 0) +
-    filters.freeFrom.length +
-    (filters.highProtein ? 1 : 0) +
-    filters.include.length +
-    filters.exclude.length +
-    (filters.from ? 1 : 0)
-  )
+export function activeCount(f: Filters = filters): number {
+  return FILTERS.reduce((n, spec) => n + spec.count(f), 0)
 }
 
 /** No search, filter, saved view or chosen order: the page a shared link opens, and the one first.json can fill. */
@@ -112,8 +204,8 @@ export function isLanding(): boolean {
 }
 
 /** Filters that live behind "More filters" (the quick pills show their own state). */
-export function moreCount(): number {
-  return (filters.highProtein ? 1 : 0) + filters.freeFrom.length + filters.include.length + filters.exclude.length
+export function moreCount(f: Filters = filters): number {
+  return FILTERS.filter((spec) => spec.more).reduce((n, spec) => n + spec.count(f), 0)
 }
 
 /** "Tonight": a weeknight main, on the table within 45 minutes. */
@@ -138,31 +230,16 @@ export function defaultSort(): Sort {
 }
 
 export function clearFilters() {
-  Object.assign(filters, {
-    meals: [],
-    flavor: null,
-    maxMinutes: null,
-    freeFrom: [],
-    highProtein: false,
-    include: [],
-    exclude: [],
-    from: null
-  })
+  for (const spec of FILTERS) Object.assign(filters, spec.clear)
 }
-
-const list = (v: string | null) => (v ? v.split(',').filter(Boolean) : [])
 
 export function readUrl() {
   const p = new URLSearchParams(location.search)
+  for (const spec of FILTERS) {
+    const patch = spec.read?.(p)
+    if (patch) Object.assign(filters, patch)
+  }
   filters.text = p.get('q') ?? ''
-  filters.meals = list(p.get('meal')) as Meal[]
-  filters.flavor = (p.get('flavor') as Flavor | null) ?? null
-  filters.maxMinutes = p.get('max') ? Number(p.get('max')) : null
-  filters.freeFrom = list(p.get('free')) as FreeFrom[]
-  filters.highProtein = p.get('protein') === '1'
-  filters.include = list(p.get('have'))
-  filters.exclude = list(p.get('avoid'))
-  filters.from = p.get('from')
   filters.sort = (p.get('sort') as Sort | null) ?? null
   filters.saved = p.get('view') === 'saved'
   return { openId: p.get('r'), listOpen: filters.saved && p.get('list') === '1' }
@@ -171,14 +248,7 @@ export function readUrl() {
 export function writeUrl(openId: string | null, listOpen = false) {
   const p = new URLSearchParams()
   if (filters.text) p.set('q', filters.text)
-  if (filters.meals.length) p.set('meal', filters.meals.join(','))
-  if (filters.flavor) p.set('flavor', filters.flavor)
-  if (filters.maxMinutes) p.set('max', String(filters.maxMinutes))
-  if (filters.freeFrom.length) p.set('free', filters.freeFrom.join(','))
-  if (filters.highProtein) p.set('protein', '1')
-  if (filters.include.length) p.set('have', filters.include.join(','))
-  if (filters.exclude.length) p.set('avoid', filters.exclude.join(','))
-  if (filters.from) p.set('from', filters.from)
+  for (const spec of URL_FILTERS) spec.write?.(filters, p)
   if (filters.sort) p.set('sort', filters.sort)
   const mode = browseMode(filters)
   if (mode === 'saved') p.set('view', 'saved')
