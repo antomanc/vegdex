@@ -53,6 +53,8 @@ export interface Source {
   id: string;
   name: string;
   url: string;
+  /** The blog refuses images on other sites, so its recipes show no photo. Photos are never hosted here or fetched around that. */
+  photosBlocked?: boolean;
 }
 
 /** One row of the published catalog: everything the grid and filters need. */

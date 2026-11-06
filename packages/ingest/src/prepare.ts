@@ -38,7 +38,7 @@ export function prepareRecipes(all: Recipe[], sources: Source[], vocab: Vocabula
   for (const original of all) {
     const source = sourceById.get(original.sourceId);
     if (!source) continue;
-    const recipe = { ...original, contentLanguage: source.contentLanguage ?? 'en' };
+    const recipe = { ...original, contentLanguage: source.contentLanguage ?? 'en', ...(source.photosBlocked ? { image: null } : {}) };
     if (blocked.has(recipe.id)) {
       excluded.push({ id: recipe.id, title: recipe.title, url: recipe.url, reason: 'blocklist', hits: [] });
       continue;

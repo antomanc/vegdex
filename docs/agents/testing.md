@@ -20,6 +20,7 @@ Run the full check before calling a change done:
 `packages/ingest/test/golden-ingredients.test.ts` loads the real vocabulary the way `parse-diff` and `emit` do and runs in `pnpm test`.
 
 Commands:
+- `pnpm photos:check`: try a few photos of each blog and list those that refuse them. A refusal can target one machine, so check from a browser before setting `photosBlocked` in `packages/ingest/sources.json`. That blog's recipes then show no photo and stay out of Today's picks pool.
 - `pnpm audit:score [--audit <dir>] --save <file>`: compare the parser with local auditor opinions (default `.data/audit` at the repo root). Add `--against <file>` after a fix to report fixed and newly flagged line indexes, with examples. Wording flags are noisy review signals. Audit inputs are local, uncommitted, and not required or run in CI; compare snapshots against the same input dataset.
 - `pnpm golden`: re-render every stored line and print changed output; writes nothing.
 - `pnpm golden --update`: rewrite the stored output and regenerate `docs/review/italian-lines.md`. Review fields survive.
