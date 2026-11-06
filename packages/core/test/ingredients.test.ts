@@ -73,6 +73,11 @@ describe('parseIngredient', () => {
     expect(toMetric(scaleIngredient(p, 2, 'metric'))).toMatchObject({ quantity: 530, quantityMax: 560, unit: 'g' });
   });
 
+  it('weighs a fraction of a stated package size', () => {
+    const p = parseIngredient('1/2 of a 420g block firm tofu (210g or about 1 1/2 cups)');
+    expect(toMetric(p)).toMatchObject({ quantity: 210, unit: 'g' });
+  });
+
   it('keeps ranges', () => {
     expect(parseIngredient('2-3 tbsp maple syrup').quantityMax).toBe(3);
   });

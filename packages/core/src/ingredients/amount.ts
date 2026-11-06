@@ -108,7 +108,12 @@ function readAmount(input: Pick<AmountResult, 'text' | 'quantity' | 'quantityMax
 function trimAmountText(input: Pick<AmountResult, 'quantity' | 'text' | 'quantityMax' | 'written' | 'leading'>, language: string) {
   let { quantity, text, quantityMax, written, leading } = input;
   leading = [...leading];
-  if (quantity !== null && language === 'en') text = text.replace(ARTICLE_RE, '');
+  if (quantity !== null && language === 'en') {
+    const withoutOf = text.replace(OF_ARTICLE_RE, '');
+    const packageSize = withoutOf.match(PACK_SIZE_RE) ?? (CONTAINER_RE.test(withoutOf.replace(PAREN_RE, '')) ? withoutOf.match(PAREN_RE) : null);
+    if (packageSize && extractMetric(packageSize[1]!)) text = withoutOf;
+    text = text.replace(ARTICLE_RE, '');
+  }
   // "a few basil leaves", "a few drops of rum extract": no amount, to taste.
   const few = language === 'en' && (quantity === null || quantity === 1) && quantityMax === null ? text.match(FEW_RE) : null;
   if (few) {
