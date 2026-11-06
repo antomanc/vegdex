@@ -1,5 +1,6 @@
 import type { LanguagePack } from '../languages';
 import { lookupConcept, lookupTerm, type IngredientLookup } from '../concepts';
+import { findUnsafeRenderedTerms } from '../translations';
 import { canonicalName } from './names';
 import { TRAILING_EXTRA_RE, ALT_SIZE_RE, ALT_AMOUNT_RE } from './measure';
 import type { AmountResult } from './amount';
@@ -36,6 +37,17 @@ export function nameAndNotes(input: Pick<AmountResult, 'text' | 'sizeNote' | 'cu
     phrase = phrase.slice(0, trailing.index);
     note = [trailing[1], note].filter(Boolean).join(', ');
     preparation = [trailing[1], preparation].filter(Boolean).join(', ');
+  }
+  // A cooking purpose describes use, not the product; keep it as commentary.
+  const purpose = language === 'en' && !lookupConcept(phrase, lookup)
+    ? phrase.match(/\s+((?:for\s+.+|to\s+(?:knead|season|serve|garnish|decorate|grease|brush|sprinkle|drizzle)\b.*))$/i) : null;
+  if (purpose && !/\b(?:or|plus)\s+\d/i.test(afterName)
+    && !/[+:\d]|\b(?:and|or|plus|with|one|two|three|soak|soaked|soaking)\b/i.test(purpose[1]!)
+    && !lookupTerm(purpose[1]!, lookup) && lookupConcept(phrase.slice(0, purpose.index).trim(), lookup)
+    && !findUnsafeRenderedTerms(purpose[1]!, language).length) {
+    phrase = phrase.slice(0, purpose.index).trim();
+    note = [purpose[1], note].filter(Boolean).join(', ');
+    preparation = [purpose[1], preparation].filter(Boolean).join(', ');
   }
   const name = pack.nonIngredient?.test(s) ? '' : language === 'en' ? canonicalName(s) : phrase.trim().toLowerCase();
   return { phrase, uncut, note, preparation, name };
