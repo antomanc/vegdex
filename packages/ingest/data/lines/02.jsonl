@@ -52,7 +52,7 @@
 {"line":"1 medium carrot, julienned","language":"en","parts":[{"quantity":1,"en":"medium carrot","it":"carota media","preparationEn":"julienned","preparationIt":"tagliata a julienne"}]}
 {"line":"1 medium yellow onion (finely diced – 150g)","language":"en","parts":[{"quantity":150,"unit":"g","en":"yellow onion","it":"cipolla dorata","preparationEn":"finely diced","preparationIt":"tagliata a dadini piccoli"}]}
 {"line":"1 medium-large head cauliflower (about 2 pounds)","language":"en","parts":[{"quantity":2,"unit":"lb","en":"medium-large cauliflower","it":"cavolfiore medio-grande"}]}
-{"line":"1 medium-to-large sugar pumpkin, (aka pie pumpkin (3- 4 pounds, or 1.4-1.8 kg)*)","language":"en","parts":[{"quantity":1.4,"quantityMax":1.8,"unit":"kg","en":"medium-to-large sugar pumpkin","it":"zucca sugar pumpkin medio-grande"}]}
+{"line":"1 medium-to-large sugar pumpkin, (aka pie pumpkin (3- 4 pounds, or 1.4-1.8 kg)*)","language":"en","parts":[{"quantity":1.4,"quantityMax":1.8,"unit":"kg","en":"medium-to-large sugar pumpkin","it":"zucca dolce da torta medio-grande"}]}
 {"line":"1 package (16 oz.) kelp noodles","language":"en","parts":[{"quantity":16,"unit":"oz","en":"kelp noodles","it":"spaghetti di alga kelp"}]}
 {"line":"1 package instant yeast ((1 package = 2 1/4 tsp))","language":"en","parts":[{"quantity":2.25,"unit":"tsp","en":"instant yeast","it":"lievito di birra secco istantaneo"}]}
 {"line":"1 package vegan chicken strips of choice","language":"en","parts":[{"quantity":1,"unit":"package","en":"vegan chicken strips","it":"straccetti di pollo vegano"}]}
@@ -118,7 +118,7 @@
 {"line":"1/2 cup + 2 tablespoons organic coconut palm sugar (gives a richer flavor than regular sugar)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"organic coconut palm sugar","it":"zucchero di palma da cocco biologico","plus":{"quantity":2,"unit":"tbsp"}}]}
 {"line":"1/2 cup +1 tbsp sugar","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"sugar","it":"zucchero","plus":{"quantity":1,"unit":"tbsp"}}]}
 {"line":"1/2 cup 1 stick salted plant-based butter* (at room temperature)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"salted plant-based butter","it":"burro vegetale salato","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
-{"line":"1/2 cup chickpeas (canned or homemade, drained)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"chickpeas","it":"ceci","preparationEn":"drained","preparationIt":"scolati"}]}
+{"line":"1/2 cup chickpeas (canned or homemade, drained)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"chickpeas","it":"ceci","preparationEn":"canned or homemade, drained","preparationIt":"in scatola o cotti in casa, scolati"}]}
 {"line":"1/2 cup chopped red onion (sliced into 1/2 inch pieces)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"red onion","it":"cipolla rossa","preparationEn":"chopped into pieces","preparationIt":"tagliata a pezzetti"}]}
 {"line":"1/2 cup dairy free butter, (melted)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"dairy-free butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"1/2 cup dairy-free heavy cream (or canned coconut milk)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"dairy-free heavy cream","it":"panna vegetale da montare","alternatives":[{"en":"canned coconut milk","it":"latte di cocco in lattina"}]}]}
@@ -195,7 +195,7 @@
 {"line":"12 cremini mushrooms or button mushrooms ((or button mushrooms, sliced))","language":"en","parts":[{"quantity":12,"en":"cremini mushrooms","it":"funghi cremini","preparationEn":"sliced","preparationIt":"affettati","alternatives":[{"en":"button mushrooms","it":"funghi champignon"}]}]}
 {"line":"12 cups water","language":"en","parts":[{"quantity":12,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"12 g / 0.4 oz dried porcini mushrooms (optional, but recommended)","language":"en","parts":[{"quantity":12,"unit":"g","en":"dried porcini mushrooms","it":"funghi porcini secchi","optional":true}]}
-{"line":"120 ml soy milk (or any plant milk, unflavoured and unsweetened)","language":"en","parts":[{"quantity":120,"unit":"ml","en":"soy milk","it":"latte di soia","alternatives":[{"en":"unflavoured and unsweetened plant milk","it":"latte vegetale non aromatizzato e senza zucchero"}]}]}
+{"line":"120 ml soy milk (or any plant milk, unflavoured and unsweetened)","language":"en","parts":[{"quantity":120,"unit":"ml","en":"soy milk","it":"latte di soia","alternatives":[{"en":"unflavoured and unsweetened plant milk","it":"latte vegetale al naturale e non zuccherato"}]}]}
 {"line":"15 g / 0.5 oz 70% cacao dark chocolate","language":"en","parts":[{"quantity":15,"unit":"g","en":"70% cacao dark chocolate","it":"cioccolato fondente al 70% di cacao"}]}
 {"line":"15 ounce can of brown lentils","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned brown lentils","it":"lenticchie marroni in scatola"}]}
 {"line":"150 g vegan bacon (roughly chopped, use my recipe or store bought)","language":"en","parts":[{"quantity":150,"unit":"g","en":"vegan bacon","it":"bacon vegano","preparationEn":"roughly chopped","preparationIt":"tagliata grossolanamente"}]}
@@ -226,7 +226,7 @@
 {"line":"2 cups red Thai rice","language":"en","parts":[{"quantity":2,"unit":"cup","en":"red Thai rice","it":"riso rosso thailandese"}]}
 {"line":"2 cups steamed broccoli (or other vegetable)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"broccoli","it":"broccoli","preparationEn":"steamed","preparationIt":"cotti al vapore","alternatives":[{"en":"other vegetable","it":"altra verdura"}]}]}
 {"line":"2 cups vegetable broth (I used 1 bouillon cube)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
-{"line":"2 cups vegetable stock (or vegan beef-flavored stock)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetable stock","it":"brodo vegetale","alternatives":[{"en":"vegan beef-flavored stock","it":"brodo vegetale al gusto di manzo"}]}]}
+{"line":"2 cups vegetable stock (or vegan beef-flavored stock)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetable stock","it":"brodo vegetale","alternatives":[{"en":"vegan beef-flavored stock","it":"brodo vegano gusto manzo"}]}]}
 {"line":"2 cups water or vegetable broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"water","it":"acqua","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"2 garlic cloves (roughly chopped (if you love garlic, choose big or choose small for a mild flavor)","language":"en","parts":[{"quantity":2,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"roughly chopped","preparationIt":"tritato grossolanamente"}]}
 {"line":"2 green onions, chopped with green and white parts separated","language":"en","parts":[{"quantity":2,"en":"green onions","it":"cipollotti","preparationEn":"chopped with green and white parts separated","preparationIt":"tritati, separando le parti verdi da quelle bianche"}]}
@@ -328,7 +328,7 @@
 {"line":"4 cloves garlic (, finely minced)","language":"en","parts":[{"quantity":4,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"finely minced","preparationIt":"tritato finemente"}]}
 {"line":"4 cups finely chopped pecans","language":"en","parts":[{"quantity":4,"unit":"cup","en":"pecans","it":"noci pecan","preparationEn":"finely chopped","preparationIt":"tritate finemente"}]}
 {"line":"4 cups of zucchini, (sliced length wise and then sliced into half moons)","language":"en","parts":[{"quantity":4,"unit":"cup","en":"zucchini","it":"zucchine","preparationEn":"sliced lengthwise and then sliced into half moons","preparationIt":"tagliate per il lungo e poi a mezzaluna"}]}
-{"line":"4 cups vegan beefless broth, mushroom broth, or vegetable broth ((plus more if needed))","language":"en","parts":[{"quantity":4,"unit":"cup","en":"vegan beefless broth","it":"brodo vegetale gusto manzo","alternatives":[{"en":"mushroom broth","it":"brodo di funghi"},{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"4 cups vegan beefless broth, mushroom broth, or vegetable broth ((plus more if needed))","language":"en","parts":[{"quantity":4,"unit":"cup","en":"vegan beefless broth","it":"brodo vegano gusto manzo","alternatives":[{"en":"mushroom broth","it":"brodo di funghi"},{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"4 cups vegetable broth (, low sodium )","language":"en","parts":[{"quantity":4,"unit":"cup","en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio"}]}
 {"line":"4 roasted garlic cloves (or 1 large clove if unroasted)","language":"en","parts":[{"quantity":4,"unit":"clove","en":"roasted garlic","it":"aglio arrostito","alternatives":[{"quantity":1,"unit":"clove","en":"large unroasted garlic","it":"spicchio grande di aglio non arrostito"}]}]}
 {"line":"4 small mushrooms (sliced)","language":"en","parts":[{"quantity":4,"en":"small mushrooms","it":"funghi piccoli","preparationEn":"sliced","preparationIt":"affettati"}]}
@@ -351,7 +351,7 @@
 {"line":"6 ounces fresh spinach ((about 6 cups))","language":"en","parts":[{"quantity":6,"unit":"oz","en":"fresh spinach","it":"spinaci freschi"}]}
 {"line":"60 ml / ¼ cup tbsp soy milk (or other plant milk)","language":"en","parts":[{"quantity":60,"unit":"ml","en":"soy milk","it":"latte di soia","alternatives":[{"en":"other plant milk","it":"altro latte vegetale"}]}]}
 {"line":"65 g vegan butter ((melted - coconut oil works too))","language":"en","parts":[{"quantity":65,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso","alternatives":[{"en":"coconut oil","it":"olio di cocco"}]}]}
-{"line":"7 tbsp almond flour ((ground almonds))","language":"en","parts":[{"quantity":7,"unit":"tbsp","en":"almond flour","it":"farina di mandorle"}]}
+{"line":"7 tbsp almond flour ((ground almonds))","language":"en","parts":[{"quantity":7,"unit":"tbsp","en":"almond flour","it":"farina di mandorle","preparationEn":"ground almonds","preparationIt":"mandorle macinate"}]}
 {"line":"70 g / ½ cup + 1 tbsp plain flour, sifted","language":"en","parts":[{"quantity":70,"unit":"g","en":"plain flour","it":"farina 00","preparationEn":"sifted","preparationIt":"setacciata"}]}
 {"line":"700 g / 1.5 lb zucchinis (approx. 2 medium)","language":"en","parts":[{"quantity":700,"unit":"g","en":"zucchini","it":"zucchine"}]}
 {"line":"8 cloves ((divided))","language":"en","parts":[{"quantity":8,"en":"cloves","it":"chiodi di garofano","preparationEn":"divided","preparationIt":"divisi"}]}
@@ -360,7 +360,7 @@
 {"line":"8 oz chopped vegan chocolate","language":"en","parts":[{"quantity":8,"unit":"oz","en":"vegan chocolate","it":"cioccolato vegano","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"8 rice paper wrappers","language":"en","parts":[{"quantity":8,"en":"rice paper wrappers","it":"fogli di carta di riso"}]}
 {"line":"80 ml / 1/3 cup extra virgin olive oil","language":"en","parts":[{"quantity":80,"unit":"ml","en":"extra virgin olive oil","it":"olio extravergine d'oliva"}]}
-{"line":"9 cups vegan chicken broth","language":"en","parts":[{"quantity":9,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}
+{"line":"9 cups vegan chicken broth","language":"en","parts":[{"quantity":9,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}
 {"line":"A small piece dagad phool ((stoneflower, optional))","language":"en","parts":[{"en":"stoneflower","it":"lichene delle rocce","optional":true}]}
 {"line":"Baked Almond Snacking Cheese","language":"en","parts":[{"en":"baked almond snacking cheese","it":"formaggio vegetale di mandorle cotto al forno"}]}
 {"line":"Bunch Green Beans (2 to 3 cups, chopped into 3 to 4 inch size)","language":"en","parts":[{"quantity":1,"unit":"bunch","en":"green beans","it":"fagiolini","preparationEn":"chopped into 3 to 4 inch pieces","preparationIt":"tagliati a pezzi di 8-10 cm"}]}

@@ -87,6 +87,7 @@
 {"line":"1 teaspoon 4 grams + 2 tablespoon (24 grams) olive oil, divided","language":"en","parts":[{"quantity":4,"unit":"g","en":"olive oil","it":"olio d'oliva","plus":{"quantity":24,"unit":"g"},"preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"1 teaspoon dried fenugreek leaves (or kasuri methi - or you can use half teaspoon ground mustard instead)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"dried fenugreek leaves","it":"foglie di fieno greco essiccate","alternatives":[{"quantity":0.5,"unit":"tsp","en":"ground mustard","it":"senape in polvere"}]}]}
 {"line":"1 teaspoon pumpkin spice","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"pumpkin spice","it":"miscela di spezie per torta di zucca"}]}
+{"line":"1 teaspoon sesame seeds (more to top)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"sesame seeds","it":"semi di sesamo","purposeEn":"more for topping","purposeIt":"altri per guarnire"}]}
 {"line":"1 teaspoon vanilla extract or almond extract","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia","alternatives":[{"en":"almond extract","it":"estratto di mandorla"}]}]}
 {"line":"1 to 2 cups seedless red grapes","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"cup","en":"seedless red grapes","it":"uva rossa senza semi"}]}
 {"line":"1 tsp Vanilla Extract","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia"}]}
@@ -133,7 +134,7 @@
 {"line":"1/2 teaspoon lemon extract (optional)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"lemon extract","it":"estratto di limone","optional":true}]}
 {"line":"1/2 teaspoon pumpkin spice (1g)","language":"en","parts":[{"quantity":1,"unit":"g","en":"pumpkin spice","it":"miscela di spezie per torta di zucca"}]}
 {"line":"1/2 teaspoon red chilli flakes (optional; omit for no spice)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"red chilli flakes","it":"peperoncino rosso in fiocchi","optional":true}]}
-{"line":"1/2 to 1 tsp celery seeds ((omit to make plain ranch, add some fresh dill for plain ranch))","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"celery seeds","it":"semi di sedano"}]}
+{"line":"1/2 to 1 tsp celery seeds ((omit to make plain ranch, add some fresh dill for plain ranch))","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"celery seeds","it":"semi di sedano","preparationEn":"omit for plain ranch dressing; add fresh dill for plain ranch dressing","preparationIt":"omettere per una salsa ranch semplice; aggiungere aneto fresco per una salsa ranch semplice"}]}
 {"line":"1/2 tsp garlic granules","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"garlic granules","it":"aglio granulare"}]}
 {"line":"1/2 white or yellow onion (diced)","language":"en","parts":[{"quantity":0.5,"en":"white onion","it":"cipolla bianca","preparationEn":"diced","preparationIt":"tagliata a dadini","alternatives":[{"en":"yellow onion","it":"cipolla dorata"}]}]}
 {"line":"1/2-1 teaspoon garlic chili sauce (*optional)","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"garlic chili sauce","it":"salsa al peperoncino e aglio","optional":true}]}

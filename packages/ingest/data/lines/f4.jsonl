@@ -38,7 +38,7 @@
 {"line":"1 cup full-fat canned coconut cream (about 220mL)","language":"en","parts":[{"quantity":220,"unit":"ml","en":"full-fat canned coconut cream","it":"crema di cocco intera in lattina"}]}
 {"line":"1 cup full-fat coconut milk ((shake can before pouring))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"full-fat coconut milk","it":"latte di cocco intero","preparationEn":"shake can before pouring","preparationIt":"agitare la lattina prima di versare"}]}
 {"line":"1 cup kale (shredded, 67g)","language":"en","parts":[{"quantity":67,"unit":"g","en":"kale","it":"cavolo riccio","preparationEn":"shredded","preparationIt":"tagliato a striscioline"}]}
-{"line":"1 cup ketchup ((use low sodium to reduce sodium))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"ketchup","it":"ketchup"}]}
+{"line":"1 cup ketchup ((use low sodium to reduce sodium))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"ketchup","it":"ketchup","alternatives":[{"en":"low-sodium ketchup","it":"salsa di pomodoro agrodolce a basso contenuto di sodio"}]}]}
 {"line":"1 cup kimchi","language":"en","parts":[{"quantity":1,"unit":"cup","en":"kimchi","it":"kimchi"}]}
 {"line":"1 cup oat flour ((made with about 1 1/4 cups whole oats))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"oat flour","it":"farina d'avena"}]}
 {"line":"1 cup of diced zucchini","language":"en","parts":[{"quantity":1,"unit":"cup","en":"zucchini","it":"zucchine","preparationEn":"diced","preparationIt":"tagliate a dadini"}]}
@@ -113,7 +113,7 @@
 {"line":"1/2 cup (120g) semi-sweet dairy-free chocolate chips","language":"en","parts":[{"quantity":120,"unit":"g","en":"semi-sweet dairy-free chocolate chips","it":"gocce di cioccolato semidolce senza latticini"}]}
 {"line":"1/2 cup (128g) all natural creamy peanut butter or almond butter with no additives","language":"en","parts":[{"quantity":128,"unit":"g","en":"all-natural creamy peanut butter with no additives","it":"burro di arachidi cremoso completamente naturale senza additivi","alternatives":[{"en":"almond butter with no additives","it":"burro di mandorle senza additivi"}]}]}
 {"line":"1/2 cup (70g) roasted almonds and/or pistachios, (chopped (optional; see Note 3 for nut-free))","language":"en","parts":[{"quantity":70,"unit":"g","en":"roasted almonds","it":"mandorle tostate","preparationEn":"chopped","preparationIt":"tritate","optional":true,"alternatives":[{"en":"roasted pistachios","it":"pistacchi tostati"}]}]}
-{"line":"1/2 cup (80g) MEDIUM GRIND coarse cornmeal (It MUST be medium grind, not corn flour or regular fine cornmeal, otherwise it WILL BE DRY. I use this Bob's Red Mill. If you cannot find, order it off Amazon.)","language":"en","parts":[{"quantity":80,"unit":"g","en":"medium-grind coarse cornmeal","it":"farina di mais a grana medio-grossa"}]}
+{"line":"1/2 cup (80g) MEDIUM GRIND coarse cornmeal (It MUST be medium grind, not corn flour or regular fine cornmeal, otherwise it WILL BE DRY. I use this Bob's Red Mill. If you cannot find, order it off Amazon.)","language":"en","parts":[{"quantity":80,"unit":"g","en":"medium-grind coarse cornmeal","it":"farina di mais a grana media"}]}
 {"line":"1/2 cup chopped green onions","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"green onions","it":"cipollotti","preparationEn":"chopped","preparationIt":"tritati"}]}
 {"line":"1/2 cup cilantro ((stems and leaves))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"stems and leaves","preparationIt":"gambi e foglie"}]}
 {"line":"1/2 cup coconut cream ((thick part of a chilled coconut milk can))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"coconut cream","it":"crema di cocco"}]}
@@ -192,7 +192,7 @@
 {"line":"2 14- ounce packages Nasoya Extra-Firm Tofu*","language":"en","parts":[{"quantity":28,"unit":"oz","en":"Nasoya extra-firm tofu","it":"tofu extra compatto Nasoya"}]}
 {"line":"2 14-ounce cans jackfruit, drained and rinsed well* (400 g total drained weight)","language":"en","parts":[{"quantity":400,"unit":"g","en":"canned jackfruit","it":"jackfruit in scatola","preparationEn":"drained and rinsed well","preparationIt":"scolato e sciacquato bene"}]}
 {"line":"2 3/4 cups all purpose flour","language":"en","parts":[{"quantity":2.75,"unit":"cup","en":"all-purpose flour","it":"farina 00"}]}
-{"line":"2 Bob’s Red Mill Egg Replacer* (or flax eggs (see notes below))","language":"en","parts":[{"quantity":2,"en":"Bob’s Red Mill egg replacer","it":"sostituto dell'uovo Bob’s Red Mill","alternatives":[{"en":"flax eggs","it":"uova di lino"}]}]}
+{"line":"2 Bob’s Red Mill Egg Replacer* (or flax eggs (see notes below))","language":"en","parts":[{"quantity":2,"en":"Bob’s Red Mill egg replacer","it":"sostituto dell'uovo Bob’s Red Mill","alternatives":[{"en":"flax eggs","it":"uova di semi di lino"}]}]}
 {"line":"2 Tablespoons lime juice","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"lime juice","it":"succo di lime"}]}
 {"line":"2 Tbsp dark soy sauce","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"dark soy sauce","it":"salsa di soia scura"}]}
 {"line":"2 Tbsp fresh chives (chopped)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh chives","it":"erba cipollina fresca","preparationEn":"chopped","preparationIt":"tritata"}]}
@@ -276,7 +276,7 @@
 {"line":"3 pounds of fresh strawberries, (sliced)","language":"en","parts":[{"quantity":3,"unit":"lb","en":"fresh strawberries","it":"fragole fresche","preparationEn":"sliced","preparationIt":"tagliate a fette"}]}
 {"line":"3 red bell peppers (400 g once seeds and cores removed)","language":"en","parts":[{"quantity":3,"en":"red bell peppers","it":"peperoni rossi"}]}
 {"line":"3 tablespoons all-purpose flour (24g)","language":"en","parts":[{"quantity":24,"unit":"g","en":"all-purpose flour","it":"farina 00"}]}
-{"line":"3 tablespoons non-dairy chocolate chips, halved","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"dairy-free chocolate chips","it":"gocce di cioccolato senza latte","preparationEn":"halved","preparationIt":"tagliate a metà"}]}
+{"line":"3 tablespoons non-dairy chocolate chips, halved","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"non-dairy chocolate chips","it":"gocce di cioccolato senza latte","preparationEn":"halved","preparationIt":"tagliate a metà"}]}
 {"line":"3 tablespoons sliced or slivered almonds","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"sliced or slivered almonds","it":"mandorle a lamelle o a bastoncini"}]}
 {"line":"3 tablespoons vegan butter ((42g))","language":"en","parts":[{"quantity":42,"unit":"g","en":"vegan butter","it":"burro vegetale"}]}
 {"line":"3 tablespoons vegetable oil, (plus more for oiling the pan)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"vegetable oil","it":"olio vegetale","purposeEn":"plus more for oiling the pan","purposeIt":"più altro per ungere la teglia"}]}
@@ -290,7 +290,7 @@
 {"line":"3.5 ounces tempeh (sliced in two rectangles)","language":"en","parts":[{"quantity":3.5,"unit":"oz","en":"tempeh","it":"tempeh","preparationEn":"sliced into two rectangles","preparationIt":"tagliato in due rettangoli"}]}
 {"line":"3/4 cup medjool dates (about 7 – 8), pitted and chopped","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"Medjool dates","it":"datteri Medjool","preparationEn":"pitted and chopped","preparationIt":"denocciolati e tagliati a pezzi"}]}
 {"line":"3/4 cup of packed cilantro with stems","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"cilantro with stems","it":"coriandolo con i gambi","preparationEn":"packed","preparationIt":"ben pressato"}]}
-{"line":"3/4 cup vegan beef broth (we use Better Than Bouillon)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan beef broth","it":"brodo vegetale gusto manzo"}]}
+{"line":"3/4 cup vegan beef broth (we use Better Than Bouillon)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan beef broth","it":"brodo vegano gusto manzo"}]}
 {"line":"3/4 teaspoon sea salt (, more to taste )","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"sea salt","it":"sale marino","toTaste":true}]}
 {"line":"3/4 tsp matcha powder","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"matcha powder","it":"matcha in polvere"}]}
 {"line":"30 g caster sugar","language":"en","parts":[{"quantity":30,"unit":"g","en":"caster sugar","it":"zucchero semolato fine"}]}

@@ -35,7 +35,7 @@
 {"line":"1 cup fresh Thai basil leaves ((regular basil works too))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"fresh Thai basil leaves","it":"foglie di basilico thailandese fresco","alternatives":[{"en":"fresh basil leaves","it":"foglie di basilico fresco"}]}]}
 {"line":"1 cup fresh green beans, (chopped (1 inch pieces))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"fresh green beans","it":"fagiolini freschi","preparationEn":"chopped","preparationIt":"tagliati a pezzi"}]}
 {"line":"1 cup marinara sauce (240 milliliters)","language":"en","parts":[{"quantity":240,"unit":"ml","en":"marinara sauce","it":"salsa marinara"}]}
-{"line":"1 cup medjool dates (about 12), pitted and chopped (fresh is best)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"Medjool dates","it":"datteri Medjool","preparationEn":"pitted and chopped","preparationIt":"snocciolati e tritati"}]}
+{"line":"1 cup medjool dates (about 12), pitted and chopped (fresh is best)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"medjool dates","it":"datteri medjool","preparationEn":"pitted and chopped; fresh is best","preparationIt":"denocciolati e tritati; preferibilmente freschi"}]}
 {"line":"1 cup of chopped kale","language":"en","parts":[{"quantity":1,"unit":"cup","en":"kale","it":"cavolo riccio","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1 cup of dry pasta noodles","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dry pasta","it":"pasta secca"}]}
 {"line":"1 cup of halved cherry or grape tomatoes","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cherry tomatoes","it":"pomodorini ciliegino","preparationEn":"halved","preparationIt":"tagliati a metà","alternatives":[{"en":"grape tomatoes","it":"pomodorini datterini"}]}]}
@@ -342,7 +342,7 @@
 {"line":"5 large cloves garlic, minced (15g)","language":"en","parts":[{"quantity":5,"unit":"clove","en":"large garlic cloves","it":"spicchi d'aglio grandi","preparationEn":"minced","preparationIt":"tritati"}]}
 {"line":"5 medium mushrooms, cut into small pieces","language":"en","parts":[{"quantity":5,"en":"medium mushrooms","it":"funghi medi","preparationEn":"cut into small pieces","preparationIt":"tagliati a pezzetti"}]}
 {"line":"5 tablespoons vegan butter (softened, 70g)","language":"en","parts":[{"quantity":70,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}
-{"line":"6 cups Not Chick’n broth (or any other vegan broth of choice)","language":"en","parts":[{"quantity":6,"unit":"cup","en":"vegan chicken-style broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegan broth of choice","it":"brodo vegano a scelta"}]}]}
+{"line":"6 cups Not Chick’n broth (or any other vegan broth of choice)","language":"en","parts":[{"quantity":6,"unit":"cup","en":"Not Chick’n broth","it":"brodo vegetale Not Chick’n","alternatives":[{"en":"vegan broth of choice","it":"brodo vegano a scelta"}]}]}
 {"line":"6 oz shiitake mushrooms","language":"en","parts":[{"quantity":6,"unit":"oz","en":"shiitake mushrooms","it":"funghi shiitake"}]}
 {"line":"6 tablespoons (48g) superfine oat flour (I always use Bob's Red Mill)","language":"en","parts":[{"quantity":48,"unit":"g","en":"superfine oat flour","it":"farina d'avena finissima"}]}
 {"line":"6 tablespoons hemp seeds","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"hemp seeds","it":"semi di canapa"}]}
@@ -367,7 +367,7 @@
 {"line":"Cashew ranch dressing","language":"en","parts":[{"en":"cashew ranch dressing","it":"salsa ranch agli anacardi"}]}
 {"line":"Cornmeal ((for dusting the baking sheet))","language":"en","parts":[{"en":"cornmeal","it":"farina di mais","purposeEn":"for dusting the baking sheet","purposeIt":"per spolverare la teglia"}]}
 {"line":"Fresh chopped chives","language":"en","parts":[{"en":"fresh chives","it":"erba cipollina fresca","preparationEn":"chopped","preparationIt":"tritata"}]}
-{"line":"Fresh cracked pepper (to taste)","language":"en","parts":[{"en":"black pepper","it":"pepe nero","preparationEn":"freshly cracked","preparationIt":"macinato al momento","toTaste":true}]}
+{"line":"Fresh cracked pepper (to taste)","language":"en","parts":[{"en":"fresh cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"Fresh-cut parsley","language":"en","parts":[{"en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"freshly cut","preparationIt":"appena tagliato"}]}
 {"line":"Garlic chutney ((recipe follows))","language":"en","parts":[{"en":"garlic chutney","it":"chutney all'aglio"}]}
 {"line":"Green onions, thinly sliced","language":"en","parts":[{"en":"green onions","it":"cipollotti","preparationEn":"thinly sliced","preparationIt":"tagliati a fettine sottili"}]}
@@ -395,7 +395,7 @@
 {"line":"juice of 1 lemon or 2 teaspoons apple cider vinegar","language":"en","parts":[{"quantity":1,"en":"lemon juice","it":"succo di limone","alternatives":[{"quantity":2,"unit":"tsp","en":"apple cider vinegar","it":"aceto di mele"}]}]}
 {"line":"juice of 1 small lime","language":"en","parts":[{"quantity":1,"en":"small lime","it":"lime piccolo","preparationEn":"juiced","preparationIt":"spremuto"}]}
 {"line":"lime wedges, cilantro, diced avocado, tortilla strips, Fritos, or vegan pepper jack or cheddar cheese.","language":"en","parts":[{"en":"lime wedges","it":"spicchi di lime"},{"en":"cilantro","it":"coriandolo fresco"},{"en":"avocado","it":"avocado","preparationEn":"diced","preparationIt":"tagliato a dadini"},{"en":"tortilla strips","it":"strisce di tortilla"},{"en":"Fritos","it":"Fritos"},{"en":"vegan pepper jack cheese","it":"formaggio vegetale tipo pepper jack","alternatives":[{"en":"vegan cheddar cheese","it":"cheddar vegano"}]}]}
-{"line":"mineral salt & white or fresh cracked pepper, to taste","language":"en","parts":[{"en":"mineral salt","it":"sale minerale","toTaste":true},{"en":"white pepper","it":"pepe bianco","toTaste":true,"alternatives":[{"en":"freshly cracked pepper","it":"pepe macinato al momento"}]}]}
+{"line":"mineral salt & white or fresh cracked pepper, to taste","language":"en","parts":[{"en":"mineral salt","it":"sale minerale","toTaste":true},{"en":"white pepper","it":"pepe bianco","toTaste":true,"alternatives":[{"en":"fresh cracked pepper","it":"pepe macinato fresco"}]}]}
 {"line":"neutral oil","language":"en","parts":[{"en":"neutral oil","it":"olio dal sapore neutro"}]}
 {"line":"oil, (for frying (about 2 quarts))","language":"en","parts":[{"quantity":2,"unit":"quart","en":"oil","it":"olio","purposeEn":"for frying","purposeIt":"per friggere"}]}
 {"line":"optional: lime juice, fresh cilantro","language":"en","parts":[{"en":"lime juice","it":"succo di lime","optional":true},{"en":"fresh cilantro","it":"coriandolo fresco","optional":true}]}
@@ -427,7 +427,7 @@
 {"line":"½ to 1 teaspoon red pepper flakes ((use more if you like more heat))","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi"}]}
 {"line":"½ tsp gluten-free baking powder","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"gluten-free baking powder","it":"lievito per dolci senza glutine"}]}
 {"line":"½ yellow onion, thinly sliced","language":"en","parts":[{"quantity":0.5,"en":"yellow onion","it":"cipolla dorata","preparationEn":"thinly sliced","preparationIt":"affettata sottilmente"}]}
-{"line":"¾ cup non-dairy heavy cream","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"dairy-free heavy cream","it":"panna vegetale da montare"}]}
+{"line":"¾ cup non-dairy heavy cream","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"non-dairy heavy cream","it":"panna vegetale densa"}]}
 {"line":"¾ cup unsweetened coconut yogurt","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"unsweetened coconut yogurt","it":"yogurt di cocco senza zucchero"}]}
 {"line":"¾ tsp ground cloves","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"ground cloves","it":"chiodi di garofano macinati"}]}
 {"line":"⅔ cup unsweetened oat milk","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"unsweetened oat milk","it":"latte d'avena senza zucchero"}]}

@@ -9,7 +9,7 @@
 {"line":"1 1/2 cups fresh basil leaves, (packed)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"fresh basil leaves","it":"foglie di basilico fresco","preparationEn":"packed","preparationIt":"pressate nella tazza"}]}
 {"line":"1 1/2 cups plant-based milk ((see notes))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"plant-based milk","it":"latte vegetale"}]}
 {"line":"1 1/2 cups raw basmati rice","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"raw basmati rice","it":"riso basmati crudo"}]}
-{"line":"1 1/2 cups vegan no chicken broth (*I use Better Than Bouillon )","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan chicken-style broth","it":"brodo vegetale gusto pollo"}]}
+{"line":"1 1/2 cups vegan no chicken broth (*I use Better Than Bouillon )","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan no chicken broth","it":"brodo vegano gusto pollo"}]}
 {"line":"1 1/2 tbsp cornstarch","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"cornstarch","it":"amido di mais"}]}
 {"line":"1 1/2 teaspoons herbes de Provence","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"herbes de Provence","it":"erbe di Provenza"}]}
 {"line":"1 1/2 teaspoons powdered ginger","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"ground ginger","it":"zenzero in polvere"}]}
@@ -118,7 +118,7 @@
 {"line":"1.5 cups grated cauliflower","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"cauliflower","it":"cavolfiore","preparationEn":"grated","preparationIt":"grattugiato"}]}
 {"line":"1.5 teaspoons flaxseed meal (mixed with 1.5 tablespoons of water(flax egg))","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"ground flaxseed","it":"semi di lino macinati","preparationEn":"mixed with 1.5 tablespoons of water","preparationIt":"mescolati con 1,5 cucchiai d'acqua"}]}
 {"line":"1.5 to 2 tbsp rice vinegar","language":"en","parts":[{"quantity":1.5,"quantityMax":2,"unit":"tbsp","en":"rice vinegar","it":"aceto di riso"}]}
-{"line":"1.5 tsp pumpkin pie spice blend (or add 1/2 tsp cinnamon & ginger, 1/4 tsp clove & nutmeg)","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"pumpkin pie spice blend","it":"miscela di spezie per pumpkin pie","alternatives":[{"quantity":0.5,"unit":"tsp","en":"cinnamon","it":"cannella"},{"quantity":0.5,"unit":"tsp","en":"ginger","it":"zenzero"},{"quantity":0.25,"unit":"tsp","en":"clove","it":"chiodo di garofano"},{"quantity":0.25,"unit":"tsp","en":"nutmeg","it":"noce moscata"}]}]}
+{"line":"1.5 tsp pumpkin pie spice blend (or add 1/2 tsp cinnamon & ginger, 1/4 tsp clove & nutmeg)","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"pumpkin pie spice blend","it":"miscela di spezie per torta di zucca","alternatives":[{"quantity":0.5,"unit":"tsp","en":"cinnamon","it":"cannella"},{"quantity":0.5,"unit":"tsp","en":"ginger","it":"zenzero"},{"quantity":0.25,"unit":"tsp","en":"clove","it":"chiodo di garofano"},{"quantity":0.25,"unit":"tsp","en":"nutmeg","it":"noce moscata"}]}]}
 {"line":"1/2 block (about 8 oz.) firm tofu, drained & pressed","language":"en","parts":[{"quantity":8,"unit":"oz","en":"firm tofu","it":"tofu compatto","preparationEn":"drained and pressed","preparationIt":"scolato e pressato"}]}
 {"line":"1/2 bunch fresh kale, (chopped)","language":"en","parts":[{"quantity":0.5,"unit":"bunch","en":"fresh kale","it":"cavolo riccio fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1/2 cup (128g) raw cashew butter (I always use my homemade b/c no added oil)","language":"en","parts":[{"quantity":128,"unit":"g","en":"raw cashew butter","it":"burro di anacardi crudi"}]}
@@ -213,7 +213,7 @@
 {"line":"2 9oz boxes vegan vanilla wafers ((see post for store bought idea))","language":"en","parts":[{"quantity":18,"unit":"oz","en":"vegan vanilla wafers","it":"biscotti vegani alla vaniglia"}]}
 {"line":"2 Tbsp coconut oil","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"coconut oil","it":"olio di cocco"}]}
 {"line":"2 Tbsp coconut oil (solid or semi, use refined for neutral flavor)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"coconut oil","it":"olio di cocco","preparationEn":"solid or semi-solid","preparationIt":"solido o semisolido"}]}
-{"line":"2 Tbsp non dairy yogurt","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"dairy-free yogurt","it":"yogurt vegetale"}]}
+{"line":"2 Tbsp non dairy yogurt","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"non-dairy yogurt","it":"yogurt vegetale"}]}
 {"line":"2 bunches parsley, thick stems removed and leaves finely chopped","language":"en","parts":[{"quantity":2,"unit":"bunch","en":"parsley","it":"prezzemolo","preparationEn":"thick stems removed and leaves finely chopped","preparationIt":"privato dei gambi più spessi e con le foglie tritate finemente"}]}
 {"line":"2 cups (470 ml) low-sodium vegetable broth","language":"en","parts":[{"quantity":470,"unit":"ml","en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio"}]}
 {"line":"2 cups dried brown lentils (rinsed)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"dried brown lentils","it":"lenticchie marroni secche","preparationEn":"rinsed","preparationIt":"sciacquate"}]}

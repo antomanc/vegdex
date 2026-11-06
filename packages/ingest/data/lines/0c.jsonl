@@ -7,7 +7,7 @@
 {"line":"1 1/2 cups flour ((use 1:1 GF blend if needed))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"flour","it":"farina"}]}
 {"line":"1 1/2 cups oats ((see notes))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"oats","it":"avena"}]}
 {"line":"1 1/2 cups uncooked cavatappi pasta (also called scoobi doo) ((or other short noodle) (gluten-free if preferred))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"uncooked cavatappi pasta","it":"pasta cavatappi cruda","alternatives":[{"en":"other short pasta","it":"altra pasta corta"}]}]}
-{"line":"1 1/2 cups unsweetened non-dairy milk","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"unsweetened plant-based milk","it":"latte vegetale senza zucchero"}]}
+{"line":"1 1/2 cups unsweetened non-dairy milk","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"unsweetened non-dairy milk","it":"latte vegetale senza zucchero"}]}
 {"line":"1 1/2 teaspoon chili powder","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"chili powder","it":"peperoncino in polvere"}]}
 {"line":"1 1/4 cup full-fat coconut milk","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"full-fat coconut milk","it":"latte di cocco intero"}]}
 {"line":"1 1/4 cups corn kernels ((fresh, frozen, or canned))","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"corn kernels","it":"chicchi di mais","alternatives":[{"en":"fresh corn kernels","it":"chicchi di mais fresco"},{"en":"frozen corn kernels","it":"chicchi di mais surgelati"},{"en":"canned corn kernels","it":"chicchi di mais in scatola"}]}]}
@@ -24,7 +24,7 @@
 {"line":"1 apple (sliced thinly)","language":"en","parts":[{"quantity":1,"en":"apple","it":"mela","preparationEn":"thinly sliced","preparationIt":"tagliata a fettine sottili"}]}
 {"line":"1 batch avocado cilantro lime dressing","language":"en","parts":[{"quantity":1,"unit":"batch","en":"avocado cilantro lime dressing","it":"condimento all'avocado, coriandolo e lime"}]}
 {"line":"1 can crushed tomatoes (28 ounces, 794g)","language":"en","parts":[{"quantity":794,"unit":"g","en":"canned crushed tomatoes","it":"polpa di pomodoro in scatola"}]}
-{"line":"1 cube Not Chick’n Broth ( or other vegan chicken broth)","language":"en","parts":[{"quantity":1,"unit":"cube","en":"Not Chick’n vegan chicken broth","it":"brodo vegetale gusto pollo Not Chick’n","alternatives":[{"en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}]}
+{"line":"1 cube Not Chick’n Broth ( or other vegan chicken broth)","language":"en","parts":[{"quantity":1,"unit":"cube","en":"Not Chick’n Broth cube","it":"dado vegetale Not Chick’n Broth","alternatives":[{"en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}]}
 {"line":"1 cup (100g) fresh blueberries (frozen is ok too)","language":"en","parts":[{"quantity":100,"unit":"g","en":"fresh blueberries","it":"mirtilli freschi","alternatives":[{"en":"frozen blueberries","it":"mirtilli surgelati"}]}]}
 {"line":"1 cup (140g) raw cashews, soaked in water overnight, or in boiling water for 1 hour","language":"en","parts":[{"quantity":140,"unit":"g","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked in water overnight, or in boiling water for 1 hour","preparationIt":"ammollati in acqua per una notte oppure in acqua bollente per 1 ora"}]}
 {"line":"1 cup brown sugar, (packed)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"brown sugar","it":"zucchero di canna","preparationEn":"packed","preparationIt":"ben pressato"}]}
@@ -115,7 +115,7 @@
 {"line":"1-1 1/2 Tablespoons water (add gradually until you have a thick but smooth glaze)","language":"en","parts":[{"quantity":1,"quantityMax":1.5,"unit":"tbsp","en":"water","it":"acqua"}]}
 {"line":"1-1¼ tsp hot chilli powder","language":"en","parts":[{"quantity":1,"quantityMax":1.25,"unit":"tsp","en":"hot chili powder","it":"peperoncino piccante in polvere"}]}
 {"line":"1-2 tablespoons lime juice","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"lime juice","it":"succo di lime"}]}
-{"line":"1-2 tablespoons lime juice (, fresh-squeezed (or lemon))","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"freshly squeezed lime juice","it":"succo di lime appena spremuto","alternatives":[{"en":"lemon juice","it":"succo di limone"}]}]}
+{"line":"1-2 tablespoons lime juice (, fresh-squeezed (or lemon))","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"fresh-squeezed lime juice","it":"succo di lime appena spremuto","alternatives":[{"en":"fresh-squeezed lemon juice","it":"succo di limone appena spremuto"}]}]}
 {"line":"1-2 tablespoons nutritional yeast, to taste","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"nutritional yeast","it":"lievito alimentare","toTaste":true}]}
 {"line":"1-2 teaspoons Gyros seasoning mix","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"gyros seasoning mix","it":"miscela di spezie per gyros"}]}
 {"line":"1-4 tablespoons vegetable broth","language":"en","parts":[{"quantity":1,"quantityMax":4,"unit":"tbsp","en":"vegetable broth","it":"brodo vegetale"}]}
@@ -131,7 +131,7 @@
 {"line":"1/2 cup blanched almonds (or raw almonds)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"blanched almonds","it":"mandorle pelate","alternatives":[{"en":"raw almonds","it":"mandorle crude"}]}]}
 {"line":"1/2 cup chopped flat leaf parsley","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"flat leaf parsley","it":"prezzemolo a foglia piatta","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1/2 cup chopped pistachios (or hazelnuts, walnuts, almonds)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"pistachios","it":"pistacchi","preparationEn":"chopped","preparationIt":"tritati","alternatives":[{"en":"hazelnuts","it":"nocciole"},{"en":"walnuts","it":"noci"},{"en":"almonds","it":"mandorle"}]}]}
-{"line":"1/2 cup coconut cream ((the thick part on top of canned coconut milk))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"coconut cream","it":"crema di cocco"}]}
+{"line":"1/2 cup coconut cream ((the thick part on top of canned coconut milk))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"coconut cream","it":"crema di cocco","preparationEn":"the thick part on top of canned coconut milk","preparationIt":"la parte densa in superficie nel latte di cocco in scatola"}]}
 {"line":"1/2 cup coconut oil or vegan butter* (melted)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"coconut oil","it":"olio di cocco","preparationEn":"melted","preparationIt":"fuso","alternatives":[{"en":"vegan butter","it":"burro vegetale"}]}]}
 {"line":"1/2 cup cornstarch ((can sub with arrowroot powder) )","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cornstarch","it":"amido di mais","alternatives":[{"en":"arrowroot powder","it":"amido di arrowroot"}]}]}
 {"line":"1/2 cup elbows or other pasta (use gluten-free if needed)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"elbow pasta","it":"pasta a gomito","alternatives":[{"en":"other pasta","it":"altra pasta"}]}]}
@@ -152,7 +152,7 @@
 {"line":"1/2 teaspoon dill","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"dill","it":"aneto"}]}
 {"line":"1/2 teaspoon dried sage","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"dried sage","it":"salvia essiccata"}]}
 {"line":"1/2 teaspoon dried thyme (or 1 teaspoon fresh thyme )","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"dried thyme","it":"timo essiccato","alternatives":[{"quantity":1,"unit":"tsp","en":"fresh thyme","it":"timo fresco"}]}]}
-{"line":"1/2 teaspoon fresh ground black pepper","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"freshly ground black pepper","it":"pepe nero macinato al momento"}]}
+{"line":"1/2 teaspoon fresh ground black pepper","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"fresh ground black pepper","it":"pepe nero macinato fresco"}]}
 {"line":"1/2 teaspoon kelp powder (or nori strips broke up)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"kelp powder","it":"alga kelp in polvere","alternatives":[{"en":"nori strips","it":"strisce di alga nori"}]}]}
 {"line":"1/2 teaspoon pumpkin pie spice ((or cinnamon))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"pumpkin pie spice","it":"miscela di spezie per torta di zucca","alternatives":[{"en":"cinnamon","it":"cannella"}]}]}
 {"line":"1/2 teaspoon red chili flakes (optional)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"red chili flakes","it":"peperoncino rosso in fiocchi","optional":true}]}
@@ -164,7 +164,7 @@
 {"line":"1/3 cup hazelnuts, (roasted chopped)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"roasted hazelnuts","it":"nocciole tostate","preparationEn":"chopped","preparationIt":"tritate"}]}
 {"line":"1/3 cup oil (66g, any oil (I prefer olive oil))","language":"en","parts":[{"quantity":66,"unit":"g","en":"oil","it":"olio"}]}
 {"line":"1/3 cup plant-based milk ((such as oat or soy))","language":"en","parts":[{"quantity":0.333,"unit":"cup","en":"plant-based milk","it":"latte vegetale","alternatives":[{"en":"oat milk","it":"latte d'avena"},{"en":"soy milk","it":"latte di soia"}]}]}
-{"line":"1/3 cup tahini (*make sure fresh and not dried out)","language":"en","parts":[{"quantity":0.333,"unit":"cup","en":"tahini","it":"tahina"}]}
+{"line":"1/3 cup tahini (*make sure fresh and not dried out)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"fresh tahini","it":"tahina fresca","preparationEn":"not dried out","preparationIt":"non secca"}]}
 {"line":"1/3 teaspoon cayenne or Indian red chili powder (optional )","language":"en","parts":[{"quantity":0.333333,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna","optional":true,"alternatives":[{"en":"Indian red chili powder","it":"peperoncino rosso indiano in polvere"}]}]}
 {"line":"1/4 cup Almond Butter","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"almond butter","it":"burro di mandorle"}]}
 {"line":"1/4 cup almonds*","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"almonds","it":"mandorle"}]}

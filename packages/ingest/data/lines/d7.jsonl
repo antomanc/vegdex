@@ -27,7 +27,7 @@
 {"line":"1 Tablespoon tomato paste ((16 g))","language":"en","parts":[{"quantity":16,"unit":"g","en":"tomato paste","it":"concentrato di pomodoro"}]}
 {"line":"1 Tbsp vegan oyster sauce (optional)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegan oyster sauce","it":"salsa di ostriche vegana","optional":true}]}
 {"line":"1 Thai chili pepper, (minced)","language":"en","parts":[{"quantity":1,"en":"Thai chili pepper","it":"peperoncino thailandese","preparationEn":"minced","preparationIt":"tritato finemente"}]}
-{"line":"1 batch icing or glaze of choice ((such as the glaze from my strawberry sweet roll recipe or a vegan cream cheese frosting))","language":"en","parts":[{"quantity":1,"unit":"batch","en":"icing or glaze of choice","it":"glassa a scelta","alternatives":[{"en":"strawberry sweet roll glaze","it":"glassa per girelle dolci alle fragole"},{"en":"vegan cream cheese frosting","it":"glassa vegana al formaggio spalmabile"}]}]}
+{"line":"1 batch icing or glaze of choice ((such as the glaze from my strawberry sweet roll recipe or a vegan cream cheese frosting))","language":"en","parts":[{"quantity":1,"unit":"batch","en":"icing or glaze of choice","it":"glassa a scelta","alternatives":[{"en":"vegan cream cheese frosting","it":"glassa al formaggio spalmabile vegano"}]}]}
 {"line":"1 can (15 oz) 100% pumpkin puree or 1 1/2 cups (338 g) fresh pumpkin puree","language":"en","parts":[{"quantity":15,"unit":"oz","en":"100% pumpkin puree","it":"purea di zucca 100%","alternatives":[{"quantity":338,"unit":"g","en":"fresh pumpkin puree","it":"purea di zucca fresca"}]}]}
 {"line":"1 can of sweet corn (drained)","language":"en","parts":[{"quantity":1,"unit":"can","en":"sweet corn","it":"mais dolce","preparationEn":"drained","preparationIt":"scolato"}]}
 {"line":"1 can quartered artichoke hearts, (drained and chopped)","language":"en","parts":[{"quantity":1,"unit":"can","en":"quartered artichoke hearts","it":"cuori di carciofo in quarti","preparationEn":"drained and chopped","preparationIt":"scolati e tagliati"}]}
@@ -123,7 +123,7 @@
 {"line":"1-2 tsp. sesame oil, (can sub another vegetable oil)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"sesame oil","it":"olio di sesamo","alternatives":[{"en":"vegetable oil","it":"olio vegetale"}]}]}
 {"line":"1.2 teaspoon cumin seeds","language":"en","parts":[{"quantity":1.2,"unit":"tsp","en":"cumin seeds","it":"semi di cumino"}]}
 {"line":"1.5 Tbsp water","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"water","it":"acqua"}]}
-{"line":"1.5 cups vegetable broth (, low sodium if preferred)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
+{"line":"1.5 cups vegetable broth (, low sodium if preferred)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","preparationEn":"low sodium if preferred","preparationIt":"a basso contenuto di sodio se si preferisce"}]}
 {"line":"1.5 teaspoons quick rising yeast","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"quick-rising yeast","it":"lievito a lievitazione rapida"}]}
 {"line":"1.5 to 2 tsp gingerbread spice (or use 1 tsp ginger, 1/2 tsp cinnamon, a generous dash of ground nutmeg, clove and black pepper)","language":"en","parts":[{"quantity":1.5,"quantityMax":2,"unit":"tsp","en":"gingerbread spice","it":"miscela di spezie per pan di zenzero","alternatives":[{"quantity":1,"unit":"tsp","en":"ginger","it":"zenzero"},{"quantity":0.5,"unit":"tsp","en":"cinnamon","it":"cannella"},{"quantity":1,"unit":"dash","en":"ground nutmeg","it":"noce moscata macinata"},{"en":"ground clove","it":"chiodi di garofano macinati"},{"en":"ground black pepper","it":"pepe nero macinato"}]}]}
 {"line":"1.5-2 Tablespoons raw sugar","language":"en","parts":[{"quantity":1.5,"quantityMax":2,"unit":"tbsp","en":"raw sugar","it":"zucchero grezzo"}]}
@@ -326,7 +326,7 @@
 {"line":"3/4 cup finely chopped red onion","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"red onion","it":"cipolla rossa","preparationEn":"finely chopped","preparationIt":"tritata finemente"}]}
 {"line":"3/4 cup raspberry jam ((or jam of choice))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"raspberry jam","it":"confettura di lamponi","alternatives":[{"en":"jam of choice","it":"confettura a scelta"}]}]}
 {"line":"3/4 tsp cream of tartar","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"cream of tartar","it":"cremor tartaro"}]}
-{"line":"3/4 tsp fresh cracked pink salt","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"pink salt","it":"sale rosa","preparationEn":"freshly cracked","preparationIt":"macinato al momento"}]}
+{"line":"3/4 tsp fresh cracked pink salt","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"fresh cracked pink salt","it":"sale rosa macinato fresco"}]}
 {"line":"3/4-1 cup vegetable stock, (as needed)","language":"en","parts":[{"quantity":0.75,"quantityMax":1,"unit":"cup","en":"vegetable stock","it":"brodo vegetale"}]}
 {"line":"300 g plain white flour","language":"en","parts":[{"quantity":300,"unit":"g","en":"plain white flour","it":"farina bianca"}]}
 {"line":"320 g caster sugar ((aka superfine sugar))","language":"en","parts":[{"quantity":320,"unit":"g","en":"caster sugar","it":"zucchero semolato fine"}]}
@@ -347,6 +347,7 @@
 {"line":"50 g / slightly heaped ½ cup oat flour*** (certified GF if required)","language":"en","parts":[{"quantity":50,"unit":"g","en":"oat flour","it":"farina d'avena"}]}
 {"line":"50 g / ¼ cup vegan butter or odourless coconut oil or liquid oil","language":"en","parts":[{"quantity":50,"unit":"g","en":"vegan butter","it":"burro vegetale","alternatives":[{"en":"odourless coconut oil","it":"olio di cocco deodorato"},{"en":"liquid oil","it":"olio liquido"}]}]}
 {"line":"50 ml extra virgin olive oil","language":"en","parts":[{"quantity":50,"unit":"ml","en":"extra virgin olive oil","it":"olio extravergine d'oliva"}]}
+{"line":"6 cinnamon sticks ((plus more for garnish, optional))","language":"en","parts":[{"quantity":6,"unit":"stick","en":"cinnamon sticks","it":"stecche di cannella","purposeEn":"plus more for garnish, optional","purposeIt":"più altre per guarnire, facoltative"}]}
 {"line":"6 green tea bags","language":"en","parts":[{"quantity":6,"unit":"bag","en":"green tea","it":"tè verde"}]}
 {"line":"6 medium (14 ounces tomatoes)","language":"en","parts":[{"quantity":14,"unit":"oz","en":"medium tomatoes","it":"pomodori medi"}]}
 {"line":"6 medium Roma tomatoes/ tomatoes on the vine","language":"en","parts":[{"quantity":6,"en":"medium Roma tomatoes","it":"pomodori Roma medi","alternatives":[{"en":"tomatoes on the vine","it":"pomodori a grappolo"}]}]}

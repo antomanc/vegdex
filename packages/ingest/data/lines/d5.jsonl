@@ -162,7 +162,7 @@
 {"line":"1/4 cup of canola oil for frying","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"canola oil","it":"olio di colza","purposeEn":"for frying","purposeIt":"per friggere"}]}
 {"line":"1/4 cup sliced, blanched almonds ((for scattering on top, optional))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"blanched almonds","it":"mandorle pelate","preparationEn":"sliced","preparationIt":"affettate","purposeEn":"for scattering on top","purposeIt":"da spargere sopra","optional":true}]}
 {"line":"1/4 cup soy milk (or other milk)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"soy milk","it":"latte di soia","alternatives":[{"en":"other milk","it":"altro latte"}]}]}
-{"line":"1/4 teaspoon fresh ground nutmeg, optional but good","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"freshly ground nutmeg","it":"noce moscata macinata al momento","optional":true}]}
+{"line":"1/4 teaspoon fresh ground nutmeg, optional but good","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"fresh ground nutmeg","it":"noce moscata macinata al momento","optional":true}]}
 {"line":"1/4 teaspoon rock salt ((kala namak))","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"rock salt (kala namak)","it":"sale nero indiano (kala namak)"}]}
 {"line":"1/4 to 1/2 tsp thyme","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"thyme","it":"timo"}]}
 {"line":"1/4 tsp all spice","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"allspice","it":"pimento"}]}
@@ -355,7 +355,7 @@
 {"line":"Roasted Garlic Hummus (10 oz.)","language":"en","parts":[{"quantity":10,"unit":"oz","en":"roasted garlic hummus","it":"hummus all'aglio arrosto"}]}
 {"line":"Rolling pin or flat-sided bottle/cup","language":"en","kind":"other"}
 {"line":"SPICES: ¾ tsp cinnamon, ½ tsp ginger, ¼ tsp nutmeg, 1/8 tsp cloves*","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"cinnamon","it":"cannella"},{"quantity":0.5,"unit":"tsp","en":"ginger","it":"zenzero"},{"quantity":0.25,"unit":"tsp","en":"nutmeg","it":"noce moscata"},{"quantity":0.125,"unit":"tsp","en":"cloves","it":"chiodi di garofano"}]}
-{"line":"Salt and fresh cracked pepper to taste","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"freshly cracked pepper","it":"pepe macinato al momento","toTaste":true}]}
+{"line":"Salt and fresh cracked pepper to taste","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"fresh cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"Shredded coconut flakes","language":"en","parts":[{"en":"coconut flakes","it":"scaglie di cocco"}]}
 {"line":"Sliced tomato","language":"en","parts":[{"en":"tomato","it":"pomodoro","preparationEn":"sliced","preparationIt":"affettato"}]}
 {"line":"Smoky Cashew Cheese ((recipe below))","language":"en","parts":[{"en":"smoky cashew cheese","it":"formaggio affumicato di anacardi"}]}
@@ -381,7 +381,7 @@
 {"line":"quality olive oil","language":"en","parts":[{"en":"quality olive oil","it":"olio d'oliva di qualità"}]}
 {"line":"sesame seeds or poppy seeds (optional)","language":"en","parts":[{"en":"sesame seeds","it":"semi di sesamo","optional":true,"alternatives":[{"en":"poppy seeds","it":"semi di papavero"}]}]}
 {"line":"small bunch of asparagus","language":"en","parts":[{"quantity":1,"unit":"bunch","en":"asparagus","it":"asparagi"}]}
-{"line":"tiny pinch of salt, optional (*If your peanut butter is unsalted, you may add a tiny pinch of salt.)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"salt","it":"sale","optional":true}]}
+{"line":"tiny pinch of salt, optional (*If your peanut butter is unsalted, you may add a tiny pinch of salt.)","language":"en","parts":[{"unit":"pinch","en":"salt","it":"sale","optional":true}]}
 {"line":"vegan parmesan (optional), I use homemade nut-free parm","language":"en","parts":[{"en":"vegan parmesan","it":"parmigiano vegano","optional":true}]}
 {"line":"vegan sour cream (optional topping)","language":"en","parts":[{"en":"vegan sour cream","it":"panna acida vegetale","purposeEn":"for topping","purposeIt":"per guarnire","optional":true}]}
 {"line":"vegetables of choice- green peppers, red onion, tomatoes, etc.","language":"en","parts":[{"en":"vegetables of choice","it":"verdure a scelta","alternatives":[{"en":"green peppers","it":"peperoni verdi"},{"en":"red onion","it":"cipolla rossa"},{"en":"tomatoes","it":"pomodori"}]}]}

@@ -31,7 +31,7 @@
 {"line":"1 can (15 oz white beans (cannellini or great northern), drained and rinsed)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned white beans","it":"fagioli bianchi in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati","alternatives":[{"en":"canned cannellini beans","it":"fagioli cannellini in scatola"},{"en":"canned Great Northern beans","it":"fagioli Great Northern in scatola"}]}]}
 {"line":"1 clove garlic (finely grated, 3g)","language":"en","parts":[{"quantity":3,"unit":"g","en":"garlic","it":"aglio","preparationEn":"finely grated","preparationIt":"grattugiato finemente"}]}
 {"line":"1 cup (140g) raw, unsalted cashews","language":"en","parts":[{"quantity":140,"unit":"g","en":"raw unsalted cashews","it":"anacardi crudi non salati"}]}
-{"line":"1 cup (150g) raw pine nuts (make sure they are fresh and not old, as old pine nuts will taste very rancid/bitter)","language":"en","parts":[{"quantity":150,"unit":"g","en":"raw pine nuts","it":"pinoli crudi"}]}
+{"line":"1 cup (150g) raw pine nuts (make sure they are fresh and not old, as old pine nuts will taste very rancid/bitter)","language":"en","parts":[{"quantity":150,"unit":"g","en":"fresh raw pine nuts","it":"pinoli crudi freschi"}]}
 {"line":"1 cup (190g) jasmine rice ((see Note 1))","language":"en","parts":[{"quantity":190,"unit":"g","en":"jasmine rice","it":"riso jasmine"}]}
 {"line":"1 cup Kalamata olives","language":"en","parts":[{"quantity":1,"unit":"cup","en":"Kalamata olives","it":"olive Kalamata"}]}
 {"line":"1 cup Packed thinly sliced onion","language":"en","parts":[{"quantity":1,"unit":"cup","en":"onion","it":"cipolla","preparationEn":"thinly sliced","preparationIt":"tagliata a fettine sottili"}]}
@@ -135,7 +135,7 @@
 {"line":"1/2 cup mini dairy-free chocolate chips (95 g, I use Enjoy Life)","language":"en","parts":[{"quantity":95,"unit":"g","en":"mini dairy-free chocolate chips","it":"gocce di cioccolato piccole senza latte"}]}
 {"line":"1/2 cup peeled and thinly sliced zucchini","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"zucchini","it":"zucchine","preparationEn":"peeled and thinly sliced","preparationIt":"sbucciate e tagliate a fettine sottili"}]}
 {"line":"1/2 cup potatoes, diced small (about 1 medium potato)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"potatoes","it":"patate","preparationEn":"diced small","preparationIt":"tagliate a cubetti piccoli"}]}
-{"line":"1/2 cup pumpkin pureé ((cooked and pureéd pumpkin, I use canned) (not pumpkin pie filling))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"pumpkin purée","it":"purea di zucca"}]}
+{"line":"1/2 cup pumpkin pureé ((cooked and pureéd pumpkin, I use canned) (not pumpkin pie filling))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"pumpkin purée","it":"purea di zucca","preparationEn":"cooked and puréed","preparationIt":"cotta e ridotta in purea"}]}
 {"line":"1/2 cup raw cacao powder","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"raw cacao powder","it":"cacao crudo in polvere"}]}
 {"line":"1/2 cup red bell pepper (, diced)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"red bell pepper","it":"peperone rosso","preparationEn":"diced","preparationIt":"tagliato a dadini"}]}
 {"line":"1/2 cup salt","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"salt","it":"sale"}]}
@@ -197,7 +197,7 @@
 {"line":"100 g / ¾ cup sultanas soaked in 60 ml / ¼ cup liquid***","language":"en","parts":[{"quantity":100,"unit":"g","en":"sultanas","it":"uva sultanina","preparationEn":"soaked in 60 ml liquid","preparationIt":"ammollata in 60 ml di liquido"}]}
 {"line":"12 oz dry orzo","language":"en","parts":[{"quantity":12,"unit":"oz","en":"dry orzo pasta","it":"pasta orzo secca"}]}
 {"line":"12 – 16 oz. pasta (elbow, shells, penne, ect.)","language":"en","parts":[{"quantity":12,"quantityMax":16,"unit":"oz","en":"pasta","it":"pasta"}]}
-{"line":"120 g / 1 cup all purpose wheat flour or GF all purpose flour mix (I use this one)","language":"en","parts":[{"quantity":120,"unit":"g","en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi","alternatives":[{"en":"gluten-free all-purpose flour mix","it":"miscela di farine senza glutine per tutti gli usi"}]}]}
+{"line":"120 g / 1 cup all purpose wheat flour or GF all purpose flour mix (I use this one)","language":"en","parts":[{"quantity":120,"unit":"g","en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi","alternatives":[{"en":"gluten-free all-purpose flour mix","it":"miscela di farine senza glutine per tutti gli usi"}]}]}
 {"line":"120 g finely ground almonds / almond meal","language":"en","parts":[{"quantity":120,"unit":"g","en":"ground almonds","it":"mandorle macinate","preparationEn":"finely ground","preparationIt":"macinate finemente"}]}
 {"line":"125 ml / ½ cup almond milk","language":"en","parts":[{"quantity":125,"unit":"ml","en":"almond milk","it":"latte di mandorla"}]}
 {"line":"14.5 oz can of Fire Roasted Tomatoes","language":"en","parts":[{"quantity":14.5,"unit":"oz","en":"canned fire-roasted tomatoes","it":"pomodori arrostiti alla fiamma in scatola"}]}
@@ -306,7 +306,7 @@
 {"line":"3/4 cup corn kernels (fresh or frozen (optional))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"fresh corn kernels","it":"chicchi di mais fresco","optional":true,"alternatives":[{"en":"frozen corn kernels","it":"chicchi di mais surgelati"}]}]}
 {"line":"3/4 cup erythritol ((divided. I used an erythritol monk fruit sweetener))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"erythritol","it":"eritritolo","preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"3/4 cup grated carrots (packed)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"carrots","it":"carote","preparationEn":"grated, packed","preparationIt":"grattugiate, pressate nella tazza"}]}
-{"line":"3/4 cup orange juice (, fresh or bottled )","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"orange juice","it":"succo d'arancia"}]}
+{"line":"3/4 cup orange juice (, fresh or bottled )","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"fresh orange juice","it":"succo d'arancia fresco","alternatives":[{"en":"bottled orange juice","it":"succo d'arancia in bottiglia"}]}]}
 {"line":"3/4 cup tomato sauce ((or 2 tbsp tomato paste))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"tomato sauce","it":"salsa di pomodoro","alternatives":[{"quantity":2,"unit":"tbsp","en":"tomato paste","it":"concentrato di pomodoro"}]}]}
 {"line":"3/4 teaspoon salt (4.5g)","language":"en","parts":[{"quantity":4.5,"unit":"g","en":"salt","it":"sale"}]}
 {"line":"3/4 to 1 cup granulated sugar (depending on how sweet you want it)","language":"en","parts":[{"quantity":0.75,"quantityMax":1,"unit":"cup","en":"granulated sugar","it":"zucchero semolato"}]}
@@ -350,7 +350,7 @@
 {"line":"8 oreo cookies, plus a few extra for crumbling on top","language":"en","parts":[{"quantity":8,"en":"Oreo cookies","it":"biscotti Oreo","purposeEn":"a few extra for crumbling on top","purposeIt":"qualcuno in più da sbriciolare sopra"}]}
 {"line":"8 ounces pad Thai rice noodles","language":"en","parts":[{"quantity":8,"unit":"oz","en":"pad Thai rice noodles","it":"noodles di riso per pad thai"}]}
 {"line":"80 g / ¾ cup finely ground almonds (or almond meal)","language":"en","parts":[{"quantity":80,"unit":"g","en":"finely ground almonds","it":"mandorle macinate finemente","alternatives":[{"en":"almond meal","it":"farina di mandorle"}]}]}
-{"line":"85 ml plant milk (unflavoured and unsweetened, ideally soy milk)","language":"en","parts":[{"quantity":85,"unit":"ml","en":"unflavoured and unsweetened plant milk","it":"latte vegetale non aromatizzato e senza zucchero"}]}
+{"line":"85 ml plant milk (unflavoured and unsweetened, ideally soy milk)","language":"en","parts":[{"quantity":85,"unit":"ml","en":"unflavoured and unsweetened plant milk","it":"latte vegetale al naturale e non zuccherato"}]}
 {"line":"A drizzle of good-quality extra virgin olive oil","language":"en","parts":[{"unit":"drizzle","en":"good-quality extra virgin olive oil","it":"olio extravergine d'oliva di buona qualità"}]}
 {"line":"Basil for garnish (optional)","language":"en","parts":[{"en":"basil","it":"basilico","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true}]}
 {"line":"Chopped fresh chives ((optional))","language":"en","parts":[{"en":"fresh chives","it":"erba cipollina fresca","preparationEn":"chopped","preparationIt":"tritata","optional":true}]}
@@ -384,7 +384,7 @@
 {"line":"fresh cilantro ((for serving))","language":"en","parts":[{"en":"fresh cilantro","it":"coriandolo fresco","purposeEn":"for serving","purposeIt":"per servire"}]}
 {"line":"juice of ½-1 lemon","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"en":"lemon","it":"limone","preparationEn":"juiced","preparationIt":"spremuto"}]}
 {"line":"juice of ½-1 lime","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"en":"lime","it":"lime","preparationEn":"juiced","preparationIt":"spremuto"}]}
-{"line":"mineral salt and fresh cracked pepper, to taste","language":"en","parts":[{"en":"mineral salt","it":"sale minerale","toTaste":true},{"en":"pepper","it":"pepe","preparationEn":"freshly cracked","preparationIt":"macinato al momento","toTaste":true}]}
+{"line":"mineral salt and fresh cracked pepper, to taste","language":"en","parts":[{"en":"mineral salt","it":"sale minerale","toTaste":true},{"en":"fresh cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"nutritional yeast, fresh basil leaves, salt, pepper","language":"en","parts":[{"en":"nutritional yeast","it":"lievito alimentare"},{"en":"fresh basil leaves","it":"foglie di basilico fresco"},{"en":"salt","it":"sale"},{"en":"pepper","it":"pepe"}]}
 {"line":"optional add-ins: 1/8 tsp almond extract, 1/4 tsp vanilla extract","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"almond extract","it":"estratto di mandorla","optional":true},{"quantity":0.25,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia","optional":true}]}
 {"line":"other additions: garam masala or red pepper flakes","language":"en","parts":[{"en":"garam masala","it":"garam masala","alternatives":[{"en":"red pepper flakes","it":"peperoncino in fiocchi"}]}]}
@@ -426,7 +426,7 @@
 {"line":"⅓ cup Dutch-process cocoa powder","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"Dutch-process cocoa powder","it":"cacao alcalinizzato in polvere"}]}
 {"line":"⅓ cup walnuts","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"walnuts","it":"noci"}]}
 {"line":"⅔ cup of neutral oil","language":"en","parts":[{"quantity":0.6667,"unit":"cup","en":"neutral oil","it":"olio dal sapore neutro"}]}
-{"line":"1 cucchiaino di mix per golden milk","language":"it","parts":[{"quantity":1,"unit":"tsp","en":"golden milk mix","it":"mix per golden milk"}]}
+{"line":"1 cucchiaino di mix per golden milk","language":"it","parts":[{"quantity":1,"unit":"tsp","en":"golden milk mix","it":"miscela di spezie per latte alla curcuma"}]}
 {"line":"200 g di fagioli cannellini cotti e scolati","language":"it","parts":[{"quantity":200,"unit":"g","en":"cannellini beans","it":"fagioli cannellini","preparationEn":"cooked and drained","preparationIt":"cotti e scolati"}]}
 {"line":"200 g rape rosse precotte","language":"it","parts":[{"quantity":200,"unit":"g","en":"precooked beets","it":"barbabietole rosse precotte"}]}
 {"line":"Una bustina di lievito per dolci","language":"it","parts":[{"quantity":1,"unit":"sachet","en":"baking powder","it":"lievito per dolci"}]}

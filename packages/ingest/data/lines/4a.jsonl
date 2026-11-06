@@ -28,7 +28,7 @@
 {"line":"1 can (15oz.) black beans, drained and rinsed","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned black beans","it":"fagioli neri in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"1 chipotle pepper in adobo sauce (+ 2 tablespoon sauce, chopped finely)","language":"en","parts":[{"quantity":1,"en":"chipotle pepper in adobo sauce","it":"peperoncino chipotle in salsa adobo","preparationEn":"finely chopped","preparationIt":"tritato finemente"},{"quantity":2,"unit":"tbsp","en":"adobo sauce","it":"salsa adobo"}]}
 {"line":"1 chopped scallions","language":"en","parts":[{"quantity":1,"en":"scallion","it":"cipollotto","preparationEn":"chopped","preparationIt":"tritato"}]}
-{"line":"1 cube vegan chicken bouillon","language":"en","parts":[{"quantity":1,"unit":"cube","en":"vegan chicken bouillon","it":"brodo vegetale gusto pollo"}]}
+{"line":"1 cube vegan chicken bouillon","language":"en","parts":[{"quantity":1,"unit":"cube","en":"vegan chicken bouillon","it":"dado vegetale gusto pollo"}]}
 {"line":"1 cup (240 mL) vegetable broth","language":"en","parts":[{"quantity":240,"unit":"ml","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"1 cup (240g) cooked/mashed sweet potato","language":"en","parts":[{"quantity":240,"unit":"g","en":"sweet potato","it":"patata dolce","preparationEn":"cooked and mashed","preparationIt":"cotta e schiacciata"}]}
 {"line":"1 cup (92 g) rolled oats, gluten-free if necessary","language":"en","parts":[{"quantity":92,"unit":"g","en":"rolled oats","it":"fiocchi d'avena"}]}
@@ -49,7 +49,7 @@
 {"line":"1 cup fresh pineapple chunks","language":"en","parts":[{"quantity":1,"unit":"cup","en":"fresh pineapple","it":"ananas fresco","preparationEn":"cut into chunks","preparationIt":"tagliato a pezzi"}]}
 {"line":"1 cup frozen corn ((thawed))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"frozen corn","it":"mais surgelato","preparationEn":"thawed","preparationIt":"scongelato"}]}
 {"line":"1 cup frozen spinach ((or wilted spinach) thawed, drained, and pressed)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"frozen spinach","it":"spinaci surgelati","preparationEn":"thawed, drained and pressed","preparationIt":"scongelati, scolati e strizzati","alternatives":[{"en":"wilted spinach","it":"spinaci appassiti"}]}]}
-{"line":"1 cup green peas ((frozen is fine))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"green peas","it":"piselli"}]}
+{"line":"1 cup green peas ((frozen is fine))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"green peas","it":"piselli","alternatives":[{"en":"frozen green peas","it":"piselli verdi surgelati"}]}]}
 {"line":"1 cup marinated artichoke hearts (chopped)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"marinated artichoke hearts","it":"cuori di carciofo marinati","preparationEn":"chopped","preparationIt":"tritati"}]}
 {"line":"1 cup oat flour (homemade or store bought works fine here, 100g)","language":"en","parts":[{"quantity":100,"unit":"g","en":"oat flour","it":"farina d'avena"}]}
 {"line":"1 cup of nuts of choice, (chopped)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"nuts of choice","it":"frutta secca a scelta","preparationEn":"chopped","preparationIt":"tritata"}]}
@@ -221,10 +221,10 @@
 {"line":"2 cups Hot vegetable broth (for soaking soy curls, 80ml)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","preparationEn":"hot","preparationIt":"caldo"}]}
 {"line":"2 cups baby spinach","language":"en","parts":[{"quantity":2,"unit":"cup","en":"baby spinach","it":"spinacini"}]}
 {"line":"2 cups fresh strawberries","language":"en","parts":[{"quantity":2,"unit":"cup","en":"fresh strawberries","it":"fragole fresche"}]}
-{"line":"2 cups not chick'n broth (or any chicken-flavored vegan broth.)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan chicken-flavored broth","it":"brodo vegetale al gusto di pollo"}]}
+{"line":"2 cups not chick'n broth (or any chicken-flavored vegan broth.)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"not chick'n broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"chicken-flavored vegan broth","it":"brodo vegano gusto pollo"}]}]}
 {"line":"2 cups or more chopped greens (, I use chard and spinach)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"greens","it":"verdure a foglia","preparationEn":"chopped","preparationIt":"tritate"}]}
 {"line":"2 cups sourdough discard","language":"en","parts":[{"quantity":2,"unit":"cup","en":"sourdough discard","it":"esubero di pasta madre"}]}
-{"line":"2 cups sprouted moth beans ((from ½ cup dried moth beans or matki beans))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"sprouted moth beans","it":"fagioli moth germogliati"}]}
+{"line":"2 cups sprouted moth beans ((from ½ cup dried moth beans or matki beans))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"sprouted moth beans","it":"fagioli matki germogliati","alternatives":[{"quantity":0.5,"unit":"cup","en":"dried moth beans","it":"fagioli matki secchi"}]}]}
 {"line":"2 cups vegan cane sugar ((395g))","language":"en","parts":[{"quantity":395,"unit":"g","en":"vegan cane sugar","it":"zucchero di canna vegano"}]}
 {"line":"2 cups water (or sub with more milk for creamier oatmeal)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"water","it":"acqua","alternatives":[{"en":"milk","it":"latte"}]}]}
 {"line":"2 ears of raw corn or 1 1/2 cups roasted corn kernels","language":"en","parts":[{"quantity":2,"en":"ears of raw corn","it":"pannocchie di mais crude","alternatives":[{"quantity":1.5,"unit":"cup","en":"roasted corn kernels","it":"chicchi di mais arrostiti"}]}]}
@@ -363,7 +363,7 @@
 {"line":"Please please weigh your ingredients for accuracy. This truly makes all the difference in baking results. Just follow my gram weights listed, as this is how my recipes are tested. Add the bowl to the scale, hit zero and add each ingredient, hitting zero in between.","language":"en","kind":"other"}
 {"line":"Ranch (for serving* (optional))","language":"en","parts":[{"en":"ranch dressing","it":"salsa ranch","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}
 {"line":"Salt & Pepper, to taste","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"pepper","it":"pepe","toTaste":true}]}
-{"line":"Salt and fresh-cracked pepper (, to taste)","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"freshly cracked pepper","it":"pepe macinato al momento","toTaste":true}]}
+{"line":"Salt and fresh-cracked pepper (, to taste)","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"fresh-cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"Serving suggestions: vegan Parmesan, fresh oregano","language":"en","parts":[{"en":"vegan Parmesan","it":"parmigiano vegano","purposeEn":"for serving","purposeIt":"per servire"},{"en":"fresh oregano","it":"origano fresco","purposeEn":"for serving","purposeIt":"per servire"}]}
 {"line":"Several squeezes of lime juice","language":"en","parts":[{"en":"lime juice","it":"succo di lime"}]}
 {"line":"This Espresso Chocolate Frosting is a great option","language":"en","kind":"other"}

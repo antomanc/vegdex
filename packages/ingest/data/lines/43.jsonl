@@ -92,7 +92,7 @@
 {"line":"1 tablespoon ginger garlic paste (optional)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"ginger garlic paste","it":"pasta di zenzero e aglio","optional":true}]}
 {"line":"1 tablespoon ginger garlic paste or use 1/2 inch of minced ginger and 3 cloves of garlic (minced)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"ginger garlic paste","it":"pasta di zenzero e aglio","alternatives":[{"en":"ginger and garlic","it":"zenzero e aglio"}]}]}
 {"line":"1 tablespoon salt, plus a pinch more for seasoning the tofu","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"salt","it":"sale","plus":{"quantity":1,"unit":"pinch"},"purposeEn":"for seasoning the tofu","purposeIt":"per condire il tofu"}]}
-{"line":"1 tablespoon soy sauce ((use low-sodium if desired))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"soy sauce","it":"salsa di soia"}]}
+{"line":"1 tablespoon soy sauce ((use low-sodium if desired))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"low-sodium soy sauce","it":"salsa di soia a basso contenuto di sodio"}]}]}
 {"line":"1 tablespoon vegan fish sauce (optional)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegan fish sauce","it":"salsa di pesce vegana","optional":true}]}
 {"line":"1 tablespoon water (optional)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"water","it":"acqua","optional":true}]}
 {"line":"1 tbsp cilantro ((for garnish))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"cilantro","it":"coriandolo fresco","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
@@ -160,7 +160,7 @@
 {"line":"1/2 cup unsweetened apple juice","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened apple juice","it":"succo di mela senza zuccheri aggiunti"}]}
 {"line":"1/2 cup vegan butter, (softened (115g))","language":"en","parts":[{"quantity":115,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}
 {"line":"1/2 cup vegan chorizo, cut into cubes (optional)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan chorizo","it":"chorizo vegano","preparationEn":"cut into cubes","preparationIt":"tagliato a cubetti","optional":true}]}
-{"line":"1/2 cup vegan feta crumbles ((or any non-dairy cheese))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan feta crumbles","it":"feta vegetale sbriciolata","alternatives":[{"en":"nondairy cheese","it":"formaggio vegetale"}]}]}
+{"line":"1/2 cup vegan feta crumbles ((or any non-dairy cheese))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan feta","it":"feta vegana","preparationEn":"crumbled","preparationIt":"sbriciolata","alternatives":[{"en":"non-dairy cheese","it":"formaggio vegetale"}]}]}
 {"line":"1/2 cup+ 2 Tablespoons coconut sugar","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"coconut sugar","it":"zucchero di cocco","plus":{"quantity":2,"unit":"tbsp"}}]}
 {"line":"1/2 large yellow onion, (thinly sliced)","language":"en","parts":[{"quantity":0.5,"en":"large yellow onion","it":"cipolla dorata grande","preparationEn":"thinly sliced","preparationIt":"affettata sottilmente"}]}
 {"line":"1/2 lemon (juiced)","language":"en","parts":[{"quantity":0.5,"en":"lemon","it":"limone","preparationEn":"juiced","preparationIt":"spremuto"}]}
@@ -278,7 +278,7 @@
 {"line":"2 tablespoons candied pecans","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"candied pecans","it":"noci pecan caramellate"}]}
 {"line":"2 tablespoons chopped fresh Italian parsley, for serving (optional)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh Italian parsley","it":"prezzemolo italiano fresco","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}
 {"line":"2 tablespoons ground coriander ((sukha dhania powder) )","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"ground coriander","it":"coriandolo macinato"}]}
-{"line":"2 tablespoons lemon juice (, fresh-squeezed (more to taste))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"freshly squeezed lemon juice","it":"succo di limone appena spremuto","toTaste":true}]}
+{"line":"2 tablespoons lemon juice (, fresh-squeezed (more to taste))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"lemon juice","it":"succo di limone","preparationEn":"fresh-squeezed; more to taste","preparationIt":"spremuto fresco; altro a piacere"}]}
 {"line":"2 tablespoons olive oil ((plus more for massaging the kale))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","purposeEn":"plus more for massaging the kale","purposeIt":"più altro per massaggiare il cavolo riccio"}]}
 {"line":"2 tablespoons pine nuts ( or sunflower seeds (optional))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"pine nuts","it":"pinoli","optional":true,"alternatives":[{"en":"sunflower seeds","it":"semi di girasole"}]}]}
 {"line":"2 tablespoons water (more as needed)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"water","it":"acqua"}]}
@@ -304,6 +304,7 @@
 {"line":"20 oz shoestring French fries ((frozen, not thawed))","language":"en","parts":[{"quantity":20,"unit":"oz","en":"frozen shoestring French fries","it":"patatine fritte surgelate a fiammifero","preparationEn":"not thawed","preparationIt":"senza scongelarle"}]}
 {"line":"200 g garden peas (fresh or frozen)","language":"en","parts":[{"quantity":200,"unit":"g","en":"fresh peas","it":"piselli freschi","alternatives":[{"en":"frozen peas","it":"piselli surgelati"}]}]}
 {"line":"220 g icing sugar (aka confectioners sugar, sifted)","language":"en","parts":[{"quantity":220,"unit":"g","en":"icing sugar","it":"zucchero a velo","preparationEn":"sifted","preparationIt":"setacciato"}]}
+{"line":"250 g / 2 cups all purpose (not bread) wheat flour, plus extra for dusting","language":"en","parts":[{"quantity":250,"unit":"g","en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi","purposeEn":"plus extra for dusting","purposeIt":"più altra per infarinare"}]}
 {"line":"3 and 1/2 cups low-sodium vegetable broth","language":"en","parts":[{"quantity":3.5,"unit":"cup","en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio"}]}
 {"line":"3 celery stalks (diced)","language":"en","parts":[{"quantity":3,"unit":"stalk","en":"celery","it":"sedano","preparationEn":"diced","preparationIt":"tagliato a dadini"}]}
 {"line":"3 cloves of garlic (, finely chopped)","language":"en","parts":[{"quantity":3,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
@@ -342,7 +343,7 @@
 {"line":"5-6 leaves of Fresh Basil (Optional)","language":"en","parts":[{"quantity":5,"quantityMax":6,"unit":"leaf","en":"fresh basil","it":"basilico fresco","optional":true}]}
 {"line":"6 1/2 cups (173g) puffed rice cereal","language":"en","parts":[{"quantity":173,"unit":"g","en":"puffed rice cereal","it":"cereali di riso soffiato"}]}
 {"line":"6 cups 1 inch bread cubes, (about 1/2 loaf, I used multigrain, but use whatever is your favorite)","language":"en","parts":[{"quantity":6,"unit":"cup","en":"bread","it":"pane","preparationEn":"cut into cubes","preparationIt":"tagliato a cubetti"}]}
-{"line":"6 cups vegetable broth (or vegan chickenless broth)","language":"en","parts":[{"quantity":6,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"vegan chickenless broth","it":"brodo vegetale gusto pollo"}]}]}
+{"line":"6 cups vegetable broth (or vegan chickenless broth)","language":"en","parts":[{"quantity":6,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"vegan chickenless broth","it":"brodo vegano gusto pollo"}]}]}
 {"line":"6 medium tomatoes, peeled and chopped OR 2 x 400 g / 14 oz tins of peeled plum tomatoes","language":"en","parts":[{"quantity":6,"en":"medium tomatoes","it":"pomodori medi","preparationEn":"peeled and chopped","preparationIt":"pelati e tagliati a pezzi","alternatives":[{"quantity":800,"unit":"g","en":"canned peeled plum tomatoes","it":"pomodori pelati in scatola"}]}]}
 {"line":"6 ounces silken tofu ((about half of a 12.3 ounce package))","language":"en","parts":[{"quantity":6,"unit":"oz","en":"silken tofu","it":"tofu vellutato"}]}
 {"line":"6 ounces spaghetti (or other pasta of choice )","language":"en","parts":[{"quantity":6,"unit":"oz","en":"spaghetti","it":"spaghetti","alternatives":[{"en":"pasta of choice","it":"pasta a scelta"}]}]}

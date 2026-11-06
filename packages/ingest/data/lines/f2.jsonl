@@ -14,7 +14,7 @@
 {"line":"1 1/4 cups water ((use distilled or non-chlorinated water for bread, especially sourdough breads))","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"1 3/4 cup granulated sugar","language":"en","parts":[{"quantity":1.75,"unit":"cup","en":"granulated sugar","it":"zucchero semolato"}]}
 {"line":"1 3/4 cups organic granulated sugar","language":"en","parts":[{"quantity":1.75,"unit":"cup","en":"organic granulated sugar","it":"zucchero semolato biologico"}]}
-{"line":"1 400ml can full-fat coconut milk (1 3/4 cups) or Heavenly Heavy Cream (page 206 in Fuss-Free Vegan) ( frozen in an ice cube tray)","language":"en","parts":[{"quantity":400,"unit":"ml","en":"full-fat coconut milk","it":"latte di cocco intero","preparationEn":"frozen in an ice cube tray","preparationIt":"congelato in uno stampo per cubetti di ghiaccio","alternatives":[{"en":"Heavenly Heavy Cream","it":"Heavenly Heavy Cream"}]}]}
+{"line":"1 400ml can full-fat coconut milk (1 3/4 cups) or Heavenly Heavy Cream (page 206 in Fuss-Free Vegan) ( frozen in an ice cube tray)","language":"en","parts":[{"quantity":400,"unit":"ml","en":"full-fat coconut milk","it":"latte di cocco intero","preparationEn":"frozen in an ice cube tray","preparationIt":"congelato in uno stampo per cubetti di ghiaccio","alternatives":[{"en":"Heavenly Heavy Cream","it":"panna vegetale Heavenly Heavy Cream"}]}]}
 {"line":"1 Healthy Vegan Pie Crust ((see below for options))","language":"en","parts":[{"quantity":1,"en":"healthy vegan pie crust","it":"base sana per torta vegana"}]}
 {"line":"1 Tablespoon lemon juice (about 1/2 lemon juiced)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"lemon juice","it":"succo di limone"}]}
 {"line":"1 Tablespoon vital wheat gluten","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vital wheat gluten","it":"glutine di frumento"}]}
@@ -119,7 +119,7 @@
 {"line":"1/2 cup quick-cooking or rolled oats*","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"quick-cooking oats","it":"fiocchi d'avena a cottura rapida","alternatives":[{"en":"rolled oats","it":"fiocchi d'avena"}]}]}
 {"line":"1/2 cup roasted red peppers, (chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"roasted red peppers","it":"peperoni rossi arrostiti","preparationEn":"chopped","preparationIt":"tagliati a pezzi"}]}
 {"line":"1/2 cup smooth peanut butter (Choose one without palm oil, if needed.)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"smooth peanut butter","it":"burro di arachidi cremoso"}]}
-{"line":"1/2 cup sugar ((1/4 cup if you use fresh-squeezed orange juice).)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"sugar","it":"zucchero"}]}
+{"line":"1/2 cup sugar ((1/4 cup if you use fresh-squeezed orange juice).)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"sugar","it":"zucchero","preparationEn":"use 1/4 cup if using fresh-squeezed orange juice","preparationIt":"usare 1/4 di tazza se si usa succo d'arancia appena spremuto"}]}
 {"line":"1/2 cup vegan mozzarella, (cubed)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan mozzarella","it":"mozzarella vegana","preparationEn":"cubed","preparationIt":"tagliata a cubetti"}]}
 {"line":"1/2 cup vermicelli noodles (broken into 4 to 5 inch pieces, use Thai Rice vermicelli for gf)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vermicelli noodles","it":"vermicelli","preparationEn":"broken into pieces","preparationIt":"spezzati"}]}
 {"line":"1/2 cup water + 1/2 cup water, added at separate times","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"water","it":"acqua","plus":{"quantity":0.5,"unit":"cup"},"preparationEn":"added at separate times","preparationIt":"aggiunta in momenti diversi"}]}
@@ -133,7 +133,7 @@
 {"line":"1/2 teaspoon ground coriander","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"ground coriander","it":"coriandolo macinato"}]}
 {"line":"1/2 to 1 tsp red pepper flakes ((use more or less according to your tolerance))","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi"}]}
 {"line":"1/2 to 3/4 cup almond milk","language":"en","parts":[{"quantity":0.5,"quantityMax":0.75,"unit":"cup","en":"almond milk","it":"latte di mandorla"}]}
-{"line":"1/2 to 3/4 cup almond milk or non dairy creamer","language":"en","parts":[{"quantity":0.5,"quantityMax":0.75,"unit":"cup","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"non-dairy creamer","it":"crema vegetale per caffè"}]}]}
+{"line":"1/2 to 3/4 cup almond milk or non dairy creamer","language":"en","parts":[{"quantity":0.5,"quantityMax":0.75,"unit":"cup","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"non-dairy creamer","it":"crema vegetale"}]}]}
 {"line":"1/2 tsp salt (decrease to 1/4 tsp if using salted butter)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"1/2 yellow onion, (sliced)","language":"en","parts":[{"quantity":0.5,"en":"yellow onion","it":"cipolla dorata","preparationEn":"sliced","preparationIt":"tagliata a fettine"}]}
 {"line":"1/3 cup (38g) raw walnuts, finely chopped","language":"en","parts":[{"quantity":38,"unit":"g","en":"raw walnuts","it":"noci crude","preparationEn":"finely chopped","preparationIt":"tritate finemente"}]}
@@ -160,7 +160,7 @@
 {"line":"1/4 tsp. cayenne","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna"}]}
 {"line":"1/4-1/2 tsp smoked paprika","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"smoked paprika","it":"paprika affumicata"}]}
 {"line":"10 oz asparagus (woody ends removed, chopped into bite-size pieces)","language":"en","parts":[{"quantity":10,"unit":"oz","en":"asparagus","it":"asparagi","preparationEn":"woody ends removed, chopped into bite-size pieces","preparationIt":"privati delle estremità legnose e tagliati a bocconcini"}]}
-{"line":"100 g almond flour ((ground almonds))","language":"en","parts":[{"quantity":100,"unit":"g","en":"almond flour","it":"farina di mandorle"}]}
+{"line":"100 g almond flour ((ground almonds))","language":"en","parts":[{"quantity":100,"unit":"g","en":"almond flour","it":"farina di mandorle","preparationEn":"ground almonds","preparationIt":"mandorle macinate"}]}
 {"line":"12 to 16 ounces of sturdy tortilla chips*","language":"en","parts":[{"quantity":12,"quantityMax":16,"unit":"oz","en":"sturdy tortilla chips","it":"tortilla chips consistenti"}]}
 {"line":"120 g icing sugar","language":"en","parts":[{"quantity":120,"unit":"g","en":"icing sugar","it":"zucchero a velo"}]}
 {"line":"14 oz can coconut milk (or 1 1/4 cup cashew milk)","language":"en","parts":[{"quantity":14,"unit":"oz","en":"coconut milk","it":"latte di cocco","alternatives":[{"quantity":1.25,"unit":"cup","en":"cashew milk","it":"latte di anacardi"}]}]}

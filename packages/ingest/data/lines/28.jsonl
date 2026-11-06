@@ -199,7 +199,7 @@
 {"line":"1½ cups snap peas, thinly sliced","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"snap peas","it":"piselli mangiatutto","preparationEn":"thinly sliced","preparationIt":"tagliati a fettine sottili"}]}
 {"line":"1½ tbsp lemon juice","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"lemon juice","it":"succo di limone"}]}
 {"line":"2 (15-ounce) cans of cannellini beans (~850g), drained and rinsed","language":"en","parts":[{"quantity":850,"unit":"g","en":"canned cannellini beans","it":"fagioli cannellini in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
-{"line":"2 1/2 cups 475 ml imitation “beef-flavored” broth (or sub vegetable broth)","language":"en","parts":[{"quantity":475,"unit":"ml","en":"vegan beef-flavored broth","it":"brodo vegetale al gusto di manzo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"2 1/2 cups 475 ml imitation “beef-flavored” broth (or sub vegetable broth)","language":"en","parts":[{"quantity":475,"unit":"ml","en":"vegan beef-flavored broth","it":"brodo vegano gusto manzo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"2 1/2 cups mushrooms (sliced)","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"mushrooms","it":"funghi","preparationEn":"sliced","preparationIt":"tagliati a fette"}]}
 {"line":"2 1/2 tablespoons olive oil","language":"en","parts":[{"quantity":2.5,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"2 1/2 teaspoons apple cider vinegar","language":"en","parts":[{"quantity":2.5,"unit":"tsp","en":"apple cider vinegar","it":"aceto di mele"}]}
@@ -243,7 +243,7 @@
 {"line":"2 tablespoons of brown sugar (or sweetener of choice)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"brown sugar","it":"zucchero di canna","alternatives":[{"en":"sweetener of choice","it":"dolcificante a scelta"}]}]}
 {"line":"2 tablespoons powdered sugar (16 grams)","language":"en","parts":[{"quantity":16,"unit":"g","en":"powdered sugar","it":"zucchero a velo"}]}
 {"line":"2 tablespoons thinly sliced shallot","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"shallot","it":"scalogno","preparationEn":"thinly sliced","preparationIt":"tagliato a fettine sottili"}]}
-{"line":"2 tablespoons vegan butter (salted, if unsalted, add ¼ teaspoon sea salt)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"salted vegan butter","it":"burro vegetale salato"}]}
+{"line":"2 tablespoons vegan butter (salted, if unsalted, add ¼ teaspoon sea salt)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"salted vegan butter","it":"burro vegetale salato","alternatives":[{"en":"unsalted vegan butter","it":"burro vegetale non salato"}]}]}
 {"line":"2 tbsp apple cider vinegar ((or balsamic or white vinegar))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"apple cider vinegar","it":"aceto di mele","alternatives":[{"en":"balsamic vinegar","it":"aceto balsamico"},{"en":"white vinegar","it":"aceto bianco"}]}]}
 {"line":"2 tbsp capers, drained and roughly chopped (optional)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"capers","it":"capperi","preparationEn":"drained and roughly chopped","preparationIt":"scolati e tritati grossolanamente","optional":true}]}
 {"line":"2 tbsp cilantro ((mint makes an excellent substitute, or use half and half))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"cilantro","it":"coriandolo fresco","alternatives":[{"en":"mint","it":"menta"}]}]}
@@ -349,7 +349,7 @@
 {"line":"8 ounces dairy free chocolate chips","language":"en","parts":[{"quantity":8,"unit":"oz","en":"dairy-free chocolate chips","it":"gocce di cioccolato senza latte"}]}
 {"line":"8 ounces extra-firm tofu (, gently press out excess water, and cube)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"extra-firm tofu","it":"tofu extra compatto","preparationEn":"gently pressed to remove excess water and cubed","preparationIt":"pressato delicatamente per eliminare l'acqua in eccesso e tagliato a cubetti"}]}
 {"line":"8 ounces super firm tofu, (drained and cut into 1 inch cubes)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"super firm tofu","it":"tofu molto compatto","preparationEn":"drained and cut into cubes","preparationIt":"scolato e tagliato a cubetti"}]}
-{"line":"8 ounces vegan breakfast sausage ((we used Lightlife ground))","language":"en","parts":[{"quantity":8,"unit":"oz","en":"vegan breakfast sausage","it":"salsiccia vegetale da colazione"}]}
+{"line":"8 ounces vegan breakfast sausage ((we used Lightlife ground))","language":"en","parts":[{"quantity":8,"unit":"oz","en":"vegan breakfast sausage","it":"salsiccia vegana da colazione"}]}
 {"line":"8-10 cups filtered water*","language":"en","parts":[{"quantity":8,"quantityMax":10,"unit":"cup","en":"filtered water","it":"acqua filtrata"}]}
 {"line":"8.5 ounces cocoa butter","language":"en","parts":[{"quantity":8.5,"unit":"oz","en":"cocoa butter","it":"burro di cacao"}]}
 {"line":"80 g / 2.8 oz raisins","language":"en","parts":[{"quantity":80,"unit":"g","en":"raisins","it":"uvetta"}]}
@@ -381,7 +381,7 @@
 {"line":"Summer: sweet cherry/grape tomatoes, (halved)","language":"en","parts":[{"en":"sweet cherry or grape tomatoes","it":"pomodorini ciliegini o datterini dolci","preparationEn":"halved","preparationIt":"tagliati a metà"}]}
 {"line":"Toppings of choice, (such as organic powdered sugar, fresh fruit, vegan butter, and maple syrup)","language":"en","parts":[{"en":"toppings of choice","it":"guarnizioni a scelta","alternatives":[{"en":"organic powdered sugar","it":"zucchero a velo biologico"},{"en":"fresh fruit","it":"frutta fresca"},{"en":"vegan butter","it":"burro vegetale"},{"en":"maple syrup","it":"sciroppo d'acero"}]}]}
 {"line":"Vegan Whipped Cream","language":"en","parts":[{"en":"vegan whipped cream","it":"panna montata vegetale"}]}
-{"line":"Vegan blue cheese dressing","language":"en","parts":[{"en":"vegan blue cheese dressing","it":"salsa vegana al formaggio erborinato"}]}
+{"line":"Vegan blue cheese dressing","language":"en","parts":[{"en":"vegan blue cheese dressing","it":"condimento vegano al formaggio erborinato"}]}
 {"line":"Wedges of lemon ((for serving))","language":"en","parts":[{"en":"lemon","it":"limone","preparationEn":"cut into wedges","preparationIt":"tagliato a spicchi","purposeEn":"for serving","purposeIt":"per servire"}]}
 {"line":"a few cherry toms, chopped","language":"en","parts":[{"en":"cherry tomatoes","it":"pomodorini ciliegino","preparationEn":"chopped","preparationIt":"tagliati"}]}
 {"line":"a handful of broccoli florets","language":"en","parts":[{"quantity":1,"unit":"handful","en":"broccoli florets","it":"cimette di broccoli"}]}
@@ -403,7 +403,7 @@
 {"line":"zest 1 small lemon + approx. 30 ml / 2 tbsp juice","language":"en","parts":[{"quantity":1,"en":"small lemon","it":"limone piccolo","preparationEn":"zested","preparationIt":"scorza grattugiata"},{"quantity":30,"unit":"ml","en":"lemon juice","it":"succo di limone"}]}
 {"line":"zest of ½ lemon, optional","language":"en","parts":[{"quantity":0.5,"en":"lemon zest","it":"scorza di limone","optional":true}]}
 {"line":"¼ cup almond milk (or any non dairy milk)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"non-dairy milk","it":"latte vegetale"}]}]}
-{"line":"¼ cup lemon juice ((fresh squeezed))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"lemon juice","it":"succo di limone","preparationEn":"freshly squeezed","preparationIt":"spremuto fresco"}]}
+{"line":"¼ cup lemon juice ((fresh squeezed))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"lemon juice","it":"succo di limone","preparationEn":"fresh squeezed","preparationIt":"spremuto fresco"}]}
 {"line":"¼ cup light brown sugar","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"light brown sugar","it":"zucchero di canna chiaro"}]}
 {"line":"¼ cup of Kalamata olives (chopped very finely)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"Kalamata olives","it":"olive Kalamata","preparationEn":"chopped very finely","preparationIt":"tritate molto finemente"}]}
 {"line":"¼ teaspoon cream of tartar","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"cream of tartar","it":"cremor tartaro"}]}

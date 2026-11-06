@@ -144,13 +144,13 @@
 {"line":"1/2 cup of finely chopped nuts and seeds such as pecans, walnuts, cashews, pumpkin seeds, or hemp seeds.","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"nuts and seeds of choice","it":"frutta secca e semi a scelta","preparationEn":"finely chopped","preparationIt":"tritati finemente","alternatives":[{"en":"pecans","it":"noci pecan"},{"en":"walnuts","it":"noci"},{"en":"cashews","it":"anacardi"},{"en":"pumpkin seeds","it":"semi di zucca"},{"en":"hemp seeds","it":"semi di canapa"}]}]}
 {"line":"1/2 cup panko breadcrumbs, (plus more if needed *see notes (gluten-free breadcrumbs if preferred))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"panko breadcrumbs","it":"pangrattato panko","alternatives":[{"en":"gluten-free breadcrumbs","it":"pangrattato senza glutine"}]}]}
 {"line":"1/2 cup pitted medjool dates, packed","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"medjool dates","it":"datteri medjool","preparationEn":"pitted, packed","preparationIt":"denocciolati e pressati nella tazza"}]}
-{"line":"1/2 cup plant-based milk (of choice (I used canned coconut milk))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"plant-based milk","it":"latte vegetale"}]}
+{"line":"1/2 cup plant-based milk (of choice (I used canned coconut milk))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"plant-based milk of choice","it":"latte vegetale a scelta"}]}
 {"line":"1/2 cup soy milk, plus 2 tablespoons (divided)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"soy milk","it":"latte di soia","plus":{"quantity":2,"unit":"tbsp"},"preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"1/2 cup vegan mini pretzels","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan mini pretzels","it":"mini pretzel vegani"}]}
 {"line":"1/2 cup white wine (I used Chardonnay)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"white wine","it":"vino bianco"}]}
 {"line":"1/2 head cauliflower, (cut into florets (about 6 cups))","language":"en","parts":[{"quantity":0.5,"unit":"head","en":"cauliflower","it":"cavolfiore","preparationEn":"cut into florets","preparationIt":"diviso in cimette"}]}
 {"line":"1/2 packed cup (80g) finely diced yellow onion","language":"en","parts":[{"quantity":80,"unit":"g","en":"yellow onion","it":"cipolla dorata","preparationEn":"finely diced","preparationIt":"tagliata a dadini piccoli"}]}
-{"line":"1/2 recipe of chickpea pepperoni ( or 12 to 16 slices plant-based pepperoni)","language":"en","parts":[{"quantity":0.5,"unit":"recipe","en":"chickpea pepperoni","it":"pepperoni di ceci","alternatives":[{"quantity":12,"quantityMax":16,"unit":"slice","en":"plant-based pepperoni","it":"pepperoni vegetale"}]}]}
+{"line":"1/2 recipe of chickpea pepperoni ( or 12 to 16 slices plant-based pepperoni)","language":"en","parts":[{"quantity":0.5,"unit":"recipe","en":"chickpea pepperoni","it":"salame piccante vegetale di ceci","alternatives":[{"quantity":12,"quantityMax":16,"unit":"slice","en":"plant-based pepperoni","it":"salame piccante vegetale"}]}]}
 {"line":"1/2 tbsp oil (or use water if oil-free)","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"oil","it":"olio","alternatives":[{"en":"water","it":"acqua"}]}]}
 {"line":"1/2 teaspoon carom seeds (ajwain) or cumin seeds","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"carom seeds","it":"semi di ajwain","alternatives":[{"en":"cumin seeds","it":"semi di cumino"}]}]}
 {"line":"1/2 teaspoon kosher salt, (plus more to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"kosher salt","it":"sale kosher","toTaste":true}]}
@@ -195,7 +195,7 @@
 {"line":"1/4 teaspoon crushed red pepper flakes ((optional for spice))","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"crushed red pepper flakes","it":"peperoncino rosso in fiocchi","optional":true}]}
 {"line":"1/4 teaspoon cumin seeds (or use ground cumin)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"cumin seeds","it":"semi di cumino","alternatives":[{"en":"ground cumin","it":"cumino macinato"}]}]}
 {"line":"1/4 teaspoon dried ginger","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"dried ginger","it":"zenzero essiccato"}]}
-{"line":"1/4 teaspoon fresh ground black pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"black pepper","it":"pepe nero","preparationEn":"freshly ground","preparationIt":"macinato fresco"}]}
+{"line":"1/4 teaspoon fresh ground black pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"fresh ground black pepper","it":"pepe nero macinato fresco"}]}
 {"line":"1/4 teaspoon ground clove (or use 1 whole clove)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground clove","it":"chiodi di garofano macinati","alternatives":[{"quantity":1,"en":"whole clove","it":"chiodo di garofano intero"}]}]}
 {"line":"1/4 teaspoon himalayan salt, or to taste","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"Himalayan salt","it":"sale dell'Himalaya","toTaste":true}]}
 {"line":"1/4 teaspoon paprika (0.6g)","language":"en","parts":[{"quantity":0.6,"unit":"g","en":"paprika","it":"paprika"}]}
@@ -274,7 +274,7 @@
 {"line":"2 tbsp parsley (chopped)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"parsley","it":"prezzemolo","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"2 tbsp pine nuts, toasted on a dry pan","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"pine nuts","it":"pinoli","preparationEn":"toasted in a dry pan","preparationIt":"tostati in una padella asciutta"}]}
 {"line":"2 tbsp tahini (optional)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"tahini","it":"tahina","optional":true}]}
-{"line":"2 tbsp vegan beef gravy granules (I use Bisto, or sub for 1 vegan stock cube)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan beef gravy granules","it":"granuli per salsa gravy vegetale al gusto manzo","alternatives":[{"quantity":1,"unit":"cube","en":"vegan stock","it":"brodo vegetale"}]}]}
+{"line":"2 tbsp vegan beef gravy granules (I use Bisto, or sub for 1 vegan stock cube)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan beef gravy granules","it":"preparato granulare vegano per salsa al gusto di manzo","alternatives":[{"quantity":1,"unit":"cube","en":"vegan stock cube","it":"dado vegetale vegano"}]}]}
 {"line":"2 teaspoons garlic powder (6g)","language":"en","parts":[{"quantity":6,"unit":"g","en":"garlic powder","it":"aglio in polvere"}]}
 {"line":"2 teaspoons methi seeds ((Fenugreek seeds))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"fenugreek seeds","it":"semi di fieno greco"}]}
 {"line":"2 teaspoons nutritional yeast","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"nutritional yeast","it":"lievito alimentare"}]}
@@ -339,7 +339,7 @@
 {"line":"4 slices vegan bread","language":"en","parts":[{"quantity":4,"unit":"slice","en":"vegan bread","it":"pane vegano"}]}
 {"line":"4 stalks of celery","language":"en","parts":[{"quantity":4,"unit":"stalk","en":"celery","it":"sedano"}]}
 {"line":"4 tablespoons ground cinnamon","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"ground cinnamon","it":"cannella in polvere"}]}
-{"line":"4 tablespoons vegan pesto rosso (red pesto with sun-dried tomatoes) (use a store-bought vegan one or use homemade vegan pesto)","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"vegan pesto rosso","it":"pesto rosso vegano"}]}
+{"line":"4 tablespoons vegan pesto rosso (red pesto with sun-dried tomatoes) (use a store-bought vegan one or use homemade vegan pesto)","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"vegan pesto rosso with sun-dried tomatoes","it":"pesto rosso vegano con pomodori secchi"}]}
 {"line":"4 tbsp coconut oil ((see notes))","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"coconut oil","it":"olio di cocco"}]}
 {"line":"4 to 6 sandwich rolls, (sliced open)","language":"en","parts":[{"quantity":4,"quantityMax":6,"en":"sandwich rolls","it":"panini","preparationEn":"sliced open","preparationIt":"tagliati a metà"}]}
 {"line":"4 x baby gem lettuces OR 2 x cos lettuce (torn, washed and dried)","language":"en","parts":[{"quantity":4,"en":"baby gem lettuces","it":"lattughe baby gem","preparationEn":"torn, washed and dried","preparationIt":"spezzettate, lavate e asciugate","alternatives":[{"quantity":2,"en":"cos lettuces","it":"lattughe romane"}]}]}

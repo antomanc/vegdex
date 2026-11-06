@@ -123,7 +123,7 @@
 {"line":"1 tsp scant instant coffee","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"instant coffee","it":"caffè solubile"}]}
 {"line":"1 tsp spicy mustard","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"spicy mustard","it":"senape piccante"}]}
 {"line":"1 tsp. olive oil","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"olive oil","it":"olio d'oliva"}]}
-{"line":"1 vegan egg yolk (recipe below (or sub 2 tablespoons olive oil))","language":"en","parts":[{"quantity":1,"en":"vegan egg yolk","it":"tuorlo vegano","alternatives":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}]}
+{"line":"1 vegan egg yolk (recipe below (or sub 2 tablespoons olive oil))","language":"en","parts":[{"quantity":1,"en":"vegan egg yolk","it":"tuorlo d'uovo vegano","alternatives":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}]}
 {"line":"1 x 400 g / 14 oz full fat coconut milk","language":"en","parts":[{"quantity":400,"unit":"g","en":"full-fat coconut milk","it":"latte di cocco intero"}]}
 {"line":"1 zucchini (cubed)","language":"en","parts":[{"quantity":1,"en":"zucchini","it":"zucchine","preparationEn":"cubed","preparationIt":"tagliata a cubetti"}]}
 {"line":"1 ¼ cups old fashioned oats","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"old-fashioned oats","it":"fiocchi d'avena tradizionali"}]}
@@ -227,7 +227,7 @@
 {"line":"2 ribs celery (chopped)","language":"en","parts":[{"quantity":2,"unit":"rib","en":"celery","it":"sedano","preparationEn":"chopped","preparationIt":"tagliato"}]}
 {"line":"2 tablespoons (16g) tapioca starch (or cornstarch)","language":"en","parts":[{"quantity":16,"unit":"g","en":"tapioca starch","it":"amido di tapioca","alternatives":[{"en":"cornstarch","it":"amido di mais"}]}]}
 {"line":"2 tablespoons fresh parsley, finely minced","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"finely minced","preparationIt":"tritato finemente"}]}
-{"line":"2 tablespoons fresh squeezed orange juice","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"freshly squeezed orange juice","it":"succo d'arancia appena spremuto"}]}
+{"line":"2 tablespoons fresh squeezed orange juice","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh orange juice","it":"succo d'arancia fresco","preparationEn":"freshly squeezed","preparationIt":"spremuto al momento"}]}
 {"line":"2 tablespoons lemon juice (, more to taste)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"lemon juice","it":"succo di limone","toTaste":true}]}
 {"line":"2 tablespoons of mint","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"mint","it":"menta"}]}
 {"line":"2 tablespoons pumpkin seeds*","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"pumpkin seeds","it":"semi di zucca"}]}
@@ -362,7 +362,7 @@
 {"line":"about 100 g panko breadcrumbs** or GF breadcrumbs if required","language":"en","parts":[{"quantity":100,"unit":"g","en":"panko breadcrumbs","it":"pangrattato panko"}]}
 {"line":"almond parmesan","language":"en","parts":[{"en":"almond parmesan","it":"parmigiano di mandorle"}]}
 {"line":"approx. 480 ml / 2 cups almond milk","language":"en","parts":[{"quantity":480,"unit":"ml","en":"almond milk","it":"latte di mandorla"}]}
-{"line":"black pepper, extra virgin olive oil, nutritional yeast, pepita Parmesan, or non-dairy cheese","language":"en","parts":[{"en":"black pepper","it":"pepe nero"},{"en":"extra virgin olive oil","it":"olio extravergine d'oliva"},{"en":"nutritional yeast","it":"lievito alimentare"},{"en":"pepita Parmesan","it":"parmigiano vegetale ai semi di zucca"},{"en":"non-dairy cheese","it":"formaggio vegetale"}]}
+{"line":"black pepper, extra virgin olive oil, nutritional yeast, pepita Parmesan, or non-dairy cheese","language":"en","parts":[{"en":"black pepper","it":"pepe nero"},{"en":"extra virgin olive oil","it":"olio extravergine d'oliva"},{"en":"nutritional yeast","it":"lievito alimentare"},{"en":"pepita Parmesan","it":"parmigiano vegetale di semi di zucca"},{"en":"non-dairy cheese","it":"formaggio vegetale"}]}
 {"line":"bread slices or lettuce leaves as needed","language":"en","parts":[{"en":"bread","it":"pane","preparationEn":"sliced","preparationIt":"a fette","alternatives":[{"en":"lettuce leaves","it":"foglie di lattuga"}]}]}
 {"line":"chopped fresh coriander/cilantro, to serve","language":"en","parts":[{"en":"fresh cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"for serving","purposeIt":"per servire"}]}
 {"line":"coarse sea salt, sesame seeds or poppy seeds, to garnish (optional)","language":"en","parts":[{"en":"coarse sea salt","it":"sale marino grosso","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true},{"en":"sesame seeds","it":"semi di sesamo","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true,"alternatives":[{"en":"poppy seeds","it":"semi di papavero"}]}]}
@@ -394,7 +394,7 @@
 {"line":"½ Cup Olive Oil","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"½ cup (loosely packed) raw coconut flakes","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"raw coconut flakes","it":"scaglie di cocco crude"}]}
 {"line":"½ cup full-fat coconut milk (from the can (280g))","language":"en","parts":[{"quantity":280,"unit":"g","en":"canned full-fat coconut milk","it":"latte di cocco intero in lattina"}]}
-{"line":"½ cup non-dairy yogurt","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"plant-based yogurt","it":"yogurt vegetale"}]}
+{"line":"½ cup non-dairy yogurt","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"non-dairy yogurt","it":"yogurt vegetale"}]}
 {"line":"½ cup of plant-based milk ((soy milk works best))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"plant-based milk","it":"latte vegetale"}]}
 {"line":"½ teaspoon of vanilla extract","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia"}]}
 {"line":"½ teaspoon red pepper flakes ((optional, for more heat))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi","optional":true}]}

@@ -109,7 +109,7 @@
 {"line":"1-inch stick cinnamon ((broken into smaller pieces))","language":"en","parts":[{"quantity":1,"unit":"stick","en":"cinnamon","it":"cannella","preparationEn":"broken into smaller pieces","preparationIt":"spezzata in pezzi più piccoli"}]}
 {"line":"1.5 cups of chopped green beans","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"green beans","it":"fagiolini","preparationEn":"chopped","preparationIt":"tagliati a pezzetti"}]}
 {"line":"1/2 Honeydew melon (seeds & skin removed, about 4 cups diced)","language":"en","parts":[{"quantity":0.5,"en":"honeydew melon","it":"melone honeydew","preparationEn":"seeds and skin removed","preparationIt":"privato dei semi e della buccia"}]}
-{"line":"1/2 cup almond milk or other non dairy milk","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"other dairy-free milk","it":"altro latte vegetale"}]}]}
+{"line":"1/2 cup almond milk or other non dairy milk","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"non-dairy milk","it":"latte vegetale"}]}]}
 {"line":"1/2 cup boiling hot water","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"water","it":"acqua","preparationEn":"boiling hot","preparationIt":"bollente"}]}
 {"line":"1/2 cup breadcrumbs","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"breadcrumbs","it":"pangrattato"}]}
 {"line":"1/2 cup chopped dark chocolate","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"dark chocolate","it":"cioccolato fondente","preparationEn":"chopped","preparationIt":"tritato"}]}
@@ -141,7 +141,7 @@
 {"line":"1/2 seasoning (*made above)","language":"en","parts":[{"quantity":0.5,"en":"seasoning","it":"condimento"}]}
 {"line":"1/2 tablespoon (7g) vanilla extract","language":"en","parts":[{"quantity":7,"unit":"g","en":"vanilla extract","it":"estratto di vaniglia"}]}
 {"line":"1/2 tbsp white vinegar","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"white vinegar","it":"aceto bianco"}]}
-{"line":"1/2 teaspoon fresh cracked black pepper","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"freshly cracked black pepper","it":"pepe nero macinato al momento"}]}
+{"line":"1/2 teaspoon fresh cracked black pepper","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"fresh cracked black pepper","it":"pepe nero macinato fresco"}]}
 {"line":"1/2 teaspoon fresh thyme leaves (or 1/4 teaspoon dried; optional)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"fresh thyme leaves","it":"foglie di timo fresco","optional":true,"alternatives":[{"quantity":0.25,"unit":"tsp","en":"dried thyme","it":"timo essiccato"}]}]}
 {"line":"1/2 teaspoon raw sugar (ground)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"raw sugar","it":"zucchero grezzo","preparationEn":"ground","preparationIt":"macinato"}]}
 {"line":"1/2 teaspoon toasted sesame oil, or to taste","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"toasted sesame oil","it":"olio di sesamo tostato","toTaste":true}]}
@@ -172,7 +172,7 @@
 {"line":"1/4 cup water or broth (or 2 teaspoons oil to saute)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"water","it":"acqua","alternatives":[{"en":"broth","it":"brodo"},{"quantity":2,"unit":"tsp","en":"oil","it":"olio"}]}]}
 {"line":"1/4 medium red onion, (very roughly chopped)","language":"en","parts":[{"quantity":0.25,"en":"medium red onion","it":"cipolla rossa media","preparationEn":"very roughly chopped","preparationIt":"tritata molto grossolanamente"}]}
 {"line":"1/4 teaspoon cayenne (or black pepper, or both, or use paprika)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna","alternatives":[{"en":"black pepper","it":"pepe nero"},{"en":"paprika","it":"paprika"}]}]}
-{"line":"1/4 teaspoon fresh ground black pepper (or to taste)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"freshly ground black pepper","it":"pepe nero macinato al momento","toTaste":true}]}
+{"line":"1/4 teaspoon fresh ground black pepper (or to taste)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"fresh ground black pepper","it":"pepe nero macinato fresco","preparationEn":"or to taste","preparationIt":"oppure a piacere"}]}
 {"line":"1/4 teaspoon ground cloves (optional, but it's incredible with it!)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground cloves","it":"chiodi di garofano macinati","optional":true}]}
 {"line":"1/4 tsp each of garlic powder and onion powder","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"garlic powder","it":"aglio in polvere"},{"quantity":0.25,"unit":"tsp","en":"onion powder","it":"cipolla in polvere"}]}
 {"line":"1/4 tsp sugar or maple","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"sugar","it":"zucchero","alternatives":[{"en":"maple syrup","it":"sciroppo d'acero"}]}]}
@@ -217,7 +217,7 @@
 {"line":"2 cloves garlic, (finely chopped)","language":"en","parts":[{"quantity":2,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"2 crusty baguettes","language":"en","parts":[{"quantity":2,"en":"crusty baguettes","it":"baguette dalla crosta croccante"}]}
 {"line":"2 cups broccoli florets (roughly chopped)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"broccoli florets","it":"cimette di broccoli","preparationEn":"roughly chopped","preparationIt":"tagliate grossolanamente"}]}
-{"line":"2 cups green beans or haricot vert, (cut into one-inch pieces. You can use frozen.)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"green beans","it":"fagiolini","preparationEn":"cut into one-inch pieces","preparationIt":"tagliati a pezzetti di circa 2,5 cm"}]}
+{"line":"2 cups green beans or haricot vert, (cut into one-inch pieces. You can use frozen.)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"green beans","it":"fagiolini","preparationEn":"cut into one-inch pieces","preparationIt":"tagliati a pezzi di circa 2,5 cm","alternatives":[{"en":"haricots verts","it":"fagiolini sottili"},{"en":"frozen green beans","it":"fagiolini surgelati"}]}]}
 {"line":"2 cups of cooked black beans","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cooked black beans","it":"fagioli neri cotti"}]}
 {"line":"2 cups organic powdered sugar","language":"en","parts":[{"quantity":2,"unit":"cup","en":"organic powdered sugar","it":"zucchero a velo biologico"}]}
 {"line":"2 cups unsalted sunflower seeds","language":"en","parts":[{"quantity":2,"unit":"cup","en":"unsalted sunflower seeds","it":"semi di girasole non salati"}]}
@@ -237,7 +237,7 @@
 {"line":"2 sprigs fresh thyme ((sub 1 teaspoon dried))","language":"en","parts":[{"quantity":2,"unit":"sprig","en":"fresh thyme","it":"timo fresco","alternatives":[{"quantity":1,"unit":"tsp","en":"dried thyme","it":"timo essiccato"}]}]}
 {"line":"2 sprigs fresh thyme, (stems removed)","language":"en","parts":[{"quantity":2,"unit":"sprig","en":"fresh thyme","it":"timo fresco","preparationEn":"stems removed","preparationIt":"privato dei gambi"}]}
 {"line":"2 sweet apples (1/2” dice and peeled if preferred (I prefer honeycrisp))","language":"en","parts":[{"quantity":2,"en":"sweet apples","it":"mele dolci","preparationEn":"diced, peeled if preferred","preparationIt":"tagliate a dadini, sbucciate se si preferisce"}]}
-{"line":"2 tablespoon non-dairy yogurt","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan yogurt","it":"yogurt vegetale"}]}
+{"line":"2 tablespoon non-dairy yogurt","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"non-dairy yogurt","it":"yogurt vegetale"}]}
 {"line":"2 tablespoon vegan Worcestershire sauce","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan Worcestershire sauce","it":"salsa Worcestershire vegana"}]}
 {"line":"2 tablespoons Olive Oil","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"2 tablespoons Simply Nature Avocado Oil","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"Simply Nature avocado oil","it":"olio di avocado Simply Nature"}]}

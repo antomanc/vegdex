@@ -196,7 +196,7 @@
 {"line":"10-15 fresh sage leaves","language":"en","parts":[{"quantity":10,"quantityMax":15,"en":"fresh sage leaves","it":"foglie di salvia fresca"}]}
 {"line":"100 g dark or semisweet chocolate","language":"en","parts":[{"quantity":100,"unit":"g","en":"dark chocolate","it":"cioccolato fondente","alternatives":[{"en":"semisweet chocolate","it":"cioccolato fondente semidolce"}]}]}
 {"line":"113.5g (1/4 package or about 1/2 cup) silken tofu⁣","language":"en","parts":[{"quantity":113.5,"unit":"g","en":"silken tofu","it":"tofu vellutato"}]}
-{"line":"12 cups not chick'n broth ((or 6 cups broth and 6 cups water with extra salt to save money))","language":"en","parts":[{"quantity":12,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo","alternatives":[{"quantity":6,"unit":"cup","en":"broth","it":"brodo"},{"quantity":6,"unit":"cup","en":"water with extra salt","it":"acqua con aggiunta di sale"}]}]}
+{"line":"12 cups not chick'n broth ((or 6 cups broth and 6 cups water with extra salt to save money))","language":"en","parts":[{"quantity":12,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo","alternatives":[{"quantity":6,"unit":"cup","en":"broth","it":"brodo"},{"quantity":6,"unit":"cup","en":"water with extra salt","it":"acqua con aggiunta di sale"}]}]}
 {"line":"12 dates","language":"en","parts":[{"quantity":12,"en":"dates","it":"datteri"}]}
 {"line":"12.3 ounces (350 g) silken tofu*, drained","language":"en","parts":[{"quantity":350,"unit":"g","en":"silken tofu","it":"tofu vellutato","preparationEn":"drained","preparationIt":"scolato"}]}
 {"line":"15 oz canned or cooked kidney beans ((drained))","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned kidney beans","it":"fagioli rossi in scatola","preparationEn":"drained","preparationIt":"scolati","alternatives":[{"en":"cooked kidney beans","it":"fagioli rossi cotti"}]}]}
@@ -218,7 +218,7 @@
 {"line":"2 cups grated vegan Parmesan cheese (200 grams )","language":"en","parts":[{"quantity":200,"unit":"g","en":"vegan Parmesan cheese","it":"parmigiano vegano","preparationEn":"grated","preparationIt":"grattugiato"}]}
 {"line":"2 cups oil (for frying)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"oil","it":"olio","purposeEn":"for frying","purposeIt":"per friggere"}]}
 {"line":"2 cups small cauliflower florets ((about 1/2 of a medium crown))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cauliflower","it":"cavolfiore","preparationEn":"cut into small florets","preparationIt":"diviso in cimette piccole"}]}
-{"line":"2 cups vegan chickenless broth or vegetable broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan chickenless broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"2 cups vegan chickenless broth or vegetable broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan chickenless broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"2 cups water ((for blending rice and lentils, plus more for soaking))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"water","it":"acqua","purposeEn":"for blending rice and lentils, plus more for soaking","purposeIt":"per frullare riso e lenticchie, più altra per l'ammollo"}]}
 {"line":"2 garlic cloves, smashed, skin on","language":"en","parts":[{"quantity":2,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"smashed, skin on","preparationIt":"schiacciato con la buccia"}]}
 {"line":"2 green bell peppers ((diced))","language":"en","parts":[{"quantity":2,"en":"green bell peppers","it":"peperoni verdi","preparationEn":"diced","preparationIt":"tagliati a dadini"}]}
@@ -247,13 +247,13 @@
 {"line":"2 tbsp pumpkin seeds","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"pumpkin seeds","it":"semi di zucca"}]}
 {"line":"2 tbsp roasted hazelnuts, chopped roughly","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"roasted hazelnuts","it":"nocciole tostate","preparationEn":"roughly chopped","preparationIt":"tritate grossolanamente"}]}
 {"line":"2 tbsp toasted sesame oil","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"toasted sesame oil","it":"olio di sesamo tostato"}]}
-{"line":"2 tbsp vegan chicken seasoning","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan chicken seasoning","it":"condimento vegano al gusto di pollo"}]}
+{"line":"2 tbsp vegan chicken seasoning","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan chicken seasoning","it":"condimento vegano gusto pollo"}]}
 {"line":"2 tbsp vegan cream cheese","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan cream cheese","it":"formaggio spalmabile vegetale"}]}
 {"line":"2 teaspoons dried Italian herbs (I used thyme,basil, rosemary, and oregano)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"dried Italian herbs","it":"erbe aromatiche italiane essiccate"}]}
 {"line":"2 teaspoons lemon or lime juice","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"lemon juice","it":"succo di limone","alternatives":[{"en":"lime juice","it":"succo di lime"}]}]}
 {"line":"2 to 3 tsp lime juice","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tsp","en":"lime juice","it":"succo di lime"}]}
 {"line":"2 tsp chia seeds","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"chia seeds","it":"semi di chia"}]}
-{"line":"2 tsp vegan beef flavour stock powder (I use \"Massel\" brand, but any vegan stock powder or bouillon will do)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"vegan beef-flavoured stock powder","it":"brodo granulare vegano al gusto di manzo","alternatives":[{"en":"vegan stock powder","it":"brodo granulare vegano"},{"en":"vegan bouillon","it":"dado vegetale vegano"}]}]}
+{"line":"2 tsp vegan beef flavour stock powder (I use \"Massel\" brand, but any vegan stock powder or bouillon will do)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"vegan beef flavour stock powder","it":"brodo granulare vegano gusto manzo","alternatives":[{"en":"vegan stock powder or bouillon","it":"brodo granulare o dado vegano"}]}]}
 {"line":"2 tsp white vinegar","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"white vinegar","it":"aceto bianco"}]}
 {"line":"2-3 tablespoons high-heat oil","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"high-heat oil","it":"olio adatto alle alte temperature"}]}
 {"line":"2-4 cloves of garlic","language":"en","parts":[{"quantity":2,"quantityMax":4,"unit":"clove","en":"garlic","it":"aglio"}]}
@@ -275,7 +275,7 @@
 {"line":"3 bananas, mashed","language":"en","parts":[{"quantity":3,"en":"bananas","it":"banane","preparationEn":"mashed","preparationIt":"schiacciate"}]}
 {"line":"3 cups baby spinach or chopped kale","language":"en","parts":[{"quantity":3,"unit":"cup","en":"baby spinach","it":"spinacini","alternatives":[{"en":"chopped kale","it":"cavolo riccio tritato"}]}]}
 {"line":"3 cups unsweetened, unflavored cashew or almond milk","language":"en","parts":[{"quantity":3,"unit":"cup","en":"unsweetened, unflavored cashew milk","it":"latte di anacardi senza zucchero e non aromatizzato","alternatives":[{"en":"unsweetened, unflavored almond milk","it":"latte di mandorla al naturale senza zucchero"}]}]}
-{"line":"3 cups vegan beef broth or vegetable broth","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegan beef broth","it":"brodo vegetale gusto manzo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"3 cups vegan beef broth or vegetable broth","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegan beef broth","it":"brodo vegano gusto manzo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"3 cups water (3.5 cups for thinner consistency)","language":"en","parts":[{"quantity":3,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"3 green onions (ends trimmed and sliced)","language":"en","parts":[{"quantity":3,"en":"green onions","it":"cipollotti","preparationEn":"ends trimmed and sliced","preparationIt":"spuntati e affettati"}]}
 {"line":"3 medium spotty bananas, mashed- about 1 1/4 cup","language":"en","parts":[{"quantity":3,"en":"medium spotty bananas","it":"banane medie con la buccia maculata","preparationEn":"mashed","preparationIt":"schiacciate"}]}

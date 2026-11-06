@@ -7,7 +7,7 @@
 {"line":"1 (9-ounce / 255 g) bag vegan white chocolate chips","language":"en","parts":[{"quantity":255,"unit":"g","en":"vegan white chocolate chips","it":"gocce di cioccolato bianco vegano"}]}
 {"line":"1 1/2 cup plain soy milk (or other plain plant-based milk)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"plain soy milk","it":"latte di soia al naturale","alternatives":[{"en":"plain plant-based milk","it":"latte vegetale al naturale"}]}]}
 {"line":"1 1/2 cups crushed tomatoes","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"crushed tomatoes","it":"polpa di pomodoro"}]}
-{"line":"1 1/2 cups plain dairy free yogurt","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"plain dairy-free yogurt","it":"yogurt bianco senza latticini"}]}
+{"line":"1 1/2 cups plain dairy free yogurt","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"plain dairy free yogurt","it":"yogurt vegetale bianco"}]}
 {"line":"1 1/2 teaspoons all purpose flour or cornstarch","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"cornstarch","it":"amido di mais"}]}]}
 {"line":"1 1/3 cup thick dairy-free yogurt (unsweetened, e.g. coconut or soy)","language":"en","parts":[{"quantity":1.333333,"unit":"cup","en":"thick unsweetened dairy-free yogurt","it":"yogurt vegetale denso senza zuccheri aggiunti"}]}
 {"line":"1 1/4 cups vegan hot fudge ((Note 2))","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"vegan hot fudge","it":"salsa al cioccolato vegana"}]}
@@ -30,7 +30,7 @@
 {"line":"1 cup all purpose gluten free flour mix (or regular flour (I used Bob's Red Mill's Gluten Free All Purpose Baking Flour))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"all-purpose gluten-free flour mix","it":"miscela di farine senza glutine per tutti gli usi","alternatives":[{"en":"regular flour","it":"farina comune"}]}]}
 {"line":"1 cup brown rice flour ((see notes for a version with regular flour))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"brown rice flour","it":"farina di riso integrale"}]}
 {"line":"1 cup canned coconut milk ((full fat) )","language":"en","parts":[{"quantity":1,"unit":"cup","en":"canned full-fat coconut milk","it":"latte di cocco intero in lattina"}]}
-{"line":"1 cup coconut cream ((the thick part of canned coconut milk) *See post above for allergens)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"coconut cream","it":"crema di cocco"}]}
+{"line":"1 cup coconut cream ((the thick part of canned coconut milk) *See post above for allergens)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"coconut cream","it":"crema di cocco","preparationEn":"the thick part of canned coconut milk","preparationIt":"la parte densa del latte di cocco in scatola"}]}
 {"line":"1 cup dried navy beans ((cook before using to yield about 3 cups cooked beans; or use 3 cups canned navy beans, drained and rinsed))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dried navy beans","it":"fagioli navy secchi","preparationEn":"cooked before using","preparationIt":"cotti prima dell'uso","alternatives":[{"quantity":3,"unit":"cup","en":"canned navy beans","it":"fagioli navy in scatola"}]}]}
 {"line":"1 cup flour ((use GF if needed))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"flour","it":"farina"}]}
 {"line":"1 cup gluten free breadcrumbs","language":"en","parts":[{"quantity":1,"unit":"cup","en":"gluten-free breadcrumbs","it":"pangrattato senza glutine"}]}
@@ -129,6 +129,7 @@
 {"line":"1/2 cup oat flour (or 3 tbsp coconut flour to keep it grain free)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"oat flour","it":"farina d'avena","alternatives":[{"quantity":3,"unit":"tbsp","en":"coconut flour","it":"farina di cocco"}]}]}
 {"line":"1/2 cup oat flour (or unbleached white flour)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"oat flour","it":"farina d'avena","alternatives":[{"en":"unbleached white flour","it":"farina bianca non sbiancata"}]}]}
 {"line":"1/2 cup raw walnuts ((optional))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"raw walnuts","it":"noci crude","optional":true}]}
+{"line":"1/2 cup strawberries, (diced (+ extra for topping))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"strawberries","it":"fragole","preparationEn":"diced","preparationIt":"tagliate a dadini","purposeEn":"plus extra for topping","purposeIt":"più altre per guarnire"}]}
 {"line":"1/2 cup unsweetened oat or almond milk","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened oat milk","it":"latte d'avena senza zucchero","alternatives":[{"en":"unsweetened almond milk","it":"latte di mandorla senza zucchero"}]}]}
 {"line":"1/2 cup vegan chocolate chips, (divided)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan chocolate chips","it":"gocce di cioccolato vegano","preparationEn":"divided","preparationIt":"divise"}]}
 {"line":"1/2 cup vegan parmesan, (shredded)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan parmesan","it":"parmigiano vegano","preparationEn":"shredded","preparationIt":"grattugiato"}]}
@@ -317,7 +318,7 @@
 {"line":"60 ml / 4 tbsp soy milk","language":"en","parts":[{"quantity":60,"unit":"ml","en":"soy milk","it":"latte di soia"}]}
 {"line":"65 g / 1/3 cup dark muscovado sugar","language":"en","parts":[{"quantity":65,"unit":"g","en":"dark muscovado sugar","it":"zucchero muscovado scuro"}]}
 {"line":"70 g baby spinach","language":"en","parts":[{"quantity":70,"unit":"g","en":"baby spinach","it":"spinacini"}]}
-{"line":"8 curry leaves (chopped (fresh or frozen or dry curry leaves) )","language":"en","parts":[{"quantity":8,"en":"curry leaves","it":"foglie di curry","preparationEn":"chopped","preparationIt":"tritate","alternatives":[{"en":"frozen curry leaves","it":"foglie di curry surgelate"},{"en":"dried curry leaves","it":"foglie di curry essiccate"}]}]}
+{"line":"8 curry leaves (chopped (fresh or frozen or dry curry leaves) )","language":"en","parts":[{"quantity":8,"en":"curry leaves","it":"foglie di curry","preparationEn":"chopped, fresh, frozen or dried","preparationIt":"tritate, fresche, surgelate o essiccate"}]}
 {"line":"8 ounces taro (diced into 1-inch cubes)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"taro","it":"taro","preparationEn":"diced","preparationIt":"tagliato a dadini"}]}
 {"line":"8 oz baby bella mushrooms (, thinly sliced)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"baby bella mushrooms","it":"funghi cremini","preparationEn":"thinly sliced","preparationIt":"tagliati a fettine sottili"}]}
 {"line":"8 oz. rice noodles (cooked according to package directions)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"rice noodles","it":"spaghetti di riso","preparationEn":"cooked according to package directions","preparationIt":"cotti secondo le istruzioni sulla confezione"}]}
@@ -345,7 +346,7 @@
 {"line":"Vegan cream cheese (we used Miyoko’s)","language":"en","parts":[{"en":"vegan cream cheese","it":"formaggio spalmabile vegetale"}]}
 {"line":"a few handfuls spring salad mix","language":"en","parts":[{"en":"spring salad mix","it":"misticanza primaverile"}]}
 {"line":"a few sprigs of thyme or ½ tsp dried","language":"en","parts":[{"unit":"sprig","en":"thyme","it":"timo","alternatives":[{"quantity":0.5,"unit":"tsp","en":"dried thyme","it":"timo essiccato"}]}]}
-{"line":"a pinch of sugar (omit if using sweetened non dairy milk)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"sugar","it":"zucchero"}]}
+{"line":"a pinch of sugar (omit if using sweetened non dairy milk)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"sugar","it":"zucchero","preparationEn":"omit if using sweetened non-dairy milk","preparationIt":"omettere se si usa latte vegetale zuccherato"}]}
 {"line":"cashew cream ((recipe below))","language":"en","parts":[{"en":"cashew cream","it":"crema di anacardi"}]}
 {"line":"chopped roasted peanuts, to serve","language":"en","parts":[{"en":"roasted peanuts","it":"arachidi tostate","preparationEn":"chopped","preparationIt":"tritate","purposeEn":"for serving","purposeIt":"per servire"}]}
 {"line":"chopped toasted peanuts or cashews (for serving)","language":"en","parts":[{"en":"toasted peanuts","it":"arachidi tostate","preparationEn":"chopped","preparationIt":"tritate","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"cashews","it":"anacardi"}]}]}

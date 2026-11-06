@@ -39,11 +39,11 @@
 {"line":"1 cup organic powdered sugar, (plus more if needed)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"organic powdered sugar","it":"zucchero a velo biologico"}]}
 {"line":"1 cup plant-based milk ((plain-flavored))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"plain plant-based milk","it":"latte vegetale al naturale"}]}
 {"line":"1 cup polenta or cornmeal","language":"en","parts":[{"quantity":1,"unit":"cup","en":"polenta","it":"polenta","alternatives":[{"en":"cornmeal","it":"farina di mais"}]}]}
-{"line":"1 cup shiitakes, sliced (I used dried, but fresh is best)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"shiitake mushrooms","it":"funghi shiitake","preparationEn":"sliced","preparationIt":"affettati"}]}
+{"line":"1 cup shiitakes, sliced (I used dried, but fresh is best)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"shiitakes","it":"funghi shiitake","preparationEn":"sliced","preparationIt":"tagliati a fette"}]}
 {"line":"1 cup sliced zucchini","language":"en","parts":[{"quantity":1,"unit":"cup","en":"zucchini","it":"zucchine","preparationEn":"sliced","preparationIt":"affettate"}]}
 {"line":"1 cup soymilk ((lukewarm))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"soy milk","it":"latte di soia","preparationEn":"lukewarm","preparationIt":"tiepido"}]}
 {"line":"1 cup unsweetened soy milk ((or any plant-based milk))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened soy milk","it":"latte di soia senza zucchero","alternatives":[{"en":"plant-based milk","it":"latte vegetale"}]}]}
-{"line":"1 cup vegan cheese shreds (such as mozzarella or a mix of mozzarella and cheddar)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan cheese shreds","it":"formaggio vegano grattugiato","alternatives":[{"en":"vegan mozzarella shreds","it":"mozzarella vegana grattugiata"},{"en":"vegan mozzarella and cheddar shreds","it":"mozzarella e cheddar vegani grattugiati"}]}]}
+{"line":"1 cup vegan cheese shreds (such as mozzarella or a mix of mozzarella and cheddar)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan cheese shreds","it":"formaggio vegano grattugiato","alternatives":[{"en":"vegan mozzarella","it":"mozzarella vegana"},{"en":"vegan mozzarella and cheddar blend","it":"miscela di mozzarella e cheddar vegetali"}]}]}
 {"line":"1 cup vegan milk ((like soy, oat, cashew, or almond milk) use plain -flavored unsweetened for savory crepes.)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan milk","it":"latte vegetale","alternatives":[{"en":"soy milk","it":"latte di soia"},{"en":"oat milk","it":"latte d'avena"},{"en":"cashew milk","it":"latte di anacardi"},{"en":"almond milk","it":"latte di mandorla"}]}]}
 {"line":"1 cup yellow onion, (diced)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"yellow onion","it":"cipolla dorata","preparationEn":"diced","preparationIt":"tagliata a dadini"}]}
 {"line":"1 flax “egg” (1 tablespoon flax + 2 ½ tablespoons water)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"flax","it":"lino"},{"quantity":2.5,"unit":"tbsp","en":"water","it":"acqua"}]}
@@ -125,7 +125,7 @@
 {"line":"1/2 cup dry white wine* ((or sub pasta water; see notes))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"dry white wine","it":"vino bianco secco","alternatives":[{"en":"pasta water","it":"acqua di cottura della pasta"}]}]}
 {"line":"1/2 cup easy pesto","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"pesto","it":"pesto"}]}
 {"line":"1/2 cup finely chopped celery (or use other veggies)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"celery","it":"sedano","preparationEn":"finely chopped","preparationIt":"tritato finemente","alternatives":[{"en":"other vegetables","it":"altre verdure"}]}]}
-{"line":"1/2 cup non-dairy yogurt, plain or vanilla","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"plain dairy-free yogurt","it":"yogurt bianco senza latticini","alternatives":[{"en":"vanilla dairy-free yogurt","it":"yogurt vegetale alla vaniglia"}]}]}
+{"line":"1/2 cup non-dairy yogurt, plain or vanilla","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"plain or vanilla non-dairy yogurt","it":"yogurt vegetale bianco o alla vaniglia"}]}
 {"line":"1/2 cup or 2 scoops protein powder of your choice (vanilla, chocolate, or chocolate peanut butter flavor)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"protein powder of choice","it":"proteine in polvere a scelta"}]}
 {"line":"1/2 cup or more chopped bell peppers ( or cucumbers)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"bell peppers","it":"peperoni","preparationEn":"chopped","preparationIt":"tritati","alternatives":[{"en":"cucumbers","it":"cetrioli"}]}]}
 {"line":"1/2 cup plus 1 tablespoon boiling water","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"boiling water","it":"acqua bollente","plus":{"quantity":1,"unit":"tbsp"}}]}
@@ -185,7 +185,7 @@
 {"line":"1/8 tsp cardamom or other spices of choice","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"cardamom","it":"cardamomo","alternatives":[{"en":"spice of choice","it":"spezia a scelta"}]}]}
 {"line":"1/8 tsp onion powder ( or 1/4 tsp onion flakes)","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"onion powder","it":"cipolla in polvere","alternatives":[{"quantity":0.25,"unit":"tsp","en":"onion flakes","it":"cipolla in fiocchi"}]}]}
 {"line":"10 cm / 4\" quill of cinnamon (or ½ tsp ground) or cassia","language":"en","parts":[{"quantity":10,"unit":"cm","en":"cinnamon quill","it":"stecca di cannella","alternatives":[{"quantity":0.5,"unit":"tsp","en":"ground cinnamon","it":"cannella in polvere"},{"en":"cassia","it":"cannella cassia"}]}]}
-{"line":"10 curry leaves (fresh are best)","language":"en","parts":[{"quantity":10,"en":"curry leaves","it":"foglie di curry"}]}
+{"line":"10 curry leaves (fresh are best)","language":"en","parts":[{"quantity":10,"en":"curry leaves","it":"foglie di curry","preparationEn":"fresh are best","preparationIt":"meglio se fresche"}]}
 {"line":"10 ounces of spinach","language":"en","parts":[{"quantity":10,"unit":"oz","en":"spinach","it":"spinaci"}]}
 {"line":"115 g / ½ cup pumpkin puree","language":"en","parts":[{"quantity":115,"unit":"g","en":"pumpkin puree","it":"purea di zucca"}]}
 {"line":"12 individual spring roll wrappers","language":"en","parts":[{"quantity":12,"en":"spring roll wrappers","it":"sfoglie per involtini primavera"}]}
@@ -328,7 +328,7 @@
 {"line":"6 cups baby spinach","language":"en","parts":[{"quantity":6,"unit":"cup","en":"baby spinach","it":"spinacini"}]}
 {"line":"6 cups blueberries ((about 28 ounces, fresh or frozen))","language":"en","parts":[{"quantity":6,"unit":"cup","en":"fresh or frozen blueberries","it":"mirtilli freschi o surgelati"}]}
 {"line":"6 cups kale (de-stemmed, washed and torn, 360g or any other greens)","language":"en","parts":[{"quantity":360,"unit":"g","en":"kale","it":"cavolo riccio","preparationEn":"de-stemmed, washed and torn","preparationIt":"privato dei gambi, lavato e spezzettato","alternatives":[{"en":"other greens","it":"altre verdure a foglia"}]}]}
-{"line":"6 cups vegetable broth (, plus more as needed (low sodium if preferred))","language":"en","parts":[{"quantity":6,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
+{"line":"6 cups vegetable broth (, plus more as needed (low sodium if preferred))","language":"en","parts":[{"quantity":6,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","preparationEn":"plus more as needed","preparationIt":"più altro quanto basta"}]}
 {"line":"6 drops of red food coloring (optional)","language":"en","parts":[{"quantity":6,"unit":"drop","en":"red food coloring","it":"colorante alimentare rosso","optional":true}]}
 {"line":"6 ounces (175g) cherry tomatoes or grape tomatoes, quartered","language":"en","parts":[{"quantity":175,"unit":"g","en":"cherry tomatoes","it":"pomodorini ciliegino","preparationEn":"quartered","preparationIt":"tagliati in quarti","alternatives":[{"en":"grape tomatoes","it":"pomodorini datterini"}]}]}
 {"line":"6 roma tomatoes (finely diced)","language":"en","parts":[{"quantity":6,"en":"Roma tomatoes","it":"pomodori Roma","preparationEn":"finely diced","preparationIt":"tagliati a dadini piccoli"}]}
@@ -348,7 +348,7 @@
 {"line":"Black peppercorns","language":"en","parts":[{"en":"black peppercorns","it":"grani di pepe nero"}]}
 {"line":"Cinnamon: 1⁄2 teaspoon cinnamon (1 gram)","language":"en","parts":[{"quantity":1,"unit":"g","en":"cinnamon","it":"cannella"}]}
 {"line":"Fresh lime, as desired (optional)","language":"en","parts":[{"en":"fresh lime","it":"lime fresco","optional":true,"toTaste":true}]}
-{"line":"Fresh-cracked pepper ( to taste)","language":"en","parts":[{"en":"pepper","it":"pepe","preparationEn":"freshly cracked","preparationIt":"macinato al momento","toTaste":true}]}
+{"line":"Fresh-cracked pepper ( to taste)","language":"en","parts":[{"en":"fresh-cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"Generous pinch baking soda","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"baking soda","it":"bicarbonato di sodio"}]}
 {"line":"Hoisin sauce","language":"en","parts":[{"en":"hoisin sauce","it":"salsa hoisin"}]}
 {"line":"Ice, as desired when serving","language":"en","parts":[{"en":"ice","it":"ghiaccio","purposeEn":"for serving","purposeIt":"per servire","toTaste":true}]}

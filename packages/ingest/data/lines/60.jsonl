@@ -58,7 +58,7 @@
 {"line":"1 medium onion ((grated))","language":"en","parts":[{"quantity":1,"en":"medium onion","it":"cipolla media","preparationEn":"grated","preparationIt":"grattugiata"}]}
 {"line":"1 pizza dough (homemade or store-bought, room temperature (about 9 oz / 260 g of dough per pizza))","language":"en","parts":[{"quantity":260,"unit":"g","en":"pizza dough","it":"impasto per pizza","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"1 pound (450g) broccoli, (cut into florets and stems thinly sliced)","language":"en","parts":[{"quantity":450,"unit":"g","en":"broccoli","it":"broccoli","preparationEn":"cut into florets and stems thinly sliced","preparationIt":"divisi in cimette e gambi affettati sottilmente"}]}
-{"line":"1 pound vegan beef ((frozen crumbles or vegan ground beef))","language":"en","parts":[{"quantity":1,"unit":"lb","en":"vegan beef","it":"manzo vegetale","alternatives":[{"en":"frozen vegan beef crumbles","it":"macinato vegetale di manzo surgelato"},{"en":"vegan ground beef","it":"macinato vegetale tipo manzo"}]}]}
+{"line":"1 pound vegan beef ((frozen crumbles or vegan ground beef))","language":"en","parts":[{"quantity":1,"unit":"lb","en":"vegan beef","it":"manzo vegetale","alternatives":[{"en":"frozen vegan beef crumbles","it":"macinato vegetale gusto manzo surgelato"},{"en":"vegan ground beef","it":"macinato vegetale tipo manzo"}]}]}
 {"line":"1 red bell pepper (chopped into 3/4 inch slices)","language":"en","parts":[{"quantity":1,"en":"red bell pepper","it":"peperone rosso","preparationEn":"sliced","preparationIt":"tagliato a fette"}]}
 {"line":"1 red chili","language":"en","parts":[{"quantity":1,"en":"red chili","it":"peperoncino rosso"}]}
 {"line":"1 small (1/2 pound) russet potato, (diced)","language":"en","parts":[{"quantity":0.5,"unit":"lb","en":"small russet potato","it":"patata russet piccola","preparationEn":"diced","preparationIt":"tagliata a dadini"}]}
@@ -68,7 +68,7 @@
 {"line":"1 stalk celery","language":"en","parts":[{"quantity":1,"unit":"stalk","en":"celery","it":"sedano"}]}
 {"line":"1 tabelspoon maple syrup or agave","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"agave syrup","it":"sciroppo d'agave"}]}]}
 {"line":"1 tablespoon almond butter","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"almond butter","it":"burro di mandorle"}]}
-{"line":"1 tablespoon extra virgin olive oil or plant-based butter (Optional)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"extra virgin olive oil","it":"olio extravergine d'oliva","optional":true,"alternatives":[{"en":"vegan butter","it":"burro vegetale"}]}]}
+{"line":"1 tablespoon extra virgin olive oil or plant-based butter (Optional)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"extra virgin olive oil","it":"olio extravergine d'oliva","optional":true,"alternatives":[{"en":"plant-based butter","it":"burro vegetale"}]}]}
 {"line":"1 tablespoon herbs de Provence (thyme, oregano, rosemary, and basil)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"herbes de Provence","it":"erbe di Provenza"}]}
 {"line":"1 tablespoon peanut oil","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"peanut oil","it":"olio di arachidi"}]}
 {"line":"1 tablespoon tahini","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"tahini","it":"tahina"}]}
@@ -321,7 +321,7 @@
 {"line":"6.173 oz button mushrooms","language":"en","parts":[{"quantity":6.173,"unit":"oz","en":"button mushrooms","it":"funghi champignon"}]}
 {"line":"60 g / ½ cup raw hemp seeds or raw sunflower seeds","language":"en","parts":[{"quantity":60,"unit":"g","en":"raw hemp seeds","it":"semi di canapa crudi","alternatives":[{"en":"raw sunflower seeds","it":"semi di girasole crudi"}]}]}
 {"line":"60 g kale (de-stemmed and finely shredded)","language":"en","parts":[{"quantity":60,"unit":"g","en":"kale","it":"cavolo riccio","preparationEn":"stems removed and finely shredded","preparationIt":"privato dei gambi e tagliato finemente"}]}
-{"line":"60 ml / ¼ cup extra virgin olive oil (replace half with unsweetened soy milk if you prefer)","language":"en","parts":[{"quantity":60,"unit":"ml","en":"extra virgin olive oil","it":"olio extravergine d'oliva"}]}
+{"line":"60 ml / ¼ cup extra virgin olive oil (replace half with unsweetened soy milk if you prefer)","language":"en","parts":[{"quantity":60,"unit":"ml","en":"extra virgin olive oil","it":"olio extravergine d'oliva","preparationEn":"replace half with unsweetened soy milk if preferred","preparationIt":"sostituirne metà con latte di soia senza zucchero se si preferisce"}]}
 {"line":"7 ounces extra firm tofu (pressed for at least 15 minutes)","language":"en","parts":[{"quantity":7,"unit":"oz","en":"extra-firm tofu","it":"tofu extra compatto","preparationEn":"pressed for at least 15 minutes","preparationIt":"pressato per almeno 15 minuti"}]}
 {"line":"7 oz dry pasta ((*see notes))","language":"en","parts":[{"quantity":7,"unit":"oz","en":"dry pasta","it":"pasta secca"}]}
 {"line":"75 g / heaped ½ cup dried cranberries or more nuts","language":"en","parts":[{"quantity":75,"unit":"g","en":"dried cranberries","it":"mirtilli rossi essiccati","alternatives":[{"en":"nuts","it":"frutta secca"}]}]}

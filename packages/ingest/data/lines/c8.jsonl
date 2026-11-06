@@ -230,6 +230,7 @@
 {"line":"2 tablespoons ginger garlic paste (or use 4 cloves of garlic, minced, and 1” of ginger, minced)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"ginger garlic paste","it":"pasta di zenzero e aglio"}]}
 {"line":"2 tablespoons ground flaxseed (or ground chia seeds)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"ground flaxseed","it":"semi di lino macinati","alternatives":[{"en":"ground chia seeds","it":"semi di chia macinati"}]}]}
 {"line":"2 tablespoons neutral flavored oil (or applesauce)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"neutral flavored oil","it":"olio dal sapore neutro","alternatives":[{"en":"applesauce","it":"purea di mele"}]}]}
+{"line":"2 tablespoons olive oil ((or high-heat oil of choice), plus a dash for the pasta)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","preparationEn":"plus a dash for the pasta","preparationIt":"più un goccio per la pasta","alternatives":[{"en":"high-heat oil of choice","it":"olio a scelta adatto alle alte temperature"}]}]}
 {"line":"2 tablespoons olive oil ((or sub vegetable broth for oil-free))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"2 tablespoons olive oil, plus more if desired (30 ml)","language":"en","parts":[{"quantity":30,"unit":"ml","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"2 tablespoons pecans (15g chopped )","language":"en","parts":[{"quantity":15,"unit":"g","en":"pecans","it":"noci pecan","preparationEn":"chopped","preparationIt":"tritate"}]}
@@ -239,8 +240,8 @@
 {"line":"2 tbsp cajun spice blend","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"Cajun spice blend","it":"miscela di spezie cajun"}]}
 {"line":"2 tbsp cashew nuts","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"cashews","it":"anacardi"}]}
 {"line":"2 tbsp fresh mint","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh mint","it":"menta fresca"}]}
-{"line":"2 tbsp non dairy milk (room temperature)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"plant-based milk","it":"latte vegetale","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
-{"line":"2 tbsp non dairy yogurt ( or applesauce)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"dairy-free yogurt","it":"yogurt vegetale","alternatives":[{"en":"applesauce","it":"purea di mele"}]}]}
+{"line":"2 tbsp non dairy milk (room temperature)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"non dairy milk","it":"latte vegetale","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
+{"line":"2 tbsp non dairy yogurt ( or applesauce)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"non-dairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"applesauce","it":"purea di mele"}]}]}
 {"line":"2 tbsp rice vinegar (or sub for white wine vinegar or lemon juice)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"rice vinegar","it":"aceto di riso","alternatives":[{"en":"white wine vinegar","it":"aceto di vino bianco"},{"en":"lemon juice","it":"succo di limone"}]}]}
 {"line":"2 tbsp tamari ((*see notes))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"tamari","it":"tamari"}]}
 {"line":"2 tbsp vegan butter, (melted (optional))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso","optional":true}]}
@@ -273,7 +274,7 @@
 {"line":"3 bell peppers ((I used a yellow, red, and green one))","language":"en","parts":[{"quantity":3,"en":"bell peppers","it":"peperoni"}]}
 {"line":"3 cinnamon stick","language":"en","parts":[{"quantity":3,"unit":"stick","en":"cinnamon","it":"cannella"}]}
 {"line":"3 cloves garlic ((peeled))","language":"en","parts":[{"quantity":3,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"peeled","preparationIt":"sbucciato"}]}
-{"line":"3 cups (720 mL) vegan “chicken” broth (or good-quality vegetable broth***)","language":"en","parts":[{"quantity":720,"unit":"ml","en":"vegan chicken broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"3 cups (720 mL) vegan “chicken” broth (or good-quality vegetable broth***)","language":"en","parts":[{"quantity":720,"unit":"ml","en":"vegan chicken broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"3 cups of red or green enchilada sauce","language":"en","parts":[{"quantity":3,"unit":"cup","en":"red enchilada sauce","it":"salsa rossa per enchiladas","alternatives":[{"en":"green enchilada sauce","it":"salsa verde per enchiladas"}]}]}
 {"line":"3 scallions, sliced","language":"en","parts":[{"quantity":3,"en":"scallions","it":"cipollotti","preparationEn":"sliced","preparationIt":"affettati"}]}
 {"line":"3 spring onions ((scallions, finely chopped))","language":"en","parts":[{"quantity":3,"en":"spring onions","it":"cipollotti","preparationEn":"finely chopped","preparationIt":"tritati finemente"}]}
@@ -407,7 +408,7 @@
 {"line":"¾ cup dairy-free milk (or creamer, for serving)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"dairy-free milk","it":"latte vegetale","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"vegan creamer","it":"crema vegetale"}]}]}
 {"line":"¾ cup vegan butter ((melted))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"¾ of a (15-ounce) can of crushed tomatoes, (in their juices)","language":"en","parts":[{"quantity":11.25,"unit":"oz","en":"canned crushed tomatoes","it":"polpa di pomodoro in scatola","preparationEn":"in their juices","preparationIt":"nel loro succo"}]}
-{"line":"¾ teaspoon baking soda ((make sure it's fresh, see Note 4))","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"baking soda","it":"bicarbonato di sodio"}]}
+{"line":"¾ teaspoon baking soda ((make sure it's fresh, see Note 4))","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"fresh baking soda","it":"bicarbonato di sodio fresco"}]}
 {"line":"1 cucchiaio raso di zucchero a velo","language":"it","parts":[{"quantity":1,"unit":"tbsp","en":"powdered sugar","it":"zucchero a velo","preparationEn":"level","preparationIt":"raso"}]}
 {"line":"2 cucchiaini di mix di spezie (vedi sopra come prepararlo)","language":"it","parts":[{"quantity":2,"unit":"tsp","en":"spice mix","it":"miscela di spezie"}]}
 {"line":"cioccolato fondente per la superficie","language":"it","parts":[{"en":"dark chocolate","it":"cioccolato fondente","purposeEn":"for topping","purposeIt":"per la superficie"}]}

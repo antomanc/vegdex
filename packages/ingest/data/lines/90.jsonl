@@ -6,13 +6,13 @@
 {"line":"1 1/2 cup fresh strawberries (sliced)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"fresh strawberries","it":"fragole fresche","preparationEn":"sliced","preparationIt":"tagliate a fette"}]}
 {"line":"1 1/2 cups breadcrumbs","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"breadcrumbs","it":"pangrattato"}]}
 {"line":"1 1/2 cups diced or sliced fresh strawberries","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"fresh strawberries","it":"fragole fresche","preparationEn":"diced or sliced","preparationIt":"tagliate a dadini o a fette"}]}
-{"line":"1 1/2 cups liquid vegan egg (we used Just Egg)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"liquid vegan egg","it":"sostituto vegano liquido dell'uovo"}]}
+{"line":"1 1/2 cups liquid vegan egg (we used Just Egg)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"liquid vegan egg","it":"uovo vegano liquido"}]}
 {"line":"1 1/2 tablespoons melted coconut oil (I use refined coconut oil for a less coconutty flavor)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"coconut oil","it":"olio di cocco","preparationEn":"melted","preparationIt":"sciolto"}]}
 {"line":"1 1/2 teaspoons kosher salt + more to taste","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"kosher salt","it":"sale kosher","toTaste":true}]}
-{"line":"1 1/2 teaspoons pumpkin pie spice blend*","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"pumpkin pie spice blend","it":"miscela di spezie per pumpkin pie"}]}
+{"line":"1 1/2 teaspoons pumpkin pie spice blend*","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"pumpkin pie spice blend","it":"miscela di spezie per torta di zucca"}]}
 {"line":"1 1/4-1 1/2 cup dark beer","language":"en","parts":[{"quantity":1.25,"quantityMax":1.5,"unit":"cup","en":"dark beer","it":"birra scura"}]}
 {"line":"1 19 oz can chickpeas (2 cups) (drained and rinsed)","language":"en","parts":[{"quantity":19,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
-{"line":"1 Tablespoon non dairy Yogurt (or thick nut milk or water)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"non-dairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"thick nut milk","it":"latte d'arachidi o frutta secca denso"},{"en":"water","it":"acqua"}]}]}
+{"line":"1 Tablespoon non dairy Yogurt (or thick nut milk or water)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"non-dairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"thick nut milk","it":"latte denso di frutta a guscio"},{"en":"water","it":"acqua"}]}]}
 {"line":"1 Tablespoon oat milk (or soy milk)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"oat milk","it":"latte d'avena","alternatives":[{"en":"soy milk","it":"latte di soia"}]}]}
 {"line":"1 Tablespoon of chili powder","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"chili powder","it":"peperoncino in polvere"}]}
 {"line":"1 Tablespoon or more Soy sauce ( or soy-free Coconut aminos to taste or other vegan asian sauces of choice)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"soy-free coconut aminos","it":"salsa di cocco senza soia"},{"en":"vegan Asian sauce of choice","it":"salsa asiatica vegana a scelta"}]}]}
@@ -141,7 +141,7 @@
 {"line":"1/2 tablespoon maple syrup ((this only gives a slight sweetness to round out the flavors, but you can feel free to omit or reduce it))","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero","optional":true}]}
 {"line":"1/2 teaspoon black pepper","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"black pepper","it":"pepe nero"}]}
 {"line":"1/2 teaspoon dried fenugreek leaves ((kasuri methi), optional)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"dried fenugreek leaves","it":"foglie di fieno greco essiccate","optional":true}]}
-{"line":"1/2 teaspoon salt (use 1/4 tsp more salt if unsalted butter))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale"}]}
+{"line":"1/2 teaspoon salt (use 1/4 tsp more salt if unsalted butter))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale","preparationEn":"use 1/4 teaspoon more if using unsalted butter","preparationIt":"usare 1/4 di cucchiaino in più se si usa burro non salato"}]}
 {"line":"1/2 teaspoon smoked paprika (1.25g)","language":"en","parts":[{"quantity":1.25,"unit":"g","en":"smoked paprika","it":"paprika affumicata"}]}
 {"line":"1/2 teaspoon thyme, (dill, or other herbs of choice)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"thyme","it":"timo","alternatives":[{"en":"dill","it":"aneto"},{"en":"herbs of choice","it":"erbe aromatiche a scelta"}]}]}
 {"line":"1/2 to 1 teaspoon vanilla extract ((depends on your vanilla preference))","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia"}]}

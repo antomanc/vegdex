@@ -45,7 +45,7 @@
 {"line":"1 cup (85 g) unsweetened cocoa powder","language":"en","parts":[{"quantity":85,"unit":"g","en":"unsweetened cocoa powder","it":"cacao amaro in polvere"}]}
 {"line":"1 cup + 1 Tbsp gluten-free flour (or regular flour (see notes))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"gluten-free flour","it":"farina senza glutine","plus":{"quantity":1,"unit":"tbsp"},"alternatives":[{"en":"regular flour","it":"farina comune"}]}]}
 {"line":"1 cup chopped spinach (optional )","language":"en","parts":[{"quantity":1,"unit":"cup","en":"spinach","it":"spinaci","preparationEn":"chopped","preparationIt":"tritati","optional":true}]}
-{"line":"1 cup coconut milk ((carton not canned))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"coconut milk in a carton","it":"latte di cocco in cartone"}]}
+{"line":"1 cup coconut milk ((carton not canned))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"carton coconut milk","it":"latte di cocco in cartone"}]}
 {"line":"1 cup diced (1/2 inch) Russet potato (about 1 small potato)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"Russet potato","it":"patata Russet","preparationEn":"diced","preparationIt":"tagliata a dadini"}]}
 {"line":"1 cup dried brown lentils ((or green lentils. If using canned, see FAQs below))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dried brown lentils","it":"lenticchie marroni secche","alternatives":[{"en":"dried green lentils","it":"lenticchie verdi secche"}]}]}
 {"line":"1 cup dry brown lentils (, picked over and rinsed (*see note))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dry brown lentils","it":"lenticchie marroni secche","preparationEn":"picked over and rinsed","preparationIt":"mondate e sciacquate"}]}
@@ -186,7 +186,7 @@
 {"line":"1/4 cup cara cara orange juice (*strained so no flesh/pulp- other orange varieties also work)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"Cara Cara orange juice","it":"succo di arancia Cara Cara","preparationEn":"strained to remove pulp","preparationIt":"filtrato per eliminare la polpa"}]}
 {"line":"1/4 cup cashews, (sub with peanuts (30g))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cashews","it":"anacardi","alternatives":[{"quantity":30,"unit":"g","en":"peanuts","it":"arachidi"}]}]}
 {"line":"1/4 cup cilantro (add more or less as desired)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cilantro","it":"coriandolo fresco"}]}
-{"line":"1/4 cup lime juice ((fresh squeezed))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"freshly squeezed lime juice","it":"succo di lime appena spremuto"}]}
+{"line":"1/4 cup lime juice ((fresh squeezed))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"lime juice","it":"succo di lime","preparationEn":"fresh squeezed","preparationIt":"appena spremuto"}]}
 {"line":"1/4 cup nut or seed butter","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"nut butter","it":"burro di frutta secca","alternatives":[{"en":"seed butter","it":"burro di semi"}]}]}
 {"line":"1/4 cup of brown sugar (plus more for sprinkling on top)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"brown sugar","it":"zucchero di canna","purposeEn":"plus more for sprinkling on top","purposeIt":"più altro da cospargere sopra"}]}
 {"line":"1/4 cup vegan mayo","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan mayo","it":"maionese vegana"}]}
@@ -238,7 +238,7 @@
 {"line":"2 cups diced new potatoes, (1 inch dice)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"new potatoes","it":"patate novelle","preparationEn":"diced","preparationIt":"tagliate a cubetti"}]}
 {"line":"2 cups hot water (475ml)","language":"en","parts":[{"quantity":475,"unit":"ml","en":"water","it":"acqua","preparationEn":"hot","preparationIt":"calda"}]}
 {"line":"2 cups vegan kimchi, (roughly chopped, juice reserved)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan kimchi","it":"kimchi vegano","preparationEn":"roughly chopped, juice reserved","preparationIt":"tritato grossolanamente, conservando il liquido"}]}
-{"line":"2 flax eggs ((see first instruction))","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di lino"}]}
+{"line":"2 flax eggs ((see first instruction))","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di semi di lino"}]}
 {"line":"2 head romaine, roughly chopped","language":"en","parts":[{"quantity":2,"unit":"head","en":"romaine lettuce","it":"lattuga romana","preparationEn":"roughly chopped","preparationIt":"tagliata grossolanamente"}]}
 {"line":"2 heads romaine, chopped","language":"en","parts":[{"quantity":2,"unit":"head","en":"romaine lettuce","it":"lattuga romana","preparationEn":"chopped","preparationIt":"tagliata"}]}
 {"line":"2 inch ginger grated or pureed along with the carrots","language":"en","parts":[{"quantity":2,"unit":"inch","en":"ginger","it":"zenzero","preparationEn":"grated or pureed along with the carrots","preparationIt":"grattugiato o frullato insieme alle carote"}]}
@@ -379,7 +379,7 @@
 {"line":"Cinnamon ((optional))","language":"en","parts":[{"en":"cinnamon","it":"cannella","optional":true}]}
 {"line":"Coating options: Cocoa powder, powdered sugar, nuts, etc.","language":"en","parts":[{"en":"coating of choice","it":"copertura a scelta","alternatives":[{"en":"cocoa powder","it":"cacao in polvere"},{"en":"powdered sugar","it":"zucchero a velo"},{"en":"nuts","it":"frutta secca"}]}]}
 {"line":"Couscous, quinoa, rice, or pita (for serving (optional))","language":"en","parts":[{"en":"couscous","it":"couscous","purposeEn":"for serving","purposeIt":"per servire","optional":true,"alternatives":[{"en":"quinoa","it":"quinoa"},{"en":"rice","it":"riso"},{"en":"pita","it":"pita"}]}]}
-{"line":"Filling: fruit preserves (marmalade, jellies, vegan buttercream frosting)","language":"en","parts":[{"en":"fruit preserves","it":"confettura di frutta","alternatives":[{"en":"marmalade","it":"marmellata"},{"en":"jelly","it":"gelatina di frutta"},{"en":"vegan buttercream frosting","it":"crema al burro vegetale"}]}]}
+{"line":"Filling: fruit preserves (marmalade, jellies, vegan buttercream frosting)","language":"en","parts":[{"en":"fruit preserves","it":"confettura di frutta","purposeEn":"for filling","purposeIt":"per farcire","alternatives":[{"en":"marmalade","it":"marmellata"},{"en":"jellies","it":"gelatine di frutta"},{"en":"vegan buttercream frosting","it":"crema al burro vegetale"}]}]}
 {"line":"Keep your mulberries stored in the fridge for extra crunch. Following the exact weight measurements will ensure the right texture result. Agave or coconut nectar works best for the batter. I wouldn't use maple syrup, since it's not quite as thick or sticky. Make sure to store these in the freezer, as they will have more of a crunch and hold together best.","language":"en","kind":"other"}
 {"line":"Lime, to garnish","language":"en","parts":[{"en":"lime","it":"lime","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"Minced parsley for garnish","language":"en","parts":[{"en":"parsley","it":"prezzemolo","preparationEn":"minced","preparationIt":"tritato","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
@@ -412,7 +412,7 @@
 {"line":"parsley","language":"en","parts":[{"en":"parsley","it":"prezzemolo"}]}
 {"line":"pepper flakes, parsley or other fresh herbs","language":"en","parts":[{"en":"pepper flakes","it":"peperoncino in fiocchi"},{"en":"parsley","it":"prezzemolo","alternatives":[{"en":"fresh herbs of choice","it":"erbe aromatiche fresche a scelta"}]}]}
 {"line":"pinch of garlic powder","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"garlic powder","it":"aglio in polvere"}]}
-{"line":"vegan cream cheese frosting (store-bought or homemade, optional)","language":"en","parts":[{"en":"vegan cream cheese frosting","it":"glassa vegana al formaggio spalmabile","optional":true}]}
+{"line":"vegan cream cheese frosting (store-bought or homemade, optional)","language":"en","parts":[{"en":"vegan cream cheese frosting","it":"glassa al formaggio spalmabile vegano","preparationEn":"store-bought or homemade","preparationIt":"acquistata o fatta in casa","optional":true}]}
 {"line":"vegan parmesan ((optional for garnish))","language":"en","parts":[{"en":"vegan parmesan","it":"parmigiano vegano","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true}]}
 {"line":"¼ cup (60 mL) dry white wine (optional)","language":"en","parts":[{"quantity":60,"unit":"ml","en":"dry white wine","it":"vino bianco secco","optional":true}]}
 {"line":"¼ cup apple juice","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"apple juice","it":"succo di mela"}]}

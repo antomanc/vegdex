@@ -141,6 +141,7 @@
 {"line":"1/2 teaspoon vanilla","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"vanilla","it":"vaniglia"}]}
 {"line":"1/2 teaspoons turmeric powder","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"turmeric powder","it":"curcuma in polvere"}]}
 {"line":"1/2 to 1 tsp toasted sesame oil","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"toasted sesame oil","it":"olio di sesamo tostato"}]}
+{"line":"1/2 tsp cayenne or use 1 tsp sweet paprika + pinches of cayenne to taste","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"cayenne","it":"pepe di Cayenna","alternatives":[{"quantity":1,"unit":"tsp","en":"sweet paprika","it":"paprika dolce"},{"unit":"pinch","en":"cayenne","it":"pepe di Cayenna"}]}]}
 {"line":"1/2 tsp crushed red pepper flakes","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"crushed red pepper flakes","it":"peperoncino rosso in fiocchi"}]}
 {"line":"1/2 tsp orange extract ((or same amount of orange zest))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"orange extract","it":"estratto di arancia","alternatives":[{"quantity":0.5,"unit":"tsp","en":"orange zest","it":"scorza d'arancia"}]}]}
 {"line":"1/2 tsp paprika (regular or smoked)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"paprika","it":"paprika","alternatives":[{"en":"smoked paprika","it":"paprika affumicata"}]}]}
@@ -213,7 +214,7 @@
 {"line":"2 cans (15 oz / 425g each) cannellini beans (drained and rinsed, divided)","language":"en","parts":[{"quantity":850,"unit":"g","en":"canned cannellini beans","it":"fagioli cannellini in scatola","preparationEn":"drained, rinsed and divided","preparationIt":"scolati, sciacquati e divisi"}]}
 {"line":"2 cans diced tomatoes ((14.5 oz each))","language":"en","parts":[{"quantity":29,"unit":"oz","en":"canned diced tomatoes","it":"pomodori a cubetti in scatola"}]}
 {"line":"2 cans unsweetened full fat coconut milk ((can sub for oat milk))","language":"en","parts":[{"quantity":2,"unit":"can","en":"unsweetened full-fat coconut milk","it":"latte di cocco intero non zuccherato","alternatives":[{"en":"oat milk","it":"latte d'avena"}]}]}
-{"line":"2 cubes not chick’n bullion cubes ( or other equivalent vegan chicken broth powder)","language":"en","parts":[{"quantity":2,"unit":"cube","en":"vegan chicken bouillon cubes","it":"dadi vegani gusto pollo","alternatives":[{"en":"vegan chicken broth powder","it":"brodo vegetale in polvere gusto pollo"}]}]}
+{"line":"2 cubes not chick’n bullion cubes ( or other equivalent vegan chicken broth powder)","language":"en","parts":[{"quantity":2,"unit":"cube","en":"not chick’n bouillon cubes","it":"dadi vegetali per brodo gusto pollo","alternatives":[{"en":"vegan chicken broth powder","it":"brodo vegano gusto pollo in polvere"}]}]}
 {"line":"2 cups bell peppers (any color)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"bell peppers","it":"peperoni"}]}
 {"line":"2 cups cooked rice (or quinoa or couscous or grains of choice)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"rice","it":"riso","preparationEn":"cooked","preparationIt":"cotto","alternatives":[{"en":"quinoa","it":"quinoa"},{"en":"couscous","it":"couscous"},{"en":"grains of choice","it":"cereali a scelta"}]}]}
 {"line":"2 cups dried mushrooms ((I used a mix of oyster and shiitake))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"dried mushrooms","it":"funghi secchi"}]}
@@ -318,7 +319,7 @@
 {"line":"380 g basmati rice (or long grain rice)","language":"en","parts":[{"quantity":380,"unit":"g","en":"basmati rice","it":"riso basmati","alternatives":[{"en":"long-grain rice","it":"riso a chicco lungo"}]}]}
 {"line":"3½ cups unbleached all purpose flour","language":"en","parts":[{"quantity":3.5,"unit":"cup","en":"unbleached all-purpose flour","it":"farina multiuso non sbiancata"}]}
 {"line":"4 cloves garlic, (minced)","language":"en","parts":[{"quantity":4,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}
-{"line":"4 cups vegan beef broth","language":"en","parts":[{"quantity":4,"unit":"cup","en":"vegan beef broth","it":"brodo vegetale gusto manzo"}]}
+{"line":"4 cups vegan beef broth","language":"en","parts":[{"quantity":4,"unit":"cup","en":"vegan beef broth","it":"brodo vegano gusto manzo"}]}
 {"line":"4 medium yellow squash ((sliced into 1/8 inch rounds))","language":"en","parts":[{"quantity":4,"en":"medium yellow squash","it":"zucchina gialla media","preparationEn":"sliced into rounds","preparationIt":"tagliate a rondelle"}]}
 {"line":"4 oz baby spinach or other greens, about 2 cups packed","language":"en","parts":[{"quantity":4,"unit":"oz","en":"baby spinach","it":"spinacini","alternatives":[{"en":"other greens","it":"altre verdure a foglia"}]}]}
 {"line":"4 pieces of vegan naan","language":"en","parts":[{"quantity":4,"unit":"piece","en":"vegan naan","it":"naan vegano"}]}
@@ -359,7 +360,7 @@
 {"line":"Or 2 shaped pizza dough","language":"en","parts":[{"quantity":2,"en":"pizza doughs","it":"impasti per pizza","preparationEn":"shaped","preparationIt":"stesi"}]}
 {"line":"Other options: apple, grapes, raspberries, blueberries, figs, oranges, peaches…","language":"en","parts":[{"en":"apple","it":"mela"},{"en":"grapes","it":"uva"},{"en":"raspberries","it":"lamponi"},{"en":"blueberries","it":"mirtilli"},{"en":"figs","it":"fichi"},{"en":"oranges","it":"arance"},{"en":"peaches","it":"pesche"}]}
 {"line":"Pinch of salt (optional, only if you like salty desserts)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"salt","it":"sale","optional":true}]}
-{"line":"Pinch of sea salt (if using unsalted butter)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"sea salt","it":"sale marino"}]}
+{"line":"Pinch of sea salt (if using unsalted butter)","language":"en","parts":[{"unit":"pinch","en":"sea salt","it":"sale marino","preparationEn":"if using unsalted butter","preparationIt":"se si usa burro non salato"}]}
 {"line":"Salt and Pepper to taste","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"pepper","it":"pepe","toTaste":true}]}
 {"line":"Salt, to taste ((I used 3/4 teaspoon))","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true}]}
 {"line":"Sandwich fixings: (lettuce leaves, cucumber ribbons or slices, sliced tomatoes, pickles or pickled red onions)","language":"en","parts":[{"en":"sandwich fixings","it":"ingredienti per farcire i panini","alternatives":[{"en":"lettuce leaves","it":"foglie di lattuga"},{"en":"cucumber ribbons or slices","it":"cetriolo a nastri o a fette"},{"en":"sliced tomatoes","it":"pomodori a fette"},{"en":"pickles","it":"cetriolini sottaceto"},{"en":"pickled red onions","it":"cipolle rosse sottaceto"}]}]}

@@ -30,13 +30,13 @@
 {"line":"1 can (13.5 fl oz) coconut milk","language":"en","parts":[{"quantity":13.5,"unit":"fl oz","en":"coconut milk","it":"latte di cocco"}]}
 {"line":"1 chipotle pepper ((from a can))","language":"en","parts":[{"quantity":1,"en":"canned chipotle pepper","it":"peperoncino chipotle in scatola"}]}
 {"line":"1 clove garlic ((crushed and minced))","language":"en","parts":[{"quantity":1,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"crushed and minced","preparationIt":"schiacciato e tritato finemente"}]}
-{"line":"1 cube Not Chick'n broth (or any equivalent vegan chicken broth)","language":"en","parts":[{"quantity":1,"unit":"cube","en":"vegan chicken broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"equivalent vegan chicken broth","it":"brodo vegetale equivalente gusto pollo"}]}]}
+{"line":"1 cube Not Chick'n broth (or any equivalent vegan chicken broth)","language":"en","parts":[{"quantity":1,"unit":"cube","en":"Not Chick'n broth","it":"brodo Not Chick'n","alternatives":[{"en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}]}
 {"line":"1 cup (100 g) rolled oats (not quick-cooking)","language":"en","parts":[{"quantity":100,"unit":"g","en":"rolled oats","it":"fiocchi d'avena"}]}
 {"line":"1 cup (100g) QUICK/INSTANT cooking oats (NOT regular, see Notes)","language":"en","parts":[{"quantity":100,"unit":"g","en":"quick-cooking oats","it":"fiocchi d'avena a cottura rapida"}]}
 {"line":"1 cup (107g) almond pulp or 1 cup (112g) blanched almond flour","language":"en","parts":[{"quantity":107,"unit":"g","en":"almond pulp","it":"polpa di mandorle","alternatives":[{"quantity":112,"unit":"g","en":"blanched almond flour","it":"farina di mandorle pelate"}]}]}
 {"line":"1 cup (160g) white rice flour (see NOTES at the very bottom for sub)","language":"en","parts":[{"quantity":160,"unit":"g","en":"white rice flour","it":"farina di riso bianco"}]}
 {"line":"1 cup (180 g) dry white jasmine rice","language":"en","parts":[{"quantity":180,"unit":"g","en":"dry white jasmine rice","it":"riso jasmine bianco secco"}]}
-{"line":"1 cup Oat Flour (certified gf if needed, or use any mild tasting grain flour/white flour)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"oat flour","it":"farina d'avena","alternatives":[{"en":"mild-tasting grain flour","it":"farina di cereali dal gusto delicato"},{"en":"white flour","it":"farina bianca"}]}]}
+{"line":"1 cup Oat Flour (certified gf if needed, or use any mild tasting grain flour/white flour)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"oat flour","it":"farina d'avena","alternatives":[{"en":"mild-tasting grain flour","it":"farina di cereali dal sapore delicato"},{"en":"white flour","it":"farina bianca"}]}]}
 {"line":"1 cup all purpose flour (or whole wheat pastry, gluten free)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"whole-wheat pastry flour","it":"farina integrale per dolci"},{"en":"gluten-free flour","it":"farina senza glutine"}]}]}
 {"line":"1 cup cabbage, shredded","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cabbage","it":"cavolo cappuccio","preparationEn":"shredded","preparationIt":"tagliato a striscioline"}]}
 {"line":"1 cup chickpea flour (or besan)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"chickpea flour","it":"farina di ceci"}]}
@@ -128,13 +128,13 @@
 {"line":"1/2 cup (60g) toasted slivered skinless almonds","language":"en","parts":[{"quantity":60,"unit":"g","en":"toasted skinless almonds","it":"mandorle pelate tostate","preparationEn":"slivered","preparationIt":"tagliate a filetti"}]}
 {"line":"1/2 cup (80g) finely diced white onion","language":"en","parts":[{"quantity":80,"unit":"g","en":"white onion","it":"cipolla bianca","preparationEn":"finely diced","preparationIt":"tagliata a dadini piccoli"}]}
 {"line":"1/2 cup Salsa","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"salsa","it":"salsa messicana"}]}
-{"line":"1/2 cup almond flour ((ground almonds / *see notes))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almond flour","it":"farina di mandorle"}]}
+{"line":"1/2 cup almond flour ((ground almonds / *see notes))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almond flour","it":"farina di mandorle","alternatives":[{"en":"ground almonds","it":"mandorle macinate"}]}]}
 {"line":"1/2 cup aquafaba","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"aquafaba","it":"acquafaba"}]}
 {"line":"1/2 cup brown rice syrup ((or agave nectar, see notes for details))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"brown rice syrup","it":"sciroppo di riso integrale","alternatives":[{"en":"agave nectar","it":"sciroppo d'agave"}]}]}
 {"line":"1/2 cup flaked or slivered almonds","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"flaked almonds","it":"mandorle a lamelle","alternatives":[{"en":"slivered almonds","it":"mandorle a bastoncini"}]}]}
 {"line":"1/2 cup fresh cherries, (pitted and coarsely chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh cherries","it":"ciliegie fresche","preparationEn":"pitted and coarsely chopped","preparationIt":"denocciolate e tritate grossolanamente"}]}
 {"line":"1/2 cup low sodium soy sauce ((use tamari for gluten free))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"low-sodium soy sauce","it":"salsa di soia a basso contenuto di sodio"}]}
-{"line":"1/2 cup milk ((non dairy))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"nondairy milk","it":"latte vegetale"}]}
+{"line":"1/2 cup milk ((non dairy))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"non-dairy milk","it":"latte vegetale"}]}
 {"line":"1/2 cup pizza sauce or prepared tomato sauce","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"pizza sauce","it":"salsa per pizza","alternatives":[{"en":"prepared tomato sauce","it":"salsa di pomodoro pronta"}]}]}
 {"line":"1/2 cup pure maple syrup or 1 cup pitted medjool dates (11 – 12), chopped","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"pure maple syrup","it":"sciroppo d'acero puro","preparationEn":"chopped if using dates","preparationIt":"datteri tritati","alternatives":[{"quantity":1,"unit":"cup","en":"pitted Medjool dates","it":"datteri Medjool denocciolati"}]}]}
 {"line":"1/2 cup shredded coconut (for coating)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"shredded coconut","it":"cocco grattugiato","purposeEn":"for coating","purposeIt":"per ricoprire"}]}
@@ -160,7 +160,7 @@
 {"line":"1/3 cup tamarind paste","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"tamarind paste","it":"pasta di tamarindo"}]}
 {"line":"1/3 tsp ground nutmeg","language":"en","parts":[{"quantity":0.3333,"unit":"tsp","en":"ground nutmeg","it":"noce moscata macinata"}]}
 {"line":"1/4 bunch cilantro, chopped","language":"en","parts":[{"quantity":0.25,"unit":"bunch","en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
-{"line":"1/4 cup (60g) pumpkin puree (I used canned, make sure the only ingredient is pumpkin)","language":"en","parts":[{"quantity":60,"unit":"g","en":"pumpkin puree","it":"purea di zucca"}]}
+{"line":"1/4 cup (60g) pumpkin puree (I used canned, make sure the only ingredient is pumpkin)","language":"en","parts":[{"quantity":60,"unit":"g","en":"pumpkin puree","it":"purea di zucca","preparationEn":"make sure pumpkin is the only ingredient","preparationIt":"assicurarsi che la zucca sia l'unico ingrediente"}]}
 {"line":"1/4 cup (60mL) dry white wine (such as Pinot Grigio or Sauvignon Blanc)","language":"en","parts":[{"quantity":60,"unit":"ml","en":"dry white wine","it":"vino bianco secco"}]}
 {"line":"1/4 cup almond milk (or other non dairy milk to make nut-free)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"other non-dairy milk","it":"altro latte vegetale"}]}]}
 {"line":"1/4 cup broth or 2 tbsp white wine","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"broth","it":"brodo","alternatives":[{"quantity":2,"unit":"tbsp","en":"white wine","it":"vino bianco"}]}]}
@@ -176,7 +176,7 @@
 {"line":"1/4 cup frozen coconut oil","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"coconut oil","it":"olio di cocco","preparationEn":"frozen","preparationIt":"congelato"}]}
 {"line":"1/4 cup grade A maple syrup (at room temperature)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"grade A maple syrup","it":"sciroppo d'acero di grado A","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"1/4 cup kecap manis ((sweet soy sauce, Note 1))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"kecap manis","it":"kecap manis"}]}
-{"line":"1/4 cup lemon juice (, fresh squeezed)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"lemon juice","it":"succo di limone","preparationEn":"freshly squeezed","preparationIt":"spremuto fresco"}]}
+{"line":"1/4 cup lemon juice (, fresh squeezed)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"lemon juice","it":"succo di limone","preparationEn":"fresh squeezed","preparationIt":"spremuto fresco"}]}
 {"line":"1/4 cup non-dairy milk, (at room temperature, plus more as needed)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"1/4 cup non-dairy yogurt (or use thick non-dairy milk, such as oat milk or coconut milk)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"non-dairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"thick non-dairy milk","it":"latte vegetale denso"},{"en":"oat milk","it":"latte d'avena"},{"en":"coconut milk","it":"latte di cocco"}]}]}
 {"line":"1/4 cup pasta water (reserved from cooking)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"pasta cooking water","it":"acqua di cottura della pasta","preparationEn":"reserved from cooking","preparationIt":"tenuta da parte dopo la cottura"}]}
@@ -283,7 +283,7 @@
 {"line":"2 vegan pie crusts (Use one for the base and the other for the top lattice work )","language":"en","parts":[{"quantity":2,"en":"vegan pie crusts","it":"basi vegane per torta"}]}
 {"line":"2 x 400 g / 14 oz cans of chickpeas","language":"en","parts":[{"quantity":800,"unit":"g","en":"canned chickpeas","it":"ceci in scatola"}]}
 {"line":"2-3 cups cilantro","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"cup","en":"cilantro","it":"coriandolo fresco"}]}
-{"line":"2-3 tablespoons lemon juice (, fresh-squeezed)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"freshly squeezed lemon juice","it":"succo di limone appena spremuto"}]}
+{"line":"2-3 tablespoons lemon juice (, fresh-squeezed)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"fresh-squeezed lemon juice","it":"succo di limone appena spremuto"}]}
 {"line":"2-3 teaspoons vegan hoisin sauce to taste (I used just about 2 tsp)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tsp","en":"vegan hoisin sauce","it":"salsa hoisin vegana","toTaste":true}]}
 {"line":"2-3 tsp chipotle paste, adjust to taste","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tsp","en":"chipotle paste","it":"pasta di chipotle","toTaste":true}]}
 {"line":"2-4 tsp olive oil","language":"en","parts":[{"quantity":2,"quantityMax":4,"unit":"tsp","en":"olive oil","it":"olio d'oliva"}]}

@@ -72,6 +72,7 @@
 {"line":"1 medium zucchini diced (similar size as potatoes)","language":"en","parts":[{"quantity":1,"en":"medium zucchini","it":"zucchina media","preparationEn":"diced to a similar size as the potatoes","preparationIt":"tagliata a dadini delle dimensioni delle patate"}]}
 {"line":"1 onion, finely diced","language":"en","parts":[{"quantity":1,"en":"onion","it":"cipolla","preparationEn":"finely diced","preparationIt":"tagliata a dadini fini"}]}
 {"line":"1 packed tablespoon lemon zest* (3-4 lemons)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"lemon zest","it":"scorza di limone"}]}
+{"line":"1 small beet (or 1 tsp brown sugar and a few drops of red food coloring)","language":"en","parts":[{"quantity":1,"en":"small beet","it":"barbabietola piccola","alternatives":[{"quantity":1,"unit":"tsp","en":"brown sugar and a few drops of red food coloring","it":"zucchero di canna e qualche goccia di colorante alimentare rosso"}]}]}
 {"line":"1 small bunch basil ((0.75 oz.) thick stems removed)","language":"en","parts":[{"quantity":0.75,"unit":"oz","en":"basil","it":"basilico","preparationEn":"thick stems removed","preparationIt":"privato dei gambi spessi"}]}
 {"line":"1 small handful cilantro ((about 1/2 cup packed_)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"packed","preparationIt":"pressato"}]}
 {"line":"1 spring onion chopped finely","language":"en","parts":[{"quantity":1,"en":"spring onion","it":"cipollotto","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
@@ -165,7 +166,7 @@
 {"line":"1/3 cup nutritional yeast ((*see notes))","language":"en","parts":[{"quantity":0.3333,"unit":"cup","en":"nutritional yeast","it":"lievito alimentare"}]}
 {"line":"1/3 cup oat/soy milk (almond milk also works, just not as creamy)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"oat milk","it":"latte d'avena","alternatives":[{"en":"soy milk","it":"latte di soia"},{"en":"almond milk","it":"latte di mandorla"}]}]}
 {"line":"1/3 cup slivered/sliced almonds","language":"en","parts":[{"quantity":0.3333,"unit":"cup","en":"slivered almonds","it":"mandorle a bastoncini","alternatives":[{"en":"sliced almonds","it":"mandorle a lamelle"}]}]}
-{"line":"1/3 cup unflavored non-dairy milk","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"unflavored plant-based milk","it":"latte vegetale non aromatizzato"}]}
+{"line":"1/3 cup unflavored non-dairy milk","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"unflavored non-dairy milk","it":"latte vegetale non aromatizzato"}]}
 {"line":"1/3 cup water","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"1/3 lb asparagus","language":"en","parts":[{"quantity":0.333333,"unit":"lb","en":"asparagus","it":"asparagi"}]}
 {"line":"1/3 tsp pink peppercorns ((optional))","language":"en","parts":[{"quantity":0.333333,"unit":"tsp","en":"pink peppercorns","it":"grani di pepe rosa","optional":true}]}
@@ -215,7 +216,7 @@
 {"line":"2 cups cherry tomatoes (quartered (or use 1 14-oz. can diced tomatoes, drained))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cherry tomatoes","it":"pomodorini ciliegino","preparationEn":"quartered","preparationIt":"tagliati in quarti","alternatives":[{"quantity":14,"unit":"oz","en":"canned diced tomatoes","it":"pomodori a cubetti in scatola"}]}]}
 {"line":"2 cups finely chopped pineapple","language":"en","parts":[{"quantity":2,"unit":"cup","en":"pineapple","it":"ananas","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"2 cups kale, packed (or 1 cup basil & 1 cup kale)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"kale","it":"cavolo riccio","preparationEn":"packed","preparationIt":"pressato","alternatives":[{"quantity":1,"unit":"cup","en":"basil","it":"basilico"},{"quantity":1,"unit":"cup","en":"kale","it":"cavolo riccio"}]}]}
-{"line":"2 cups mango puree ((canned or from fresh mangoes))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"mango puree","it":"purea di mango"}]}
+{"line":"2 cups mango puree ((canned or from fresh mangoes))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"mango puree","it":"purea di mango","preparationEn":"canned or made from fresh mangoes","preparationIt":"in scatola o preparata con mango freschi"}]}
 {"line":"2 cups of sushi rice (also called sticky rice (we used purple jasmine sticky rice blend))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"sushi rice","it":"riso per sushi"}]}
 {"line":"2 cups raw cashews, soaked in hot water for at least 5 minutes","language":"en","parts":[{"quantity":2,"unit":"cup","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked in hot water for at least 5 minutes","preparationIt":"ammollati in acqua calda per almeno 5 minuti"}]}
 {"line":"2 cups rice, (uncooked (400g))","language":"en","parts":[{"quantity":400,"unit":"g","en":"uncooked rice","it":"riso crudo"}]}

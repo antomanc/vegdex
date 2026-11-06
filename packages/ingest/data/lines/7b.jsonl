@@ -176,7 +176,7 @@
 {"line":"15 oz can chickpeas (drained, or 1½ cups cooked chickpeas or white beans)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained","preparationIt":"scolati","alternatives":[{"quantity":1.5,"unit":"cup","en":"cooked chickpeas","it":"ceci cotti"},{"quantity":1.5,"unit":"cup","en":"cooked white beans","it":"fagioli bianchi cotti"}]}]}
 {"line":"15 oz canned kidney beans (drained and rinsed)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned kidney beans","it":"fagioli rossi in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"150 g / 5.3 oz (1¼) cups flour*","language":"en","parts":[{"quantity":150,"unit":"g","en":"flour","it":"farina"}]}
-{"line":"150 gr / 1 + ½ cup buckwheat flour (all purpose wheat flour works too)","language":"en","parts":[{"quantity":150,"unit":"g","en":"buckwheat flour","it":"farina di grano saraceno","alternatives":[{"en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi"}]}]}
+{"line":"150 gr / 1 + ½ cup buckwheat flour (all purpose wheat flour works too)","language":"en","parts":[{"quantity":150,"unit":"g","en":"buckwheat flour","it":"farina di grano saraceno","alternatives":[{"en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi"}]}]}
 {"line":"155 g / 1¼ cups all purpose flour or GF plain flour mix)","language":"en","parts":[{"quantity":155,"unit":"g","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"gluten-free plain flour mix","it":"miscela di farine senza glutine"}]}]}
 {"line":"16 ounces (454g) white mushrooms (, chopped (see note #1))","language":"en","parts":[{"quantity":454,"unit":"g","en":"white mushrooms","it":"funghi champignon bianchi","preparationEn":"chopped","preparationIt":"tritati"}]}
 {"line":"16 ounces uncooked elbow pasta (gluten free if needed)","language":"en","parts":[{"quantity":16,"unit":"oz","en":"uncooked elbow pasta","it":"maccheroncini a gomito crudi"}]}
@@ -293,7 +293,7 @@
 {"line":"3/4 cup besan ((gram flour), will also work with chickpea flour, but will need more icing for added moisture)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"gram flour","it":"farina di ceci","alternatives":[{"en":"chickpea flour","it":"farina di ceci"}]}]}
 {"line":"3/4 cup carrots","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"carrots","it":"carote"}]}
 {"line":"3/4 cup creamy peanut butter ((I used Skippy))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"creamy peanut butter","it":"burro di arachidi cremoso"}]}
-{"line":"3/4 cup non dairy milk or water","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"nondairy milk","it":"latte vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
+{"line":"3/4 cup non dairy milk or water","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"non dairy milk","it":"latte vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
 {"line":"3/4 cup unsweetened soy milk ((or any plant-based milk))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"unsweetened soy milk","it":"latte di soia senza zucchero","alternatives":[{"en":"plant-based milk","it":"latte vegetale"}]}]}
 {"line":"3/4 cup vegan butter ((170g))","language":"en","parts":[{"quantity":170,"unit":"g","en":"vegan butter","it":"burro vegetale"}]}
 {"line":"3/4 cup vegan ube halaya (purple yam jam)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan ube halaya","it":"ube halaya vegana"}]}
@@ -335,7 +335,7 @@
 {"line":"600 g / 21 oz firm tofu, pressed","language":"en","parts":[{"quantity":600,"unit":"g","en":"firm tofu","it":"tofu compatto","preparationEn":"pressed","preparationIt":"pressato"}]}
 {"line":"7 tablespoons (90g) light brown sugar","language":"en","parts":[{"quantity":90,"unit":"g","en":"light brown sugar","it":"zucchero di canna chiaro"}]}
 {"line":"75 g / 6 tbsp caster sugar or coconut sugar","language":"en","parts":[{"quantity":75,"unit":"g","en":"caster sugar","it":"zucchero semolato fine","alternatives":[{"en":"coconut sugar","it":"zucchero di cocco"}]}]}
-{"line":"75 g almond flour ((finely ground almonds))","language":"en","parts":[{"quantity":75,"unit":"g","en":"almond flour","it":"farina di mandorle"}]}
+{"line":"75 g almond flour ((finely ground almonds))","language":"en","parts":[{"quantity":75,"unit":"g","en":"almond flour","it":"farina di mandorle","preparationEn":"finely ground","preparationIt":"macinata finemente"}]}
 {"line":"780 ml / 3¼ cups oat milk (I recommend Oatly original) or other plant milk","language":"en","parts":[{"quantity":780,"unit":"ml","en":"oat milk","it":"latte d'avena","alternatives":[{"en":"plant milk","it":"latte vegetale"}]}]}
 {"line":"8 Kalamata olives, de-stoned and chopped","language":"en","parts":[{"quantity":8,"en":"Kalamata olives","it":"olive Kalamata","preparationEn":"de-stoned and chopped","preparationIt":"snocciolate e tritate"}]}
 {"line":"8 corn tortillas (warmed in a skillet) or taco shells","language":"en","parts":[{"quantity":8,"en":"corn tortillas","it":"tortillas di mais","preparationEn":"warmed in a skillet","preparationIt":"scaldate in padella","alternatives":[{"en":"taco shells","it":"gusci per taco"}]}]}
@@ -389,7 +389,7 @@
 {"line":"¼ tsp black (eggy) salt","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"black salt","it":"sale nero"}]}
 {"line":"½ cup + 1 tablespoon plant-based milk (135ml)","language":"en","parts":[{"quantity":135,"unit":"ml","en":"plant-based milk","it":"latte vegetale"}]}
 {"line":"½ cup + 2 tablespoons vegan milk (150mL)","language":"en","parts":[{"quantity":150,"unit":"ml","en":"vegan milk","it":"latte vegetale"}]}
-{"line":"½ cup aquafaba (chickpea brine aka liquid from canned chickpeas)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"aquafaba","it":"acquafaba"}]}
+{"line":"½ cup aquafaba (chickpea brine aka liquid from canned chickpeas)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"aquafaba","it":"acquafaba","preparationEn":"liquid from canned chickpeas","preparationIt":"liquido dei ceci in scatola"}]}
 {"line":"½ cup fresh herbs (such as cilantro, parsley, or both, chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh herbs","it":"erbe aromatiche fresche","preparationEn":"chopped","preparationIt":"tritate","alternatives":[{"en":"fresh cilantro","it":"coriandolo fresco"},{"en":"fresh parsley","it":"prezzemolo fresco"}]}]}
 {"line":"½ cup of panko or crushed cornflakes","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"panko","it":"panko","alternatives":[{"en":"cornflakes","it":"fiocchi di mais"}]}]}
 {"line":"½ cup olive oil (not extra virgin)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"olive oil, not extra virgin","it":"olio d'oliva non extravergine"}]}

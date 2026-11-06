@@ -33,7 +33,7 @@
 {"line":"1 can (14oz.) sweet corn, drained, optional","language":"en","parts":[{"quantity":14,"unit":"oz","en":"canned sweet corn","it":"mais dolce in scatola","preparationEn":"drained","preparationIt":"scolato","optional":true}]}
 {"line":"1 cup (129 g) sliced carrots (about 2 medium)","language":"en","parts":[{"quantity":129,"unit":"g","en":"carrots","it":"carote","preparationEn":"sliced","preparationIt":"affettate"}]}
 {"line":"1 cup Homemade Vegan Mayo","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan mayo","it":"maionese vegana"}]}
-{"line":"1 cup Plain non dairy yogurt such as Coconut Milk Yogurt","language":"en","parts":[{"quantity":1,"unit":"cup","en":"plain non-dairy yogurt","it":"yogurt vegetale bianco","alternatives":[{"en":"coconut milk yogurt","it":"yogurt al latte di cocco"}]}]}
+{"line":"1 cup Plain non dairy yogurt such as Coconut Milk Yogurt","language":"en","parts":[{"quantity":1,"unit":"cup","en":"plain non dairy yogurt","it":"yogurt vegetale bianco","alternatives":[{"en":"coconut milk yogurt","it":"yogurt vegetale al latte di cocco"}]}]}
 {"line":"1 cup all-purpose flour (120g or gluten free flour mix such as Bob's Red Mill Baking Flour 1:1)","language":"en","parts":[{"quantity":120,"unit":"g","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"gluten-free flour mix","it":"miscela di farine senza glutine"}]}]}
 {"line":"1 cup balsamic vinegar","language":"en","parts":[{"quantity":1,"unit":"cup","en":"balsamic vinegar","it":"aceto balsamico"}]}
 {"line":"1 cup canned chickpeas (drained and rinsed – 170g)","language":"en","parts":[{"quantity":170,"unit":"g","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
@@ -46,7 +46,7 @@
 {"line":"1 cup macaroni pasta","language":"en","parts":[{"quantity":1,"unit":"cup","en":"macaroni","it":"maccheroni"}]}
 {"line":"1 cup natural peanut butter ((the drippy kind))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"natural runny peanut butter","it":"burro di arachidi naturale e fluido"}]}
 {"line":"1 cup non-dairy milk ( unsweetened or original flavour, 240mL)","language":"en","parts":[{"quantity":240,"unit":"ml","en":"unsweetened non-dairy milk","it":"latte vegetale senza zucchero","alternatives":[{"en":"original non-dairy milk","it":"latte vegetale gusto originale"}]}]}
-{"line":"1 cup non-dairy milk ((I used cashew milk. Use any plant-based milk of choice, including almond milk, soy milk and cashew milk).)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"nondairy milk","it":"latte vegetale"}]}
+{"line":"1 cup non-dairy milk ((I used cashew milk. Use any plant-based milk of choice, including almond milk, soy milk and cashew milk).)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"},{"en":"cashew milk","it":"latte di anacardi"}]}]}
 {"line":"1 cup of sweet corn","language":"en","parts":[{"quantity":1,"unit":"cup","en":"sweet corn","it":"mais dolce"}]}
 {"line":"1 cup organic unbleached all-purpose flour","language":"en","parts":[{"quantity":1,"unit":"cup","en":"organic unbleached all-purpose flour","it":"farina di grano tenero biologica non sbiancata"}]}
 {"line":"1 cup packed chopped greens ( such as spinach, fresh fenugreek leaves, mustard leaves, chard or amaranth)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"greens","it":"verdure a foglia","preparationEn":"chopped and packed","preparationIt":"tritate e pressate nella tazza","alternatives":[{"en":"spinach","it":"spinaci"},{"en":"fresh fenugreek leaves","it":"foglie fresche di fieno greco"},{"en":"mustard leaves","it":"foglie di senape"},{"en":"chard","it":"bietole"},{"en":"amaranth leaves","it":"foglie di amaranto"}]}]}
@@ -68,7 +68,7 @@
 {"line":"1 large yellow onion, (diced (~ 2 cups))","language":"en","parts":[{"quantity":1,"en":"large yellow onion","it":"cipolla dorata grande","preparationEn":"diced","preparationIt":"tagliata a dadini"}]}
 {"line":"1 lb block firm tofu","language":"en","parts":[{"quantity":1,"unit":"lb","en":"firm tofu","it":"tofu compatto"}]}
 {"line":"1 long celery stick, diced finely","language":"en","parts":[{"quantity":1,"unit":"stalk","en":"long celery","it":"sedano lungo","preparationEn":"finely diced","preparationIt":"tagliato a dadini piccoli"}]}
-{"line":"1 medium lemon (fresh squeezed (or about 2-3 tablespoon lemon juice))","language":"en","parts":[{"quantity":1,"en":"medium lemon","it":"limone medio","preparationEn":"freshly squeezed","preparationIt":"spremuto al momento","alternatives":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"lemon juice","it":"succo di limone"}]}]}
+{"line":"1 medium lemon (fresh squeezed (or about 2-3 tablespoon lemon juice))","language":"en","parts":[{"quantity":1,"en":"medium lemon","it":"limone medio","preparationEn":"fresh squeezed","preparationIt":"spremuto fresco","alternatives":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"lemon juice","it":"succo di limone"}]}]}
 {"line":"1 medium onion, halved and sliced into strips","language":"en","parts":[{"quantity":1,"en":"medium onion","it":"cipolla media","preparationEn":"halved and sliced into strips","preparationIt":"tagliata a metà e affettata a striscioline"}]}
 {"line":"1 medium or large head cauliflower","language":"en","parts":[{"quantity":1,"unit":"head","en":"medium or large cauliflower","it":"cavolfiore medio o grande"}]}
 {"line":"1 medium white daikon radish (peeled and sliced into 1/2-inch slices)","language":"en","parts":[{"quantity":1,"en":"medium white daikon radish","it":"daikon bianco medio","preparationEn":"peeled and sliced","preparationIt":"pelato e tagliato a fette"}]}
@@ -300,7 +300,7 @@
 {"line":"36 cm / 14\" celery ribs, sliced thinly","language":"en","parts":[{"quantity":36,"unit":"cm","en":"celery ribs","it":"coste di sedano","preparationEn":"thinly sliced","preparationIt":"tagliate a fettine sottili"}]}
 {"line":"3½ cup spinach","language":"en","parts":[{"quantity":3.5,"unit":"cup","en":"spinach","it":"spinaci"}]}
 {"line":"4 cloves garlic minced","language":"en","parts":[{"quantity":4,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}
-{"line":"4 cups Vegan chicken broth (or vegetable broth of choice) * (see notes)","language":"en","parts":[{"quantity":4,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth of choice","it":"brodo vegetale a scelta"}]}]}
+{"line":"4 cups Vegan chicken broth (or vegetable broth of choice) * (see notes)","language":"en","parts":[{"quantity":4,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth of choice","it":"brodo vegetale a scelta"}]}]}
 {"line":"4 cups filtered water","language":"en","parts":[{"quantity":4,"unit":"cup","en":"filtered water","it":"acqua filtrata"}]}
 {"line":"4 cups low-sodium vegetable broth (950mL)","language":"en","parts":[{"quantity":950,"unit":"ml","en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio"}]}
 {"line":"4 cups low-sodium vegetable broth, plus more as needed","language":"en","parts":[{"quantity":4,"unit":"cup","en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio"}]}
@@ -312,7 +312,7 @@
 {"line":"4 tsp vegan hoi sin sauce","language":"en","parts":[{"quantity":4,"unit":"tsp","en":"vegan hoisin sauce","it":"salsa hoisin vegana"}]}
 {"line":"4-5 cloves","language":"en","parts":[{"quantity":4,"quantityMax":5,"en":"cloves","it":"chiodi di garofano"}]}
 {"line":"45 ml / 3 tbsp olive oil*","language":"en","parts":[{"quantity":45,"unit":"ml","en":"olive oil","it":"olio d'oliva"}]}
-{"line":"4½ cups vegan chicken broth or vegetable broth","language":"en","parts":[{"quantity":4.5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"4½ cups vegan chicken broth or vegetable broth","language":"en","parts":[{"quantity":4.5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"5 leaves of fresh sage, (minced)","language":"en","parts":[{"quantity":5,"unit":"leaf","en":"fresh sage","it":"salvia fresca","preparationEn":"minced","preparationIt":"tritata finemente"}]}
 {"line":"5 medium potatoes (about 22 oz.) (If you want it to be faster, you can also use store-bought southern style hash browns instead.)","language":"en","parts":[{"quantity":22,"unit":"oz","en":"medium potatoes","it":"patate medie","alternatives":[{"en":"store-bought southern-style hash browns","it":"patate hash brown southern style già pronte"}]}]}
 {"line":"5 tablespoons all purpose flour ((can also use gluten-free flour blend))","language":"en","parts":[{"quantity":5,"unit":"tbsp","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"gluten-free flour blend","it":"miscela di farine senza glutine"}]}]}
@@ -323,7 +323,7 @@
 {"line":"6 cups low-sodium vegetable broth","language":"en","parts":[{"quantity":6,"unit":"cup","en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio"}]}
 {"line":"6 medium tomatoes (quartered)","language":"en","parts":[{"quantity":6,"en":"medium tomatoes","it":"pomodori medi","preparationEn":"quartered","preparationIt":"tagliati in quarti"}]}
 {"line":"6 no-boil lasagna noodles","language":"en","parts":[{"quantity":6,"en":"no-boil lasagna noodles","it":"sfoglie per lasagne senza precottura"}]}
-{"line":"60 g / ½ cup GF all purpose flour (I used Dove's Farm) or buckwheat flour or all purpose wheat flour*","language":"en","parts":[{"quantity":60,"unit":"g","en":"gluten-free all-purpose flour","it":"farina senza glutine per tutti gli usi","alternatives":[{"en":"buckwheat flour","it":"farina di grano saraceno"},{"en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi"}]}]}
+{"line":"60 g / ½ cup GF all purpose flour (I used Dove's Farm) or buckwheat flour or all purpose wheat flour*","language":"en","parts":[{"quantity":60,"unit":"g","en":"gluten-free all-purpose flour","it":"farina senza glutine per tutti gli usi","alternatives":[{"en":"buckwheat flour","it":"farina di grano saraceno"},{"en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi"}]}]}
 {"line":"60 ml / ¼ cup 100% nut butter (I used hazelnut) or seed butter or tahiniOTHER INGREDIENTS 500 g / 17 oz fresh blackberries","language":"en","parts":[{"quantity":60,"unit":"ml","en":"100% nut butter","it":"crema 100% di frutta a guscio","alternatives":[{"en":"seed butter","it":"burro di semi"},{"en":"tahini","it":"tahina"}]},{"quantity":500,"unit":"g","en":"fresh blackberries","it":"more fresche"}]}
 {"line":"7 cloves garlic, finely minced","language":"en","parts":[{"quantity":7,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"finely minced","preparationIt":"tritato finemente"}]}
 {"line":"7 cup Water","language":"en","parts":[{"quantity":7,"unit":"cup","en":"water","it":"acqua"}]}
@@ -350,7 +350,7 @@
 {"line":"Thai peanut sauce","language":"en","parts":[{"en":"Thai peanut sauce","it":"salsa thailandese alle arachidi"}]}
 {"line":"a generous amount of grated nutmeg, adjust to taste","language":"en","parts":[{"en":"nutmeg","it":"noce moscata","preparationEn":"grated","preparationIt":"grattugiata","toTaste":true}]}
 {"line":"a sprinkle of dukkah**, homemade or shop-bought","language":"en","parts":[{"quantity":1,"unit":"sprinkle","en":"dukkah","it":"dukkah"}]}
-{"line":"approx. 2 cups / 500 ml veggie stock, from a stock cube or homemade vegan stock","language":"en","parts":[{"quantity":500,"unit":"ml","en":"vegetable stock","it":"brodo vegetale"}]}
+{"line":"approx. 2 cups / 500 ml veggie stock, from a stock cube or homemade vegan stock","language":"en","parts":[{"quantity":500,"unit":"ml","en":"veggie stock","it":"brodo vegetale","preparationEn":"from a stock cube or homemade vegan stock","preparationIt":"preparato con un dado o brodo vegetale fatto in casa"}]}
 {"line":"basil and peanuts for garnish","language":"en","parts":[{"en":"basil","it":"basilico","purposeEn":"for garnish","purposeIt":"per guarnire"},{"en":"peanuts","it":"arachidi","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"cauliflower-tofu \"ricotta\" ((above))","language":"en","parts":[{"en":"cauliflower-tofu vegan ricotta","it":"ricotta vegetale di cavolfiore e tofu"}]}
 {"line":"cilantro, sliced green chilies","language":"en","parts":[{"en":"cilantro","it":"coriandolo fresco"},{"en":"green chilies","it":"peperoncini verdi","preparationEn":"sliced","preparationIt":"tagliati a fettine"}]}
@@ -359,6 +359,7 @@
 {"line":"good grind of black pepper","language":"en","parts":[{"en":"black pepper","it":"pepe nero","preparationEn":"ground","preparationIt":"macinato"}]}
 {"line":"marinated artichokes","language":"en","parts":[{"en":"marinated artichokes","it":"carciofi marinati"}]}
 {"line":"oats, pumpkin seeds or other toppings for topping (optional but recommended)","language":"en","parts":[{"en":"toppings","it":"guarnizioni","purposeEn":"for topping","purposeIt":"per guarnire","optional":true,"alternatives":[{"en":"oats","it":"avena"},{"en":"pumpkin seeds","it":"semi di zucca"}]}]}
+{"line":"oil (optional, up to 2 teaspoons)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"oil","it":"olio","optional":true}]}
 {"line":"sambal oelek, to serve","language":"en","parts":[{"en":"sambal oelek","it":"sambal oelek","purposeEn":"for serving","purposeIt":"per servire"}]}
 {"line":"sliced tomato (as needed)","language":"en","parts":[{"en":"tomato","it":"pomodoro","preparationEn":"sliced","preparationIt":"affettato"}]}
 {"line":"sliced tomatoes, optional","language":"en","parts":[{"en":"tomatoes","it":"pomodori","preparationEn":"sliced","preparationIt":"tagliati a fette","optional":true}]}

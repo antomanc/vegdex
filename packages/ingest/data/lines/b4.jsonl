@@ -13,7 +13,7 @@
 {"line":"1 1/4 cup (209 g) black beans, rinsed well (approx. 1 can)","language":"en","parts":[{"quantity":209,"unit":"g","en":"black beans","it":"fagioli neri","preparationEn":"rinsed well","preparationIt":"sciacquati bene"}]}
 {"line":"1 1/4 cup Full Fat Coconut Milk","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"full-fat coconut milk","it":"latte di cocco intero"}]}
 {"line":"1 1/4 cups vegan cane sugar","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"vegan cane sugar","it":"zucchero di canna vegano"}]}
-{"line":"1 1/4 cups vegetable broth or vegan beefless broth","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"vegan beefless broth","it":"brodo vegetale gusto manzo"}]}]}
+{"line":"1 1/4 cups vegetable broth or vegan beefless broth","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"vegan beefless broth","it":"brodo vegano gusto manzo"}]}]}
 {"line":"1 15 oz can chickpeas (drained or 1.5 cups cooked.)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained","preparationIt":"scolati","alternatives":[{"quantity":1.5,"unit":"cup","en":"cooked chickpeas","it":"ceci cotti"}]}]}
 {"line":"1 Cup hummus","language":"en","parts":[{"quantity":1,"unit":"cup","en":"hummus","it":"hummus"}]}
 {"line":"1 Recipe Vegan Queso Blanco","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"vegan queso blanco","it":"queso blanco vegano"}]}
@@ -111,7 +111,7 @@
 {"line":"1/2 cup (120g) creamy plant milk SEE NOTES below","language":"en","parts":[{"quantity":120,"unit":"g","en":"creamy plant milk","it":"latte vegetale cremoso"}]}
 {"line":"1/2 cup (80g) fine yellow cornmeal","language":"en","parts":[{"quantity":80,"unit":"g","en":"fine yellow cornmeal","it":"farina di mais gialla fine"}]}
 {"line":"1/2 cup almond pulp, packed","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almond pulp","it":"polpa di mandorle"}]}
-{"line":"1/2 cup butter, melted (I used Miyoko's plant based butter)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
+{"line":"1/2 cup butter, melted (I used Miyoko's plant based butter)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"plant based butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"1/2 cup candied ginger, (chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"candied ginger","it":"zenzero candito","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1/2 cup chopped dried papaya (pref. unsulfured & unsweetened)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsulfured unsweetened dried papaya","it":"papaya essiccata senza solfiti e senza zuccheri aggiunti","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"1/2 cup chopped onion","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"onion","it":"cipolla","preparationEn":"chopped","preparationIt":"tritata"}]}
@@ -376,7 +376,7 @@
 {"line":"lime juice or lemon juice to taste","language":"en","parts":[{"en":"lime juice","it":"succo di lime","toTaste":true,"alternatives":[{"en":"lemon juice","it":"succo di limone"}]}]}
 {"line":"pickled ginger, store-bought or homemade","language":"en","parts":[{"en":"pickled ginger","it":"zenzero sottaceto"}]}
 {"line":"pinch of thyme","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"thyme","it":"timo"}]}
-{"line":"salt and fresh cracked pepper (, to taste)","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"freshly cracked pepper","it":"pepe macinato al momento","toTaste":true}]}
+{"line":"salt and fresh cracked pepper (, to taste)","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"fresh cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"salt and ground black pepper","language":"en","parts":[{"en":"salt","it":"sale"},{"en":"ground black pepper","it":"pepe nero macinato"}]}
 {"line":"sesame seeds for garnish (optional)","language":"en","parts":[{"en":"sesame seeds","it":"semi di sesamo","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true}]}
 {"line":"sliced green onions (optional, for serving)","language":"en","parts":[{"en":"green onions","it":"cipollotti","preparationEn":"sliced","preparationIt":"affettati","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}

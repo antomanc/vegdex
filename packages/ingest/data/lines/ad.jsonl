@@ -6,7 +6,7 @@
 {"line":"1 1/2 cup (~120-140g) old fashioned rolled oats","language":"en","parts":[{"quantity":120,"quantityMax":140,"unit":"g","en":"old-fashioned rolled oats","it":"fiocchi d'avena tradizionali"}]}
 {"line":"1 1/2 cups (187g) all-purpose flour","language":"en","parts":[{"quantity":187,"unit":"g","en":"all-purpose flour","it":"farina 00"}]}
 {"line":"1 1/2 cups cauliflower stuffing (or any stuffing of your choice)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"cauliflower stuffing","it":"ripieno di cavolfiore","alternatives":[{"en":"stuffing of choice","it":"ripieno a scelta"}]}]}
-{"line":"1 1/2 cups vegan yogurt ((I used my homemade cultured cashew yogurt, but use any unsweetened storebought yogurt.))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan yogurt","it":"yogurt vegetale"}]}
+{"line":"1 1/2 cups vegan yogurt ((I used my homemade cultured cashew yogurt, but use any unsweetened storebought yogurt.))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan yogurt","it":"yogurt vegetale","alternatives":[{"en":"unsweetened storebought vegan yogurt","it":"yogurt vegano confezionato senza zucchero"}]}]}
 {"line":"1 1/2 cups water, (heated to 100°F to 110°F)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"water","it":"acqua","preparationEn":"heated to 100°F to 110°F","preparationIt":"scaldata a 100–110 °F"}]}
 {"line":"1 1/2 to 2 pounds cauliflower","language":"en","parts":[{"quantity":1.5,"quantityMax":2,"unit":"lb","en":"cauliflower","it":"cavolfiore"}]}
 {"line":"1 1/4 cup unbleached white flour","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"unbleached white flour","it":"farina bianca non sbiancata"}]}
@@ -29,7 +29,7 @@
 {"line":"1 cup Coconut Sugar","language":"en","parts":[{"quantity":1,"unit":"cup","en":"coconut sugar","it":"zucchero di cocco"}]}
 {"line":"1 cup all purpose flour ((133.75g))","language":"en","parts":[{"quantity":133.75,"unit":"g","en":"all-purpose flour","it":"farina 00"}]}
 {"line":"1 cup all-purpose flour ((use a gluten-free all-purpose flour blend, if preferred))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"all-purpose flour","it":"farina 00"}]}
-{"line":"1 cup coconut milk (Or use other non dairy milks such as almond or soy )","language":"en","parts":[{"quantity":1,"unit":"cup","en":"coconut milk","it":"latte di cocco","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"}]}]}
+{"line":"1 cup coconut milk (Or use other non dairy milks such as almond or soy )","language":"en","parts":[{"quantity":1,"unit":"cup","en":"coconut milk","it":"latte di cocco","alternatives":[{"en":"non dairy milk","it":"latte vegetale"},{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"}]}]}
 {"line":"1 cup cold coconut whipping cream (240mL)","language":"en","parts":[{"quantity":240,"unit":"ml","en":"coconut whipping cream","it":"panna di cocco da montare","preparationEn":"chilled","preparationIt":"fredda"}]}
 {"line":"1 cup cornstarch","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cornstarch","it":"amido di mais"}]}
 {"line":"1 cup cucumber (sliced)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cucumber","it":"cetriolo","preparationEn":"sliced","preparationIt":"tagliato a fette"}]}
@@ -122,7 +122,7 @@
 {"line":"1/2 cup chickpea flour (garbanzo bean flour) or besan (brown chickpea flour)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"chickpea flour","it":"farina di ceci","alternatives":[{"en":"brown chickpea flour","it":"farina di ceci neri"}]}]}
 {"line":"1/2 cup cilantro ((8g))","language":"en","parts":[{"quantity":8,"unit":"g","en":"cilantro","it":"coriandolo fresco"}]}
 {"line":"1/2 cup cilantro leaves chopped","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cilantro leaves","it":"foglie di coriandolo","preparationEn":"chopped","preparationIt":"tritate"}]}
-{"line":"1/2 cup club soda (or similar fizzy drink.)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"club soda","it":"soda","alternatives":[{"en":"similar fizzy drink","it":"bevanda gassata simile"}]}]}
+{"line":"1/2 cup club soda (or similar fizzy drink.)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"club soda","it":"acqua gassata","alternatives":[{"en":"similar fizzy drink","it":"bevanda gassata simile"}]}]}
 {"line":"1/2 cup coconut milk (use only the hard, creamy part)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"coconut milk","it":"latte di cocco","preparationEn":"use only the hard, creamy part","preparationIt":"usare solo la parte solida e cremosa"}]}
 {"line":"1/2 cup dairy free butter","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"dairy-free butter","it":"burro vegetale"}]}
 {"line":"1/2 cup ground cashew or soaked cashews","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"ground cashews","it":"anacardi macinati","alternatives":[{"en":"soaked cashews","it":"anacardi ammollati"}]}]}
@@ -141,7 +141,7 @@
 {"line":"1/2 tbsp plain, unsweetened non-dairy milk","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"plain unsweetened non-dairy milk","it":"latte vegetale al naturale senza zucchero"}]}
 {"line":"1/2 teaspoon dried parsley","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"dried parsley","it":"prezzemolo essiccato"}]}
 {"line":"1/2 teaspoon dried parsley (optional)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"dried parsley","it":"prezzemolo essiccato","optional":true}]}
-{"line":"1/2 teaspoon fresh cracked pepper","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"freshly cracked pepper","it":"pepe macinato al momento"}]}
+{"line":"1/2 teaspoon fresh cracked pepper","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"fresh cracked pepper","it":"pepe macinato fresco"}]}
 {"line":"1/2 teaspoon freshly ground black pepper (or more, to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"freshly ground black pepper","it":"pepe nero macinato al momento","toTaste":true}]}
 {"line":"1/2 teaspoon granulated onion","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"granulated onion","it":"cipolla granulare"}]}
 {"line":"1/2 teaspoon red pepper flakes, (more or less to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi","toTaste":true}]}
@@ -154,6 +154,7 @@
 {"line":"1/2 tsp rosemary","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"rosemary","it":"rosmarino"}]}
 {"line":"1/2 yellow onion (diced)","language":"en","parts":[{"quantity":0.5,"en":"yellow onion","it":"cipolla dorata","preparationEn":"diced","preparationIt":"tagliata a dadini"}]}
 {"line":"1/3 cup canola oil (, or any neutral flavored oil)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"canola oil","it":"olio di colza","alternatives":[{"en":"neutral-flavored oil","it":"olio dal sapore neutro"}]}]}
+{"line":"1/3 cup chocolate chips (, plus more for topping)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"chocolate chips","it":"gocce di cioccolato","preparationEn":"plus more for topping","preparationIt":"più altre per guarnire"}]}
 {"line":"1/3 cup frozen peas, (thawed)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"frozen peas","it":"piselli surgelati","preparationEn":"thawed","preparationIt":"scongelati"}]}
 {"line":"1/3 cup oil packed sun-dried tomatoes, (chopped small)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"oil-packed sun-dried tomatoes","it":"pomodori secchi sott'olio","preparationEn":"chopped small","preparationIt":"tritati finemente"}]}
 {"line":"1/3 cup whole wheat flour","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"whole wheat flour","it":"farina integrale"}]}

@@ -15,7 +15,7 @@
 {"line":"1 1/2 cups chopped cabbage (or more, to taste)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"cabbage","it":"cavolo cappuccio","preparationEn":"chopped","preparationIt":"tagliato","toTaste":true}]}
 {"line":"1 1/2 cups of white basmati rice (washed)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"white basmati rice","it":"riso basmati bianco","preparationEn":"washed","preparationIt":"lavato"}]}
 {"line":"1 1/2 cups unsweetened plain almond milk (or your favorite) or water","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"unsweetened plain almond milk","it":"latte di mandorla al naturale senza zucchero","alternatives":[{"en":"milk of choice","it":"latte a scelta"},{"en":"water","it":"acqua"}]}]}
-{"line":"1 1/2 tablespoons (22g) freshly squeezed orange juice (fresh is very sweet)","language":"en","parts":[{"quantity":22,"unit":"g","en":"freshly squeezed orange juice","it":"succo d'arancia appena spremuto"}]}
+{"line":"1 1/2 tablespoons (22g) freshly squeezed orange juice (fresh is very sweet)","language":"en","parts":[{"quantity":22,"unit":"g","en":"orange juice","it":"succo d'arancia","preparationEn":"freshly squeezed","preparationIt":"spremuto fresco"}]}
 {"line":"1 1/2 tablespoons fresh ginger, finely grated","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"fresh ginger","it":"zenzero fresco","preparationEn":"finely grated","preparationIt":"grattugiato finemente"}]}
 {"line":"1 1/2 tbsp cornstarch ((can sub arrowroot powder))","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"cornstarch","it":"amido di mais","alternatives":[{"en":"arrowroot powder","it":"amido di arrowroot"}]}]}
 {"line":"1 1/2 teaspoons instant yeast","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"instant yeast","it":"lievito di birra secco istantaneo"}]}
@@ -171,7 +171,7 @@
 {"line":"1/3 cup walnuts, (chopped, optional (43g))","language":"en","parts":[{"quantity":43,"unit":"g","en":"walnuts","it":"noci","preparationEn":"chopped","preparationIt":"tritate","optional":true}]}
 {"line":"1/3 level tsp salt","language":"en","parts":[{"quantity":0.3333333,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"1/3 tsp salt (adjust based on peanut butter is already salted or not)","language":"en","parts":[{"quantity":0.333,"unit":"tsp","en":"salt","it":"sale"}]}
-{"line":"1/4 cup almond flour (ground raw almonds)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"almond flour","it":"farina di mandorle","alternatives":[{"en":"raw almonds","it":"mandorle crude"}]}]}
+{"line":"1/4 cup almond flour (ground raw almonds)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"almond flour","it":"farina di mandorle","preparationEn":"ground raw almonds","preparationIt":"mandorle crude macinate"}]}
 {"line":"1/4 cup cashews ((unsalted and not roasted))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"raw unsalted cashews","it":"anacardi crudi non salati"}]}
 {"line":"1/4 cup chopped cilantro (optional)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato","optional":true}]}
 {"line":"1/4 cup fresh basil, finely chopped","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh basil","it":"basilico fresco","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
@@ -209,7 +209,7 @@
 {"line":"14 oz firm tofu (pressed for 10 minutes)","language":"en","parts":[{"quantity":14,"unit":"oz","en":"firm tofu","it":"tofu compatto","preparationEn":"pressed for 10 minutes","preparationIt":"pressato per 10 minuti"}]}
 {"line":"150 g / 5¼ oz vegan 70% cocoa dark chocolate, broken up roughly","language":"en","parts":[{"quantity":150,"unit":"g","en":"vegan 70% cocoa dark chocolate","it":"cioccolato fondente vegano al 70% di cacao","preparationEn":"roughly broken up","preparationIt":"spezzettato grossolanamente"}]}
 {"line":"180 g / 1½ cups all purpose flour OR GF all purpose flour mix (I used Dove's Farm)","language":"en","parts":[{"quantity":180,"unit":"g","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"gluten-free all-purpose flour mix","it":"miscela di farine senza glutine per tutti gli usi"}]}]}
-{"line":"180 g / 1½ cups all purpose wheat flour or GF flour mix (I use this one)","language":"en","parts":[{"quantity":180,"unit":"g","en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi","alternatives":[{"en":"gluten-free flour mix","it":"miscela di farine senza glutine"}]}]}
+{"line":"180 g / 1½ cups all purpose wheat flour or GF flour mix (I use this one)","language":"en","parts":[{"quantity":180,"unit":"g","en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi","alternatives":[{"en":"gluten-free flour mix","it":"miscela di farine senza glutine"}]}]}
 {"line":"190 g flour","language":"en","parts":[{"quantity":190,"unit":"g","en":"flour","it":"farina"}]}
 {"line":"1¼ cup old-fashioned oats","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"old-fashioned oats","it":"fiocchi d'avena tradizionali"}]}
 {"line":"1¼ cup soy milk ((or any non-dairy milk))","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"soy milk","it":"latte di soia","alternatives":[{"en":"non-dairy milk","it":"latte vegetale"}]}]}
@@ -390,7 +390,7 @@
 {"line":"handful grape tomatoes, halved or quartered","language":"en","parts":[{"quantity":1,"unit":"handful","en":"grape tomatoes","it":"pomodorini datterini","preparationEn":"halved or quartered","preparationIt":"tagliati a metà o in quarti"}]}
 {"line":"nori sheet, cut into strips, optional","language":"en","parts":[{"en":"nori sheet","it":"foglio di alga nori","preparationEn":"cut into strips","preparationIt":"tagliato a strisce","optional":true}]}
 {"line":"optional add ins for variation: (crushed bay leaf, 1/4 tsp ground mustard)","language":"en","parts":[{"en":"bay leaf","it":"foglia di alloro","preparationEn":"crushed","preparationIt":"sbriciolata","optional":true},{"quantity":0.25,"unit":"tsp","en":"ground mustard","it":"senape in polvere","optional":true}]}
-{"line":"optional: fresh ground black pepper","language":"en","parts":[{"en":"freshly ground black pepper","it":"pepe nero macinato al momento","optional":true}]}
+{"line":"optional: fresh ground black pepper","language":"en","parts":[{"en":"fresh ground black pepper","it":"pepe nero macinato fresco","optional":true}]}
 {"line":"oranges in syrup OR 2 oranges + ½ cup sugar","language":"en","parts":[{"en":"oranges in syrup","it":"arance sciroppate","alternatives":[{"quantity":2,"en":"oranges","it":"arance"}]},{"quantity":0.5,"unit":"cup","en":"sugar","it":"zucchero"}]}
 {"line":"pistachios","language":"en","parts":[{"en":"pistachios","it":"pistacchi"}]}
 {"line":"sambal oelek (Indonesian chilli paste), to taste","language":"en","parts":[{"en":"sambal oelek","it":"sambal oelek","toTaste":true}]}
@@ -421,7 +421,7 @@
 {"line":"½ cup almond milk","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almond milk","it":"latte di mandorla"}]}
 {"line":"½ cup fresh cilantro, (finely chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh cilantro","it":"coriandolo fresco","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"½ cup ice cold water (120mL)","language":"en","parts":[{"quantity":120,"unit":"ml","en":"water","it":"acqua","preparationEn":"ice cold","preparationIt":"ghiacciata"}]}
-{"line":"½ cup of semi-sweet (non-dairy) chocolate chips","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"semi-sweet dairy-free chocolate chips","it":"gocce di cioccolato semidolce senza latticini"}]}
+{"line":"½ cup of semi-sweet (non-dairy) chocolate chips","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"non-dairy semi-sweet chocolate chips","it":"gocce di cioccolato semidolce senza latte"}]}
 {"line":"½ cup pumpkin purée","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"pumpkin purée","it":"purea di zucca"}]}
 {"line":"½ cup vegan butter (softened (115g))","language":"en","parts":[{"quantity":115,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}
 {"line":"½ medium butternut squash","language":"en","parts":[{"quantity":0.5,"en":"medium butternut squash","it":"zucca butternut media"}]}

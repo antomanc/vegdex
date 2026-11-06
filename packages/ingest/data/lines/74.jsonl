@@ -56,7 +56,7 @@
 {"line":"1 cup sprouted or cooked chickpeas (I used sprouted over 1.5 days)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"sprouted chickpeas","it":"ceci germogliati","alternatives":[{"en":"cooked chickpeas","it":"ceci cotti"}]}]}
 {"line":"1 cup toor dal ((split pigeon peas/arhar dal/tuvar dal))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"toor dal","it":"toor dal"}]}
 {"line":"1 cup unsweetened almond milk (any vegan milks, 240mL)","language":"en","parts":[{"quantity":240,"unit":"ml","en":"unsweetened almond milk","it":"latte di mandorla senza zucchero","alternatives":[{"en":"vegan milk","it":"latte vegetale"}]}]}
-{"line":"1 cup vegan chicken broth","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}
+{"line":"1 cup vegan chicken broth","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}
 {"line":"1 cup vegan ricotta (made the day before)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan ricotta","it":"ricotta vegetale","preparationEn":"made the day before","preparationIt":"preparata il giorno prima"}]}
 {"line":"1 cup water (or broth )","language":"en","parts":[{"quantity":1,"unit":"cup","en":"water","it":"acqua","alternatives":[{"en":"broth","it":"brodo"}]}]}
 {"line":"1 cup water (or stock)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"water","it":"acqua","alternatives":[{"en":"stock","it":"brodo"}]}]}
@@ -129,7 +129,7 @@
 {"line":"1 tsp cardamom pods (scant)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"cardamom pods","it":"baccelli di cardamomo"}]}
 {"line":"1 tsp cayenne ((or paprika. Use more cayenne for more heat))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"cayenne","it":"pepe di Cayenna","alternatives":[{"en":"paprika","it":"paprika"}]}]}
 {"line":"1 tsp garam masala ((taste the sabzi once it's cooked and add more if needed at the time))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"garam masala","it":"garam masala"}]}
-{"line":"1 tsp salt ((skip the salt if you're on a low-sodium diet))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"salt","it":"sale"}]}
+{"line":"1 tsp salt ((skip the salt if you're on a low-sodium diet))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"salt","it":"sale","preparationEn":"skip if on a low-sodium diet","preparationIt":"omettere se si segue una dieta povera di sodio"}]}
 {"line":"1 tsp. ground cinnamon","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"ground cinnamon","it":"cannella in polvere"}]}
 {"line":"1 very ripe diced tomato","language":"en","parts":[{"quantity":1,"en":"very ripe tomato","it":"pomodoro molto maturo","preparationEn":"diced","preparationIt":"tagliato a dadini"}]}
 {"line":"1 x 8g sachet of quick yeast","language":"en","parts":[{"quantity":8,"unit":"g","en":"quick yeast","it":"lievito istantaneo"}]}
@@ -327,7 +327,7 @@
 {"line":"3/4 cup rolled oats (or sub with 1/2 cup extra flour)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"rolled oats","it":"fiocchi d'avena","alternatives":[{"quantity":0.5,"unit":"cup","en":"extra flour","it":"farina aggiuntiva"}]}]}
 {"line":"3/4 cup vegan chocolate chips, (divided (130g))","language":"en","parts":[{"quantity":130,"unit":"g","en":"vegan chocolate chips","it":"gocce di cioccolato vegano","preparationEn":"divided","preparationIt":"divise"}]}
 {"line":"3/4 cup vegan kimchi","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan kimchi","it":"kimchi vegano"}]}
-{"line":"3/4 cup vegan ricotta (cashew ricotta or tofu ricotta)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan ricotta","it":"ricotta vegetale","alternatives":[{"en":"cashew ricotta","it":"ricotta di anacardi"},{"en":"tofu ricotta","it":"ricotta di tofu"}]}]}
+{"line":"3/4 cup vegan ricotta (cashew ricotta or tofu ricotta)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan ricotta","it":"ricotta vegetale","alternatives":[{"en":"cashew ricotta","it":"ricotta di anacardi"},{"en":"tofu ricotta","it":"ricotta vegetale di tofu"}]}]}
 {"line":"3/4 cup water, divided","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"water","it":"acqua","preparationEn":"divided","preparationIt":"divisa"}]}
 {"line":"3/4 teaspoon vegan friendly red food coloring*","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"vegan red food coloring","it":"colorante alimentare rosso vegano"}]}
 {"line":"300 g / 10.5 oz fresh spinach","language":"en","parts":[{"quantity":300,"unit":"g","en":"fresh spinach","it":"spinaci freschi"}]}

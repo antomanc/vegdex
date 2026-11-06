@@ -43,7 +43,7 @@
 {"line":"1 cup frozen spinach, thawed (or 2 cips chopped or baby fresh spinach )","language":"en","parts":[{"quantity":1,"unit":"cup","en":"frozen spinach","it":"spinaci surgelati","preparationEn":"thawed","preparationIt":"scongelati","alternatives":[{"quantity":2,"unit":"cup","en":"fresh spinach","it":"spinaci freschi"},{"quantity":2,"unit":"cup","en":"baby spinach","it":"spinacini"}]}]}
 {"line":"1 cup garlic greens ((optional))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"garlic greens","it":"foglie di aglio","optional":true}]}
 {"line":"1 cup non-dairy milk such as almond, (soy, coconut, or oat)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"},{"en":"coconut milk","it":"latte di cocco"},{"en":"oat milk","it":"latte d'avena"}]}]}
-{"line":"1 cup non-dairy yogurt (I used coconut yogurt)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan yogurt","it":"yogurt vegetale"}]}
+{"line":"1 cup non-dairy yogurt (I used coconut yogurt)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy yogurt","it":"yogurt vegetale"}]}
 {"line":"1 cup of yellow split peas","language":"en","parts":[{"quantity":1,"unit":"cup","en":"yellow split peas","it":"piselli gialli spezzati"}]}
 {"line":"1 cup prepared salsa of choice ((I used mango salsa))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"prepared salsa of choice","it":"salsa pronta a scelta"}]}
 {"line":"1 cup raspberries (6 oz)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"raspberries","it":"lamponi"}]}
@@ -142,7 +142,7 @@
 {"line":"1/2 cup sunflower seed butter ((*see notes))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"sunflower seed butter","it":"burro di semi di girasole"}]}
 {"line":"1/2 cup sweet onion, (diced)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"sweet onion","it":"cipolla dolce","preparationEn":"diced","preparationIt":"tagliata a dadini"}]}
 {"line":"1/2 cup unflavored and unsweetened non-dairy milk ((such as almond, soy or cashew), or as needed)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unflavored, unsweetened non-dairy milk","it":"latte vegetale neutro e senza zuccheri"}]}
-{"line":"1/2 cup unsweetened almond milk ((sub for other non-dairy milk if allergies))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened almond milk","it":"latte di mandorla senza zucchero","alternatives":[{"en":"other dairy-free milk","it":"altro latte vegetale"}]}]}
+{"line":"1/2 cup unsweetened almond milk ((sub for other non-dairy milk if allergies))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened almond milk","it":"latte di mandorla senza zucchero","alternatives":[{"en":"non-dairy milk","it":"latte vegetale"}]}]}
 {"line":"1/2 cup unsweetened non-dairy milk, (I use cashew or soy)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened non-dairy milk","it":"latte vegetale senza zucchero"}]}
 {"line":"1/2 cup vegan butter ((cold and diced))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"cold and diced","preparationIt":"freddo e tagliato a cubetti"}]}
 {"line":"1/2 cup vegetables of choice","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegetables of choice","it":"verdure a scelta"}]}
@@ -183,14 +183,14 @@
 {"line":"1/4 cup walnuts (or use sunflower seeds for nut-free)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"walnuts","it":"noci","alternatives":[{"en":"sunflower seeds","it":"semi di girasole"}]}]}
 {"line":"1/4 cup water or 2 tablespoons olive oil","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"water","it":"acqua","alternatives":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}]}
 {"line":"1/4 teaspoon ground cumin","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground cumin","it":"cumino macinato"}]}
-{"line":"1/4 tsp fresh cracked black pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"freshly cracked black pepper","it":"pepe nero macinato al momento"}]}
+{"line":"1/4 tsp fresh cracked black pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"fresh cracked black pepper","it":"pepe nero macinato fresco"}]}
 {"line":"1/4 tsp salt (plus to taste)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
 {"line":"1/4-1/2 teaspoon fine sea salt (this will depend if your tahini is salted)","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"fine sea salt","it":"sale marino fino"}]}
 {"line":"1/8 teaspoon asofetida ((hing))","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"asafoetida","it":"assafetida"}]}
 {"line":"10 bell peppers","language":"en","parts":[{"quantity":10,"en":"bell peppers","it":"peperoni"}]}
 {"line":"10 cups vegetable broth (homemade or store-bought)","language":"en","parts":[{"quantity":10,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"10 oz vegan semi-sweet chocolate chips","language":"en","parts":[{"quantity":10,"unit":"oz","en":"vegan semi-sweet chocolate chips","it":"gocce di cioccolato semidolce vegane"}]}
-{"line":"100 g / 1 cup hazelnut meal / finely ground hazelnuts","language":"en","parts":[{"quantity":100,"unit":"g","en":"hazelnut meal","it":"farina di nocciole"}]}
+{"line":"100 g / 1 cup hazelnut meal / finely ground hazelnuts","language":"en","parts":[{"quantity":100,"unit":"g","en":"hazelnut meal","it":"farina di nocciole","preparationEn":"finely ground","preparationIt":"macinate finemente"}]}
 {"line":"100 g chickpea flour","language":"en","parts":[{"quantity":100,"unit":"g","en":"chickpea flour","it":"farina di ceci"}]}
 {"line":"11 small dates (pitted (see notes))","language":"en","parts":[{"quantity":11,"en":"small dates","it":"datteri piccoli","preparationEn":"pitted","preparationIt":"denocciolati"}]}
 {"line":"12 fresh sage leaves","language":"en","parts":[{"quantity":12,"en":"fresh sage leaves","it":"foglie di salvia fresca"}]}
@@ -362,7 +362,7 @@
 {"line":"Colored sugar or sprinkles for decorating ((optional))","language":"en","parts":[{"en":"colored sugar","it":"zucchero colorato","purposeEn":"for decorating","purposeIt":"per decorare","optional":true,"alternatives":[{"en":"sprinkles","it":"codette di zucchero"}]}]}
 {"line":"Croutons (these are a great vegan brand)","language":"en","parts":[{"en":"croutons","it":"crostini"}]}
 {"line":"Extra freshly cracked black pepper (to taste)","language":"en","parts":[{"en":"black pepper","it":"pepe nero","preparationEn":"freshly cracked","preparationIt":"macinato al momento","toTaste":true}]}
-{"line":"Fresh cracked pepper (, to taste )","language":"en","parts":[{"en":"black pepper","it":"pepe nero","preparationEn":"freshly cracked","preparationIt":"macinato al momento","toTaste":true}]}
+{"line":"Fresh cracked pepper (, to taste )","language":"en","parts":[{"en":"fresh cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"Garnish: green onions, sesame seeds, cayenne","language":"en","parts":[{"en":"green onions","it":"cipollotti","purposeEn":"for garnish","purposeIt":"per guarnire"},{"en":"sesame seeds","it":"semi di sesamo","purposeEn":"for garnish","purposeIt":"per guarnire"},{"en":"cayenne pepper","it":"peperoncino di Cayenna","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"Greens (, tomatoes, sprouts, salt and pepper)","language":"en","parts":[{"en":"greens","it":"verdure a foglia"},{"en":"tomatoes","it":"pomodori"},{"en":"sprouts","it":"germogli"},{"en":"salt","it":"sale"},{"en":"pepper","it":"pepe"}]}
 {"line":"Handful of Italian flat-leaf parsley (chopped)","language":"en","parts":[{"quantity":1,"unit":"handful","en":"Italian flat-leaf parsley","it":"prezzemolo italiano a foglia liscia","preparationEn":"chopped","preparationIt":"tritato"}]}
@@ -379,7 +379,7 @@
 {"line":"Pinch of pink himalayan salt","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"pink Himalayan salt","it":"sale rosa dell'Himalaya"}]}
 {"line":"Pinch red pepper flakes, (or to taste)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"red pepper flakes","it":"peperoncino in fiocchi","toTaste":true}]}
 {"line":"Scant 1/4 teaspoon fine sea salt (do not omit!)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"fine sea salt","it":"sale marino fino"}]}
-{"line":"Vegan feta cheese ((store bought or homemade tofu feta))","language":"en","parts":[{"en":"vegan feta cheese","it":"feta vegana","alternatives":[{"en":"homemade tofu feta","it":"feta di tofu fatta in casa"}]}]}
+{"line":"Vegan feta cheese ((store bought or homemade tofu feta))","language":"en","parts":[{"en":"vegan feta cheese","it":"feta vegana","alternatives":[{"en":"homemade tofu feta","it":"feta vegetale di tofu fatta in casa"}]}]}
 {"line":"a few slices of sushi ginger","language":"en","parts":[{"unit":"slice","en":"sushi ginger","it":"zenzero per sushi"}]}
 {"line":"a generous dash of black pepper or cayenne or both - I always add both","language":"en","parts":[{"quantity":1,"unit":"dash","en":"black pepper","it":"pepe nero","alternatives":[{"en":"cayenne pepper","it":"peperoncino di Cayenna"}]}]}
 {"line":"a handful of radish sprouts (optional)","language":"en","parts":[{"quantity":1,"unit":"handful","en":"radish sprouts","it":"germogli di ravanello","optional":true}]}
@@ -399,7 +399,7 @@
 {"line":"lettuce mix","language":"en","parts":[{"en":"lettuce mix","it":"misticanza di lattughe"}]}
 {"line":"oil (I used peanut oil), for frying","language":"en","parts":[{"en":"oil","it":"olio","purposeEn":"for frying","purposeIt":"per friggere"}]}
 {"line":"oil-free tortilla strips (SEE DIRECTIONS)","language":"en","parts":[{"en":"oil-free tortilla strips","it":"strisce di tortilla senza olio"}]}
-{"line":"pepita parmesan (or your favorite parm recipe)","language":"en","parts":[{"en":"pepita parmesan","it":"parmigiano vegetale ai semi di zucca","alternatives":[{"en":"favorite vegan parmesan recipe","it":"parmigiano vegano preparato secondo la ricetta preferita"}]}]}
+{"line":"pepita parmesan (or your favorite parm recipe)","language":"en","parts":[{"en":"pepita parmesan","it":"parmigiano vegano ai semi di zucca","alternatives":[{"en":"favorite vegan parmesan recipe","it":"parmigiano vegano preparato secondo la ricetta preferita"}]}]}
 {"line":"pickled red onions (optional)","language":"en","parts":[{"en":"pickled red onions","it":"cipolle rosse sottaceto","optional":true}]}
 {"line":"powdered sugar (for dusting the cookies)","language":"en","parts":[{"en":"powdered sugar","it":"zucchero a velo","purposeEn":"for dusting the cookies","purposeIt":"per spolverare i biscotti"}]}
 {"line":"sesame seeds and chopped scallions (to garnish)","language":"en","parts":[{"en":"sesame seeds","it":"semi di sesamo","purposeEn":"for garnish","purposeIt":"per guarnire"},{"en":"scallions","it":"cipollotti","preparationEn":"chopped","preparationIt":"tritati","purposeEn":"for garnish","purposeIt":"per guarnire"}]}

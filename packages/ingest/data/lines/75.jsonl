@@ -41,7 +41,7 @@
 {"line":"1 cup toor dal ((split pigeon peas, dry))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dry toor dal","it":"piselli del Congo spezzati secchi"}]}
 {"line":"1 cup unsweetened soy or coconut yogurt","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened soy yogurt","it":"yogurt di soia senza zucchero","alternatives":[{"en":"unsweetened coconut yogurt","it":"yogurt di cocco senza zucchero"}]}]}
 {"line":"1 cup vegan parmesan cheese ((divided))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan Parmesan cheese","it":"parmigiano vegano","preparationEn":"divided","preparationIt":"diviso"}]}
-{"line":"1 cup vegan “chicken” broth (or vegetable broth)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"1 cup vegan “chicken” broth (or vegetable broth)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"1 cup white wine vinegar","language":"en","parts":[{"quantity":1,"unit":"cup","en":"white wine vinegar","it":"aceto di vino bianco"}]}
 {"line":"1 eggplant (sliced)","language":"en","parts":[{"quantity":1,"en":"eggplant","it":"melanzana","preparationEn":"sliced","preparationIt":"a fette"}]}
 {"line":"1 garlic clove, grated finely","language":"en","parts":[{"quantity":1,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"finely grated","preparationIt":"grattugiato finemente"}]}
@@ -231,7 +231,7 @@
 {"line":"2 tbsp finely chopped parsley","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"parsley","it":"prezzemolo","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"2 tbsp fresh jalapeno, (finely diced)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh jalapeño","it":"jalapeño fresco","preparationEn":"finely diced","preparationIt":"tagliato a dadini piccoli"}]}
 {"line":"2 tbsp minced fresh rosemary and thyme or 2 tsp dried, I like 1.5 tsp rosemary and 1/2 tsp thyme","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh rosemary and thyme","it":"rosmarino e timo freschi","preparationEn":"minced","preparationIt":"tritati","alternatives":[{"quantity":2,"unit":"tsp","en":"dried rosemary and thyme","it":"rosmarino e timo secchi"}]}]}
-{"line":"2 tbsp non-dairy butter, (I recommend Earth Balance)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan butter","it":"burro vegetale"}]}
+{"line":"2 tbsp non-dairy butter, (I recommend Earth Balance)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"non-dairy butter","it":"burro vegetale"}]}
 {"line":"2 tbsp vegetable oil (plus more if frying the tofu)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegetable oil","it":"olio vegetale"}]}
 {"line":"2 tbsp. sugar","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"sugar","it":"zucchero"}]}
 {"line":"2 teaspoon olive oil, (optional)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"olive oil","it":"olio d'oliva","optional":true}]}
@@ -249,7 +249,7 @@
 {"line":"2 tsp olive oil (or avocado oil)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"olive oil","it":"olio d'oliva","alternatives":[{"en":"avocado oil","it":"olio di avocado"}]}]}
 {"line":"2 tsp vinegar (I use apple cider vinegar)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"vinegar","it":"aceto"}]}
 {"line":"2 ¼ cups (280 g) all-purpose flour (plus more for the counter)","language":"en","parts":[{"quantity":280,"unit":"g","en":"all-purpose flour","it":"farina 00","purposeEn":"plus more for the counter","purposeIt":"più altra per il piano di lavoro"}]}
-{"line":"2 ¼ cups Better than Bouillon Vegan Beef Flavored Broth","language":"en","parts":[{"quantity":2.25,"unit":"cup","en":"Better than Bouillon vegan beef-flavored broth","it":"brodo vegano al gusto manzo Better than Bouillon"}]}
+{"line":"2 ¼ cups Better than Bouillon Vegan Beef Flavored Broth","language":"en","parts":[{"quantity":2.25,"unit":"cup","en":"Better than Bouillon vegan beef flavored broth","it":"brodo vegano gusto manzo Better than Bouillon"}]}
 {"line":"2 ½ tablespoons extra virgin olive oil (37mL)","language":"en","parts":[{"quantity":37,"unit":"ml","en":"extra virgin olive oil","it":"olio extravergine d'oliva"}]}
 {"line":"2 ½ tablespoons neutral-flavored oil ((can use olive oil if you want))","language":"en","parts":[{"quantity":2.5,"unit":"tbsp","en":"neutral-flavored oil","it":"olio dal sapore neutro","alternatives":[{"en":"olive oil","it":"olio d'oliva"}]}]}
 {"line":"2 ¾ cups of vegetable broth","language":"en","parts":[{"quantity":2.75,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
@@ -260,7 +260,7 @@
 {"line":"2/3 cup soaked sunflower seeds*","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"sunflower seeds","it":"semi di girasole","preparationEn":"soaked","preparationIt":"ammollati"}]}
 {"line":"2/3 cup unsweetened applesauce","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"unsweetened applesauce","it":"purea di mele senza zucchero"}]}
 {"line":"25 fresh sage leaves ((about 1 large bunch))","language":"en","parts":[{"quantity":25,"unit":"leaf","en":"fresh sage","it":"salvia fresca"}]}
-{"line":"250 g / 2 cups all purpose wheat flour*, plus extra for dusting","language":"en","parts":[{"quantity":250,"unit":"g","en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi","purposeEn":"plus extra for dusting","purposeIt":"più altra per infarinare"}]}
+{"line":"250 g / 2 cups all purpose wheat flour*, plus extra for dusting","language":"en","parts":[{"quantity":250,"unit":"g","en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi","purposeEn":"plus extra for dusting","purposeIt":"più altra per infarinare"}]}
 {"line":"28 ounces tomato puree or sauce","language":"en","parts":[{"quantity":28,"unit":"oz","en":"tomato puree","it":"passata di pomodoro","alternatives":[{"en":"tomato sauce","it":"salsa di pomodoro"}]}]}
 {"line":"3 (15.5 ounce/439 gram) cans butter beans, (drained and lightly rinsed)","language":"en","parts":[{"quantity":1317,"unit":"g","en":"canned butter beans","it":"fagioli di Spagna in scatola","preparationEn":"drained and lightly rinsed","preparationIt":"scolati e sciacquati leggermente"}]}
 {"line":"3 1/2 cups cubed eggplant (about 3/4” to 1” in size)","language":"en","parts":[{"quantity":3.5,"unit":"cup","en":"eggplant","it":"melanzana","preparationEn":"cubed","preparationIt":"tagliata a cubetti"}]}
@@ -318,7 +318,7 @@
 {"line":"6 tablespoons vegan butter, (chilled)","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"chilled","preparationIt":"freddo"}]}
 {"line":"60 ml / 4 tbsp maple syrup, adjust to taste","language":"en","parts":[{"quantity":60,"unit":"ml","en":"maple syrup","it":"sciroppo d'acero","toTaste":true}]}
 {"line":"75 g icing sugar (aka confectioners sugar)","language":"en","parts":[{"quantity":75,"unit":"g","en":"icing sugar","it":"zucchero a velo"}]}
-{"line":"8 cups vegan \"chicken\" broth (or vegetable broth)","language":"en","parts":[{"quantity":8,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"8 cups vegan \"chicken\" broth (or vegetable broth)","language":"en","parts":[{"quantity":8,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"8 ounces white mushrooms (sliced, 227 grams )","language":"en","parts":[{"quantity":227,"unit":"g","en":"white mushrooms","it":"funghi champignon bianchi","preparationEn":"sliced","preparationIt":"affettati"}]}
 {"line":"8 taco shells (, hard or soft)","language":"en","parts":[{"quantity":8,"en":"taco shells","it":"gusci per taco","alternatives":[{"en":"soft taco shells","it":"gusci morbidi per taco"}]}]}
 {"line":"80 g / ¾ cup finely ground almonds / almond flour","language":"en","parts":[{"quantity":80,"unit":"g","en":"finely ground almonds","it":"mandorle macinate finemente","alternatives":[{"en":"almond flour","it":"farina di mandorle"}]}]}
@@ -368,8 +368,8 @@
 {"line":"mini chocolate chips","language":"en","parts":[{"en":"mini chocolate chips","it":"gocce di cioccolato piccole"}]}
 {"line":"more sesame seeds,","language":"en","parts":[{"en":"sesame seeds","it":"semi di sesamo"}]}
 {"line":"oil for frying (in a deep fryer or deep enough to fill a pan about 2 inches to fully cover the tofu.)","language":"en","parts":[{"en":"oil","it":"olio","purposeEn":"for frying","purposeIt":"per friggere"}]}
-{"line":"pinch of red pepper flakes or fresh cracked pepper","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"red pepper flakes","it":"peperoncino in fiocchi","alternatives":[{"en":"freshly cracked pepper","it":"pepe macinato al momento"}]}]}
-{"line":"pinch salt (if using unsalted butter, increase this to a heavy pinch)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"salt","it":"sale"}]}
+{"line":"pinch of red pepper flakes or fresh cracked pepper","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"red pepper flakes","it":"peperoncino in fiocchi","alternatives":[{"en":"fresh cracked pepper","it":"pepe macinato fresco"}]}]}
+{"line":"pinch salt (if using unsalted butter, increase this to a heavy pinch)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"salt","it":"sale","preparationEn":"use a generous pinch if using unsalted butter","preparationIt":"usare un pizzico abbondante se si usa burro non salato"}]}
 {"line":"radishes, thinly sliced (optional)","language":"en","parts":[{"en":"radishes","it":"ravanelli","preparationEn":"thinly sliced","preparationIt":"tagliati a fettine sottili","optional":true}]}
 {"line":"salt, pepper, chilli flakes (if desired)","language":"en","parts":[{"en":"salt","it":"sale","optional":true},{"en":"pepper","it":"pepe","optional":true},{"en":"chili flakes","it":"peperoncino in fiocchi","optional":true}]}
 {"line":"vegan caramel","language":"en","parts":[{"en":"vegan caramel","it":"caramello vegano"}]}

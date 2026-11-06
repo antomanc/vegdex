@@ -201,7 +201,7 @@
 {"line":"2 cloves of garlic (thinly sliced or minced)","language":"en","parts":[{"quantity":2,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"thinly sliced or minced","preparationIt":"affettato finemente o tritato"}]}
 {"line":"2 cups (480 ml) Easy Vegan Gravy (1 batch, or store-bought)","language":"en","parts":[{"quantity":480,"unit":"ml","en":"vegan gravy","it":"salsa gravy vegana"}]}
 {"line":"2 cups + 2 tablespoons all purpose flour ((255g))","language":"en","parts":[{"quantity":255,"unit":"g","en":"all-purpose flour","it":"farina 00"}]}
-{"line":"2 cups blanched almond flour ((superfine or finely ground))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"superfine blanched almond flour","it":"farina finissima di mandorle pelate"}]}
+{"line":"2 cups blanched almond flour ((superfine or finely ground))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"blanched almond flour","it":"farina di mandorle pelate","preparationEn":"superfine or finely ground","preparationIt":"macinata finemente o finissima"}]}
 {"line":"2 cups dried mushrooms ((or use 8 oz fresh crimini or portobello mushrooms, chopped))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"dried mushrooms","it":"funghi secchi","alternatives":[{"quantity":8,"unit":"oz","en":"fresh cremini mushrooms","it":"funghi cremini freschi"},{"quantity":8,"unit":"oz","en":"fresh portobello mushrooms","it":"funghi portobello freschi"}]}]}
 {"line":"2 cups flour (I use 1 cup wheat or spelt flour, and 1 cup unbleached white)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"flour","it":"farina"}]}
 {"line":"2 cups leftover mashed potatoes","language":"en","parts":[{"quantity":2,"unit":"cup","en":"leftover mashed potatoes","it":"purè di patate avanzato"}]}
@@ -249,12 +249,12 @@
 {"line":"2 tsp rice vinegar (OR sub for any neutral flavoured white vinegar)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"rice vinegar","it":"aceto di riso","alternatives":[{"en":"neutral-flavored white vinegar","it":"aceto bianco dal sapore neutro"}]}]}
 {"line":"2 tsp sage ((dry))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"dried sage","it":"salvia essiccata"}]}
 {"line":"2 ½ cups Low-Sodium Vegetable Broth (bring to a boil)","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio","preparationEn":"bring to a boil","preparationIt":"portato a ebollizione"}]}
-{"line":"2-3 tablespoons lime juice (, fresh-squeezed)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"lime juice","it":"succo di lime","preparationEn":"freshly squeezed","preparationIt":"spremuto al momento"}]}
+{"line":"2-3 tablespoons lime juice (, fresh-squeezed)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"lime juice","it":"succo di lime","preparationEn":"fresh-squeezed","preparationIt":"appena spremuto"}]}
 {"line":"2/3 cup vegan brown sugar, (packed)","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"vegan brown sugar","it":"zucchero di canna vegano","preparationEn":"packed","preparationIt":"pressato"}]}
 {"line":"2/3 cups vegan sugar","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"vegan sugar","it":"zucchero vegano"}]}
 {"line":"21 oz waxy potatoes, peeled and cut into cubes","language":"en","parts":[{"quantity":21,"unit":"oz","en":"waxy potatoes","it":"patate a pasta soda","preparationEn":"peeled and cut into cubes","preparationIt":"sbucciate e tagliate a cubetti"}]}
 {"line":"250 g / 1¼ cup sugar (I used half dark muscovado and half caster sugar)","language":"en","parts":[{"quantity":250,"unit":"g","en":"sugar","it":"zucchero"}]}
-{"line":"28 oz cooked chickpeas ((start with 1 cup dried if cooking chickpeas from scratch))","language":"en","parts":[{"quantity":28,"unit":"oz","en":"cooked chickpeas","it":"ceci cotti"}]}
+{"line":"28 oz cooked chickpeas ((start with 1 cup dried if cooking chickpeas from scratch))","language":"en","parts":[{"quantity":28,"unit":"oz","en":"chickpeas","it":"ceci","preparationEn":"cooked","preparationIt":"cotti"}]}
 {"line":"2½ tsp cinnamon","language":"en","parts":[{"quantity":2.5,"unit":"tsp","en":"cinnamon","it":"cannella"}]}
 {"line":"3 1/2 cups 480 g + more for dusting whole grain spelt flour, do not use sprouted, I used Arrowhead Mills (highly suggest a scale for best results!)","language":"en","parts":[{"quantity":480,"unit":"g","en":"whole grain spelt flour","it":"farina integrale di farro"}]}
 {"line":"3 Tablespoon unsweetened apple sauce","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"unsweetened apple sauce","it":"purea di mele senza zucchero"}]}
@@ -358,9 +358,9 @@
 {"line":"small handful of parsley leaves, for colour (optional)","language":"en","parts":[{"quantity":1,"unit":"handful","en":"parsley leaves","it":"foglie di prezzemolo","optional":true}]}
 {"line":"toasted and crushed sesame seeds (or peanuts)","language":"en","parts":[{"en":"sesame seeds","it":"semi di sesamo","preparationEn":"toasted and crushed","preparationIt":"tostati e pestati","alternatives":[{"en":"peanuts","it":"arachidi"}]}]}
 {"line":"tomatoes","language":"en","parts":[{"en":"tomatoes","it":"pomodori"}]}
-{"line":"vegan mayo, Sriracha, Sriracha mayo (optional)","language":"en","parts":[{"en":"vegan mayo","it":"maionese vegana","optional":true},{"en":"Sriracha","it":"salsa Sriracha","optional":true},{"en":"Sriracha mayo","it":"maionese alla Sriracha","optional":true}]}
+{"line":"vegan mayo, Sriracha, Sriracha mayo (optional)","language":"en","parts":[{"en":"vegan mayo","it":"maionese vegana","optional":true},{"en":"Sriracha","it":"salsa Sriracha","optional":true},{"en":"Sriracha mayo","it":"maionese alla sriracha","optional":true}]}
 {"line":"zest of half a lemon (optional)","language":"en","parts":[{"quantity":0.5,"en":"lemon","it":"limone","preparationEn":"zested","preparationIt":"scorza grattugiata","optional":true}]}
-{"line":"¼ cup (56g) creamy peanut butter ((preferably unsalted) (see Note 1))","language":"en","parts":[{"quantity":56,"unit":"g","en":"creamy peanut butter","it":"burro di arachidi cremoso"}]}
+{"line":"¼ cup (56g) creamy peanut butter ((preferably unsalted) (see Note 1))","language":"en","parts":[{"quantity":56,"unit":"g","en":"creamy peanut butter","it":"burro di arachidi cremoso","preparationEn":"preferably unsalted","preparationIt":"preferibilmente senza sale"}]}
 {"line":"¼ cup chopped fresh parsley (15 grams )","language":"en","parts":[{"quantity":15,"unit":"g","en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"¼ cup chopped sun-dried tomatoes, ((20g))","language":"en","parts":[{"quantity":20,"unit":"g","en":"sun-dried tomatoes","it":"pomodori secchi","preparationEn":"chopped","preparationIt":"tritati"}]}
 {"line":"¼ cup dried mushrooms","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"dried mushrooms","it":"funghi secchi"}]}

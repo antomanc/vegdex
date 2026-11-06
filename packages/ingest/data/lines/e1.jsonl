@@ -25,7 +25,7 @@
 {"line":"1 black cardamom (, optional but definitely use it if you can find it)","language":"en","parts":[{"quantity":1,"en":"black cardamom","it":"cardamomo nero","optional":true}]}
 {"line":"1 c . plain (, unsweetened almond milk, warm)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"plain unsweetened almond milk","it":"latte di mandorla al naturale senza zuccheri","preparationEn":"warm","preparationIt":"tiepido"}]}
 {"line":"1 can (14oz) chickpeas, drained and rinsed or 1 1/2 cups cooked","language":"en","parts":[{"quantity":14,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati","alternatives":[{"quantity":1.5,"unit":"cup","en":"cooked chickpeas","it":"ceci cotti"}]}]}
-{"line":"1 cube of Vegan Beef-Flavored Bouillon","language":"en","parts":[{"quantity":1,"unit":"cube","en":"vegan beef-flavored bouillon","it":"dado vegetale al gusto di manzo"}]}
+{"line":"1 cube of Vegan Beef-Flavored Bouillon","language":"en","parts":[{"quantity":1,"unit":"cube","en":"vegan beef-flavored bouillon","it":"dado vegano gusto manzo"}]}
 {"line":"1 cup (177g) mini chocolate chips ( (dairy-free))","language":"en","parts":[{"quantity":177,"unit":"g","en":"dairy-free mini chocolate chips","it":"mini gocce di cioccolato senza latticini"}]}
 {"line":"1 cup (200 g) Arborio rice (uncooked)","language":"en","parts":[{"quantity":200,"unit":"g","en":"uncooked Arborio rice","it":"riso Arborio crudo"}]}
 {"line":"1 cup French green lentils","language":"en","parts":[{"quantity":1,"unit":"cup","en":"French green lentils","it":"lenticchie verdi francesi"}]}
@@ -351,7 +351,7 @@
 {"line":"60 g cocoa powder ((use the darkest you can get))","language":"en","parts":[{"quantity":60,"unit":"g","en":"dark cocoa powder","it":"cacao amaro scuro in polvere"}]}
 {"line":"60 ml / ¼ cup smooth (not chunky!) applesauce**","language":"en","parts":[{"quantity":60,"unit":"ml","en":"smooth applesauce","it":"purea di mele liscia"}]}
 {"line":"65 g / ½ cup GF flour mix (I like this one), rice flour or regular AP flour","language":"en","parts":[{"quantity":65,"unit":"g","en":"gluten-free flour mix","it":"miscela di farine senza glutine","alternatives":[{"en":"rice flour","it":"farina di riso"},{"en":"all-purpose flour","it":"farina 00"}]}]}
-{"line":"7 cups vegetable broth or vegan chicken broth","language":"en","parts":[{"quantity":7,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}]}
+{"line":"7 cups vegetable broth or vegan chicken broth","language":"en","parts":[{"quantity":7,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}]}
 {"line":"7-8 fresh basil leaves","language":"en","parts":[{"quantity":7,"quantityMax":8,"unit":"leaf","en":"fresh basil","it":"basilico fresco"}]}
 {"line":"8 ml / 1½ tsp toasted sesame oil","language":"en","parts":[{"quantity":8,"unit":"ml","en":"toasted sesame oil","it":"olio di sesamo tostato"}]}
 {"line":"8 ounces rice noodles (wide or pad Thai style, 225g)","language":"en","parts":[{"quantity":225,"unit":"g","en":"wide or pad Thai-style rice noodles","it":"spaghetti di riso larghi o per pad Thai"}]}
@@ -406,7 +406,7 @@
 {"line":"sesame seeds, to decorate, (optional)","language":"en","parts":[{"en":"sesame seeds","it":"semi di sesamo","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true}]}
 {"line":"small bunch fresh dill ((roughly torn))","language":"en","parts":[{"quantity":1,"unit":"bunch","en":"small bunch of fresh dill","it":"mazzetto di aneto fresco","preparationEn":"roughly torn","preparationIt":"spezzettato grossolanamente"}]}
 {"line":"use my gf pancake mix to make these gluten-free (, instead of the spelt and all purpose flours above)","language":"en","kind":"other"}
-{"line":"vegan sour cream (Creamy Hatch Chile Dressing, Cilantro-Lime Sour Cream, or Sriracha Cashew Cream)","language":"en","parts":[{"en":"vegan sour cream","it":"panna acida vegetale","alternatives":[{"en":"creamy Hatch chile dressing","it":"salsa cremosa ai peperoncini Hatch"},{"en":"cilantro-lime sour cream","it":"panna acida al coriandolo e lime"},{"en":"Sriracha cashew cream","it":"crema di anacardi alla Sriracha"}]}]}
+{"line":"vegan sour cream (Creamy Hatch Chile Dressing, Cilantro-Lime Sour Cream, or Sriracha Cashew Cream)","language":"en","parts":[{"en":"vegan sour cream","it":"panna acida vegetale","alternatives":[{"en":"creamy Hatch chile dressing","it":"condimento cremoso al peperoncino Hatch"},{"en":"cilantro-lime sour cream","it":"panna acida vegetale al coriandolo e lime"},{"en":"Sriracha cashew cream","it":"crema di anacardi alla salsa Sriracha"}]}]}
 {"line":"zest of 1 small lemon + 1 tbsp juice","language":"en","parts":[{"quantity":1,"en":"small lemon","it":"limone piccolo","preparationEn":"zested","preparationIt":"scorza grattugiata"},{"quantity":1,"unit":"tbsp","en":"lemon juice","it":"succo di limone"}]}
 {"line":"¼ cup olive oil (59 ml )","language":"en","parts":[{"quantity":59,"unit":"ml","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"¼ cup whole psyllium husk (25g)","language":"en","parts":[{"quantity":25,"unit":"g","en":"whole psyllium husk","it":"cuticola di psillio intera"}]}

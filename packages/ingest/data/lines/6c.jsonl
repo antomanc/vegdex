@@ -19,7 +19,7 @@
 {"line":"1 15oz can chickpeas","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola"}]}
 {"line":"1 3/4 cups bread flour ((use gluten free flour if needed))","language":"en","parts":[{"quantity":1.75,"unit":"cup","en":"bread flour","it":"farina per pane"}]}
 {"line":"1 and 1/2 tsp white vinegar","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"white vinegar","it":"aceto bianco"}]}
-{"line":"1 batch vegan cream cheese frosting, (or frosting of choice)","language":"en","parts":[{"quantity":1,"unit":"batch","en":"vegan cream cheese frosting","it":"glassa vegana al formaggio spalmabile","alternatives":[{"en":"frosting of choice","it":"glassa a scelta"}]}]}
+{"line":"1 batch vegan cream cheese frosting, (or frosting of choice)","language":"en","parts":[{"quantity":1,"unit":"batch","en":"vegan cream cheese frosting","it":"glassa al formaggio spalmabile vegano","alternatives":[{"en":"frosting of choice","it":"glassa a scelta"}]}]}
 {"line":"1 big handful of fresh mint leaves, (chopped)","language":"en","parts":[{"quantity":1,"unit":"handful","en":"fresh mint leaves","it":"foglie di menta fresca","preparationEn":"chopped","preparationIt":"tritate"}]}
 {"line":"1 bunch or 2 large handfuls of greens (I used baby kale & spinach)","language":"en","parts":[{"quantity":1,"unit":"bunch","en":"greens","it":"verdure a foglia","alternatives":[{"quantity":2,"unit":"handful","en":"greens","it":"verdure a foglia"}]}]}
 {"line":"1 cup (200g) red lentils","language":"en","parts":[{"quantity":200,"unit":"g","en":"red lentils","it":"lenticchie rosse"}]}
@@ -30,7 +30,7 @@
 {"line":"1 cup fresh raspberries","language":"en","parts":[{"quantity":1,"unit":"cup","en":"fresh raspberries","it":"lamponi freschi"}]}
 {"line":"1 cup light brown sugar (200g)","language":"en","parts":[{"quantity":200,"unit":"g","en":"light brown sugar","it":"zucchero di canna chiaro"}]}
 {"line":"1 cup mushroom broth (for flavor, can sub with vegetable stock)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"mushroom broth","it":"brodo di funghi","alternatives":[{"en":"vegetable stock","it":"brodo vegetale"}]}]}
-{"line":"1 cup non dairy cream ->","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dairy-free cream","it":"panna vegetale"}]}
+{"line":"1 cup non dairy cream ->","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non dairy cream","it":"panna vegetale"}]}
 {"line":"1 cup oat flour","language":"en","parts":[{"quantity":1,"unit":"cup","en":"oat flour","it":"farina d'avena"}]}
 {"line":"1 cup plus 2 tablespoons non-dairy milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","plus":{"quantity":2,"unit":"tbsp"}}]}
 {"line":"1 cup rava or sooji","language":"en","parts":[{"quantity":1,"unit":"cup","en":"rava","it":"rava"}]}
@@ -103,7 +103,7 @@
 {"line":"1 tsp oil (or use more almond butter)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"oil","it":"olio","alternatives":[{"en":"almond butter","it":"burro di mandorle"}]}]}
 {"line":"1 tsp tamarind paste","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"tamarind paste","it":"pasta di tamarindo"}]}
 {"line":"1 unwaxed lemon, juice and zest","language":"en","parts":[{"quantity":1,"en":"unwaxed lemon","it":"limone non trattato","preparationEn":"juice and zest","preparationIt":"succo e scorza"}]}
-{"line":"1 vegetable stock cube (or 1 tbsp vegan bouillon)","language":"en","parts":[{"quantity":1,"en":"vegetable stock cube","it":"dado vegetale","alternatives":[{"quantity":1,"unit":"tbsp","en":"vegan bouillon","it":"dado vegetale vegano"}]}]}
+{"line":"1 vegetable stock cube (or 1 tbsp vegan bouillon)","language":"en","parts":[{"quantity":1,"en":"vegetable stock cube","it":"dado vegetale","alternatives":[{"quantity":1,"unit":"tbsp","en":"vegan bouillon","it":"brodo vegetale"}]}]}
 {"line":"1 ½ tsp vanilla extract","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia"}]}
 {"line":"1-2 tablespoons grapeseed oil","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"grapeseed oil","it":"olio di vinaccioli"}]}
 {"line":"1-2 teaspoons olive oil or vegan butter (5–10ml)","language":"en","parts":[{"quantity":5,"quantityMax":10,"unit":"ml","en":"olive oil","it":"olio d'oliva","alternatives":[{"en":"vegan butter","it":"burro vegetale"}]}]}

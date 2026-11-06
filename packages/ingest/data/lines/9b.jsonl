@@ -174,7 +174,8 @@
 {"line":"10 ounces Gluten Free Baking Flour Mix ( (I use Bob's Red Mill) or regular all purpose flour (284g) )","language":"en","parts":[{"quantity":284,"unit":"g","en":"gluten-free baking flour mix","it":"miscela di farine senza glutine per dolci","alternatives":[{"en":"all-purpose flour","it":"farina 00"}]}]}
 {"line":"10 ounces vegan marshmallows (I used Trader Joes brand)","language":"en","parts":[{"quantity":10,"unit":"oz","en":"vegan marshmallows","it":"marshmallow vegani"}]}
 {"line":"100 g / 3.5 oz vermicelli rice noodles*","language":"en","parts":[{"quantity":100,"unit":"g","en":"vermicelli rice noodles","it":"vermicelli di riso"}]}
-{"line":"100 ml plant milk (unflavoured and unsweetened)","language":"en","parts":[{"quantity":100,"unit":"ml","en":"unflavoured and unsweetened plant milk","it":"latte vegetale non aromatizzato e senza zucchero"}]}
+{"line":"100 ml plant milk (unflavoured and unsweetened)","language":"en","parts":[{"quantity":100,"unit":"ml","en":"unflavoured and unsweetened plant milk","it":"latte vegetale al naturale e non zuccherato"}]}
+{"line":"110 g rolled oats (plus extra to sprinkle)","language":"en","parts":[{"quantity":110,"unit":"g","en":"rolled oats","it":"fiocchi d'avena","preparationEn":"plus extra to sprinkle","preparationIt":"più altri da cospargere"}]}
 {"line":"12 g / 1 tbsp fine / caster sugar (optional, I skip it)","language":"en","parts":[{"quantity":12,"unit":"g","en":"caster sugar","it":"zucchero semolato fine","optional":true}]}
 {"line":"12 oz fusilli pasta","language":"en","parts":[{"quantity":12,"unit":"oz","en":"fusilli","it":"fusilli"}]}
 {"line":"12 to 14 small tortillas (gluten-free is fine to use)","language":"en","parts":[{"quantity":12,"quantityMax":14,"en":"small tortillas","it":"tortillas piccole"}]}
@@ -260,7 +261,7 @@
 {"line":"20 g / 0.7 oz dried porcini* (optional)","language":"en","parts":[{"quantity":20,"unit":"g","en":"dried porcini","it":"funghi porcini secchi","optional":true}]}
 {"line":"220 g / 1 cup blended roasted rhubarb*","language":"en","parts":[{"quantity":220,"unit":"g","en":"rhubarb","it":"rabarbaro","preparationEn":"roasted and blended","preparationIt":"arrostito e frullato"}]}
 {"line":"220 g / 1¾ cup strong (bread) flour","language":"en","parts":[{"quantity":220,"unit":"g","en":"strong bread flour","it":"farina forte per pane"}]}
-{"line":"240 ml plant milk + 2 tbsp (unflavoured and unsweetened)","language":"en","parts":[{"quantity":240,"unit":"ml","en":"unflavoured and unsweetened plant milk","it":"latte vegetale non aromatizzato e senza zucchero","plus":{"quantity":2,"unit":"tbsp"}}]}
+{"line":"240 ml plant milk + 2 tbsp (unflavoured and unsweetened)","language":"en","parts":[{"quantity":240,"unit":"ml","en":"unflavoured and unsweetened plant milk","it":"latte vegetale al naturale e non zuccherato","plus":{"quantity":2,"unit":"tbsp"}}]}
 {"line":"240 ml vegetable oil (or any neutral vegetable oil like sunflower or canola oil)","language":"en","parts":[{"quantity":240,"unit":"ml","en":"vegetable oil","it":"olio vegetale","alternatives":[{"en":"neutral vegetable oil","it":"olio vegetale dal sapore neutro"}]}]}
 {"line":"250 g / 2 cups bread flour*","language":"en","parts":[{"quantity":250,"unit":"g","en":"bread flour","it":"farina per pane"}]}
 {"line":"28 oz canned San Marzano tomatoes ((place in a bowl and crush whole tomatoes with fingers))","language":"en","parts":[{"quantity":28,"unit":"oz","en":"canned San Marzano tomatoes","it":"pomodori San Marzano in scatola","preparationEn":"placed in a bowl and crushed with fingers","preparationIt":"messi in una ciotola e schiacciati con le dita"}]}
@@ -294,7 +295,7 @@
 {"line":"35 g / ½ cup desiccated coconut","language":"en","parts":[{"quantity":35,"unit":"g","en":"desiccated coconut","it":"cocco disidratato"}]}
 {"line":"4 cremini mushrooms, sliced","language":"en","parts":[{"quantity":4,"en":"cremini mushrooms","it":"funghi cremini","preparationEn":"sliced","preparationIt":"affettati"}]}
 {"line":"4 cups chopped kale","language":"en","parts":[{"quantity":4,"unit":"cup","en":"kale","it":"cavolo riccio","preparationEn":"chopped","preparationIt":"tritato"}]}
-{"line":"4 cups vegan chicken broth","language":"en","parts":[{"quantity":4,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}
+{"line":"4 cups vegan chicken broth","language":"en","parts":[{"quantity":4,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}
 {"line":"4 garlic cloves, minced","language":"en","parts":[{"quantity":4,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato finemente"}]}
 {"line":"4 large bananas (frozen)","language":"en","parts":[{"quantity":4,"en":"large bananas","it":"banane grandi","preparationEn":"frozen","preparationIt":"congelate"}]}
 {"line":"4 medium sweet potatoes ((about 2 ¼ pounds))","language":"en","parts":[{"quantity":4,"en":"medium sweet potatoes","it":"patate dolci medie"}]}
@@ -334,7 +335,7 @@
 {"line":"Black pepper","language":"en","parts":[{"en":"black pepper","it":"pepe nero"}]}
 {"line":"Cilantro and lemon juice. (and julienned ginger )","language":"en","parts":[{"en":"cilantro","it":"coriandolo fresco"},{"en":"lemon juice","it":"succo di limone"},{"en":"ginger","it":"zenzero","preparationEn":"julienned","preparationIt":"tagliato a julienne"}]}
 {"line":"For serving: Black or white sesame seeds","language":"en","parts":[{"en":"black sesame seeds","it":"semi di sesamo nero","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"white sesame seeds","it":"semi di sesamo bianchi"}]}]}
-{"line":"Fresh cracked pepper (, to taste)","language":"en","parts":[{"en":"freshly cracked pepper","it":"pepe macinato al momento","toTaste":true}]}
+{"line":"Fresh cracked pepper (, to taste)","language":"en","parts":[{"en":"fresh cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"Leaves from 3 sprigs thyme","language":"en","parts":[{"quantity":3,"unit":"sprig","en":"thyme","it":"timo","preparationEn":"leaves removed from sprigs","preparationIt":"foglie staccate dai rametti"}]}
 {"line":"Oil spray","language":"en","parts":[{"en":"oil spray","it":"olio spray"}]}
 {"line":"Optional but recommended: pickles and mustard","language":"en","parts":[{"en":"pickles","it":"cetriolini sottaceto","optional":true},{"en":"mustard","it":"senape","optional":true}]}

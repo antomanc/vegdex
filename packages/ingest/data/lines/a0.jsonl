@@ -42,7 +42,7 @@
 {"line":"1 cup diced sweet potatoes ((115 grams) (a small dice is best) (equals 1 small sweet potato or 1/2 of a large one))","language":"en","parts":[{"quantity":115,"unit":"g","en":"sweet potatoes","it":"patate dolci","preparationEn":"diced small","preparationIt":"tagliate a dadini piccoli"}]}
 {"line":"1 cup fresh blueberries ((150 g) + more for the top)","language":"en","parts":[{"quantity":150,"unit":"g","en":"fresh blueberries","it":"mirtilli freschi","purposeEn":"plus more for topping","purposeIt":"più altri per guarnire"}]}
 {"line":"1 cup fresh veggies (chopped small)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"fresh vegetables","it":"verdure fresche","preparationEn":"chopped small","preparationIt":"tagliate a pezzetti piccoli"}]}
-{"line":"1 cup green peas ((frozen or fresh are both fine, but look at instructions closely at each goes in at a different time))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"green peas","it":"piselli"}]}
+{"line":"1 cup green peas ((frozen or fresh are both fine, but look at instructions closely at each goes in at a different time))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"green peas","it":"piselli","preparationEn":"frozen or fresh","preparationIt":"surgelati o freschi"}]}
 {"line":"1 cup guacamole ((optional))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"guacamole","it":"guacamole","optional":true}]}
 {"line":"1 cup oats (buckwheat flakes)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"oats","it":"avena","alternatives":[{"en":"buckwheat flakes","it":"fiocchi di grano saraceno"}]}]}
 {"line":"1 cup of parsley","language":"en","parts":[{"quantity":1,"unit":"cup","en":"parsley","it":"prezzemolo"}]}
@@ -185,7 +185,7 @@
 {"line":"1/4 cup fresh cilantro, (minced)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh cilantro","it":"coriandolo fresco","preparationEn":"minced","preparationIt":"tritato finemente"}]}
 {"line":"1/4 cup fresh lemon juice ((56g))","language":"en","parts":[{"quantity":56,"unit":"g","en":"fresh lemon juice","it":"succo di limone fresco"}]}
 {"line":"1/4 cup freshly-squeezed lime juice","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"lime juice","it":"succo di lime","preparationEn":"freshly squeezed","preparationIt":"spremuto al momento"}]}
-{"line":"1/4 cup medium grind coarse cornmeal (SEE NOTES at bottom!)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"medium-grind coarse cornmeal","it":"farina di mais a grana medio-grossa"}]}
+{"line":"1/4 cup medium grind coarse cornmeal (SEE NOTES at bottom!)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"medium-grind coarse cornmeal","it":"farina di mais a grana media"}]}
 {"line":"1/4 cup non dairy yogurt (I used So delicious cultured coconut milk plain)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"non-dairy yogurt","it":"yogurt vegetale"}]}
 {"line":"1/4 cup or more fresh or frozen cranberries","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh cranberries","it":"mirtilli rossi freschi","alternatives":[{"en":"frozen cranberries","it":"mirtilli rossi surgelati"}]}]}
 {"line":"1/4 cup simple syrup (optional, but makes cocktail sweeter)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"simple syrup","it":"sciroppo di zucchero","optional":true}]}
@@ -196,7 +196,7 @@
 {"line":"1/4 teaspoon (salt)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"1/4 teaspoon cayenne or Indian Red Chili Powder","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna","alternatives":[{"en":"Indian red chili powder","it":"peperoncino rosso indiano in polvere"}]}]}
 {"line":"1/4 teaspoon garlic powder (2 cloves)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"garlic powder","it":"aglio in polvere","alternatives":[{"quantity":2,"unit":"clove","en":"garlic","it":"aglio"}]}]}
-{"line":"1/4 teaspoon kosher salt (use 1/2 tsp if using unsalted butter)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"kosher salt","it":"sale kosher"}]}
+{"line":"1/4 teaspoon kosher salt (use 1/2 tsp if using unsalted butter)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"kosher salt","it":"sale kosher","preparationEn":"use 1/2 teaspoon if using unsalted butter","preparationIt":"usare 1/2 cucchiaino se si usa burro non salato"}]}
 {"line":"1/4 to 1/2 teaspoon salt","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"1/4 to 1/2 tsp Indian Black Salt Kala Namak","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"Indian black salt (kala namak)","it":"sale nero indiano (kala namak)"}]}
 {"line":"1/4 tsp salt","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale"}]}
@@ -260,7 +260,7 @@
 {"line":"2 tablespoons soy sauce","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"soy sauce","it":"salsa di soia"}]}
 {"line":"2 tbsp light olive oil ((plus more as needed))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"light olive oil","it":"olio d'oliva delicato"}]}
 {"line":"2 tbsp tamarind paste","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"tamarind paste","it":"pasta di tamarindo"}]}
-{"line":"2 tbsp unsalted dairy free butter","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"unsalted dairy-free butter","it":"burro vegetale senza sale"}]}
+{"line":"2 tbsp unsalted dairy free butter","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"unsalted dairy-free butter","it":"burro vegetale non salato"}]}
 {"line":"2 tbsp. rosemary, (minced)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"rosemary","it":"rosmarino","preparationEn":"minced","preparationIt":"tritato finemente"}]}
 {"line":"2 teaspoons Dijon","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"Dijon mustard","it":"senape di Digione"}]}
 {"line":"2 teaspoons dried sage or 2 tablespoons fresh minced","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"dried sage","it":"salvia essiccata","alternatives":[{"quantity":2,"unit":"tbsp","en":"fresh sage","it":"salvia fresca"}]}]}

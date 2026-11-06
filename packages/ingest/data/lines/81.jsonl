@@ -6,7 +6,7 @@
 {"line":"1 1/2 cup TVP granules ((dried textured vegetable protein) (see notes))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"dried textured vegetable protein granules","it":"proteine vegetali testurizzate secche in granuli"}]}
 {"line":"1 1/2 cups (180g) shredded carrots","language":"en","parts":[{"quantity":180,"unit":"g","en":"carrots","it":"carote","preparationEn":"shredded","preparationIt":"grattugiate"}]}
 {"line":"1 1/2 cups + 2 tbsp all-purpose flour ((205 grams) spooned and leveled (use GF flour mix if needed))","language":"en","parts":[{"quantity":205,"unit":"g","en":"all-purpose flour","it":"farina 00","preparationEn":"spooned and leveled","preparationIt":"versata a cucchiaiate e livellata"}]}
-{"line":"1 1/2 cups Vegan Beef-Flavored Broth* + 1 1/2 cups Water","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan beef-flavored broth","it":"brodo vegetale al gusto di manzo"},{"quantity":1.5,"unit":"cup","en":"water","it":"acqua"}]}
+{"line":"1 1/2 cups Vegan Beef-Flavored Broth* + 1 1/2 cups Water","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan beef-flavored broth","it":"brodo vegano gusto manzo"},{"quantity":1.5,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"1 1/2 cups all purpose flour (spooned and leveled)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"all-purpose flour","it":"farina 00","preparationEn":"spooned and leveled","preparationIt":"versata con un cucchiaio e livellata"}]}
 {"line":"1 1/2 pounds eggplant, (diced (about one medium to large eggplant))","language":"en","parts":[{"quantity":1.5,"unit":"lb","en":"eggplant","it":"melanzana","preparationEn":"diced","preparationIt":"tagliate a dadini"}]}
 {"line":"1 1/2 teaspoon potato starch (or corn starch)","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"potato starch","it":"fecola di patate","alternatives":[{"en":"corn starch","it":"amido di mais"}]}]}
@@ -102,7 +102,7 @@
 {"line":"1 tbsp cilantro (chopped)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1 tbsp cornstarch ((tapioca starch works too).)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"cornstarch","it":"amido di mais","alternatives":[{"en":"tapioca starch","it":"amido di tapioca"}]}]}
 {"line":"1 tbsp peanut butter","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"peanut butter","it":"burro di arachidi"}]}
-{"line":"1 tbsp pumpkin puree (canned is best)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"pumpkin puree","it":"purea di zucca"}]}
+{"line":"1 tbsp pumpkin puree (canned is best)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"pumpkin puree","it":"purea di zucca","alternatives":[{"en":"canned pumpkin puree","it":"purea di zucca in scatola"}]}]}
 {"line":"1 tbsp rice wine vinegar ((or mirin, or can sub with apple cider vinegar))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"rice wine vinegar","it":"aceto di riso","alternatives":[{"en":"mirin","it":"mirin"},{"en":"apple cider vinegar","it":"aceto di mele"}]}]}
 {"line":"1 tbsp shiro / white miso paste","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"white miso paste","it":"pasta di miso bianco"}]}
 {"line":"1 tbsp vanilla extract ((*see notes))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vanilla extract","it":"estratto di vaniglia"}]}
@@ -185,7 +185,7 @@
 {"line":"1/4 cup chopped carrot (or 1 medium carrot, chopped)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"carrot","it":"carota","preparationEn":"chopped","preparationIt":"tritata","alternatives":[{"quantity":1,"en":"medium carrot","it":"carota media"}]}]}
 {"line":"1/4 cup chopped fresh basil","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh basil","it":"basilico fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1/4 cup chopped fresh mint","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh mint","it":"menta fresca","preparationEn":"chopped","preparationIt":"tritata"}]}
-{"line":"1/4 cup club soda","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"club soda","it":"soda"}]}
+{"line":"1/4 cup club soda","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"club soda","it":"acqua gassata"}]}
 {"line":"1/4 cup coconut sugar ((or brown sugar))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"coconut sugar","it":"zucchero di cocco","alternatives":[{"en":"brown sugar","it":"zucchero di canna"}]}]}
 {"line":"1/4 cup finely-chopped fresh parsley ((optional))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"finely chopped","preparationIt":"tritato finemente","optional":true}]}
 {"line":"1/4 cup smashed avocado ((about 1/2 an avocado))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"avocado","it":"avocado","preparationEn":"smashed","preparationIt":"schiacciato"}]}
@@ -244,7 +244,7 @@
 {"line":"2 cups spinach","language":"en","parts":[{"quantity":2,"unit":"cup","en":"spinach","it":"spinaci"}]}
 {"line":"2 cups spinach (chopped small)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"spinach","it":"spinaci","preparationEn":"finely chopped","preparationIt":"tritati finemente"}]}
 {"line":"2 cups vegetable broth ((plus more if needed))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
-{"line":"2 flax eggs ((set in the fridge prior to for 15 minutes))","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di lino","preparationEn":"set in the fridge for 15 minutes beforehand","preparationIt":"lasciate riposare in frigorifero per 15 minuti prima dell'uso"}]}
+{"line":"2 flax eggs ((set in the fridge prior to for 15 minutes))","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di semi di lino","preparationEn":"set in the fridge for 15 minutes beforehand","preparationIt":"lasciate riposare in frigorifero per 15 minuti prima dell'uso"}]}
 {"line":"2 green chilies (, chopped or 1/4 cup thinly sliced green bell pepper)","language":"en","parts":[{"quantity":2,"en":"green chilies","it":"peperoncini verdi","preparationEn":"chopped","preparationIt":"tritati","alternatives":[{"quantity":0.25,"unit":"cup","en":"green bell pepper","it":"peperone verde"}]}]}
 {"line":"2 lbs. tomatillos, husks removed, rinsed well and quartered","language":"en","parts":[{"quantity":2,"unit":"lb","en":"tomatillos","it":"tomatillos","preparationEn":"husks removed, rinsed well and quartered","preparationIt":"privati dell'involucro, sciacquati bene e tagliati in quattro"}]}
 {"line":"2 medium heads of garlic","language":"en","parts":[{"quantity":2,"unit":"head","en":"medium garlic heads","it":"teste d'aglio medie"}]}
@@ -299,6 +299,7 @@
 {"line":"3 cups of shredded/shaved Brussels sprouts","language":"en","parts":[{"quantity":3,"unit":"cup","en":"Brussels sprouts","it":"cavoletti di Bruxelles","preparationEn":"shredded or shaved","preparationIt":"tagliati a striscioline o affettati sottilmente"}]}
 {"line":"3 cups vegetable broth, plus more as desired","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"3 lemongrass stalks","language":"en","parts":[{"quantity":3,"unit":"stalk","en":"lemongrass","it":"citronella"}]}
+{"line":"3 ounces meatless bacon, cooked and diced, plus more for garnish","language":"en","parts":[{"quantity":3,"unit":"oz","en":"meatless bacon","it":"pancetta vegetale","preparationEn":"cooked and diced","preparationIt":"cotta e tagliata a dadini","purposeEn":"more for garnish","purposeIt":"altra per guarnire"}]}
 {"line":"3 oz dried mushrooms ((or use 8 oz fresh wild mushrooms))","language":"en","parts":[{"quantity":3,"unit":"oz","en":"dried mushrooms","it":"funghi secchi","alternatives":[{"quantity":8,"unit":"oz","en":"fresh wild mushrooms","it":"funghi selvatici freschi"}]}]}
 {"line":"3 ripe mangos, (peeled, pitted, and diced)","language":"en","parts":[{"quantity":3,"en":"ripe mangoes","it":"manghi maturi","preparationEn":"peeled, pitted, and diced","preparationIt":"sbucciati, privati del nocciolo e tagliati a cubetti"}]}
 {"line":"3 tablespoons coconut cream (scoop out the thick part of the coconut cream from full fat coconut milk can)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"coconut cream","it":"crema di cocco","preparationEn":"scooped from the thick part of a can of full-fat coconut milk","preparationIt":"prelevata dalla parte densa di una lattina di latte di cocco intero"}]}
@@ -322,7 +323,7 @@
 {"line":"4 blackberries","language":"en","parts":[{"quantity":4,"en":"blackberries","it":"more"}]}
 {"line":"4 cups baby spinach (roughly chopped (or leafy greens of choice))","language":"en","parts":[{"quantity":4,"unit":"cup","en":"baby spinach","it":"spinacini","preparationEn":"roughly chopped","preparationIt":"tritati grossolanamente","alternatives":[{"en":"leafy greens of choice","it":"verdure a foglia a scelta"}]}]}
 {"line":"4 cups broccoli, finely chopped","language":"en","parts":[{"quantity":4,"unit":"cup","en":"broccoli","it":"broccoli","preparationEn":"finely chopped","preparationIt":"tritati finemente"}]}
-{"line":"4 cups corn kernels (fresh, frozen, or canned and drained)","language":"en","parts":[{"quantity":4,"unit":"cup","en":"corn kernels","it":"chicchi di mais"}]}
+{"line":"4 cups corn kernels (fresh, frozen, or canned and drained)","language":"en","parts":[{"quantity":4,"unit":"cup","en":"corn kernels","it":"chicchi di mais","preparationEn":"fresh, frozen, or canned and drained","preparationIt":"freschi, surgelati o in scatola e scolati"}]}
 {"line":"4 medium carrots (scrubbed and chopped (or 2 heaping cups / 300g small cauliflower florets) )","language":"en","parts":[{"quantity":4,"en":"medium carrots","it":"carote medie","preparationEn":"scrubbed and chopped","preparationIt":"strofinate e tagliate a pezzi","alternatives":[{"quantity":300,"unit":"g","en":"cauliflower","it":"cavolfiore"}]}]}
 {"line":"4 oz baby bella mushrooms, (diced )","language":"en","parts":[{"quantity":4,"unit":"oz","en":"baby bella mushrooms","it":"funghi cremini","preparationEn":"diced","preparationIt":"tagliati a dadini"}]}
 {"line":"4 tablespoons powdered sugar (32 grams)","language":"en","parts":[{"quantity":32,"unit":"g","en":"powdered sugar","it":"zucchero a velo"}]}

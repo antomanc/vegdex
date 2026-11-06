@@ -12,7 +12,7 @@
 {"line":"1 1/2 tbsp water (or a liquid sweetener (see notes))","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"water","it":"acqua","alternatives":[{"en":"liquid sweetener","it":"dolcificante liquido"}]}]}
 {"line":"1 1/2-2 tbs raw hemp hearts","language":"en","parts":[{"quantity":1.5,"quantityMax":2,"unit":"tbsp","en":"raw hemp hearts","it":"semi di canapa decorticati crudi"}]}
 {"line":"1 1/4 cups dry orzo ((230g))","language":"en","parts":[{"quantity":230,"unit":"g","en":"dry orzo pasta","it":"pasta orzo secca"}]}
-{"line":"1 1/4 cups unsweetened non-dairy milk","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"unsweetened nondairy milk","it":"latte vegetale senza zuccheri"}]}
+{"line":"1 1/4 cups unsweetened non-dairy milk","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"unsweetened non-dairy milk","it":"latte vegetale senza zucchero"}]}
 {"line":"1 14 ounce (397 g) block firm tofu, pressed*","language":"en","parts":[{"quantity":397,"unit":"g","en":"firm tofu","it":"tofu compatto","preparationEn":"pressed","preparationIt":"pressato"}]}
 {"line":"1 14 oz. can diced tomatoes","language":"en","parts":[{"quantity":14,"unit":"oz","en":"canned diced tomatoes","it":"pomodori a cubetti in scatola"}]}
 {"line":"1 16-oz block super-firm tofu/high-protein tofu ((cut into 1/2-inch cubes))","language":"en","parts":[{"quantity":450,"unit":"g","en":"super-firm tofu","it":"tofu molto compatto","preparationEn":"cut into cubes","preparationIt":"tagliato a cubetti","alternatives":[{"en":"high-protein tofu","it":"tofu ad alto contenuto proteico"}]}]}
@@ -361,7 +361,7 @@
 {"line":"thumb-size knob of fresh ginger, chopped thinly","language":"en","parts":[{"en":"fresh ginger","it":"zenzero fresco","preparationEn":"thinly chopped","preparationIt":"tritato finemente"}]}
 {"line":"toasted sourdough bread, to serve (optional)","language":"en","parts":[{"en":"sourdough bread","it":"pane a lievitazione naturale","preparationEn":"toasted","preparationIt":"tostato","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}
 {"line":"two 15 ounce cans lentils, drained and rinsed","language":"en","parts":[{"quantity":30,"unit":"oz","en":"canned lentils","it":"lenticchie in scatola","preparationEn":"drained and rinsed","preparationIt":"scolate e sciacquate"}]}
-{"line":"vegan Greek yoghurt or crème fresh, to serve","language":"en","parts":[{"en":"vegan Greek yogurt","it":"yogurt greco vegetale","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"vegan crème fraîche","it":"crème fraîche vegetale"}]}]}
+{"line":"vegan Greek yoghurt or crème fresh, to serve","language":"en","parts":[{"en":"vegan Greek yoghurt","it":"yogurt greco vegano","purposeEn":"to serve","purposeIt":"per servire","alternatives":[{"en":"vegan crème fraîche","it":"crème fraîche vegetale"}]}]}
 {"line":"vegan cheese (I used Miyoko’s Mozzarella)","language":"en","parts":[{"en":"vegan cheese","it":"formaggio vegetale"}]}
 {"line":"vegan ranch dressing, (homemade or store-bought)","language":"en","parts":[{"en":"vegan ranch dressing","it":"salsa ranch vegana"}]}
 {"line":"~5 cups diced sourdough bread","language":"en","parts":[{"quantity":5,"unit":"cup","en":"sourdough bread","it":"pane a lievitazione naturale","preparationEn":"diced","preparationIt":"tagliato a dadini"}]}

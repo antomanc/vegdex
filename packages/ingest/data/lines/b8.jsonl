@@ -141,7 +141,7 @@
 {"line":"1/2 cup less 1 tbsp (55g) Raw cane sugar","language":"en","parts":[{"quantity":55,"unit":"g","en":"raw cane sugar","it":"zucchero di canna grezzo"}]}
 {"line":"1/2 cup liquid JUST Egg","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"liquid JUST Egg","it":"sostituto vegetale liquido dell'uovo JUST Egg"}]}
 {"line":"1/2 cup loosely packed fresh mint (finely chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh mint","it":"menta fresca","preparationEn":"finely chopped and loosely packed","preparationIt":"tritata finemente e non pressata"}]}
-{"line":"1/2 cup non-dairy yogurt","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"dairy-free yogurt","it":"yogurt vegetale"}]}
+{"line":"1/2 cup non-dairy yogurt","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"non-dairy yogurt","it":"yogurt vegetale"}]}
 {"line":"1/2 cup orange juice ( or use more broth and add 1 tablespoon rice vinegar or lime juice)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"orange juice","it":"succo d'arancia","alternatives":[{"en":"broth with 1 tablespoon rice vinegar or lime juice","it":"brodo con 1 cucchiaio di aceto di riso o succo di lime"}]}]}
 {"line":"1/2 cup packed chopped spinach or rainbow chard (optional)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"spinach","it":"spinaci","preparationEn":"chopped and packed","preparationIt":"tritati e pressati","optional":true,"alternatives":[{"en":"rainbow chard","it":"bietola arcobaleno"}]}]}
 {"line":"1/2 cup pecan pieces (raw pref. or roasted), chopped","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"raw pecans","it":"noci pecan crude","preparationEn":"chopped","preparationIt":"tritate","alternatives":[{"en":"roasted pecans","it":"noci pecan tostate"}]}]}
@@ -165,7 +165,7 @@
 {"line":"1/2 tsp ground cumin (preferably ground roasted cumin)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"ground cumin","it":"cumino macinato","alternatives":[{"en":"ground roasted cumin","it":"cumino tostato macinato"}]}]}
 {"line":"1/2 yellow bell pepper, cut into medium-sized chunks","language":"en","parts":[{"quantity":0.5,"en":"yellow bell pepper","it":"peperone giallo","preparationEn":"cut into medium-sized chunks","preparationIt":"tagliato a pezzi medi"}]}
 {"line":"1/3 cup + 1 tablespoon unsweetened almond or soy milk","language":"en","parts":[{"quantity":0.3333,"unit":"cup","en":"unsweetened almond milk","it":"latte di mandorla senza zucchero","plus":{"quantity":1,"unit":"tbsp"},"alternatives":[{"en":"unsweetened soy milk","it":"latte di soia senza zucchero"}]}]}
-{"line":"1/3 cup coconut cream ((the thick part from chilled canned coconut milk))","language":"en","parts":[{"quantity":0.3333,"unit":"cup","en":"coconut cream","it":"crema di cocco"}]}
+{"line":"1/3 cup coconut cream ((the thick part from chilled canned coconut milk))","language":"en","parts":[{"quantity":0.333,"unit":"cup","en":"coconut cream","it":"crema di cocco","preparationEn":"the thick part from chilled canned coconut milk","preparationIt":"la parte densa del latte di cocco in lattina raffreddato"}]}
 {"line":"1/3 cup coconut oil (melted (or vegan margarine))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"coconut oil","it":"olio di cocco","preparationEn":"melted","preparationIt":"fuso","alternatives":[{"en":"vegan margarine","it":"margarina vegana"}]}]}
 {"line":"1/3 cup dark cocoa powder (dutch processed)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"dark Dutch-processed cocoa powder","it":"cacao amaro scuro alcalinizzato"}]}
 {"line":"1/3 cup pitted kalamata olives","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"pitted Kalamata olives","it":"olive Kalamata denocciolate"}]}
@@ -186,7 +186,7 @@
 {"line":"1/8 teaspoon red pepper flakes","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi"}]}
 {"line":"1/8 to 1/4 tsp salt, depends on if the nut butter and chickpeas are already salted","language":"en","parts":[{"quantity":0.125,"quantityMax":0.25,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"1/8 tsp coconut sugar ((optional))","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"coconut sugar","it":"zucchero di cocco","optional":true}]}
-{"line":"1/8 tsp fresh cracked black pepper","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"freshly cracked black pepper","it":"pepe nero macinato al momento"}]}
+{"line":"1/8 tsp fresh cracked black pepper","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"fresh cracked black pepper","it":"pepe nero macinato fresco"}]}
 {"line":"12 cloves","language":"en","parts":[{"quantity":12,"en":"cloves","it":"chiodi di garofano"}]}
 {"line":"12 oz firm tofu (pressed between paper towels for 10 minutes, then cubed)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"firm tofu","it":"tofu compatto","preparationEn":"pressed between paper towels for 10 minutes, then cubed","preparationIt":"pressato tra fogli di carta assorbente per 10 minuti, poi tagliato a cubetti"}]}
 {"line":"12 oz vegan ground meat","language":"en","parts":[{"quantity":12,"unit":"oz","en":"vegan ground meat","it":"macinato vegetale"}]}
@@ -272,7 +272,7 @@
 {"line":"3 tbsp tamarind juice*","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"tamarind juice","it":"succo di tamarindo"}]}
 {"line":"3 teaspoons tomato paste","language":"en","parts":[{"quantity":3,"unit":"tsp","en":"tomato paste","it":"concentrato di pomodoro"}]}
 {"line":"3.5 tbsp flour (, unbleached all purpose flour)","language":"en","parts":[{"quantity":3.5,"unit":"tbsp","en":"unbleached all-purpose flour","it":"farina multiuso non sbiancata"}]}
-{"line":"3/4 cup (180g) PLAIN dairy-free yogurt (I used SO Delicious \"Unsweetened\" Plain coconut yogurt but Soy will work too, but it's slightly sweeter)","language":"en","parts":[{"quantity":180,"unit":"g","en":"plain dairy-free yogurt","it":"yogurt bianco senza latticini"}]}
+{"line":"3/4 cup (180g) PLAIN dairy-free yogurt (I used SO Delicious \"Unsweetened\" Plain coconut yogurt but Soy will work too, but it's slightly sweeter)","language":"en","parts":[{"quantity":180,"unit":"g","en":"plain dairy-free yogurt","it":"yogurt vegetale bianco"}]}
 {"line":"3/4 cup + 2 tablespoons (112g) fine oat flour (I use Bob's)","language":"en","parts":[{"quantity":112,"unit":"g","en":"fine oat flour","it":"farina d'avena fine"}]}
 {"line":"3/4 cup frozen peas (, thawed)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"frozen peas","it":"piselli surgelati","preparationEn":"thawed","preparationIt":"scongelati"}]}
 {"line":"3/4 cup sweet corn (thawed if frozen, or 1 corn on the cob)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"sweet corn","it":"mais dolce","preparationEn":"thawed if frozen","preparationIt":"scongelato se surgelato","alternatives":[{"quantity":1,"en":"corn on the cob","it":"pannocchie di mais"}]}]}
@@ -337,7 +337,7 @@
 {"line":"Fresh basil (for serving)","language":"en","parts":[{"en":"fresh basil","it":"basilico fresco","purposeEn":"for serving","purposeIt":"per servire"}]}
 {"line":"Fresh cilantro","language":"en","parts":[{"en":"fresh cilantro","it":"coriandolo fresco"}]}
 {"line":"Fresh parsley and/or green onions, to garnish","language":"en","parts":[{"en":"fresh parsley","it":"prezzemolo fresco","purposeEn":"for garnish","purposeIt":"per guarnire"},{"en":"green onions","it":"cipollotti","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
-{"line":"Fresh-cracked black pepper (, to taste )","language":"en","parts":[{"en":"black pepper","it":"pepe nero","preparationEn":"freshly cracked","preparationIt":"macinato al momento","toTaste":true}]}
+{"line":"Fresh-cracked black pepper (, to taste )","language":"en","parts":[{"en":"fresh-cracked black pepper","it":"pepe nero macinato al momento","toTaste":true}]}
 {"line":"Halved pretzel sticks, (for legs)","language":"en","parts":[{"en":"pretzel sticks","it":"bastoncini di pretzel","preparationEn":"halved","preparationIt":"tagliati a metà","purposeEn":"for legs","purposeIt":"per le zampe"}]}
 {"line":"Lime (for garnish (optional))","language":"en","parts":[{"en":"lime","it":"lime","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true}]}
 {"line":"Measuring cups and spoons","language":"en","kind":"other"}

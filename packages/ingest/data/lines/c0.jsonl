@@ -32,7 +32,7 @@
 {"line":"1 cup (8-10 large) medjool dates","language":"en","parts":[{"quantity":1,"unit":"cup","en":"large medjool dates","it":"datteri medjool grandi"}]}
 {"line":"1 cup Cashew Cream (or coconut milk or other cream*)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cashew cream","it":"crema di anacardi","alternatives":[{"en":"coconut milk","it":"latte di cocco"},{"en":"cream","it":"panna"}]}]}
 {"line":"1 cup carrots, (peeled and small diced)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"carrots","it":"carote","preparationEn":"peeled and diced small","preparationIt":"pelate e tagliate a dadini piccoli"}]}
-{"line":"1 cup coconut milk (preferably full-fat canned )","language":"en","parts":[{"quantity":1,"unit":"cup","en":"coconut milk","it":"latte di cocco"}]}
+{"line":"1 cup coconut milk (preferably full-fat canned )","language":"en","parts":[{"quantity":1,"unit":"cup","en":"coconut milk","it":"latte di cocco","preparationEn":"preferably full-fat and canned","preparationIt":"preferibilmente intero e in scatola"}]}
 {"line":"1 cup cooked or canned chickpeas (rinsed and drained)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cooked chickpeas","it":"ceci cotti","preparationEn":"rinsed and drained","preparationIt":"sciacquati e scolati","alternatives":[{"en":"canned chickpeas","it":"ceci in scatola"}]}]}
 {"line":"1 cup cooked red kidney beans","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cooked red kidney beans","it":"fagioli rossi kidney cotti"}]}
 {"line":"1 cup dry brown lentils, rinsed","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dry brown lentils","it":"lenticchie marroni secche","preparationEn":"rinsed","preparationIt":"sciacquate"}]}
@@ -137,7 +137,7 @@
 {"line":"1/2 cup chocolate chips ((dairy-free) + more for the top)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"dairy-free chocolate chips","it":"gocce di cioccolato senza latte","purposeEn":"plus more for the top","purposeIt":"più altre per la superficie"}]}
 {"line":"1/2 cup chopped parsley ((lightly packed))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"parsley","it":"prezzemolo","preparationEn":"chopped and lightly packed","preparationIt":"tritato e leggermente pressato"}]}
 {"line":"1/2 cup cocoa powder ((40g))","language":"en","parts":[{"quantity":40,"unit":"g","en":"cocoa powder","it":"cacao in polvere"}]}
-{"line":"1/2 cup coconut cream ((the thick part on top of full fat canned coconut milk) (120g))","language":"en","parts":[{"quantity":120,"unit":"g","en":"coconut cream","it":"crema di cocco"}]}
+{"line":"1/2 cup coconut cream ((the thick part on top of full fat canned coconut milk) (120g))","language":"en","parts":[{"quantity":120,"unit":"g","en":"coconut cream","it":"crema di cocco","preparationEn":"the thick part on top of full fat canned coconut milk","preparationIt":"la parte densa in superficie del latte di cocco intero in lattina"}]}
 {"line":"1/2 cup finely chopped carrots","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"carrots","it":"carote","preparationEn":"finely chopped","preparationIt":"tritate finemente"}]}
 {"line":"1/2 cup kimchi ((with its juice))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"kimchi","it":"kimchi","preparationEn":"with its juice","preparationIt":"con il suo liquido"}]}
 {"line":"1/2 cup panko crumbs","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"panko crumbs","it":"panko"}]}
@@ -302,7 +302,7 @@
 {"line":"3 cloves garlic (minced, 9g)","language":"en","parts":[{"quantity":9,"unit":"g","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}
 {"line":"3 cup unsweetened oat milk","language":"en","parts":[{"quantity":3,"unit":"cup","en":"unsweetened oat milk","it":"latte d'avena senza zucchero"}]}
 {"line":"3 cups 233g cauliflower florets","language":"en","parts":[{"quantity":233,"unit":"g","en":"cauliflower","it":"cavolfiore","preparationEn":"cut into florets","preparationIt":"diviso in cimette"}]}
-{"line":"3 cups broth ((chicken flavored or beef flavored vegan broth))","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegan chicken-flavored broth","it":"brodo vegetale al gusto di pollo","alternatives":[{"en":"vegan beef-flavored broth","it":"brodo vegetale al gusto di manzo"}]}]}
+{"line":"3 cups broth ((chicken flavored or beef flavored vegan broth))","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegan chicken flavored broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegan beef flavored broth","it":"brodo vegano gusto manzo"}]}]}
 {"line":"3 cups lettuce or mixed greens","language":"en","parts":[{"quantity":3,"unit":"cup","en":"lettuce","it":"lattuga","alternatives":[{"en":"mixed greens","it":"insalata mista"}]}]}
 {"line":"3 green onions (chopped into 1” pieces)","language":"en","parts":[{"quantity":3,"en":"green onions","it":"cipollotti","preparationEn":"chopped into pieces","preparationIt":"tagliati a pezzi"}]}
 {"line":"3 handfuls of shredded purple cabbage or green cabbage","language":"en","parts":[{"quantity":3,"unit":"handful","en":"purple cabbage","it":"cavolo cappuccio viola","preparationEn":"shredded","preparationIt":"tagliato a striscioline","alternatives":[{"en":"green cabbage","it":"cavolo cappuccio verde"}]}]}

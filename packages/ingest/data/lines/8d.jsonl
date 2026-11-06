@@ -106,7 +106,7 @@
 {"line":"1 teaspoon yellow miso","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"yellow miso","it":"miso giallo"}]}
 {"line":"1 to 1 1/2 cups of water","language":"en","parts":[{"quantity":1,"quantityMax":1.5,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"1 tsp ancho chilli powder (optional)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"ancho chilli powder","it":"peperoncino ancho in polvere","optional":true}]}
-{"line":"1 tsp dried sage ((omit if your vegan sausage contains it))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"dried sage","it":"salvia essiccata"}]}
+{"line":"1 tsp dried sage ((omit if your vegan sausage contains it))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"dried sage","it":"salvia essiccata","preparationEn":"omit if your vegan sausage contains it","preparationIt":"omettere se la salsiccia vegetale la contiene"}]}
 {"line":"1 tsp flour","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"flour","it":"farina"}]}
 {"line":"1 tsp ground anise star","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"ground star anise","it":"anice stellato macinato"}]}
 {"line":"1 tsp salt ((or any salt of choice))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"salt","it":"sale","alternatives":[{"en":"salt of choice","it":"sale a scelta"}]}]}
@@ -165,7 +165,7 @@
 {"line":"1/4 cup (50 g) medium-grind cornmeal","language":"en","parts":[{"quantity":50,"unit":"g","en":"medium-grind cornmeal","it":"farina di mais a macinatura media"}]}
 {"line":"1/4 cup (50 g) refined coconut oil, melted","language":"en","parts":[{"quantity":50,"unit":"g","en":"refined coconut oil","it":"olio di cocco raffinato","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"1/4 cup (60g) plant-based milk, I used almond","language":"en","parts":[{"quantity":60,"unit":"g","en":"plant-based milk","it":"latte vegetale"}]}
-{"line":"1/4 cup Dairy Free Parmesan","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"dairy-free Parmesan","it":"parmigiano senza latticini"}]}
+{"line":"1/4 cup Dairy Free Parmesan","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"dairy free parmesan","it":"parmigiano vegetale"}]}
 {"line":"1/4 cup Sugar (2 Tbsp for less sweeter)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"sugar","it":"zucchero"}]}
 {"line":"1/4 cup crumbled tempeh","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"tempeh","it":"tempeh","preparationEn":"crumbled","preparationIt":"sbriciolato"}]}
 {"line":"1/4 cup cubed onion","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"onion","it":"cipolla","preparationEn":"cubed","preparationIt":"tagliata a cubetti"}]}
@@ -182,7 +182,7 @@
 {"line":"1/4 tsp dried thyme","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"dried thyme","it":"timo essiccato"}]}
 {"line":"1/4 tsp dry mustard","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"dry mustard","it":"senape in polvere"}]}
 {"line":"1/4 tsp fennel seeds (use less or more to preference)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"fennel seeds","it":"semi di finocchio"}]}
-{"line":"1/4 tsp fresh ground pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"freshly ground pepper","it":"pepe macinato fresco"}]}
+{"line":"1/4 tsp fresh ground pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"fresh ground pepper","it":"pepe macinato fresco"}]}
 {"line":"1/8 to 1/4 teaspoon red pepper flakes ((optional))","language":"en","parts":[{"quantity":0.125,"quantityMax":0.25,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi","optional":true}]}
 {"line":"1/8 tsp cardamom or nutmeg","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"cardamom","it":"cardamomo","alternatives":[{"en":"nutmeg","it":"noce moscata"}]}]}
 {"line":"100 g / 1 cup desiccated coconut","language":"en","parts":[{"quantity":100,"unit":"g","en":"desiccated coconut","it":"cocco disidratato"}]}
@@ -370,7 +370,7 @@
 {"line":"oil (I used peanut, for frying)","language":"en","parts":[{"en":"oil","it":"olio","purposeEn":"for frying","purposeIt":"per friggere"}]}
 {"line":"olive oil and fresh herbs (for garnish)","language":"en","parts":[{"en":"olive oil","it":"olio d'oliva","purposeEn":"for garnish","purposeIt":"per guarnire"},{"en":"fresh herbs","it":"erbe aromatiche fresche","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"pinch poultry seasoning","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"poultry seasoning","it":"miscela di spezie per pollame"}]}
-{"line":"plenty of mineral salt & fresh cracked pepper","language":"en","parts":[{"en":"mineral salt","it":"sale minerale"},{"en":"pepper","it":"pepe","preparationEn":"freshly cracked","preparationIt":"macinato fresco"}]}
+{"line":"plenty of mineral salt & fresh cracked pepper","language":"en","parts":[{"en":"mineral salt","it":"sale minerale"},{"en":"fresh cracked pepper","it":"pepe macinato fresco"}]}
 {"line":"red pepper flakes or cayenne as needed","language":"en","parts":[{"en":"red pepper flakes","it":"peperoncino in fiocchi","alternatives":[{"en":"cayenne pepper","it":"peperoncino di Cayenna"}]}]}
 {"line":"salt and pepper to season the potatoes","language":"en","parts":[{"en":"salt","it":"sale","purposeEn":"to season the potatoes","purposeIt":"per condire le patate"},{"en":"pepper","it":"pepe","purposeEn":"to season the potatoes","purposeIt":"per condire le patate"}]}
 {"line":"strawberries, cookies, pretzels, dried fruit, peach slices, apple slices, or other dippers (for serving)","language":"en","parts":[{"en":"strawberries","it":"fragole","purposeEn":"for serving","purposeIt":"per servire"},{"en":"cookies","it":"biscotti","purposeEn":"for serving","purposeIt":"per servire"},{"en":"pretzels","it":"pretzel","purposeEn":"for serving","purposeIt":"per servire"},{"en":"dried fruit","it":"frutta essiccata","purposeEn":"for serving","purposeIt":"per servire"},{"en":"peaches","it":"pesche","preparationEn":"sliced","preparationIt":"tagliate a fette","purposeEn":"for serving","purposeIt":"per servire"},{"en":"apples","it":"mele","preparationEn":"sliced","preparationIt":"tagliate a fette","purposeEn":"for serving","purposeIt":"per servire"},{"en":"other dippers","it":"altri ingredienti da intingere","purposeEn":"for serving","purposeIt":"per servire"}]}

@@ -142,7 +142,7 @@
 {"line":"1/2 tbsp orange zest","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"orange zest","it":"scorza d'arancia"}]}
 {"line":"1/2 teaspoon dried oregano, optional","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"dried oregano","it":"origano secco","optional":true}]}
 {"line":"1/2 teaspoon garlic powder ((optional))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"garlic powder","it":"aglio in polvere","optional":true}]}
-{"line":"1/2 teaspoon salt (can increase to 3/4 tsp if using unsalted butter)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale"}]}
+{"line":"1/2 teaspoon salt (can increase to 3/4 tsp if using unsalted butter)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale","preparationEn":"increase to 3/4 tsp if using unsalted butter","preparationIt":"aumentare a 3/4 di cucchiaino se si usa burro non salato"}]}
 {"line":"1/2 teaspoon white pepper (or ground black pepper)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"white pepper","it":"pepe bianco","alternatives":[{"en":"ground black pepper","it":"pepe nero macinato"}]}]}
 {"line":"1/2 tsp cider vinegar","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"cider vinegar","it":"aceto di mele"}]}
 {"line":"1/2 tsp garlic powder ((or 1 clove fresh garlic, chopped))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"garlic powder","it":"aglio in polvere","alternatives":[{"quantity":1,"unit":"clove","en":"fresh garlic","it":"aglio fresco"}]}]}
@@ -173,7 +173,7 @@
 {"line":"1/4 teaspoon nutmeg (optional)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"nutmeg","it":"noce moscata","optional":true}]}
 {"line":"1/4 tsp turmeric (for color. too much will add flavor)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"turmeric","it":"curcuma"}]}
 {"line":"1/4-1/3 cup blueberries","language":"en","parts":[{"quantity":0.25,"quantityMax":0.3333333333,"unit":"cup","en":"blueberries","it":"mirtilli"}]}
-{"line":"1/8 teaspoon salt (optional, only need if using unsalted butter)","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"salt","it":"sale","optional":true}]}
+{"line":"1/8 teaspoon salt (optional, only need if using unsalted butter)","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"salt","it":"sale","preparationEn":"only needed if using unsalted butter","preparationIt":"necessario solo se si usa burro non salato","optional":true}]}
 {"line":"1/8 tsp baking soda","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"baking soda","it":"bicarbonato di sodio"}]}
 {"line":"1/8 tsp black pepper ((or more to taste))","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"black pepper","it":"pepe nero","toTaste":true}]}
 {"line":"1/8 tsp cumin, more to taste","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"cumin","it":"cumino","toTaste":true}]}
@@ -216,7 +216,7 @@
 {"line":"2 cups flour ((I like 1 cup white and 1 cup whole wheat flour) use GF flour if needed)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"flour","it":"farina"}]}
 {"line":"2 cups fresh or frozen blackberries (300g)","language":"en","parts":[{"quantity":300,"unit":"g","en":"fresh blackberries","it":"more fresche","alternatives":[{"en":"frozen blackberries","it":"more surgelate"}]}]}
 {"line":"2 cups grated vegan cheddar cheese (divided (I used Violife mature cheddar) (8 ounces - 220g))","language":"en","parts":[{"quantity":220,"unit":"g","en":"vegan cheddar cheese","it":"cheddar vegano","preparationEn":"grated, divided","preparationIt":"grattugiato, diviso"}]}
-{"line":"2 cups oat flour ((ground oats))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"oat flour","it":"farina d'avena"}]}
+{"line":"2 cups oat flour ((ground oats))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"oat flour","it":"farina d'avena","preparationEn":"ground oats","preparationIt":"avena macinata"}]}
 {"line":"2 cups spaghetti or marinara sauce","language":"en","parts":[{"quantity":2,"unit":"cup","en":"spaghetti sauce","it":"sugo per spaghetti","alternatives":[{"en":"marinara sauce","it":"salsa marinara"}]}]}
 {"line":"2 green bell peppers (diced)","language":"en","parts":[{"quantity":2,"en":"green bell peppers","it":"peperoni verdi","preparationEn":"diced","preparationIt":"tagliati a dadini"}]}
 {"line":"2 heads romaine lettuce (finely chopped)","language":"en","parts":[{"quantity":2,"unit":"head","en":"romaine lettuce","it":"lattuga romana","preparationEn":"finely chopped","preparationIt":"tritata finemente"}]}
@@ -276,7 +276,7 @@
 {"line":"3 black tea bags","language":"en","parts":[{"quantity":3,"unit":"bag","en":"black tea","it":"tè nero"}]}
 {"line":"3 carrots, grated (about 1 1/4 cup (125g))","language":"en","parts":[{"quantity":3,"en":"carrots","it":"carote","preparationEn":"grated","preparationIt":"grattugiate"}]}
 {"line":"3 cups chopped spinach (rinsed)","language":"en","parts":[{"quantity":3,"unit":"cup","en":"spinach","it":"spinaci","preparationEn":"rinsed and chopped","preparationIt":"sciacquati e tritati"}]}
-{"line":"3 cups hot vegan “beef” broth","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegan beef-style broth","it":"brodo vegetale gusto manzo","preparationEn":"hot","preparationIt":"caldo"}]}
+{"line":"3 cups hot vegan “beef” broth","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegan beef broth","it":"brodo vegano gusto manzo","preparationEn":"hot","preparationIt":"caldo"}]}
 {"line":"3 cups potatoes ( peeled and cut into large cubes (about 3-4 medium potatoes))","language":"en","parts":[{"quantity":3,"unit":"cup","en":"potatoes","it":"patate","preparationEn":"peeled and cut into large cubes","preparationIt":"sbucciate e tagliate a cubetti grandi"}]}
 {"line":"3 medium spotty overripe bananas ((~ 10 oz / 275g once peeled, see Note 4))","language":"en","parts":[{"quantity":3,"en":"medium spotty overripe bananas","it":"banane medie molto mature e macchiettate"}]}
 {"line":"3 tablespoons (45g) melted liquid coconut butter, NOT coconut oil!","language":"en","parts":[{"quantity":45,"unit":"g","en":"coconut butter","it":"burro di cocco","preparationEn":"melted until liquid","preparationIt":"sciolto fino a diventare liquido"}]}

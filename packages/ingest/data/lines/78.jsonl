@@ -77,7 +77,7 @@
 {"line":"1 splash agave","language":"en","parts":[{"quantity":1,"unit":"splash","en":"agave syrup","it":"sciroppo d'agave"}]}
 {"line":"1 tablespoon Old Bay Seasoning","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"Old Bay Seasoning","it":"miscela di spezie Old Bay"}]}
 {"line":"1 tablespoon dark soy sauce (for color; or sub more soy sauce)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"dark soy sauce","it":"salsa di soia scura","alternatives":[{"en":"soy sauce","it":"salsa di soia"}]}]}
-{"line":"1 tablespoon ginger (, minced (fresh, paste, frozen or jarred will work))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"ginger","it":"zenzero","preparationEn":"minced","preparationIt":"tritato"}]}
+{"line":"1 tablespoon ginger (, minced (fresh, paste, frozen or jarred will work))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"ginger","it":"zenzero","preparationEn":"minced; fresh, paste, frozen or jarred","preparationIt":"tritato; fresco, in pasta, surgelato o in vasetto"}]}
 {"line":"1 tablespoon olive oil ((this can optionally be omitted for the slow cooker method))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","optional":true}]}
 {"line":"1 tablespoon orange zest","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"orange zest","it":"scorza d'arancia"}]}
 {"line":"1 tablespoon sesame oil (divided (half for cooking))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"sesame oil","it":"olio di sesamo","preparationEn":"divided, half for cooking","preparationIt":"diviso, metà per la cottura"}]}
@@ -295,7 +295,7 @@
 {"line":"3 Tbsp coconut sugar","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"coconut sugar","it":"zucchero di cocco"}]}
 {"line":"3 cloves (13g) garlic, minced","language":"en","parts":[{"quantity":13,"unit":"g","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}
 {"line":"3 cloves garlic ((thinly sliced))","language":"en","parts":[{"quantity":3,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"thinly sliced","preparationIt":"tagliato a fette sottili"}]}
-{"line":"3 cups corn kernels (fresh, frozen, or canned (510 grams))","language":"en","parts":[{"quantity":510,"unit":"g","en":"corn kernels","it":"chicchi di mais"}]}
+{"line":"3 cups corn kernels (fresh, frozen, or canned (510 grams))","language":"en","parts":[{"quantity":510,"unit":"g","en":"corn kernels","it":"chicchi di mais","preparationEn":"fresh, frozen, or canned","preparationIt":"freschi, surgelati o in scatola"}]}
 {"line":"3 cups vegetable broth ((plus more, as needed))","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"3 fat cloves of garlic","language":"en","parts":[{"quantity":3,"unit":"clove","en":"large garlic cloves","it":"spicchi d'aglio grandi"}]}
 {"line":"3 large shallots (thinly sliced)","language":"en","parts":[{"quantity":3,"en":"large shallots","it":"scalogni grandi","preparationEn":"thinly sliced","preparationIt":"tagliati a fettine sottili"}]}
@@ -336,6 +336,7 @@
 {"line":"4 tostadas or *small soft corn tortillas","language":"en","parts":[{"quantity":4,"en":"tostadas","it":"tostadas","alternatives":[{"en":"small soft corn tortillas","it":"tortillas di mais morbide piccole"}]}]}
 {"line":"4-5 stems Fresh Parsley","language":"en","parts":[{"quantity":4,"quantityMax":5,"unit":"stem","en":"fresh parsley","it":"prezzemolo fresco"}]}
 {"line":"4-6 slices jalapeño","language":"en","parts":[{"quantity":4,"quantityMax":6,"unit":"slice","en":"jalapeño","it":"peperoncino jalapeño"}]}
+{"line":"400 g / 14 oz (about 1¾ cups mashed up) peeled ripe bananas* + extra to decorate","language":"en","parts":[{"quantity":400,"unit":"g","en":"ripe bananas","it":"banane mature","preparationEn":"peeled and mashed","preparationIt":"sbucciate e schiacciate","purposeEn":"plus extra for decoration","purposeIt":"più una quantità aggiuntiva per decorare"}]}
 {"line":"400 g / 14 oz can chickpeas (optional)","language":"en","parts":[{"quantity":400,"unit":"g","en":"canned chickpeas","it":"ceci in scatola","optional":true}]}
 {"line":"45 g sunflower oil (or other neutral oil)","language":"en","parts":[{"quantity":45,"unit":"g","en":"sunflower oil","it":"olio di semi di girasole","alternatives":[{"en":"neutral oil","it":"olio dal sapore neutro"}]}]}
 {"line":"5 French radishes, sliced thinly (optional)","language":"en","parts":[{"quantity":5,"en":"French radishes","it":"ravanelli francesi","preparationEn":"sliced thinly","preparationIt":"affettati sottilmente","optional":true}]}

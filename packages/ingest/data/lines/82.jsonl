@@ -152,7 +152,7 @@
 {"line":"1/2 yellow onion (finely diced)","language":"en","parts":[{"quantity":0.5,"en":"yellow onion","it":"cipolla dorata","preparationEn":"finely diced","preparationIt":"tagliata a cubetti piccoli"}]}
 {"line":"1/2-1 tsp soy sauce (or tamari, more to taste)","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"soy sauce","it":"salsa di soia","toTaste":true,"alternatives":[{"en":"tamari","it":"tamari"}]}]}
 {"line":"1/3 cup cocoa","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"cocoa","it":"cacao"}]}
-{"line":"1/3 cup non-dairy yogurt (or use non dairy cream such as coconut cream or cashew cream )","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"vegan yogurt","it":"yogurt vegetale","alternatives":[{"en":"vegan cream","it":"panna vegetale"},{"en":"coconut cream","it":"crema di cocco"},{"en":"cashew cream","it":"crema di anacardi"}]}]}
+{"line":"1/3 cup non-dairy yogurt (or use non dairy cream such as coconut cream or cashew cream )","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"non-dairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"non-dairy cream","it":"panna vegetale"},{"en":"coconut cream","it":"crema di cocco"},{"en":"cashew cream","it":"crema di anacardi"}]}]}
 {"line":"1/3 cup sweet gherkins, (diced)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"sweet gherkins","it":"cetriolini dolci sottaceto","preparationEn":"diced","preparationIt":"tagliati a dadini"}]}
 {"line":"1/4 Cup Vegan Butter","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan butter","it":"burro vegetale"}]}
 {"line":"1/4 cup (64g) creamy sunbutter or almond butter if not nut-free","language":"en","parts":[{"quantity":64,"unit":"g","en":"creamy sunflower seed butter","it":"crema di semi di girasole","alternatives":[{"en":"almond butter","it":"burro di mandorle"}]}]}
@@ -203,7 +203,7 @@
 {"line":"15 Biscoff Cookies","language":"en","parts":[{"quantity":15,"en":"Biscoff cookies","it":"biscotti Biscoff"}]}
 {"line":"15 cm / 6\" daikon / mooli, julienned","language":"en","parts":[{"quantity":15,"unit":"cm","en":"daikon","it":"daikon","preparationEn":"julienned","preparationIt":"tagliato a julienne"}]}
 {"line":"16 ounces vegan cream cheese, Tofutti or Miyoko's ((2 containers) do NOT use Trader Joe's)","language":"en","parts":[{"quantity":16,"unit":"oz","en":"vegan cream cheese","it":"formaggio spalmabile vegetale"}]}
-{"line":"180 g / 1½ cups all purpose wheat flour or tested GF flour mix (I use this one)","language":"en","parts":[{"quantity":180,"unit":"g","en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi","alternatives":[{"en":"tested gluten-free flour mix","it":"miscela di farine senza glutine collaudata"}]}]}
+{"line":"180 g / 1½ cups all purpose wheat flour or tested GF flour mix (I use this one)","language":"en","parts":[{"quantity":180,"unit":"g","en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi","alternatives":[{"en":"tested gluten-free flour mix","it":"miscela di farine senza glutine collaudata"}]}]}
 {"line":"1½ cups water ((plus more if needed))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"2 1/2 tablespoons pure maple syrup","language":"en","parts":[{"quantity":2.5,"unit":"tbsp","en":"pure maple syrup","it":"sciroppo d'acero puro"}]}
 {"line":"2 1/4 teaspoons active dried yeast","language":"en","parts":[{"quantity":2.25,"unit":"tsp","en":"active dried yeast","it":"lievito di birra secco attivo"}]}
@@ -240,7 +240,7 @@
 {"line":"2 tablespoons (14g) of nutritional yeast (I use and recommend the Sari brand-it's unfortified and has better flavor)","language":"en","parts":[{"quantity":14,"unit":"g","en":"nutritional yeast","it":"lievito alimentare"}]}
 {"line":"2 tablespoons avocado oil (or sub another neutral oil)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"avocado oil","it":"olio di avocado","alternatives":[{"en":"neutral oil","it":"olio dal sapore neutro"}]}]}
 {"line":"2 tablespoons balti seasoning (or curry powder)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"balti seasoning","it":"miscela di spezie balti","alternatives":[{"en":"curry powder","it":"curry in polvere"}]}]}
-{"line":"2 tablespoons lemon juice (, fresh-squeezed - more to taste)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"freshly squeezed lemon juice","it":"succo di limone appena spremuto"}]}
+{"line":"2 tablespoons lemon juice (, fresh-squeezed - more to taste)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh-squeezed lemon juice","it":"succo di limone appena spremuto","preparationEn":"more to taste","preparationIt":"aggiungerne altro a piacere"}]}
 {"line":"2 tablespoons pumpkin seeds","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"pumpkin seeds","it":"semi di zucca"}]}
 {"line":"2 tablespoons slivered almonds or pumpkin seeds (for garnish (or both!))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"slivered almonds","it":"mandorle a bastoncini","purposeEn":"for garnish","purposeIt":"per guarnire","alternatives":[{"en":"pumpkin seeds","it":"semi di zucca"}]}]}
 {"line":"2 tablespoons soy sauce (or use tamari for gluten-free)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"tamari","it":"tamari"}]}]}
@@ -340,7 +340,7 @@
 {"line":"9 oz dry pasta (of choice (I used rice noodles))","language":"en","parts":[{"quantity":9,"unit":"oz","en":"dry pasta of choice","it":"pasta secca a scelta"}]}
 {"line":"93 g / ¾ cup plain AP flour or GF flour mix","language":"en","parts":[{"quantity":93,"unit":"g","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"gluten-free flour mix","it":"miscela di farine senza glutine"}]}]}
 {"line":"A generous pinch saffron","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"saffron","it":"zafferano"}]}
-{"line":"A pinch of salt, (a pinch more if the peanut butter is unsalted)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"salt","it":"sale"}]}
+{"line":"A pinch of salt, (a pinch more if the peanut butter is unsalted)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"salt","it":"sale","preparationEn":"add a pinch more if the peanut butter is unsalted","preparationIt":"aggiungere un altro pizzico se il burro di arachidi è senza sale"}]}
 {"line":"Avocado (optional)","language":"en","parts":[{"en":"avocado","it":"avocado","optional":true}]}
 {"line":"Canola oil ( for frying )","language":"en","parts":[{"en":"canola oil","it":"olio di colza","purposeEn":"for frying","purposeIt":"per friggere"}]}
 {"line":"Chopped fresh parsley or basil leaves ((optional for garnish))","language":"en","parts":[{"en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true,"alternatives":[{"en":"basil leaves","it":"foglie di basilico"}]}]}

@@ -47,7 +47,7 @@
 {"line":"1 cup vegan cheese (shredded or cubed (120 grams) *see brand recommendations below)","language":"en","parts":[{"quantity":120,"unit":"g","en":"vegan cheese","it":"formaggio vegetale","preparationEn":"shredded or cubed","preparationIt":"grattugiato o tagliato a cubetti"}]}
 {"line":"1 cup vegan mayonaise","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan mayonnaise","it":"maionese vegana"}]}
 {"line":"1 cup vegetable broth (or water if you don't have broth (Reduce broth to 3/4 cup if using my homemade sour cream.))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
-{"line":"1 cup vegetable stock ((or vegan beef stock))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegetable stock","it":"brodo vegetale","alternatives":[{"en":"vegan beef stock","it":"brodo vegetale gusto manzo"}]}]}
+{"line":"1 cup vegetable stock ((or vegan beef stock))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegetable stock","it":"brodo vegetale","alternatives":[{"en":"vegan beef stock","it":"brodo vegano gusto manzo"}]}]}
 {"line":"1 cup water (Use 1/2 cup water if using precooked beans)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"1 flat Tbsp tomato paste","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"tomato paste","it":"concentrato di pomodoro"}]}
 {"line":"1 garlic clove ((Note 1))","language":"en","parts":[{"quantity":1,"unit":"clove","en":"garlic","it":"aglio"}]}
@@ -118,7 +118,7 @@
 {"line":"1 yellow squash, sliced","language":"en","parts":[{"quantity":1,"en":"yellow squash","it":"zucchina gialla","preparationEn":"sliced","preparationIt":"tagliata a fette"}]}
 {"line":"1 ¼ cups of hot water","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"hot water","it":"acqua calda"}]}
 {"line":"1 ½ cups broccoli florets","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"broccoli florets","it":"cimette di broccoli"}]}
-{"line":"1 ½ cups non-dairy milk","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"plant-based milk","it":"latte vegetale"}]}
+{"line":"1 ½ cups non-dairy milk","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"non-dairy milk","it":"latte vegetale"}]}
 {"line":"1 ½ cups of yellow onion (finely chopped)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"yellow onion","it":"cipolla dorata","preparationEn":"finely chopped","preparationIt":"tritata finemente"}]}
 {"line":"1 ½ tablespoons fresh lime juice (divided)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"fresh lime juice","it":"succo di lime fresco","preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"1 ¾ cups all-purpose flour (plus more for dusting – 210g)","language":"en","parts":[{"quantity":210,"unit":"g","en":"all-purpose flour","it":"farina 00"}]}
@@ -189,7 +189,7 @@
 {"line":"1/4 cup or more grated carrot","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"carrot","it":"carota","preparationEn":"grated","preparationIt":"grattugiata"}]}
 {"line":"1/4 cup parsley (or basil, chopped, plus extra for topping)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"parsley","it":"prezzemolo","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"plus extra for topping","purposeIt":"più una quantità extra per guarnire","alternatives":[{"en":"basil","it":"basilico"}]}]}
 {"line":"1/4 cup pepitas","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"pepitas","it":"semi di zucca"}]}
-{"line":"1/4 cup plus 1-2 tablespoons of club soda","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"club soda","it":"soda","plus":{"quantity":1,"quantityMax":2,"unit":"tbsp"}}]}
+{"line":"1/4 cup plus 1-2 tablespoons of club soda","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"club soda","it":"acqua gassata","plus":{"quantity":1,"quantityMax":2,"unit":"tbsp"}}]}
 {"line":"1/4 cup refined coconut oil* (melted and cooled)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"refined coconut oil","it":"olio di cocco raffinato","preparationEn":"melted and cooled","preparationIt":"sciolto e lasciato raffreddare"}]}
 {"line":"1/4 cup rolled oats","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"rolled oats","it":"fiocchi d'avena"}]}
 {"line":"1/4 cup sugar (pure cane or coconut)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"pure cane sugar","it":"zucchero di canna puro","alternatives":[{"en":"coconut sugar","it":"zucchero di cocco"}]}]}
@@ -219,7 +219,7 @@
 {"line":"12 ounces beer ((ale, lager, or pilsner recommended))","language":"en","parts":[{"quantity":12,"unit":"oz","en":"beer","it":"birra"}]}
 {"line":"12 ounces shiitake mushrooms, (stems removed and caps sliced)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"shiitake mushrooms","it":"funghi shiitake","preparationEn":"stems removed and caps sliced","preparationIt":"gambi rimossi e cappelle affettate"}]}
 {"line":"12 ounces vegan sausage, crumbled (340g)","language":"en","parts":[{"quantity":340,"unit":"g","en":"vegan sausage","it":"salsiccia vegana","preparationEn":"crumbled","preparationIt":"sbriciolata"}]}
-{"line":"12 oz edamame, (fresh or frozen)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"edamame","it":"edamame"}]}
+{"line":"12 oz edamame, (fresh or frozen)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"edamame","it":"edamame","preparationEn":"fresh or frozen","preparationIt":"freschi o surgelati"}]}
 {"line":"12 oz green beans (trimmed and cut into 1.5-inch pieces)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"green beans","it":"fagiolini","preparationEn":"trimmed and cut into pieces","preparationIt":"spuntati e tagliati a pezzi"}]}
 {"line":"12 oz. vegetable broth","language":"en","parts":[{"quantity":12,"unit":"oz","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"125 g / ½ cup peanut butter (I used this one)","language":"en","parts":[{"quantity":125,"unit":"g","en":"peanut butter","it":"burro di arachidi"}]}

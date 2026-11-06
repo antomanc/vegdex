@@ -192,6 +192,7 @@
 {"line":"1/4 cup brown sugar ((53g))","language":"en","parts":[{"quantity":53,"unit":"g","en":"brown sugar","it":"zucchero di canna"}]}
 {"line":"1/4 cup brown sugar or coconut sugar","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"brown sugar","it":"zucchero di canna","alternatives":[{"en":"coconut sugar","it":"zucchero di cocco"}]}]}
 {"line":"1/4 cup cashew cream (chilled)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cashew cream","it":"crema di anacardi","preparationEn":"chilled","preparationIt":"fredda"}]}
+{"line":"1/4 cup cilantro (plus more for garnish)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"plus more for garnish","preparationIt":"più altro per guarnire"}]}
 {"line":"1/4 cup dry white wine","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"dry white wine","it":"vino bianco secco"}]}
 {"line":"1/4 cup freshly chopped parsley","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1/4 cup parsley","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"parsley","it":"prezzemolo"}]}
@@ -216,7 +217,7 @@
 {"line":"16 ounces (450 g) Brussels sprouts, cut in half","language":"en","parts":[{"quantity":450,"unit":"g","en":"Brussels sprouts","it":"cavoletti di Bruxelles","preparationEn":"cut in half","preparationIt":"tagliati a metà"}]}
 {"line":"16 oz spinach ((regular spinach or baby spinach, roughly chopped))","language":"en","parts":[{"quantity":16,"unit":"oz","en":"spinach","it":"spinaci","preparationEn":"roughly chopped","preparationIt":"tritati grossolanamente","alternatives":[{"en":"baby spinach","it":"spinacini"}]}]}
 {"line":"180 g extra firm tofu (drained)","language":"en","parts":[{"quantity":180,"unit":"g","en":"extra-firm tofu","it":"tofu extra compatto","preparationEn":"drained","preparationIt":"scolato"}]}
-{"line":"19 ounces (540 g) fresh or frozen udon noodles; see notes for dried instructions","language":"en","parts":[{"quantity":540,"unit":"g","en":"fresh udon noodles","it":"udon freschi","alternatives":[{"en":"frozen udon noodles","it":"udon surgelati"}]}]}
+{"line":"19 ounces (540 g) fresh or frozen udon noodles; see notes for dried instructions","language":"en","parts":[{"quantity":540,"unit":"g","en":"fresh or frozen udon noodles","it":"udon freschi o surgelati"}]}
 {"line":"1½ Tbsp ground coriander","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"ground coriander","it":"coriandolo macinato"}]}
 {"line":"1½ cup bread flour","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"bread flour","it":"farina per pane"}]}
 {"line":"1½ cup vegan marshmallow","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan marshmallows","it":"marshmallow vegani"}]}
@@ -280,7 +281,7 @@
 {"line":"2-3 cloves garlic (minced)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}
 {"line":"2-3 cups (473-710 ml) water","language":"en","parts":[{"quantity":473,"quantityMax":710,"unit":"ml","en":"water","it":"acqua"}]}
 {"line":"2-3 tbsp high smoke oil* (I like rice bran oil)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"high-smoke-point oil","it":"olio con alto punto di fumo"}]}
-{"line":"2-4 tbsp chickpea flour (or all purpose wheat flour if not gluten-free)","language":"en","parts":[{"quantity":2,"quantityMax":4,"unit":"tbsp","en":"chickpea flour","it":"farina di ceci","alternatives":[{"en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi"}]}]}
+{"line":"2-4 tbsp chickpea flour (or all purpose wheat flour if not gluten-free)","language":"en","parts":[{"quantity":2,"quantityMax":4,"unit":"tbsp","en":"chickpea flour","it":"farina di ceci","alternatives":[{"en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi"}]}]}
 {"line":"2-inch stick cinnamon","language":"en","parts":[{"quantity":1,"unit":"stick","en":"cinnamon","it":"cannella"}]}
 {"line":"2.5 oz water","language":"en","parts":[{"quantity":2.5,"unit":"oz","en":"water","it":"acqua"}]}
 {"line":"2/3 cup brown rice syrup","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"brown rice syrup","it":"sciroppo di riso integrale"}]}
@@ -353,7 +354,7 @@
 {"line":"4-5 tbsp white shiro miso paste","language":"en","parts":[{"quantity":4,"quantityMax":5,"unit":"tbsp","en":"white shiro miso paste","it":"pasta di miso bianco shiro"}]}
 {"line":"4.5 ounces gluten free oat flour ((127g)/1 ¼ cups raw oats - I grind up oats in a blender)","language":"en","parts":[{"quantity":127,"unit":"g","en":"gluten-free oat flour","it":"farina d'avena senza glutine","alternatives":[{"quantity":1.25,"unit":"cup","en":"raw oats","it":"avena cruda"}]}]}
 {"line":"45 ounce canned chickpeas* (3 cans) (drained and rinsed (about 4 cups))","language":"en","parts":[{"quantity":45,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
-{"line":"5 cups vegan chicken broth (or vegetable broth)","language":"en","parts":[{"quantity":5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"5 cups vegan chicken broth (or vegetable broth)","language":"en","parts":[{"quantity":5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"5 oz frozen chopped spinach (thawed and squeezed very well)","language":"en","parts":[{"quantity":5,"unit":"oz","en":"frozen spinach","it":"spinaci surgelati","preparationEn":"chopped, thawed and squeezed very well","preparationIt":"tritati, scongelati e strizzati molto bene"}]}
 {"line":"5 tbsp granulated sugar ((e.g. coconut sugar or Erythritol))","language":"en","parts":[{"quantity":5,"unit":"tbsp","en":"granulated sugar","it":"zucchero semolato","alternatives":[{"en":"coconut sugar","it":"zucchero di cocco"},{"en":"erythritol","it":"eritritolo"}]}]}
 {"line":"5-6 cloves of garlic chopped","language":"en","parts":[{"quantity":5,"quantityMax":6,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"chopped","preparationIt":"tritato"}]}

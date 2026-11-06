@@ -51,7 +51,7 @@
 {"line":"1 cup rice ((Note 1))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"rice","it":"riso"}]}
 {"line":"1 cup uncooked brown or green lentils","language":"en","parts":[{"quantity":1,"unit":"cup","en":"uncooked brown lentils","it":"lenticchie marroni secche","alternatives":[{"en":"uncooked green lentils","it":"lenticchie verdi secche"}]}]}
 {"line":"1 cup unflavored and unsweetened soy or almond milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unflavored and unsweetened soy milk","it":"latte di soia al naturale senza zucchero","alternatives":[{"en":"unflavored and unsweetened almond milk","it":"latte di mandorla al naturale senza zucchero"}]}]}
-{"line":"1 cup vegan breakfast sausage","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan breakfast sausage","it":"salsiccia vegetale da colazione"}]}
+{"line":"1 cup vegan breakfast sausage","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan breakfast sausage","it":"salsiccia vegana da colazione"}]}
 {"line":"1 cup vegan mozzarella cheese","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan mozzarella cheese","it":"mozzarella vegana"}]}
 {"line":"1 cup whole grain rice flour (150g)","language":"en","parts":[{"quantity":150,"unit":"g","en":"whole grain rice flour","it":"farina di riso integrale"}]}
 {"line":"1 fresh orange","language":"en","parts":[{"quantity":1,"en":"fresh orange","it":"arancia fresca"}]}
@@ -175,7 +175,7 @@
 {"line":"1/4 cup pitted dates (soaked in hot water for at least 2 hours)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"pitted dates","it":"datteri denocciolati","preparationEn":"soaked in hot water for at least 2 hours","preparationIt":"ammollati in acqua calda per almeno 2 ore"}]}
 {"line":"1/4 cup plus 1 teaspoon organic sugar, (divided)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"organic sugar","it":"zucchero biologico","plus":{"quantity":1,"unit":"tsp"},"preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"1/4 cup strawberry preserves","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"strawberry preserves","it":"conserva di fragole"}]}
-{"line":"1/4 cup vegan beef broth or vegetable stock","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan beef broth","it":"brodo vegetale gusto manzo","alternatives":[{"en":"vegetable stock","it":"brodo vegetale"}]}]}
+{"line":"1/4 cup vegan beef broth or vegetable stock","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan beef broth","it":"brodo vegano gusto manzo","alternatives":[{"en":"vegetable stock","it":"brodo vegetale"}]}]}
 {"line":"1/4 teaspoon cayenne ((optional for spice))","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna","optional":true}]}
 {"line":"1/4 teaspoon cayenne pepper (optional)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna","optional":true}]}
 {"line":"1/4 teaspoon granulated onion","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"granulated onion","it":"cipolla granulare"}]}
@@ -195,7 +195,7 @@
 {"line":"1½ cups blanched almond flour","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"blanched almond flour","it":"farina di mandorle pelate"}]}
 {"line":"1½ tsp cinnamon and ½ tsp cardamom (freshly ground is best)","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"cinnamon","it":"cannella"},{"quantity":0.5,"unit":"tsp","en":"cardamom","it":"cardamomo"}]}
 {"line":"2 28 oz cans Crushed Tomatoes","language":"en","parts":[{"quantity":56,"unit":"oz","en":"crushed tomatoes","it":"polpa di pomodoro"}]}
-{"line":"2 3/4 cups (275g) old fashioned oats (not quick oats, 3/4 cup (75g) will be ground into about 1/2 cup flour)","language":"en","parts":[{"quantity":275,"unit":"g","en":"old-fashioned rolled oats","it":"fiocchi d'avena tradizionali","preparationEn":"grind 75 g into flour","preparationIt":"macinare 75 g fino a ottenere una farina"}]}
+{"line":"2 3/4 cups (275g) old fashioned oats (not quick oats, 3/4 cup (75g) will be ground into about 1/2 cup flour)","language":"en","parts":[{"quantity":275,"unit":"g","en":"old fashioned oats","it":"fiocchi d'avena tradizionali","preparationEn":"not quick oats; grind 75 g into about 1/2 cup flour","preparationIt":"non fiocchi d'avena a cottura rapida; macinarne 75 g per ottenere circa 1/2 tazza di farina"}]}
 {"line":"2 cups all purpose flour","language":"en","parts":[{"quantity":2,"unit":"cup","en":"all-purpose flour","it":"farina 00"}]}
 {"line":"2 cups long grain white rice (450 grams)","language":"en","parts":[{"quantity":450,"unit":"g","en":"long-grain white rice","it":"riso bianco a chicco lungo"}]}
 {"line":"2 cups shredded lettuce","language":"en","parts":[{"quantity":2,"unit":"cup","en":"lettuce","it":"lattuga","preparationEn":"shredded","preparationIt":"tagliata a striscioline"}]}

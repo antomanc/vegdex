@@ -59,10 +59,11 @@
 {"line":"1 cup tapioca pearls, dried * (see notes)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dried tapioca pearls","it":"perle di tapioca essiccate"}]}
 {"line":"1 cup unsweetened soy milk (warm - 240 ml)","language":"en","parts":[{"quantity":240,"unit":"ml","en":"unsweetened soy milk","it":"latte di soia senza zucchero","preparationEn":"warm","preparationIt":"tiepido"}]}
 {"line":"1 cup unsweetened, unflavored almond milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened, unflavored almond milk","it":"latte di mandorla al naturale senza zucchero"}]}
-{"line":"1 cup vegan shredded cheddar-style cheese (110g)","language":"en","parts":[{"quantity":110,"unit":"g","en":"vegan cheddar-style cheese","it":"formaggio vegetale tipo cheddar","preparationEn":"shredded","preparationIt":"grattugiato"}]}
+{"line":"1 cup vegan shredded cheddar-style cheese (110g)","language":"en","parts":[{"quantity":110,"unit":"g","en":"vegan cheddar-style cheese","it":"formaggio vegano tipo cheddar","preparationEn":"shredded","preparationIt":"grattugiato"}]}
 {"line":"1 cup vodka","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vodka","it":"vodka"}]}
 {"line":"1 cup white beans","language":"en","parts":[{"quantity":1,"unit":"cup","en":"white beans","it":"fagioli bianchi"}]}
 {"line":"1 cup whole wheat pastry flour (or use a mix of all-purpose and wheat flour)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"whole wheat pastry flour","it":"farina integrale per dolci","alternatives":[{"en":"mix of all-purpose and wheat flour","it":"miscela di farina 00 e farina di frumento"}]}]}
+{"line":"1 dry pint grape tomatoes (or about 1 1/2 cups), quartered","language":"en","parts":[{"quantity":1,"unit":"pint","en":"grape tomatoes","it":"pomodorini datterini","preparationEn":"quartered","preparationIt":"tagliati in quarti"}]}
 {"line":"1 fat garlic clove, (roughly chopped)","language":"en","parts":[{"quantity":1,"unit":"clove","en":"large garlic","it":"aglio grande","preparationEn":"roughly chopped","preparationIt":"tritato grossolanamente"}]}
 {"line":"1 flax egg ((1 1/2 tablespoons ground flax seeds + 3 tablespoons water, soaked for 5 minutes))","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"ground flax seeds","it":"semi di lino macinati","preparationEn":"soaked with water for 5 minutes","preparationIt":"ammollati con acqua per 5 minuti"},{"quantity":3,"unit":"tbsp","en":"water","it":"acqua"}]}
 {"line":"1 garlic clove or 1/4 teaspoon garlic powder","language":"en","parts":[{"quantity":1,"unit":"clove","en":"garlic","it":"aglio","alternatives":[{"quantity":0.25,"unit":"tsp","en":"garlic powder","it":"aglio in polvere"}]}]}
@@ -133,7 +134,7 @@
 {"line":"1/2 cup coconut cream","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"coconut cream","it":"crema di cocco"}]}
 {"line":"1/2 cup coconut water","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"coconut water","it":"acqua di cocco"}]}
 {"line":"1/2 cup fresh parsley (, chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
-{"line":"1/2 cup fresh squeezed orange juice, + more as needed","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"freshly squeezed orange juice","it":"succo d'arancia appena spremuto"}]}
+{"line":"1/2 cup fresh squeezed orange juice, + more as needed","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh squeezed orange juice","it":"succo d'arancia appena spremuto","preparationEn":"plus more as needed","preparationIt":"più altro quanto necessario"}]}
 {"line":"1/2 cup low sodium soy sauce, ((soy free substitution ideas in the post))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"low-sodium soy sauce","it":"salsa di soia a basso contenuto di sodio"}]}
 {"line":"1/2 cup raw cashew","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"raw cashews","it":"anacardi crudi"}]}
 {"line":"1/2 cup solid coconut oil*","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"solid coconut oil","it":"olio di cocco solido"}]}
@@ -182,7 +183,7 @@
 {"line":"1/4 cup sweet potato puree","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"sweet potato puree","it":"purea di patate dolci"}]}
 {"line":"1/4 cup unsweetened apple sauce","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsweetened apple sauce","it":"purea di mele senza zucchero"}]}
 {"line":"1/4 serving cooked seitan","language":"en","parts":[{"quantity":0.25,"unit":"serving","en":"seitan","it":"seitan","preparationEn":"cooked","preparationIt":"cotto"}]}
-{"line":"1/4 teaspoon fresh ground pepper, (more to taste)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"freshly ground pepper","it":"pepe macinato fresco","toTaste":true}]}
+{"line":"1/4 teaspoon fresh ground pepper, (more to taste)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"fresh ground pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"1/4 teaspoon freshly grated nutmeg, (plus more to taste as needed)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"nutmeg","it":"noce moscata","preparationEn":"freshly grated","preparationIt":"grattugiata al momento","toTaste":true}]}
 {"line":"1/4 teaspoon sage (or more, to taste, or use thyme)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"sage","it":"salvia","toTaste":true,"alternatives":[{"en":"thyme","it":"timo"}]}]}
 {"line":"1/4 teaspoon vanilla extract","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia"}]}
@@ -235,6 +236,7 @@
 {"line":"2 green cardamom pods (slightly opened)","language":"en","parts":[{"quantity":2,"unit":"pod","en":"green cardamom","it":"cardamomo verde","preparationEn":"slightly opened","preparationIt":"leggermente aperto"}]}
 {"line":"2 heaped tbsp capers, chopped coarsely","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"capers","it":"capperi","preparationEn":"chopped coarsely","preparationIt":"tritati grossolanamente"}]}
 {"line":"2 leeks, (white and light green parts only, diced)","language":"en","parts":[{"quantity":2,"en":"leeks","it":"porri","preparationEn":"white and light green parts only, diced","preparationIt":"solo la parte bianca e verde chiaro, tagliata a cubetti"}]}
+{"line":"2 lemons (1 zested and juiced, 1 cut into wedges for serving)","language":"en","parts":[{"quantity":2,"en":"lemons","it":"limoni","preparationEn":"one zested and juiced, one cut into wedges","preparationIt":"uno da grattugiare e spremere, uno tagliato a spicchi","purposeEn":"one cut into wedges for serving","purposeIt":"uno tagliato a spicchi per servire"}]}
 {"line":"2 medium carrots (peeled and chopped)","language":"en","parts":[{"quantity":2,"en":"medium carrots","it":"carote medie","preparationEn":"peeled and chopped","preparationIt":"pelate e tagliate"}]}
 {"line":"2 medium sweet potatoes, (peeled and cut into a large dice)","language":"en","parts":[{"quantity":2,"en":"medium sweet potatoes","it":"patate dolci medie","preparationEn":"peeled and cut into a large dice","preparationIt":"sbucciate e tagliate a cubetti grandi"}]}
 {"line":"2 medium tomatoes ((roughly chopped))","language":"en","parts":[{"quantity":2,"en":"medium tomatoes","it":"pomodori medi","preparationEn":"roughly chopped","preparationIt":"tagliati grossolanamente"}]}
@@ -343,7 +345,7 @@
 {"line":"5 cup of water, (divided)","language":"en","parts":[{"quantity":5,"unit":"cup","en":"water","it":"acqua","preparationEn":"divided","preparationIt":"divisa"}]}
 {"line":"5 cups vegetable broth, (plus more if desired)","language":"en","parts":[{"quantity":5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"5 cups water ((divided))","language":"en","parts":[{"quantity":5,"unit":"cup","en":"water","it":"acqua","preparationEn":"divided","preparationIt":"divisa"}]}
-{"line":"5 curry leaves ((you can find these fresh or frozen in any Indian store. If you dont have these, substitute with one bay leaf))","language":"en","parts":[{"quantity":5,"en":"curry leaves","it":"foglie di curry","alternatives":[{"quantity":1,"en":"bay leaf","it":"foglia di alloro"}]}]}
+{"line":"5 curry leaves ((you can find these fresh or frozen in any Indian store. If you dont have these, substitute with one bay leaf))","language":"en","parts":[{"quantity":5,"en":"curry leaves","it":"foglie di curry","preparationEn":"fresh or frozen","preparationIt":"fresche o surgelate","alternatives":[{"quantity":1,"en":"bay leaf","it":"foglia di alloro"}]}]}
 {"line":"5 large carrots (chopped (or 2 cups baby carrots))","language":"en","parts":[{"quantity":5,"en":"large carrots","it":"carote grandi","preparationEn":"chopped","preparationIt":"tagliate a pezzi","alternatives":[{"quantity":2,"unit":"cup","en":"baby carrots","it":"carotine"}]}]}
 {"line":"5 – 6 kale leaves, stem removed and chopped","language":"en","parts":[{"quantity":5,"quantityMax":6,"unit":"leaf","en":"kale","it":"cavolo riccio","preparationEn":"stems removed and chopped","preparationIt":"privato dei gambi e tritato"}]}
 {"line":"6 cardamom pod","language":"en","parts":[{"quantity":6,"en":"cardamom pods","it":"baccelli di cardamomo"}]}

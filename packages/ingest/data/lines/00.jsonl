@@ -48,7 +48,7 @@
 {"line":"1 cup of plant based milk ((oat is best for its neutral flavor))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"plant-based milk","it":"latte vegetale"}]}
 {"line":"1 cup short-grain rice","language":"en","parts":[{"quantity":1,"unit":"cup","en":"short-grain rice","it":"riso a chicco corto"}]}
 {"line":"1 cup uncooked pasta of your choice ((adjust depending on the type of pasta))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"uncooked pasta of choice","it":"pasta cruda a scelta"}]}
-{"line":"1 cup unsweetened and unflavored non-dairy milk, (room temperature)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened unflavored plant-based milk","it":"latte vegetale senza zucchero e senza aromi","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
+{"line":"1 cup unsweetened and unflavored non-dairy milk, (room temperature)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened and unflavored non-dairy milk","it":"latte vegetale al naturale senza zucchero","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"1 cup unsweetened soy milk ( or other plant milk)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened soy milk","it":"latte di soia senza zucchero","alternatives":[{"en":"plant-based milk","it":"latte vegetale"}]}]}
 {"line":"1 cup unsweetened soy milk (or other non-dairy milk)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened soy milk","it":"latte di soia senza zucchero","alternatives":[{"en":"non-dairy milk","it":"latte vegetale"}]}]}
 {"line":"1 cup vanilla unsweetened almond milk ((see post for allergy switches))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened vanilla almond milk","it":"latte di mandorla alla vaniglia senza zucchero"}]}
@@ -142,7 +142,7 @@
 {"line":"1/2 cup pizza sauce (or 3 Roma tomatoes sliced)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"pizza sauce","it":"salsa per pizza","alternatives":[{"quantity":3,"en":"Roma tomatoes","it":"pomodori Roma"}]}]}
 {"line":"1/2 cup shelled pecans","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"shelled pecans","it":"noci pecan sgusciate"}]}
 {"line":"1/2 cup soaked unsalted cashews (Soak them for about 30 minutes. If you have a heavy duty blender it also works without soaking.)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsalted cashews","it":"anacardi non salati","preparationEn":"soaked for about 30 minutes","preparationIt":"ammollati per circa 30 minuti"}]}
-{"line":"1/2 cup unsalted dairy free butter ((we use Earth Balance Soy Free))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsalted dairy-free butter","it":"burro vegetale senza sale"}]}
+{"line":"1/2 cup unsalted dairy free butter ((we use Earth Balance Soy Free))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsalted dairy-free butter","it":"burro vegetale non salato"}]}
 {"line":"1/2 cup vegan shredded cheddar","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan cheddar","it":"cheddar vegano","preparationEn":"shredded","preparationIt":"grattugiato"}]}
 {"line":"1/2 cup vegetable broth or water","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
 {"line":"1/2 cup whole wheat bread crumbs","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"whole wheat bread crumbs","it":"pangrattato integrale"}]}
@@ -178,6 +178,7 @@
 {"line":"1/4 cup vegan parmesan cheese, (more or less to taste)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan parmesan cheese","it":"parmigiano vegano","toTaste":true}]}
 {"line":"1/4 red onion, diced (or 2 – 3 scallions, sliced)","language":"en","parts":[{"quantity":0.25,"en":"red onion","it":"cipolla rossa","preparationEn":"diced","preparationIt":"tagliata a dadini","alternatives":[{"quantity":2,"quantityMax":3,"en":"scallions","it":"cipollotti"}]}]}
 {"line":"1/4 teaspoon fresh black pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"fresh black pepper","it":"pepe nero fresco"}]}
+{"line":"1/4 teaspoon smoked paprika (, + more for topping)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"smoked paprika","it":"paprika affumicata","purposeEn":"more for topping","purposeIt":"altra per guarnire"}]}
 {"line":"1/4 tsp Ground Cloves","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground cloves","it":"chiodi di garofano macinati"}]}
 {"line":"1/4 tsp red pepper flakes (plus more to taste)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi"}]}
 {"line":"1/8 teaspoon asafoetida ((hing))","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"asafoetida","it":"assafetida"}]}
@@ -217,7 +218,7 @@
 {"line":"2 (14 oz) cans pinto beans (drained and rinsed (see notes))","language":"en","parts":[{"quantity":28,"unit":"oz","en":"canned pinto beans","it":"fagioli pinto in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"2 - 2 1/4 cups water","language":"en","parts":[{"quantity":2,"quantityMax":2.25,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"2 1/2 cups quick-cooking or rolled oats* (I like a 50-50 mix)","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"quick-cooking oats","it":"fiocchi d'avena a cottura rapida","alternatives":[{"en":"rolled oats","it":"fiocchi d'avena"}]}]}
-{"line":"2 1/2 cups vegetable broth ((low sodium if preferred))","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
+{"line":"2 1/2 cups vegetable broth ((low sodium if preferred))","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","preparationEn":"low-sodium if preferred","preparationIt":"a basso contenuto di sodio se preferito"}]}
 {"line":"2 1/2 cups water, (plus more as needed (use only 2 cups for Instant Pot method))","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"2 15 oz cans fire-roasted crushed tomatoes, slightly pureed","language":"en","parts":[{"quantity":30,"unit":"oz","en":"canned fire-roasted crushed tomatoes","it":"polpa di pomodoro arrostito in scatola","preparationEn":"slightly pureed","preparationIt":"leggermente frullata"}]}
 {"line":"2 Tablespoons fresh sage (sliced)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh sage","it":"salvia fresca","preparationEn":"sliced","preparationIt":"tagliata a striscioline"}]}
@@ -295,7 +296,7 @@
 {"line":"3 scallions, thinly sliced","language":"en","parts":[{"quantity":3,"en":"scallions","it":"cipollotti","preparationEn":"thinly sliced","preparationIt":"tagliati a fettine sottili"}]}
 {"line":"3 tablesooons red wine vinegar","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"red wine vinegar","it":"aceto di vino rosso"}]}
 {"line":"3 tablespoons Parsley Pesto","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"parsley pesto","it":"pesto di prezzemolo"}]}
-{"line":"3 tablespoons apple sauce ((or other vegan egg replacers))","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"applesauce","it":"purea di mele","alternatives":[{"en":"vegan egg replacer","it":"sostituto vegano delle uova"}]}]}
+{"line":"3 tablespoons apple sauce ((or other vegan egg replacers))","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"apple sauce","it":"purea di mele","alternatives":[{"en":"other vegan egg replacers","it":"altri sostituti vegani dell'uovo"}]}]}
 {"line":"3 tablespoons chia seeds","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"chia seeds","it":"semi di chia"}]}
 {"line":"3 tablespoons chopped or halved raw cashews","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"raw cashews","it":"anacardi crudi","preparationEn":"chopped or halved","preparationIt":"tritati o tagliati a metà"}]}
 {"line":"3 tablespoons non-dairy plain yogurt","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"plain non-dairy yogurt","it":"yogurt vegetale bianco"}]}
@@ -374,7 +375,7 @@
 {"line":"Salt to taste ((optional))","language":"en","parts":[{"en":"salt","it":"sale","optional":true,"toTaste":true}]}
 {"line":"Strawberry Slices","language":"en","parts":[{"en":"strawberries","it":"fragole","preparationEn":"sliced","preparationIt":"a fette"}]}
 {"line":"Topping suggestions: nut butter (fresh fruit, yogurt, etc)","language":"en","parts":[{"en":"toppings of choice","it":"guarnizioni a scelta","alternatives":[{"en":"nut butter","it":"burro di frutta secca"},{"en":"fresh fruit","it":"frutta fresca"},{"en":"yogurt","it":"yogurt"}]}]}
-{"line":"Vegan Cream Cheese Frosting (double if you want a lot for piping)","language":"en","parts":[{"en":"vegan cream cheese frosting","it":"glassa vegana al formaggio spalmabile"}]}
+{"line":"Vegan Cream Cheese Frosting (double if you want a lot for piping)","language":"en","parts":[{"en":"vegan cream cheese frosting","it":"glassa al formaggio spalmabile vegano"}]}
 {"line":"Vegan naan","language":"en","parts":[{"en":"vegan naan","it":"naan vegano"}]}
 {"line":"Water, (as needed (usually 3-4 tablespoons))","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"tbsp","en":"water","it":"acqua"}]}
 {"line":"a handful of nuts, seeds or both","language":"en","parts":[{"quantity":1,"unit":"handful","en":"nuts","it":"frutta secca","alternatives":[{"en":"seeds","it":"semi"},{"en":"nuts and seeds","it":"frutta secca e semi"}]}]}

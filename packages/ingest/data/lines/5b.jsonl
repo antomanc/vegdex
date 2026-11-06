@@ -288,7 +288,7 @@
 {"line":"24 blueberries (3 per cookie)","language":"en","parts":[{"quantity":24,"en":"blueberries","it":"mirtilli"}]}
 {"line":"240 ml dairy-free milk (of your choice)","language":"en","parts":[{"quantity":240,"unit":"ml","en":"dairy-free milk of choice","it":"latte vegetale a scelta"}]}
 {"line":"3 Oreo cookies (*May use a similar cookie, such as Newman's Own if desired)","language":"en","parts":[{"quantity":3,"en":"Oreo cookies","it":"biscotti Oreo","alternatives":[{"en":"similar cookies","it":"biscotti simili"}]}]}
-{"line":"3 cups vegan beef broth","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegan beef broth","it":"brodo vegetale gusto manzo"}]}
+{"line":"3 cups vegan beef broth","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegan beef broth","it":"brodo vegano gusto manzo"}]}
 {"line":"3 green onions sliced; white and light green parts separated from the dark green parts","language":"en","parts":[{"quantity":3,"en":"green onions","it":"cipollotti","preparationEn":"sliced; white and light green parts separated from the dark green parts","preparationIt":"affettati; parti bianche e verde chiaro separate da quelle verde scuro"}]}
 {"line":"3 medium leeks (use white and light green parts only)","language":"en","parts":[{"quantity":3,"en":"medium leeks","it":"porri medi","preparationEn":"white and light green parts only","preparationIt":"solo le parti bianche e verde chiaro"}]}
 {"line":"3 tablespoons (48g) raw cashew butter (without added oil or sugar) ()","language":"en","parts":[{"quantity":48,"unit":"g","en":"raw cashew butter without added oil or sugar","it":"burro di anacardi crudi senza olio né zucchero aggiunti"}]}
@@ -391,7 +391,7 @@
 {"line":"green onions, cut into thin circles","language":"en","parts":[{"en":"green onions","it":"cipollotti","preparationEn":"cut into thin circles","preparationIt":"tagliati a rondelle sottili"}]}
 {"line":"handful of roasted hazelnuts, to finish","language":"en","parts":[{"quantity":1,"unit":"handful","en":"roasted hazelnuts","it":"nocciole tostate","purposeEn":"for finishing","purposeIt":"per completare"}]}
 {"line":"juice of ½-1 lemon, adjust to taste (I like it quite tangy)","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"en":"lemon","it":"limone","preparationEn":"juiced","preparationIt":"spremuto","toTaste":true}]}
-{"line":"mineral salt & fresh ground pepper, to taste","language":"en","parts":[{"en":"mineral salt","it":"sale minerale","toTaste":true},{"en":"freshly ground pepper","it":"pepe macinato fresco","toTaste":true}]}
+{"line":"mineral salt & fresh ground pepper, to taste","language":"en","parts":[{"en":"mineral salt","it":"sale minerale","toTaste":true},{"en":"fresh ground pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"optional shredded parmesan (I used Violife)","language":"en","parts":[{"en":"vegan parmesan","it":"parmigiano vegano","preparationEn":"shredded","preparationIt":"grattugiato","optional":true}]}
 {"line":"optional toppings: red pepper flakes, sesame seeds","language":"en","parts":[{"en":"red pepper flakes","it":"peperoncino in fiocchi","purposeEn":"for serving","purposeIt":"per servire","optional":true},{"en":"sesame seeds","it":"semi di sesamo","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}
 {"line":"pinch of lemon zest (since you’re already squeezing the lemon juice, but also optional)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"lemon zest","it":"scorza di limone","optional":true}]}

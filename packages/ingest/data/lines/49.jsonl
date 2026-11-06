@@ -152,7 +152,7 @@
 {"line":"1/3 cup + 2 tbsp vegan butter","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"vegan butter","it":"burro vegetale","plus":{"quantity":2,"unit":"tbsp"}}]}
 {"line":"1/3 cup apple juice ((or cranberry juice))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"apple juice","it":"succo di mela","alternatives":[{"en":"cranberry juice","it":"succo di mirtillo rosso"}]}]}
 {"line":"1/3 cup dark chocolate (I used 72%, it will be melted)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"dark chocolate","it":"cioccolato fondente","preparationEn":"melted","preparationIt":"fuso"}]}
-{"line":"1/3 cup non-dairy yogurt (or non-dairy cream, such as cashew cream)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"nondairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"nondairy cream","it":"panna vegetale"}]}]}
+{"line":"1/3 cup non-dairy yogurt (or non-dairy cream, such as cashew cream)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"non-dairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"non-dairy cream","it":"panna vegetale"},{"en":"cashew cream","it":"crema di anacardi"}]}]}
 {"line":"1/3 cup slivered almonds (or chopped walnuts or pecans)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"slivered almonds","it":"mandorle a bastoncini","alternatives":[{"en":"chopped walnuts","it":"noci tritate"},{"en":"chopped pecans","it":"noci pecan tritate"}]}]}
 {"line":"1/3 cup sun-dried tomatoes (chopped)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"sun-dried tomatoes","it":"pomodori secchi","preparationEn":"chopped","preparationIt":"tagliati a pezzi"}]}
 {"line":"1/3 cup vegan Parmesan ((we like Violife))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"vegan Parmesan","it":"parmigiano vegano"}]}
@@ -275,7 +275,7 @@
 {"line":"3 tablespoon water","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"water","it":"acqua"}]}
 {"line":"3 tablespoons of brown sugar","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"brown sugar","it":"zucchero di canna"}]}
 {"line":"3 tablespoons organic sugar (use less if you prefer your pancakes less sweet, but it will taste less like a gingersnap)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"organic sugar","it":"zucchero biologico"}]}
-{"line":"3 tablespoons regular paprika (not smoked or hot)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"regular paprika","it":"paprika classica"}]}
+{"line":"3 tablespoons regular paprika (not smoked or hot)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"regular paprika, not smoked or hot","it":"paprica normale, non affumicata né piccante"}]}
 {"line":"3 tablespoons white or red wine vinegar","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"white wine vinegar","it":"aceto di vino bianco","alternatives":[{"en":"red wine vinegar","it":"aceto di vino rosso"}]}]}
 {"line":"3 tbsp Cashew Butter","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"cashew butter","it":"burro di anacardi"}]}
 {"line":"3 tbsp almond butter (or peanut butter) (or peanut butter)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"almond butter","it":"burro di mandorle","alternatives":[{"en":"peanut butter","it":"burro di arachidi"}]}]}
@@ -286,7 +286,7 @@
 {"line":"3.5 cups water for pressure cooker (4 to 4.5 cups for saucepan)","language":"en","parts":[{"quantity":3.5,"unit":"cup","en":"water","it":"acqua","purposeEn":"for pressure cooker","purposeIt":"per la pentola a pressione","alternatives":[{"quantity":4,"quantityMax":4.5,"unit":"cup","en":"water for saucepan","it":"acqua per la cottura in pentola"}]}]}
 {"line":"3/4 cup TVP ((soak in hot water for 30 minutes, drain before using))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"textured vegetable protein","it":"proteine vegetali testurizzate","preparationEn":"soaked in hot water for 30 minutes and drained before using","preparationIt":"ammollate in acqua calda per 30 minuti e scolate prima dell'uso"}]}
 {"line":"3/4 cup brown sugar (I use raw brown sugar, cane sugar, or coconut sugar (158g))","language":"en","parts":[{"quantity":158,"unit":"g","en":"brown sugar","it":"zucchero di canna"}]}
-{"line":"3/4 cup shredded coconut ((can use sweetened or unsweetened))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"shredded coconut","it":"cocco grattugiato"}]}
+{"line":"3/4 cup shredded coconut ((can use sweetened or unsweetened))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"shredded coconut, sweetened or unsweetened","it":"cocco grattugiato, zuccherato o non zuccherato"}]}
 {"line":"3/4 cup split red lentils (masoor dal)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"split red lentils","it":"lenticchie rosse decorticate"}]}
 {"line":"3/4 cup sugar (use 2 to 3 tbsp less for less sweet, powdered)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"powdered sugar","it":"zucchero a velo"}]}
 {"line":"3/4 cup uncooked basmati rice ((or similar rice))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"uncooked basmati rice","it":"riso basmati crudo","alternatives":[{"en":"similar rice","it":"riso simile"}]}]}
@@ -295,7 +295,7 @@
 {"line":"30 ml / 2 tbsp olive oil, more if wanted","language":"en","parts":[{"quantity":30,"unit":"ml","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"30 vegan wonton wrappers","language":"en","parts":[{"quantity":30,"en":"vegan wonton wrappers","it":"sfoglie vegane per wonton"}]}
 {"line":"300 g / 2 cups raw cashews (soaked overnight OR in boiling water for 30 min)","language":"en","parts":[{"quantity":300,"unit":"g","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked overnight or in boiling water for 30 minutes","preparationIt":"ammollati per una notte oppure in acqua bollente per 30 minuti"}]}
-{"line":"300 g / 2½ cups all purpose wheat flour*","language":"en","parts":[{"quantity":300,"unit":"g","en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi"}]}
+{"line":"300 g / 2½ cups all purpose wheat flour*","language":"en","parts":[{"quantity":300,"unit":"g","en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi"}]}
 {"line":"4 cups frozen mixed veggies (or fresh veggies of choice)","language":"en","parts":[{"quantity":4,"unit":"cup","en":"frozen mixed vegetables","it":"verdure miste surgelate","alternatives":[{"en":"fresh vegetables of choice","it":"verdure fresche a scelta"}]}]}
 {"line":"4 cups navy beans (cooked and rinsed)","language":"en","parts":[{"quantity":4,"unit":"cup","en":"navy beans","it":"fagioli navy","preparationEn":"cooked and rinsed","preparationIt":"cotti e sciacquati"}]}
 {"line":"4 cups vegetable broth ((960g))","language":"en","parts":[{"quantity":960,"unit":"g","en":"vegetable broth","it":"brodo vegetale"}]}
@@ -411,7 +411,7 @@
 {"line":"¼ cup soy sauce","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"soy sauce","it":"salsa di soia"}]}
 {"line":"¼ teaspoon Hing","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"hing","it":"assafetida"}]}
 {"line":"¼ teaspoon of cayenne","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"cayenne","it":"pepe di Cayenna"}]}
-{"line":"¼ teaspoon sea salt (, only if using unsalted butter)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"sea salt","it":"sale marino"}]}
+{"line":"¼ teaspoon sea salt (, only if using unsalted butter)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"sea salt","it":"sale marino","preparationEn":"only if using unsalted butter","preparationIt":"solo se si usa burro non salato"}]}
 {"line":"¼ tsp Vanilla Extract (Optional)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia","optional":true}]}
 {"line":"¼ – ½ cup Warm Filtered Water","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"cup","en":"warm filtered water","it":"acqua filtrata tiepida"}]}
 {"line":"½ bunch Cilantro, stems and leaves divided","language":"en","parts":[{"quantity":0.5,"unit":"bunch","en":"cilantro","it":"coriandolo fresco","preparationEn":"stems and leaves divided","preparationIt":"gambi e foglie separati"}]}

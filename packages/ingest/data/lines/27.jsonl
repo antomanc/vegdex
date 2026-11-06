@@ -31,7 +31,7 @@
 {"line":"1 cup + 3 tablespoons Bob’s Red Mill Organic Unbleached all-purpose flour*","language":"en","parts":[{"quantity":1,"unit":"cup","en":"Bob’s Red Mill organic unbleached all-purpose flour","it":"farina multiuso biologica non sbiancata Bob’s Red Mill","plus":{"quantity":3,"unit":"tbsp"}}]}
 {"line":"1 cup / 130 g raw cashews, soaked in boiling water for 20 min","language":"en","parts":[{"quantity":130,"unit":"g","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked in boiling water for 20 minutes","preparationIt":"ammollati in acqua bollente per 20 minuti"}]}
 {"line":"1 cup Frank's Red Hot Buffalo Sauce","language":"en","parts":[{"quantity":1,"unit":"cup","en":"Frank's RedHot Buffalo Sauce","it":"salsa Buffalo Frank's RedHot"}]}
-{"line":"1 cup Fresh Squeezed Orange Juice, with pulp (about 4-5 oranges)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"freshly squeezed orange juice with pulp","it":"succo d'arancia appena spremuto con polpa"}]}
+{"line":"1 cup Fresh Squeezed Orange Juice, with pulp (about 4-5 oranges)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"fresh squeezed orange juice with pulp","it":"succo d'arancia appena spremuto con polpa"}]}
 {"line":"1 cup black beans (soaked overnight or at least 1/2 hour in hot water)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"black beans","it":"fagioli neri","preparationEn":"soaked overnight or for at least 1/2 hour in hot water","preparationIt":"ammollati per una notte o per almeno mezz'ora in acqua calda"}]}
 {"line":"1 cup black gram dal or urad dal","language":"en","parts":[{"quantity":1,"unit":"cup","en":"black gram dal","it":"urad dal"}]}
 {"line":"1 cup blackberries","language":"en","parts":[{"quantity":1,"unit":"cup","en":"blackberries","it":"more"}]}
@@ -42,7 +42,7 @@
 {"line":"1 cup grapes (halved)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"grapes","it":"uva","preparationEn":"halved","preparationIt":"tagliata a metà"}]}
 {"line":"1 cup light brown sugar (packed – 200g)","language":"en","parts":[{"quantity":200,"unit":"g","en":"light brown sugar","it":"zucchero di canna chiaro"}]}
 {"line":"1 cup non-dairy milk (homemade or store-bought)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy milk","it":"latte vegetale"}]}
-{"line":"1 cup panko breadcrumbs ((or cornflake crumbs))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"panko breadcrumbs","it":"pangrattato panko","alternatives":[{"en":"cornflake crumbs","it":"corn flakes sbriciolati"}]}]}
+{"line":"1 cup panko breadcrumbs ((or cornflake crumbs))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"panko breadcrumbs","it":"pangrattato panko","alternatives":[{"en":"cornflake crumbs","it":"fiocchi di mais sbriciolati"}]}]}
 {"line":"1 cup raw cashews (not soaked)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"raw cashews","it":"anacardi crudi","preparationEn":"not soaked","preparationIt":"non ammollati"}]}
 {"line":"1 cup reserved chile liquid","language":"en","parts":[{"quantity":1,"unit":"cup","en":"reserved chile liquid","it":"liquido dei peperoncini tenuto da parte"}]}
 {"line":"1 cup sliced carrots","language":"en","parts":[{"quantity":1,"unit":"cup","en":"carrots","it":"carote","preparationEn":"sliced","preparationIt":"a fette"}]}
@@ -249,7 +249,7 @@
 {"line":"2 tablespoons chopped fresh dill (for stirring in at the end)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh dill","it":"aneto fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"2 tablespoons neutral oil (divided)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"neutral oil","it":"olio dal sapore neutro","preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"2 tablespoons olive oil or 1/4 cup water (for oil-free)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","alternatives":[{"quantity":0.25,"unit":"cup","en":"water","it":"acqua"}]}]}
-{"line":"2 tablespoons olive oil or plant-based butter","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","alternatives":[{"en":"vegan butter","it":"burro vegetale"}]}]}
+{"line":"2 tablespoons olive oil or plant-based butter","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","alternatives":[{"en":"plant-based butter","it":"burro vegetale"}]}]}
 {"line":"2 tablespoons onions (diced)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"onions","it":"cipolle","preparationEn":"diced","preparationIt":"tagliate a dadini"}]}
 {"line":"2 tablespoons roughly chopped fresh basil leaves","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh basil leaves","it":"foglie di basilico fresco","preparationEn":"roughly chopped","preparationIt":"tritate grossolanamente"}]}
 {"line":"2 tablespoons to 1/4 cup nutritional yeast (10g-20g)","language":"en","parts":[{"quantity":10,"quantityMax":20,"unit":"g","en":"nutritional yeast","it":"lievito alimentare"}]}
@@ -371,7 +371,7 @@
 {"line":"any popsicle mold or about 6 small 5 oz. dixie cups","language":"en","kind":"other"}
 {"line":"chopped fresh parsley, cilantro or dill","language":"en","parts":[{"en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"chopped","preparationIt":"tritato","alternatives":[{"en":"fresh cilantro","it":"coriandolo fresco"},{"en":"fresh dill","it":"aneto fresco"}]}]}
 {"line":"chopped parsley for garnish","language":"en","parts":[{"en":"parsley","it":"prezzemolo","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
-{"line":"generous pinch of mineral salt & fresh cracked pepper","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"mineral salt","it":"sale minerale"},{"en":"freshly cracked pepper","it":"pepe macinato al momento"}]}
+{"line":"generous pinch of mineral salt & fresh cracked pepper","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"mineral salt","it":"sale minerale","preparationEn":"generous pinch","preparationIt":"un pizzico abbondante"},{"en":"fresh cracked pepper","it":"pepe macinato fresco"}]}
 {"line":"ground pepper (to taste)","language":"en","parts":[{"en":"ground pepper","it":"pepe macinato","toTaste":true}]}
 {"line":"handful or two of baby arugula, to serve (optional)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"handful","en":"baby arugula","it":"rucola tenera","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}
 {"line":"hot chilli flakes or chilli paste, to taste","language":"en","parts":[{"en":"hot chilli flakes","it":"peperoncino piccante in fiocchi","toTaste":true,"alternatives":[{"en":"chilli paste","it":"pasta di peperoncino"}]}]}
@@ -381,7 +381,7 @@
 {"line":"pimento stuffed olives, spicy pickled bean, gherkin pickle, or other fun garnishes ((optional))","language":"en","parts":[{"en":"garnishes of choice","it":"guarnizioni a scelta","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true,"alternatives":[{"en":"pimento-stuffed olives","it":"olive ripiene di peperone"},{"en":"spicy pickled bean","it":"fagiolino piccante sottaceto"},{"en":"gherkin pickle","it":"cetriolino sottaceto"}]}]}
 {"line":"small soft tortillas, warmed","language":"en","parts":[{"en":"small soft tortillas","it":"tortillas morbide piccole","preparationEn":"warmed","preparationIt":"riscaldate"}]}
 {"line":"thyme sprigs - I used a lot","language":"en","parts":[{"en":"thyme sprigs","it":"rametti di timo"}]}
-{"line":"your favorite cheese (I use vegan ricotta)","language":"en","parts":[{"en":"cheese of choice","it":"formaggio a scelta"}]}
+{"line":"your favorite cheese (I use vegan ricotta)","language":"en","parts":[{"en":"cheese of choice","it":"formaggio a scelta","alternatives":[{"en":"vegan ricotta","it":"ricotta vegetale"}]}]}
 {"line":"zest of one unwaxed lemon","language":"en","parts":[{"quantity":1,"en":"unwaxed lemon","it":"limone non trattato","preparationEn":"zest","preparationIt":"scorza grattugiata"}]}
 {"line":"¼ cup (32g) cornstarch","language":"en","parts":[{"quantity":32,"unit":"g","en":"cornstarch","it":"amido di mais"}]}
 {"line":"¼ cup cilantro ((chopped. You can also use fresh mint))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato","alternatives":[{"en":"fresh mint","it":"menta fresca"}]}]}

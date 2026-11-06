@@ -4,7 +4,7 @@
 {"line":"1 (8 ounce/227 gram) package seitan, (diced (about 1/2-inch chunks))","language":"en","parts":[{"quantity":227,"unit":"g","en":"seitan","it":"seitan","preparationEn":"diced","preparationIt":"tagliato a dadini"}]}
 {"line":"1 1/2 Tablespoons lemon juice (juice of 1/2 lemon)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"lemon juice","it":"succo di limone"}]}
 {"line":"1 1/2 cup thinly sliced onion","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"onion","it":"cipolla","preparationEn":"thinly sliced","preparationIt":"affettata sottilmente"}]}
-{"line":"1 1/2 cups (234g) medium grind coarse cornmeal (NOT finely ground or it'll be DRY! ( I use this one by Bob's Red Mill Coarse Cornmeal)","language":"en","parts":[{"quantity":234,"unit":"g","en":"medium-grind coarse cornmeal","it":"farina di mais a grana medio-grossa"}]}
+{"line":"1 1/2 cups (234g) medium grind coarse cornmeal (NOT finely ground or it'll be DRY! ( I use this one by Bob's Red Mill Coarse Cornmeal)","language":"en","parts":[{"quantity":234,"unit":"g","en":"medium grind coarse cornmeal","it":"farina di mais a grana grossa media","preparationEn":"not finely ground","preparationIt":"non macinata finemente"}]}
 {"line":"1 1/2 cups (360 mL) vegetable broth, plus more as desired","language":"en","parts":[{"quantity":360,"unit":"ml","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"1 1/2 cups chopped onions","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"onions","it":"cipolle","preparationEn":"chopped","preparationIt":"tritate"}]}
 {"line":"1 1/2 cups chopped walnuts","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"walnuts","it":"noci","preparationEn":"chopped","preparationIt":"tritate"}]}
@@ -15,8 +15,9 @@
 {"line":"1 1/3 cups SimplyNature Organic Quinoa","language":"en","parts":[{"quantity":1.333333,"unit":"cup","en":"organic quinoa","it":"quinoa biologica"}]}
 {"line":"1 1/3 cups all-purpose flour","language":"en","parts":[{"quantity":1.333333,"unit":"cup","en":"all-purpose flour","it":"farina 00"}]}
 {"line":"1 1/4 cup (295 ml) unsweetened non-dairy milk","language":"en","parts":[{"quantity":295,"unit":"ml","en":"unsweetened non-dairy milk","it":"latte vegetale senza zucchero"}]}
+{"line":"1 1/4 cups (150g) all-purpose flour + more for flouring your work surface","language":"en","parts":[{"quantity":150,"unit":"g","en":"all-purpose flour","it":"farina 00","purposeEn":"plus more for flouring your work surface","purposeIt":"più altra per infarinare il piano di lavoro"}]}
 {"line":"1 1/4 cups (150g) regular all-purpose flour (see NOTES below for GF)","language":"en","parts":[{"quantity":150,"unit":"g","en":"all-purpose flour","it":"farina 00"}]}
-{"line":"1 1/4 cups flour (150g, or for gluten free, oats ground in a food processor or in a coffee grinder)","language":"en","parts":[{"quantity":150,"unit":"g","en":"flour","it":"farina","alternatives":[{"en":"oats ground in a food processor or coffee grinder","it":"fiocchi d'avena macinati in un robot da cucina o in un macinacaffè"}]}]}
+{"line":"1 1/4 cups flour (150g, or for gluten free, oats ground in a food processor or in a coffee grinder)","language":"en","parts":[{"quantity":150,"unit":"g","en":"flour","it":"farina","alternatives":[{"en":"oats ground in a food processor or coffee grinder","it":"avena macinata nel robot da cucina o nel macinacaffè"}]}]}
 {"line":"1 1/4 cups texturized vegetable protein (TVP)","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"texturized vegetable protein","it":"proteine vegetali testurizzate"}]}
 {"line":"1 15oz can chickpeas, (drained and rinsed (215g))","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"1 3/4 cups (~196g) raw walnuts","language":"en","parts":[{"quantity":196,"unit":"g","en":"raw walnuts","it":"noci crude"}]}
@@ -134,7 +135,7 @@
 {"line":"1/2 cup coconut sugar","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"coconut sugar","it":"zucchero di cocco"}]}
 {"line":"1/2 cup creamy almond butter","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"creamy almond butter","it":"burro di mandorle cremoso"}]}
 {"line":"1/2 cup dairy free milk ((we like oat))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"dairy-free milk","it":"latte vegetale"}]}
-{"line":"1/2 cup fresh squeezed lemon juice","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"freshly squeezed lemon juice","it":"succo di limone appena spremuto"}]}
+{"line":"1/2 cup fresh squeezed lemon juice","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh squeezed lemon juice","it":"succo di limone appena spremuto"}]}
 {"line":"1/2 cup freshly squeezed grapefruit juice (strained (about 1 grapefruit, freshly squeezed and strained to exclude flesh/seeds))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"freshly squeezed grapefruit juice","it":"succo di pompelmo appena spremuto","preparationEn":"strained to exclude flesh and seeds","preparationIt":"filtrato per eliminare polpa e semi"}]}
 {"line":"1/2 cup guacamole","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"guacamole","it":"guacamole"}]}
 {"line":"1/2 cup kimchi ((check to make sure it's vegan))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan kimchi","it":"kimchi vegano"}]}
@@ -193,7 +194,7 @@
 {"line":"1/8 teaspoon salt (omit if using salted butter)","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"1/8 tsp xanthan gum powder (optional - see notes above)","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"xanthan gum powder","it":"gomma di xantano in polvere","optional":true}]}
 {"line":"10 uncooked lasagna noodles (215g) (broken into large pieces *see notes)","language":"en","parts":[{"quantity":215,"unit":"g","en":"uncooked lasagna noodles","it":"sfoglie secche per lasagne","preparationEn":"broken into large pieces","preparationIt":"spezzate in pezzi grandi"}]}
-{"line":"12 oz Roasted Red Peppers, roughly sliced (I used Canned)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"roasted red peppers","it":"peperoni rossi arrostiti","preparationEn":"roughly sliced","preparationIt":"tagliati grossolanamente a fettine"}]}
+{"line":"12 oz Roasted Red Peppers, roughly sliced (I used Canned)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"roasted red peppers","it":"peperoni rossi arrostiti","preparationEn":"roughly sliced","preparationIt":"tagliati grossolanamente a fette"}]}
 {"line":"135 g / ¾ cup fine semolina (for cakes)","language":"en","parts":[{"quantity":135,"unit":"g","en":"fine semolina for cakes","it":"semolino fine per dolci"}]}
 {"line":"135 g cake flour (see note in blog post above)","language":"en","parts":[{"quantity":135,"unit":"g","en":"cake flour","it":"farina per dolci"}]}
 {"line":"14 ounces extra-firm tofu","language":"en","parts":[{"quantity":14,"unit":"oz","en":"extra-firm tofu","it":"tofu extra compatto"}]}
@@ -224,7 +225,7 @@
 {"line":"2 cups (198g) spelt flour (*see notes)","language":"en","parts":[{"quantity":198,"unit":"g","en":"spelt flour","it":"farina di farro"}]}
 {"line":"2 cups (460g) melted liquid coconut butter (this is simply pureed coconut)I highly recommend buying this instead of making your own, as it is much smoother. I recommend Maranatha brand or Dastony from Whole Foods. Make sure the only ingredient is coconut.","language":"en","parts":[{"quantity":460,"unit":"g","en":"coconut butter","it":"burro di cocco","preparationEn":"melted until liquid","preparationIt":"sciolto fino a diventare liquido"}]}
 {"line":"2 cups chickpea flour (See note if using besan)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"chickpea flour","it":"farina di ceci"}]}
-{"line":"2 cups dairy free milk ((we like oat for this))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"plant-based milk","it":"latte vegetale"}]}
+{"line":"2 cups dairy free milk ((we like oat for this))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"dairy-free milk","it":"latte vegetale"}]}
 {"line":"2 cups diced tomatoes (drain most of the liquid)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"tomatoes","it":"pomodori","preparationEn":"diced and most of the liquid drained","preparationIt":"tagliati a dadini e scolati dalla maggior parte del liquido"}]}
 {"line":"2 cups marinara sauce","language":"en","parts":[{"quantity":2,"unit":"cup","en":"marinara sauce","it":"salsa marinara"}]}
 {"line":"2 cups oat milk ((gluten-free if preferred; Barista oat milk recommended for the creamiest texture))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"oat milk","it":"latte d'avena"}]}
@@ -335,7 +336,7 @@
 {"line":"4 small beets (or 2 large beets)","language":"en","parts":[{"quantity":4,"en":"small beets","it":"barbabietole piccole","alternatives":[{"quantity":2,"en":"large beets","it":"barbabietole grandi"}]}]}
 {"line":"4 sprigs thyme (stems removed)","language":"en","parts":[{"quantity":4,"unit":"sprig","en":"thyme","it":"timo","preparationEn":"stems removed","preparationIt":"privato dei gambi"}]}
 {"line":"4 tablespoons (60g) green curry paste (I used and recommend Thai Kitchen brand, I cannot vouch for the flavor or spiciness of any other brand)","language":"en","parts":[{"quantity":60,"unit":"g","en":"green curry paste","it":"pasta di curry verde"}]}
-{"line":"4 tablespoons JUST Egg (or flax eggs, see Notes)","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"JUST Egg plant-based egg substitute","it":"sostituto vegetale dell'uovo JUST Egg","alternatives":[{"en":"flax eggs","it":"uova di lino"}]}]}
+{"line":"4 tablespoons JUST Egg (or flax eggs, see Notes)","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"JUST Egg plant-based egg substitute","it":"sostituto vegetale dell'uovo JUST Egg","alternatives":[{"en":"flax eggs","it":"uova di semi di lino"}]}]}
 {"line":"4 tablespoons vegan butter, softened","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}
 {"line":"4 tablespoons yellow curry paste ((or to taste))","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"yellow curry paste","it":"pasta di curry giallo","toTaste":true}]}
 {"line":"4 tbsp lemon juice","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"lemon juice","it":"succo di limone"}]}

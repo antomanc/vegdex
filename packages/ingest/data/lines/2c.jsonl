@@ -171,7 +171,7 @@
 {"line":"1/4 cup pumpkin puree","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"pumpkin puree","it":"purea di zucca"}]}
 {"line":"1/4 cup raw cashews ((soaked overnight in tap water if not using a high-speed blender))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked overnight in tap water if not using a high-speed blender","preparationIt":"ammollati per una notte in acqua di rubinetto se non si usa un frullatore ad alta potenza"}]}
 {"line":"1/4 cup rice flour (or chickpea flour)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"rice flour","it":"farina di riso","alternatives":[{"en":"chickpea flour","it":"farina di ceci"}]}]}
-{"line":"1/4 cup unsweetened vegan yogurt (or vegan sour cream)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsweetened vegan yogurt","it":"yogurt vegetale senza zucchero","alternatives":[{"en":"vegan sour cream","it":"panna acida vegetale"}]}]}
+{"line":"1/4 cup unsweetened vegan yogurt (or vegan sour cream)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsweetened vegan yogurt","it":"yogurt vegetale non zuccherato","alternatives":[{"en":"vegan sour cream","it":"panna acida vegetale"}]}]}
 {"line":"1/4 cup vegan butter, cold and cut into cubes","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"cold and cut into cubes","preparationIt":"freddo e tagliato a cubetti"}]}
 {"line":"1/4 cup vegan mini chocolate chips","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan mini chocolate chips","it":"mini gocce di cioccolato vegane"}]}
 {"line":"1/4 teaspoon baking powder","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"baking powder","it":"lievito per dolci"}]}
@@ -182,7 +182,7 @@
 {"line":"1/8 tsp kala namak salt ((optional))","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"kala namak salt","it":"sale kala namak","optional":true}]}
 {"line":"1/8 – 1/4 teaspoon cumin","language":"en","parts":[{"quantity":0.125,"quantityMax":0.25,"unit":"tsp","en":"cumin","it":"cumino"}]}
 {"line":"10 slices vegan cheese (make sure it's a melty kind)","language":"en","parts":[{"quantity":10,"unit":"slice","en":"melty vegan cheese","it":"formaggio vegano fondente"}]}
-{"line":"10 tablespoons salted butter (softened; I used dairy-free)","language":"en","parts":[{"quantity":10,"unit":"tbsp","en":"salted vegan butter","it":"burro vegetale salato","preparationEn":"softened","preparationIt":"ammorbidito"}]}
+{"line":"10 tablespoons salted butter (softened; I used dairy-free)","language":"en","parts":[{"quantity":10,"unit":"tbsp","en":"salted dairy-free butter","it":"burro vegetale salato","preparationEn":"softened","preparationIt":"ammorbidito"}]}
 {"line":"100 g / 3.5 oz kale, tough stems removed","language":"en","parts":[{"quantity":100,"unit":"g","en":"kale","it":"cavolo riccio","preparationEn":"tough stems removed","preparationIt":"privato dei gambi duri"}]}
 {"line":"100 g / ¾ cup blanched hazelnuts OR 100 g / 1 cup hazelnut meal or ground almonds","language":"en","parts":[{"quantity":100,"unit":"g","en":"blanched hazelnuts","it":"nocciole sbollentate","alternatives":[{"quantity":100,"unit":"g","en":"hazelnut meal","it":"farina di nocciole"},{"en":"ground almonds","it":"mandorle macinate"}]}]}
 {"line":"100 ml oat milk","language":"en","parts":[{"quantity":100,"unit":"ml","en":"oat milk","it":"latte d'avena"}]}
@@ -197,7 +197,7 @@
 {"line":"150 g vegan cheese","language":"en","parts":[{"quantity":150,"unit":"g","en":"vegan cheese","it":"formaggio vegetale"}]}
 {"line":"16 oz meatless meatballs","language":"en","parts":[{"quantity":16,"unit":"oz","en":"meatless meatballs","it":"polpette vegetali"}]}
 {"line":"180 g / ¾ cup peanut butter*","language":"en","parts":[{"quantity":180,"unit":"g","en":"peanut butter","it":"burro di arachidi"}]}
-{"line":"1½ cups vegan chicken broth (or vegetable broth)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"1½ cups vegan chicken broth (or vegetable broth)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"2 - 2 1/2 tablespoons neutral-flavored oil ((I used grapeseed oil, divided))","language":"en","parts":[{"quantity":2,"quantityMax":2.5,"unit":"tbsp","en":"neutral-flavored oil","it":"olio dal sapore neutro","preparationEn":"divided","preparationIt":"diviso in più porzioni"}]}
 {"line":"2 - 3 cups unsweetened dairy free milk (use soy for more protein)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"cup","en":"unsweetened dairy-free milk","it":"latte vegetale senza zucchero"}]}
 {"line":"2 1/2 cup Rolled Oats (divided (not Instant))","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"rolled oats","it":"fiocchi d'avena","preparationEn":"divided","preparationIt":"divisi"}]}
@@ -355,7 +355,7 @@
 {"line":"Salt, black pepper, and Italian seasoning (to taste)","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"black pepper","it":"pepe nero","toTaste":true},{"en":"Italian seasoning","it":"miscela di erbe italiane","toTaste":true}]}
 {"line":"Sesame seeds and roasted peanuts","language":"en","parts":[{"en":"sesame seeds","it":"semi di sesamo"},{"en":"roasted peanuts","it":"arachidi tostate"}]}
 {"line":"Simply Nature 100% Avocado Oil","language":"en","parts":[{"en":"avocado oil","it":"olio di avocado"}]}
-{"line":"Spinach (greens, tomatoes, 2 tbsp non dairy yogurt (optional) etc)","language":"en","parts":[{"en":"spinach","it":"spinaci"},{"en":"greens","it":"verdure a foglia"},{"en":"tomatoes","it":"pomodori"},{"quantity":2,"unit":"tbsp","en":"dairy-free yogurt","it":"yogurt vegetale","optional":true}]}
+{"line":"Spinach (greens, tomatoes, 2 tbsp non dairy yogurt (optional) etc)","language":"en","parts":[{"en":"spinach","it":"spinaci"},{"en":"greens","it":"verdure a foglia"},{"en":"tomatoes","it":"pomodori"},{"quantity":2,"unit":"tbsp","en":"non dairy yogurt","it":"yogurt vegetale","optional":true}]}
 {"line":"Vegan Whipped Cream (or vegan reddi whip)","language":"en","parts":[{"en":"vegan whipped cream","it":"panna montata vegetale","alternatives":[{"en":"vegan Reddi-wip","it":"panna spray vegetale Reddi-wip"}]}]}
 {"line":"a bunch of fresh coriander stalks, rinsed well","language":"en","parts":[{"quantity":1,"unit":"bunch","en":"fresh coriander stalks","it":"gambi di coriandolo fresco","preparationEn":"rinsed well","preparationIt":"sciacquati bene"}]}
 {"line":"a handful of crushed pistachios, to decorate","language":"en","parts":[{"quantity":1,"unit":"handful","en":"pistachios","it":"pistacchi","preparationEn":"crushed","preparationIt":"tritati","purposeEn":"for garnish","purposeIt":"per guarnire"}]}

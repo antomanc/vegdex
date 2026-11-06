@@ -183,6 +183,7 @@
 {"line":"1/4 cup finely chopped fresh basil leaves","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh basil leaves","it":"foglie di basilico fresco","preparationEn":"finely chopped","preparationIt":"tritate finemente"}]}
 {"line":"1/4 cup hot water (60ml)","language":"en","parts":[{"quantity":60,"unit":"ml","en":"water","it":"acqua","preparationEn":"hot","preparationIt":"calda"}]}
 {"line":"1/4 cup mushroom stock","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"mushroom stock","it":"brodo di funghi"}]}
+{"line":"1/4 cup non-dairy parmesan (+ more for serving (optional))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"non-dairy parmesan","it":"parmigiano vegetale","purposeEn":"more for serving, optional","purposeIt":"altro per servire, facoltativo"}]}
 {"line":"1/4 heaping teaspoon sea salt","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"sea salt","it":"sale marino"}]}
 {"line":"1/4 pineapple (about 1 cup), flesh only","language":"en","parts":[{"quantity":0.25,"en":"pineapple","it":"ananas","preparationEn":"flesh only","preparationIt":"solo la polpa"}]}
 {"line":"1/4 teaspoon cayenne / red chili powder or to taste","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna","toTaste":true,"alternatives":[{"en":"red chili powder","it":"peperoncino rosso in polvere"}]}]}
@@ -218,7 +219,7 @@
 {"line":"2 Tablespoons of lime juice","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"lime juice","it":"succo di lime"}]}
 {"line":"2 Tbsp toasted sesame oil","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"toasted sesame oil","it":"olio di sesamo tostato"}]}
 {"line":"2 and 1/4 cups low-sodium vegetable broth","language":"en","parts":[{"quantity":2.25,"unit":"cup","en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio"}]}
-{"line":"2 bay leaves ((needed only if you are cooking dried beans from scratch))","language":"en","parts":[{"quantity":2,"en":"bay leaves","it":"foglie di alloro"}]}
+{"line":"2 bay leaves ((needed only if you are cooking dried beans from scratch))","language":"en","parts":[{"quantity":2,"en":"bay leaves","it":"foglie di alloro","optional":true}]}
 {"line":"2 can black beans, (thoroughly dried*)","language":"en","parts":[{"quantity":2,"unit":"can","en":"black beans","it":"fagioli neri","preparationEn":"thoroughly dried","preparationIt":"asciugati accuratamente"}]}
 {"line":"2 cloves garlic (*finely minced)","language":"en","parts":[{"quantity":2,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"finely minced","preparationIt":"tritato finemente"}]}
 {"line":"2 cloves of garlic (, minced)","language":"en","parts":[{"quantity":2,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}
@@ -290,7 +291,7 @@
 {"line":"3/4 cup (180g) semi-sweet dairy-free chocolate chips (plus extra to put on top if desired)","language":"en","parts":[{"quantity":180,"unit":"g","en":"semi-sweet dairy-free chocolate chips","it":"gocce di cioccolato semidolce senza latticini"}]}
 {"line":"3/4 cup brown sugar (130g)","language":"en","parts":[{"quantity":130,"unit":"g","en":"brown sugar","it":"zucchero di canna"}]}
 {"line":"3/4 cup coarsely ground coffee","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"coffee","it":"caffè","preparationEn":"coarsely ground","preparationIt":"macinato grossolanamente"}]}
-{"line":"3/4 cup liquid vegan egg ((we used Just Egg))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"liquid vegan egg","it":"sostituto vegano liquido dell'uovo"}]}
+{"line":"3/4 cup liquid vegan egg ((we used Just Egg))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"liquid vegan egg","it":"uovo vegano liquido"}]}
 {"line":"3/4 cup smooth peanut butter (heaped) (or almond butter)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"smooth peanut butter","it":"burro di arachidi cremoso","alternatives":[{"en":"almond butter","it":"burro di mandorle"}]}]}
 {"line":"3/4 heaped cup powdered Erythritol (or powdered sugar (see notes))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"powdered erythritol","it":"eritritolo in polvere","alternatives":[{"en":"powdered sugar","it":"zucchero a velo"}]}]}
 {"line":"3/4-1 tbsp ground ginger","language":"en","parts":[{"quantity":0.75,"quantityMax":1,"unit":"tbsp","en":"ground ginger","it":"zenzero in polvere"}]}

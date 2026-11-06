@@ -35,7 +35,7 @@
 {"line":"1 cup cooked cannellini or great northern beans, optional","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cannellini beans","it":"fagioli cannellini","preparationEn":"cooked","preparationIt":"cotti","optional":true,"alternatives":[{"en":"great northern beans","it":"fagioli Great Northern"}]}]}
 {"line":"1 cup dairy free cheese ((Daiya Cutting Board is what we use in photo))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dairy-free cheese","it":"formaggio vegetale"}]}
 {"line":"1 cup medjool dates (about 10), pitted and chopped","language":"en","parts":[{"quantity":1,"unit":"cup","en":"Medjool dates","it":"datteri Medjool","preparationEn":"pitted and chopped","preparationIt":"denocciolati e tagliati a pezzi"}]}
-{"line":"1 cup non dairy milk such as coconut milk (almond milk or cashew milk or more water/stock)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"coconut milk","it":"latte di cocco","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"cashew milk","it":"latte di anacardi"},{"en":"water","it":"acqua"},{"en":"stock","it":"brodo"}]}]}
+{"line":"1 cup non dairy milk such as coconut milk (almond milk or cashew milk or more water/stock)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non dairy milk","it":"latte vegetale","alternatives":[{"en":"coconut milk","it":"latte di cocco"},{"en":"almond milk","it":"latte di mandorla"},{"en":"cashew milk","it":"latte di anacardi"},{"en":"water","it":"acqua"},{"en":"stock","it":"brodo"}]}]}
 {"line":"1 cup of pistachios ((walnuts will work too))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"pistachios","it":"pistacchi","alternatives":[{"en":"walnuts","it":"noci"}]}]}
 {"line":"1 cup of storebought or homemade roasted red bell peppers (drained)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"roasted red bell peppers","it":"peperoni rossi arrostiti","preparationEn":"drained","preparationIt":"scolati"}]}
 {"line":"1 cup packed dates, (pitted and soaked for 30 minutes)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dates","it":"datteri","preparationEn":"pitted and soaked for 30 minutes","preparationIt":"denocciolati e ammollati per 30 minuti"}]}
@@ -139,7 +139,7 @@
 {"line":"1/2 cup diced mango, (about 1 small or 1/2 large mango)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"mango","it":"mango","preparationEn":"diced","preparationIt":"tagliato a cubetti"}]}
 {"line":"1/2 cup dried cranberries (raisins or golden berry mix ok too)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"dried cranberries","it":"mirtilli rossi essiccati","alternatives":[{"en":"raisins","it":"uvetta"},{"en":"golden berry mix","it":"mix di alchechengi essiccati"}]}]}
 {"line":"1/2 cup frozen strawberries","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"frozen strawberries","it":"fragole surgelate"}]}
-{"line":"1/2 cup lemon juice ((fresh squeezed))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"lemon juice","it":"succo di limone","preparationEn":"freshly squeezed","preparationIt":"spremuto fresco"}]}
+{"line":"1/2 cup lemon juice ((fresh squeezed))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"lemon juice","it":"succo di limone","preparationEn":"fresh squeezed","preparationIt":"spremuto fresco"}]}
 {"line":"1/2 cup maple syrup","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero"}]}
 {"line":"1/2 cup maple syrup ((see notes))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero"}]}
 {"line":"1/2 cup or more dark drinking chocolate chunks (I use Theo's, or Enjoy life chunks or other vegan semi sweet chocolate chunks)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"dark drinking chocolate chunks","it":"pezzetti di cioccolato fondente da bere","alternatives":[{"en":"vegan semi-sweet chocolate chunks","it":"pezzetti di cioccolato semidolce vegano"}]}]}
@@ -182,7 +182,7 @@
 {"line":"1/3 cup raw cashews, (softened if needed (see step 1))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"raw cashews","it":"anacardi crudi","preparationEn":"softened if needed","preparationIt":"ammorbiditi se necessario"}]}
 {"line":"1/4 avocado, sliced","language":"en","parts":[{"quantity":0.25,"en":"avocado","it":"avocado","preparationEn":"sliced","preparationIt":"affettato"}]}
 {"line":"1/4 cup (60 mL) creamy plant-based milk, such as oat milk or “lite” coconut milk","language":"en","parts":[{"quantity":60,"unit":"ml","en":"creamy plant-based milk","it":"latte vegetale cremoso","alternatives":[{"en":"oat milk","it":"latte d'avena"},{"en":"light coconut milk","it":"latte di cocco leggero"}]}]}
-{"line":"1/4 cup (60g) low fat coconut milk (or another really creamy milk)","language":"en","parts":[{"quantity":60,"unit":"g","en":"low-fat coconut milk","it":"latte di cocco a ridotto contenuto di grassi","alternatives":[{"en":"creamy milk","it":"latte cremoso"}]}]}
+{"line":"1/4 cup (60g) low fat coconut milk (or another really creamy milk)","language":"en","parts":[{"quantity":60,"unit":"g","en":"low-fat coconut milk","it":"latte di cocco a basso contenuto di grassi","alternatives":[{"en":"creamy milk","it":"latte cremoso"}]}]}
 {"line":"1/4 cup Cilantro (chopped)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1/4 cup agave syrup","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"agave syrup","it":"sciroppo d'agave"}]}
 {"line":"1/4 cup all purpose flour","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"all-purpose flour","it":"farina 00"}]}
@@ -319,11 +319,11 @@
 {"line":"3-4 teaspoons nuoc cham sauce","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"tsp","en":"nuoc cham sauce","it":"salsa nuoc cham"}]}
 {"line":"3.527 oz shiitake mushrooms","language":"en","parts":[{"quantity":3.527,"unit":"oz","en":"shiitake mushrooms","it":"funghi shiitake"}]}
 {"line":"3/4 cup (174 ml) full-fat coconut milk","language":"en","parts":[{"quantity":174,"unit":"ml","en":"full-fat coconut milk","it":"latte di cocco intero"}]}
-{"line":"3/4 cup almond flour (ground almonds, grind with some oats or starch for a finer grind)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"almond flour","it":"farina di mandorle"}]}
+{"line":"3/4 cup almond flour (ground almonds, grind with some oats or starch for a finer grind)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"almond flour","it":"farina di mandorle","preparationEn":"ground almonds; grind with some oats or starch for a finer grind","preparationIt":"mandorle macinate; macinare con un po' di avena o amido per ottenere una grana più fine"}]}
 {"line":"3/4 cup coconut oil ((+ more for greasing pans))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"coconut oil","it":"olio di cocco"}]}
 {"line":"3/4 cup fresh cilantro, (roughly chopped (12g))","language":"en","parts":[{"quantity":12,"unit":"g","en":"fresh cilantro","it":"coriandolo fresco","preparationEn":"roughly chopped","preparationIt":"tritato grossolanamente"}]}
 {"line":"3/4 cup ground almonds ((*see recipe notes))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"ground almonds","it":"mandorle macinate"}]}
-{"line":"3/4 cup non dairy milk","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"dairy-free milk","it":"latte vegetale"}]}
+{"line":"3/4 cup non dairy milk","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"non dairy milk","it":"latte vegetale"}]}
 {"line":"3/4 cup pitted Kalamata olives","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"Kalamata olives","it":"olive Kalamata","preparationEn":"pitted","preparationIt":"denocciolate"}]}
 {"line":"3/4 cup split red lentils ((masoor dal) , see notes for other lentils )","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"split red lentils","it":"lenticchie rosse decorticate"}]}
 {"line":"3/4 teaspoon salt (, more to taste (more for roasting))","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
@@ -400,7 +400,7 @@
 {"line":"mustard and/or other condiments of choice","language":"en","parts":[{"en":"mustard","it":"senape"},{"en":"other condiments of choice","it":"altri condimenti a scelta"}]}
 {"line":"optional: 1/2 teaspoon cinnamon","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"cinnamon","it":"cannella","optional":true}]}
 {"line":"optional: 2 teaspoons coconut sugar","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"coconut sugar","it":"zucchero di cocco","optional":true}]}
-{"line":"pinch sea salt (if using unsalted butter)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"sea salt","it":"sale marino"}]}
+{"line":"pinch sea salt (if using unsalted butter)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"sea salt","it":"sale marino","preparationEn":"if using unsalted butter","preparationIt":"se si usa burro non salato"}]}
 {"line":"squeeze of lemon","language":"en","parts":[{"quantity":1,"unit":"squeeze","en":"lemon juice","it":"succo di limone"}]}
 {"line":"sweetened soy milk, to glaze","language":"en","parts":[{"en":"sweetened soy milk","it":"latte di soia zuccherato","purposeEn":"for glazing","purposeIt":"per spennellare"}]}
 {"line":"zest and juice of two lemons ((juice will be around ⅓rd of a cup))","language":"en","parts":[{"quantity":2,"en":"lemons","it":"limoni","preparationEn":"zested and juiced","preparationIt":"scorza grattugiata e succo spremuto"}]}

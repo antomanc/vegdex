@@ -33,7 +33,7 @@
 {"line":"1 batch Soy Curls Chicken, (recipe follows)","language":"en","parts":[{"quantity":1,"unit":"batch","en":"Soy Curls chicken","it":"pollo vegetale con Soy Curls"}]}
 {"line":"1 can corn","language":"en","parts":[{"quantity":1,"unit":"can","en":"corn","it":"mais"}]}
 {"line":"1 cm / 0.4\" fresh ginger (optional)","language":"en","parts":[{"quantity":1,"unit":"cm","en":"fresh ginger","it":"zenzero fresco","optional":true}]}
-{"line":"1 cup bread-and-butter pickle slices 8 slices store-bought vegan ham","language":"en","parts":[{"quantity":1,"unit":"cup","en":"bread-and-butter pickles","it":"cetriolini agrodolci","preparationEn":"sliced","preparationIt":"a fette"},{"quantity":8,"unit":"slice","en":"store-bought vegan ham","it":"prosciutto vegano confezionato"}]}
+{"line":"1 cup bread-and-butter pickle slices 8 slices store-bought vegan ham","language":"en","parts":[{"quantity":1,"unit":"cup","en":"bread-and-butter pickle slices","it":"cetriolini agrodolci a fette"},{"quantity":8,"unit":"slice","en":"store-bought vegan ham","it":"prosciutto vegetale confezionato"}]}
 {"line":"1 cup carrots, (peeled and diced)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"carrots","it":"carote","preparationEn":"peeled and diced","preparationIt":"pelate e tagliate a dadini"}]}
 {"line":"1 cup coconut milk ((or ½ cup grated coconut + ¾ cup water))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"coconut milk","it":"latte di cocco","alternatives":[{"quantity":0.5,"unit":"cup","en":"grated coconut","it":"cocco grattugiato"}]},{"quantity":0.75,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"1 cup cooked or canned(drained) chickpeas","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cooked chickpeas","it":"ceci cotti","preparationEn":"drained if canned","preparationIt":"scolati se in scatola","alternatives":[{"en":"canned chickpeas","it":"ceci in scatola"}]}]}
@@ -96,7 +96,7 @@
 {"line":"1 tablespoon minced garlic","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}
 {"line":"1 tablespoon mustard (15g)","language":"en","parts":[{"quantity":15,"unit":"g","en":"mustard","it":"senape"}]}
 {"line":"1 tablespoon olive oil (or water for oil-free)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","alternatives":[{"en":"water","it":"acqua"}]}]}
-{"line":"1 tablespoon oregano ((fresh if possible))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"oregano","it":"origano"}]}
+{"line":"1 tablespoon oregano ((fresh if possible))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"oregano","it":"origano","alternatives":[{"en":"fresh oregano","it":"origano fresco"}]}]}
 {"line":"1 tablespoon white or yellow miso","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"white miso","it":"miso bianco","alternatives":[{"en":"yellow miso","it":"miso giallo"}]}]}
 {"line":"1 tbsp Maple Syrup*","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero"}]}
 {"line":"1 tbsp aonori (or nori flakes)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"aonori","it":"alga aonori","alternatives":[{"en":"nori flakes","it":"fiocchi di alga nori"}]}]}
@@ -265,7 +265,7 @@
 {"line":"200 g / 7 oz tomato passata","language":"en","parts":[{"quantity":200,"unit":"g","en":"tomato passata","it":"passata di pomodoro"}]}
 {"line":"200 ml plant milk ((soy milk works best))","language":"en","parts":[{"quantity":200,"unit":"ml","en":"plant milk","it":"latte vegetale"}]}
 {"line":"250 g beetroot (peeled and quartered)","language":"en","parts":[{"quantity":250,"unit":"g","en":"beetroot","it":"barbabietola","preparationEn":"peeled and quartered","preparationIt":"sbucciata e tagliata in quarti"}]}
-{"line":"28 oz canned or cooked kidney beans ((If cooking from scratch, use 1 cup dried beans. Strain the beans of all liquid before using.))","language":"en","parts":[{"quantity":28,"unit":"oz","en":"canned kidney beans","it":"fagioli rossi in scatola","preparationEn":"drained","preparationIt":"scolati","alternatives":[{"en":"cooked kidney beans","it":"fagioli rossi cotti"}]}]}
+{"line":"28 oz canned or cooked kidney beans ((If cooking from scratch, use 1 cup dried beans. Strain the beans of all liquid before using.))","language":"en","parts":[{"quantity":28,"unit":"oz","en":"canned kidney beans","it":"fagioli rossi in scatola","preparationEn":"drained of all liquid","preparationIt":"scolati da tutto il liquido","alternatives":[{"en":"cooked kidney beans","it":"fagioli rossi cotti"},{"quantity":1,"unit":"cup","en":"dried kidney beans","it":"fagioli rossi secchi"}]}]}
 {"line":"3 Garlic Cloves, (minced)","language":"en","parts":[{"quantity":3,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato finemente"}]}
 {"line":"3 Tbsp olive oil","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"3 cremini mushrooms, finely chopped (about 2.5 ounces / 70g)","language":"en","parts":[{"quantity":70,"unit":"g","en":"cremini mushrooms","it":"funghi cremini","preparationEn":"finely chopped","preparationIt":"tritati finemente"}]}
@@ -305,7 +305,7 @@
 {"line":"4 garlic cloves, (sliced)","language":"en","parts":[{"quantity":4,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"sliced","preparationIt":"affettato"}]}
 {"line":"4 shallots (finely chopped)","language":"en","parts":[{"quantity":4,"en":"shallots","it":"scalogni","preparationEn":"finely chopped","preparationIt":"tritati finemente"}]}
 {"line":"4 slice whole wheat bread","language":"en","parts":[{"quantity":4,"unit":"slice","en":"whole wheat bread","it":"pane integrale"}]}
-{"line":"4 tbsp. non-dairy butter","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"vegan butter","it":"burro vegetale"}]}
+{"line":"4 tbsp. non-dairy butter","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"non-dairy butter","it":"burro vegetale"}]}
 {"line":"400 grams semi-sweet dairy-free chocolate chips","language":"en","parts":[{"quantity":400,"unit":"g","en":"dairy-free semisweet chocolate chips","it":"gocce di cioccolato semidolce senza latte"}]}
 {"line":"45 ml / 3 tbsp water (to dissolve agar in)","language":"en","parts":[{"quantity":45,"unit":"ml","en":"water","it":"acqua","purposeEn":"to dissolve agar in","purposeIt":"per sciogliere l'agar"}]}
 {"line":"5 whole star anise","language":"en","parts":[{"quantity":5,"en":"whole star anise","it":"anice stellato intero"}]}
@@ -338,7 +338,7 @@
 {"line":"About 15 cherry tomatoes","language":"en","parts":[{"quantity":15,"en":"cherry tomatoes","it":"pomodorini ciliegino"}]}
 {"line":"Baking Sheet or Large Baking Dish","language":"en","kind":"other"}
 {"line":"Cilantro, finely chopped","language":"en","parts":[{"en":"cilantro","it":"coriandolo fresco","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
-{"line":"Club soda or citrus sparkling water","language":"en","parts":[{"en":"club soda","it":"soda","alternatives":[{"en":"citrus sparkling water","it":"acqua frizzante agli agrumi"}]}]}
+{"line":"Club soda or citrus sparkling water","language":"en","parts":[{"en":"club soda","it":"acqua gassata","alternatives":[{"en":"citrus sparkling water","it":"acqua frizzante agli agrumi"}]}]}
 {"line":"Dried parsley flakes for garnish ((optional))","language":"en","parts":[{"en":"dried parsley flakes","it":"prezzemolo essiccato in fiocchi","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true}]}
 {"line":"Extra virgin oil for baking and finishing","language":"en","parts":[{"en":"extra virgin oil","it":"olio extravergine","purposeEn":"for baking and finishing","purposeIt":"per la cottura e per completare"}]}
 {"line":"Extras: chives (tomatoes, avocado, etc.)","language":"en","parts":[{"en":"chives","it":"erba cipollina"},{"en":"tomatoes","it":"pomodori"},{"en":"avocado","it":"avocado"}]}
@@ -372,7 +372,7 @@
 {"line":"cilantro or parlsey (chopped)","language":"en","parts":[{"en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato","alternatives":[{"en":"parsley","it":"prezzemolo"}]}]}
 {"line":"cilantro, chopped tomato, chopped onion","language":"en","parts":[{"en":"cilantro","it":"coriandolo fresco"},{"en":"tomato","it":"pomodoro","preparationEn":"chopped","preparationIt":"tritato"},{"en":"onion","it":"cipolla","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"cocoa nibs","language":"en","parts":[{"en":"cocoa nibs","it":"granella di cacao"}]}
-{"line":"coconut cream or vegan sour cream ((can sub for coconut yogurt or another allergy safe plain yogurt))","language":"en","parts":[{"en":"coconut cream","it":"crema di cocco","alternatives":[{"en":"vegan sour cream","it":"panna acida vegetale"},{"en":"coconut yogurt","it":"yogurt di cocco"},{"en":"allergy-safe plain yogurt","it":"yogurt bianco adatto alle proprie allergie"}]}]}
+{"line":"coconut cream or vegan sour cream ((can sub for coconut yogurt or another allergy safe plain yogurt))","language":"en","parts":[{"en":"coconut cream","it":"crema di cocco","alternatives":[{"en":"vegan sour cream","it":"panna acida vegetale"},{"en":"coconut yogurt","it":"yogurt di cocco"},{"en":"another allergy-safe plain yogurt","it":"altro yogurt bianco adatto alle proprie allergie"}]}]}
 {"line":"coconut oil","language":"en","parts":[{"en":"coconut oil","it":"olio di cocco"}]}
 {"line":"dash of parlsey or thyme","language":"en","parts":[{"quantity":1,"unit":"dash","en":"parsley","it":"prezzemolo","alternatives":[{"en":"thyme","it":"timo"}]}]}
 {"line":"fresh parsley (chopped, optional)","language":"en","parts":[{"en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"chopped","preparationIt":"tritato","optional":true}]}

@@ -8,7 +8,7 @@
 {"line":"1 1/2 cups dry red wine","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"dry red wine","it":"vino rosso secco"}]}
 {"line":"1 1/2 cups mung bean sprouts","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"mung bean sprouts","it":"germogli di fagioli mung"}]}
 {"line":"1 1/2 cups of vegan semi-sweet chocolate chips","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan semi-sweet chocolate chips","it":"gocce di cioccolato semidolce vegane"}]}
-{"line":"1 1/2 cups vegan chicken flavored broth (or vegetable broth)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan chicken-flavored broth","it":"brodo vegetale al gusto di pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"1 1/2 cups vegan chicken flavored broth (or vegetable broth)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan chicken flavored broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"1 1/2 teaspoon grated fresh ginger","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"fresh ginger","it":"zenzero fresco","preparationEn":"grated","preparationIt":"grattugiato"}]}
 {"line":"1 1/2 teaspoon salt","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"1 1/2 teaspoons (7g) vanilla extract","language":"en","parts":[{"quantity":7,"unit":"g","en":"vanilla extract","it":"estratto di vaniglia"}]}
@@ -147,7 +147,7 @@
 {"line":"1/2 cup non dairy yogurt (or use thin cashew cream)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"non-dairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"thin cashew cream","it":"crema di anacardi liquida"}]}]}
 {"line":"1/2 cup sweet onion, (finely chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"sweet onion","it":"cipolla dolce","preparationEn":"finely chopped","preparationIt":"tritata finemente"}]}
 {"line":"1/2 cup vegan butter","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan butter","it":"burro vegetale"}]}
-{"line":"1/2 cup vegan no chicken broth (or vegetable broth)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan no-chicken broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"1/2 cup vegan no chicken broth (or vegetable broth)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan no chicken broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"1/2 cup vegan parmesan cheese, (shredded)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan parmesan cheese","it":"parmigiano vegano","preparationEn":"shredded","preparationIt":"grattugiato"}]}
 {"line":"1/2 cup walnuts ((finely chopped))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"walnuts","it":"noci","preparationEn":"finely chopped","preparationIt":"tritate finemente"}]}
 {"line":"1/2 cup white beans ((or any type of bean))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"white beans","it":"fagioli bianchi","alternatives":[{"en":"beans of any type","it":"fagioli di qualsiasi tipo"}]}]}
@@ -173,7 +173,7 @@
 {"line":"1/3 cup Maple Syrup","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero"}]}
 {"line":"1/3 cup chopped toasted hazelnuts","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"toasted hazelnuts","it":"nocciole tostate","preparationEn":"chopped","preparationIt":"tritate"}]}
 {"line":"1/3 cup julienne cut daikon radish","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"daikon radish","it":"daikon","preparationEn":"julienned","preparationIt":"tagliato a julienne"}]}
-{"line":"1/3 cup non dairy chocolate chips or bar (semi sweet chips, or dark chocolate for dark/bittersweet cake)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"dairy-free chocolate chips","it":"gocce di cioccolato senza latte","alternatives":[{"en":"dairy-free chocolate bar","it":"tavoletta di cioccolato senza latticini"}]}]}
+{"line":"1/3 cup non dairy chocolate chips or bar (semi sweet chips, or dark chocolate for dark/bittersweet cake)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"non-dairy semi-sweet chocolate chips","it":"gocce di cioccolato semidolce senza latte","alternatives":[{"en":"non-dairy dark chocolate bar","it":"tavoletta di cioccolato fondente senza latticini"}]}]}
 {"line":"1/3 cup pure maple syrup or coconut or pure cane sugar","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"pure maple syrup","it":"sciroppo d'acero puro","alternatives":[{"en":"coconut sugar","it":"zucchero di cocco"},{"en":"pure cane sugar","it":"zucchero di canna puro"}]}]}
 {"line":"1/3 tsp smoked paprika","language":"en","parts":[{"quantity":0.333333,"unit":"tsp","en":"smoked paprika","it":"paprika affumicata"}]}
 {"line":"1/4 Thai chili (chopped, optional.)","language":"en","parts":[{"quantity":0.25,"en":"Thai chili","it":"peperoncino thailandese","preparationEn":"chopped","preparationIt":"tritato","optional":true}]}
@@ -197,7 +197,7 @@
 {"line":"1/4 onion (sliced)","language":"en","parts":[{"quantity":0.25,"en":"onion","it":"cipolla","preparationEn":"sliced","preparationIt":"tagliata a fette"}]}
 {"line":"1/4 pineapple ((about 1/2 cup, diced))","language":"en","parts":[{"quantity":0.25,"en":"pineapple","it":"ananas","preparationEn":"diced","preparationIt":"tagliato a dadini"}]}
 {"line":"1/4 teaspoon freshly grated or ground nutmeg","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"nutmeg","it":"noce moscata","preparationEn":"freshly grated or ground","preparationIt":"grattugiata al momento o macinata"}]}
-{"line":"1/4 teaspoon salt (*add up to 1/2 teaspoon if using unsalted butter)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale"}]}
+{"line":"1/4 teaspoon salt (*add up to 1/2 teaspoon if using unsalted butter)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale","preparationEn":"add up to 1/2 teaspoon if using unsalted butter","preparationIt":"aggiungere fino a 1/2 cucchiaino se si usa burro non salato"}]}
 {"line":"1/4 tsp five-spice powder ((*see notes))","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"five-spice powder","it":"miscela cinque spezie in polvere"}]}
 {"line":"1/4 tsp sea salt ((or Himalayan pink salt))","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"sea salt","it":"sale marino","alternatives":[{"en":"pink Himalayan salt","it":"sale rosa dell'Himalaya"}]}]}
 {"line":"1/4-1/2 cup raw sunflower kernels","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"cup","en":"raw sunflower kernels","it":"semi di girasole crudi"}]}
@@ -401,7 +401,7 @@
 {"line":"Pinch of paprika","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"paprika","it":"paprika"}]}
 {"line":"Sprinkles or candies (optional, for decoration)","language":"en","parts":[{"en":"sprinkles","it":"codette di zucchero","purposeEn":"for decoration","purposeIt":"per decorare","optional":true,"alternatives":[{"en":"candies","it":"caramelle"}]}]}
 {"line":"Sriracha hot sauce","language":"en","parts":[{"en":"Sriracha hot sauce","it":"salsa piccante Sriracha"}]}
-{"line":"Swap fresh bell peppers for a 14-ounce bag of frozen bell peppers (no need to thaw)","language":"en","parts":[{"quantity":14,"unit":"oz","en":"frozen bell peppers","it":"peperoni surgelati"}]}
+{"line":"Swap fresh bell peppers for a 14-ounce bag of frozen bell peppers (no need to thaw)","language":"en","parts":[{"quantity":14,"unit":"oz","en":"frozen bell peppers","it":"peperoni congelati","preparationEn":"no need to thaw","preparationIt":"non serve scongelarli"}]}
 {"line":"Vegan Butter ((optional))","language":"en","parts":[{"en":"vegan butter","it":"burro vegetale","optional":true}]}
 {"line":"Vegan Cheddar Cheese Shreds of choice (or use my queso (linked in notes))","language":"en","parts":[{"en":"vegan cheddar cheese shreds","it":"cheddar vegano grattugiato","alternatives":[{"en":"vegan queso","it":"salsa queso vegana"}]}]}
 {"line":"Vegan Mayo","language":"en","parts":[{"en":"vegan mayo","it":"maionese vegana"}]}

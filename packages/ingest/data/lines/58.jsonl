@@ -7,7 +7,7 @@
 {"line":"1 1/2 cups basmati rice","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"basmati rice","it":"riso basmati"}]}
 {"line":"1 1/2 cups nondairy milk or cream - regular (coconut milk, almond milk or cashew milk)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"plain plant-based milk","it":"latte vegetale al naturale","alternatives":[{"en":"plant-based cream","it":"panna vegetale"},{"en":"coconut milk","it":"latte di cocco"},{"en":"almond milk","it":"latte di mandorla"},{"en":"cashew milk","it":"latte di anacardi"}]}]}
 {"line":"1 1/2 pounds yellow potatoes, (peeled and diced (1/2- to 1-inch pieces))","language":"en","parts":[{"quantity":1.5,"unit":"lb","en":"yellow potatoes","it":"patate a pasta gialla","preparationEn":"peeled and diced","preparationIt":"sbucciate e tagliate a dadini"}]}
-{"line":"1 1/2 tablespoons 27 g fresh squeezed orange juice (or apple juice, don't recommend lemon)","language":"en","parts":[{"quantity":27,"unit":"g","en":"freshly squeezed orange juice","it":"succo d'arancia appena spremuto","alternatives":[{"en":"apple juice","it":"succo di mela"}]}]}
+{"line":"1 1/2 tablespoons 27 g fresh squeezed orange juice (or apple juice, don't recommend lemon)","language":"en","parts":[{"quantity":27,"unit":"g","en":"fresh squeezed orange juice","it":"succo d'arancia appena spremuto","alternatives":[{"en":"apple juice","it":"succo di mela"}]}]}
 {"line":"1 1/2 teaspoons liquid smoke","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"liquid smoke","it":"fumo liquido"}]}
 {"line":"1 1/2 teaspoons salt (1 teaspoon for boiling, 1/2 teaspoon for roasting)","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"1 1/4 cups (160g) superfine oat flour (use a scale! see NOTE, use certified gluten-free oats if necessary)","language":"en","parts":[{"quantity":160,"unit":"g","en":"superfine oat flour","it":"farina d'avena finissima"}]}
@@ -311,7 +311,7 @@
 {"line":"4 graham crackers ((Make homemade if needed))","language":"en","parts":[{"quantity":4,"en":"graham crackers","it":"biscotti graham"}]}
 {"line":"4 medium-large (the same size!) beetroots","language":"en","parts":[{"quantity":4,"en":"medium-large beetroots","it":"barbabietole medio-grandi"}]}
 {"line":"4 ounces dried soy curls ((about 2 cups))","language":"en","parts":[{"quantity":4,"unit":"oz","en":"dried soy curls","it":"bocconcini di soia disidratati"}]}
-{"line":"4 ounces of plant-based cream (vegan cream cheese, optional)","language":"en","parts":[{"quantity":4,"unit":"oz","en":"plant-based cream cheese","it":"formaggio spalmabile vegetale","optional":true}]}
+{"line":"4 ounces of plant-based cream (vegan cream cheese, optional)","language":"en","parts":[{"quantity":4,"unit":"oz","en":"plant-based cream","it":"panna vegetale","optional":true,"alternatives":[{"en":"vegan cream cheese","it":"formaggio spalmabile vegetale"}]}]}
 {"line":"4 ounces soycurls","language":"en","parts":[{"quantity":4,"unit":"oz","en":"soy curls","it":"straccetti di soia"}]}
 {"line":"4 slices of sourdough bread","language":"en","parts":[{"quantity":4,"unit":"slice","en":"sourdough bread","it":"pane a lievitazione naturale"}]}
 {"line":"4 small pita bread","language":"en","parts":[{"quantity":4,"en":"small pita breads","it":"pita piccole"}]}

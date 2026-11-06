@@ -28,7 +28,7 @@
 {"line":"1 Tbsp cinnamon","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"cinnamon","it":"cannella"}]}
 {"line":"1 and 1/2 tsp annatto oil (or 1/8 tsp turmeric)","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"annatto oil","it":"olio all'annatto","alternatives":[{"quantity":0.125,"unit":"tsp","en":"turmeric","it":"curcuma"}]}]}
 {"line":"1 avocado, (diced)","language":"en","parts":[{"quantity":1,"en":"avocado","it":"avocado","preparationEn":"diced","preparationIt":"tagliato a dadini"}]}
-{"line":"1 can low-fat coconut milk, optional","language":"en","parts":[{"quantity":1,"unit":"can","en":"low-fat coconut milk","it":"latte di cocco a ridotto contenuto di grassi","optional":true}]}
+{"line":"1 can low-fat coconut milk, optional","language":"en","parts":[{"quantity":1,"unit":"can","en":"low-fat coconut milk","it":"latte di cocco a basso contenuto di grassi","optional":true}]}
 {"line":"1 chipotle chili in adobo sauce ((canned, with 1 tbsp of the adobo sauce it is packed in, Chop the chili before adding to the pot.))","language":"en","parts":[{"quantity":1,"en":"canned chipotle chili in adobo sauce","it":"peperoncino chipotle in salsa adobo in scatola","preparationEn":"chopped","preparationIt":"tritato"},{"quantity":1,"unit":"tbsp","en":"adobo sauce","it":"salsa adobo"}]}
 {"line":"1 clove garlic, minced or grated","language":"en","parts":[{"quantity":1,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced or grated","preparationIt":"tritato o grattugiato"}]}
 {"line":"1 clove of garlic ((peeled and finely minced))","language":"en","parts":[{"quantity":1,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"peeled and finely minced","preparationIt":"sbucciato e tritato finemente"}]}
@@ -75,7 +75,7 @@
 {"line":"1 medium tomato ((coarsely chopped))","language":"en","parts":[{"quantity":1,"en":"medium tomato","it":"pomodoro medio","preparationEn":"coarsely chopped","preparationIt":"tagliato grossolanamente"}]}
 {"line":"1 medium white onion (about 1 cup chopped)","language":"en","parts":[{"quantity":1,"en":"medium white onion","it":"cipolla bianca media"}]}
 {"line":"1 medium yellow onion (chopped (for sauce) – 150g)","language":"en","parts":[{"quantity":150,"unit":"g","en":"yellow onion","it":"cipolla dorata","preparationEn":"chopped","preparationIt":"tritata","purposeEn":"for sauce","purposeIt":"per la salsa"}]}
-{"line":"1 recipe Melty Stretchy Gooey Vegan Nacho Cheese (or Nacho Cheese Love (page 201) in Fuss-Free Vegan)","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"Melty Stretchy Gooey Vegan Nacho Cheese","it":"formaggio vegano filante per nachos","alternatives":[{"en":"Nacho Cheese Love","it":"salsa vegana Nacho Cheese Love"}]}]}
+{"line":"1 recipe Melty Stretchy Gooey Vegan Nacho Cheese (or Nacho Cheese Love (page 201) in Fuss-Free Vegan)","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"Melty Stretchy Gooey Vegan Nacho Cheese","it":"formaggio vegano filante per nachos"}]}
 {"line":"1 roll of vegan puff pastry (about 9 ounces)","language":"en","parts":[{"quantity":9,"unit":"oz","en":"vegan puff pastry","it":"pasta sfoglia vegana"}]}
 {"line":"1 small red onion","language":"en","parts":[{"quantity":1,"en":"small red onion","it":"cipolla rossa piccola"}]}
 {"line":"1 small shallot (finely diced – 40g)","language":"en","parts":[{"quantity":40,"unit":"g","en":"small shallot","it":"scalogno piccolo","preparationEn":"finely diced","preparationIt":"tagliato a dadini piccoli"}]}
@@ -86,7 +86,7 @@
 {"line":"1 tablespoon arrowroot powder, cornstarch, or tapioca flour","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"arrowroot powder","it":"amido di arrowroot","alternatives":[{"en":"cornstarch","it":"amido di mais"},{"en":"tapioca flour","it":"farina di tapioca"}]}]}
 {"line":"1 tablespoon chopped parsley (for garnish)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"parsley","it":"prezzemolo","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"1 tablespoon fresh basil leaves","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"fresh basil leaves","it":"foglie di basilico fresco"}]}
-{"line":"1 tablespoon fresh squeezed lemon juice","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"freshly squeezed lemon juice","it":"succo di limone appena spremuto"}]}
+{"line":"1 tablespoon fresh squeezed lemon juice","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"fresh squeezed lemon juice","it":"succo di limone appena spremuto"}]}
 {"line":"1 tablespoon lite soy sauce or tamari","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"lite soy sauce","it":"salsa di soia leggera","alternatives":[{"en":"tamari","it":"tamari"}]}]}
 {"line":"1 tablespoon melted vegan butter ((plus more for greasing the bowl))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso","purposeEn":"plus more for greasing the bowl","purposeIt":"altro per ungere la ciotola"}]}
 {"line":"1 tablespoon minced fresh sage","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"fresh sage","it":"salvia fresca","preparationEn":"minced","preparationIt":"tritata"}]}
@@ -211,7 +211,7 @@
 {"line":"2 Potatoes (cut into 1 inch cubes 600 grams)","language":"en","parts":[{"quantity":600,"unit":"g","en":"potatoes","it":"patate","preparationEn":"cut into cubes","preparationIt":"tagliate a cubetti"}]}
 {"line":"2 Tablespoons ground raw almond","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"raw almonds","it":"mandorle crude","preparationEn":"ground","preparationIt":"macinate"}]}
 {"line":"2 Tbsp rose water","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"rose water","it":"acqua di rose"}]}
-{"line":"2 chia eggs (or flax eggs (see notes))","language":"en","parts":[{"quantity":2,"en":"chia eggs","it":"uova di chia","alternatives":[{"en":"flax eggs","it":"uova di lino"}]}]}
+{"line":"2 chia eggs (or flax eggs (see notes))","language":"en","parts":[{"quantity":2,"en":"chia eggs","it":"uova di chia","alternatives":[{"en":"flax eggs","it":"uova di semi di lino"}]}]}
 {"line":"2 cloves of garlic (finely minced)","language":"en","parts":[{"quantity":2,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"finely minced","preparationIt":"tritato finemente"}]}
 {"line":"2 cups (240 g) flour (light spelt, white whole wheat or all-purpose)","language":"en","parts":[{"quantity":240,"unit":"g","en":"flour","it":"farina","alternatives":[{"en":"light spelt flour","it":"farina di farro bianca"},{"en":"white whole wheat flour","it":"farina integrale di grano bianco"},{"en":"all-purpose flour","it":"farina 00"}]}]}
 {"line":"2 cups cooked or canned brown lentils*","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cooked brown lentils","it":"lenticchie marroni cotte","alternatives":[{"en":"canned brown lentils","it":"lenticchie marroni in scatola"}]}]}
@@ -288,7 +288,7 @@
 {"line":"3/4 cup chopped green onions","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"green onions","it":"cipollotti","preparationEn":"chopped","preparationIt":"tritati"}]}
 {"line":"3/4 cup flour ((I use a mix of whole wheat and all purpose), see gf option in notes)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"flour","it":"farina"}]}
 {"line":"3/4 cup fresh blueberries","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"fresh blueberries","it":"mirtilli freschi"}]}
-{"line":"3/4 cup non-dairy yogurt (, unsweetened (*see note))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"unsweetened dairy-free yogurt","it":"yogurt vegetale senza zucchero"}]}
+{"line":"3/4 cup non-dairy yogurt (, unsweetened (*see note))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"unsweetened non-dairy yogurt","it":"yogurt vegetale senza zucchero"}]}
 {"line":"3/4 cup raw cashews (soaked for 2 hours to overnight)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked for 2 hours to overnight","preparationIt":"ammollati da 2 ore a una notte"}]}
 {"line":"3/4 cup vegan yogurt","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan yogurt","it":"yogurt vegetale"}]}
 {"line":"3/4 to 1 cup sugar ((you can use brown sugar and skip the molasses))","language":"en","parts":[{"quantity":0.75,"quantityMax":1,"unit":"cup","en":"sugar","it":"zucchero","alternatives":[{"en":"brown sugar","it":"zucchero di canna"}]}]}

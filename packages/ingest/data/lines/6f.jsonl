@@ -139,7 +139,7 @@
 {"line":"1/2 Jalapeno pepper finely chopped","language":"en","parts":[{"quantity":0.5,"en":"jalapeño pepper","it":"peperoncino jalapeño","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"1/2 cup (113 g) unsweetened applesauce","language":"en","parts":[{"quantity":113,"unit":"g","en":"unsweetened applesauce","it":"purea di mele senza zucchero"}]}
 {"line":"1/2 cup (120g) Sesame Teriyaki sauce (or store-bought)","language":"en","parts":[{"quantity":120,"unit":"g","en":"sesame teriyaki sauce","it":"salsa teriyaki al sesamo"}]}
-{"line":"1/2 cup (120g) vanilla dairy-free yogurt (any type should work)","language":"en","parts":[{"quantity":120,"unit":"g","en":"vanilla dairy-free yogurt","it":"yogurt vegetale alla vaniglia"}]}
+{"line":"1/2 cup (120g) vanilla dairy-free yogurt (any type should work)","language":"en","parts":[{"quantity":120,"unit":"g","en":"vanilla dairy-free yogurt","it":"yogurt senza latticini alla vaniglia"}]}
 {"line":"1/2 cup (59 g) tapioca starch/flour","language":"en","parts":[{"quantity":59,"unit":"g","en":"tapioca starch","it":"amido di tapioca"}]}
 {"line":"1/2 cup and 2 tbsp granulated sugar","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"granulated sugar","it":"zucchero semolato","plus":{"quantity":2,"unit":"tbsp"}}]}
 {"line":"1/2 cup applesauce","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"applesauce","it":"purea di mele"}]}
@@ -346,7 +346,7 @@
 {"line":"3/4 cup (120g) raw whole cashews","language":"en","parts":[{"quantity":120,"unit":"g","en":"raw whole cashews","it":"anacardi crudi interi"}]}
 {"line":"3/4 cup (151g) cooked potato (see directions)","language":"en","parts":[{"quantity":151,"unit":"g","en":"potato","it":"patata","preparationEn":"cooked","preparationIt":"cotta"}]}
 {"line":"3/4 cup grated carrot ((about one small to medium carrot))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"carrot","it":"carota","preparationEn":"grated","preparationIt":"grattugiata"}]}
-{"line":"3/4 cup vegan ricotta (cashew ricotta cheese or tofu ricotta)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan ricotta","it":"ricotta vegetale","alternatives":[{"en":"cashew ricotta","it":"ricotta di anacardi"},{"en":"tofu ricotta","it":"ricotta di tofu"}]}]}
+{"line":"3/4 cup vegan ricotta (cashew ricotta cheese or tofu ricotta)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan ricotta","it":"ricotta vegetale","alternatives":[{"en":"cashew ricotta cheese","it":"ricotta vegetale di anacardi"},{"en":"tofu ricotta","it":"ricotta vegetale di tofu"}]}]}
 {"line":"3/4 cup wild rice blend","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"wild rice blend","it":"miscela di riso selvatico"}]}
 {"line":"3/4 teaspoon baking powder","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"baking powder","it":"lievito per dolci"}]}
 {"line":"3/4 teaspoon cinnamon or ginger powder (add with dry ingredients)","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"cinnamon","it":"cannella","alternatives":[{"en":"ginger powder","it":"zenzero in polvere"}]}]}

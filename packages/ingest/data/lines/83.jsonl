@@ -47,10 +47,10 @@
 {"line":"1 cup dry jasmine rice","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dry jasmine rice","it":"riso jasmine secco"}]}
 {"line":"1 cup fine cornmeal","language":"en","parts":[{"quantity":1,"unit":"cup","en":"fine cornmeal","it":"farina di mais fine"}]}
 {"line":"1 cup grated Cauliflower (loaded cup)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cauliflower","it":"cavolfiore","preparationEn":"grated","preparationIt":"grattugiato"}]}
-{"line":"1 cup ground oats ((oat flour) gluten-free if needed)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"oat flour","it":"farina d'avena"}]}
+{"line":"1 cup ground oats ((oat flour) gluten-free if needed)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"ground oats","it":"avena macinata"}]}
 {"line":"1 cup of tahini","language":"en","parts":[{"quantity":1,"unit":"cup","en":"tahini","it":"tahina"}]}
 {"line":"1 cup oil (any neutral-flavored oil will work. Make it lower fat by using 1/2 cup oil and 1/2 cup apple sauce or crushed pineapple.)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"neutral-flavored oil","it":"olio dal sapore neutro"}]}
-{"line":"1 cup preferably fresh orange juice","language":"en","parts":[{"quantity":1,"unit":"cup","en":"orange juice","it":"succo d'arancia"}]}
+{"line":"1 cup preferably fresh orange juice","language":"en","parts":[{"quantity":1,"unit":"cup","en":"fresh orange juice","it":"succo d'arancia fresco"}]}
 {"line":"1 cup quinoa ((rinsed thoroughly in a fine-mesh strainer))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"quinoa","it":"quinoa","preparationEn":"rinsed thoroughly in a fine-mesh strainer","preparationIt":"sciacquata accuratamente in un colino a maglie fini"}]}
 {"line":"1 cup raw cashews ((softened if needed, see step 1))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"raw cashews","it":"anacardi crudi","preparationEn":"softened if needed","preparationIt":"ammorbiditi se necessario"}]}
 {"line":"1 cup unflavored non-dairy milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unflavored non-dairy milk","it":"latte vegetale non aromatizzato"}]}
@@ -245,7 +245,7 @@
 {"line":"2-4 teaspoons plant-based milk ((such as coconut, oat, or soy))","language":"en","parts":[{"quantity":2,"quantityMax":4,"unit":"tsp","en":"plant-based milk","it":"latte vegetale","alternatives":[{"en":"coconut milk","it":"latte di cocco"},{"en":"oat milk","it":"latte d'avena"},{"en":"soy milk","it":"latte di soia"}]}]}
 {"line":"2.5 ml / ½ tsp almond essence","language":"en","parts":[{"quantity":2.5,"unit":"ml","en":"almond essence","it":"essenza di mandorla"}]}
 {"line":"2/3 cup cane sugar ((135g))","language":"en","parts":[{"quantity":135,"unit":"g","en":"cane sugar","it":"zucchero di canna"}]}
-{"line":"2/3 cup cooked organic non-gmo sweet corn (I just used frozen)","language":"en","parts":[{"quantity":0.6666667,"unit":"cup","en":"organic non-GMO sweet corn","it":"mais dolce biologico non OGM","preparationEn":"cooked","preparationIt":"cotto"}]}
+{"line":"2/3 cup cooked organic non-gmo sweet corn (I just used frozen)","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"organic non-gmo sweet corn","it":"mais dolce biologico non OGM","preparationEn":"cooked","preparationIt":"cotto"}]}
 {"line":"2/3 cup organic granulated sugar","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"organic granulated sugar","it":"zucchero semolato biologico"}]}
 {"line":"2/3 cup panko breadcrumbs","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"panko breadcrumbs","it":"pangrattato panko"}]}
 {"line":"2/3 cup thick coconut yogurt*","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"thick coconut yogurt","it":"yogurt di cocco denso"}]}
@@ -291,7 +291,7 @@
 {"line":"3/4 cup refined coconut oil* (see notes)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"refined coconut oil","it":"olio di cocco raffinato"}]}
 {"line":"3/4 cup unsweetened, unflavored dairy free milk, (warmed (180g))","language":"en","parts":[{"quantity":180,"unit":"g","en":"unsweetened unflavored dairy-free milk","it":"latte vegetale senza zuccheri e senza aromi","preparationEn":"warmed","preparationIt":"riscaldato"}]}
 {"line":"3/4 cup vegan butter, (cut into 10-12 slices and chilled (optionally frozen))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"cut into 10–12 slices and chilled, optionally frozen","preparationIt":"tagliato in 10–12 fette e raffreddato, oppure congelato"}]}
-{"line":"3/4 teaspoon fresh ground pepper","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"freshly ground pepper","it":"pepe macinato fresco"}]}
+{"line":"3/4 teaspoon fresh ground pepper","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"fresh ground pepper","it":"pepe macinato fresco"}]}
 {"line":"3/4-1 cup lite canned coconut milk (I recommend the Thai Kitchen or Sprouts brand)","language":"en","parts":[{"quantity":0.75,"quantityMax":1,"unit":"cup","en":"lite canned coconut milk","it":"latte di cocco light in lattina"}]}
 {"line":"30-45 ml / 2-3 tbsp vegetable oil","language":"en","parts":[{"quantity":30,"quantityMax":45,"unit":"ml","en":"vegetable oil","it":"olio vegetale"}]}
 {"line":"4 - 6 slices sturdy bread ((thick slices of slightly stale bread are best))","language":"en","parts":[{"quantity":4,"quantityMax":6,"unit":"slice","en":"sturdy bread","it":"pane consistente"}]}
@@ -331,6 +331,7 @@
 {"line":"8 taco shells (, hard or soft (gluten-free if preferred))","language":"en","parts":[{"quantity":8,"en":"hard or soft taco shells","it":"gusci per taco rigidi o morbidi"}]}
 {"line":"80 ml / 1/3 cup crunchy unsweetened peanut butter or almond butter","language":"en","parts":[{"quantity":80,"unit":"ml","en":"crunchy unsweetened peanut butter","it":"burro di arachidi croccante senza zucchero","alternatives":[{"en":"almond butter","it":"burro di mandorle"}]}]}
 {"line":"90 g vegan butter (chilled in the fridge and cut into cubes)","language":"en","parts":[{"quantity":90,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"chilled in the fridge and cut into cubes","preparationIt":"raffreddato in frigorifero e tagliato a cubetti"}]}
+{"line":"A few drops of stevia (to sweeten (optional))","language":"en","parts":[{"en":"stevia","it":"stevia","preparationEn":"a few drops","preparationIt":"qualche goccia","optional":true}]}
 {"line":"A generous pinch of saffron strands","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"saffron strands","it":"zafferano in pistilli"}]}
 {"line":"A handful of microgreens (for garnish (sub parsley or chives))","language":"en","parts":[{"quantity":1,"unit":"handful","en":"microgreens","it":"microgreens","purposeEn":"for garnish","purposeIt":"per guarnire","alternatives":[{"en":"parsley","it":"prezzemolo"},{"en":"chives","it":"erba cipollina"}]}]}
 {"line":"Baby Greens or sprouts or choice","language":"en","parts":[{"en":"baby greens","it":"insalatine tenere","alternatives":[{"en":"sprouts of choice","it":"germogli a scelta"}]}]}
@@ -397,5 +398,6 @@
 {"line":"1 cucchiaio gomasio, oppure un pizzico di sale","language":"it","parts":[{"quantity":1,"unit":"tbsp","en":"gomasio","it":"gomasio","alternatives":[{"quantity":1,"unit":"pinch","en":"salt","it":"sale"}]}]}
 {"line":"180 g farina 0","language":"it","parts":[{"quantity":180,"unit":"g","en":"type 0 flour","it":"farina 0"}]}
 {"line":"230 g farina di mandorle","language":"it","parts":[{"quantity":230,"unit":"g","en":"almond flour","it":"farina di mandorle"}]}
+{"line":"300 ml d'acqua (+ q.b.)","language":"it","parts":[{"quantity":300,"unit":"ml","en":"water","it":"acqua","preparationEn":"plus more as needed","preparationIt":"più altra quanto basta"}]}
 {"line":"500 g fagiolini","language":"it","parts":[{"quantity":500,"unit":"g","en":"green beans","it":"fagiolini"}]}
 {"line":"Semi di zucca e mirtilli rossi essiccati (facoltatitivi)","language":"it","parts":[{"en":"pumpkin seeds","it":"semi di zucca","optional":true},{"en":"dried cranberries","it":"mirtilli rossi essiccati","optional":true}]}

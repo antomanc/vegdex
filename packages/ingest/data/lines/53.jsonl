@@ -135,7 +135,7 @@
 {"line":"1/2 cup/125ml water","language":"en","parts":[{"quantity":125,"unit":"ml","en":"water","it":"acqua"}]}
 {"line":"1/2 heaped cup almond flour ((see notes))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almond flour","it":"farina di mandorle"}]}
 {"line":"1/2 kiwi (outer skin removed & thinly sliced)","language":"en","parts":[{"quantity":0.5,"en":"kiwi","it":"kiwi","preparationEn":"outer skin removed and thinly sliced","preparationIt":"sbucciato e tagliato a fettine sottili"}]}
-{"line":"1/2 loaded cup blueberries (I used frozen)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"blueberries","it":"mirtilli"}]}
+{"line":"1/2 loaded cup blueberries (I used frozen)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"blueberries","it":"mirtilli","preparationEn":"heaped cup","preparationIt":"tazza colma"}]}
 {"line":"1/2 of an everything bagel (or a slice of bread )","language":"en","parts":[{"quantity":0.5,"en":"everything bagel","it":"bagel con semi e spezie","alternatives":[{"quantity":1,"unit":"slice","en":"bread","it":"pane"}]}]}
 {"line":"1/2 small onion, cut into medium chunks","language":"en","parts":[{"quantity":0.5,"en":"small onion","it":"cipolla piccola","preparationEn":"cut into medium chunks","preparationIt":"tagliata a pezzi medi"}]}
 {"line":"1/2 tablespoon Italian seasoning","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"Italian seasoning","it":"miscela di erbe italiane"}]}
@@ -274,7 +274,7 @@
 {"line":"3-4 tablespoons low-sodium tamari or lite soy sauce","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"tbsp","en":"low-sodium tamari","it":"tamari a basso contenuto di sodio","alternatives":[{"en":"lite soy sauce","it":"salsa di soia leggera"}]}]}
 {"line":"3/4 cup date sugar ((or brown sugar))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"date sugar","it":"zucchero di datteri","alternatives":[{"en":"brown sugar","it":"zucchero di canna"}]}]}
 {"line":"3/4 cup finely chopped walnuts","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"walnuts","it":"noci","preparationEn":"finely chopped","preparationIt":"tritate finemente"}]}
-{"line":"3/4 cup non-dairy chocolate chips, divided","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"dairy-free chocolate chips","it":"gocce di cioccolato senza latte","preparationEn":"divided","preparationIt":"divise"}]}
+{"line":"3/4 cup non-dairy chocolate chips, divided","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"non-dairy chocolate chips","it":"gocce di cioccolato senza latte","preparationEn":"divided","preparationIt":"da dividere"}]}
 {"line":"3/4 teaspoon sea salt (, more to taste + for pasta water )","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"sea salt","it":"sale marino","purposeEn":"plus more to taste and for the pasta water","purposeIt":"più altro a piacere e per l'acqua della pasta"}]}
 {"line":"30-45 ml / 2-3 tbsp olive oil","language":"en","parts":[{"quantity":30,"quantityMax":45,"unit":"ml","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"4 burger buns ((or put on lettuce wraps))","language":"en","parts":[{"quantity":4,"en":"burger buns","it":"panini per hamburger","alternatives":[{"en":"lettuce wraps","it":"foglie di lattuga per involtini"}]}]}
@@ -342,13 +342,13 @@
 {"line":"a handful of mint or basil leaves (optional)","language":"en","parts":[{"quantity":1,"unit":"handful","en":"mint leaves","it":"foglie di menta","optional":true,"alternatives":[{"en":"basil leaves","it":"foglie di basilico"}]}]}
 {"line":"a tin of red kidney beans, drained","language":"en","parts":[{"quantity":1,"unit":"can","en":"red kidney beans","it":"fagioli rossi kidney","preparationEn":"drained","preparationIt":"scolati"}]}
 {"line":"berries, optional for serving","language":"en","parts":[{"en":"berries","it":"frutti di bosco","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}
-{"line":"cilantro and lemon juice (for topping, optional non dairy cream for drizzle )","language":"en","parts":[{"en":"cilantro","it":"coriandolo fresco","purposeEn":"for topping","purposeIt":"per guarnire"},{"en":"lemon juice","it":"succo di limone","purposeEn":"for topping","purposeIt":"per guarnire"},{"en":"plant-based cream","it":"panna vegetale","purposeEn":"for drizzling","purposeIt":"per guarnire","optional":true}]}
+{"line":"cilantro and lemon juice (for topping, optional non dairy cream for drizzle )","language":"en","parts":[{"en":"cilantro","it":"coriandolo fresco","purposeEn":"for topping","purposeIt":"per guarnire"},{"en":"lemon juice","it":"succo di limone","purposeEn":"for topping","purposeIt":"per guarnire"},{"en":"non dairy cream","it":"panna vegetale","purposeEn":"for drizzling","purposeIt":"da versare a filo","optional":true}]}
 {"line":"cooked white rice noodles","language":"en","parts":[{"en":"white rice noodles","it":"noodles di riso bianco","preparationEn":"cooked","preparationIt":"cotti"}]}
 {"line":"crushed red pepper flakes","language":"en","parts":[{"en":"crushed red pepper flakes","it":"peperoncino rosso in fiocchi"}]}
 {"line":"dash of cinnamon or cardamon","language":"en","parts":[{"unit":"dash","en":"cinnamon","it":"cannella","alternatives":[{"en":"cardamom","it":"cardamomo"}]}]}
 {"line":"dash of cinnamon, or to taste","language":"en","parts":[{"quantity":1,"unit":"dash","en":"cinnamon","it":"cannella","toTaste":true}]}
 {"line":"dried oregano","language":"en","parts":[{"en":"dried oregano","it":"origano secco"}]}
-{"line":"fresh cracked pepper or lemon pepper, to taste","language":"en","parts":[{"en":"freshly cracked pepper","it":"pepe macinato al momento","toTaste":true,"alternatives":[{"en":"lemon pepper","it":"pepe al limone"}]}]}
+{"line":"fresh cracked pepper or lemon pepper, to taste","language":"en","parts":[{"en":"fresh cracked pepper","it":"pepe macinato fresco","toTaste":true,"alternatives":[{"en":"lemon pepper","it":"pepe al limone"}]}]}
 {"line":"grape tomatoes, sliced in half","language":"en","parts":[{"en":"grape tomatoes","it":"pomodorini datterini","preparationEn":"sliced in half","preparationIt":"tagliati a metà"}]}
 {"line":"hemp hearts, pine nuts, chopped fresh herbs, olive oil drizzle","language":"en","parts":[{"en":"hemp hearts","it":"semi di canapa decorticati"},{"en":"pine nuts","it":"pinoli"},{"en":"fresh herbs","it":"erbe aromatiche fresche","preparationEn":"chopped","preparationIt":"tritate"},{"en":"olive oil","it":"olio d'oliva"}]}
 {"line":"hummus, to spread (vegan mayo would be great too)","language":"en","parts":[{"en":"hummus","it":"hummus","purposeEn":"for spreading","purposeIt":"da spalmare","alternatives":[{"en":"vegan mayo","it":"maionese vegana"}]}]}

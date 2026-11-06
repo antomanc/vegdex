@@ -72,7 +72,7 @@
 {"line":"1 medium shallot (finely chopped (or ¼ red onion))","language":"en","parts":[{"quantity":1,"en":"medium shallot","it":"scalogno medio","preparationEn":"finely chopped","preparationIt":"tritato finemente","alternatives":[{"quantity":0.25,"en":"red onion","it":"cipolla rossa"}]}]}
 {"line":"1 medium sweet or yellow onion (chopped)","language":"en","parts":[{"quantity":1,"en":"medium sweet onion","it":"cipolla dolce media","preparationEn":"chopped","preparationIt":"tritata","alternatives":[{"en":"medium yellow onion","it":"cipolla dorata media"}]}]}
 {"line":"1 ounce Cointreau* (see notes)","language":"en","parts":[{"quantity":1,"unit":"oz","en":"Cointreau","it":"Cointreau"}]}
-{"line":"1 package vegan breakfast sausage","language":"en","parts":[{"quantity":1,"unit":"package","en":"vegan breakfast sausage","it":"salsiccia vegetale da colazione"}]}
+{"line":"1 package vegan breakfast sausage","language":"en","parts":[{"quantity":1,"unit":"package","en":"vegan breakfast sausage","it":"salsiccia vegana da colazione"}]}
 {"line":"1 pint cherry or grape tomatoes (halved)","language":"en","parts":[{"quantity":1,"unit":"pint","en":"cherry tomatoes","it":"pomodorini ciliegino","preparationEn":"halved","preparationIt":"tagliati a metà","alternatives":[{"en":"grape tomatoes","it":"pomodorini datterini"}]}]}
 {"line":"1 pound fresh green beans (ends trimmed)","language":"en","parts":[{"quantity":1,"unit":"lb","en":"fresh green beans","it":"fagiolini freschi","preparationEn":"ends trimmed","preparationIt":"spuntati"}]}
 {"line":"1 recipe Naan Dough","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"naan dough","it":"impasto per naan"}]}
@@ -94,7 +94,7 @@
 {"line":"1 tablespoon sambal oelek (or other Asian chili sauce, sriracha, or chili crisp)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"sambal oelek","it":"sambal oelek","alternatives":[{"en":"Asian chili sauce","it":"salsa asiatica al peperoncino"},{"en":"sriracha","it":"salsa sriracha"},{"en":"chili crisp","it":"olio al peperoncino croccante"}]}]}
 {"line":"1 tablespoon unsweetened cocoa powder","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"unsweetened cocoa powder","it":"cacao amaro in polvere"}]}
 {"line":"1 tablespoon vegan butter ((melted))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
-{"line":"1 tablespoon vegan chicken-flavored bouillon (or sub 3 1/2 cups veg broth)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegan chicken-flavored bouillon","it":"dado vegetale al gusto di pollo","alternatives":[{"quantity":3.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"1 tablespoon vegan chicken-flavored bouillon (or sub 3 1/2 cups veg broth)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegan chicken-flavored bouillon","it":"dado vegano gusto pollo","alternatives":[{"quantity":3.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"1 tbsp dried oregano","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"dried oregano","it":"origano secco"}]}
 {"line":"1 tbsp extra virgin olive oil ((use 1/4 cup vegetable stock instead if oil-free))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"extra virgin olive oil","it":"olio extravergine d'oliva","alternatives":[{"quantity":0.25,"unit":"cup","en":"vegetable stock","it":"brodo vegetale"}]}]}
 {"line":"1 tbsp extra virgin olive oil, optional","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"extra virgin olive oil","it":"olio extravergine d'oliva","optional":true}]}
@@ -138,11 +138,11 @@
 {"line":"1/2 cup (48g) raw cacao powder","language":"en","parts":[{"quantity":48,"unit":"g","en":"raw cacao powder","it":"cacao crudo in polvere"}]}
 {"line":"1/2 cup (60 g) coconut sugar","language":"en","parts":[{"quantity":60,"unit":"g","en":"coconut sugar","it":"zucchero di cocco"}]}
 {"line":"1/2 cup Nuts or seeds (I used a mix of chopped pecans, chia seeds, and pepitas)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"nuts","it":"frutta secca","alternatives":[{"en":"seeds","it":"semi"}]}]}
-{"line":"1/2 cup butter, softened to room temperature (I used Miyoko's plant based butter)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"softened to room temperature","preparationIt":"ammorbidito a temperatura ambiente"}]}
+{"line":"1/2 cup butter, softened to room temperature (I used Miyoko's plant based butter)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"plant-based butter","it":"burro vegetale","preparationEn":"softened to room temperature","preparationIt":"ammorbidito a temperatura ambiente"}]}
 {"line":"1/2 cup coffee ((1 use 2 shots of espresso plus enough water to make it 1/2 cup))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"coffee","it":"caffè"}]}
 {"line":"1/2 cup fresh arugula, (packed)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh arugula","it":"rucola fresca"}]}
 {"line":"1/2 cup fresh cilantro","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh cilantro","it":"coriandolo fresco"}]}
-{"line":"1/2 cup fresh squeezed orange juice, from 2-3 large oranges","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"freshly squeezed orange juice","it":"succo d'arancia appena spremuto"}]}
+{"line":"1/2 cup fresh squeezed orange juice, from 2-3 large oranges","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"orange juice","it":"succo d'arancia","preparationEn":"fresh squeezed","preparationIt":"spremuto fresco"}]}
 {"line":"1/2 cup ground raw cashew","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"ground raw cashews","it":"anacardi crudi macinati"}]}
 {"line":"1/2 cup plant-based parmesan ((120g))","language":"en","parts":[{"quantity":120,"unit":"g","en":"plant-based parmesan","it":"parmigiano vegetale"}]}
 {"line":"1/2 cup raw cashew pieces","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"raw cashew pieces","it":"anacardi crudi a pezzi"}]}
@@ -222,7 +222,7 @@
 {"line":"2 cups (200g) gluten-free rolled oats (do not use quick oats)","language":"en","parts":[{"quantity":200,"unit":"g","en":"gluten-free rolled oats","it":"fiocchi d'avena senza glutine"}]}
 {"line":"2 cups canned chickpeas, drained","language":"en","parts":[{"quantity":2,"unit":"cup","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained","preparationIt":"scolati"}]}
 {"line":"2 cups cherry tomatoes (quartered)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cherry tomatoes","it":"pomodorini ciliegino","preparationEn":"quartered","preparationIt":"tagliati in quattro"}]}
-{"line":"2 cups hot vegan beef-style broth or vegetable broth (480ml)","language":"en","parts":[{"quantity":480,"unit":"ml","en":"vegan beef-style broth","it":"brodo vegetale gusto manzo","preparationEn":"hot","preparationIt":"caldo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"2 cups hot vegan beef-style broth or vegetable broth (480ml)","language":"en","parts":[{"quantity":480,"unit":"ml","en":"vegan beef-style broth","it":"brodo vegano gusto manzo","preparationEn":"hot","preparationIt":"caldo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"2 cups pecans ( roughly chopped (240g))","language":"en","parts":[{"quantity":240,"unit":"g","en":"pecans","it":"noci pecan","preparationEn":"roughly chopped","preparationIt":"tritate grossolanamente"}]}
 {"line":"2 cups plant based milk","language":"en","parts":[{"quantity":2,"unit":"cup","en":"plant-based milk","it":"latte vegetale"}]}
 {"line":"2 cups powdered sugar (+ more as needed)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"powdered sugar","it":"zucchero a velo"}]}
@@ -281,7 +281,7 @@
 {"line":"2-3 tablespoons vegan ranch ((see notes))","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"vegan ranch dressing","it":"salsa ranch vegana"}]}
 {"line":"2-3 tbsp / 30-45 ml almond milk (optional)","language":"en","parts":[{"quantity":30,"quantityMax":45,"unit":"ml","en":"almond milk","it":"latte di mandorla","optional":true}]}
 {"line":"2.5 tablespoons of cornstarch","language":"en","parts":[{"quantity":2.5,"unit":"tbsp","en":"cornstarch","it":"amido di mais"}]}
-{"line":"2.5 tbsp non dairy yogurt","language":"en","parts":[{"quantity":2.5,"unit":"tbsp","en":"dairy-free yogurt","it":"yogurt vegetale"}]}
+{"line":"2.5 tbsp non dairy yogurt","language":"en","parts":[{"quantity":2.5,"unit":"tbsp","en":"non-dairy yogurt","it":"yogurt vegetale"}]}
 {"line":"2.5 tbsp vegan bouillon powder","language":"en","parts":[{"quantity":2.5,"unit":"tbsp","en":"vegan bouillon powder","it":"brodo granulare vegano"}]}
 {"line":"2/3 cup smooth almond butter (or use peanut butter or other nut butter)","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"smooth almond butter","it":"burro di mandorle cremoso","alternatives":[{"en":"peanut butter","it":"burro di arachidi"},{"en":"other nut butter","it":"altro burro di frutta secca"}]}]}
 {"line":"2/3 cup vegan butter ((at room temperature, diced))","language":"en","parts":[{"quantity":0.6667,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"at room temperature, diced","preparationIt":"a temperatura ambiente, tagliato a dadini"}]}
@@ -290,7 +290,7 @@
 {"line":"200 g / 1½ cups cashews, soaked overnight*","language":"en","parts":[{"quantity":200,"unit":"g","en":"cashews","it":"anacardi","preparationEn":"soaked overnight","preparationIt":"ammollati per una notte"}]}
 {"line":"20oz can jackfruit (in water or brine, drained)","language":"en","parts":[{"quantity":20,"unit":"oz","en":"canned jackfruit in water or brine","it":"jackfruit in scatola in acqua o salamoia","preparationEn":"drained","preparationIt":"scolato"}]}
 {"line":"24 g vegan protein powder ((I used vanilla protein powder))","language":"en","parts":[{"quantity":24,"unit":"g","en":"vegan protein powder","it":"proteine vegane in polvere"}]}
-{"line":"240 g / 1 cup aquafaba (I used canned but homemade works too)","language":"en","parts":[{"quantity":240,"unit":"g","en":"aquafaba","it":"acquafaba"}]}
+{"line":"240 g / 1 cup aquafaba (I used canned but homemade works too)","language":"en","parts":[{"quantity":240,"unit":"g","en":"aquafaba","it":"acquafaba","preparationEn":"from canned or homemade chickpeas","preparationIt":"da ceci in scatola o cotti in casa"}]}
 {"line":"25 g / 2 tbsp refined coconut oil, melted","language":"en","parts":[{"quantity":25,"unit":"g","en":"refined coconut oil","it":"olio di cocco raffinato","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"26 ounces of tomato basil pasta sauce","language":"en","parts":[{"quantity":26,"unit":"oz","en":"tomato and basil pasta sauce","it":"sugo per pasta al pomodoro e basilico"}]}
 {"line":"260 g plain white flour","language":"en","parts":[{"quantity":260,"unit":"g","en":"plain white flour","it":"farina bianca"}]}

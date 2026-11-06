@@ -91,7 +91,7 @@
 {"line":"1 tsp. ginger, (peeled and freshly grated)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"ginger","it":"zenzero","preparationEn":"peeled and freshly grated","preparationIt":"sbucciato e grattugiato al momento"}]}
 {"line":"1 ¼ teaspoons of salt","language":"en","parts":[{"quantity":1.25,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"1 ½ cup sliced peaches (234 grams )","language":"en","parts":[{"quantity":234,"unit":"g","en":"peaches","it":"pesche","preparationEn":"sliced","preparationIt":"tagliate a fette"}]}
-{"line":"1 ½ to 2 cups of vegetable of choice (you can use frozen vegetables, thaw them for at least 10 minutes before using)","language":"en","parts":[{"quantity":1.5,"quantityMax":2,"unit":"cup","en":"vegetables of choice","it":"verdure a scelta"}]}
+{"line":"1 ½ to 2 cups of vegetable of choice (you can use frozen vegetables, thaw them for at least 10 minutes before using)","language":"en","parts":[{"quantity":1.5,"quantityMax":2,"unit":"cup","en":"vegetable of choice","it":"verdura a scelta","preparationEn":"if using frozen vegetables, thaw for at least 10 minutes before using","preparationIt":"se si usano verdure surgelate, scongelarle per almeno 10 minuti prima dell'uso"}]}
 {"line":"1-2 tablespoons adobo sauce from canned chipotles; see notes","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"adobo sauce from canned chipotles","it":"salsa adobo dei chipotle in scatola"}]}
 {"line":"1-2 tablespoons water, (as needed)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"water","it":"acqua"}]}
 {"line":"1-2 teaspoons sriracha, (more or less to taste)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"sriracha","it":"salsa sriracha","toTaste":true}]}
@@ -147,7 +147,7 @@
 {"line":"1/4 cup unsweetened natural peanut butter","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsweetened natural peanut butter","it":"burro di arachidi naturale senza zucchero"}]}
 {"line":"1/4 teaspoon black pepper (and/or red pepper flakes)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"black pepper","it":"pepe nero","alternatives":[{"en":"red pepper flakes","it":"peperoncino in fiocchi"}]}]}
 {"line":"1/4 teaspoon chili flakes/chili powder or to taste","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"chili flakes","it":"peperoncino in fiocchi","toTaste":true,"alternatives":[{"en":"chili powder","it":"peperoncino in polvere"}]}]}
-{"line":"1/4 teaspoon fresh cracked pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"freshly cracked pepper","it":"pepe macinato al momento"}]}
+{"line":"1/4 teaspoon fresh cracked pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"fresh cracked pepper","it":"pepe macinato fresco"}]}
 {"line":"1/4 tsp sugar or sweetener (optional)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"sugar","it":"zucchero","optional":true,"alternatives":[{"en":"sweetener","it":"dolcificante"}]}]}
 {"line":"1/8 teaspoon ginger","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"ginger","it":"zenzero"}]}
 {"line":"10 ounces (285g) spaghetti or linguine (can use gluten-free)","language":"en","parts":[{"quantity":285,"unit":"g","en":"spaghetti","it":"spaghetti","alternatives":[{"en":"linguine","it":"linguine"}]}]}
@@ -169,7 +169,7 @@
 {"line":"2 1/4 cup flour","language":"en","parts":[{"quantity":2.25,"unit":"cup","en":"flour","it":"farina"}]}
 {"line":"2 15 ounce cans black beans (drained and rinsed)","language":"en","parts":[{"quantity":30,"unit":"oz","en":"canned black beans","it":"fagioli neri in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"2 3/4 cup unsweetened oat milk (or plant-based milk of choice)","language":"en","parts":[{"quantity":2.75,"unit":"cup","en":"unsweetened oat milk","it":"latte d'avena senza zucchero","alternatives":[{"en":"plant-based milk of choice","it":"latte vegetale a scelta"}]}]}
-{"line":"2 Flax Eggs","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di lino"}]}
+{"line":"2 Flax Eggs","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di semi di lino"}]}
 {"line":"2 Frozen Bananas","language":"en","parts":[{"quantity":2,"en":"frozen bananas","it":"banane congelate"}]}
 {"line":"2 Medjool dates, pitted*","language":"en","parts":[{"quantity":2,"en":"Medjool dates","it":"datteri Medjool","preparationEn":"pitted","preparationIt":"denocciolati"}]}
 {"line":"2 Tablespoons (15 g) powdered sugar (plus more as needed)","language":"en","parts":[{"quantity":15,"unit":"g","en":"powdered sugar","it":"zucchero a velo"}]}

@@ -1,5 +1,5 @@
 {"model":"gpt-6.1-terra-medium","schema":1}
-{"line":"1 (13.5 oz) can coconut milk ((or swap coconut milk and water for 2 1/2 cups of plain plant-based milk))","language":"en","parts":[{"quantity":13.5,"unit":"oz","en":"canned coconut milk","it":"latte di cocco in lattina"}]}
+{"line":"1 (13.5 oz) can coconut milk ((or swap coconut milk and water for 2 1/2 cups of plain plant-based milk))","language":"en","parts":[{"quantity":13.5,"unit":"oz","en":"coconut milk","it":"latte di cocco","alternatives":[{"quantity":2.5,"unit":"cup","en":"plain plant-based milk","it":"latte vegetale al naturale"}]}]}
 {"line":"1 (14 ounce or 400 gram) package extra firm tofu, (cut into 1-inch cubes and patted dry with a paper towel)","language":"en","parts":[{"quantity":400,"unit":"g","en":"extra firm tofu","it":"tofu extra compatto","preparationEn":"cut into cubes and patted dry with a paper towel","preparationIt":"tagliato a cubetti e tamponato con carta da cucina"}]}
 {"line":"1 (14 ounce/400 gram) package extra firm tofu, ( drained and patted dry)","language":"en","parts":[{"quantity":400,"unit":"g","en":"extra-firm tofu","it":"tofu extra compatto","preparationEn":"drained and patted dry","preparationIt":"scolato e tamponato"}]}
 {"line":"1 (14 oz) can full fat coconut milk","language":"en","parts":[{"quantity":14,"unit":"oz","en":"full-fat canned coconut milk","it":"latte di cocco intero in lattina"}]}
@@ -47,7 +47,7 @@
 {"line":"1 cup old-fashioned oats (thick rolled oats)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"old-fashioned oats","it":"fiocchi d'avena tradizionali"}]}
 {"line":"1 cup scrambled medium tofu (about 5.5 ounces)","language":"en","parts":[{"quantity":5.5,"unit":"oz","en":"medium tofu","it":"tofu di consistenza media","preparationEn":"scrambled","preparationIt":"strapazzato"}]}
 {"line":"1 cup tomato paste","language":"en","parts":[{"quantity":1,"unit":"cup","en":"tomato paste","it":"concentrato di pomodoro"}]}
-{"line":"1 cup vegan beefless broth, mushroom broth, or vegetable broth","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan beefless broth","it":"brodo vegetale gusto manzo","alternatives":[{"en":"mushroom broth","it":"brodo di funghi"},{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"1 cup vegan beefless broth, mushroom broth, or vegetable broth","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan beefless broth","it":"brodo vegano gusto manzo","alternatives":[{"en":"mushroom broth","it":"brodo di funghi"},{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"1 cup walnut halves","language":"en","parts":[{"quantity":1,"unit":"cup","en":"walnut halves","it":"gherigli di noce a metà"}]}
 {"line":"1 cup water (for blending)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"1 egg yolk substitute (I use Bob's Red Mill Egg Replacer )","language":"en","parts":[{"quantity":1,"en":"egg yolk substitute","it":"sostituto del tuorlo d'uovo"}]}
@@ -136,7 +136,7 @@
 {"line":"1/2 cup thinly sliced or chopped carrot","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"carrot","it":"carota","preparationEn":"thinly sliced or chopped","preparationIt":"tagliata a fettine sottili o tritata"}]}
 {"line":"1/2 cup unsweetened apple sauce","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened applesauce","it":"purea di mele senza zucchero"}]}
 {"line":"1/2 cup vegan butter, (chilled)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"chilled","preparationIt":"freddo"}]}
-{"line":"1/2 cup veggie broth or vegan chikin flavored broth","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"vegan chicken-flavored broth","it":"brodo vegetale al gusto di pollo"}]}]}
+{"line":"1/2 cup veggie broth or vegan chikin flavored broth","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"veggie broth","it":"brodo vegetale","alternatives":[{"en":"vegan chikin flavored broth","it":"brodo vegano gusto pollo"}]}]}
 {"line":"1/2 cup vital wheat gluten","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vital wheat gluten","it":"glutine di frumento"}]}
 {"line":"1/2 cup water plus 1 1/2 teaspoons cornstarch","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"water","it":"acqua"},{"quantity":1.5,"unit":"tsp","en":"cornstarch","it":"amido di mais"}]}
 {"line":"1/2 cup whiskey ((can substitute with water))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"whiskey","it":"whiskey","alternatives":[{"en":"water","it":"acqua"}]}]}
@@ -282,7 +282,7 @@
 {"line":"3-4 cups cooked rice (quinoa or other cooked grain for serving)","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"cup","en":"cooked rice","it":"riso cotto","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"cooked quinoa","it":"quinoa cotta"},{"en":"other cooked grain","it":"altro cereale cotto"}]}]}
 {"line":"3-4 leeks (see instructions for cleaning)","language":"en","parts":[{"quantity":3,"quantityMax":4,"en":"leeks","it":"porri"}]}
 {"line":"3/4 cup (134 g) dairy-free chocolate chips or chocolate chunks","language":"en","parts":[{"quantity":134,"unit":"g","en":"dairy-free chocolate chips","it":"gocce di cioccolato senza latte","alternatives":[{"en":"dairy-free chocolate chunks","it":"pezzi di cioccolato senza latte"}]}]}
-{"line":"3/4 cup blueberries (I used fresh, use wild blueberries for a deeper color)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"blueberries","it":"mirtilli"}]}
+{"line":"3/4 cup blueberries (I used fresh, use wild blueberries for a deeper color)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"blueberries","it":"mirtilli","alternatives":[{"en":"wild blueberries","it":"mirtilli selvatici"}]}]}
 {"line":"3/4 cup sun-dried tomatoes in oil","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"sun-dried tomatoes in oil","it":"pomodori secchi sott'olio"}]}
 {"line":"3/4 cup unsweetened applesauce","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"unsweetened applesauce","it":"purea di mele senza zucchero"}]}
 {"line":"3/4 cup vegan ground beef (I used Gardein)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan ground beef","it":"macinato vegetale tipo manzo"}]}
@@ -312,7 +312,7 @@
 {"line":"450 g / 1 lb sweet cherries (or sour cherries), pitted","language":"en","parts":[{"quantity":450,"unit":"g","en":"sweet cherries","it":"ciliegie dolci","preparationEn":"pitted","preparationIt":"snocciolate","alternatives":[{"en":"sour cherries","it":"amarene"}]}]}
 {"line":"5 cups chopped red onion","language":"en","parts":[{"quantity":5,"unit":"cup","en":"red onion","it":"cipolla rossa","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"5 ml / 1 tsp balsamic vinegar","language":"en","parts":[{"quantity":5,"unit":"ml","en":"balsamic vinegar","it":"aceto balsamico"}]}
-{"line":"50 g / 1.75 oz vegan feta-style cheese (optional)","language":"en","parts":[{"quantity":50,"unit":"g","en":"vegan feta-style cheese","it":"formaggio vegetale tipo feta","optional":true}]}
+{"line":"50 g / 1.75 oz vegan feta-style cheese (optional)","language":"en","parts":[{"quantity":50,"unit":"g","en":"vegan feta-style cheese","it":"formaggio vegano tipo feta","optional":true}]}
 {"line":"50 g pearl barley","language":"en","parts":[{"quantity":50,"unit":"g","en":"pearl barley","it":"orzo perlato"}]}
 {"line":"500 g / 17½ oz (5 medium) potatoes, scrubbed clean and cubed into 2 cm / ¾\" dice","language":"en","parts":[{"quantity":500,"unit":"g","en":"medium potatoes","it":"patate medie","preparationEn":"scrubbed clean and cubed","preparationIt":"spazzolate e tagliate a cubetti"}]}
 {"line":"6 Tablespoons of vegan. butter (plus more for brushing)","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","purposeEn":"plus more for brushing","purposeIt":"più altro per spennellare"}]}

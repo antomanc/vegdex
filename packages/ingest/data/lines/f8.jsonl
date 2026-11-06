@@ -99,6 +99,7 @@
 {"line":"1 teaspoon ginger (fresh grated)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"fresh ginger","it":"zenzero fresco","preparationEn":"grated","preparationIt":"grattugiato"}]}
 {"line":"1 teaspoon ground corainder","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"ground coriander","it":"coriandolo macinato"}]}
 {"line":"1 teaspoon lime zest (about ½ of a lime)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"lime zest","it":"scorza di lime"}]}
+{"line":"1 teaspoon orange zest (or zest of 1 small orange)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"orange zest","it":"scorza d'arancia","alternatives":[{"en":"zest of 1 small orange","it":"scorza di 1 arancia piccola"}]}]}
 {"line":"1 teaspoon smoked paprika or regular paprika ((see Note 2) )","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"smoked paprika","it":"paprika affumicata","alternatives":[{"en":"paprika","it":"paprika"}]}]}
 {"line":"1 to 1.5 cups chopped vegetables like green beans (carrots, eggplant, peas)","language":"en","parts":[{"quantity":1,"quantityMax":1.5,"unit":"cup","en":"vegetables","it":"verdure","preparationEn":"chopped","preparationIt":"tagliate a pezzetti","alternatives":[{"en":"green beans","it":"fagiolini"},{"en":"carrots","it":"carote"},{"en":"eggplant","it":"melanzana"},{"en":"peas","it":"piselli"}]}]}
 {"line":"1 to 1.5 tsp tamarind paste","language":"en","parts":[{"quantity":1,"quantityMax":1.5,"unit":"tsp","en":"tamarind paste","it":"pasta di tamarindo"}]}
@@ -239,13 +240,14 @@
 {"line":"2 tablespoons all purpose flour (, or use a gluten-free blend )","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"gluten-free flour blend","it":"miscela di farine senza glutine"}]}]}
 {"line":"2 tablespoons candied ginger, (chopped)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"candied ginger","it":"zenzero candito","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"2 tablespoons cooking oil or vegan butter","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"cooking oil","it":"olio da cucina","alternatives":[{"en":"vegan butter","it":"burro vegetale"}]}]}
+{"line":"2 tablespoons gochujang, (plus up to 2 additional tablespoons, to taste)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"gochujang","it":"gochujang","plus":{"quantity":2,"unit":"tbsp"},"preparationEn":"up to 2 additional tablespoons to taste","preparationIt":"fino a 2 cucchiai aggiuntivi a piacere"}]}
 {"line":"2 tablespoons maple syrup (or any sweetener)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"sweetener of choice","it":"dolcificante a scelta"}]}]}
 {"line":"2 tablespoons maple syrup, room temperature","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"2 tablespoons of fresh lemon juice","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh lemon juice","it":"succo di limone fresco"}]}
 {"line":"2 tablespoons of granulated sugar","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"granulated sugar","it":"zucchero semolato"}]}
 {"line":"2 tablespoons of olive oil (plus more for coating the bowl)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"2 tablespoons turbinado sugar (for topping (optional))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"turbinado sugar","it":"zucchero turbinado","purposeEn":"for topping","purposeIt":"per guarnire","optional":true}]}
-{"line":"2 tablespoons unsweetened vegan yogurt ((can sub with vegan sour cream))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"unsweetened vegan yogurt","it":"yogurt vegetale senza zucchero","alternatives":[{"en":"vegan sour cream","it":"panna acida vegetale"}]}]}
+{"line":"2 tablespoons unsweetened vegan yogurt ((can sub with vegan sour cream))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"unsweetened vegan yogurt","it":"yogurt vegetale non zuccherato","alternatives":[{"en":"vegan sour cream","it":"panna acida vegetale"}]}]}
 {"line":"2 tablespoons vegan butter, olive oil, or water for oil-free","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","alternatives":[{"en":"olive oil","it":"olio d'oliva"},{"en":"water","it":"acqua"}]}]}
 {"line":"2 tablespoons water (to mix with the corn starch)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"water","it":"acqua"}]}
 {"line":"2 tbsp avocado oil or any neutral oil ((for frying. I used avocado oil. Peanut oil is good too))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"avocado oil","it":"olio di avocado","purposeEn":"for frying","purposeIt":"per friggere","alternatives":[{"en":"neutral oil","it":"olio dal sapore neutro"}]}]}
@@ -264,7 +266,7 @@
 {"line":"2 teaspoons spice blend, (such as harissa, shawarma, sumac, or a combination (see notes for my quick harissa blend))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"spice blend","it":"miscela di spezie","alternatives":[{"en":"harissa","it":"harissa"},{"en":"shawarma spice blend","it":"miscela di spezie per shawarma"},{"en":"sumac","it":"sommacco"}]}]}
 {"line":"2 tsp wasabi powder, adjust to taste!!","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"wasabi powder","it":"wasabi in polvere","toTaste":true}]}
 {"line":"2 tsp white or yellow miso","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"white miso","it":"miso bianco","alternatives":[{"en":"yellow miso","it":"miso giallo"}]}]}
-{"line":"2 vegan chorizo sausages, sliced","language":"en","parts":[{"quantity":2,"en":"vegan chorizo sausages","it":"salsicce chorizo vegane","preparationEn":"sliced","preparationIt":"affettate"}]}
+{"line":"2 vegan chorizo sausages, sliced","language":"en","parts":[{"quantity":2,"en":"vegan chorizo sausages","it":"salsicce vegane tipo chorizo","preparationEn":"sliced","preparationIt":"tagliate a fette"}]}
 {"line":"2 – 3 limes, juice of (about 2 – 3 tablespoons)","language":"en","parts":[{"quantity":2,"quantityMax":3,"en":"limes","it":"lime","preparationEn":"juiced","preparationIt":"spremuti"}]}
 {"line":"2 – 3 tablespoons water or lemon juice, as needed to thin","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"water","it":"acqua","alternatives":[{"en":"lemon juice","it":"succo di limone"}]}]}
 {"line":"2-3 Tbsp maple syrup (or any other liquid sweetener)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"liquid sweetener","it":"dolcificante liquido"}]}]}
@@ -320,7 +322,7 @@
 {"line":"30 ml / 2 tbsp oil, I used mild olive oil","language":"en","parts":[{"quantity":30,"unit":"ml","en":"oil","it":"olio"}]}
 {"line":"30 ml / 2 tbsp soy sauce or tamari (for GF option)","language":"en","parts":[{"quantity":30,"unit":"ml","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"tamari","it":"tamari"}]}]}
 {"line":"300 g / 10 oz rigatoni (GF if needed)","language":"en","parts":[{"quantity":300,"unit":"g","en":"rigatoni","it":"rigatoni"}]}
-{"line":"3¾ cups vegan chicken broth (or vegetable broth)","language":"en","parts":[{"quantity":3.75,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"3¾ cups vegan chicken broth (or vegetable broth)","language":"en","parts":[{"quantity":3.75,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"4 cups blueberries","language":"en","parts":[{"quantity":4,"unit":"cup","en":"blueberries","it":"mirtilli"}]}
 {"line":"4 large bananas ((very ripe, mashed))","language":"en","parts":[{"quantity":4,"en":"large very ripe bananas","it":"banane grandi molto mature","preparationEn":"mashed","preparationIt":"schiacciate"}]}
 {"line":"4 large cloves of garlic (minced)","language":"en","parts":[{"quantity":4,"unit":"clove","en":"large garlic","it":"aglio grande","preparationEn":"minced","preparationIt":"tritato"}]}
@@ -414,9 +416,9 @@
 {"line":"½ cup Guacamole","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"guacamole","it":"guacamole"}]}
 {"line":"½ cup chopped pecans or walnuts","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"pecans","it":"noci pecan","preparationEn":"chopped","preparationIt":"tritate","alternatives":[{"en":"walnuts","it":"noci"}]}]}
 {"line":"½ cup light brown sugar (100g)","language":"en","parts":[{"quantity":100,"unit":"g","en":"light brown sugar","it":"zucchero di canna chiaro"}]}
-{"line":"½ cup non-dairy milk ((oat milk, almond milk, soy milk are all fine).)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"nondairy milk","it":"latte vegetale","alternatives":[{"en":"oat milk","it":"latte d'avena"},{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"}]}]}
+{"line":"½ cup non-dairy milk ((oat milk, almond milk, soy milk are all fine).)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","alternatives":[{"en":"oat milk","it":"latte d'avena"},{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"}]}]}
 {"line":"½ cup of buffalo sauce ((or more for extra spice))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"buffalo sauce","it":"salsa buffalo"}]}
-{"line":"½ cup tomato puree ((canned or freshly pureed tomatoes are both fine))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"tomato puree","it":"passata di pomodoro"}]}
+{"line":"½ cup tomato puree ((canned or freshly pureed tomatoes are both fine))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"canned tomato puree","it":"passata di pomodoro in scatola","alternatives":[{"en":"freshly pureed tomatoes","it":"pomodori freschi frullati"}]}]}
 {"line":"½ cup vegan granola","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan granola","it":"granola vegana"}]}
 {"line":"½ cup water (you can also use breastmilk)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"½ small cucumber, sliced","language":"en","parts":[{"quantity":0.5,"en":"small cucumber","it":"cetriolo piccolo","preparationEn":"sliced","preparationIt":"tagliato a fette"}]}

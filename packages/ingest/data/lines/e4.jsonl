@@ -22,7 +22,7 @@
 {"line":"1 3/4 cups dairy free milk","language":"en","parts":[{"quantity":1.75,"unit":"cup","en":"dairy-free milk","it":"latte vegetale"}]}
 {"line":"1 8 oz. package Explore Cuisine chickpea spaghetti","language":"en","parts":[{"quantity":8,"unit":"oz","en":"Explore Cuisine chickpea spaghetti","it":"spaghetti di ceci Explore Cuisine"}]}
 {"line":"1 Medjool date, pitted","language":"en","parts":[{"quantity":1,"en":"Medjool date","it":"dattero Medjool","preparationEn":"pitted","preparationIt":"denocciolato"}]}
-{"line":"1 Tablespoon Extra Virgin Olive oil (Use 2 Tablespoons non dairy yogurt to make Oil free)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"extra virgin olive oil","it":"olio extravergine d'oliva","alternatives":[{"quantity":2,"unit":"tbsp","en":"dairy-free yogurt","it":"yogurt vegetale"}]}]}
+{"line":"1 Tablespoon Extra Virgin Olive oil (Use 2 Tablespoons non dairy yogurt to make Oil free)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"extra virgin olive oil","it":"olio extravergine d'oliva","alternatives":[{"quantity":2,"unit":"tbsp","en":"non-dairy yogurt","it":"yogurt vegetale"}]}]}
 {"line":"1 Tablespoon Vegan Vanilla Protein Powder (25 grams)","language":"en","parts":[{"quantity":25,"unit":"g","en":"vegan vanilla protein powder","it":"proteine vegane in polvere alla vaniglia"}]}
 {"line":"1 Tablespoon almond milk (can be subbed 1:1 with any plant-based milk)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"plant-based milk","it":"latte vegetale"}]}]}
 {"line":"1 Tablespoon diced jalapeño (about 1/2 jalapeño)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"jalapeño","it":"peperoncino jalapeño","preparationEn":"diced","preparationIt":"tagliato a dadini"}]}
@@ -141,7 +141,7 @@
 {"line":"1/2 cup rolled oats, quick oats, steel-cut oats (see notes)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"rolled oats","it":"fiocchi d'avena","alternatives":[{"en":"quick oats","it":"fiocchi d'avena a cottura rapida"},{"en":"steel-cut oats","it":"avena spezzata"}]}]}
 {"line":"1/2 cup salted vegan butter*, melted","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"salted vegan butter","it":"burro vegetale salato","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"1/2 cup sliced green bell pepper (also sliced into 3/4-1 inch pieces)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"green bell pepper","it":"peperone verde","preparationEn":"sliced into pieces","preparationIt":"tagliato a pezzi"}]}
-{"line":"1/2 cup vegan chicken broth","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}
+{"line":"1/2 cup vegan chicken broth","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}
 {"line":"1/2 cup vegetable oil","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegetable oil","it":"olio vegetale"}]}
 {"line":"1/2 green chile (finely chopped)","language":"en","parts":[{"quantity":0.5,"en":"green chile","it":"peperoncino verde","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"1/2 green chile optional","language":"en","parts":[{"quantity":0.5,"en":"green chile","it":"peperoncino verde","optional":true}]}
@@ -229,19 +229,19 @@
 {"line":"2 Ripe Bananas (should be covered in brown spots)","language":"en","parts":[{"quantity":2,"en":"ripe bananas","it":"banane mature"}]}
 {"line":"2 Tablespoons (30 ml) lemon juice","language":"en","parts":[{"quantity":30,"unit":"ml","en":"lemon juice","it":"succo di limone"}]}
 {"line":"2 Tbsp furikake seasoning (optional, as topping)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"furikake seasoning","it":"condimento furikake","purposeEn":"for topping","purposeIt":"per guarnire","optional":true}]}
-{"line":"2 Tbsp non dairy milk","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"dairy-free milk","it":"latte vegetale"}]}
+{"line":"2 Tbsp non dairy milk","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"non dairy milk","it":"latte vegetale"}]}
 {"line":"2 bay leaves (tejpatta)","language":"en","parts":[{"quantity":2,"en":"bay leaves","it":"foglie di alloro"}]}
 {"line":"2 carrots ((cut into 1-inch chunks))","language":"en","parts":[{"quantity":2,"en":"carrots","it":"carote","preparationEn":"cut into chunks","preparationIt":"tagliate a pezzi"}]}
 {"line":"2 carrots, roughly diced","language":"en","parts":[{"quantity":2,"en":"carrots","it":"carote","preparationEn":"roughly diced","preparationIt":"tagliate grossolanamente a dadini"}]}
 {"line":"2 chipotle chili peppers in adobo sauce, (finely diced)","language":"en","parts":[{"quantity":2,"en":"chipotle chili peppers in adobo sauce","it":"peperoncini chipotle in salsa adobo","preparationEn":"finely diced","preparationIt":"tagliati a dadini fini"}]}
 {"line":"2 cups (480mL) low-sodium vegetable broth","language":"en","parts":[{"quantity":480,"unit":"ml","en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio"}]}
 {"line":"2 cups baby spinach (60 grams)","language":"en","parts":[{"quantity":60,"unit":"g","en":"baby spinach","it":"spinacini"}]}
-{"line":"2 cups mango puree ((use canned or fresh. A brilliantly sweet mango puree like that from Alphonso mangoes is preferred.))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"mango puree","it":"purea di mango"}]}
+{"line":"2 cups mango puree ((use canned or fresh. A brilliantly sweet mango puree like that from Alphonso mangoes is preferred.))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"mango puree","it":"purea di mango","preparationEn":"canned or fresh","preparationIt":"in scatola o fresca"}]}
 {"line":"2 cups oats ((gluten-free if needed) ground into flour)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"oats","it":"avena","preparationEn":"ground into flour","preparationIt":"macinati fino a ottenere una farina"}]}
 {"line":"2 cups sushi rice*","language":"en","parts":[{"quantity":2,"unit":"cup","en":"sushi rice","it":"riso per sushi"}]}
 {"line":"2 cups sweet potatoes","language":"en","parts":[{"quantity":2,"unit":"cup","en":"sweet potatoes","it":"patate dolci"}]}
 {"line":"2 cups whole wheat flour ((atta))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"whole wheat flour (atta)","it":"farina integrale di frumento (atta)"}]}
-{"line":"2 flax eggs (or egg replacer, I used Bob’s Red Mill Egg Replacer)","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di lino","alternatives":[{"en":"egg replacer","it":"sostituto dell'uovo"}]}]}
+{"line":"2 flax eggs (or egg replacer, I used Bob’s Red Mill Egg Replacer)","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di semi di lino","alternatives":[{"en":"egg replacer","it":"sostituto dell'uovo"}]}]}
 {"line":"2 juicy nectarines","language":"en","parts":[{"quantity":2,"en":"juicy nectarines","it":"pesche noci succose"}]}
 {"line":"2 large 10 inch tortillas","language":"en","parts":[{"quantity":2,"en":"large 10-inch tortillas","it":"tortillas grandi da 10 pollici"}]}
 {"line":"2 large leeks ()","language":"en","parts":[{"quantity":2,"en":"large leeks","it":"porri grandi"}]}
@@ -293,7 +293,7 @@
 {"line":"240 ml / 1 cup almond milk (or any plant milk)**","language":"en","parts":[{"quantity":240,"unit":"ml","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"plant milk","it":"latte vegetale"}]}]}
 {"line":"25 g / 2 tbsp caster sugar (or coconut sugar)","language":"en","parts":[{"quantity":25,"unit":"g","en":"caster sugar","it":"zucchero semolato fine","alternatives":[{"en":"coconut sugar","it":"zucchero di cocco"}]}]}
 {"line":"250 g / 1¼ cup caster sugar*","language":"en","parts":[{"quantity":250,"unit":"g","en":"caster sugar","it":"zucchero semolato fine"}]}
-{"line":"250 g / 2 cups AP wheat flour*, plus extra for dusting","language":"en","parts":[{"quantity":250,"unit":"g","en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi","purposeEn":"for dusting","purposeIt":"per infarinare"}]}
+{"line":"250 g / 2 cups AP wheat flour*, plus extra for dusting","language":"en","parts":[{"quantity":250,"unit":"g","en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi","purposeEn":"for dusting","purposeIt":"per infarinare"}]}
 {"line":"28 oz vegan marinara","language":"en","parts":[{"quantity":28,"unit":"oz","en":"vegan marinara sauce","it":"salsa marinara vegana"}]}
 {"line":"2½ cup Brussels sprouts","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"Brussels sprouts","it":"cavoletti di Bruxelles"}]}
 {"line":"3 1/4 cups of water or vegetable broth","language":"en","parts":[{"quantity":3.25,"unit":"cup","en":"water","it":"acqua","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}

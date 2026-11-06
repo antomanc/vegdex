@@ -18,7 +18,7 @@
 {"line":"1 15.5- ounce can crushed tomatoes","language":"en","parts":[{"quantity":15.5,"unit":"oz","en":"canned crushed tomatoes","it":"polpa di pomodoro in scatola"}]}
 {"line":"1 28 oz (796ml) can crushed tomatoes ((3 1/4 cups))","language":"en","parts":[{"quantity":796,"unit":"ml","en":"canned crushed tomatoes","it":"polpa di pomodoro in scatola"}]}
 {"line":"1 3/4 cups (220g) all-purpose flour ((*see note))","language":"en","parts":[{"quantity":220,"unit":"g","en":"all-purpose flour","it":"farina 00"}]}
-{"line":"1 3/4 cups non-dairy milk","language":"en","parts":[{"quantity":1.75,"unit":"cup","en":"plant milk","it":"latte vegetale"}]}
+{"line":"1 3/4 cups non-dairy milk","language":"en","parts":[{"quantity":1.75,"unit":"cup","en":"non-dairy milk","it":"latte vegetale"}]}
 {"line":"1 400ml can full-fat coconut milk","language":"en","parts":[{"quantity":400,"unit":"ml","en":"full-fat coconut milk","it":"latte di cocco intero"}]}
 {"line":"1 Tablespoon agave","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"agave syrup","it":"sciroppo d'agave"}]}
 {"line":"1 Tbsp dark soy sauce","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"dark soy sauce","it":"salsa di soia scura"}]}
@@ -364,7 +364,7 @@
 {"line":"5-6 tbsp Erythritol (or icing sugar)","language":"en","parts":[{"quantity":5,"quantityMax":6,"unit":"tbsp","en":"erythritol","it":"eritritolo","alternatives":[{"en":"icing sugar","it":"zucchero a velo"}]}]}
 {"line":"500 g / 17.5 oz ripe cherries, pitted","language":"en","parts":[{"quantity":500,"unit":"g","en":"ripe cherries","it":"ciliegie mature","preparationEn":"pitted","preparationIt":"denocciolate"}]}
 {"line":"500 ml boiling water","language":"en","parts":[{"quantity":500,"unit":"ml","en":"water","it":"acqua","preparationEn":"boiling","preparationIt":"bollente"}]}
-{"line":"6 cups not chickn' broth ((or any other vegan broth))","language":"en","parts":[{"quantity":6,"unit":"cup","en":"vegan chicken-style broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegan broth","it":"brodo vegetale"}]}]}
+{"line":"6 cups not chickn' broth ((or any other vegan broth))","language":"en","parts":[{"quantity":6,"unit":"cup","en":"not chickn' broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegan broth","it":"brodo vegetale"}]}]}
 {"line":"6 cups peanut oil (or other frying oil)","language":"en","parts":[{"quantity":6,"unit":"cup","en":"peanut oil","it":"olio di arachidi","alternatives":[{"en":"frying oil","it":"olio per friggere"}]}]}
 {"line":"6 large flour tortillas ((use gluten-free ones if needed) )","language":"en","parts":[{"quantity":6,"en":"large flour tortillas","it":"tortillas di farina grandi"}]}
 {"line":"6 shots strong espresso or coffee (about 1 cup)","language":"en","parts":[{"quantity":6,"unit":"shot","en":"strong espresso","it":"caffè espresso forte","alternatives":[{"en":"strong coffee","it":"caffè forte"}]}]}
@@ -436,7 +436,7 @@
 {"line":"½ recipe Avocado Fries","language":"en","parts":[{"quantity":0.5,"unit":"recipe","en":"avocado fries","it":"bastoncini di avocado"}]}
 {"line":"½ teaspoon Dijon mustard (optional","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"Dijon mustard","it":"senape di Digione","optional":true}]}
 {"line":"½ teaspoon baking soda (3 g)","language":"en","parts":[{"quantity":3,"unit":"g","en":"baking soda","it":"bicarbonato di sodio"}]}
-{"line":"½ teaspoon or more Garam Masala (or use 1/2 tsp ground coriander and generous pinches of ground cloves, cardamom and black pepper)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"garam masala","it":"garam masala"}]}
+{"line":"½ teaspoon or more Garam Masala (or use 1/2 tsp ground coriander and generous pinches of ground cloves, cardamom and black pepper)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"garam masala","it":"garam masala","preparationEn":"or more","preparationIt":"o più","alternatives":[{"en":"1/2 tsp ground coriander and generous pinches of ground cloves, cardamom and black pepper","it":"1/2 cucchiaino di coriandolo macinato e abbondanti pizzichi di chiodi di garofano, cardamomo e pepe nero macinati"}]}]}
 {"line":"½ teaspoon sesame seeds (1.5 grams)","language":"en","parts":[{"quantity":1.5,"unit":"g","en":"sesame seeds","it":"semi di sesamo"}]}
 {"line":"½ tsp apple cider vinegar (or lemon juice)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"apple cider vinegar","it":"aceto di mele","alternatives":[{"en":"lemon juice","it":"succo di limone"}]}]}
 {"line":"½ tsp fine sea salt (more if skipping capers)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"fine sea salt","it":"sale marino fino"}]}

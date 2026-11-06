@@ -42,7 +42,7 @@
 {"line":"1 cup frozen peas","language":"en","parts":[{"quantity":1,"unit":"cup","en":"frozen peas","it":"piselli surgelati"}]}
 {"line":"1 cup melted So Delicious Cherry Amaretto Almond milk icecream","language":"en","parts":[{"quantity":1,"unit":"cup","en":"So Delicious Cherry Amaretto almond milk ice cream","it":"gelato al latte di mandorla Cherry Amaretto So Delicious","preparationEn":"melted","preparationIt":"sciolto"}]}
 {"line":"1 cup moong dal (yellow split mung beans) (rinsed, or use lentils)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"moong dal","it":"moong dal","preparationEn":"rinsed","preparationIt":"sciacquati","alternatives":[{"en":"lentils","it":"lenticchie"}]}]}
-{"line":"1 cup non dairy coconut milk yogurt (or other non dairy yogurt)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy coconut milk yogurt","it":"yogurt vegetale al cocco","alternatives":[{"en":"non-dairy yogurt","it":"yogurt vegetale"}]}]}
+{"line":"1 cup non dairy coconut milk yogurt (or other non dairy yogurt)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy coconut milk yogurt","it":"yogurt vegetale al latte di cocco","alternatives":[{"en":"other non-dairy yogurt","it":"altro yogurt vegetale"}]}]}
 {"line":"1 cup non-dairy milk, (I use soy)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy milk","it":"latte vegetale"}]}
 {"line":"1 cup plant-based yogurt ((225g))","language":"en","parts":[{"quantity":225,"unit":"g","en":"plant-based yogurt","it":"yogurt vegetale"}]}
 {"line":"1 cup raw cashews ((soaked for 30 minutes unless using a high powered blender))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked for 30 minutes unless using a high-powered blender","preparationIt":"ammollati per 30 minuti, a meno che non si usi un frullatore potente"}]}
@@ -75,7 +75,7 @@
 {"line":"1 onion ((diced))","language":"en","parts":[{"quantity":1,"en":"onion","it":"cipolla","preparationEn":"diced","preparationIt":"tagliata a cubetti"}]}
 {"line":"1 pepper","language":"en","parts":[{"quantity":1,"en":"pepper","it":"pepe"}]}
 {"line":"1 pinch of ground cumin","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"ground cumin","it":"cumino macinato"}]}
-{"line":"1 recipe Pepita parmesan","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"pepita parmesan","it":"parmigiano vegetale ai semi di zucca"}]}
+{"line":"1 recipe Pepita parmesan","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"pepita parmesan","it":"parmigiano vegano ai semi di zucca"}]}
 {"line":"1 red onion (thinly sliced)","language":"en","parts":[{"quantity":1,"en":"red onion","it":"cipolla rossa","preparationEn":"thinly sliced","preparationIt":"tagliata a fettine sottili"}]}
 {"line":"1 ripe banana (mashed)","language":"en","parts":[{"quantity":1,"en":"ripe banana","it":"banana matura","preparationEn":"mashed","preparationIt":"schiacciata"}]}
 {"line":"1 round loaf of pumpernickel or sourdough bread ((optional for a bread bowl))","language":"en","parts":[{"quantity":1,"unit":"loaf","en":"round pumpernickel bread","it":"pagnotta rotonda di pumpernickel","purposeEn":"for a bread bowl","purposeIt":"per una ciotola di pane","optional":true,"alternatives":[{"en":"round sourdough bread","it":"pagnotta rotonda a lievitazione naturale"}]}]}
@@ -152,7 +152,7 @@
 {"line":"1/2″-1” knob of ginger, finely grated","language":"en","parts":[{"quantity":1,"unit":"knob","en":"ginger","it":"zenzero","preparationEn":"finely grated","preparationIt":"grattugiato finemente"}]}
 {"line":"1/3 cup (75 ml) light flavored olive oil, coconut oil (in liquid form) or hazelnut oil","language":"en","parts":[{"quantity":75,"unit":"ml","en":"mild olive oil","it":"olio d'oliva delicato","alternatives":[{"en":"coconut oil","it":"olio di cocco"},{"en":"hazelnut oil","it":"olio di nocciola"}]}]}
 {"line":"1/4 cucumber (cut into matchsticks)","language":"en","parts":[{"quantity":0.25,"en":"cucumber","it":"cetriolo","preparationEn":"cut into matchsticks","preparationIt":"tagliato a fiammifero"}]}
-{"line":"1/4 cup almond milk (or other non dairy milk)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"other plant-based milk","it":"altro latte vegetale"}]}]}
+{"line":"1/4 cup almond milk (or other non dairy milk)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"other non-dairy milk","it":"altro latte vegetale"}]}]}
 {"line":"1/4 cup bread crumbs (use gf crumbs or omit or use coarsely ground oats to make gluten-free)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"bread crumbs","it":"pangrattato","alternatives":[{"en":"coarsely ground oats","it":"fiocchi d'avena macinati grossolanamente"}]}]}
 {"line":"1/4 cup chopped fresh basil leaves, (packed)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh basil leaves","it":"foglie di basilico fresco","preparationEn":"chopped","preparationIt":"tritate"}]}
 {"line":"1/4 cup chunky salsa","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"chunky salsa","it":"salsa messicana a pezzetti"}]}

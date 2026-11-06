@@ -18,7 +18,7 @@
 {"line":"1 1/2 cups fresh cranberries","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"fresh cranberries","it":"mirtilli rossi freschi"}]}
 {"line":"1 1/2 cups instant couscous ((see notes))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"instant couscous","it":"cous cous precotto"}]}
 {"line":"1 1/2 cups uncooked cubed carrots","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"uncooked carrots","it":"carote crude","preparationEn":"cubed","preparationIt":"tagliate a cubetti"}]}
-{"line":"1 1/2 cups vegan chick'n flavored broth (or vegetable broth)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan chicken-flavored broth","it":"brodo vegetale al gusto di pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"1 1/2 cups vegan chick'n flavored broth (or vegetable broth)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan chick'n flavored broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"1 1/2 cups vegan chocolate chips ((optional, for chocolate dipped biscotti))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan chocolate chips","it":"gocce di cioccolato vegano","purposeEn":"for chocolate dipped biscotti","purposeIt":"per biscotti intinti nel cioccolato","optional":true}]}
 {"line":"1 1/2 inch ginger, chopped","language":"en","parts":[{"quantity":1.5,"unit":"inch","en":"ginger","it":"zenzero","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1 1/2 teaspoons allspice","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"allspice","it":"pimento"}]}
@@ -129,7 +129,7 @@
 {"line":"1/2 can pumpkin puree","language":"en","parts":[{"quantity":0.5,"unit":"can","en":"pumpkin puree","it":"purea di zucca"}]}
 {"line":"1/2 cup (102 g) cane sugar","language":"en","parts":[{"quantity":102,"unit":"g","en":"cane sugar","it":"zucchero di canna"}]}
 {"line":"1/2 cup (118 mL) full-fat coconut milk","language":"en","parts":[{"quantity":118,"unit":"ml","en":"full-fat coconut milk","it":"latte di cocco intero"}]}
-{"line":"1/2 cup (70g) dry-roasted peanuts, roughly chopped ((unsalted or salted, either is fine))","language":"en","parts":[{"quantity":70,"unit":"g","en":"dry-roasted peanuts","it":"arachidi tostate a secco","preparationEn":"roughly chopped","preparationIt":"tritate grossolanamente"}]}
+{"line":"1/2 cup (70g) dry-roasted peanuts, roughly chopped ((unsalted or salted, either is fine))","language":"en","parts":[{"quantity":70,"unit":"g","en":"dry-roasted peanuts","it":"arachidi tostate a secco","preparationEn":"roughly chopped; unsalted or salted","preparationIt":"tritate grossolanamente; non salate o salate"}]}
 {"line":"1/2 cup (80g) potato starch, this cannot be subbed with another starch, I use this one (it is what makes them fluffy)","language":"en","parts":[{"quantity":80,"unit":"g","en":"potato starch","it":"fecola di patate"}]}
 {"line":"1/2 cup almond butter ((or preferred nut butter))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almond butter","it":"burro di mandorle","alternatives":[{"en":"nut butter of choice","it":"burro di frutta secca a scelta"}]}]}
 {"line":"1/2 cup almond meal (sub with oat or all-purpose flour)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almond meal","it":"farina di mandorle","alternatives":[{"en":"oat flour","it":"farina d'avena"},{"en":"all-purpose flour","it":"farina 00"}]}]}
@@ -160,7 +160,7 @@
 {"line":"1/3 cup Quinoa, dry","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"dry quinoa","it":"quinoa secca"}]}
 {"line":"1/3 cup applesauce (or oil: neutral-flavored or softened coconut oil)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"applesauce","it":"purea di mele","alternatives":[{"en":"neutral-flavored oil","it":"olio dal sapore neutro"},{"en":"softened coconut oil","it":"olio di cocco ammorbidito"}]}]}
 {"line":"1/3 cup canola oil (or applesauce for oil-free)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"canola oil","it":"olio di colza","alternatives":[{"en":"applesauce","it":"purea di mele"}]}]}
-{"line":"1/3 cup maple syrup (or any other liquid sweetener (use less if you add more dried fruits))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"liquid sweetener of choice","it":"dolcificante liquido a scelta"}]}]}
+{"line":"1/3 cup maple syrup (or any other liquid sweetener (use less if you add more dried fruits))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero","preparationEn":"use less if adding more dried fruits","preparationIt":"usarne meno se si aggiunge più frutta secca","alternatives":[{"en":"liquid sweetener of choice","it":"dolcificante liquido a scelta"}]}]}
 {"line":"1/3 cup packed brown sugar","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"brown sugar","it":"zucchero di canna","preparationEn":"packed","preparationIt":"pressato"}]}
 {"line":"1/3 cup plus 2 tablespoons coconut oil, melted and cooled, divided","language":"en","parts":[{"quantity":0.3333333333,"unit":"cup","en":"coconut oil","it":"olio di cocco","plus":{"quantity":2,"unit":"tbsp"},"preparationEn":"melted, cooled and divided","preparationIt":"sciolto, raffreddato e diviso"}]}
 {"line":"1/3 cup pumpkin puree ((not pumpkin pie filling))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"pumpkin puree","it":"purea di zucca"}]}
@@ -245,7 +245,7 @@
 {"line":"2 tablespoons mango chutney (or apricot jam)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"mango chutney","it":"chutney di mango","alternatives":[{"en":"apricot jam","it":"confettura di albicocche"}]}]}
 {"line":"2 tablespoons of chopped Thai basil","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"Thai basil","it":"basilico thailandese","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"2 tablespoons of turbinado sugar ((optional))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"turbinado sugar","it":"zucchero turbinado","optional":true}]}
-{"line":"2 tablespoons salted butter (I used dairy-free)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"salted vegan butter","it":"burro vegetale salato"}]}
+{"line":"2 tablespoons salted butter (I used dairy-free)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"salted dairy-free butter","it":"burro vegetale salato"}]}
 {"line":"2 tablespoons spring onion whites (, use greens for garnish )","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"spring onion whites","it":"parte bianca dei cipollotti"},{"en":"spring onion greens","it":"parte verde del cipollotto","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"2 tablespoons vegan butter, (melted and cooled)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"melted and cooled","preparationIt":"fuso e lasciato raffreddare"}]}
 {"line":"2 tablespoons vegan butter, softened","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}
@@ -286,7 +286,7 @@
 {"line":"3 cups cauliflower florets, (1 small crown)","language":"en","parts":[{"quantity":3,"unit":"cup","en":"cauliflower florets","it":"cimette di cavolfiore"}]}
 {"line":"3 cups cooked brown lentils","language":"en","parts":[{"quantity":3,"unit":"cup","en":"cooked brown lentils","it":"lenticchie marroni cotte"}]}
 {"line":"3 cups cooked chickpeas","language":"en","parts":[{"quantity":3,"unit":"cup","en":"cooked chickpeas","it":"ceci cotti"}]}
-{"line":"3 cups vegan chicken broth (we used this one)","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}
+{"line":"3 cups vegan chicken broth (we used this one)","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}
 {"line":"3 cups vegetable broth (, reduced sodium (more if needed))","language":"en","parts":[{"quantity":3,"unit":"cup","en":"reduced-sodium vegetable broth","it":"brodo vegetale a ridotto contenuto di sodio"}]}
 {"line":"3 frozen bananas, cut into chunks","language":"en","parts":[{"quantity":3,"en":"frozen bananas","it":"banane congelate","preparationEn":"cut into chunks","preparationIt":"tagliate a pezzi"}]}
 {"line":"3 large cloves of garlic (minced)","language":"en","parts":[{"quantity":3,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}

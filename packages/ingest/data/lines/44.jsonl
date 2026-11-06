@@ -184,7 +184,7 @@
 {"line":"1/4 - 1/2 cup Pecans, (chopped)","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"cup","en":"pecans","it":"noci pecan","preparationEn":"chopped","preparationIt":"tritate"}]}
 {"line":"1/4 cup (50g) cane sugar","language":"en","parts":[{"quantity":50,"unit":"g","en":"cane sugar","it":"zucchero di canna"}]}
 {"line":"1/4 cup Gochujang","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"gochujang","it":"gochujang"}]}
-{"line":"1/4 cup Vegan ranch (or use my basil cream dressing)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan ranch dressing","it":"salsa ranch vegana","alternatives":[{"en":"basil cream dressing","it":"salsa cremosa al basilico"}]}]}
+{"line":"1/4 cup Vegan ranch (or use my basil cream dressing)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan ranch","it":"salsa ranch vegana","alternatives":[{"en":"basil cream dressing","it":"condimento cremoso al basilico"}]}]}
 {"line":"1/4 cup chopped celery (or 2 tbsp onion )","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"celery","it":"sedano","preparationEn":"chopped","preparationIt":"tritato","alternatives":[{"quantity":2,"unit":"tbsp","en":"onion","it":"cipolla"}]}]}
 {"line":"1/4 cup chopped cilantro (or more, to taste)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato","toTaste":true}]}
 {"line":"1/4 cup chopped fresh cilantro, (plus extra for serving)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"for serving","purposeIt":"per servire"}]}
@@ -204,7 +204,7 @@
 {"line":"10 to 12 slices THICK-CUT white sandwich bread ((¾” thick) (see Note 3))","language":"en","parts":[{"quantity":10,"quantityMax":12,"unit":"slice","en":"thick-cut white sandwich bread","it":"pane bianco per tramezzini a fette spesse"}]}
 {"line":"10.8 ounces Mori Nu silken tofu (drained (soft or firm))","language":"en","parts":[{"quantity":10.8,"unit":"oz","en":"Mori-Nu silken tofu","it":"tofu vellutato Mori-Nu","preparationEn":"drained","preparationIt":"scolato"}]}
 {"line":"100 g / 3.5 oz vegan feta (I used homemade feta)","language":"en","parts":[{"quantity":100,"unit":"g","en":"vegan feta","it":"feta vegana"}]}
-{"line":"12 ounces firm silken tofu (shelf-stable vs. fresh is recommended)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"firm silken tofu","it":"tofu vellutato compatto"}]}
+{"line":"12 ounces firm silken tofu (shelf-stable vs. fresh is recommended)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"firm silken tofu","it":"tofu vellutato compatto","preparationEn":"shelf-stable rather than fresh recommended","preparationIt":"preferibilmente a lunga conservazione anziché fresco"}]}
 {"line":"12 ounces macaroni noodles","language":"en","parts":[{"quantity":12,"unit":"oz","en":"macaroni","it":"maccheroni"}]}
 {"line":"12 ounces spaghetti ((GF if preferred))","language":"en","parts":[{"quantity":12,"unit":"oz","en":"spaghetti","it":"spaghetti"}]}
 {"line":"12 to 14 oz (340 to 400g) extra firm tofu, (drained)","language":"en","parts":[{"quantity":340,"quantityMax":400,"unit":"g","en":"extra-firm tofu","it":"tofu extra compatto","preparationEn":"drained","preparationIt":"scolato"}]}
@@ -371,7 +371,7 @@
 {"line":"8 oz seitan (chunks)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"seitan","it":"seitan","preparationEn":"cut into chunks","preparationIt":"tagliato a pezzi"}]}
 {"line":"8 small (soft taco-sized) flour tortillas, (warmed)","language":"en","parts":[{"quantity":8,"en":"small flour tortillas","it":"tortillas piccole di farina","preparationEn":"warmed","preparationIt":"riscaldate"}]}
 {"line":"8-12 leaves romaine or butter lettuce","language":"en","parts":[{"quantity":8,"quantityMax":12,"unit":"leaf","en":"romaine lettuce","it":"lattuga romana","alternatives":[{"en":"butter lettuce","it":"lattuga cappuccio"}]}]}
-{"line":"80 g chunks of young jackfruit ((I used canned jackfruit))","language":"en","parts":[{"quantity":80,"unit":"g","en":"young jackfruit","it":"jackfruit giovane","preparationEn":"cut into chunks","preparationIt":"tagliato a pezzi"}]}
+{"line":"80 g chunks of young jackfruit ((I used canned jackfruit))","language":"en","parts":[{"quantity":80,"unit":"g","en":"young jackfruit","it":"giaca giovane","preparationEn":"cut into chunks","preparationIt":"tagliata a pezzi"}]}
 {"line":"80 ml / 1/3 cup plant milk","language":"en","parts":[{"quantity":80,"unit":"ml","en":"plant milk","it":"latte vegetale"}]}
 {"line":"850 g / 30 oz can sweetened mango pulp (I used Indus)","language":"en","parts":[{"quantity":850,"unit":"g","en":"canned sweetened mango pulp","it":"polpa di mango zuccherata in scatola"}]}
 {"line":"90 ml / 6 tbsp extra virgin olive oil, divided","language":"en","parts":[{"quantity":90,"unit":"ml","en":"extra virgin olive oil","it":"olio extravergine d'oliva","preparationEn":"divided","preparationIt":"diviso"}]}
@@ -407,13 +407,13 @@
 {"line":"dipping sauce (for serving)","language":"en","parts":[{"en":"dipping sauce","it":"salsa di accompagnamento","purposeEn":"for serving","purposeIt":"per servire"}]}
 {"line":"finely chopped fresh basil or dried basil","language":"en","parts":[{"en":"fresh basil","it":"basilico fresco","preparationEn":"finely chopped","preparationIt":"tritato finemente","alternatives":[{"en":"dried basil","it":"basilico essiccato"}]}]}
 {"line":"green onion (to taste)","language":"en","parts":[{"en":"green onion","it":"cipollotto","toTaste":true}]}
-{"line":"one batch of vegan \"fish\" cakes (optional, see notes)","language":"en","parts":[{"quantity":1,"unit":"batch","en":"vegan fish cakes","it":"polpette vegetali di pesce","optional":true}]}
+{"line":"one batch of vegan \"fish\" cakes (optional, see notes)","language":"en","parts":[{"quantity":1,"unit":"batch","en":"vegan fish cakes","it":"polpette vegane gusto pesce","optional":true}]}
 {"line":"pinch flaky salt","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"flaky salt","it":"sale in fiocchi"}]}
 {"line":"red onions, (chopped)","language":"en","parts":[{"en":"red onions","it":"cipolle rosse","preparationEn":"chopped","preparationIt":"tritate"}]}
 {"line":"salt ((to taste; will vary depending on whether you use canned chickpeas))","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true}]}
 {"line":"salt to taste (1/4 tsp or more depends on if the chickpeas were salted)","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true}]}
 {"line":"spices: 1 tsp cumin, 1 tsp smoked paprika, 1 tsp oregano","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"cumin","it":"cumino"},{"quantity":1,"unit":"tsp","en":"smoked paprika","it":"paprika affumicata"},{"quantity":1,"unit":"tsp","en":"oregano","it":"origano"}]}
-{"line":"vegan cream cheese frosting (I used version 2)","language":"en","parts":[{"en":"vegan cream cheese frosting","it":"glassa vegana al formaggio spalmabile"}]}
+{"line":"vegan cream cheese frosting (I used version 2)","language":"en","parts":[{"en":"vegan cream cheese frosting","it":"glassa al formaggio spalmabile vegano"}]}
 {"line":"vegan whipped cream (optional, for topping)","language":"en","parts":[{"en":"vegan whipped cream","it":"panna montata vegetale","purposeEn":"for topping","purposeIt":"per guarnire","optional":true}]}
 {"line":"white sesame seeds, for garnish","language":"en","parts":[{"en":"white sesame seeds","it":"semi di sesamo bianchi","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"¼ cup Tomato Paste","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"tomato paste","it":"concentrato di pomodoro"}]}
@@ -428,7 +428,7 @@
 {"line":"½ cup coconut sugar or brown sugar (100 g)","language":"en","parts":[{"quantity":100,"unit":"g","en":"coconut sugar","it":"zucchero di cocco","alternatives":[{"en":"brown sugar","it":"zucchero di canna"}]}]}
 {"line":"½ cup cornstarch (60g)","language":"en","parts":[{"quantity":60,"unit":"g","en":"cornstarch","it":"amido di mais"}]}
 {"line":"½ cup of fresh lettuce","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh lettuce","it":"lattuga fresca"}]}
-{"line":"½ cup of plain unsweetened plant-based milk","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"plain unsweetened plant-based milk","it":"latte vegetale al naturale senza zuccheri"}]}
+{"line":"½ cup of plain unsweetened plant-based milk","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"plain unsweetened plant-based milk","it":"latte vegetale al naturale senza zucchero"}]}
 {"line":"½ cup unsweetened cocoa powder","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened cocoa powder","it":"cacao amaro in polvere"}]}
 {"line":"½ small red onion, super thinly sliced","language":"en","parts":[{"quantity":0.5,"en":"small red onion","it":"cipolla rossa piccola","preparationEn":"sliced very thinly","preparationIt":"affettata molto sottile"}]}
 {"line":"½ tablespoon dried oregano (2 grams )","language":"en","parts":[{"quantity":2,"unit":"g","en":"dried oregano","it":"origano secco"}]}

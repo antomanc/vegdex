@@ -40,7 +40,7 @@
 {"line":"1 cup raw walnuts (finely chopped)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"raw walnuts","it":"noci crude","preparationEn":"finely chopped","preparationIt":"tritate finemente"}]}
 {"line":"1 cup shredded carrots","language":"en","parts":[{"quantity":1,"unit":"cup","en":"carrots","it":"carote","preparationEn":"shredded","preparationIt":"grattugiate"}]}
 {"line":"1 cup teriyaki sauce","language":"en","parts":[{"quantity":1,"unit":"cup","en":"teriyaki sauce","it":"salsa teriyaki"}]}
-{"line":"1 cup vegan vanilla yogurt (soy- or coconut-based)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan vanilla yogurt","it":"yogurt vegetale alla vaniglia","alternatives":[{"en":"soy vanilla yogurt","it":"yogurt di soia alla vaniglia"},{"en":"coconut vanilla yogurt","it":"yogurt di cocco alla vaniglia"}]}]}
+{"line":"1 cup vegan vanilla yogurt (soy- or coconut-based)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan vanilla yogurt","it":"yogurt vegetale alla vaniglia","preparationEn":"soy- or coconut-based","preparationIt":"a base di soia o cocco"}]}
 {"line":"1 cup water","language":"en","parts":[{"quantity":1,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"1 heaping tbsp garlic ((crushed))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"garlic","it":"aglio","preparationEn":"crushed","preparationIt":"schiacciato"}]}
 {"line":"1 heaping teaspoon dried oregano","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"dried oregano","it":"origano secco"}]}
@@ -333,7 +333,7 @@
 {"line":"3/4 tsp rosemary","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"rosemary","it":"rosmarino"}]}
 {"line":"4 Tbsp brown sugar (or coconut sugar)","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"brown sugar","it":"zucchero di canna","alternatives":[{"en":"coconut sugar","it":"zucchero di cocco"}]}]}
 {"line":"4 carrots","language":"en","parts":[{"quantity":4,"en":"carrots","it":"carote"}]}
-{"line":"4 cups imitation “chicken” broth ((or sub vegetable broth))","language":"en","parts":[{"quantity":4,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"4 cups imitation “chicken” broth ((or sub vegetable broth))","language":"en","parts":[{"quantity":4,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"4 cups large carrots, (chopped (about 5 large carrots))","language":"en","parts":[{"quantity":4,"unit":"cup","en":"large carrots","it":"carote grandi","preparationEn":"chopped","preparationIt":"tagliate a pezzi"}]}
 {"line":"4 dried shiitake mushrooms (18g)","language":"en","parts":[{"quantity":18,"unit":"g","en":"dried shiitake mushrooms","it":"funghi shiitake secchi"}]}
 {"line":"4 fat garlic cloves (21g), (chopped)","language":"en","parts":[{"quantity":21,"unit":"g","en":"garlic","it":"aglio","preparationEn":"chopped","preparationIt":"tritato"}]}
@@ -422,7 +422,7 @@
 {"line":"¼ cup (56g) extra virgin olive oil ((see Note 3))","language":"en","parts":[{"quantity":56,"unit":"g","en":"extra virgin olive oil","it":"olio extravergine d'oliva"}]}
 {"line":"¼ cup dried unsweetened cherries","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"dried unsweetened cherries","it":"ciliegie essiccate senza zucchero"}]}
 {"line":"¼ cup of sliced shallot ((onion will work))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"shallot","it":"scalogno","preparationEn":"sliced","preparationIt":"affettato","alternatives":[{"en":"onion","it":"cipolla"}]}]}
-{"line":"¼ cup vegan yogurt ((my homemade yogurt is not nut-free. If nut-free use any store bought, unsweetened, nut-free yogurt))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan yogurt","it":"yogurt vegetale"}]}
+{"line":"¼ cup vegan yogurt ((my homemade yogurt is not nut-free. If nut-free use any store bought, unsweetened, nut-free yogurt))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan yogurt","it":"yogurt vegetale","alternatives":[{"en":"store-bought, unsweetened, nut-free yogurt","it":"yogurt vegetale acquistato, senza zucchero e senza frutta a guscio"}]}]}
 {"line":"½ cucumber (sliced (150 grams))","language":"en","parts":[{"quantity":150,"unit":"g","en":"cucumber","it":"cetriolo","preparationEn":"sliced","preparationIt":"affettato"}]}
 {"line":"½ cup / 120 ml water","language":"en","parts":[{"quantity":120,"unit":"ml","en":"water","it":"acqua"}]}
 {"line":"½ cup full fat coconut milk (unsweetened )","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened full-fat coconut milk","it":"latte di cocco intero non zuccherato"}]}

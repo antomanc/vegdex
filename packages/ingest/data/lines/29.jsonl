@@ -91,7 +91,7 @@
 {"line":"1 tsp flour (use rice flour or 2 tsp tapioca starch for gluten-free, or use both (see notes))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"flour","it":"farina","alternatives":[{"en":"rice flour","it":"farina di riso"},{"quantity":2,"unit":"tsp","en":"tapioca starch","it":"amido di tapioca"}]}]}
 {"line":"1 tsp rosemary ((minced))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"rosemary","it":"rosmarino","preparationEn":"minced","preparationIt":"tritato"}]}
 {"line":"1 ½ cups cooked chickpeas (240g)","language":"en","parts":[{"quantity":240,"unit":"g","en":"chickpeas","it":"ceci","preparationEn":"cooked","preparationIt":"cotti"}]}
-{"line":"1 ½ cups vegan beef-flavored vegetable broth","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan beef-flavored vegetable broth","it":"brodo vegetale vegano al gusto di manzo"}]}
+{"line":"1 ½ cups vegan beef-flavored vegetable broth","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan beef-flavored vegetable broth","it":"brodo vegetale vegano gusto manzo"}]}
 {"line":"1 ½ to 2 teaspoons Kashmiri chili powder","language":"en","parts":[{"quantity":1.5,"quantityMax":2,"unit":"tsp","en":"Kashmiri chili powder","it":"peperoncino del Kashmir in polvere"}]}
 {"line":"1 – 2 garlic cloves or 1 teaspoon garlic powder","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"clove","en":"garlic","it":"aglio","alternatives":[{"quantity":1,"unit":"tsp","en":"garlic powder","it":"aglio in polvere"}]}]}
 {"line":"1-2 cups water, as needed (see instructions)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"cup","en":"water","it":"acqua"}]}
@@ -114,7 +114,7 @@
 {"line":"1/2 green chili, Serrano or Indian, (thinly sliced)","language":"en","parts":[{"quantity":0.5,"en":"green chili, Serrano or Indian","it":"peperoncino verde Serrano o indiano","preparationEn":"thinly sliced","preparationIt":"tagliato a fettine sottili"}]}
 {"line":"1/2 inch ginger","language":"en","parts":[{"quantity":0.5,"unit":"inch","en":"ginger","it":"zenzero"}]}
 {"line":"1/2 jalapeno, (seeds and ribs removed, minced)","language":"en","parts":[{"quantity":0.5,"en":"jalapeño","it":"peperoncino jalapeño","preparationEn":"seeds and ribs removed, minced","preparationIt":"privato dei semi e delle nervature e tritato finemente"}]}
-{"line":"1/2 recipe chorizo vegan burrito mix","language":"en","parts":[{"quantity":0.5,"unit":"recipe","en":"vegan chorizo burrito mix","it":"ripieno vegano al chorizo per burrito"}]}
+{"line":"1/2 recipe chorizo vegan burrito mix","language":"en","parts":[{"quantity":0.5,"unit":"recipe","en":"chorizo vegan burrito mix","it":"ripieno vegano per burrito al chorizo vegetale"}]}
 {"line":"1/2 recipe tofu scramble (or store bought)","language":"en","parts":[{"quantity":0.5,"unit":"recipe","en":"tofu scramble","it":"tofu strapazzato","alternatives":[{"en":"store-bought tofu scramble","it":"tofu strapazzato pronto"}]}]}
 {"line":"1/2 tbsp cumin","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"cumin","it":"cumino"}]}
 {"line":"1/2 teaspoon Caraway seeds ((shahi jeera))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"caraway seeds","it":"semi di cumino dei prati"}]}
@@ -132,7 +132,7 @@
 {"line":"1/3 cup Mini Vegan Chocolate Chips, divided","language":"en","parts":[{"quantity":0.333,"unit":"cup","en":"mini vegan chocolate chips","it":"gocce di cioccolato vegano mini","preparationEn":"divided","preparationIt":"divise"}]}
 {"line":"1/3 cup granulated white sugar","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"granulated white sugar","it":"zucchero bianco semolato"}]}
 {"line":"1/3 cup low sodium soy sauce ((see post above for soy free alternatives))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"low-sodium soy sauce","it":"salsa di soia a basso contenuto di sodio"}]}
-{"line":"1/3 cup non dairy milk (such as almond or soy milk)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"nondairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"}]}]}
+{"line":"1/3 cup non dairy milk (such as almond or soy milk)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"}]}]}
 {"line":"1/3 cup pomegranate seeds","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"pomegranate seeds","it":"chicchi di melagrana"}]}
 {"line":"1/3 cup pumpkin puree ( (pure pumpkin puree, not pumpkin pie filling. Use a well filled 1/3 cup))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"pure pumpkin puree","it":"purea di zucca pura"}]}
 {"line":"1/3 cup vegan mayonnaise","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"vegan mayonnaise","it":"maionese vegana"}]}
@@ -198,7 +198,7 @@
 {"line":"2 cups frozen or fresh berries (I used frozen mixed berries (raspberries, blackberries, cherries, and strawberries))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"frozen berries","it":"frutti di bosco surgelati","alternatives":[{"en":"fresh berries","it":"frutti di bosco freschi"}]}]}
 {"line":"2 cups graham cracker crumbs (honey free)*","language":"en","parts":[{"quantity":2,"unit":"cup","en":"honey-free graham cracker crumbs","it":"biscotti graham senza miele sbriciolati"}]}
 {"line":"2 cups whole wheat flour ((preferably durum wheat flour or atta flour))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"whole wheat flour","it":"farina integrale","alternatives":[{"en":"durum wheat flour","it":"farina di grano duro"},{"en":"atta flour","it":"farina atta"}]}]}
-{"line":"2 heaping Tbsp non dairy yogurt","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"dairy-free yogurt","it":"yogurt vegetale"}]}
+{"line":"2 heaping Tbsp non dairy yogurt","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"non-dairy yogurt","it":"yogurt vegetale","preparationEn":"heaping","preparationIt":"cucchiai colmi"}]}
 {"line":"2 inch fresh ginger","language":"en","parts":[{"en":"fresh ginger","it":"zenzero fresco"}]}
 {"line":"2 large shallots ((thinly slied))","language":"en","parts":[{"quantity":2,"en":"large shallots","it":"scalogni grandi","preparationEn":"thinly sliced","preparationIt":"affettati sottilmente"}]}
 {"line":"2 limes, cut into wedges","language":"en","parts":[{"quantity":2,"en":"limes","it":"lime","preparationEn":"cut into wedges","preparationIt":"tagliati a spicchi"}]}
@@ -345,12 +345,12 @@
 {"line":"600 g / 21 oz RIPE strawberries, de-stemmed (weigh after de-stemming)","language":"en","parts":[{"quantity":600,"unit":"g","en":"ripe strawberries","it":"fragole mature","preparationEn":"de-stemmed, weighed after de-stemming","preparationIt":"private del picciolo, pesate dopo averlo rimosso"}]}
 {"line":"70 g rolled oats","language":"en","parts":[{"quantity":70,"unit":"g","en":"rolled oats","it":"fiocchi d'avena"}]}
 {"line":"78 g coconut oil","language":"en","parts":[{"quantity":78,"unit":"g","en":"coconut oil","it":"olio di cocco"}]}
-{"line":"8 cups vegan beef broth (or vegetable broth)","language":"en","parts":[{"quantity":8,"unit":"cup","en":"vegan beef broth","it":"brodo vegetale gusto manzo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"8 cups vegan beef broth (or vegetable broth)","language":"en","parts":[{"quantity":8,"unit":"cup","en":"vegan beef broth","it":"brodo vegano gusto manzo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"8 ounces pretzel rods","language":"en","parts":[{"quantity":8,"unit":"oz","en":"pretzel rods","it":"bastoncini di pretzel"}]}
 {"line":"8 sprigs of thyme, leaves picked","language":"en","parts":[{"quantity":8,"unit":"sprig","en":"thyme","it":"timo","preparationEn":"leaves picked","preparationIt":"foglie staccate dai rametti"}]}
 {"line":"9 small soft flour tortilla","language":"en","parts":[{"quantity":9,"en":"small soft flour tortillas","it":"tortillas morbide di farina piccole"}]}
 {"line":"Additional toppings of choice, (such as shredded cabbage, diced avocado, vegan sour cream, vegan shredded cheese, hot sauce, or salsa)","language":"en","parts":[{"en":"toppings of choice","it":"guarnizioni a scelta","alternatives":[{"en":"shredded cabbage","it":"cavolo tagliato a striscioline"},{"en":"diced avocado","it":"avocado a cubetti"},{"en":"vegan sour cream","it":"panna acida vegetale"},{"en":"vegan shredded cheese","it":"formaggio vegetale grattugiato"},{"en":"hot sauce","it":"salsa piccante"},{"en":"salsa","it":"salsa messicana"}]}]}
-{"line":"Almond Parmesan or shaved or grated Violife Parm","language":"en","parts":[{"en":"almond parmesan","it":"parmigiano di mandorle","alternatives":[{"en":"Violife vegan parmesan","it":"parmigiano vegano Violife"}]}]}
+{"line":"Almond Parmesan or shaved or grated Violife Parm","language":"en","parts":[{"en":"almond parmesan","it":"parmigiano di mandorle","alternatives":[{"en":"Violife vegan parmesan","it":"parmigiano vegetale Violife"}]}]}
 {"line":"Chili-Lemongrass Glazed Tofu ((see 4th recipe card))","language":"en","parts":[{"en":"chili-lemongrass glazed tofu","it":"tofu glassato al peperoncino e citronella"}]}
 {"line":"Couscous (prepared according to package – about 2 cups cooked / 350g)","language":"en","parts":[{"en":"couscous","it":"couscous","preparationEn":"prepared according to package instructions","preparationIt":"preparato secondo le istruzioni sulla confezione"}]}
 {"line":"Dash of Vanilla Extract","language":"en","parts":[{"quantity":1,"unit":"dash","en":"vanilla extract","it":"estratto di vaniglia"}]}
@@ -388,7 +388,7 @@
 {"line":"drizzle pure maple syrup","language":"en","parts":[{"unit":"drizzle","en":"pure maple syrup","it":"sciroppo d'acero puro"}]}
 {"line":"flaked salt as needed","language":"en","parts":[{"en":"flaked salt","it":"sale in fiocchi","toTaste":true}]}
 {"line":"fresh Cilantro (for garnish)","language":"en","parts":[{"en":"fresh cilantro","it":"coriandolo fresco","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
-{"line":"fresh ground pepper (, to taste)","language":"en","parts":[{"en":"freshly ground pepper","it":"pepe macinato fresco","toTaste":true}]}
+{"line":"fresh ground pepper (, to taste)","language":"en","parts":[{"en":"fresh ground pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"freshly ground black pepper, about ¼ tsp","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"black pepper","it":"pepe nero","preparationEn":"freshly ground","preparationIt":"macinato al momento"}]}
 {"line":"kimchi","language":"en","parts":[{"en":"kimchi","it":"kimchi"}]}
 {"line":"mushrooms or zucchini.","language":"en","parts":[{"en":"mushrooms","it":"funghi","alternatives":[{"en":"zucchini","it":"zucchine"}]}]}

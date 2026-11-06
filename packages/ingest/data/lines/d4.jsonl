@@ -163,7 +163,7 @@
 {"line":"1/2 cup peanut butter (almond butter works too)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"peanut butter","it":"burro di arachidi","alternatives":[{"en":"almond butter","it":"burro di mandorle"}]}]}
 {"line":"1/2 cup salted vegan butter (softened to room temperature (1 stick))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"salted vegan butter","it":"burro vegetale salato","preparationEn":"softened to room temperature","preparationIt":"ammorbidito a temperatura ambiente"}]}
 {"line":"1/2 cup sweetened shredded coconut (optional)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"sweetened shredded coconut","it":"cocco grattugiato zuccherato","optional":true}]}
-{"line":"1/2 cup unsweetened yogurt ((I used dairy-free))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened vegan yogurt","it":"yogurt vegetale senza zucchero"}]}
+{"line":"1/2 cup unsweetened yogurt ((I used dairy-free))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened dairy-free yogurt","it":"yogurt vegetale senza zucchero"}]}
 {"line":"1/2 cup vegan parmesan cheese ((or use any vegan parm you like))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan Parmesan cheese","it":"parmigiano vegano"}]}
 {"line":"1/2 cup walnuts ((see notes))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"walnuts","it":"noci"}]}
 {"line":"1/2 cup white wine ((vegan) or more broth)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan white wine","it":"vino bianco vegano","alternatives":[{"en":"broth","it":"brodo"}]}]}
@@ -198,7 +198,7 @@
 {"line":"1/4 cup fresh basil","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh basil","it":"basilico fresco"}]}
 {"line":"1/4 cup of fresh blueberries (plus more for garnish)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh blueberries","it":"mirtilli freschi","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"1/4 cup roughly chopped onion","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"onion","it":"cipolla","preparationEn":"roughly chopped","preparationIt":"tritata grossolanamente"}]}
-{"line":"1/4 recipe tempeh bacon (or vegan bacon of choice), crumbled small or finely chopped","language":"en","parts":[{"quantity":0.25,"unit":"recipe","en":"tempeh bacon","it":"bacon di tempeh","preparationEn":"crumbled small or finely chopped","preparationIt":"sbriciolato finemente o tritato finemente","alternatives":[{"en":"vegan bacon of choice","it":"bacon vegano a scelta"}]}]}
+{"line":"1/4 recipe tempeh bacon (or vegan bacon of choice), crumbled small or finely chopped","language":"en","parts":[{"quantity":0.25,"unit":"recipe","en":"tempeh bacon","it":"bacon di tempeh","preparationEn":"crumbled small or finely chopped","preparationIt":"sbriciolata finemente o tritata finemente","alternatives":[{"en":"vegan bacon of choice","it":"bacon vegano a scelta"}]}]}
 {"line":"1/4 small red onion (thinly sliced)","language":"en","parts":[{"quantity":0.25,"en":"small red onion","it":"cipolla rossa piccola","preparationEn":"thinly sliced","preparationIt":"affettata sottilmente"}]}
 {"line":"1/4 teaspoon crushed red pepper flakes ((optional))","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"crushed red pepper flakes","it":"peperoncino rosso in fiocchi","optional":true}]}
 {"line":"1/4 teaspoon finely ground espresso powder","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"finely ground espresso powder","it":"caffè espresso in polvere finemente macinato"}]}
@@ -333,7 +333,7 @@
 {"line":"3/4 tsp salt ((plus more to taste))","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
 {"line":"35 g / ¼ cup icing sugar, adjust to taste","language":"en","parts":[{"quantity":35,"unit":"g","en":"icing sugar","it":"zucchero a velo","toTaste":true}]}
 {"line":"35 oz waxy potatoes","language":"en","parts":[{"quantity":35,"unit":"oz","en":"waxy potatoes","it":"patate a pasta soda"}]}
-{"line":"350 ml vegan stock/broth (use “beef” flavoured variety if possible)","language":"en","parts":[{"quantity":350,"unit":"ml","en":"vegan stock","it":"brodo vegetale","alternatives":[{"en":"vegan beef-flavored stock","it":"brodo vegetale al gusto di manzo"}]}]}
+{"line":"350 ml vegan stock/broth (use “beef” flavoured variety if possible)","language":"en","parts":[{"quantity":350,"unit":"ml","en":"vegan stock","it":"brodo vegetale","alternatives":[{"en":"vegan beef-flavored stock","it":"brodo vegano gusto manzo"}]}]}
 {"line":"4 beets","language":"en","parts":[{"quantity":4,"en":"beets","it":"barbabietole"}]}
 {"line":"4 bell peppers, diced","language":"en","parts":[{"quantity":4,"en":"bell peppers","it":"peperoni","preparationEn":"diced","preparationIt":"tagliati a dadini"}]}
 {"line":"4 garlic cloves, peeled and crushed","language":"en","parts":[{"quantity":4,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"peeled and crushed","preparationIt":"sbucciato e schiacciato"}]}
@@ -426,11 +426,11 @@
 {"line":"¼ cup walnuts (or other nuts)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"walnuts","it":"noci","alternatives":[{"en":"other nuts","it":"altra frutta secca"}]}]}
 {"line":"¼ teaspoon of vanilla extract","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia"}]}
 {"line":"¼ teaspoon salt (1g)","language":"en","parts":[{"quantity":1,"unit":"g","en":"salt","it":"sale"}]}
-{"line":"¼ teaspoon sea salt (only if using unsalted butter)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"sea salt","it":"sale marino"}]}
+{"line":"¼ teaspoon sea salt (only if using unsalted butter)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"sea salt","it":"sale marino","preparationEn":"only if using unsalted butter","preparationIt":"solo se si usa burro non salato"}]}
 {"line":"¼-½ tsp mustard powder","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"mustard powder","it":"senape in polvere"}]}
 {"line":"½ Tbsp smoked paprika powder","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"smoked paprika powder","it":"paprika affumicata in polvere"}]}
 {"line":"½ cucumber","language":"en","parts":[{"quantity":0.5,"en":"cucumber","it":"cetriolo"}]}
-{"line":"½ cup chickpea flour ((besan, finely ground Indian chickpea flour, is preferred).)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"chickpea flour","it":"farina di ceci"}]}
+{"line":"½ cup chickpea flour ((besan, finely ground Indian chickpea flour, is preferred).)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"chickpea flour","it":"farina di ceci","preparationEn":"preferably finely ground Indian chickpea flour (besan)","preparationIt":"preferibilmente farina indiana di ceci macinata finemente"}]}
 {"line":"½ cup light oil (such as canola or vegetable oil)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"light oil","it":"olio dal sapore delicato","alternatives":[{"en":"canola oil","it":"olio di colza"},{"en":"vegetable oil","it":"olio vegetale"}]}]}
 {"line":"½ cup oat flour","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"oat flour","it":"farina d'avena"}]}
 {"line":"½ cup sprouts (I used mung bean)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"sprouts","it":"germogli"}]}

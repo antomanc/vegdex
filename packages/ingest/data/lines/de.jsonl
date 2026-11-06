@@ -176,7 +176,7 @@
 {"line":"1/4 teaspoon red pepper flakes ((optional))","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi","optional":true}]}
 {"line":"1/4 teaspoon turmeric, optional for color","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"turmeric","it":"curcuma","optional":true}]}
 {"line":"1/4 to 1/2 tsp black pepper","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"black pepper","it":"pepe nero"}]}
-{"line":"1/4 tsp salt (can increase to 1/2 tsp if using unsalted butter)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale"}]}
+{"line":"1/4 tsp salt (can increase to 1/2 tsp if using unsalted butter)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale","preparationEn":"increase to 1/2 tsp if using unsalted butter","preparationIt":"aumentare a 1/2 cucchiaino se si usa burro non salato"}]}
 {"line":"1/4-1/2 teaspoon pink Himalayan salt, or to taste","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"pink Himalayan salt","it":"sale rosa dell'Himalaya","toTaste":true}]}
 {"line":"1/8 to 1/2 cup plant-based milk ((amount depends on consistency / read instructions))","language":"en","parts":[{"quantity":0.125,"quantityMax":0.5,"unit":"cup","en":"plant-based milk","it":"latte vegetale"}]}
 {"line":"10 cloves garlic ((smashed and chopped))","language":"en","parts":[{"quantity":10,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"smashed and chopped","preparationIt":"schiacciato e tritato"}]}
@@ -216,11 +216,12 @@
 {"line":"2 cup dry red lentils","language":"en","parts":[{"quantity":2,"unit":"cup","en":"dry red lentils","it":"lenticchie rosse secche"}]}
 {"line":"2 cups (240g) regular all-purpose flour","language":"en","parts":[{"quantity":240,"unit":"g","en":"regular all-purpose flour","it":"farina 00"}]}
 {"line":"2 cups Frozen Pineapple","language":"en","parts":[{"quantity":2,"unit":"cup","en":"frozen pineapple","it":"ananas surgelato"}]}
-{"line":"2 cups almond flour ((ground almonds))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"almond flour","it":"farina di mandorle"}]}
+{"line":"2 cups almond flour ((ground almonds))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"almond flour","it":"farina di mandorle","preparationEn":"ground almonds","preparationIt":"mandorle macinate"}]}
 {"line":"2 cups chopped green cabbage","language":"en","parts":[{"quantity":2,"unit":"cup","en":"green cabbage","it":"cavolo cappuccio verde","preparationEn":"chopped","preparationIt":"tagliato"}]}
 {"line":"2 cups flour (white, whole wheat or gluten-free mixes all work well.)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"flour","it":"farina","alternatives":[{"en":"white flour","it":"farina bianca"},{"en":"whole wheat flour","it":"farina integrale"},{"en":"gluten-free flour mix","it":"miscela di farine senza glutine"}]}]}
 {"line":"2 cups sugar","language":"en","parts":[{"quantity":2,"unit":"cup","en":"sugar","it":"zucchero"}]}
 {"line":"2 cups unsweetened almond milk ((454g))","language":"en","parts":[{"quantity":454,"unit":"g","en":"unsweetened almond milk","it":"latte di mandorla senza zucchero"}]}
+{"line":"2 cups water, (plus up to an additional cup if needed)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"water","it":"acqua","preparationEn":"add up to 1 additional cup if needed","preparationIt":"aggiungere fino a un'altra tazza se necessario"}]}
 {"line":"2 flax eggs ((2 tbsp flaxmeal + 6 tbsp water, whisked together))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"ground flaxseed","it":"semi di lino macinati","preparationEn":"whisked together with water","preparationIt":"mescolati con acqua"},{"quantity":6,"unit":"tbsp","en":"water","it":"acqua","preparationEn":"whisked together with ground flaxseed","preparationIt":"mescolata con semi di lino macinati"}]}
 {"line":"2 garlic cloves, (minced (more to taste))","language":"en","parts":[{"quantity":2,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato","toTaste":true}]}
 {"line":"2 heaped tbsp finely chopped ginger","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"ginger","it":"zenzero","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
@@ -279,7 +280,7 @@
 {"line":"3 cloves garlic, finely minced or grated","language":"en","parts":[{"quantity":3,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"finely minced or grated","preparationIt":"tritato finemente o grattugiato"}]}
 {"line":"3 cup cooked black beans","language":"en","parts":[{"quantity":3,"unit":"cup","en":"cooked black beans","it":"fagioli neri cotti"}]}
 {"line":"3 cups (540g) cooked kidney beans, or 2 15 oz cans, drained & rinsed","language":"en","parts":[{"quantity":540,"unit":"g","en":"cooked kidney beans","it":"fagioli rossi cotti","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati","alternatives":[{"quantity":30,"unit":"oz","en":"canned kidney beans","it":"fagioli rossi in scatola"}]}]}
-{"line":"3 cups corn kernels (fresh, frozen, or canned (drained and rinsed if canned))","language":"en","parts":[{"quantity":3,"unit":"cup","en":"corn kernels","it":"chicchi di mais","preparationEn":"drained and rinsed if canned","preparationIt":"scolati e sciacquati se in scatola"}]}
+{"line":"3 cups corn kernels (fresh, frozen, or canned (drained and rinsed if canned))","language":"en","parts":[{"quantity":3,"unit":"cup","en":"corn kernels","it":"chicchi di mais","preparationEn":"fresh, frozen, or canned; drained and rinsed if canned","preparationIt":"freschi, surgelati o in scatola; scolati e sciacquati se in scatola"}]}
 {"line":"3 cups peeled and diced apples ((about 2 to 3 apples))","language":"en","parts":[{"quantity":3,"unit":"cup","en":"apples","it":"mele","preparationEn":"peeled and diced","preparationIt":"sbucciate e tagliate a dadini"}]}
 {"line":"3 medium sweet potato","language":"en","parts":[{"quantity":3,"en":"medium sweet potatoes","it":"patate dolci medie"}]}
 {"line":"3 scallions, thinly sliced (green and white parts)","language":"en","parts":[{"quantity":3,"en":"scallions","it":"cipollotti","preparationEn":"green and white parts thinly sliced","preparationIt":"parte verde e bianca tagliate a fettine sottili"}]}
@@ -291,7 +292,7 @@
 {"line":"3 whole cloves","language":"en","parts":[{"quantity":3,"en":"whole cloves","it":"chiodi di garofano interi"}]}
 {"line":"3-5 cloves garlic","language":"en","parts":[{"quantity":3,"quantityMax":5,"unit":"clove","en":"garlic","it":"aglio"}]}
 {"line":"3/4 cup + 2 tbsp warm water","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"warm water","it":"acqua tiepida","plus":{"quantity":2,"unit":"tbsp"}}]}
-{"line":"3/4 cup non-dairy chocolate chunks or chips","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"dairy-free chocolate chunks","it":"pezzi di cioccolato senza latte","alternatives":[{"en":"dairy-free chocolate chips","it":"gocce di cioccolato senza latte"}]}]}
+{"line":"3/4 cup non-dairy chocolate chunks or chips","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"non-dairy chocolate chunks","it":"pezzi di cioccolato senza latte","alternatives":[{"en":"non-dairy chocolate chips","it":"gocce di cioccolato senza latte"}]}]}
 {"line":"3/4 cup non-dairy milk (divided)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"3/4 cup plus 2 tablespoons flour (I use all-purpose. You can also use oat flour to make it gluten-free.)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"flour","it":"farina","plus":{"quantity":2,"unit":"tbsp"},"alternatives":[{"en":"oat flour","it":"farina d'avena"}]}]}
 {"line":"3/4 cup vegan cream cheese (homemade or store-bought)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan cream cheese","it":"formaggio spalmabile vegetale"}]}

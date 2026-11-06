@@ -222,14 +222,14 @@
 {"line":"2 cups Bob’s Red Mill Unbleached White All Purpose Flour ((or Bob's Red Mill Gluten Free 1-to-1 Baking Flour for gluten free))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"Bob’s Red Mill unbleached white all-purpose flour","it":"farina bianca multiuso non sbiancata Bob’s Red Mill","alternatives":[{"en":"Bob’s Red Mill gluten-free 1-to-1 baking flour","it":"farina senza glutine 1-to-1 Bob’s Red Mill"}]}]}
 {"line":"2 cups Vegetable Broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"2 cups dried split red lentils","language":"en","parts":[{"quantity":2,"unit":"cup","en":"dried split red lentils","it":"lenticchie rosse decorticate secche"}]}
-{"line":"2 cups low-sodium vegan chicken broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"low-sodium vegan chicken broth","it":"brodo vegetale gusto pollo a basso contenuto di sodio"}]}
+{"line":"2 cups low-sodium vegan chicken broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"low-sodium vegan chicken broth","it":"brodo vegano gusto pollo a basso contenuto di sodio"}]}
 {"line":"2 cups mushrooms chopped","language":"en","parts":[{"quantity":2,"unit":"cup","en":"mushrooms","it":"funghi","preparationEn":"chopped","preparationIt":"tagliati a pezzi"}]}
 {"line":"2 cups of coconut water","language":"en","parts":[{"quantity":2,"unit":"cup","en":"coconut water","it":"acqua di cocco"}]}
 {"line":"2 cups pasta water ((the water you cook your pasta in))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"pasta cooking water","it":"acqua di cottura della pasta"}]}
 {"line":"2 cups shredded brussels sprouts","language":"en","parts":[{"quantity":2,"unit":"cup","en":"brussels sprouts","it":"cavoletti di Bruxelles","preparationEn":"shredded","preparationIt":"tagliati a striscioline"}]}
-{"line":"2 cups sprouted mung beans ((from ½ cup dried mung beans))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"sprouted mung beans","it":"fagioli mung germogliati"}]}
+{"line":"2 cups sprouted mung beans ((from ½ cup dried mung beans))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"sprouted mung beans","it":"fagioli mung germogliati","preparationEn":"from 1/2 cup dried mung beans","preparationIt":"da 1/2 tazza di fagioli mung secchi"}]}
 {"line":"2 cups vegetable broth ((*see note))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
-{"line":"2 flax eggs (or 2 vegan egg substitutes)","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di lino","alternatives":[{"quantity":2,"en":"vegan egg substitutes","it":"sostituti vegani delle uova"}]}]}
+{"line":"2 flax eggs (or 2 vegan egg substitutes)","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di semi di lino","alternatives":[{"quantity":2,"en":"vegan egg substitutes","it":"sostituti vegani dell'uovo"}]}]}
 {"line":"2 large frozen bananas (pref. overripe)","language":"en","parts":[{"quantity":2,"en":"large frozen bananas","it":"banane grandi congelate"}]}
 {"line":"2 large leeks, (washed, trimmed and diced (light green and white parts only)**)","language":"en","parts":[{"quantity":2,"en":"large leeks","it":"porri grandi","preparationEn":"washed, trimmed and diced, light green and white parts only","preparationIt":"lavati, mondati e tagliati a cubetti, solo la parte bianca e verde chiaro"}]}
 {"line":"2 medium onion","language":"en","parts":[{"quantity":2,"en":"medium onions","it":"cipolle medie"}]}
@@ -277,6 +277,7 @@
 {"line":"2-4 tablespoons pecan halves","language":"en","parts":[{"quantity":2,"quantityMax":4,"unit":"tbsp","en":"pecan halves","it":"noci pecan a metà"}]}
 {"line":"2/3 cup Raw Almonds","language":"en","parts":[{"quantity":0.6667,"unit":"cup","en":"raw almonds","it":"mandorle crude"}]}
 {"line":"20 dates / 170 g / 6 oz pitted and soaked in boiling water","language":"en","parts":[{"quantity":170,"unit":"g","en":"dates","it":"datteri","preparationEn":"pitted and soaked in boiling water","preparationIt":"snocciolati e ammollati in acqua bollente"}]}
+{"line":"20 g / 0.7 oz basil, more to garnish","language":"en","parts":[{"quantity":20,"unit":"g","en":"basil","it":"basilico","purposeEn":"plus more for garnish","purposeIt":"più altro per guarnire"}]}
 {"line":"20 ounces cubed butternut squash (567 grams)","language":"en","parts":[{"quantity":567,"unit":"g","en":"butternut squash","it":"zucca butternut","preparationEn":"cubed","preparationIt":"tagliata a cubetti"}]}
 {"line":"200 g / 7 oz dates, pitted","language":"en","parts":[{"quantity":200,"unit":"g","en":"dates","it":"datteri","preparationEn":"pitted","preparationIt":"denocciolati"}]}
 {"line":"200 g of all-purpose flour","language":"en","parts":[{"quantity":200,"unit":"g","en":"all-purpose flour","it":"farina 00"}]}
@@ -309,7 +310,7 @@
 {"line":"3 – 4 tablespoons apple cider vinegar","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"tbsp","en":"apple cider vinegar","it":"aceto di mele"}]}
 {"line":"3-4 cups bread flour","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"cup","en":"bread flour","it":"farina per pane"}]}
 {"line":"3-4 cups vegetable stock","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"cup","en":"vegetable stock","it":"brodo vegetale"}]}
-{"line":"3.5 ounces frozen vegan “beef” crumbles*","language":"en","parts":[{"quantity":3.5,"unit":"oz","en":"frozen vegan beef crumbles","it":"macinato vegetale di manzo surgelato"}]}
+{"line":"3.5 ounces frozen vegan “beef” crumbles*","language":"en","parts":[{"quantity":3.5,"unit":"oz","en":"frozen vegan beef crumbles","it":"macinato vegetale gusto manzo surgelato"}]}
 {"line":"3/4 cup (75 g) powdered sugar","language":"en","parts":[{"quantity":75,"unit":"g","en":"powdered sugar","it":"zucchero a velo"}]}
 {"line":"3/4 cup (84g) walnuts or pecans, chopped into small pieces","language":"en","parts":[{"quantity":84,"unit":"g","en":"walnuts","it":"noci","preparationEn":"chopped into small pieces","preparationIt":"tritate a pezzetti","alternatives":[{"en":"pecans","it":"noci pecan"}]}]}
 {"line":"3/4 cup almond meal","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"almond meal","it":"farina di mandorle"}]}
@@ -380,7 +381,7 @@
 {"line":"Pinch black pepper, (or to taste)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"black pepper","it":"pepe nero","toTaste":true}]}
 {"line":"Potatoes","language":"en","parts":[{"en":"potatoes","it":"patate"}]}
 {"line":"Quick-Pickled Red Onions","language":"en","parts":[{"en":"quick-pickled red onions","it":"cipolle rosse in agrodolce rapido"}]}
-{"line":"Salt + fresh-cracked pepper","language":"en","parts":[{"en":"salt","it":"sale"},{"en":"black pepper","it":"pepe nero","preparationEn":"freshly cracked","preparationIt":"macinato fresco"}]}
+{"line":"Salt + fresh-cracked pepper","language":"en","parts":[{"en":"salt","it":"sale"},{"en":"fresh-cracked pepper","it":"pepe macinato fresco"}]}
 {"line":"Salt and black pepper (, to taste)","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"black pepper","it":"pepe nero","toTaste":true}]}
 {"line":"Salt and black pepper, (to taste)","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"black pepper","it":"pepe nero","toTaste":true}]}
 {"line":"Salt and pepper to taste, (start with 1/8 tsp each)","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"pepper","it":"pepe","toTaste":true}]}

@@ -162,7 +162,7 @@
 {"line":"1/4 cup vegan whipped cream (optional, as topping)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan whipped cream","it":"panna montata vegetale","purposeEn":"for topping","purposeIt":"per guarnire","optional":true}]}
 {"line":"1/4 of a medium green cabbage (finely shredded (about 3 cups))","language":"en","parts":[{"quantity":0.25,"en":"medium green cabbage","it":"cavolo cappuccio verde medio","preparationEn":"finely shredded","preparationIt":"tagliato finemente"}]}
 {"line":"1/4 teaspoon cumin powder or coriander","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground cumin","it":"cumino macinato","alternatives":[{"en":"ground coriander","it":"coriandolo macinato"}]}]}
-{"line":"1/4 teaspoon salt (1/2 teaspoon if using unsalted butter)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale"}]}
+{"line":"1/4 teaspoon salt (1/2 teaspoon if using unsalted butter)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale","preparationEn":"use 1/2 tsp if using unsalted butter","preparationIt":"usare 1/2 cucchiaino se si usa burro non salato"}]}
 {"line":"1/4 tsp pumpkin pie spice or cinnamon (, optional)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"pumpkin pie spice","it":"miscela di spezie per torta di zucca","optional":true,"alternatives":[{"en":"cinnamon","it":"cannella"}]}]}
 {"line":"1/8 teaspoon allspice","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"allspice","it":"pimento"}]}
 {"line":"1/8 teaspoon cream of tartar ((optional – makes it smoother))","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"cream of tartar","it":"cremor tartaro","optional":true}]}

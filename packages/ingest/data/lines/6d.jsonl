@@ -317,7 +317,7 @@
 {"line":"3 cans (15oz) white beans (cannellini, great northern or chickpeas), drained and rinsed","language":"en","parts":[{"quantity":3,"unit":"can","en":"white beans, 15 oz cans","it":"fagioli bianchi in scatole da 15 oz","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati","alternatives":[{"en":"cannellini beans","it":"fagioli cannellini"},{"en":"great northern beans","it":"fagioli Great Northern"},{"en":"chickpeas","it":"ceci"}]}]}
 {"line":"3 cups (244g) frozen broccoli florets","language":"en","parts":[{"quantity":244,"unit":"g","en":"frozen broccoli florets","it":"cimette di broccoli surgelate"}]}
 {"line":"3 cups all-purpose flour, (plus more for kneading and rolling)","language":"en","parts":[{"quantity":3,"unit":"cup","en":"all-purpose flour","it":"farina 00","purposeEn":"plus more for kneading and rolling","purposeIt":"più altra per impastare e stendere"}]}
-{"line":"3 large oranges (for 1 cup fresh orange juice* and 1/2 teaspoon zest)","language":"en","parts":[{"quantity":3,"en":"large oranges","it":"arance grandi","preparationEn":"juiced and zested","preparationIt":"spremute e con la scorza grattugiata"}]}
+{"line":"3 large oranges (for 1 cup fresh orange juice* and 1/2 teaspoon zest)","language":"en","parts":[{"quantity":3,"en":"large oranges","it":"arance grandi","preparationEn":"juiced and zested","preparationIt":"spremute e private della scorza grattugiata"}]}
 {"line":"3 nectarines (sliced)","language":"en","parts":[{"quantity":3,"en":"nectarines","it":"pesche noci","preparationEn":"sliced","preparationIt":"affettate"}]}
 {"line":"3 ounces tomato paste","language":"en","parts":[{"quantity":3,"unit":"oz","en":"tomato paste","it":"concentrato di pomodoro"}]}
 {"line":"3 stalks celery (finely diced (about 1 cup) – 100g)","language":"en","parts":[{"quantity":100,"unit":"g","en":"celery","it":"sedano","preparationEn":"finely diced","preparationIt":"tagliato a dadini piccoli"}]}
@@ -391,7 +391,7 @@
 {"line":"Charred Corn and Tomato Salsa ((recipe below) (or salsa of choice))","language":"en","parts":[{"en":"charred corn and tomato salsa","it":"salsa di mais abbrustolito e pomodoro","alternatives":[{"en":"salsa of choice","it":"salsa a scelta"}]}]}
 {"line":"Crunchmaster Crackers, for serving","language":"en","parts":[{"en":"Crunchmaster crackers","it":"cracker Crunchmaster","purposeEn":"for serving","purposeIt":"per servire"}]}
 {"line":"Crushed Oreo cookies","language":"en","parts":[{"en":"Oreo cookies","it":"biscotti Oreo","preparationEn":"crushed","preparationIt":"sbriciolati"}]}
-{"line":"Dairy-free Parmesan (for garnish)","language":"en","parts":[{"en":"dairy-free Parmesan","it":"parmigiano senza latticini","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
+{"line":"Dairy-free Parmesan (for garnish)","language":"en","parts":[{"en":"dairy-free Parmesan","it":"parmigiano vegetale","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"Fresh basil (for serving (optional))","language":"en","parts":[{"en":"fresh basil","it":"basilico fresco","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}
 {"line":"Fresh parsley to garnish","language":"en","parts":[{"en":"fresh parsley","it":"prezzemolo fresco","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"Homemade Tortilla Strips (below, or you use store-bought tortilla chips. See notes for a baked option)","language":"en","parts":[{"en":"homemade tortilla strips","it":"strisce di tortilla fatte in casa","alternatives":[{"en":"store-bought tortilla chips","it":"tortilla chips confezionate"}]}]}
@@ -426,7 +426,7 @@
 {"line":"oil or oil spray","language":"en","parts":[{"en":"oil","it":"olio","alternatives":[{"en":"oil spray","it":"olio spray"}]}]}
 {"line":"optional for more sweetness: 1 tablespoon maple syrup","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero","optional":true}]}
 {"line":"pepper flakes and vegan parmesan (for garnish)","language":"en","parts":[{"en":"pepper flakes","it":"peperoncino in fiocchi","purposeEn":"for garnish","purposeIt":"per guarnire"},{"en":"vegan parmesan","it":"parmigiano vegano","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
-{"line":"pinch salt ((if nuts are unsalted))","language":"en","parts":[{"unit":"pinch","en":"salt","it":"sale","optional":true}]}
+{"line":"pinch salt ((if nuts are unsalted))","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"salt","it":"sale","preparationEn":"if the nuts are unsalted","preparationIt":"se la frutta secca non è salata"}]}
 {"line":"sliced jalapeno (optional)","language":"en","parts":[{"en":"jalapeño","it":"peperoncino jalapeño","preparationEn":"sliced","preparationIt":"tagliato a fettine","optional":true}]}
 {"line":"tiny pinch turmeric ((optional for color))","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"turmeric","it":"curcuma","optional":true}]}
 {"line":"tortilla chips (for serving)","language":"en","parts":[{"en":"tortilla chips","it":"tortilla chips","purposeEn":"for serving","purposeIt":"per servire"}]}

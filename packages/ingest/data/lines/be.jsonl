@@ -4,6 +4,7 @@
 {"line":"1 1 Tomato, cut into large chunks (197 grams)","language":"en","parts":[{"quantity":197,"unit":"g","en":"tomato","it":"pomodoro","preparationEn":"cut into large chunks","preparationIt":"tagliato a pezzi grandi"}]}
 {"line":"1 1/2 cup vegan cane sugar ((295g))","language":"en","parts":[{"quantity":295,"unit":"g","en":"vegan cane sugar","it":"zucchero di canna vegano"}]}
 {"line":"1 1/2 cups (350 ml) vegetable broth (store-bought or homemade)","language":"en","parts":[{"quantity":350,"unit":"ml","en":"vegetable broth","it":"brodo vegetale"}]}
+{"line":"1 1/2 cups all-purpose flour* ( plus more for dusting)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"all-purpose flour","it":"farina 00","purposeEn":"plus more for dusting","purposeIt":"più altra farina per spolverare"}]}
 {"line":"1 1/2 cups apple cider","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"apple cider","it":"sidro di mele"}]}
 {"line":"1 1/2 cups bean sprouts","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"bean sprouts","it":"germogli di fagioli"}]}
 {"line":"1 1/2 cups cooked chickpeas, washed and drained (425g)","language":"en","parts":[{"quantity":425,"unit":"g","en":"cooked chickpeas","it":"ceci cotti","preparationEn":"washed and drained","preparationIt":"lavati e scolati"}]}
@@ -22,7 +23,7 @@
 {"line":"1 bag baby carrots","language":"en","parts":[{"quantity":1,"unit":"bag","en":"baby carrots","it":"carotine"}]}
 {"line":"1 batch Crispy Tofu","language":"en","parts":[{"quantity":1,"unit":"batch","en":"crispy tofu","it":"tofu croccante"}]}
 {"line":"1 batch Thai Peanut Sauce, (divided)","language":"en","parts":[{"quantity":1,"unit":"batch","en":"Thai peanut sauce","it":"salsa thailandese alle arachidi","preparationEn":"divided","preparationIt":"da dividere"}]}
-{"line":"1 batch of easy vegan cheese sauce (or cheese of choice (optional))","language":"en","parts":[{"quantity":1,"unit":"batch","en":"vegan cheese sauce","it":"salsa al formaggio vegana","optional":true,"alternatives":[{"en":"cheese of choice","it":"formaggio a scelta"}]}]}
+{"line":"1 batch of easy vegan cheese sauce (or cheese of choice (optional))","language":"en","parts":[{"quantity":1,"unit":"batch","en":"easy vegan cheese sauce","it":"salsa facile al formaggio vegano","optional":true,"alternatives":[{"en":"cheese of choice","it":"formaggio a scelta"}]}]}
 {"line":"1 can (15 oz.) black beans, drained and rinsed","language":"en","parts":[{"quantity":15,"unit":"oz","en":"black beans","it":"fagioli neri","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"1 carrot, (peeled and chopped)","language":"en","parts":[{"quantity":1,"en":"carrot","it":"carota","preparationEn":"peeled and chopped","preparationIt":"pelata e tagliata a pezzi"}]}
 {"line":"1 clove garlic (finely minced, or 1/8 teaspoon garlic powder)","language":"en","parts":[{"quantity":1,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"finely minced","preparationIt":"tritato finemente","alternatives":[{"quantity":0.125,"unit":"tsp","en":"garlic powder","it":"aglio in polvere"}]}]}
@@ -119,7 +120,7 @@
 {"line":"1/2 cucumber (sliced)","language":"en","parts":[{"quantity":0.5,"en":"cucumber","it":"cetriolo","preparationEn":"sliced","preparationIt":"a fette"}]}
 {"line":"1/2 cup (75g) raw cashews","language":"en","parts":[{"quantity":75,"unit":"g","en":"raw cashews","it":"anacardi crudi"}]}
 {"line":"1/2 cup (8 Tbs) vegan butter, softened","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}
-{"line":"1/2 cup almond flour (heaping cup, I used ground raw almond. Ground at home)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almond flour","it":"farina di mandorle"}]}
+{"line":"1/2 cup almond flour (heaping cup, I used ground raw almond. Ground at home)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almond flour","it":"farina di mandorle","preparationEn":"heaping cup","preparationIt":"misurino colmo"}]}
 {"line":"1/2 cup apple juice","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"apple juice","it":"succo di mela"}]}
 {"line":"1/2 cup brewed espresso (cold)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"brewed espresso","it":"caffè espresso preparato","preparationEn":"cooled","preparationIt":"raffreddato"}]}
 {"line":"1/2 cup chopped peanuts","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"peanuts","it":"arachidi","preparationEn":"chopped","preparationIt":"tritate"}]}
@@ -131,7 +132,7 @@
 {"line":"1/2 cup powdered sugar (ground raw sugar or other fine sugar)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"powdered sugar","it":"zucchero a velo","alternatives":[{"en":"ground raw sugar","it":"zucchero grezzo macinato"},{"en":"fine sugar","it":"zucchero fine"}]}]}
 {"line":"1/2 cup red onion (finely chopped or thinly sliced)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"red onion","it":"cipolla rossa","preparationEn":"finely chopped or thinly sliced","preparationIt":"tritata finemente o affettata sottilmente"}]}
 {"line":"1/2 cup spelt or whole wheat flour","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"spelt flour","it":"farina di farro","alternatives":[{"en":"whole wheat flour","it":"farina integrale"}]}]}
-{"line":"1/2 cup unsweetened soy milk (*or other non-dairy milk)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened soy milk","it":"latte di soia senza zucchero","alternatives":[{"en":"other nondairy milk","it":"altro latte vegetale"}]}]}
+{"line":"1/2 cup unsweetened soy milk (*or other non-dairy milk)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened soy milk","it":"latte di soia senza zucchero","alternatives":[{"en":"other non-dairy milk","it":"altro latte vegetale"}]}]}
 {"line":"1/2 cup vegan feta (optional)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan feta","it":"feta vegana","optional":true}]}
 {"line":"1/2 teaspoon cayenne pepper ((optional, for spiciness))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna","optional":true}]}
 {"line":"1/2 teaspoon chili powder-optional","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"chili powder","it":"peperoncino in polvere","optional":true}]}
@@ -144,7 +145,7 @@
 {"line":"1/2 to 3/4 cup Thai peanut sauce (120-180ml)","language":"en","parts":[{"quantity":120,"quantityMax":180,"unit":"ml","en":"Thai peanut sauce","it":"salsa thailandese alle arachidi"}]}
 {"line":"1/2 tsp Black pepper, (more or less to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"black pepper","it":"pepe nero","toTaste":true}]}
 {"line":"1/2 tsp dried basil (or a few fresh basil leaves)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"dried basil","it":"basilico essiccato","alternatives":[{"en":"fresh basil leaves","it":"foglie di basilico fresco"}]}]}
-{"line":"1/2 tsp fresh cracked black pepper, (more to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"freshly cracked black pepper","it":"pepe nero macinato al momento","toTaste":true}]}
+{"line":"1/2 tsp fresh cracked black pepper, (more to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"fresh cracked black pepper","it":"pepe nero macinato fresco","toTaste":true}]}
 {"line":"1/2 tsp freshly ground black pepper","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"black pepper","it":"pepe nero","preparationEn":"freshly ground","preparationIt":"macinato al momento"}]}
 {"line":"1/2 tsp. liquid smoke","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"liquid smoke","it":"fumo liquido"}]}
 {"line":"1/3 cup black beans (from the salad ingredients above or from another can, drained)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"black beans","it":"fagioli neri","preparationEn":"drained","preparationIt":"scolati"}]}

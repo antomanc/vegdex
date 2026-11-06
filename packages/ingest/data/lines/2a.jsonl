@@ -5,7 +5,7 @@
 {"line":"1 (16-ounce) package extra firm tofu (pressed for 30 minutes and crumbled)","language":"en","parts":[{"quantity":16,"unit":"oz","en":"extra firm tofu","it":"tofu extra compatto","preparationEn":"pressed for 30 minutes and crumbled","preparationIt":"pressato per 30 minuti e sbriciolato"}]}
 {"line":"1 (8.8 ounce) package Biscoff cookies ((32 cookies))","language":"en","parts":[{"quantity":8.8,"unit":"oz","en":"Biscoff cookies","it":"biscotti Biscoff"}]}
 {"line":"1 1/2 cup frozen cranberries","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"frozen cranberries","it":"mirtilli rossi surgelati"}]}
-{"line":"1 1/2 cups (240g) cooked brown rice (I buy the frozen rice packets for easy quick rice in 4 minutes)","language":"en","parts":[{"quantity":240,"unit":"g","en":"cooked brown rice","it":"riso integrale cotto"}]}
+{"line":"1 1/2 cups (240g) cooked brown rice (I buy the frozen rice packets for easy quick rice in 4 minutes)","language":"en","parts":[{"quantity":240,"unit":"g","en":"brown rice","it":"riso integrale","preparationEn":"cooked","preparationIt":"cotto"}]}
 {"line":"1 1/2 cups Vegetable Stock","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegetable stock","it":"brodo vegetale"}]}
 {"line":"1 1/2 cups dried split peas","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"dried split peas","it":"piselli spezzati secchi"}]}
 {"line":"1 1/2 cups frozen strawberries","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"frozen strawberries","it":"fragole surgelate"}]}
@@ -94,7 +94,7 @@
 {"line":"1 tbsp avocado oil or any neutral oil ((plus more for oiling your hands))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"avocado oil","it":"olio di avocado","alternatives":[{"en":"neutral oil","it":"olio dal sapore neutro"}]}]}
 {"line":"1 tbsp chopped mint or cilantro, for serving","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"mint","it":"menta","preparationEn":"chopped","preparationIt":"tritata","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"cilantro","it":"coriandolo fresco"}]}]}
 {"line":"1 tbsp lemon juice or apple cider vinegar, adjust to taste","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"lemon juice","it":"succo di limone","toTaste":true,"alternatives":[{"en":"apple cider vinegar","it":"aceto di mele"}]}]}
-{"line":"1 tbsp or more sugar (,I do not use any sugar with the sweetened canned mango puree)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"sugar","it":"zucchero"}]}
+{"line":"1 tbsp or more sugar (,I do not use any sugar with the sweetened canned mango puree)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"sugar","it":"zucchero","preparationEn":"or more","preparationIt":"o più"}]}
 {"line":"1 tbsp paprika","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"paprika","it":"paprika"}]}
 {"line":"1 tbsp white miso paste (optional, but highly recommended for flavour)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"white miso paste","it":"pasta di miso bianco","optional":true}]}
 {"line":"1 teaspoon curry powder I use this one","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"curry powder","it":"curry in polvere"}]}
@@ -366,7 +366,7 @@
 {"line":"½ tablespoon coconut oil","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"coconut oil","it":"olio di cocco"}]}
 {"line":"½ tablespoon of minced fresh mint, (optional variation)","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"fresh mint","it":"menta fresca","preparationEn":"minced","preparationIt":"tritata","optional":true}]}
 {"line":"½ teaspoon dried thyme leaves","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"dried thyme leaves","it":"foglie di timo essiccate"}]}
-{"line":"½ teaspoon of salt (or leave out if canned tomatoes are salted)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale"}]}
+{"line":"½ teaspoon of salt (or leave out if canned tomatoes are salted)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale","preparationEn":"omit if canned tomatoes are salted","preparationIt":"omettere se i pomodori in scatola sono salati"}]}
 {"line":"½ teaspoon oil","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"oil","it":"olio"}]}
 {"line":"½ tsp black pepper","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"black pepper","it":"pepe nero"}]}
 {"line":"¾ cups all purpose flour","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"all-purpose flour","it":"farina 00"}]}

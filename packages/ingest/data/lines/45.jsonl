@@ -31,7 +31,7 @@
 {"line":"1 celery stick","language":"en","parts":[{"quantity":1,"unit":"stick","en":"celery","it":"sedano"}]}
 {"line":"1 chipotle in adobo","language":"en","parts":[{"quantity":1,"en":"chipotle in adobo","it":"peperoncino chipotle in salsa adobo"}]}
 {"line":"1 cinnamon stick ((optional) (see Note 1))","language":"en","parts":[{"quantity":1,"en":"cinnamon stick","it":"stecca di cannella","optional":true}]}
-{"line":"1 cup (140g) cooked peas (I used frozen)","language":"en","parts":[{"quantity":140,"unit":"g","en":"cooked peas","it":"piselli cotti"}]}
+{"line":"1 cup (140g) cooked peas (I used frozen)","language":"en","parts":[{"quantity":140,"unit":"g","en":"peas","it":"piselli","preparationEn":"cooked","preparationIt":"cotti"}]}
 {"line":"1 cup (160g) diced white onion","language":"en","parts":[{"quantity":160,"unit":"g","en":"white onion","it":"cipolla bianca","preparationEn":"diced","preparationIt":"tagliata a dadini"}]}
 {"line":"1 cup (180 g) Buckwheat Groats","language":"en","parts":[{"quantity":180,"unit":"g","en":"buckwheat groats","it":"grano saraceno decorticato"}]}
 {"line":"1 cup + 2 tbsp granulated sugar","language":"en","parts":[{"quantity":1,"unit":"cup","en":"granulated sugar","it":"zucchero semolato","plus":{"quantity":2,"unit":"tbsp"}}]}
@@ -88,6 +88,7 @@
 {"line":"1 tablespoon freshly squeezed lemon juice or lime juice","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"freshly squeezed lemon juice","it":"succo di limone appena spremuto","alternatives":[{"en":"lime juice","it":"succo di lime"}]}]}
 {"line":"1 tablespoon granulated sugar (or pure maple syrup)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"granulated sugar","it":"zucchero semolato","alternatives":[{"en":"pure maple syrup","it":"sciroppo d'acero puro"}]}]}
 {"line":"1 tablespoon herbes de Provence ((or any dried herbs of choice))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"herbes de Provence","it":"erbe di Provenza","alternatives":[{"en":"dried herbs of choice","it":"erbe aromatiche essiccate a scelta"}]}]}
+{"line":"1 tablespoon loose leaf chamomile tea (or 1 chamomile tea bag)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"loose leaf chamomile tea","it":"camomilla sfusa","alternatives":[{"quantity":1,"unit":"bag","en":"chamomile tea","it":"camomilla"}]}]}
 {"line":"1 tablespoon of rice wine vinegar","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"rice wine vinegar","it":"aceto di riso"}]}
 {"line":"1 tablespoon raw cane sugar or coconut sugar (12-15g)","language":"en","parts":[{"quantity":12,"quantityMax":15,"unit":"g","en":"raw cane sugar","it":"zucchero di canna grezzo","alternatives":[{"en":"coconut sugar","it":"zucchero di cocco"}]}]}
 {"line":"1 tablespoon roasted peanuts","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"roasted peanuts","it":"arachidi tostate"}]}
@@ -172,7 +173,7 @@
 {"line":"1/4 cup cilantro (, chopped)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1/4 cup cooked white beans","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cooked white beans","it":"fagioli bianchi cotti"}]}
 {"line":"1/4 cup packed chopped cilantro or a small bunch","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped and packed","preparationIt":"tritato e pressato","alternatives":[{"quantity":1,"unit":"bunch","en":"small bunch of cilantro","it":"mazzetto piccolo di coriandolo fresco"}]}]}
-{"line":"1/4 cup plus 2-3 tbsp carbonated water (,club soda, ginger ale, or something similar. From a fresh bottle.)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"carbonated water","it":"acqua frizzante","plus":{"quantity":2,"quantityMax":3,"unit":"tbsp"},"alternatives":[{"en":"club soda","it":"soda"},{"en":"ginger ale","it":"ginger ale"}]}]}
+{"line":"1/4 cup plus 2-3 tbsp carbonated water (,club soda, ginger ale, or something similar. From a fresh bottle.)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"carbonated water","it":"acqua frizzante","plus":{"quantity":2,"quantityMax":3,"unit":"tbsp"},"preparationEn":"from a fresh bottle","preparationIt":"da una bottiglia appena aperta","alternatives":[{"en":"club soda","it":"acqua gassata"},{"en":"ginger ale","it":"ginger ale"}]}]}
 {"line":"1/4 cup raspberry jam (or any other filling of choice)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"raspberry jam","it":"confettura di lamponi","alternatives":[{"en":"filling of choice","it":"ripieno a scelta"}]}]}
 {"line":"1/4 cup rum","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"rum","it":"rum"}]}
 {"line":"1/4 cup sundried tomatoes in oil","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"sun-dried tomatoes in oil","it":"pomodori secchi sott'olio"}]}

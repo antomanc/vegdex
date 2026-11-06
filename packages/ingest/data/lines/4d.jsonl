@@ -49,7 +49,7 @@
 {"line":"1 cup dried chickpeas ((soak overnight in water))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dried chickpeas","it":"ceci secchi","preparationEn":"soaked overnight in water","preparationIt":"ammollati in acqua per una notte"}]}
 {"line":"1 cup gluten free panko breadcrumbs ((see notes if not gluten free))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"gluten-free panko breadcrumbs","it":"pangrattato panko senza glutine"}]}
 {"line":"1 cup neutral-flavored oil","language":"en","parts":[{"quantity":1,"unit":"cup","en":"neutral-flavored oil","it":"olio dal sapore neutro"}]}
-{"line":"1 cup non-dairy butter, (I use Earth Balance Buttery Sticks)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan butter","it":"burro vegetale"}]}
+{"line":"1 cup non-dairy butter, (I use Earth Balance Buttery Sticks)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy butter","it":"burro vegetale"}]}
 {"line":"1 cup of cooked tapioca pearls","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cooked tapioca pearls","it":"perle di tapioca cotte"}]}
 {"line":"1 cup of pearl barley, cooked as per instructions and cooled","language":"en","parts":[{"quantity":1,"unit":"cup","en":"pearl barley","it":"orzo perlato","preparationEn":"cooked as per instructions and cooled","preparationIt":"cotto secondo le istruzioni e lasciato raffreddare"}]}
 {"line":"1 cup packed brown sugar (220g)","language":"en","parts":[{"quantity":220,"unit":"g","en":"brown sugar","it":"zucchero di canna"}]}
@@ -57,7 +57,7 @@
 {"line":"1 cup sliced bell pepper","language":"en","parts":[{"quantity":1,"unit":"cup","en":"bell pepper","it":"peperone","preparationEn":"sliced","preparationIt":"tagliato a fette"}]}
 {"line":"1 cup uncooked green lentils","language":"en","parts":[{"quantity":1,"unit":"cup","en":"uncooked green lentils","it":"lenticchie verdi secche"}]}
 {"line":"1 cup unsweetened plant-based coconut or soy yogurt","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened plant-based coconut yogurt","it":"yogurt vegetale al cocco senza zucchero","alternatives":[{"en":"unsweetened plant-based soy yogurt","it":"yogurt vegetale di soia senza zucchero"}]}]}
-{"line":"1 cup warmed coconut milk ( or other non dairy milk)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"coconut milk","it":"latte di cocco","preparationEn":"warmed","preparationIt":"riscaldato","alternatives":[{"en":"other plant-based milk","it":"altro latte vegetale"}]}]}
+{"line":"1 cup warmed coconut milk ( or other non dairy milk)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"coconut milk","it":"latte di cocco","preparationEn":"warmed","preparationIt":"riscaldato","alternatives":[{"en":"non-dairy milk","it":"latte vegetale"}]}]}
 {"line":"1 cups unsalted sunflower seeds","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsalted sunflower seeds","it":"semi di girasole non salati"}]}
 {"line":"1 green bell pepper (diced – 150g)","language":"en","parts":[{"quantity":150,"unit":"g","en":"green bell pepper","it":"peperone verde","preparationEn":"diced","preparationIt":"tagliato a dadini"}]}
 {"line":"1 green chili chopped","language":"en","parts":[{"quantity":1,"en":"green chili","it":"peperoncino verde","preparationEn":"chopped","preparationIt":"tritato"}]}
@@ -126,7 +126,7 @@
 {"line":"1.764 oz shiitake mushrooms","language":"en","parts":[{"quantity":1.764,"unit":"oz","en":"shiitake mushrooms","it":"funghi shiitake"}]}
 {"line":"1/2 Serrano chili pepper chopped","language":"en","parts":[{"quantity":0.5,"en":"Serrano chili pepper","it":"peperoncino Serrano","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1/2 cup (120g) dairy-free semi-sweet chocolate chips (I used Enjoy Life brand)","language":"en","parts":[{"quantity":120,"unit":"g","en":"dairy-free semi-sweet chocolate chips","it":"gocce di cioccolato semidolce senza latte"}]}
-{"line":"1/2 cup (125 ml) imitation “beef” broth (or sub vegetable)","language":"en","parts":[{"quantity":125,"unit":"ml","en":"vegan beef-style broth","it":"brodo vegetale gusto manzo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"1/2 cup (125 ml) imitation “beef” broth (or sub vegetable)","language":"en","parts":[{"quantity":125,"unit":"ml","en":"vegan beef-style broth","it":"brodo vegano gusto manzo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"1/2 cup (160g) pure maple syrup (use agave if you don't want a maple flavor)","language":"en","parts":[{"quantity":160,"unit":"g","en":"pure maple syrup","it":"sciroppo d'acero puro","alternatives":[{"en":"agave syrup","it":"sciroppo d'agave"}]}]}
 {"line":"1/2 cup + 1 tbsp dairy free butter, (softened)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"dairy-free butter","it":"burro vegetale","plus":{"quantity":1,"unit":"tbsp"},"preparationEn":"softened","preparationIt":"ammorbidito"}]}
 {"line":"1/2 cup chopped shallots ((about 2 small shallots))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"shallots","it":"scalogni","preparationEn":"chopped","preparationIt":"tritati"}]}
@@ -185,7 +185,7 @@
 {"line":"1/4 head cabbage (red or green), shredded","language":"en","parts":[{"quantity":0.25,"unit":"head","en":"red cabbage","it":"cavolo cappuccio rosso","preparationEn":"shredded","preparationIt":"tagliato a listarelle","alternatives":[{"en":"green cabbage","it":"cavolo cappuccio verde"}]}]}
 {"line":"1/4 teaspoon dried thyme leaves","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"dried thyme leaves","it":"foglie di timo essiccate"}]}
 {"line":"1/4 teaspoon granulated garlic (, more to taste)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"granulated garlic","it":"aglio granulare","toTaste":true}]}
-{"line":"1/4 teaspoon pumpkin pie spice powder","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"pumpkin pie spice powder","it":"miscela di spezie in polvere per pumpkin pie"}]}
+{"line":"1/4 teaspoon pumpkin pie spice powder","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"pumpkin pie spice powder","it":"miscela di spezie in polvere per torta di zucca"}]}
 {"line":"1/4 teaspoon red pepper flakes, or as desired","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi","toTaste":true}]}
 {"line":"1/4 teaspoon salt ((if needed))","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"1/4 teaspoon salt (or more to taste)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
@@ -317,7 +317,7 @@
 {"line":"3/4 - 1 cup water","language":"en","parts":[{"quantity":0.75,"quantityMax":1,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"3/4 cup (150g) cane sugar","language":"en","parts":[{"quantity":150,"unit":"g","en":"cane sugar","it":"zucchero di canna"}]}
 {"line":"3/4 cup almond flour ((ground almonds))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"almond flour","it":"farina di mandorle"}]}
-{"line":"3/4 cup almond milk (or other non dairy milk)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"other dairy-free milk","it":"altro latte vegetale"}]}]}
+{"line":"3/4 cup almond milk (or other non dairy milk)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"other non-dairy milk","it":"altro latte vegetale"}]}]}
 {"line":"3/4 cup cauliflower florets, (1-1.5 inch size)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"cauliflower","it":"cavolfiore","preparationEn":"cut into florets","preparationIt":"diviso in cimette"}]}
 {"line":"3/4 cup creamy natural peanut butter","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"creamy natural peanut butter","it":"burro di arachidi naturale cremoso"}]}
 {"line":"3/4 cup light coconut milk ((or desired non-dairy milk))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"light coconut milk","it":"latte di cocco leggero","alternatives":[{"en":"non-dairy milk of choice","it":"latte vegetale a scelta"}]}]}

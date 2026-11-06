@@ -46,8 +46,8 @@
 {"line":"1 cup frozen edamame","language":"en","parts":[{"quantity":1,"unit":"cup","en":"frozen edamame","it":"edamame surgelati"}]}
 {"line":"1 cup full-fat canned coconut milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"full-fat canned coconut milk","it":"latte di cocco intero in lattina"}]}
 {"line":"1 cup grated coconut ((fresh or frozen. Thaw first if frozen))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"fresh or frozen coconut","it":"cocco fresco o surgelato","preparationEn":"grated; thaw first if frozen","preparationIt":"grattugiato; scongelare prima se surgelato"}]}
-{"line":"1 cup green peas ((I used frozen, but fresh work too))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"green peas","it":"piselli"}]}
-{"line":"1 cup non-dairy unsweetened milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened plant-based milk","it":"latte vegetale senza zucchero"}]}
+{"line":"1 cup green peas ((I used frozen, but fresh work too))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"frozen green peas","it":"piselli verdi surgelati","alternatives":[{"en":"fresh green peas","it":"piselli freschi"}]}]}
+{"line":"1 cup non-dairy unsweetened milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy unsweetened milk","it":"latte vegetale senza zucchero"}]}
 {"line":"1 cup of fresh strawberries, (diced)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"fresh strawberries","it":"fragole fresche","preparationEn":"diced","preparationIt":"tagliate a dadini"}]}
 {"line":"1 cup of nutritional yeast","language":"en","parts":[{"quantity":1,"unit":"cup","en":"nutritional yeast","it":"lievito alimentare"}]}
 {"line":"1 cup plant-based milk ((soy works best))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"plant-based milk","it":"latte vegetale"}]}
@@ -62,7 +62,7 @@
 {"line":"1 jalapeño","language":"en","parts":[{"quantity":1,"en":"jalapeño","it":"peperoncino jalapeño"}]}
 {"line":"1 large garlic clove, (minced)","language":"en","parts":[{"quantity":1,"unit":"clove","en":"large garlic","it":"aglio grande","preparationEn":"minced","preparationIt":"tritato"}]}
 {"line":"1 large garlic cloves, (peeled and left whole)","language":"en","parts":[{"quantity":1,"unit":"clove","en":"large garlic","it":"aglio grande","preparationEn":"peeled and left whole","preparationIt":"sbucciato e lasciato intero"}]}
-{"line":"1 large ripe banana ((frozen or fresh))","language":"en","parts":[{"quantity":1,"en":"large ripe banana","it":"banana grande matura","alternatives":[{"en":"frozen ripe banana","it":"banana matura congelata"}]}]}
+{"line":"1 large ripe banana ((frozen or fresh))","language":"en","parts":[{"quantity":1,"en":"large ripe banana","it":"banana grande matura","preparationEn":"frozen or fresh","preparationIt":"congelata o fresca"}]}
 {"line":"1 lb. elbow pasta","language":"en","parts":[{"quantity":1,"unit":"lb","en":"elbow pasta","it":"pasta a gomito"}]}
 {"line":"1 lb. fresh strawberries, tops removed and chopped","language":"en","parts":[{"quantity":1,"unit":"lb","en":"fresh strawberries","it":"fragole fresche","preparationEn":"tops removed and chopped","preparationIt":"private del picciolo e tagliate a pezzi"}]}
 {"line":"1 lemongrass stalk ((sliced in half crosswise and slightly crushed))","language":"en","parts":[{"quantity":1,"unit":"stalk","en":"lemongrass","it":"citronella","preparationEn":"sliced in half crosswise and slightly crushed","preparationIt":"tagliata a metà trasversalmente e leggermente schiacciata"}]}
@@ -143,6 +143,7 @@
 {"line":"1/2 cup vegan mozzarella","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan mozzarella","it":"mozzarella vegana"}]}
 {"line":"1/2 cup vegetable broth (or water)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
 {"line":"1/2 cup water (use 1 cup water for thinner sauce, the sauce thickens quite a bit)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"water","it":"acqua"}]}
+{"line":"1/2 cup water, (plus up to an additional 1/2 cup)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"water","it":"acqua","plus":{"quantity":0.5,"unit":"cup"}}]}
 {"line":"1/2 large red bell pepper, seeded and sliced","language":"en","parts":[{"quantity":0.5,"en":"large red bell pepper","it":"peperone rosso grande","preparationEn":"seeded and sliced","preparationIt":"privato dei semi e tagliato a fette"}]}
 {"line":"1/2 large red onion, chopped","language":"en","parts":[{"quantity":0.5,"en":"large red onion","it":"cipolla rossa grande","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"1/2 medium red onion (or other onion chopped)","language":"en","parts":[{"quantity":0.5,"en":"medium red onion","it":"cipolla rossa media","preparationEn":"chopped","preparationIt":"tritata","alternatives":[{"en":"onion","it":"cipolla"}]}]}
@@ -197,6 +198,7 @@
 {"line":"12 oz bag frozen vegetables ((corn, peas, carrots, green beans) *Feel free to sub for favorite frozen vegetables)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"frozen mixed vegetables","it":"verdure miste surgelate"}]}
 {"line":"12 oz cremini mushrooms or button mushrooms","language":"en","parts":[{"quantity":12,"unit":"oz","en":"cremini mushrooms","it":"funghi cremini","alternatives":[{"en":"button mushrooms","it":"funghi champignon"}]}]}
 {"line":"120 g / 1 cup buckwheat flour","language":"en","parts":[{"quantity":120,"unit":"g","en":"buckwheat flour","it":"farina di grano saraceno"}]}
+{"line":"135 g vegan butter (at room temperature, plus 1 tablespoon extra melted)","language":"en","parts":[{"quantity":135,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"at room temperature, plus 1 tablespoon extra melted","preparationIt":"a temperatura ambiente, più 1 cucchiaio aggiuntivo fuso"}]}
 {"line":"14 ounce package of extra firm tofu","language":"en","parts":[{"quantity":14,"unit":"oz","en":"extra-firm tofu","it":"tofu extra compatto"}]}
 {"line":"14 oz canned or cooked black beans ((drained of all liquid and a few beans crushed))","language":"en","parts":[{"quantity":14,"unit":"oz","en":"canned black beans","it":"fagioli neri in scatola","preparationEn":"drained of all liquid, with a few beans crushed","preparationIt":"scolati da tutto il liquido, con qualche fagiolo schiacciato","alternatives":[{"en":"cooked black beans","it":"fagioli neri cotti"}]}]}
 {"line":"14 oz. firm tofu, (drained and patted dry)","language":"en","parts":[{"quantity":14,"unit":"oz","en":"firm tofu","it":"tofu compatto","preparationEn":"drained and patted dry","preparationIt":"scolato e tamponato"}]}
@@ -236,7 +238,7 @@
 {"line":"2 cups split red lentils","language":"en","parts":[{"quantity":2,"unit":"cup","en":"split red lentils","it":"lenticchie rosse decorticate"}]}
 {"line":"2 cups unbleached all purpose flour ((or whole wheat pastry flour, or a mix of both))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"unbleached all-purpose flour","it":"farina multiuso non sbiancata","alternatives":[{"en":"whole wheat pastry flour","it":"farina integrale per dolci"},{"en":"mix of unbleached all-purpose flour and whole wheat pastry flour","it":"miscela di farina 00 non sbiancata e farina integrale per dolci"}]}]}
 {"line":"2 cups warm water","language":"en","parts":[{"quantity":2,"unit":"cup","en":"water","it":"acqua","preparationEn":"warm","preparationIt":"tiepida"}]}
-{"line":"2 flax eggs - Learn how to make a flax egg or see notes*","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di lino"}]}
+{"line":"2 flax eggs - Learn how to make a flax egg or see notes*","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di semi di lino"}]}
 {"line":"2 green chilli peppers ((like jalapeno or serrano, slit down the middle. Deseed or use less for less heat))","language":"en","parts":[{"quantity":2,"en":"green chilli peppers","it":"peperoncini verdi","preparationEn":"slit down the middle; deseeded for less heat","preparationIt":"incisi al centro; privati dei semi per ridurre la piccantezza"}]}
 {"line":"2 handfuls of pan roasted peanuts (or cashews), crushed","language":"en","parts":[{"quantity":2,"unit":"handful","en":"pan-roasted peanuts","it":"arachidi tostate in padella","preparationEn":"crushed","preparationIt":"sminuzzate","alternatives":[{"en":"cashews","it":"anacardi"}]}]}
 {"line":"2 jalapeno peppers ((minced. Use less and deseed if sensitive to heat))","language":"en","parts":[{"quantity":2,"en":"jalapeño peppers","it":"peperoncini jalapeño","preparationEn":"minced","preparationIt":"tritati"}]}
@@ -399,7 +401,7 @@
 {"line":"¼ cup fresh parsley, chopped","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"¼ cup of fresh basil, (chopped)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh basil","it":"basilico fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"¼ cup raw cashews ((or cashew pieces. Skip if nut-free and use a tablespoon of urad dal instead))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"raw cashews","it":"anacardi crudi","alternatives":[{"en":"cashew pieces","it":"anacardi a pezzi"},{"quantity":1,"unit":"tbsp","en":"urad dal","it":"urad dal"}]}]}
-{"line":"¼ cup vegan beef broth","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan beef broth","it":"brodo vegetale gusto manzo"}]}
+{"line":"¼ cup vegan beef broth","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan beef broth","it":"brodo vegano gusto manzo"}]}
 {"line":"¼ tsp baking soda (GF certified if needed)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"baking soda","it":"bicarbonato di sodio"}]}
 {"line":"¼ tsp dry mint, more to taste","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"dried mint","it":"menta essiccata","toTaste":true}]}
 {"line":"½ cup (120 mL) aquafaba ((the liquid from a can of chickpeas))","language":"en","parts":[{"quantity":120,"unit":"ml","en":"aquafaba","it":"acquafaba"}]}
@@ -417,7 +419,7 @@
 {"line":"½ cup vegan butter (melted but not hot - 113 g)","language":"en","parts":[{"quantity":113,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"melted but not hot","preparationIt":"fuso ma non caldo"}]}
 {"line":"½ jar of marinara sauce (~13 ounces)","language":"en","parts":[{"quantity":13,"unit":"oz","en":"marinara sauce","it":"salsa marinara"}]}
 {"line":"½ red onion (finely diced (or white onion))","language":"en","parts":[{"quantity":0.5,"en":"red onion","it":"cipolla rossa","preparationEn":"finely diced","preparationIt":"tagliata a dadini piccoli","alternatives":[{"en":"white onion","it":"cipolla bianca"}]}]}
-{"line":"½ teaspoon of flaky or regular salt if using unsalted peanut butter (plus more for garnish)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"flaky salt","it":"sale in fiocchi","purposeEn":"for garnish","purposeIt":"per guarnire","alternatives":[{"en":"salt","it":"sale"}]}]}
+{"line":"½ teaspoon of flaky or regular salt if using unsalted peanut butter (plus more for garnish)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"flaky salt","it":"sale in fiocchi","preparationEn":"use if using unsalted peanut butter","preparationIt":"usare se si usa burro di arachidi non salato","purposeEn":"more for garnish","purposeIt":"altro per guarnire","alternatives":[{"en":"regular salt","it":"sale comune"}]}]}
 {"line":"½ to ¾ teaspoon fine sea salt","language":"en","parts":[{"quantity":0.5,"quantityMax":0.75,"unit":"tsp","en":"fine sea salt","it":"sale marino fino"}]}
 {"line":"½ tsp chilli flakes, adjust to taste","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"chili flakes","it":"peperoncino in fiocchi","toTaste":true}]}
 {"line":"¾ cup (155g) organic cane sugar","language":"en","parts":[{"quantity":155,"unit":"g","en":"organic cane sugar","it":"zucchero di canna biologico"}]}

@@ -31,7 +31,7 @@
 {"line":"1 cup dry lentils (I used brown, soaked)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dry brown lentils","it":"lenticchie marroni secche","preparationEn":"soaked","preparationIt":"ammollate"}]}
 {"line":"1 cup frozen pineapple chunks","language":"en","parts":[{"quantity":1,"unit":"cup","en":"frozen pineapple","it":"ananas surgelato","preparationEn":"cut into chunks","preparationIt":"tagliato a pezzi"}]}
 {"line":"1 cup ground oats ((oat flour - see notes))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"ground oats","it":"avena macinata"}]}
-{"line":"1 cup non-dairy chocolate chips or chunks","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dairy-free chocolate chips","it":"gocce di cioccolato senza latte","alternatives":[{"en":"dairy-free chocolate chunks","it":"pezzi di cioccolato senza latte"}]}]}
+{"line":"1 cup non-dairy chocolate chips or chunks","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy chocolate chips","it":"gocce di cioccolato senza latte","alternatives":[{"en":"non-dairy chocolate chunks","it":"pezzi di cioccolato senza latte"}]}]}
 {"line":"1 cup of thinly sliced carrots","language":"en","parts":[{"quantity":1,"unit":"cup","en":"carrots","it":"carote","preparationEn":"thinly sliced","preparationIt":"tagliate a fettine sottili"}]}
 {"line":"1 cup of your favorite dressing","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dressing of choice","it":"condimento a scelta"}]}
 {"line":"1 cup packed carrot (grated)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"carrot","it":"carota","preparationEn":"grated, packed","preparationIt":"grattugiata, pressata nella tazza"}]}
@@ -137,8 +137,8 @@
 {"line":"1/4 cup cherry tomatoes, quartered","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cherry tomatoes","it":"pomodorini ciliegino","preparationEn":"quartered","preparationIt":"tagliati in quarti"}]}
 {"line":"1/4 cup coconut sugar or other sugar of choice (use 1 tbsp less for less sweet)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"coconut sugar","it":"zucchero di cocco","alternatives":[{"en":"sugar of choice","it":"zucchero a scelta"}]}]}
 {"line":"1/4 cup finely chopped dill pickles","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"dill pickles","it":"cetriolini sottaceto all'aneto","preparationEn":"finely chopped","preparationIt":"tritati finemente"}]}
-{"line":"1/4 cup fresh squeezed orange juice","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"freshly squeezed orange juice","it":"succo d'arancia appena spremuto"}]}
-{"line":"1/4 cup grated non dairy cheese","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"dairy-free cheese","it":"formaggio vegetale","preparationEn":"grated","preparationIt":"grattugiato"}]}
+{"line":"1/4 cup fresh squeezed orange juice","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh squeezed orange juice","it":"succo d'arancia appena spremuto"}]}
+{"line":"1/4 cup grated non dairy cheese","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"non-dairy cheese","it":"formaggio vegetale","preparationEn":"grated","preparationIt":"grattugiato"}]}
 {"line":"1/4 cup non dairy milk (warm-hot ( I use almond milk))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","preparationEn":"warm to hot","preparationIt":"da tiepido a caldo"}]}
 {"line":"1/4 cup raw sugar, pure maple syrup or coconut nectar/sugar","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"raw sugar","it":"zucchero grezzo","alternatives":[{"en":"pure maple syrup","it":"sciroppo d'acero puro"},{"en":"coconut nectar","it":"nettare di cocco"},{"en":"coconut sugar","it":"zucchero di cocco"}]}]}
 {"line":"1/4 cup salsa of your choice","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"salsa of choice","it":"salsa a scelta"}]}
@@ -353,7 +353,7 @@
 {"line":"chopped cilantro (optional)","language":"en","parts":[{"en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato","optional":true}]}
 {"line":"chopped fresh chives or scallions, for garnish","language":"en","parts":[{"en":"fresh chives","it":"erba cipollina fresca","preparationEn":"chopped","preparationIt":"tritata","purposeEn":"for garnish","purposeIt":"per guarnire","alternatives":[{"en":"scallions","it":"cipollotti"}]}]}
 {"line":"coconut for garnish (minced ginger and sliced green chile for garnish)","language":"en","parts":[{"en":"coconut","it":"cocco","purposeEn":"for garnish","purposeIt":"per guarnire"},{"en":"ginger","it":"zenzero","preparationEn":"minced","preparationIt":"tritato","purposeEn":"for garnish","purposeIt":"per guarnire"},{"en":"green chile","it":"peperoncino verde","preparationEn":"sliced","preparationIt":"a fettine","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
-{"line":"fresh cracked pepper & mineral salt","language":"en","parts":[{"en":"freshly cracked pepper","it":"pepe macinato al momento"},{"en":"mineral salt","it":"sale minerale"}]}
+{"line":"fresh cracked pepper & mineral salt","language":"en","parts":[{"en":"fresh cracked pepper","it":"pepe macinato fresco"},{"en":"mineral salt","it":"sale minerale"}]}
 {"line":"hemp seeds","language":"en","parts":[{"en":"hemp seeds","it":"semi di canapa"}]}
 {"line":"non-dairy cream or yogurt (for garnish, optional)","language":"en","parts":[{"en":"non-dairy cream","it":"panna vegetale","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true,"alternatives":[{"en":"non-dairy yogurt","it":"yogurt vegetale"}]}]}
 {"line":"rosemary salt**","language":"en","parts":[{"en":"rosemary salt","it":"sale al rosmarino"}]}
@@ -365,7 +365,7 @@
 {"line":"water to seal","language":"en","parts":[{"en":"water","it":"acqua","purposeEn":"for sealing","purposeIt":"per sigillare"}]}
 {"line":"¼ cup + 1 tablespoon of canola or vegetable oil","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"canola oil","it":"olio di colza","plus":{"quantity":1,"unit":"tbsp"},"alternatives":[{"en":"vegetable oil","it":"olio vegetale"}]}]}
 {"line":"¼ cup chopped nuts (I used a mix of almonds, walnuts, and pistachios)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"nuts","it":"frutta secca","preparationEn":"chopped","preparationIt":"tritata"}]}
-{"line":"¼ cup lemon juice ((use fresh-squeezed juice, not bottled))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"freshly squeezed lemon juice","it":"succo di limone appena spremuto"}]}
+{"line":"¼ cup lemon juice ((use fresh-squeezed juice, not bottled))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh-squeezed lemon juice","it":"succo di limone appena spremuto"}]}
 {"line":"¼ cup vegan butter ( 57 grams )","language":"en","parts":[{"quantity":57,"unit":"g","en":"vegan butter","it":"burro vegetale"}]}
 {"line":"¼ of a small red onion (chopped)","language":"en","parts":[{"quantity":0.25,"en":"small red onion","it":"cipolla rossa piccola","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"¼ teaspoon of salt, (plus more to taste)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}

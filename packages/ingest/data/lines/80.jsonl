@@ -45,7 +45,7 @@
 {"line":"1 cup of chopped walnuts (optional)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"walnuts","it":"noci","preparationEn":"chopped","preparationIt":"tritate","optional":true}]}
 {"line":"1 cup shelled walnuts","language":"en","parts":[{"quantity":1,"unit":"cup","en":"shelled walnuts","it":"noci sgusciate"}]}
 {"line":"1 cup thinly sliced apples","language":"en","parts":[{"quantity":1,"unit":"cup","en":"apples","it":"mele","preparationEn":"thinly sliced","preparationIt":"tagliate a fettine sottili"}]}
-{"line":"1 cup unsweetened nondairy milk ((almond milk, oat milk, etc.))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened nondairy milk","it":"latte vegetale senza zuccheri","alternatives":[{"en":"unsweetened almond milk","it":"latte di mandorla senza zucchero"},{"en":"unsweetened oat milk","it":"latte d'avena senza zucchero"}]}]}
+{"line":"1 cup unsweetened nondairy milk ((almond milk, oat milk, etc.))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened nondairy milk","it":"latte vegetale senza zucchero","alternatives":[{"en":"unsweetened almond milk","it":"latte di mandorla senza zucchero"},{"en":"unsweetened oat milk","it":"latte d'avena senza zucchero"}]}]}
 {"line":"1 cup vegetable broth ((227g))","language":"en","parts":[{"quantity":227,"unit":"g","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"1 envelope of rapid rise yeast","language":"en","parts":[{"quantity":1,"unit":"envelope","en":"rapid-rise yeast","it":"lievito a lievitazione rapida"}]}
 {"line":"1 green onion (thinly sliced)","language":"en","parts":[{"quantity":1,"en":"green onion","it":"cipollotto","preparationEn":"thinly sliced","preparationIt":"tagliato a fettine sottili"}]}
@@ -83,7 +83,7 @@
 {"line":"1 tablespoon of chili powder","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"chili powder","it":"peperoncino in polvere"}]}
 {"line":"1 tablespoon olive oil ( or coconut oil, 12.5g)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","alternatives":[{"quantity":12.5,"unit":"g","en":"coconut oil","it":"olio di cocco"}]}]}
 {"line":"1 tablespoon red wine vinegar","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"red wine vinegar","it":"aceto di vino rosso"}]}
-{"line":"1 tablespoon soy sauce (or tamari (low-sodium if preferred))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"tamari","it":"tamari"}]}]}
+{"line":"1 tablespoon soy sauce (or tamari (low-sodium if preferred))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"soy sauce","it":"salsa di soia","preparationEn":"low-sodium if preferred","preparationIt":"a basso contenuto di sodio se preferita","alternatives":[{"en":"tamari","it":"tamari"}]}]}
 {"line":"1 tablespoon tapioca starch ((also called tapioca flour))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"tapioca starch","it":"amido di tapioca"}]}
 {"line":"1 tablespoon tapioca starch (aka tapioca flour (or use corn or potato starch instead))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"tapioca starch","it":"amido di tapioca","alternatives":[{"en":"cornstarch","it":"amido di mais"},{"en":"potato starch","it":"fecola di patate"}]}]}
 {"line":"1 tbsp coconut oil ((or any neutral oil))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"coconut oil","it":"olio di cocco","alternatives":[{"en":"neutral oil","it":"olio dal sapore neutro"}]}]}
@@ -193,7 +193,7 @@
 {"line":"16 ounces of sliced mushrooms","language":"en","parts":[{"quantity":16,"unit":"oz","en":"mushrooms","it":"funghi","preparationEn":"sliced","preparationIt":"affettati"}]}
 {"line":"16 ounces oyster mushrooms, ends trimmed and shredded","language":"en","parts":[{"quantity":16,"unit":"oz","en":"oyster mushrooms","it":"funghi pleurotus","preparationEn":"ends trimmed and shredded","preparationIt":"estremità eliminate e funghi sfilacciati"}]}
 {"line":"170 g vegan butter (melted)","language":"en","parts":[{"quantity":170,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
-{"line":"1½ cups non-dairy milk, divided (we used soy)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"dairy-free milk","it":"latte vegetale"}]}
+{"line":"1½ cups non-dairy milk, divided (we used soy)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"1½ tbsp tamarind purée (or lime juice)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"tamarind purée","it":"purea di tamarindo","alternatives":[{"en":"lime juice","it":"succo di lime"}]}]}
 {"line":"2 (14.5 oz/411 gram) cans stewed tomatoes","language":"en","parts":[{"quantity":822,"unit":"g","en":"canned stewed tomatoes","it":"pomodori stufati in scatola"}]}
 {"line":"2 1/4 teaspoon active dry yeast ((or 1 packet))","language":"en","parts":[{"quantity":2.25,"unit":"tsp","en":"active dry yeast","it":"lievito di birra secco attivo","alternatives":[{"quantity":1,"unit":"packet","en":"active dry yeast","it":"lievito di birra secco attivo"}]}]}
@@ -209,7 +209,7 @@
 {"line":"2 cups lightly packed grated carrots ((Use 1.5 cups if skipping the roasting step (step 1)))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"carrots","it":"carote","preparationEn":"grated","preparationIt":"grattugiate"}]}
 {"line":"2 cups of plant-based milk ((soy works best for buttermilk))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"plant-based milk","it":"latte vegetale"}]}
 {"line":"2 cups of rice","language":"en","parts":[{"quantity":2,"unit":"cup","en":"rice","it":"riso"}]}
-{"line":"2 cups vegan yogurt ((I used my homemade cultured cashew yogurt, but use any unsweetened storebought yogurt.))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"unsweetened vegan yogurt","it":"yogurt vegetale senza zucchero"}]}
+{"line":"2 cups vegan yogurt ((I used my homemade cultured cashew yogurt, but use any unsweetened storebought yogurt.))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"unsweetened vegan yogurt","it":"yogurt vegetale non zuccherato"}]}
 {"line":"2 cups+ 2 Tablespoons pastry flour (or cake flour)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"pastry flour","it":"farina per dolci","plus":{"quantity":2,"unit":"tbsp"},"alternatives":[{"en":"cake flour","it":"farina per dolci"}]}]}
 {"line":"2 handfuls of baby kale or baby spinach","language":"en","parts":[{"quantity":2,"unit":"handful","en":"baby kale","it":"cavolo riccio tenero","alternatives":[{"en":"baby spinach","it":"spinacini"}]}]}
 {"line":"2 inch piece of ginger (peeled and minced)","language":"en","parts":[{"quantity":2,"unit":"inch","en":"ginger","it":"zenzero","preparationEn":"peeled and minced","preparationIt":"sbucciato e tritato"}]}
@@ -239,7 +239,7 @@
 {"line":"2 tablespoons peanut butter (, creamy)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"creamy peanut butter","it":"burro di arachidi cremoso"}]}
 {"line":"2 tablespoons semolina flour or rice flour","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"semolina flour","it":"farina di semola","alternatives":[{"en":"rice flour","it":"farina di riso"}]}]}
 {"line":"2 tablespoons soy sauce or gluten-free tamari ((use gluten-free tamari if gluten-free; or gluten-free liquid aminos))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"gluten-free tamari","it":"tamari senza glutine"},{"en":"gluten-free liquid aminos","it":"aminoacidi liquidi senza glutine"}]}]}
-{"line":"2 tablespoons unsweetened and unflavored non-dairy milk","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"unsweetened unflavored plant-based milk","it":"latte vegetale senza zucchero e senza aromi"}]}
+{"line":"2 tablespoons unsweetened and unflavored non-dairy milk","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"unsweetened and unflavored non-dairy milk","it":"latte vegetale al naturale senza zucchero"}]}
 {"line":"2 tablespoons vegan unsalted butter","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan unsalted butter","it":"burro vegetale non salato"}]}
 {"line":"2 tablespoons vinegar ((white or apple cider vinegar))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"white vinegar","it":"aceto bianco","alternatives":[{"en":"apple cider vinegar","it":"aceto di mele"}]}]}
 {"line":"2 tbsp / 30 ml red wine vinegar","language":"en","parts":[{"quantity":30,"unit":"ml","en":"red wine vinegar","it":"aceto di vino rosso"}]}
@@ -253,7 +253,7 @@
 {"line":"2 tbsp. Yondu Vegetable Umami","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"Yondu Vegetable Umami","it":"Yondu Vegetable Umami"}]}
 {"line":"2 teaspoons Italian herbs","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"Italian herbs","it":"erbe aromatiche italiane"}]}
 {"line":"2 teaspoons dried oregano","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"dried oregano","it":"origano secco"}]}
-{"line":"2 teaspoons non dairy milk (10mL)","language":"en","parts":[{"quantity":10,"unit":"ml","en":"dairy-free milk","it":"latte vegetale"}]}
+{"line":"2 teaspoons non dairy milk (10mL)","language":"en","parts":[{"quantity":10,"unit":"ml","en":"non dairy milk","it":"latte vegetale"}]}
 {"line":"2 to 3 tbsp sugar ((I usually use a mix of coconut and raw sugar))","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"sugar","it":"zucchero"}]}
 {"line":"2 tsp corn starch","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"cornstarch","it":"amido di mais"}]}
 {"line":"2 tsp olive oil ((optional))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"olive oil","it":"olio d'oliva","optional":true}]}
@@ -343,7 +343,7 @@
 {"line":"7 teaspoons olive oil (for pan-frying burritos at the end)","language":"en","parts":[{"quantity":7,"unit":"tsp","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"7.901 oz unsalted vegan butter","language":"en","parts":[{"quantity":7.901,"unit":"oz","en":"unsalted vegan butter","it":"burro vegetale non salato"}]}
 {"line":"8 cups French bread, cut int 1\" cubes","language":"en","parts":[{"quantity":8,"unit":"cup","en":"French bread","it":"pane francese","preparationEn":"cut into cubes","preparationIt":"tagliato a cubetti"}]}
-{"line":"8 cups vegan chickenless broth or vegetable broth","language":"en","parts":[{"quantity":8,"unit":"cup","en":"vegan chickenless broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"8 cups vegan chickenless broth or vegetable broth","language":"en","parts":[{"quantity":8,"unit":"cup","en":"vegan chickenless broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"8 ounces (225 g) pasta of choice","language":"en","parts":[{"quantity":225,"unit":"g","en":"pasta of choice","it":"pasta a scelta"}]}
 {"line":"8 oz Baby spinach or Greens","language":"en","parts":[{"quantity":8,"unit":"oz","en":"baby spinach","it":"spinacini","alternatives":[{"en":"greens","it":"verdure a foglia"}]}]}
 {"line":"8 oz dry Pasta, cooked according to package instructions","language":"en","parts":[{"quantity":8,"unit":"oz","en":"dry pasta","it":"pasta secca","preparationEn":"cooked according to package instructions","preparationIt":"cotta secondo le istruzioni sulla confezione"}]}
@@ -360,7 +360,7 @@
 {"line":"Diamond Crystal kosher salt ((see Note 1))","language":"en","parts":[{"en":"Diamond Crystal kosher salt","it":"sale kosher Diamond Crystal"}]}
 {"line":"For more flavor, add ½ tablespoon of extra taco seasoning in step 3","language":"en","kind":"other"}
 {"line":"Fresh cilantro leaves (optional – a few sprigs)","language":"en","parts":[{"en":"fresh cilantro leaves","it":"foglie di coriandolo fresco","optional":true}]}
-{"line":"Fresh ground pepper","language":"en","parts":[{"en":"freshly ground pepper","it":"pepe macinato fresco"}]}
+{"line":"Fresh ground pepper","language":"en","parts":[{"en":"fresh ground pepper","it":"pepe macinato fresco"}]}
 {"line":"Freshly ground black pepper (to taste, about 0.25g)","language":"en","parts":[{"quantity":0.25,"unit":"g","en":"black pepper","it":"pepe nero","preparationEn":"freshly ground","preparationIt":"macinato al momento","toTaste":true}]}
 {"line":"Juice and zest of 1/2 lemon","language":"en","parts":[{"quantity":0.5,"en":"lemon","it":"limone","preparationEn":"juice and zest","preparationIt":"succo e scorza"}]}
 {"line":"Juice and zest of 2 small lemons","language":"en","parts":[{"quantity":2,"en":"small lemons","it":"limoni piccoli","preparationEn":"juice and zest","preparationIt":"succo e scorza"}]}

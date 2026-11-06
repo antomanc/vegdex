@@ -124,7 +124,7 @@
 {"line":"1/2 (75g) green bell pepper, finely chopped","language":"en","parts":[{"quantity":75,"unit":"g","en":"green bell pepper","it":"peperone verde","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"1/2 - 1 chipotle pepper in adobo sauce (finely chopped)","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"en":"chipotle pepper in adobo sauce","it":"peperoncino chipotle in salsa adobo","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"1/2 Tbsp lemon juice (or lime juice)","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"lemon juice","it":"succo di limone","alternatives":[{"en":"lime juice","it":"succo di lime"}]}]}
-{"line":"1/2 batch vegan cream cheese frosting ((optional))","language":"en","parts":[{"quantity":0.5,"unit":"batch","en":"vegan cream cheese frosting","it":"glassa vegana al formaggio spalmabile","optional":true}]}
+{"line":"1/2 batch vegan cream cheese frosting ((optional))","language":"en","parts":[{"quantity":0.5,"unit":"batch","en":"vegan cream cheese frosting","it":"glassa al formaggio spalmabile vegano","optional":true}]}
 {"line":"1/2 cup (120 g) cashew butter (or sub another nut/seed butter)","language":"en","parts":[{"quantity":120,"unit":"g","en":"cashew butter","it":"burro di anacardi","alternatives":[{"en":"another nut or seed butter","it":"altro burro di frutta secca o semi"}]}]}
 {"line":"1/2 cup (48g) unsweetened natural cocoa powder, not dark cocoa (I used Ghirardelli) Add up to 2 tablespoons more for a less sweet brownie","language":"en","parts":[{"quantity":48,"unit":"g","en":"unsweetened natural cocoa powder","it":"cacao naturale amaro in polvere"}]}
 {"line":"1/2 cup cashews (soaked in boiling water 30 minutes- 1 hour)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cashews","it":"anacardi","preparationEn":"soaked in boiling water for 30 minutes to 1 hour","preparationIt":"ammollati in acqua bollente per 30 minuti fino a 1 ora"}]}
@@ -146,7 +146,7 @@
 {"line":"1/2 medium avocado","language":"en","parts":[{"quantity":0.5,"en":"medium avocado","it":"avocado medio"}]}
 {"line":"1/2 sweet onion, (diced)","language":"en","parts":[{"quantity":0.5,"en":"sweet onion","it":"cipolla dolce","preparationEn":"diced","preparationIt":"tagliata a dadini"}]}
 {"line":"1/2 teaspoon apple cider vinegar","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"apple cider vinegar","it":"aceto di mele"}]}
-{"line":"1/2 teaspoon fresh ground pepper (or more to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"freshly ground pepper","it":"pepe macinato fresco","toTaste":true}]}
+{"line":"1/2 teaspoon fresh ground pepper (or more to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"fresh ground pepper","it":"pepe macinato fresco","preparationEn":"or more to taste","preparationIt":"o più a piacere"}]}
 {"line":"1/2 teaspoon red pepper flakes ((optional; omit if your sausage is spicy))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi","optional":true}]}
 {"line":"1/2 teaspoon sea salt (+ more for cucumber )","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"sea salt","it":"sale marino"}]}
 {"line":"1/2 teaspoon sumac","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"sumac","it":"sommacco"}]}
@@ -188,7 +188,7 @@
 {"line":"1/4 teaspoon salt (add more or less to taste )","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
 {"line":"1/4 teaspoons ground ginger","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground ginger","it":"zenzero in polvere"}]}
 {"line":"1/4-1/2 tsp crushed red pepper flakes","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"crushed red pepper flakes","it":"peperoncino rosso in fiocchi"}]}
-{"line":"1/8 cup coconut cream (or dairy-free half and half)","language":"en","parts":[{"quantity":0.125,"unit":"cup","en":"coconut cream","it":"crema di cocco","alternatives":[{"en":"dairy-free half-and-half","it":"miscela vegetale di latte e panna"}]}]}
+{"line":"1/8 cup coconut cream (or dairy-free half and half)","language":"en","parts":[{"quantity":0.125,"unit":"cup","en":"coconut cream","it":"crema di cocco","alternatives":[{"en":"dairy-free half and half","it":"miscela vegetale di latte e panna"}]}]}
 {"line":"1/8 teaspoon asafetida hing","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"asafetida","it":"assafetida"}]}
 {"line":"1/8 tsp asafetida (omit to make gluten-free or use certified gluten-free asafetida)","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"asafetida","it":"assafetida"}]}
 {"line":"1/8 tsp. cardamom","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"cardamom","it":"cardamomo"}]}
@@ -246,7 +246,7 @@
 {"line":"2 tablespoons (16g) ground flaxseed","language":"en","parts":[{"quantity":16,"unit":"g","en":"ground flaxseed","it":"semi di lino macinati"}]}
 {"line":"2 tablespoons all-purpose flour (or sub chickpea flour)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"chickpea flour","it":"farina di ceci"}]}]}
 {"line":"2 tablespoons cornstarch or tapioca starch","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"cornstarch","it":"amido di mais","alternatives":[{"en":"tapioca starch","it":"amido di tapioca"}]}]}
-{"line":"2 tablespoons lemon juice (, fresh-squeezed)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"freshly squeezed lemon juice","it":"succo di limone appena spremuto"}]}
+{"line":"2 tablespoons lemon juice (, fresh-squeezed)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"lemon juice","it":"succo di limone","preparationEn":"fresh-squeezed","preparationIt":"spremuto fresco"}]}
 {"line":"2 tablespoons olive oil ((see notes for oil-free version))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"2 tablespoons organic sugar","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"organic sugar","it":"zucchero biologico"}]}
 {"line":"2 tbsp cilantro ((coriander leaves, finely chopped))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"cilantro","it":"coriandolo fresco","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
@@ -268,11 +268,12 @@
 {"line":"2/3 cup oat flour ((gluten-free if needed))","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"oat flour","it":"farina d'avena"}]}
 {"line":"2/3 cup raisins","language":"en","parts":[{"quantity":0.6666667,"unit":"cup","en":"raisins","it":"uvetta"}]}
 {"line":"2/3 cup tapioca flour ((see notes))","language":"en","parts":[{"quantity":0.67,"unit":"cup","en":"tapioca flour","it":"farina di tapioca"}]}
+{"line":"2/3 cup vegan chocolate chips (and 2 tbsp for topping)","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"vegan chocolate chips","it":"gocce di cioccolato vegano","plus":{"quantity":2,"unit":"tbsp"},"purposeEn":"2 tablespoons for topping","purposeIt":"2 cucchiai per guarnire"}]}
 {"line":"20 curry leaves ((minced))","language":"en","parts":[{"quantity":20,"en":"curry leaves","it":"foglie di curry","preparationEn":"minced","preparationIt":"tritate finemente"}]}
 {"line":"20 ounces (570g) fresh udon noodles ( (see Note 1 for substitutes))","language":"en","parts":[{"quantity":570,"unit":"g","en":"fresh udon noodles","it":"udon freschi"}]}
 {"line":"20 ounces (570g) mixed mushrooms, (sliced or torn (note 2) )","language":"en","parts":[{"quantity":570,"unit":"g","en":"mixed mushrooms","it":"funghi misti","preparationEn":"sliced or torn","preparationIt":"affettati o spezzettati"}]}
 {"line":"200 g / 7 oz dry ramen noodles (or flat rice noodles if GF)","language":"en","parts":[{"quantity":200,"unit":"g","en":"dry ramen noodles","it":"noodles ramen secchi","alternatives":[{"en":"flat rice noodles","it":"noodles di riso piatti"}]}]}
-{"line":"200 g / 7 oz firm or extra firm tofu, I used smoked (pressed)","language":"en","parts":[{"quantity":200,"unit":"g","en":"firm tofu","it":"tofu compatto","preparationEn":"pressed","preparationIt":"pressato","alternatives":[{"en":"extra-firm tofu","it":"tofu extra compatto"}]}]}
+{"line":"200 g / 7 oz firm or extra firm tofu, I used smoked (pressed)","language":"en","parts":[{"quantity":200,"unit":"g","en":"firm tofu","it":"tofu compatto","preparationEn":"pressed","preparationIt":"pressato","alternatives":[{"en":"extra firm tofu","it":"tofu extra compatto"}]}]}
 {"line":"200 g / 7 oz kale (I used lacinato kale)","language":"en","parts":[{"quantity":200,"unit":"g","en":"kale","it":"cavolo riccio"}]}
 {"line":"200 g / 7 oz kimchi","language":"en","parts":[{"quantity":200,"unit":"g","en":"kimchi","it":"kimchi"}]}
 {"line":"25 g vegan butter","language":"en","parts":[{"quantity":25,"unit":"g","en":"vegan butter","it":"burro vegetale"}]}
@@ -298,7 +299,7 @@
 {"line":"3 teaspoons coarse ground black pepper","language":"en","parts":[{"quantity":3,"unit":"tsp","en":"coarsely ground black pepper","it":"pepe nero macinato grossolanamente"}]}
 {"line":"3 tsp oil","language":"en","parts":[{"quantity":3,"unit":"tsp","en":"oil","it":"olio"}]}
 {"line":"3 tsp oil (, divided)","language":"en","parts":[{"quantity":3,"unit":"tsp","en":"oil","it":"olio"}]}
-{"line":"3 vegan chorizo sausages, cut into slices","language":"en","parts":[{"quantity":3,"en":"vegan chorizo sausages","it":"salsicce chorizo vegane","preparationEn":"cut into slices","preparationIt":"tagliate a fette"}]}
+{"line":"3 vegan chorizo sausages, cut into slices","language":"en","parts":[{"quantity":3,"en":"vegan chorizo sausages","it":"salsicce vegane tipo chorizo","preparationEn":"cut into slices","preparationIt":"tagliate a fette"}]}
 {"line":"3-4 cups low sodium vegetable broth, (warmed)","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"cup","en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio","preparationEn":"warmed","preparationIt":"riscaldato"}]}
 {"line":"3/4 cup (180g) dry white wine (I used Pinot Grigio)","language":"en","parts":[{"quantity":180,"unit":"g","en":"dry white wine","it":"vino bianco secco"}]}
 {"line":"3/4 cup (180ml) unsweetened nondairy milk, such as cashew milk, oat milk, or almond milk (use oat milk to keep nut-free)","language":"en","parts":[{"quantity":180,"unit":"ml","en":"unsweetened non-dairy milk","it":"latte vegetale senza zucchero","alternatives":[{"en":"cashew milk","it":"latte di anacardi"},{"en":"oat milk","it":"latte d'avena"},{"en":"almond milk","it":"latte di mandorla"}]}]}

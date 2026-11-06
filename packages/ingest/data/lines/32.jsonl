@@ -8,7 +8,7 @@
 {"line":"1 1/2 cups + 2 tbsp sugar","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"sugar","it":"zucchero","plus":{"quantity":2,"unit":"tbsp"}}]}
 {"line":"1 1/2 cups Bob's Red Mill 1 to 1 Baking Flour* ((gluten-free))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"Bob's Red Mill 1 to 1 gluten-free baking flour","it":"farina senza glutine Bob's Red Mill 1 to 1 per dolci"}]}
 {"line":"1 1/2 cups chopped rhubarb","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"rhubarb","it":"rabarbaro","preparationEn":"chopped","preparationIt":"tagliato a pezzi"}]}
-{"line":"1 1/2 cups chopped veggies (I use frozen.)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegetables","it":"verdure","preparationEn":"chopped","preparationIt":"tagliate a pezzetti"}]}
+{"line":"1 1/2 cups chopped veggies (I use frozen.)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"veggies","it":"verdure","preparationEn":"chopped","preparationIt":"tagliate a pezzetti"}]}
 {"line":"1 1/2 cups diced carrots, (about 2 medium)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"carrots","it":"carote","preparationEn":"diced","preparationIt":"tagliate a dadini"}]}
 {"line":"1 1/2 cups dried red lentils, (rinsed and soaked* (can sub with orange))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"dried red lentils","it":"lenticchie rosse secche","preparationEn":"rinsed and soaked","preparationIt":"sciacquate e ammollate","alternatives":[{"en":"dried orange lentils","it":"lenticchie arancioni secche"}]}]}
 {"line":"1 1/2 cups frozen blueberries","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"frozen blueberries","it":"mirtilli surgelati"}]}
@@ -59,7 +59,7 @@
 {"line":"1 jalapeno pepper, deseeded (for less spiciness) diced finely","language":"en","parts":[{"quantity":1,"en":"jalapeño pepper","it":"peperoncino jalapeño","preparationEn":"deseeded and finely diced","preparationIt":"privato dei semi e tagliato a dadini fini"}]}
 {"line":"1 juicy lemon, zest & juice","language":"en","parts":[{"quantity":1,"en":"juicy lemon","it":"limone succoso","preparationEn":"zest and juice","preparationIt":"scorza e succo"}]}
 {"line":"1 kiwi, (peeled and sliced)","language":"en","parts":[{"quantity":1,"en":"kiwi","it":"kiwi","preparationEn":"peeled and sliced","preparationIt":"sbucciato e tagliato a fette"}]}
-{"line":"1 l vegetable stock ((or vegan bouillon))","language":"en","parts":[{"quantity":1,"unit":"l","en":"vegetable stock","it":"brodo vegetale","alternatives":[{"en":"vegan bouillon","it":"dado vegetale vegano"}]}]}
+{"line":"1 l vegetable stock ((or vegan bouillon))","language":"en","parts":[{"quantity":1,"unit":"l","en":"vegetable stock","it":"brodo vegetale","alternatives":[{"en":"vegan bouillon","it":"brodo vegetale"}]}]}
 {"line":"1 large (or 2 small) shallot, (thinly sliced)","language":"en","parts":[{"quantity":1,"en":"large shallot","it":"scalogno grande","preparationEn":"thinly sliced","preparationIt":"affettato sottilmente","alternatives":[{"quantity":2,"en":"small shallots","it":"scalogni piccoli"}]}]}
 {"line":"1 large garlic clove (*or 2 small cloves)","language":"en","parts":[{"quantity":1,"unit":"clove","en":"large garlic","it":"aglio grande","alternatives":[{"quantity":2,"unit":"clove","en":"small garlic","it":"aglio piccolo"}]}]}
 {"line":"1 large jalapeno, finely diced and most seeds removed","language":"en","parts":[{"quantity":1,"en":"large jalapeño","it":"jalapeño grande","preparationEn":"finely diced and most seeds removed","preparationIt":"tagliato a cubetti piccoli e privato della maggior parte dei semi"}]}
@@ -268,7 +268,7 @@
 {"line":"2 teaspoons vinegar","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"vinegar","it":"aceto"}]}
 {"line":"2 tsp. lemon juice","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"lemon juice","it":"succo di limone"}]}
 {"line":"2 x 400 g / 14 oz cans of full fat coconut milk","language":"en","parts":[{"quantity":800,"unit":"g","en":"full-fat coconut milk","it":"latte di cocco intero"}]}
-{"line":"2 –4 tbsp plant milk (only if using frozen mango)","language":"en","parts":[{"quantity":2,"quantityMax":4,"unit":"tbsp","en":"plant milk","it":"latte vegetale"}]}
+{"line":"2 –4 tbsp plant milk (only if using frozen mango)","language":"en","parts":[{"quantity":2,"quantityMax":4,"unit":"tbsp","en":"plant milk","it":"latte vegetale","preparationEn":"only if using frozen mango","preparationIt":"solo se si usa mango congelato"}]}
 {"line":"2-3 cups baby spinach","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"cup","en":"baby spinach","it":"spinacini"}]}
 {"line":"2-3 tablespoons extra virgin olive oil","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"extra virgin olive oil","it":"olio extravergine d'oliva"}]}
 {"line":"2-3 tbsp coconut milk (I use this brand) or thin plant milk","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"coconut milk","it":"latte di cocco","alternatives":[{"en":"thin plant milk","it":"latte vegetale poco denso"}]}]}
@@ -294,7 +294,7 @@
 {"line":"3 tablespoons tamari or soy sauce","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"tamari","it":"tamari","alternatives":[{"en":"soy sauce","it":"salsa di soia"}]}]}
 {"line":"3 tablespoons unsweetened applesauce","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"unsweetened applesauce","it":"purea di mele senza zucchero"}]}
 {"line":"3 tbsp chopped walnuts","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"walnuts","it":"noci","preparationEn":"chopped","preparationIt":"tritate"}]}
-{"line":"3 tbsp flour (I used Dove's Farm free from to keep the latkes GF, but rice flour or all purpose wheat flour works well too)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"flour","it":"farina","alternatives":[{"en":"rice flour","it":"farina di riso"},{"en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi"}]}]}
+{"line":"3 tbsp flour (I used Dove's Farm free from to keep the latkes GF, but rice flour or all purpose wheat flour works well too)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"flour","it":"farina","alternatives":[{"en":"rice flour","it":"farina di riso"},{"en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi"}]}]}
 {"line":"3 tbsp fresh cilantro, roughly chopped","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"fresh cilantro","it":"coriandolo fresco","preparationEn":"roughly chopped","preparationIt":"tritato grossolanamente"}]}
 {"line":"3 tbsp lemon juice ((1 lemon approx))","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"lemon juice","it":"succo di limone"}]}
 {"line":"3 tbsp pumpkin purée","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"pumpkin purée","it":"purea di zucca"}]}
@@ -309,7 +309,7 @@
 {"line":"3/4 teaspoon salt ((or to taste))","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
 {"line":"3/4 tsp cinnamon","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"cinnamon","it":"cannella"}]}
 {"line":"3/4-1 cup water","language":"en","parts":[{"quantity":0.75,"quantityMax":1,"unit":"cup","en":"water","it":"acqua"}]}
-{"line":"360 g / 12½ oz vegan chorizo sausages*","language":"en","parts":[{"quantity":360,"unit":"g","en":"vegan chorizo sausages","it":"salsicce chorizo vegane"}]}
+{"line":"360 g / 12½ oz vegan chorizo sausages*","language":"en","parts":[{"quantity":360,"unit":"g","en":"vegan chorizo sausages","it":"salsicce vegane tipo chorizo"}]}
 {"line":"3–4 garlic cloves, minced","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}
 {"line":"4 Tablespoons (60 ml) green olive brine (chilled)","language":"en","parts":[{"quantity":60,"unit":"ml","en":"green olive brine","it":"salamoia di olive verdi","preparationEn":"chilled","preparationIt":"raffreddata"}]}
 {"line":"4 Tbsp. natural almond butter","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"natural almond butter","it":"burro di mandorle naturale"}]}

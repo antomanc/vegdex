@@ -122,7 +122,7 @@
 {"line":"1 ½ teaspoons kosher salt (6g)","language":"en","parts":[{"quantity":6,"unit":"g","en":"kosher salt","it":"sale kosher"}]}
 {"line":"1-2 teaspoons grade A maple syrup*","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"grade A maple syrup","it":"sciroppo d'acero di grado A"}]}
 {"line":"1-2 teaspoons lemon juice, (optional)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"lemon juice","it":"succo di limone","optional":true}]}
-{"line":"1-2 tsp vegan ham seasoning, (optional )","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"vegan ham seasoning","it":"condimento vegano al gusto di prosciutto","optional":true}]}
+{"line":"1-2 tsp vegan ham seasoning, (optional )","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"vegan ham seasoning","it":"insaporitore vegano gusto prosciutto","optional":true}]}
 {"line":"1.5 Tablespoons ground Oats","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"ground oats","it":"avena macinata"}]}
 {"line":"1.5 cups raw basmati rice","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"raw basmati rice","it":"riso basmati crudo"}]}
 {"line":"1.5 tbsp caster sugar","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"caster sugar","it":"zucchero semolato fine"}]}
@@ -130,7 +130,7 @@
 {"line":"1/2 cup (68 g) dairy-free chocolate chips or chunks (optional)","language":"en","parts":[{"quantity":68,"unit":"g","en":"dairy-free chocolate chips","it":"gocce di cioccolato senza latte","optional":true,"alternatives":[{"en":"dairy-free chocolate chunks","it":"pezzi di cioccolato senza latte"}]}]}
 {"line":"1/2 cup + 1 tablespoon warm water","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"warm water","it":"acqua tiepida","plus":{"quantity":1,"unit":"tbsp"}}]}
 {"line":"1/2 cup Chickpea flour (or gar-fava flour)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"chickpea flour","it":"farina di ceci","alternatives":[{"en":"chickpea and fava bean flour","it":"farina di ceci e fave"}]}]}
-{"line":"1/2 cup Imitation Chicken Broth","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}
+{"line":"1/2 cup Imitation Chicken Broth","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}
 {"line":"1/2 cup cashews (soaked in hot water for 10 minutes)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cashews","it":"anacardi","preparationEn":"soaked in hot water for 10 minutes","preparationIt":"ammollati in acqua calda per 10 minuti"}]}
 {"line":"1/2 cup dill ((chopped))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"dill","it":"aneto","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1/2 cup extra firm tofu ((blended into a smooth mixture with 1/4 cup of nondairy milk)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"extra-firm tofu","it":"tofu extra compatto","preparationEn":"blended into a smooth mixture with 1/4 cup of dairy-free milk","preparationIt":"frullato fino a ottenere un composto liscio con 1/4 di tazza di latte vegetale"},{"quantity":0.25,"unit":"cup","en":"dairy-free milk","it":"latte vegetale"}]}
@@ -147,7 +147,7 @@
 {"line":"1/2 heaping cup vegan chocolate chips","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan chocolate chips","it":"gocce di cioccolato vegano","preparationEn":"heaping","preparationIt":"abbondante"}]}
 {"line":"1/2 teaspoon cinnamon powder","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"ground cinnamon","it":"cannella in polvere"}]}
 {"line":"1/2 teaspoon coriander seeds or powder","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"coriander seeds","it":"semi di coriandolo","alternatives":[{"en":"ground coriander","it":"coriandolo macinato"}]}]}
-{"line":"1/2 teaspoon pepper, fresh cracked black or white","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"freshly cracked black pepper","it":"pepe nero macinato al momento","alternatives":[{"en":"freshly cracked white pepper","it":"pepe bianco macinato al momento"}]}]}
+{"line":"1/2 teaspoon pepper, fresh cracked black or white","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"black or white pepper","it":"pepe nero o bianco","preparationEn":"fresh cracked","preparationIt":"macinato al momento"}]}
 {"line":"1/2 teaspoon pink salt","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"pink salt","it":"sale rosa"}]}
 {"line":"1/2 tsp Salt, plus more to taste (see notes)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
 {"line":"1/2 tsp allspice","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"allspice","it":"pimento"}]}
@@ -159,7 +159,7 @@
 {"line":"1/3 cup dairy-free chocolate chips ((or more))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"dairy-free chocolate chips","it":"gocce di cioccolato senza latte"}]}
 {"line":"1/3 cup maple syrup ((see note for substitute))","language":"en","parts":[{"quantity":0.3333,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero"}]}
 {"line":"1/3 cup mini chocolate chips or chopped dark chocolate","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"mini chocolate chips","it":"gocce di cioccolato piccole","alternatives":[{"en":"chopped dark chocolate","it":"cioccolato fondente tritato"}]}]}
-{"line":"1/3 cup vegan broth (chicken-style or vegetable broth)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"vegan chicken-style broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"1/3 cup vegan broth (chicken-style or vegetable broth)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"vegan broth","it":"brodo vegetale","alternatives":[{"en":"vegan chicken-style broth","it":"brodo vegetale gusto pollo"},{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"1/4 cup (1/2 stick) vegan butter, melted","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"1/4 cup Italian parsley (chopped; for garnish)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"Italian parsley","it":"prezzemolo","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"1/4 cup cashew butter (or almond butter, or tahini (runny, not firm))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cashew butter","it":"burro di anacardi","alternatives":[{"en":"almond butter","it":"burro di mandorle"},{"en":"runny tahini","it":"tahina fluida"}]}]}
@@ -170,7 +170,7 @@
 {"line":"1/4 cup peanuts, roughly chopped ((salted, roasted, raw, whatever you like!))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"peanuts","it":"arachidi","preparationEn":"roughly chopped","preparationIt":"tritate grossolanamente"}]}
 {"line":"1/4 cup quick cooking oats","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"quick cooking oats","it":"fiocchi d'avena a cottura rapida"}]}
 {"line":"1/4 cup tamari (or soy sauce if not GF)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"tamari","it":"tamari","alternatives":[{"en":"soy sauce","it":"salsa di soia"}]}]}
-{"line":"1/4 cup unsalted dairy free butter","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsalted dairy-free butter","it":"burro vegetale senza sale"}]}
+{"line":"1/4 cup unsalted dairy free butter","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsalted dairy-free butter","it":"burro vegetale non salato"}]}
 {"line":"1/4 cup vegan chocolate chunks","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan chocolate chunks","it":"pezzi di cioccolato vegano"}]}
 {"line":"1/4 cup wheat germ","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"wheat germ","it":"germe di grano"}]}
 {"line":"1/4 teaspoon black peppercorns (or add black pepper later)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"black peppercorns","it":"grani di pepe nero","alternatives":[{"en":"black pepper","it":"pepe nero"}]}]}
@@ -195,7 +195,7 @@
 {"line":"160 g / ¾ cup solid vegan butter (I used Naturli) or coconut oil","language":"en","parts":[{"quantity":160,"unit":"g","en":"solid vegan butter","it":"burro vegetale solido","alternatives":[{"en":"coconut oil","it":"olio di cocco"}]}]}
 {"line":"18 ounce jar BBQ sauce","language":"en","parts":[{"quantity":18,"unit":"oz","en":"BBQ sauce","it":"salsa barbecue"}]}
 {"line":"180 ml / ¾ cup vegan single cream* (I used Oatly)","language":"en","parts":[{"quantity":180,"unit":"ml","en":"vegan single cream","it":"panna vegetale liquida"}]}
-{"line":"1¼ cup non-dairy heavy whipping cream, cold","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"dairy-free heavy whipping cream","it":"panna vegetale da montare","preparationEn":"cold","preparationIt":"fredda"}]}
+{"line":"1¼ cup non-dairy heavy whipping cream, cold","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"non-dairy heavy whipping cream","it":"panna vegetale da montare ad alto contenuto di grassi","preparationEn":"cold","preparationIt":"fredda"}]}
 {"line":"1½ cups water ((or vegetable stock))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"water","it":"acqua","alternatives":[{"en":"vegetable stock","it":"brodo vegetale"}]}]}
 {"line":"1½ tsp of sea salt, adjust to taste","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"sea salt","it":"sale marino","toTaste":true}]}
 {"line":"1–2 tablespoons pure maple syrup","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"pure maple syrup","it":"sciroppo d'acero puro"}]}
@@ -317,7 +317,7 @@
 {"line":"50 g / 1¾ oz wild garlic leaves, washed and dried well","language":"en","parts":[{"quantity":50,"unit":"g","en":"wild garlic leaves","it":"foglie di aglio orsino","preparationEn":"washed and dried well","preparationIt":"lavate e asciugate bene"}]}
 {"line":"6 curry leaves (optional)","language":"en","parts":[{"quantity":6,"en":"curry leaves","it":"foglie di curry","optional":true}]}
 {"line":"6 medium aubergines","language":"en","parts":[{"quantity":6,"en":"medium aubergines","it":"melanzane medie"}]}
-{"line":"6 tablespoons coconut cream (or plain dairy free yogurt)","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"coconut cream","it":"crema di cocco","alternatives":[{"en":"plain dairy-free yogurt","it":"yogurt bianco senza latticini"}]}]}
+{"line":"6 tablespoons coconut cream (or plain dairy free yogurt)","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"coconut cream","it":"crema di cocco","alternatives":[{"en":"plain dairy-free yogurt","it":"yogurt vegetale bianco"}]}]}
 {"line":"6 tablespoons cold water, (divided)","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"cold water","it":"acqua fredda","preparationEn":"divided","preparationIt":"divisa"}]}
 {"line":"6 tbsp white rice flour","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"white rice flour","it":"farina di riso bianco"}]}
 {"line":"6 to 8 oz sliced white mushrooms (or cremini or baby bella , sliced thin 1-2 mm )","language":"en","parts":[{"quantity":6,"quantityMax":8,"unit":"oz","en":"white mushrooms","it":"funghi champignon bianchi","preparationEn":"thinly sliced","preparationIt":"affettati sottilmente","alternatives":[{"en":"cremini mushrooms","it":"funghi cremini"}]}]}

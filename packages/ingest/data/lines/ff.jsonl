@@ -24,7 +24,7 @@
 {"line":"1 Tbsp pure vanilla extract (use 2 tsp for less intense flavor)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"pure vanilla extract","it":"estratto puro di vaniglia"}]}
 {"line":"1 and 1/2 tbsp vegetable oil (divided)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"vegetable oil","it":"olio vegetale","preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"1 block (14 oz / 400 g) medium, firm, or extra-firm tofu (drained and cubed (no need to press it))","language":"en","parts":[{"quantity":400,"unit":"g","en":"medium tofu","it":"tofu di consistenza media","preparationEn":"drained and cubed","preparationIt":"scolato e tagliato a cubetti","alternatives":[{"en":"firm tofu","it":"tofu compatto"},{"en":"extra-firm tofu","it":"tofu extra compatto"}]}]}
-{"line":"1 box white or yellow cake mix ((I used Duncan Hines French vanilla, which is vegan))","language":"en","parts":[{"quantity":1,"unit":"box","en":"white cake mix","it":"preparato per torta bianca","alternatives":[{"en":"yellow cake mix","it":"preparato per torta gialla"}]}]}
+{"line":"1 box white or yellow cake mix ((I used Duncan Hines French vanilla, which is vegan))","language":"en","parts":[{"quantity":1,"unit":"box","en":"white or yellow cake mix","it":"preparato per torta bianca o gialla"}]}
 {"line":"1 can (28 oz) crushed tomatoes or passata","language":"en","parts":[{"quantity":28,"unit":"oz","en":"crushed tomatoes","it":"polpa di pomodoro","alternatives":[{"en":"passata","it":"passata di pomodoro"}]}]}
 {"line":"1 can water chestnuts (drained and chopped)","language":"en","parts":[{"quantity":1,"unit":"can","en":"water chestnuts","it":"castagne d'acqua","preparationEn":"drained and chopped","preparationIt":"scolate e tagliate a pezzetti"}]}
 {"line":"1 carrot, roughly chopped","language":"en","parts":[{"quantity":1,"en":"carrot","it":"carota","preparationEn":"roughly chopped","preparationIt":"tagliata grossolanamente"}]}
@@ -99,7 +99,7 @@
 {"line":"1 teaspoon rose water","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"rose water","it":"acqua di rose"}]}
 {"line":"1 tsp Fresh Lemon Juice","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"fresh lemon juice","it":"succo di limone fresco"}]}
 {"line":"1 tsp Italian herbs (or 1-2 tbsp vegan pesto)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"Italian herbs","it":"erbe aromatiche italiane","alternatives":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"vegan pesto","it":"pesto vegano"}]}]}
-{"line":"1 tsp Sunfoods’ Maca Extreme Powder","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"Sunfoods' Maca Extreme Powder","it":"Maca Extreme Powder Sunfoods"}]}
+{"line":"1 tsp Sunfoods’ Maca Extreme Powder","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"Sunfoods’ Maca Extreme Powder","it":"polvere di maca Maca Extreme Sunfoods"}]}
 {"line":"1 tsp vanilla (or 1/2 tsp ground cardamom or both)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"vanilla","it":"vaniglia","alternatives":[{"quantity":0.5,"unit":"tsp","en":"ground cardamom","it":"cardamomo macinato"}]}]}
 {"line":"1 tsp. turmeric","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"turmeric","it":"curcuma"}]}
 {"line":"1 unwaxed lemon (ideally with a thin peel)","language":"en","parts":[{"quantity":1,"en":"unwaxed lemon","it":"limone non trattato"}]}
@@ -131,6 +131,7 @@
 {"line":"1/2 tbsp coconut oil, (plus more for greasing)","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"coconut oil","it":"olio di cocco","purposeEn":"plus more for greasing","purposeIt":"più altro per ungere"}]}
 {"line":"1/2 teaspoon Chinese 5-spice","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"Chinese five-spice powder","it":"miscela cinese cinque spezie"}]}
 {"line":"1/2 teaspoon cayenne (or use Kashmiri chili powder for less heat)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna","alternatives":[{"en":"Kashmiri chili powder","it":"peperoncino del Kashmir in polvere"}]}]}
+{"line":"1/2 teaspoon sweet paprika, (plus more for topping)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"sweet paprika","it":"paprika dolce","purposeEn":"plus more for topping","purposeIt":"più una quantità aggiuntiva per guarnire"}]}
 {"line":"1/2 tsp apple cider vinegar ((add to the water or nondairy milk))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"apple cider vinegar","it":"aceto di mele"}]}
 {"line":"1/2 tsp dijon mustard","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"Dijon mustard","it":"senape di Digione"}]}
 {"line":"1/2 tsp of garlic powder","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"garlic powder","it":"aglio in polvere"}]}
@@ -209,7 +210,7 @@
 {"line":"2 cups dried chickpeas ((chana or garbanzo beans))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"dried chickpeas","it":"ceci secchi"}]}
 {"line":"2 cups granulated sugar","language":"en","parts":[{"quantity":2,"unit":"cup","en":"granulated sugar","it":"zucchero semolato"}]}
 {"line":"2 cups mixed berries","language":"en","parts":[{"quantity":2,"unit":"cup","en":"mixed berries","it":"frutti di bosco misti"}]}
-{"line":"2 cups of vegetable broth or vegan chicken broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}]}
+{"line":"2 cups of vegetable broth or vegan chicken broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}]}
 {"line":"2 cups pumpkin puree (fresh or canned)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"fresh pumpkin puree","it":"purea di zucca fresca","alternatives":[{"en":"canned pumpkin puree","it":"purea di zucca in scatola"}]}]}
 {"line":"2 cups vegetable broth (or water)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
 {"line":"2 medium shallot","language":"en","parts":[{"quantity":2,"en":"medium shallots","it":"scalogni medi"}]}
@@ -285,7 +286,7 @@
 {"line":"3/4 cup rolled oats","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"rolled oats","it":"fiocchi d'avena"}]}
 {"line":"3/4 cup thinly sliced onion","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"onion","it":"cipolla","preparationEn":"thinly sliced","preparationIt":"affettata sottilmente"}]}
 {"line":"3/4 cup vegan sour cream or vegan cream cheese","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan sour cream","it":"panna acida vegetale","alternatives":[{"en":"vegan cream cheese","it":"formaggio spalmabile vegetale"}]}]}
-{"line":"3/4 cup vegetable broth (, low-sodium if preferred)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
+{"line":"3/4 cup vegetable broth (, low-sodium if preferred)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio"}]}]}
 {"line":"3/4 cup white wine","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"white wine","it":"vino bianco"}]}
 {"line":"3/4 packed cup light brown sugar","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"light brown sugar","it":"zucchero di canna chiaro","preparationEn":"packed","preparationIt":"pressato nel misurino"}]}
 {"line":"3/4 tsp Salt","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"salt","it":"sale"}]}
@@ -354,7 +355,7 @@
 {"line":"sweet potato frosting ((optional))","language":"en","parts":[{"en":"sweet potato frosting","it":"glassa di patate dolci","optional":true}]}
 {"line":"vegan mini chocolate chips (or chopped walnuts)","language":"en","parts":[{"en":"vegan mini chocolate chips","it":"mini gocce di cioccolato vegane","alternatives":[{"en":"chopped walnuts","it":"noci tritate"}]}]}
 {"line":"vegan parmesan (as needed for topping)","language":"en","parts":[{"en":"vegan parmesan","it":"parmigiano vegano","purposeEn":"for topping","purposeIt":"per guarnire"}]}
-{"line":"vegan yoghurt OR cashew cream OR avocado cream, to serve","language":"en","parts":[{"en":"vegan yogurt","it":"yogurt vegetale","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"cashew cream","it":"crema di anacardi"},{"en":"avocado cream","it":"crema di avocado"}]}]}
+{"line":"vegan yoghurt OR cashew cream OR avocado cream, to serve","language":"en","parts":[{"en":"vegan yoghurt","it":"yogurt vegetale","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"cashew cream","it":"crema di anacardi"},{"en":"avocado cream","it":"crema di avocado"}]}]}
 {"line":"¼ cup natural almond butter","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"natural almond butter","it":"burro di mandorle naturale"}]}
 {"line":"¼ cup of canola oil","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"canola oil","it":"olio di colza"}]}
 {"line":"¼ cup of plain soy milk","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"plain soy milk","it":"latte di soia al naturale"}]}

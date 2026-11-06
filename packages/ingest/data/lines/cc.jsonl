@@ -169,7 +169,7 @@
 {"line":"1/3 cup maple syrup (or any other liquid sweetener)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"liquid sweetener of choice","it":"dolcificante liquido a scelta"}]}]}
 {"line":"1/3 tsp baking powder","language":"en","parts":[{"quantity":0.333333,"unit":"tsp","en":"baking powder","it":"lievito per dolci"}]}
 {"line":"1/3 tsp chipotle pepper powder (a dash of black pepper)","language":"en","parts":[{"quantity":0.3333333333,"unit":"tsp","en":"chipotle pepper powder","it":"peperoncino chipotle in polvere"},{"unit":"dash","en":"black pepper","it":"pepe nero"}]}
-{"line":"1/4 cup almond feta (or tofu feta or other vegan feta, 60g)","language":"en","parts":[{"quantity":60,"unit":"g","en":"almond feta","it":"feta di mandorle","alternatives":[{"en":"tofu feta","it":"feta di tofu"},{"en":"other vegan feta","it":"altra feta vegana"}]}]}
+{"line":"1/4 cup almond feta (or tofu feta or other vegan feta, 60g)","language":"en","parts":[{"quantity":60,"unit":"g","en":"almond feta","it":"feta di mandorle","alternatives":[{"en":"tofu feta","it":"feta di tofu"},{"en":"vegan feta","it":"feta vegana"}]}]}
 {"line":"1/4 cup chopped pecans or other nuts or additions","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"pecans","it":"noci pecan","preparationEn":"chopped","preparationIt":"tritate","alternatives":[{"en":"other nuts","it":"altra frutta secca"},{"en":"additions of choice","it":"aggiunte a scelta"}]}]}
 {"line":"1/4 cup chunky salsa or pico de gallo, give or take","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"chunky salsa","it":"salsa messicana a pezzetti","alternatives":[{"en":"pico de gallo","it":"pico de gallo"}]}]}
 {"line":"1/4 cup cold water (to mix with tapioca starch)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"water","it":"acqua","preparationEn":"cold","preparationIt":"fredda"}]}
@@ -179,7 +179,7 @@
 {"line":"1/4 cup fresh cilantro, chopped","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1/4 cup peanuts (or lightly roasted cashews)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"peanuts","it":"arachidi","alternatives":[{"en":"lightly roasted cashews","it":"anacardi leggermente tostati"}]}]}
 {"line":"1/4 cup plant-based milk ((or water))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"plant-based milk","it":"latte vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
-{"line":"1/4 cup unsweetened vegan yogurt (or replace with milk)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsweetened vegan yogurt","it":"yogurt vegetale senza zucchero","alternatives":[{"en":"milk","it":"latte"}]}]}
+{"line":"1/4 cup unsweetened vegan yogurt (or replace with milk)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsweetened vegan yogurt","it":"yogurt vegetale non zuccherato","alternatives":[{"en":"milk","it":"latte"}]}]}
 {"line":"1/4 de cac de sel","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"1/4 red onion (or 1 small shallot), minced","language":"en","parts":[{"quantity":0.25,"en":"red onion","it":"cipolla rossa","preparationEn":"minced","preparationIt":"tritata finemente","alternatives":[{"quantity":1,"en":"small shallot","it":"scalogno piccolo"}]}]}
 {"line":"1/4 teaspoon sea salt (, more to taste )","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"sea salt","it":"sale marino","toTaste":true}]}
@@ -315,7 +315,7 @@
 {"line":"3-4 tbsp chopped parsley","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"tbsp","en":"parsley","it":"prezzemolo","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"3.2 ounces vegan butter","language":"en","parts":[{"quantity":3.2,"unit":"oz","en":"vegan butter","it":"burro vegetale"}]}
 {"line":"3/4 cup (135g) completely melted coconut butter (NOT coconut oil!)(I make my own, click here, this ingredient is not optional and cannot be subbed, it is what makes the bars firm up)","language":"en","parts":[{"quantity":135,"unit":"g","en":"coconut butter","it":"burro di cocco","preparationEn":"completely melted","preparationIt":"completamente fuso"}]}
-{"line":"3/4 cup Oat Flour (certified gf finely ground Oats , or use any mild tasting grain flour/white flour)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"oat flour","it":"farina d'avena","alternatives":[{"en":"mild-tasting grain flour","it":"farina di cereali dal gusto delicato"},{"en":"white flour","it":"farina bianca"}]}]}
+{"line":"3/4 cup Oat Flour (certified gf finely ground Oats , or use any mild tasting grain flour/white flour)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"oat flour","it":"farina d'avena","alternatives":[{"en":"mild-tasting grain flour","it":"farina di cereali dal sapore delicato"},{"en":"white flour","it":"farina bianca"}]}]}
 {"line":"3/4 cup chopped celery","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"celery","it":"sedano","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"3/4 cup pumpkin puree (, see notes for alternatives)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"pumpkin puree","it":"purea di zucca"}]}
 {"line":"3/4 cup red onion (chopped)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"red onion","it":"cipolla rossa","preparationEn":"chopped","preparationIt":"tritata"}]}
@@ -349,7 +349,7 @@
 {"line":"6 cups vegetable broth ( (1 1/2 litres))","language":"en","parts":[{"quantity":1.5,"unit":"l","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"6 large cloves garlic","language":"en","parts":[{"quantity":6,"unit":"clove","en":"large garlic","it":"aglio grande"}]}
 {"line":"6 ounces fresh spinach","language":"en","parts":[{"quantity":6,"unit":"oz","en":"fresh spinach","it":"spinaci freschi"}]}
-{"line":"6 ounces haricot vert (170 grams )","language":"en","parts":[{"quantity":170,"unit":"g","en":"haricots verts","it":"fagiolini"}]}
+{"line":"6 ounces haricot vert (170 grams )","language":"en","parts":[{"quantity":170,"unit":"g","en":"haricots verts","it":"fagiolini sottili"}]}
 {"line":"6 tablespoons (72g) light brown sugar or my homemade coconut brown sugar","language":"en","parts":[{"quantity":72,"unit":"g","en":"light brown sugar","it":"zucchero di canna chiaro","alternatives":[{"en":"homemade coconut brown sugar","it":"zucchero di cocco bruno fatto in casa"}]}]}
 {"line":"6 tablespoons OR ¾ cup granulated sugar (see steps 1 and 2)","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"granulated sugar","it":"zucchero semolato","alternatives":[{"quantity":0.75,"unit":"cup","en":"granulated sugar","it":"zucchero semolato"}]}]}
 {"line":"6 tbsp tamari (or soy sauce)","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"tamari","it":"tamari","alternatives":[{"en":"soy sauce","it":"salsa di soia"}]}]}
@@ -410,7 +410,7 @@
 {"line":"just under 1/2 teaspoon fine sea salt","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"fine sea salt","it":"sale marino fino"}]}
 {"line":"light oil ((such as canola or vegetable) for frying)","language":"en","parts":[{"en":"light oil","it":"olio dal sapore delicato","purposeEn":"for frying","purposeIt":"per friggere","alternatives":[{"en":"canola oil","it":"olio di colza"},{"en":"vegetable oil","it":"olio vegetale"}]}]}
 {"line":"optional: good pinch of ground cloves","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"ground cloves","it":"chiodi di garofano macinati","optional":true}]}
-{"line":"shaved parmesan (I used Violife non-dairy)","language":"en","parts":[{"en":"vegan parmesan","it":"parmigiano vegano","preparationEn":"shaved","preparationIt":"a scaglie"}]}
+{"line":"shaved parmesan (I used Violife non-dairy)","language":"en","parts":[{"en":"non-dairy parmesan","it":"parmigiano vegetale","preparationEn":"shaved","preparationIt":"a scaglie"}]}
 {"line":"shredded unsweetened coconut (add after the first two or three minutes)","language":"en","parts":[{"en":"unsweetened shredded coconut","it":"cocco grattugiato non zuccherato","preparationEn":"add after the first two or three minutes","preparationIt":"aggiungere dopo i primi due o tre minuti"}]}
 {"line":"slices of your favorite bread","language":"en","parts":[{"unit":"slice","en":"bread of choice","it":"pane a scelta"}]}
 {"line":"small bunch coriander / cilantro","language":"en","parts":[{"quantity":1,"unit":"bunch","en":"fresh coriander","it":"coriandolo fresco","preparationEn":"small bunch","preparationIt":"mazzetto piccolo"}]}

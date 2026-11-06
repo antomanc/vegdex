@@ -20,7 +20,7 @@
 {"line":"1 10oz package vegan beef crumbles ((like beyond crumbles or burgers) or 4 vegan sausage links chopped)","language":"en","parts":[{"quantity":10,"unit":"oz","en":"vegan beef crumbles","it":"macinato vegetale tipo manzo","alternatives":[{"quantity":4,"en":"vegan sausages","it":"salsicce vegane"}]}]}
 {"line":"1 14 oz block extra firm tofu (, drained and pressed (*see note))","language":"en","parts":[{"quantity":14,"unit":"oz","en":"extra-firm tofu","it":"tofu extra compatto","preparationEn":"drained and pressed","preparationIt":"scolato e pressato"}]}
 {"line":"1 15 ounce cooked chickpeas, rinsed and drained (1 ½ cups )","language":"en","parts":[{"quantity":15,"unit":"oz","en":"cooked chickpeas","it":"ceci cotti","preparationEn":"rinsed and drained","preparationIt":"sciacquati e scolati"}]}
-{"line":"1 3/4 cups vegan beef broth, (divided (see notes above - or swap with vegan mushroom broth))","language":"en","parts":[{"quantity":1.75,"unit":"cup","en":"vegan beef broth","it":"brodo vegetale gusto manzo","preparationEn":"divided","preparationIt":"diviso","alternatives":[{"en":"vegan mushroom broth","it":"brodo vegetale ai funghi"}]}]}
+{"line":"1 3/4 cups vegan beef broth, (divided (see notes above - or swap with vegan mushroom broth))","language":"en","parts":[{"quantity":1.75,"unit":"cup","en":"vegan beef broth","it":"brodo vegano gusto manzo","preparationEn":"divided","preparationIt":"diviso","alternatives":[{"en":"vegan mushroom broth","it":"brodo vegano ai funghi"}]}]}
 {"line":"1 8-ounce (225g) can tomato sauce","language":"en","parts":[{"quantity":225,"unit":"g","en":"canned tomato sauce","it":"salsa di pomodoro in scatola"}]}
 {"line":"1 Shallot, minced","language":"en","parts":[{"quantity":1,"en":"shallot","it":"scalogno","preparationEn":"minced","preparationIt":"tritato"}]}
 {"line":"1 Tablespoon Apple Cider Vinegar or 1 teaspoon vinegar","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"apple cider vinegar","it":"aceto di mele","alternatives":[{"quantity":1,"unit":"tsp","en":"vinegar","it":"aceto"}]}]}
@@ -127,7 +127,7 @@
 {"line":"1/2 - 1 teaspoon Sichuan peppercorns (ground (optional, but recommended))","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"Sichuan peppercorns","it":"grani di pepe di Sichuan","preparationEn":"ground","preparationIt":"macinati","optional":true}]}
 {"line":"1/2 Tablespoon maple syrup","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero"}]}
 {"line":"1/2 banana, sliced","language":"en","parts":[{"quantity":0.5,"en":"banana","it":"banana","preparationEn":"sliced","preparationIt":"tagliata a fette"}]}
-{"line":"1/2 cup (120 ml) vegan chicken-flavored broth or vegetable broth","language":"en","parts":[{"quantity":120,"unit":"ml","en":"vegan chicken-flavored broth","it":"brodo vegetale al gusto di pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"1/2 cup (120 ml) vegan chicken-flavored broth or vegetable broth","language":"en","parts":[{"quantity":120,"unit":"ml","en":"vegan chicken-flavored broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"1/2 cup (120g) unsweetened almond milk (see NOTES below for sub)","language":"en","parts":[{"quantity":120,"unit":"g","en":"unsweetened almond milk","it":"latte di mandorla senza zucchero"}]}
 {"line":"1/2 cup (128g) creamy roasted almond butter","language":"en","parts":[{"quantity":128,"unit":"g","en":"creamy roasted almond butter","it":"burro cremoso di mandorle tostate"}]}
 {"line":"1/2 cup + 2 tablespoons (200g) pure maple syrup or agave, room temp","language":"en","parts":[{"quantity":200,"unit":"g","en":"pure maple syrup","it":"sciroppo d'acero puro","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente","alternatives":[{"en":"agave syrup","it":"sciroppo d'agave"}]}]}
@@ -143,7 +143,7 @@
 {"line":"1/2 cup panko","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"panko","it":"panko"}]}
 {"line":"1/2 cup pepperoncini","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"pepperoncini","it":"peperoncini"}]}
 {"line":"1/2 cup unflavored and unsweetened non-dairy milk ((in addition to the milk for the flax egg))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unflavored and unsweetened non-dairy milk","it":"latte vegetale non aromatizzato e senza zuccheri"}]}
-{"line":"1/2 cup vegetable broth (, low-sodium if preferred)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
+{"line":"1/2 cup vegetable broth (, low-sodium if preferred)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio"}]}]}
 {"line":"1/2 cup vegetable stock ((120g))","language":"en","parts":[{"quantity":120,"unit":"g","en":"vegetable stock","it":"brodo vegetale"}]}
 {"line":"1/2 cup white vinegar (120ml)","language":"en","parts":[{"quantity":120,"unit":"ml","en":"white vinegar","it":"aceto bianco"}]}
 {"line":"1/2 jalapeno or hot chili (finely chopped)","language":"en","parts":[{"quantity":0.5,"en":"jalapeño","it":"peperoncino jalapeño","preparationEn":"finely chopped","preparationIt":"tritato finemente","alternatives":[{"en":"hot chili","it":"peperoncino piccante"}]}]}
@@ -169,7 +169,7 @@
 {"line":"1/3 cup cornstarch ((see notes))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"cornstarch","it":"amido di mais"}]}
 {"line":"1/3 cup diced red onions","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"red onions","it":"cipolle rosse","preparationEn":"diced","preparationIt":"a dadini"}]}
 {"line":"1/3 cup green pepper (finely chopped)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"green pepper","it":"peperone verde","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
-{"line":"1/3 cup non dairy yogurt","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"dairy-free yogurt","it":"yogurt vegetale"}]}
+{"line":"1/3 cup non dairy yogurt","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"non-dairy yogurt","it":"yogurt vegetale"}]}
 {"line":"1/3 cup packed basil leaves","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"basil leaves","it":"foglie di basilico","preparationEn":"packed","preparationIt":"pressate nel misurino"}]}
 {"line":"1/3 cup red bell pepper","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"red bell pepper","it":"peperone rosso"}]}
 {"line":"1/4 cup (32g) all-purpose flour","language":"en","parts":[{"quantity":32,"unit":"g","en":"all-purpose flour","it":"farina 00"}]}
@@ -204,7 +204,7 @@
 {"line":"1½ cup cooked cannellini beans","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"cooked cannellini beans","it":"fagioli cannellini cotti"}]}
 {"line":"1½ tbsp lime juice (or lemon juice)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"lime juice","it":"succo di lime","alternatives":[{"en":"lemon juice","it":"succo di limone"}]}]}
 {"line":"2 14 ounce cans fire-roasted tomatoes","language":"en","parts":[{"quantity":28,"unit":"oz","en":"fire-roasted tomatoes","it":"pomodori arrostiti alla fiamma"}]}
-{"line":"2 Bob's Red Mill Egg Replacers OR flax eggs (if flax eggs, less one tablespoon of liquid per flax egg)","language":"en","parts":[{"quantity":2,"en":"Bob's Red Mill egg replacers","it":"sostituti dell'uovo Bob's Red Mill","alternatives":[{"en":"flax eggs","it":"uova di lino"}]}]}
+{"line":"2 Bob's Red Mill Egg Replacers OR flax eggs (if flax eggs, less one tablespoon of liquid per flax egg)","language":"en","parts":[{"quantity":2,"en":"Bob's Red Mill egg replacers","it":"sostituti dell'uovo Bob's Red Mill","alternatives":[{"en":"flax eggs","it":"uova di semi di lino"}]}]}
 {"line":"2 Tablespoons fresh lemon juice","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh lemon juice","it":"succo di limone fresco"}]}
 {"line":"2 Tbsp vegan parmesan","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan parmesan","it":"parmigiano vegano"}]}
 {"line":"2 crushed candy canes","language":"en","parts":[{"quantity":2,"en":"candy canes","it":"bastoncini di zucchero","preparationEn":"crushed","preparationIt":"sbriciolati"}]}

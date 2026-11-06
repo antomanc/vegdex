@@ -301,7 +301,7 @@
 {"line":"3/4 cup almond butter or cashew butter ((scant cup))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"almond butter","it":"burro di mandorle","alternatives":[{"en":"cashew butter","it":"burro di anacardi"}]}]}
 {"line":"3/4 cup almond flour or almond meal","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"almond flour","it":"farina di mandorle","alternatives":[{"en":"almond meal","it":"farina di mandorle"}]}]}
 {"line":"3/4 cup chocolate chips","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"chocolate chips","it":"gocce di cioccolato"}]}
-{"line":"3/4 cup non-dairy milk (warmed)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"plant-based milk","it":"latte vegetale","preparationEn":"warmed","preparationIt":"riscaldato"}]}
+{"line":"3/4 cup non-dairy milk (warmed)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","preparationEn":"warmed","preparationIt":"riscaldato"}]}
 {"line":"3/4 cup unsweetened cocoa powder ((60g))","language":"en","parts":[{"quantity":60,"unit":"g","en":"unsweetened cocoa powder","it":"cacao amaro in polvere"}]}
 {"line":"3/4 cup vegan sweetened condensed milk (1 recipe or store bought)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan sweetened condensed milk","it":"latte condensato vegetale zuccherato"}]}
 {"line":"3/4 cup vegetable broth, (divided)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","preparationEn":"divided","preparationIt":"diviso"}]}
@@ -340,7 +340,7 @@
 {"line":"Fresh Spinach","language":"en","parts":[{"en":"fresh spinach","it":"spinaci freschi"}]}
 {"line":"Fresh basil (thinly sliced)","language":"en","parts":[{"en":"fresh basil","it":"basilico fresco","preparationEn":"thinly sliced","preparationIt":"affettato sottilmente"}]}
 {"line":"Fresh or frozen fruit","language":"en","parts":[{"en":"fresh fruit","it":"frutta fresca","alternatives":[{"en":"frozen fruit","it":"frutta surgelata"}]}]}
-{"line":"Fresh-cracked pepper to taste","language":"en","parts":[{"en":"freshly cracked pepper","it":"pepe macinato al momento","toTaste":true}]}
+{"line":"Fresh-cracked pepper to taste","language":"en","parts":[{"en":"fresh-cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"Generous pinch of salt","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"salt","it":"sale"}]}
 {"line":"Grape tomatoes, (halved (optional))","language":"en","parts":[{"en":"grape tomatoes","it":"pomodorini datterini","preparationEn":"halved","preparationIt":"tagliati a metà","optional":true}]}
 {"line":"Homemade Caramel Sauce","language":"en","parts":[{"en":"homemade caramel sauce","it":"salsa al caramello fatta in casa"}]}
@@ -368,7 +368,7 @@
 {"line":"crushed roasted peanuts (or seeds of choice, like sesame seeds)","language":"en","parts":[{"en":"roasted peanuts","it":"arachidi tostate","preparationEn":"crushed","preparationIt":"tritate grossolanamente","alternatives":[{"en":"seeds of choice","it":"semi a scelta"},{"en":"sesame seeds","it":"semi di sesamo"}]}]}
 {"line":"cumin powder as needed","language":"en","parts":[{"en":"ground cumin","it":"cumino macinato","toTaste":true}]}
 {"line":"dill pickles, spears or slices","language":"en","parts":[{"en":"dill pickles","it":"cetriolini sottaceto all'aneto","preparationEn":"cut into spears or slices","preparationIt":"tagliati a spicchi o a fette"}]}
-{"line":"few tablespoons non-dairy milk for brushing pie crust + sprinkle of coarse sugar, optional","language":"en","parts":[{"unit":"tbsp","en":"non-dairy milk","it":"latte vegetale","purposeEn":"for brushing pie crust","purposeIt":"per spennellare la crosta della torta","optional":true},{"en":"coarse sugar","it":"zucchero a grana grossa","optional":true}]}
+{"line":"few tablespoons non-dairy milk for brushing pie crust + sprinkle of coarse sugar, optional","language":"en","parts":[{"unit":"tbsp","en":"non-dairy milk","it":"latte vegetale","purposeEn":"for brushing pie crust","purposeIt":"per spennellare la superficie della torta"},{"unit":"pinch","en":"coarse sugar","it":"zucchero a grana grossa","optional":true}]}
 {"line":"fresh fruit","language":"en","parts":[{"en":"fresh fruit","it":"frutta fresca"}]}
 {"line":"fresh or frozen blueberries","language":"en","parts":[{"en":"fresh blueberries","it":"mirtilli freschi","alternatives":[{"en":"frozen blueberries","it":"mirtilli surgelati"}]}]}
 {"line":"freshly ground nutmeg (I use about ½ nutmeg), to taste","language":"en","parts":[{"en":"nutmeg","it":"noce moscata","preparationEn":"freshly ground","preparationIt":"macinata al momento","toTaste":true}]}

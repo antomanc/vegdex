@@ -103,7 +103,7 @@
 {"line":"1 teaspoon turmeric","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"turmeric","it":"curcuma"}]}
 {"line":"1 to 3 tsp lime juice to preference","language":"en","parts":[{"quantity":1,"quantityMax":3,"unit":"tsp","en":"lime juice","it":"succo di lime"}]}
 {"line":"1 tsp Irish whiskey ((optional))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"Irish whiskey","it":"whiskey irlandese","optional":true}]}
-{"line":"1 tsp fresh rosemary ((or sage, If using dried herbs, reduce to 1 tsp))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"fresh rosemary","it":"rosmarino fresco","alternatives":[{"en":"sage","it":"salvia"}]}]}
+{"line":"1 tsp fresh rosemary ((or sage, If using dried herbs, reduce to 1 tsp))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"fresh rosemary","it":"rosmarino fresco","preparationEn":"if using dried herbs, reduce to 1 tsp","preparationIt":"se si usano erbe essiccate, ridurre a 1 cucchiaino","alternatives":[{"en":"sage","it":"salvia"}]}]}
 {"line":"1 tsp fresh thyme ( or 1/2 tsp dried)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"fresh thyme","it":"timo fresco","alternatives":[{"quantity":0.5,"unit":"tsp","en":"dried thyme","it":"timo essiccato"}]}]}
 {"line":"1 tsp ground cumin ((or 1 tsp cumin seeds, ground))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"ground cumin","it":"cumino macinato","alternatives":[{"quantity":1,"unit":"tsp","en":"cumin seeds","it":"semi di cumino"}]}]}
 {"line":"1 tsp oil (, or use 2 tbsp broth to saute)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"oil","it":"olio","alternatives":[{"quantity":2,"unit":"tbsp","en":"broth","it":"brodo"}]}]}
@@ -344,7 +344,7 @@
 {"line":"8 oz. button mushrooms, (cleaned, stemmed and sliced)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"button mushrooms","it":"funghi champignon","preparationEn":"cleaned, stemmed and sliced","preparationIt":"puliti, privati dei gambi e tagliati a fette"}]}
 {"line":"8 oz. dry pasta","language":"en","parts":[{"quantity":8,"unit":"oz","en":"dry pasta","it":"pasta secca"}]}
 {"line":"8 pieces lasagna noodles ((6 ounces), broken into small pieces)","language":"en","parts":[{"quantity":6,"unit":"oz","en":"lasagna noodles","it":"sfoglie per lasagne","preparationEn":"broken into small pieces","preparationIt":"spezzettate"}]}
-{"line":"8 white button mushrooms (diced (I used canned))","language":"en","parts":[{"quantity":8,"en":"white button mushrooms","it":"funghi champignon bianchi","preparationEn":"diced","preparationIt":"tagliati a cubetti"}]}
+{"line":"8 white button mushrooms (diced (I used canned))","language":"en","parts":[{"quantity":8,"en":"white button mushrooms","it":"funghi champignon bianchi","preparationEn":"diced; canned mushrooms were used","preparationIt":"tagliati a dadini; sono stati usati funghi in scatola"}]}
 {"line":"8-10 dried curry leaves (optional)","language":"en","parts":[{"quantity":8,"quantityMax":10,"unit":"leaf","en":"dried curry leaves","it":"foglie di curry essiccate","optional":true}]}
 {"line":"9 oz whole wheat penne","language":"en","parts":[{"quantity":9,"unit":"oz","en":"whole wheat penne","it":"penne integrali"}]}
 {"line":"9.524 oz vegan puff pastry dough","language":"en","parts":[{"quantity":9.524,"unit":"oz","en":"vegan puff pastry dough","it":"pasta sfoglia vegana"}]}

@@ -136,7 +136,7 @@
 {"line":"1/2 cup kalamata olives, cut in half (optional)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"Kalamata olives","it":"olive Kalamata","preparationEn":"cut in half","preparationIt":"tagliate a metà","optional":true}]}
 {"line":"1/2 cup mango puree","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"mango puree","it":"purea di mango"}]}
 {"line":"1/2 cup mushrooms (washed and diced (I used portabella))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"mushrooms","it":"funghi","preparationEn":"washed and diced","preparationIt":"lavati e tagliati a dadini"}]}
-{"line":"1/2 cup non dairy milk such as almond milk","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"nondairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"}]}]}
+{"line":"1/2 cup non dairy milk such as almond milk","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"}]}]}
 {"line":"1/2 cup non dairy yogurt (, plain unsweetened, plain lightly sweetened also works)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"plain unsweetened non-dairy yogurt","it":"yogurt vegetale bianco senza zucchero","alternatives":[{"en":"plain lightly sweetened non-dairy yogurt","it":"yogurt vegetale bianco leggermente zuccherato"}]}]}
 {"line":"1/2 cup parsley (finely chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"parsley","it":"prezzemolo","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"1/2 cup pecans (, heaping cup, a mix of chopped and halfs)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"pecans","it":"noci pecan","preparationEn":"a mix of chopped and halved","preparationIt":"un misto di noci tritate e a metà"}]}
@@ -225,7 +225,7 @@
 {"line":"2 cups + 2 tbsp all purpose flour","language":"en","parts":[{"quantity":2,"unit":"cup","en":"all-purpose flour","it":"farina 00","plus":{"quantity":2,"unit":"tbsp"}}]}
 {"line":"2 cups Vegetable broth, divided","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"2 cups canned black beans (drained)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"canned black beans","it":"fagioli neri in scatola","preparationEn":"drained","preparationIt":"scolati"}]}
-{"line":"2 cups cooked chickpeas ((canned or cooked from dried chickpeas))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cooked chickpeas","it":"ceci cotti"}]}
+{"line":"2 cups cooked chickpeas ((canned or cooked from dried chickpeas))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cooked chickpeas","it":"ceci cotti","preparationEn":"canned or cooked from dried chickpeas","preparationIt":"in scatola o cotti a partire da ceci secchi"}]}
 {"line":"2 cups cooked rice (white or brown)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cooked rice","it":"riso cotto"}]}
 {"line":"2 cups fresh cilantro ((about 1 medium bunch), packed)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"fresh cilantro","it":"coriandolo fresco"}]}
 {"line":"2 cups pumpkin puree ((see notes))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"pumpkin puree","it":"purea di zucca"}]}
@@ -324,14 +324,14 @@
 {"line":"4 ounces dry soy curls","language":"en","parts":[{"quantity":4,"unit":"oz","en":"dried soy curls","it":"bocconcini di soia disidratati"}]}
 {"line":"4 ounces radishes (ends trimmed and cut in half)","language":"en","parts":[{"quantity":4,"unit":"oz","en":"radishes","it":"ravanelli","preparationEn":"ends trimmed and cut in half","preparationIt":"spuntati e tagliati a metà"}]}
 {"line":"4 oz kimchi ((about 3/4 cup) (check label for fish sauce))","language":"en","parts":[{"quantity":4,"unit":"oz","en":"kimchi","it":"kimchi"}]}
-{"line":"4 tablespoons vegan pesto rosso ((red pesto with sun-dried tomatoes))","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"vegan pesto rosso with sun-dried tomatoes","it":"pesto rosso vegetale con pomodori secchi"}]}
+{"line":"4 tablespoons vegan pesto rosso ((red pesto with sun-dried tomatoes))","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"vegan pesto rosso with sun-dried tomatoes","it":"pesto rosso vegano con pomodori secchi"}]}
 {"line":"4-5 scallions ((chopped))","language":"en","parts":[{"quantity":4,"quantityMax":5,"en":"scallions","it":"cipollotti","preparationEn":"chopped","preparationIt":"tritati"}]}
 {"line":"4.5 Tablespoons potato starch","language":"en","parts":[{"quantity":4.5,"unit":"tbsp","en":"potato starch","it":"fecola di patate"}]}
 {"line":"400 g icing sugar ((sifted))","language":"en","parts":[{"quantity":400,"unit":"g","en":"icing sugar","it":"zucchero a velo","preparationEn":"sifted","preparationIt":"setacciato"}]}
 {"line":"5 apples ((I used pink ladies, but any pie apple works here))","language":"en","parts":[{"quantity":5,"en":"apples","it":"mele"}]}
 {"line":"5 cloves garlic, minced","language":"en","parts":[{"quantity":5,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato finemente"}]}
 {"line":"5 pieces button mushrooms (finely diced)","language":"en","parts":[{"quantity":5,"en":"button mushrooms","it":"funghi champignon","preparationEn":"finely diced","preparationIt":"tagliati a dadini piccoli"}]}
-{"line":"5 tablespoons plant-based butter, (room temperature)","language":"en","parts":[{"quantity":5,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
+{"line":"5 tablespoons plant-based butter, (room temperature)","language":"en","parts":[{"quantity":5,"unit":"tbsp","en":"plant-based butter","it":"burro vegetale","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"5 tortillas","language":"en","parts":[{"quantity":5,"en":"tortillas","it":"tortillas"}]}
 {"line":"5 vegan graham crackers, (crumbled )","language":"en","parts":[{"quantity":5,"en":"vegan graham crackers","it":"graham cracker vegani","preparationEn":"crumbled","preparationIt":"sbriciolati"}]}
 {"line":"50 g / ½ cup chopped walnuts or pecans","language":"en","parts":[{"quantity":50,"unit":"g","en":"walnuts","it":"noci","preparationEn":"chopped","preparationIt":"tritate","alternatives":[{"en":"pecans","it":"noci pecan"}]}]}
@@ -344,7 +344,7 @@
 {"line":"60 ml rice vinegar","language":"en","parts":[{"quantity":60,"unit":"ml","en":"rice vinegar","it":"aceto di riso"}]}
 {"line":"7 canned pineapple rings ((a 20 ounce can should give you enough))","language":"en","parts":[{"quantity":7,"en":"canned pineapple rings","it":"fette di ananas in scatola"}]}
 {"line":"7 g sachet fast-action dried yeast","language":"en","parts":[{"quantity":7,"unit":"g","en":"fast-action dried yeast","it":"lievito di birra secco istantaneo"}]}
-{"line":"75 g dehydrated vegan “beef” strips","language":"en","parts":[{"quantity":75,"unit":"g","en":"dehydrated vegan beef strips","it":"straccetti vegani di manzo disidratati"}]}
+{"line":"75 g dehydrated vegan “beef” strips","language":"en","parts":[{"quantity":75,"unit":"g","en":"dehydrated vegan beef strips","it":"straccetti vegani gusto manzo disidratati"}]}
 {"line":"8 ounces vegan cream cheese (left at room temperature for 15 minutes, see notes to make your own )","language":"en","parts":[{"quantity":8,"unit":"oz","en":"vegan cream cheese","it":"formaggio spalmabile vegetale","preparationEn":"left at room temperature for 15 minutes","preparationIt":"lasciato a temperatura ambiente per 15 minuti"}]}
 {"line":"8 oz (225 g) pasta*","language":"en","parts":[{"quantity":225,"unit":"g","en":"pasta","it":"pasta"}]}
 {"line":"8 oz Pasta of Choice* (I like Chickpea Pasta)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"pasta of choice","it":"pasta a scelta"}]}

@@ -74,7 +74,7 @@
 {"line":"1 tablespoon of the butter sauce from above","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"butter sauce","it":"salsa al burro"}]}
 {"line":"1 tablespoon olive oil, (or as needed)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"1 tablespoon soy sauce (or Tamari for GF)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"tamari","it":"tamari"}]}]}
-{"line":"1 tablespoon tamari (or soy sauce (low sodium if preferred))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"tamari","it":"tamari","alternatives":[{"en":"soy sauce","it":"salsa di soia"}]}]}
+{"line":"1 tablespoon tamari (or soy sauce (low sodium if preferred))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"tamari","it":"tamari","alternatives":[{"en":"soy sauce","it":"salsa di soia"},{"en":"low-sodium soy sauce","it":"salsa di soia a basso contenuto di sodio"}]}]}
 {"line":"1 tablespoon vegan red curry paste","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegan red curry paste","it":"pasta di curry rosso vegana"}]}
 {"line":"1 tbs organic tomato paste","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"organic tomato paste","it":"concentrato di pomodoro biologico"}]}
 {"line":"1 tbsp coriander seeds ((dhania dana))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"coriander seeds","it":"semi di coriandolo"}]}
@@ -84,7 +84,7 @@
 {"line":"1 teaspoon dark molasses","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"dark molasses","it":"melassa scura"}]}
 {"line":"1 teaspoon dried basil*","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"dried basil","it":"basilico essiccato"}]}
 {"line":"1 teaspoon fresh grated ginger or ginger powder","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"fresh ginger","it":"zenzero fresco","preparationEn":"grated","preparationIt":"grattugiato","alternatives":[{"en":"ginger powder","it":"zenzero in polvere"}]}]}
-{"line":"1 teaspoon hot or sweet paprika ((not smoked))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"hot paprika","it":"paprika piccante","alternatives":[{"en":"sweet paprika","it":"paprika dolce"}]}]}
+{"line":"1 teaspoon hot or sweet paprika ((not smoked))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"hot paprika","it":"paprika piccante","preparationEn":"not smoked","preparationIt":"non affumicata","alternatives":[{"en":"sweet paprika","it":"paprika dolce"}]}]}
 {"line":"1 teaspoon miso (use chickpea miso for Soyfree)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"miso","it":"miso"}]}
 {"line":"1 teaspoon olive oil or vegan butter (5ml)","language":"en","parts":[{"quantity":5,"unit":"ml","en":"olive oil","it":"olio d'oliva","alternatives":[{"en":"vegan butter","it":"burro vegetale"}]}]}
 {"line":"1 teaspoon vanilla extract (4.2 grams)","language":"en","parts":[{"quantity":4.2,"unit":"g","en":"vanilla extract","it":"estratto di vaniglia"}]}
@@ -163,6 +163,7 @@
 {"line":"1/4 cup (60g) fresh lemon juice","language":"en","parts":[{"quantity":60,"unit":"g","en":"fresh lemon juice","it":"succo di limone fresco"}]}
 {"line":"1/4 cup almonds","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"almonds","it":"mandorle"}]}
 {"line":"1/4 cup canola oil or olive oil","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"canola oil","it":"olio di colza","alternatives":[{"en":"olive oil","it":"olio d'oliva"}]}]}
+{"line":"1/4 cup chopped fresh dill (plus extra for garnish)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh dill","it":"aneto fresco","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"plus extra for garnish","purposeIt":"più altro per guarnire"}]}
 {"line":"1/4 cup fresh basil, loosely packed","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh basil","it":"basilico fresco","preparationEn":"loosely packed","preparationIt":"non pressato"}]}
 {"line":"1/4 cup maple syrup ((can sub same amount of agave or cane sugar))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"quantity":0.25,"unit":"cup","en":"agave syrup","it":"sciroppo d'agave"},{"quantity":0.25,"unit":"cup","en":"cane sugar","it":"zucchero di canna"}]}]}
 {"line":"1/4 cup peanut oil ((plus more as needed))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"peanut oil","it":"olio di arachidi"}]}
@@ -171,14 +172,14 @@
 {"line":"1/4 cup sun-dried tomatoes, (chopped)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"sun-dried tomatoes","it":"pomodori secchi","preparationEn":"chopped","preparationIt":"tritati"}]}
 {"line":"1/4 cup tomato puree","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"tomato puree","it":"passata di pomodoro"}]}
 {"line":"1/4 cup vegan butter, chilled","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"chilled","preparationIt":"freddo"}]}
-{"line":"1/4 teaspoon fresh ground pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground pepper","it":"pepe macinato","preparationEn":"freshly ground","preparationIt":"macinato al momento"}]}
+{"line":"1/4 teaspoon fresh ground pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"fresh ground pepper","it":"pepe macinato fresco"}]}
 {"line":"1/4 teaspoon ground ginger (add 1/2 teaspoon for a more spicy flavor)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground ginger","it":"zenzero in polvere"}]}
 {"line":"1/4 to 1/2 teaspoon lemon zest","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"lemon zest","it":"scorza di limone"}]}
 {"line":"1/4 – 1/2 teaspoon red pepper flakes or 1/2 – 1 teaspoon sambal oelek","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi","alternatives":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"sambal oelek","it":"sambal oelek"}]}]}
 {"line":"10 ice cubes","language":"en","parts":[{"quantity":10,"en":"ice cubes","it":"cubetti di ghiaccio"}]}
 {"line":"100 g / 1/3 cup + 1 heaped tbsp peanut butter*","language":"en","parts":[{"quantity":100,"unit":"g","en":"peanut butter","it":"burro di arachidi"}]}
 {"line":"100 g / 3½ oz edamame beans","language":"en","parts":[{"quantity":100,"unit":"g","en":"edamame beans","it":"edamame"}]}
-{"line":"12-14 oz frozen vegan meatless crumbles ((see post for plant based sub ideas))","language":"en","parts":[{"quantity":12,"quantityMax":14,"unit":"oz","en":"frozen vegan meatless crumbles","it":"macinato vegetale vegano surgelato"}]}
+{"line":"12-14 oz frozen vegan meatless crumbles ((see post for plant based sub ideas))","language":"en","parts":[{"quantity":12,"quantityMax":14,"unit":"oz","en":"frozen vegan meatless crumbles","it":"macinato vegetale surgelato"}]}
 {"line":"125 g / 1 leek","language":"en","parts":[{"quantity":125,"unit":"g","en":"leek","it":"porro"}]}
 {"line":"130 g fresh onion (roughly chopped)","language":"en","parts":[{"quantity":130,"unit":"g","en":"fresh onion","it":"cipolla fresca","preparationEn":"roughly chopped","preparationIt":"tritata grossolanamente"}]}
 {"line":"14 ounces orzo ((another small pasta is also fine))","language":"en","parts":[{"quantity":14,"unit":"oz","en":"orzo pasta","it":"pasta formato orzo","alternatives":[{"en":"small pasta","it":"pasta di piccolo formato"}]}]}
@@ -258,7 +259,7 @@
 {"line":"2 teaspoons organic canola ( or coconut oil)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"organic canola oil","it":"olio di colza biologico","alternatives":[{"en":"coconut oil","it":"olio di cocco"}]}]}
 {"line":"2 tsp cornstarch / cornflour","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"cornstarch","it":"amido di mais"}]}
 {"line":"2 tsp finely grated ginger","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"ginger","it":"zenzero","preparationEn":"finely grated","preparationIt":"grattugiato finemente"}]}
-{"line":"2 tsp ground/powdered sugar","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"powdered sugar","it":"zucchero a velo"}]}
+{"line":"2 tsp ground/powdered sugar","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"ground or powdered sugar","it":"zucchero macinato o a velo"}]}
 {"line":"2 tsp lemon juice (or more to taste, depending on how sour you like it)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"lemon juice","it":"succo di limone","toTaste":true}]}
 {"line":"2 tsp organic canola (or safflower oil)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"organic canola oil","it":"olio di colza biologico","alternatives":[{"en":"safflower oil","it":"olio di cartamo"}]}]}
 {"line":"2 tsp urad dal ((Black gram dal))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"urad dal","it":"urad dal"}]}
@@ -322,7 +323,7 @@
 {"line":"6 tbsp vegetable oil ((make sure it's neutral flavoured: sunflower, rapeseed, canola will do))","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"neutral-flavored vegetable oil","it":"olio vegetale dal sapore neutro","alternatives":[{"en":"sunflower oil","it":"olio di semi di girasole"},{"en":"rapeseed oil","it":"olio di colza"},{"en":"canola oil","it":"olio di colza"}]}]}
 {"line":"60 ml / ¼ cup rice wine vinegar + 60-120 ml / ¼-½ cup water","language":"en","parts":[{"quantity":60,"unit":"ml","en":"rice wine vinegar","it":"aceto di riso"},{"quantity":60,"quantityMax":120,"unit":"ml","en":"water","it":"acqua"}]}
 {"line":"7 cups vegetable broth","language":"en","parts":[{"quantity":7,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
-{"line":"7 ounces vegan gingersnap cookies (about 1 3/4 cup ground)","language":"en","parts":[{"quantity":7,"unit":"oz","en":"vegan gingersnap cookies","it":"biscotti vegani allo zenzero"}]}
+{"line":"7 ounces vegan gingersnap cookies (about 1 3/4 cup ground)","language":"en","parts":[{"quantity":7,"unit":"oz","en":"vegan gingersnap cookies","it":"biscotti vegani allo zenzero","preparationEn":"ground","preparationIt":"macinati"}]}
 {"line":"7 oz vegan sausage ((processed into small, crumbly bits. Or use any meatless beef crumbles))","language":"en","parts":[{"quantity":7,"unit":"oz","en":"vegan sausage","it":"salsiccia vegana","preparationEn":"processed into small, crumbly bits","preparationIt":"sminuzzata in piccoli pezzi","alternatives":[{"en":"meatless beef crumbles","it":"macinato vegetale"}]}]}
 {"line":"7 to 8 oz cubed sweet potato (, about 1 large)","language":"en","parts":[{"quantity":7,"quantityMax":8,"unit":"oz","en":"sweet potato","it":"patata dolce","preparationEn":"cubed","preparationIt":"tagliata a cubetti"}]}
 {"line":"7-8 strawberries","language":"en","parts":[{"quantity":7,"quantityMax":8,"en":"strawberries","it":"fragole"}]}

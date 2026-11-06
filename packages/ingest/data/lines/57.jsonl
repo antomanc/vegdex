@@ -232,7 +232,7 @@
 {"line":"2 cups fresh baby spinach, (packed)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"fresh baby spinach","it":"spinacini freschi","preparationEn":"packed","preparationIt":"pressati"}]}
 {"line":"2 cups plain or chocolate plant-based milk","language":"en","parts":[{"quantity":2,"unit":"cup","en":"plain plant-based milk","it":"latte vegetale al naturale","alternatives":[{"en":"chocolate plant-based milk","it":"latte vegetale al cioccolato"}]}]}
 {"line":"2 cups sliced green cabbage","language":"en","parts":[{"quantity":2,"unit":"cup","en":"green cabbage","it":"cavolo cappuccio verde","preparationEn":"sliced","preparationIt":"tagliato a fettine"}]}
-{"line":"2 cups vegan milk (soy milk, almond milk or coconut milk or oat milk )","language":"en","parts":[{"quantity":2,"unit":"cup","en":"plant milk","it":"latte vegetale","alternatives":[{"en":"soy milk","it":"latte di soia"},{"en":"almond milk","it":"latte di mandorla"},{"en":"coconut milk","it":"latte di cocco"},{"en":"oat milk","it":"latte d'avena"}]}]}
+{"line":"2 cups vegan milk (soy milk, almond milk or coconut milk or oat milk )","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan milk","it":"latte vegetale","alternatives":[{"en":"soy milk","it":"latte di soia"},{"en":"almond milk","it":"latte di mandorla"},{"en":"coconut milk","it":"latte di cocco"},{"en":"oat milk","it":"latte d'avena"}]}]}
 {"line":"2 handful lamb's lettuce","language":"en","parts":[{"quantity":2,"unit":"handful","en":"lamb's lettuce","it":"songino"}]}
 {"line":"2 knobs fresh ginger, peeled","language":"en","parts":[{"quantity":2,"unit":"knob","en":"fresh ginger","it":"zenzero fresco","preparationEn":"peeled","preparationIt":"sbucciato"}]}
 {"line":"2 large heads of cauliflower*","language":"en","parts":[{"quantity":2,"unit":"head","en":"large cauliflower","it":"cavolfiore grande"}]}
@@ -262,7 +262,7 @@
 {"line":"2 tablespoons pickle relish","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"pickle relish","it":"relish di cetriolini"}]}
 {"line":"2 tablespoons tapioca starch","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"tapioca starch","it":"amido di tapioca"}]}
 {"line":"2 tbsp Japanese curry powder","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"Japanese curry powder","it":"curry giapponese in polvere"}]}
-{"line":"2 tbsp butter (softened, non dairy)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}
+{"line":"2 tbsp butter (softened, non dairy)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"non dairy butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}
 {"line":"2 tbsp glucose syrup (aka corn syrup)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"glucose syrup","it":"sciroppo di glucosio","alternatives":[{"en":"corn syrup","it":"sciroppo di mais"}]}]}
 {"line":"2 tbsp ground flaxseed","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"ground flaxseed","it":"semi di lino macinati"}]}
 {"line":"2 tbsp mini chocolate chips for topping (optional)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"mini chocolate chips","it":"gocce di cioccolato piccole","purposeEn":"for topping","purposeIt":"per guarnire","optional":true}]}
@@ -270,7 +270,7 @@
 {"line":"2 teaspoons fresh rosemary (finely chopped (or sub 2 teaspoons dried))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"fresh rosemary","it":"rosmarino fresco","preparationEn":"finely chopped","preparationIt":"tritato finemente","alternatives":[{"quantity":2,"unit":"tsp","en":"dried rosemary","it":"rosmarino essiccato"}]}]}
 {"line":"2 teaspoons garlic powder","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"garlic powder","it":"aglio in polvere"}]}
 {"line":"2 teaspoons ginger ((grated or crushed into a paste))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"ginger","it":"zenzero","preparationEn":"grated or crushed into a paste","preparationIt":"grattugiato o pestato fino a ottenere una pasta"}]}
-{"line":"2 teaspoons herbs ((I used a mix of thyme, sage and rosemary. If using fresh herbs, use two tablespoons and mince them).)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"herbs","it":"erbe aromatiche"}]}
+{"line":"2 teaspoons herbs ((I used a mix of thyme, sage and rosemary. If using fresh herbs, use two tablespoons and mince them).)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"herbs","it":"erbe aromatiche","preparationEn":"if using fresh herbs, mince them","preparationIt":"se si usano erbe fresche, tritarle finemente","alternatives":[{"quantity":2,"unit":"tbsp","en":"fresh herbs","it":"erbe aromatiche fresche"}]}]}
 {"line":"2 teaspoons kelp or nori flakes (optional)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"kelp flakes","it":"fiocchi di alga kelp","optional":true,"alternatives":[{"en":"nori flakes","it":"fiocchi di alga nori"}]}]}
 {"line":"2 teaspoons of coconut oil","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"coconut oil","it":"olio di cocco"}]}
 {"line":"2 teaspoons of white or apple cider vinegar","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"white vinegar","it":"aceto bianco","alternatives":[{"en":"apple cider vinegar","it":"aceto di mele"}]}]}
@@ -316,7 +316,7 @@
 {"line":"3/4 cup cashews ((unroasted and not salted))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"raw unsalted cashews","it":"anacardi crudi non salati"}]}
 {"line":"3/4 cup hot water (or non-dairy milk)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"hot water","it":"acqua calda","alternatives":[{"en":"non-dairy milk","it":"latte vegetale"}]}]}
 {"line":"3/4 cup neutral oil ((175mL))","language":"en","parts":[{"quantity":175,"unit":"ml","en":"neutral oil","it":"olio dal sapore neutro"}]}
-{"line":"3/4 cup non dairy milk (such as almond, coconut, cashew or soy)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"dairy-free milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"coconut milk","it":"latte di cocco"},{"en":"cashew milk","it":"latte di anacardi"},{"en":"soy milk","it":"latte di soia"}]}]}
+{"line":"3/4 cup non dairy milk (such as almond, coconut, cashew or soy)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"coconut milk","it":"latte di cocco"},{"en":"cashew milk","it":"latte di anacardi"},{"en":"soy milk","it":"latte di soia"}]}]}
 {"line":"3/4 cup packed light brown sugar (150g)","language":"en","parts":[{"quantity":150,"unit":"g","en":"light brown sugar","it":"zucchero di canna chiaro"}]}
 {"line":"3/4 cup pomegranate seeds","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"pomegranate seeds","it":"chicchi di melagrana"}]}
 {"line":"3/4 cup soy milk (or any unsweetened plant-based milk)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"soy milk","it":"latte di soia","alternatives":[{"en":"unsweetened plant-based milk","it":"latte vegetale senza zucchero"}]}]}
@@ -390,7 +390,7 @@
 {"line":"dried fruit (raisins, dates, apricots, cranberries)","language":"en","parts":[{"en":"dried fruit","it":"frutta essiccata","alternatives":[{"en":"raisins","it":"uvetta"},{"en":"dates","it":"datteri"},{"en":"dried apricots","it":"albicocche secche"},{"en":"dried cranberries","it":"mirtilli rossi essiccati"}]}]}
 {"line":"fresh chiffonade basil","language":"en","parts":[{"en":"fresh basil","it":"basilico fresco","preparationEn":"cut into a chiffonade","preparationIt":"tagliato a chiffonade"}]}
 {"line":"garlic almond butter sauce (for serving (optional, recipe below))","language":"en","parts":[{"en":"garlic almond butter sauce","it":"salsa al burro di mandorle e aglio","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}
-{"line":"jams, jellies, and preserves ((berry, pineapple, currant, etc))","language":"en","parts":[{"en":"jams","it":"confetture"},{"en":"jellies","it":"gelatine"},{"en":"preserves","it":"confettura"}]}
+{"line":"jams, jellies, and preserves ((berry, pineapple, currant, etc))","language":"en","parts":[{"en":"jams","it":"confetture"},{"en":"jellies","it":"gelatine di frutta"},{"en":"preserves","it":"confettura"}]}
 {"line":"light dusting of cocoa powder or dash of cinnamon","language":"en","parts":[{"en":"cocoa powder","it":"cacao in polvere","alternatives":[{"unit":"dash","en":"cinnamon","it":"cannella"}]}]}
 {"line":"mild chilli flakes (optional), I like to use Korean chilli flakes","language":"en","parts":[{"en":"mild chili flakes","it":"peperoncino delicato in fiocchi","optional":true}]}
 {"line":"mineral salt","language":"en","parts":[{"en":"mineral salt","it":"sale minerale"}]}

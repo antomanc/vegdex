@@ -217,7 +217,7 @@
 {"line":"16 oz baked tofu ((cut into small cubes))","language":"en","parts":[{"quantity":16,"unit":"oz","en":"baked tofu","it":"tofu al forno","preparationEn":"cut into small cubes","preparationIt":"tagliato a cubetti piccoli"}]}
 {"line":"160 ml / 2/3 cup cold plant milk (I used soy)","language":"en","parts":[{"quantity":160,"unit":"ml","en":"cold plant milk","it":"latte vegetale freddo"}]}
 {"line":"17.25 oz vegan puff pastry*","language":"en","parts":[{"quantity":17.25,"unit":"oz","en":"vegan puff pastry","it":"pasta sfoglia vegana"}]}
-{"line":"1¼ cups cooked toor dal ((cooked from ½ cup dried toor dal))","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"cooked toor dal","it":"toor dal cotto"}]}
+{"line":"1¼ cups cooked toor dal ((cooked from ½ cup dried toor dal))","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"toor dal","it":"toor dal","preparationEn":"cooked from 1/2 cup dried toor dal","preparationIt":"cotti a partire da mezza tazza di piselli gialli spezzati secchi"}]}
 {"line":"1¼ cups coriander seeds","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"coriander seeds","it":"semi di coriandolo"}]}
 {"line":"1½ cup canned full-fat coconut milk","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"canned full-fat coconut milk","it":"latte di cocco intero in lattina"}]}
 {"line":"2 - 3 slices ripe tomato","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"slice","en":"ripe tomato","it":"pomodoro maturo"}]}
@@ -277,7 +277,7 @@
 {"line":"2 tortillas (8-inch (use corn tortillas for gluten free))","language":"en","parts":[{"quantity":2,"en":"tortillas","it":"tortillas"}]}
 {"line":"2 tsp Moringa Powder (optional)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"moringa powder","it":"moringa in polvere","optional":true}]}
 {"line":"2 tsp avocado oil or any neutral oil","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"avocado oil","it":"olio di avocado","alternatives":[{"en":"neutral oil","it":"olio dal sapore neutro"}]}]}
-{"line":"2 tsp vegan ham flavoring*","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"vegan ham flavoring","it":"aroma vegetale al gusto di prosciutto"}]}
+{"line":"2 tsp vegan ham flavoring*","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"vegan ham flavoring","it":"aroma vegano gusto prosciutto"}]}
 {"line":"2 vegan sausages, (sliced and quartered, OPTIONAL (we used Field Roast Apple Sage))","language":"en","parts":[{"quantity":2,"en":"vegan sausages","it":"salsicce vegane","preparationEn":"sliced and quartered","preparationIt":"affettate e tagliate in quarti","optional":true}]}
 {"line":"2-3 garlic cloves, finely diced","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"finely diced","preparationIt":"tritato finemente"}]}
 {"line":"2-3 tablespoons cornmeal ((*optional - see note))","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"cornmeal","it":"farina di mais","optional":true}]}
@@ -313,7 +313,7 @@
 {"line":"3-4 cups vegetable broth*","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"3-4 tbsp maple syrup ((depending how sweet you want it))","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero"}]}
 {"line":"3.527 oz plain vegan cream cheese","language":"en","parts":[{"quantity":3.527,"unit":"oz","en":"plain vegan cream cheese","it":"formaggio spalmabile vegano al naturale"}]}
-{"line":"3/4 cup (180g) PLAIN dairy-free yogurt (I used Silk Soy yogurt found at Kroger OR SO Delicious \"Unsweetened\" Plain coconut yogurt)","language":"en","parts":[{"quantity":180,"unit":"g","en":"plain dairy-free yogurt","it":"yogurt bianco senza latticini"}]}
+{"line":"3/4 cup (180g) PLAIN dairy-free yogurt (I used Silk Soy yogurt found at Kroger OR SO Delicious \"Unsweetened\" Plain coconut yogurt)","language":"en","parts":[{"quantity":180,"unit":"g","en":"plain dairy-free yogurt","it":"yogurt vegetale bianco"}]}
 {"line":"3/4 cup artichoke hearts, (cooked and chopped)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"artichoke hearts","it":"cuori di carciofo","preparationEn":"cooked and chopped","preparationIt":"cotti e tritati"}]}
 {"line":"3/4 cup berries (or apple pieces or chocolate chips)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"berries","it":"frutti di bosco","alternatives":[{"en":"apple pieces","it":"pezzi di mela"},{"en":"chocolate chips","it":"gocce di cioccolato"}]}]}
 {"line":"3/4 cup cashews (raw or roasted)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"raw or roasted cashews","it":"anacardi crudi o tostati"}]}
@@ -364,7 +364,7 @@
 {"line":"A handful of fresh cilantro for garnishing","language":"en","parts":[{"quantity":1,"unit":"handful","en":"fresh cilantro","it":"coriandolo fresco","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"Almond milk or water as needed (I used 1 tablespoon)","language":"en","parts":[{"en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"water","it":"acqua"}]}]}
 {"line":"Barbecue Marinade, (recipe below)","language":"en","parts":[{"en":"barbecue marinade","it":"marinata barbecue"}]}
-{"line":"Cashew sour cream, (or unflavored vegan yogurt)","language":"en","parts":[{"en":"cashew sour cream","it":"panna acida di anacardi","alternatives":[{"en":"unflavored vegan yogurt","it":"yogurt vegetale al naturale"}]}]}
+{"line":"Cashew sour cream, (or unflavored vegan yogurt)","language":"en","parts":[{"en":"cashew sour cream","it":"panna acida di anacardi","alternatives":[{"en":"unflavored vegan yogurt","it":"yogurt vegano non aromatizzato"}]}]}
 {"line":"Chopped onions","language":"en","parts":[{"en":"onions","it":"cipolle","preparationEn":"chopped","preparationIt":"tritate"}]}
 {"line":"Cilantro, to your taste","language":"en","parts":[{"en":"cilantro","it":"coriandolo fresco","toTaste":true}]}
 {"line":"Coconut oil spray","language":"en","parts":[{"en":"coconut oil spray","it":"olio di cocco spray"}]}

@@ -39,7 +39,7 @@
 {"line":"1 cup chocolate chips (melted for batter, (188g))","language":"en","parts":[{"quantity":188,"unit":"g","en":"chocolate chips","it":"gocce di cioccolato","preparationEn":"melted for the batter","preparationIt":"sciolte per l'impasto"}]}
 {"line":"1 cup cold vegan butter","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"cold","preparationIt":"freddo"}]}
 {"line":"1 cup cubed cherry tomatoes","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cherry tomatoes","it":"pomodorini ciliegino","preparationEn":"cubed","preparationIt":"tagliati a cubetti"}]}
-{"line":"1 cup not chick'n broth ((reconstituted) or other vegan chicken-style broth or veggie broth)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan chicken-style broth","it":"brodo vegetale gusto pollo","preparationEn":"reconstituted","preparationIt":"ricostituito","alternatives":[{"en":"vegan chicken-style broth","it":"brodo vegetale gusto pollo"},{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"1 cup not chick'n broth ((reconstituted) or other vegan chicken-style broth or veggie broth)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"not chick'n broth","it":"brodo vegetale gusto pollo","preparationEn":"reconstituted","preparationIt":"ricostituito","alternatives":[{"en":"vegan chicken-style broth","it":"brodo vegetale gusto pollo"},{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"1 cup pinto beans","language":"en","parts":[{"quantity":1,"unit":"cup","en":"pinto beans","it":"fagioli pinto"}]}
 {"line":"1 cup plus 2 tablespoons unsweetened non-dairy milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened non-dairy milk","it":"latte vegetale senza zucchero","plus":{"quantity":2,"unit":"tbsp"}}]}
 {"line":"1 cup raw cashews ((not salted or roasted))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"raw unsalted cashews","it":"anacardi crudi non salati"}]}
@@ -91,7 +91,7 @@
 {"line":"1 tbsp Gochujang","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"gochujang","it":"gochujang"}]}
 {"line":"1 tbsp cilantro ((chopped))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1 tbsp flaxmeal","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"flaxmeal","it":"farina di semi di lino"}]}
-{"line":"1 tbsp oil (or use more peanut/almond butter + 2 tsp non dairy milk)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"oil","it":"olio","alternatives":[{"en":"peanut butter","it":"burro di arachidi"},{"en":"almond butter","it":"burro di mandorle"}]},{"quantity":2,"unit":"tsp","en":"nondairy milk","it":"latte vegetale","optional":true}]}
+{"line":"1 tbsp oil (or use more peanut/almond butter + 2 tsp non dairy milk)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"oil","it":"olio","alternatives":[{"en":"peanut butter and non dairy milk","it":"burro di arachidi e latte vegetale"},{"en":"almond butter and non dairy milk","it":"burro di mandorle e latte vegetale"}]}]}
 {"line":"1 tbsp vegetable oil ((use whatever oil you like))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegetable oil","it":"olio vegetale","alternatives":[{"en":"oil","it":"olio"}]}]}
 {"line":"1 teaspoon (5 ml) chili powder","language":"en","parts":[{"quantity":5,"unit":"ml","en":"chili powder","it":"peperoncino in polvere"}]}
 {"line":"1 teaspoon Kashmiri chili powder or use ¾ teaspoon paprika","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"Kashmiri chili powder","it":"peperoncino del Kashmir in polvere","alternatives":[{"quantity":0.75,"unit":"tsp","en":"paprika","it":"paprika"}]}]}
@@ -107,7 +107,7 @@
 {"line":"1 tsp cornstarch (or other starch like arrowroot)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"cornstarch","it":"amido di mais","alternatives":[{"en":"arrowroot starch","it":"amido di arrowroot"},{"en":"other starch","it":"altro amido"}]}]}
 {"line":"1 tsp dried minced garlic","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"dried minced garlic","it":"aglio essiccato tritato"}]}
 {"line":"1 tsp onion flakes ((or onion powder))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"onion flakes","it":"cipolla in fiocchi","alternatives":[{"en":"onion powder","it":"cipolla in polvere"}]}]}
-{"line":"1 tsp salt (plus more to taste (reduce if using a salty broth - mine is low-sodium))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
+{"line":"1 tsp salt (plus more to taste (reduce if using a salty broth - mine is low-sodium))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"salt","it":"sale","preparationEn":"plus more to taste; reduce if using a salty broth","preparationIt":"aggiungerne altro a piacere; ridurre se si usa un brodo salato"}]}
 {"line":"1 tsp sugar or maple","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"sugar","it":"zucchero","alternatives":[{"en":"maple syrup","it":"sciroppo d'acero"}]}]}
 {"line":"1 tsp tomato paste","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"tomato paste","it":"concentrato di pomodoro"}]}
 {"line":"1 yellow bell pepper, (diced)","language":"en","parts":[{"quantity":1,"en":"yellow bell pepper","it":"peperone giallo","preparationEn":"diced","preparationIt":"tagliato a dadini"}]}
@@ -202,7 +202,7 @@
 {"line":"2 15.5 ounce cans of black beans, drained and rinsed","language":"en","parts":[{"quantity":31,"unit":"oz","en":"canned black beans","it":"fagioli neri in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"2 8-ounce packages of tempeh","language":"en","parts":[{"quantity":16,"unit":"oz","en":"tempeh","it":"tempeh"}]}
 {"line":"2 Green Onions, thinly sliced (green parts only)","language":"en","parts":[{"quantity":2,"en":"green onions","it":"cipollotti","preparationEn":"thinly sliced, green parts only","preparationIt":"parti verdi tagliate a fettine sottili"}]}
-{"line":"2 Tablespoons vegan butter (can be subbed 1:1 with any oil or regular butter)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","alternatives":[{"quantity":2,"unit":"tbsp","en":"oil","it":"olio"},{"quantity":2,"unit":"tbsp","en":"butter","it":"burro"}]}]}
+{"line":"2 Tablespoons vegan butter (can be subbed 1:1 with any oil or regular butter)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","alternatives":[{"en":"oil","it":"olio"},{"en":"regular butter","it":"burro tradizionale"}]}]}
 {"line":"2 Tbsp vegetable oil","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegetable oil","it":"olio vegetale"}]}
 {"line":"2 Tbsps raw sugar or other sweetener to taste","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"raw sugar","it":"zucchero grezzo","toTaste":true,"alternatives":[{"en":"other sweetener","it":"altro dolcificante"}]}]}
 {"line":"2 bunches of lacinato kale, de-stemmed and roughly chopped (or another kale)","language":"en","parts":[{"quantity":2,"unit":"bunch","en":"lacinato kale","it":"cavolo nero","preparationEn":"de-stemmed and roughly chopped","preparationIt":"privato dei gambi e tritato grossolanamente","alternatives":[{"en":"another kale","it":"un'altra varietà di cavolo riccio"}]}]}
@@ -252,7 +252,7 @@
 {"line":"2 tsp vanilla bean paste ((or good vanilla extract))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"vanilla bean paste","it":"pasta di vaniglia","alternatives":[{"en":"vanilla extract","it":"estratto di vaniglia"}]}]}
 {"line":"2 tsp vegan fish sauce ((or soy sauce))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"vegan fish sauce","it":"salsa di pesce vegana","alternatives":[{"en":"soy sauce","it":"salsa di soia"}]}]}
 {"line":"2 whole cloves (or use 1/8 teaspoon for ground clove )","language":"en","parts":[{"quantity":2,"en":"whole cloves","it":"chiodi di garofano interi","alternatives":[{"quantity":0.125,"unit":"tsp","en":"ground clove","it":"chiodi di garofano macinati"}]}]}
-{"line":"2-3 cups leftover vegan mac and cheese*","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"cup","en":"leftover vegan mac and cheese","it":"mac and cheese vegano avanzato"}]}
+{"line":"2-3 cups leftover vegan mac and cheese*","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"cup","en":"leftover vegan mac and cheese","it":"pasta avanzata al formaggio vegano"}]}
 {"line":"2-3 tablespoons chopped fresh cilantro or parsley","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"fresh cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato","alternatives":[{"en":"fresh parsley","it":"prezzemolo fresco"}]}]}
 {"line":"2-3 tablespoons pure maple syrup, or more to taste","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"pure maple syrup","it":"sciroppo d'acero puro","toTaste":true}]}
 {"line":"2-3 teaspoons non-dairy milk ((*optional))","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tsp","en":"non-dairy milk","it":"latte vegetale","optional":true}]}
@@ -324,10 +324,10 @@
 {"line":"6 medium slices of sourdough bread*","language":"en","parts":[{"quantity":6,"unit":"slice","en":"sourdough bread","it":"pane a lievitazione naturale"}]}
 {"line":"6 russet potatoes (scrubbed clean)","language":"en","parts":[{"quantity":6,"en":"russet potatoes","it":"patate russet","preparationEn":"scrubbed clean","preparationIt":"strofinate e pulite"}]}
 {"line":"6 tbsp powdered peanut butter ((*see recipe notes))","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"powdered peanut butter","it":"burro di arachidi in polvere"}]}
-{"line":"6 teaspoons vegan chicken bouillon paste","language":"en","parts":[{"quantity":6,"unit":"tsp","en":"vegan chicken bouillon paste","it":"pasta per brodo vegetale gusto pollo"}]}
+{"line":"6 teaspoons vegan chicken bouillon paste","language":"en","parts":[{"quantity":6,"unit":"tsp","en":"vegan chicken bouillon paste","it":"pasta per brodo vegano gusto pollo"}]}
 {"line":"7 ounces extra-firm tofu (pressed and cubed)","language":"en","parts":[{"quantity":7,"unit":"oz","en":"extra-firm tofu","it":"tofu extra compatto","preparationEn":"pressed and cubed","preparationIt":"pressato e tagliato a cubetti"}]}
 {"line":"75 ml water","language":"en","parts":[{"quantity":75,"unit":"ml","en":"water","it":"acqua"}]}
-{"line":"8 ounces (225 g) haricot verts (thin green beans)","language":"en","parts":[{"quantity":225,"unit":"g","en":"haricots verts","it":"fagiolini"}]}
+{"line":"8 ounces (225 g) haricot verts (thin green beans)","language":"en","parts":[{"quantity":225,"unit":"g","en":"haricots verts","it":"fagiolini sottili"}]}
 {"line":"8 sprigs thyme, leaves picked","language":"en","parts":[{"quantity":8,"unit":"sprig","en":"thyme","it":"timo","preparationEn":"leaves picked","preparationIt":"foglie staccate"}]}
 {"line":"8.5 ounces roasted red peppers* (drained and rinsed if using canned)","language":"en","parts":[{"quantity":8.5,"unit":"oz","en":"roasted red peppers","it":"peperoni rossi arrostiti","preparationEn":"drained and rinsed if canned","preparationIt":"scolati e sciacquati se in scatola"}]}
 {"line":"80 ml sunflower oil","language":"en","parts":[{"quantity":80,"unit":"ml","en":"sunflower oil","it":"olio di semi di girasole"}]}
@@ -336,7 +336,7 @@
 {"line":"Carrots, sliced","language":"en","parts":[{"en":"carrots","it":"carote","preparationEn":"sliced","preparationIt":"tagliate a fette"}]}
 {"line":"Chimichurri Sauce","language":"en","kind":"heading"}
 {"line":"Chopped scallions or cilantro","language":"en","parts":[{"en":"scallions","it":"cipollotti","preparationEn":"chopped","preparationIt":"tritati","alternatives":[{"en":"cilantro","it":"coriandolo fresco"}]}]}
-{"line":"Dairy-free whipped topping","language":"en","parts":[{"en":"dairy-free whipped topping","it":"panna da montare senza latticini"}]}
+{"line":"Dairy-free whipped topping","language":"en","parts":[{"en":"dairy-free whipped topping","it":"panna montata vegetale"}]}
 {"line":"Easy Stretchy Vegan Mozzarella","language":"en","kind":"heading"}
 {"line":"Fresh vegetables of choice (such as lettuce, tomatoes, cucumber, and onion)","language":"en","parts":[{"en":"fresh vegetables of choice","it":"verdure fresche a scelta","alternatives":[{"en":"lettuce","it":"lattuga"},{"en":"tomatoes","it":"pomodori"},{"en":"cucumber","it":"cetriolo"},{"en":"onion","it":"cipolla"}]}]}
 {"line":"Ground black pepper ((optional. The curry powder has some heat already, but black pepper complements eggplant very nicely))","language":"en","parts":[{"en":"ground black pepper","it":"pepe nero macinato","optional":true}]}

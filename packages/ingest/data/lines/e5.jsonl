@@ -371,7 +371,7 @@
 {"line":"juice of ½ small lemon, adjust to taste","language":"en","parts":[{"quantity":0.5,"en":"small lemon","it":"limone piccolo","preparationEn":"juiced","preparationIt":"spremuto","toTaste":true}]}
 {"line":"lime juice","language":"en","parts":[{"en":"lime juice","it":"succo di lime"}]}
 {"line":"lime wedges, cilantro, shredded lettuce, arugula, diced tomatoes","language":"en","parts":[{"en":"lime","it":"lime","preparationEn":"cut into wedges","preparationIt":"tagliato a spicchi"},{"en":"cilantro","it":"coriandolo fresco"},{"en":"lettuce","it":"lattuga","preparationEn":"shredded","preparationIt":"tagliata a striscioline"},{"en":"arugula","it":"rucola"},{"en":"tomatoes","it":"pomodori","preparationEn":"diced","preparationIt":"tagliati a dadini"}]}
-{"line":"pretzels ((rods or regular - dip in melted vegan chocolate))","language":"en","parts":[{"en":"pretzels","it":"pretzel"}]}
+{"line":"pretzels ((rods or regular - dip in melted vegan chocolate))","language":"en","parts":[{"en":"pretzels","it":"pretzel","preparationEn":"rods or regular; dip in melted vegan chocolate","preparationIt":"a bastoncino o tradizionali; intingere nel cioccolato vegano fuso"}]}
 {"line":"soy sauce (or tamari if GF) or salt, to taste","language":"en","parts":[{"en":"soy sauce","it":"salsa di soia","toTaste":true,"alternatives":[{"en":"tamari","it":"tamari"},{"en":"salt","it":"sale"}]}]}
 {"line":"tamarind chutney ((optional) for serving)","language":"en","parts":[{"en":"tamarind chutney","it":"chutney di tamarindo","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}
 {"line":"vegan cheese of choice ((optional))","language":"en","parts":[{"en":"vegan cheese of choice","it":"formaggio vegano a scelta","optional":true}]}

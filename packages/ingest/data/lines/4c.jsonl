@@ -35,7 +35,7 @@
 {"line":"1 cup hummus (or more, to taste)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"hummus","it":"hummus","toTaste":true}]}
 {"line":"1 cup ice ((optional))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"ice","it":"ghiaccio","optional":true}]}
 {"line":"1 cup more almond milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"almond milk","it":"latte di mandorla"}]}
-{"line":"1 cup orange juice, fresh squeezed preferred","language":"en","parts":[{"quantity":1,"unit":"cup","en":"orange juice","it":"succo d'arancia"}]}
+{"line":"1 cup orange juice, fresh squeezed preferred","language":"en","parts":[{"quantity":1,"unit":"cup","en":"orange juice","it":"succo d'arancia","preparationEn":"fresh squeezed preferred","preparationIt":"preferibilmente spremuto al momento"}]}
 {"line":"1 cup organic white sugar or any sugar ((200g))","language":"en","parts":[{"quantity":200,"unit":"g","en":"organic white sugar","it":"zucchero bianco biologico","alternatives":[{"en":"sugar of choice","it":"zucchero a scelta"}]}]}
 {"line":"1 cup plain vegan yogurt or vegan sour cream","language":"en","parts":[{"quantity":1,"unit":"cup","en":"plain vegan yogurt","it":"yogurt vegetale bianco","alternatives":[{"en":"vegan sour cream","it":"panna acida vegetale"}]}]}
 {"line":"1 cup unsweetened coconut milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened coconut milk","it":"latte di cocco senza zuccheri"}]}
@@ -60,7 +60,7 @@
 {"line":"1 piece Kombu, (optional)","language":"en","parts":[{"quantity":1,"unit":"piece","en":"kombu","it":"alga kombu","optional":true}]}
 {"line":"1 piece bay leaf","language":"en","parts":[{"quantity":1,"en":"bay leaf","it":"foglia di alloro"}]}
 {"line":"1 poblano pepper (thinly sliced (or use a second bell pepper))","language":"en","parts":[{"quantity":1,"en":"poblano pepper","it":"peperone poblano","preparationEn":"thinly sliced","preparationIt":"tagliato a fettine sottili","alternatives":[{"quantity":1,"en":"bell pepper","it":"peperone"}]}]}
-{"line":"1 recipe of my Pepita Parmesan (or other vegan nut parmesan or just sprinkle nutritional yeast + Italian herbs)","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"pepita parmesan","it":"parmigiano vegetale ai semi di zucca","alternatives":[{"en":"vegan nut parmesan","it":"parmigiano vegetale alla frutta secca"},{"en":"nutritional yeast and Italian herbs","it":"lievito alimentare e erbe aromatiche italiane"}]}]}
+{"line":"1 recipe of my Pepita Parmesan (or other vegan nut parmesan or just sprinkle nutritional yeast + Italian herbs)","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"Pepita Parmesan","it":"parmigiano vegetale ai semi di zucca","alternatives":[{"en":"vegan nut parmesan","it":"parmigiano vegetale alla frutta a guscio"},{"en":"nutritional yeast and Italian herbs","it":"lievito alimentare in scaglie ed erbe aromatiche italiane"}]}]}
 {"line":"1 russet potato (peeled and diced)","language":"en","parts":[{"quantity":1,"en":"russet potato","it":"patata russet","preparationEn":"peeled and diced","preparationIt":"sbucciata e tagliata a dadini"}]}
 {"line":"1 shallots (minced)","language":"en","parts":[{"quantity":1,"en":"shallot","it":"scalogno","preparationEn":"minced","preparationIt":"tritato finemente"}]}
 {"line":"1 small cauliflower (about 4 cups)","language":"en","parts":[{"quantity":1,"en":"small cauliflower","it":"cavolfiore piccolo"}]}
@@ -216,7 +216,7 @@
 {"line":"2 cups cooked black beans (drained and rinsed thoroughly)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cooked black beans","it":"fagioli neri cotti","preparationEn":"drained and rinsed thoroughly","preparationIt":"scolati e sciacquati accuratamente"}]}
 {"line":"2 cups dried shiitake mushrooms ((or any dried mushrooms of your choice))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"dried shiitake mushrooms","it":"funghi shiitake secchi","alternatives":[{"en":"dried mushrooms of choice","it":"funghi secchi a scelta"}]}]}
 {"line":"2 cups fresh spinach, (packed)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"fresh spinach","it":"spinaci freschi","preparationEn":"packed","preparationIt":"pressati"}]}
-{"line":"2 cups non-dairy cheese (, shredded (Daiya cheddar melts nicely))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"dairy-free cheese","it":"formaggio vegetale","preparationEn":"shredded","preparationIt":"grattugiato"}]}
+{"line":"2 cups non-dairy cheese (, shredded (Daiya cheddar melts nicely))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"non-dairy cheese","it":"formaggio vegetale","preparationEn":"shredded","preparationIt":"grattugiato"}]}
 {"line":"2 cups of cooked rice ((brown or white))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cooked brown or white rice","it":"riso integrale o bianco cotto"}]}
 {"line":"2 cups of diced potato ((any variety))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"potato of any variety","it":"patata di qualsiasi varietà","preparationEn":"diced","preparationIt":"tagliata a dadini"}]}
 {"line":"2 cups unsweetened and unflavored non-dairy milk","language":"en","parts":[{"quantity":2,"unit":"cup","en":"unsweetened unflavored non-dairy milk","it":"latte vegetale senza zucchero e senza aromi"}]}
@@ -356,7 +356,7 @@
 {"line":"Red pepper flakes ((optional))","language":"en","parts":[{"en":"red pepper flakes","it":"peperoncino in fiocchi","optional":true}]}
 {"line":"Salt + pepper to taste","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"pepper","it":"pepe","toTaste":true}]}
 {"line":"Sea salt (to taste, (I used 1 1/2 tsp))","language":"en","parts":[{"en":"sea salt","it":"sale marino","toTaste":true}]}
-{"line":"Sea salt and fresh cracked pepper (, to taste)","language":"en","parts":[{"en":"sea salt","it":"sale marino","toTaste":true},{"en":"freshly cracked pepper","it":"pepe macinato al momento","toTaste":true}]}
+{"line":"Sea salt and fresh cracked pepper (, to taste)","language":"en","parts":[{"en":"sea salt","it":"sale marino","toTaste":true},{"en":"fresh cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"This DOES have a mild coconut flavor because of the coconut butter. So, if you despise coconut, you will likely not like this fudge. I used the mini Enjoy Life brand chocolate chips. This gives the fudge a traditional sweet fudge taste. If you do not like your fudge sweet, then I would suggest doing half semi-sweet and half bitter-sweet and see how you like that.","language":"en","kind":"other"}
 {"line":"Variations: To make sweeter version (add 3 Tablespoons more raw sugar and spices of choice like cinnamon, chai spice.)","language":"en","kind":"other"}
 {"line":"Vegan mayonnaise mixed with some Harissa paste or adobo sauce","language":"en","parts":[{"en":"vegan mayonnaise","it":"maionese vegana","preparationEn":"mixed with harissa paste or adobo sauce","preparationIt":"mescolata con pasta harissa o salsa adobo"},{"en":"harissa paste","it":"pasta di harissa","alternatives":[{"en":"adobo sauce","it":"salsa adobo"}]}]}
@@ -375,7 +375,7 @@
 {"line":"hemp seed parmesan (optional, for serving)","language":"en","parts":[{"en":"hemp seed parmesan","it":"parmigiano vegetale ai semi di canapa","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}
 {"line":"hemp seeds, pepitas, roasted pine nuts","language":"en","parts":[{"en":"hemp seeds","it":"semi di canapa"},{"en":"pepitas","it":"semi di zucca"},{"en":"roasted pine nuts","it":"pinoli tostati"}]}
 {"line":"hot sauce, I like Chipotle Cholula","language":"en","parts":[{"en":"hot sauce","it":"salsa piccante"}]}
-{"line":"mineral salt & fresh cracked pepper","language":"en","parts":[{"en":"mineral salt","it":"sale minerale"},{"en":"freshly cracked pepper","it":"pepe macinato al momento"}]}
+{"line":"mineral salt & fresh cracked pepper","language":"en","parts":[{"en":"mineral salt","it":"sale minerale"},{"en":"fresh cracked pepper","it":"pepe macinato fresco"}]}
 {"line":"mini cucumbers, (thinly sliced)","language":"en","parts":[{"en":"mini cucumbers","it":"cetrioli mini","preparationEn":"thinly sliced","preparationIt":"tagliati a fette sottili"}]}
 {"line":"optional hot sauce, avocado, pico de gallo, cilantro","language":"en","parts":[{"en":"hot sauce","it":"salsa piccante","optional":true},{"en":"avocado","it":"avocado","optional":true},{"en":"pico de gallo","it":"pico de gallo","optional":true},{"en":"cilantro","it":"coriandolo fresco","optional":true}]}
 {"line":"pinch red pepper flakes ((optional))","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"red pepper flakes","it":"peperoncino in fiocchi","optional":true}]}

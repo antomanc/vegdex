@@ -6,7 +6,7 @@
 {"line":"1 1/2 cup black beans","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"black beans","it":"fagioli neri"}]}
 {"line":"1 1/2 cup canned full-fat coconut milk","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"canned full-fat coconut milk","it":"latte di cocco intero in lattina"}]}
 {"line":"1 1/2 cups chunky salsa","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"chunky salsa","it":"salsa messicana a pezzetti"}]}
-{"line":"1 1/2 cups marinara sauce of choice (or Fiery Arrabbiata Sauce (recipe in my cookbook, The Vegan Instant Pot Cookbook))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"marinara sauce of choice","it":"salsa marinara a scelta","alternatives":[{"en":"Fiery Arrabbiata Sauce","it":"salsa all'arrabbiata piccante"}]}]}
+{"line":"1 1/2 cups marinara sauce of choice (or Fiery Arrabbiata Sauce (recipe in my cookbook, The Vegan Instant Pot Cookbook))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"marinara sauce of choice","it":"salsa marinara a scelta","alternatives":[{"en":"fiery arrabbiata sauce","it":"salsa all'arrabbiata piccante"}]}]}
 {"line":"1 1/2 cups vegan graham cracker crumbs*","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan graham cracker crumbs","it":"briciole di biscotti graham vegani"}]}
 {"line":"1 1/2 tbsp chickpea flour","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"chickpea flour","it":"farina di ceci"}]}
 {"line":"1 1/2 teaspoons pumpkin spice","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"pumpkin spice","it":"miscela di spezie per torta di zucca"}]}
@@ -81,7 +81,7 @@
 {"line":"1 tbsp lime juice or rice vinegar","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"lime juice","it":"succo di lime","alternatives":[{"en":"rice vinegar","it":"aceto di riso"}]}]}
 {"line":"1 tbsp liquid aminos ((optional, but nice))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"liquid aminos","it":"aminoacidi liquidi","optional":true}]}
 {"line":"1 tbsp orange liqueur","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"orange liqueur","it":"liquore all'arancia"}]}
-{"line":"1 teabag of chai (or English breakfast tea)","language":"en","parts":[{"quantity":1,"unit":"teabag","en":"chai tea","it":"tè chai","alternatives":[{"en":"English breakfast tea","it":"tè English breakfast"}]}]}
+{"line":"1 teabag of chai (or English breakfast tea)","language":"en","parts":[{"quantity":1,"unit":"teabag","en":"chai tea","it":"tè speziato","alternatives":[{"en":"English breakfast tea","it":"tè English breakfast"}]}]}
 {"line":"1 teaspoon apple cider vinegar (5 ml)","language":"en","parts":[{"quantity":5,"unit":"ml","en":"apple cider vinegar","it":"aceto di mele"}]}
 {"line":"1 teaspoon black pepper ((or up to 1 1/2 teaspoons if you like lots of heat))","language":"en","parts":[{"quantity":1,"quantityMax":1.5,"unit":"tsp","en":"black pepper","it":"pepe nero"}]}
 {"line":"1 teaspoon chopped basil (1g)","language":"en","parts":[{"quantity":1,"unit":"g","en":"basil","it":"basilico","preparationEn":"chopped","preparationIt":"tritato"}]}
@@ -110,7 +110,7 @@
 {"line":"1.5 tbsp cornstarch","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"cornstarch","it":"amido di mais"}]}
 {"line":"1.5 tsp Active dry yeast","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"active dry yeast","it":"lievito di birra secco attivo"}]}
 {"line":"1/2 cup (~120g) salsa of choice, (I used this one)","language":"en","parts":[{"quantity":120,"unit":"g","en":"salsa of choice","it":"salsa a scelta"}]}
-{"line":"1/2 cup aquafaba (liquid from canned chickpeas – 120mL)","language":"en","parts":[{"quantity":120,"unit":"ml","en":"aquafaba","it":"acquafaba"}]}
+{"line":"1/2 cup aquafaba (liquid from canned chickpeas – 120mL)","language":"en","parts":[{"quantity":120,"unit":"ml","en":"aquafaba","it":"acquafaba","preparationEn":"liquid from canned chickpeas","preparationIt":"liquido dei ceci in scatola"}]}
 {"line":"1/2 cup aquafaba (the liquid from a can of chickpeas aka garbanzo beans)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"aquafaba","it":"acquafaba"}]}
 {"line":"1/2 cup cilantro leaves","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cilantro leaves","it":"foglie di coriandolo"}]}
 {"line":"1/2 cup fresh or frozen berries (I used frozen strawberries)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh berries","it":"frutti di bosco freschi","alternatives":[{"en":"frozen berries","it":"frutti di bosco surgelati"}]}]}
@@ -220,7 +220,7 @@
 {"line":"2 Tablespoons organic canola oil","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"organic canola oil","it":"olio di colza biologico"}]}
 {"line":"2 Tablespoons soy sauce ((30 ml))","language":"en","parts":[{"quantity":30,"unit":"ml","en":"soy sauce","it":"salsa di soia"}]}
 {"line":"2 apple","language":"en","parts":[{"quantity":2,"en":"apples","it":"mele"}]}
-{"line":"2 cans young jackfruit","language":"en","parts":[{"quantity":2,"unit":"can","en":"young jackfruit","it":"jackfruit giovane"}]}
+{"line":"2 cans young jackfruit","language":"en","parts":[{"quantity":2,"unit":"can","en":"young jackfruit","it":"giaca giovane"}]}
 {"line":"2 cups chopped carrot","language":"en","parts":[{"quantity":2,"unit":"cup","en":"carrot","it":"carota","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"2 cups fresh diced strawberries","language":"en","parts":[{"quantity":2,"unit":"cup","en":"fresh strawberries","it":"fragole fresche","preparationEn":"diced","preparationIt":"tagliate a cubetti"}]}
 {"line":"2 cups oat milk (or any plant-based milk)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"oat milk","it":"latte d'avena","alternatives":[{"en":"plant-based milk","it":"latte vegetale"}]}]}
@@ -281,7 +281,7 @@
 {"line":"24 oz baby potatoes","language":"en","parts":[{"quantity":24,"unit":"oz","en":"baby potatoes","it":"patate novelle"}]}
 {"line":"240 g / 1½ cups soaked chickpeas*","language":"en","parts":[{"quantity":240,"unit":"g","en":"chickpeas","it":"ceci","preparationEn":"soaked","preparationIt":"ammollati"}]}
 {"line":"2⅓ cup refried beans","language":"en","parts":[{"quantity":2.333333,"unit":"cup","en":"refried beans","it":"fagioli rifritti"}]}
-{"line":"3 1/2 cups vegan chicken broth","language":"en","parts":[{"quantity":3.5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}
+{"line":"3 1/2 cups vegan chicken broth","language":"en","parts":[{"quantity":3.5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}
 {"line":"3 Tablespoons of tomato sauce or marinara","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"tomato sauce","it":"salsa di pomodoro","alternatives":[{"en":"marinara sauce","it":"salsa marinara"}]}]}
 {"line":"3 burger buns ((use whole wheat, regular or gluten-free or whatever your preference is))","language":"en","parts":[{"quantity":3,"en":"burger buns","it":"panini per hamburger"}]}
 {"line":"3 cloves of garlic chopped","language":"en","parts":[{"quantity":3,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"chopped","preparationIt":"tritato"}]}
@@ -311,7 +311,7 @@
 {"line":"3/4 cup (105g) raw, unsalted cashews + 1 1/2 cups (360g) water (see directions)","language":"en","parts":[{"quantity":105,"unit":"g","en":"raw unsalted cashews","it":"anacardi crudi non salati"},{"quantity":360,"unit":"g","en":"water","it":"acqua"}]}
 {"line":"3/4 cup dutch processed cocoa powder ((sub unsweetened cocoa powder))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"Dutch-processed cocoa powder","it":"cacao in polvere alcalinizzato","alternatives":[{"en":"unsweetened cocoa powder","it":"cacao amaro in polvere"}]}]}
 {"line":"3/4 cup non dairy yogurt ((I use plain or vanilla kite hill almond yogurt))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"non-dairy yogurt","it":"yogurt vegetale"}]}
-{"line":"3/4 cup vegan beef broth or vegetable broth","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan beef broth","it":"brodo vegetale gusto manzo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"3/4 cup vegan beef broth or vegetable broth","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan beef broth","it":"brodo vegano gusto manzo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"30 ml / 2 tbsp oil (I used olive oil)**","language":"en","parts":[{"quantity":30,"unit":"ml","en":"oil","it":"olio"}]}
 {"line":"30 ounces canned chickpeas, (drained and rinsed (400g))","language":"en","parts":[{"quantity":30,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"30 oz chickpeas, (drained and washed (2 cans))","language":"en","parts":[{"quantity":30,"unit":"oz","en":"chickpeas","it":"ceci","preparationEn":"drained and washed","preparationIt":"scolati e sciacquati"}]}
@@ -359,7 +359,7 @@
 {"line":"Microgreens (optional, but recommended)","language":"en","parts":[{"en":"microgreens","it":"microgreens","optional":true}]}
 {"line":"One 10 ounce package \"firm or extra firm tofu\" SEE NOTES at bottom","language":"en","parts":[{"quantity":10,"unit":"oz","en":"firm tofu","it":"tofu compatto","alternatives":[{"en":"extra-firm tofu","it":"tofu extra compatto"}]}]}
 {"line":"Optional toppings: sesame oil (chili oil, toasted sesame seeds)","language":"en","parts":[{"en":"sesame oil","it":"olio di sesamo","purposeEn":"for topping","purposeIt":"per guarnire","optional":true,"alternatives":[{"en":"chili oil","it":"olio al peperoncino"},{"en":"toasted sesame seeds","it":"semi di sesamo tostati"}]}]}
-{"line":"Optional: 1/2 cup chopped vegan breakfast sausage (we used Beyond Meat)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan breakfast sausage","it":"salsiccia vegetale da colazione","preparationEn":"chopped","preparationIt":"tagliata a pezzetti","optional":true}]}
+{"line":"Optional: 1/2 cup chopped vegan breakfast sausage (we used Beyond Meat)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan breakfast sausage","it":"salsiccia vegana da colazione","preparationEn":"chopped","preparationIt":"tagliata a pezzetti","optional":true}]}
 {"line":"Optional: 1½ cups of chopped peanuts or topping of your choice","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"peanuts","it":"arachidi","preparationEn":"chopped","preparationIt":"tritate","optional":true,"alternatives":[{"en":"topping of choice","it":"guarnizione a scelta"}]}]}
 {"line":"Optional: Green onions for garnish","language":"en","parts":[{"en":"green onions","it":"cipollotti","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true}]}
 {"line":"Optional: pinch of cloves and/or nutmeg, handful of ice","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"cloves","it":"chiodi di garofano","optional":true},{"quantity":1,"unit":"pinch","en":"nutmeg","it":"noce moscata","optional":true},{"quantity":1,"unit":"handful","en":"ice","it":"ghiaccio","optional":true}]}

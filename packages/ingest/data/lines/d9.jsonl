@@ -98,7 +98,7 @@
 {"line":"1 teaspoon chipotle powder","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"chipotle powder","it":"chipotle in polvere"}]}
 {"line":"1 teaspoon cinnamon (2 grams)","language":"en","parts":[{"quantity":2,"unit":"g","en":"cinnamon","it":"cannella"}]}
 {"line":"1 teaspoon cornstarch (or tapioca starch )","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"cornstarch","it":"amido di mais","alternatives":[{"en":"tapioca starch","it":"amido di tapioca"}]}]}
-{"line":"1 teaspoon fine sea salt and grind of fresh ground black pepper","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"fine sea salt","it":"sale marino fino"},{"en":"freshly ground black pepper","it":"pepe nero macinato al momento"}]}
+{"line":"1 teaspoon fine sea salt and grind of fresh ground black pepper","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"fine sea salt","it":"sale marino fino"},{"en":"fresh ground black pepper","it":"pepe nero macinato fresco","preparationEn":"a grind","preparationIt":"una macinata"}]}
 {"line":"1 teaspoon grated fresh ginger ((optional; substitute 1/4 teaspoon ground ginger))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"fresh ginger","it":"zenzero fresco","preparationEn":"grated","preparationIt":"grattugiato","optional":true,"alternatives":[{"quantity":0.25,"unit":"tsp","en":"ground ginger","it":"zenzero in polvere"}]}]}
 {"line":"1 teaspoon natural almond extract (5 ml*)","language":"en","parts":[{"quantity":5,"unit":"ml","en":"natural almond extract","it":"estratto naturale di mandorla"}]}
 {"line":"1 teaspoon of cinnamon (plus more for garnish)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"cinnamon","it":"cannella","purposeEn":"plus more for garnish","purposeIt":"più altra per guarnire"}]}
@@ -163,7 +163,7 @@
 {"line":"1/4 cup (60g) melted cocoa butter","language":"en","parts":[{"quantity":60,"unit":"g","en":"cocoa butter","it":"burro di cacao","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"1/4 cup Cacao Powder (Or Cocoa, Carob)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cacao powder","it":"cacao in polvere","alternatives":[{"en":"cocoa powder","it":"cacao in polvere"},{"en":"carob powder","it":"farina di carrube"}]}]}
 {"line":"1/4 cup broth (or use 1 tsp oil to saute)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"broth","it":"brodo","alternatives":[{"quantity":1,"unit":"tsp","en":"oil","it":"olio"}]}]}
-{"line":"1/4 cup chocolate (chips, chopped bar, dark. I use enjoy life semi sweet or whole foods vegan)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"dark chocolate","it":"cioccolato fondente","alternatives":[{"en":"dark chocolate chips","it":"gocce di cioccolato fondente"},{"en":"dark chocolate bar","it":"tavoletta di cioccolato fondente"}]}]}
+{"line":"1/4 cup chocolate (chips, chopped bar, dark. I use enjoy life semi sweet or whole foods vegan)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"chocolate","it":"cioccolato","preparationEn":"chips, chopped bar, or dark","preparationIt":"in gocce, in tavoletta tritata o fondente"}]}
 {"line":"1/4 cup chopped onions","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"onions","it":"cipolle","preparationEn":"chopped","preparationIt":"tritate"}]}
 {"line":"1/4 cup chopped small red onion","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"small red onion","it":"cipolla rossa piccola","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"1/4 cup cornmeal, (or as needed)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cornmeal","it":"farina di mais"}]}
@@ -420,7 +420,7 @@
 {"line":"¾ teaspoon salt (plus more to taste)","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
 {"line":"⅓ cup of brown sugar","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"brown sugar","it":"zucchero di canna"}]}
 {"line":"⅓ teaspoon apple cider vinegar (1.5ml)","language":"en","parts":[{"quantity":1.5,"unit":"ml","en":"apple cider vinegar","it":"aceto di mele"}]}
-{"line":"⅛ tsp pumpkin spice mix","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"pumpkin spice mix","it":"miscela di spezie per pumpkin pie"}]}
+{"line":"⅛ tsp pumpkin spice mix","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"pumpkin spice mix","it":"miscela di spezie per zucca"}]}
 {"line":"1 vasetto di cannellini sciacquati","language":"it","parts":[{"quantity":1,"unit":"jar","en":"cannellini beans","it":"fagioli cannellini","preparationEn":"rinsed","preparationIt":"sciacquati"}]}
 {"line":"100 g lenticchie rosse decorticate","language":"it","parts":[{"quantity":100,"unit":"g","en":"hulled red lentils","it":"lenticchie rosse decorticate"}]}
 {"line":"200 g funghi champignon freschi","language":"it","parts":[{"quantity":200,"unit":"g","en":"fresh button mushrooms","it":"funghi champignon freschi"}]}

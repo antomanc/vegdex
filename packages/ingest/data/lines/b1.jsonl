@@ -40,7 +40,7 @@
 {"line":"1 cup flour (gluten-free flour works well too)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"flour","it":"farina","alternatives":[{"en":"gluten-free flour","it":"farina senza glutine"}]}]}
 {"line":"1 cup long grain basmati rice","language":"en","parts":[{"quantity":1,"unit":"cup","en":"long grain basmati rice","it":"riso basmati a chicco lungo"}]}
 {"line":"1 cup non-dairy chocolate chips OR roughly chopped chocolate pieces","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy chocolate chips","it":"gocce di cioccolato senza latte","alternatives":[{"en":"roughly chopped chocolate pieces","it":"cioccolato tritato grossolanamente"}]}]}
-{"line":"1 cup of non-dairy semi-sweet chocolate chips or chunks, (divided)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dairy-free semi-sweet chocolate chips or chunks","it":"gocce o pezzi di cioccolato semidolce senza latte","preparationEn":"divided","preparationIt":"divisi"}]}
+{"line":"1 cup of non-dairy semi-sweet chocolate chips or chunks, (divided)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy semi-sweet chocolate chips or chunks","it":"gocce o pezzi di cioccolato semidolce senza latte","preparationEn":"divided","preparationIt":"divisi"}]}
 {"line":"1 cup panko breadcrumbs ((gluten-free if needed))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"panko breadcrumbs","it":"pangrattato panko"}]}
 {"line":"1 cup pineapple chunks (fresh or canned, drained)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"fresh pineapple","it":"ananas fresco","preparationEn":"cut into chunks","preparationIt":"tagliato a pezzi","alternatives":[{"en":"canned pineapple","it":"ananas in scatola"}]}]}
 {"line":"1 cup zucchini (diced)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"zucchini","it":"zucchine","preparationEn":"diced","preparationIt":"tagliate a cubetti"}]}
@@ -289,7 +289,7 @@
 {"line":"3 slices vegan mozzarella cheese (halved)","language":"en","parts":[{"quantity":3,"unit":"slice","en":"vegan mozzarella cheese","it":"mozzarella vegana","preparationEn":"halved","preparationIt":"tagliata a metà"}]}
 {"line":"3 tablespoon oil","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"oil","it":"olio"}]}
 {"line":"3 tablespoons maple syrup (or sub for agave)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"agave syrup","it":"sciroppo d'agave"}]}]}
-{"line":"3 tablespoons non-dairy cream cheese","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"dairy-free cream cheese","it":"formaggio spalmabile vegetale"}]}
+{"line":"3 tablespoons non-dairy cream cheese","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"non-dairy cream cheese","it":"formaggio spalmabile vegetale"}]}
 {"line":"3 tablespoons of agave","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"agave syrup","it":"sciroppo d'agave"}]}
 {"line":"3 tablespoons orange juice","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"orange juice","it":"succo d'arancia"}]}
 {"line":"3 tablespoons toasted sesame oil","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"toasted sesame oil","it":"olio di sesamo tostato"}]}
@@ -299,7 +299,7 @@
 {"line":"3 tbsp olive oil ((divided))","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"3 to 4 cloves of garlic (minced)","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}
 {"line":"3-5 cloves garlic (minced )","language":"en","parts":[{"quantity":3,"quantityMax":5,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}
-{"line":"3/4 cup 180g FRESH squeezed orange juice (it makes ALL the difference in flavor!)","language":"en","parts":[{"quantity":180,"unit":"g","en":"freshly squeezed orange juice","it":"succo d'arancia appena spremuto"}]}
+{"line":"3/4 cup 180g FRESH squeezed orange juice (it makes ALL the difference in flavor!)","language":"en","parts":[{"quantity":180,"unit":"g","en":"fresh squeezed orange juice","it":"succo d'arancia appena spremuto"}]}
 {"line":"3/4 cup cooked brown lentils (or canned drained )","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"cooked brown lentils","it":"lenticchie marroni cotte","alternatives":[{"en":"canned brown lentils","it":"lenticchie marroni in scatola"}]}]}
 {"line":"3/4 cup long basmati rice rice","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"long-grain basmati rice","it":"riso basmati a chicco lungo"}]}
 {"line":"3/4 cup non-dairy chocolate chips","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"non-dairy chocolate chips","it":"gocce di cioccolato senza latte"}]}

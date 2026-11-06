@@ -15,7 +15,7 @@
 {"line":"1 1/4 cup vanilla non dairy milk ((may need an additional 1/4 cup to thin))","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"vanilla non-dairy milk","it":"latte vegetale alla vaniglia"}]}
 {"line":"1 1/4 cups canned pumpkin","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"canned pumpkin","it":"zucca in scatola"}]}
 {"line":"1 1/4 teaspoons fine sea salt","language":"en","parts":[{"quantity":1.25,"unit":"tsp","en":"fine sea salt","it":"sale marino fino"}]}
-{"line":"1 batch Quick Vegan Tofu Ricotta, ((cashew or macadamia ricotta, see notes))","language":"en","parts":[{"quantity":1,"unit":"batch","en":"quick vegan tofu ricotta","it":"ricotta vegetale veloce di tofu","alternatives":[{"en":"cashew ricotta","it":"ricotta di anacardi"},{"en":"macadamia ricotta","it":"ricotta di macadamia"}]}]}
+{"line":"1 batch Quick Vegan Tofu Ricotta, ((cashew or macadamia ricotta, see notes))","language":"en","parts":[{"quantity":1,"unit":"batch","en":"quick vegan tofu ricotta","it":"ricotta vegetale rapida di tofu","alternatives":[{"en":"cashew ricotta","it":"ricotta di anacardi"},{"en":"macadamia ricotta","it":"ricotta vegetale di macadamia"}]}]}
 {"line":"1 box Daiya Deluxe Cheddar Style Cheezy Mac","language":"en","parts":[{"quantity":1,"unit":"box","en":"Daiya Deluxe Cheddar Style Cheezy Mac","it":"Daiya Deluxe Cheddar Style Cheezy Mac"}]}
 {"line":"1 can (15 oz) diced tomatoes with juice or 2 – 3 roma tomatoes, diced","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned diced tomatoes with juice","it":"pomodori a cubetti in scatola con il loro succo","alternatives":[{"quantity":2,"quantityMax":3,"en":"Roma tomatoes","it":"pomodori Roma"}]}]}
 {"line":"1 can whole or sliced California green olives (15-ounce,, drained)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"whole California green olives","it":"olive verdi californiane intere","preparationEn":"drained","preparationIt":"scolate","alternatives":[{"en":"sliced California green olives","it":"olive verdi californiane a rondelle"}]}]}
@@ -137,7 +137,7 @@
 {"line":"1/2 cup chickpea flour","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"chickpea flour","it":"farina di ceci"}]}
 {"line":"1/2 cup cilantro, (chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1/2 cup coconut or soy yogurt","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"coconut yogurt","it":"yogurt di cocco","alternatives":[{"en":"soy yogurt","it":"yogurt di soia"}]}]}
-{"line":"1/2 cup creamy peanut butter ((low sodium if preferred))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"creamy peanut butter","it":"burro di arachidi cremoso"}]}
+{"line":"1/2 cup creamy peanut butter ((low sodium if preferred))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"creamy peanut butter","it":"burro di arachidi cremoso","preparationEn":"low-sodium if preferred","preparationIt":"a basso contenuto di sodio se preferito"}]}
 {"line":"1/2 cup light flavored olive oil","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"light-flavored olive oil","it":"olio d'oliva dal sapore delicato"}]}
 {"line":"1/2 cup non-dairy milk ((115mL))","language":"en","parts":[{"quantity":115,"unit":"ml","en":"non-dairy milk","it":"latte vegetale"}]}
 {"line":"1/2 cup old fashioned oats (use quick oats if needed)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"old fashioned oats","it":"fiocchi d'avena tradizionali","alternatives":[{"en":"quick oats","it":"fiocchi d'avena a cottura rapida"}]}]}
@@ -188,7 +188,7 @@
 {"line":"1/4 cup panko bread crumbs","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"panko breadcrumbs","it":"pangrattato panko"}]}
 {"line":"1/4 cup pistachio butter*","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"pistachio butter","it":"burro di pistacchi"}]}
 {"line":"1/4 cup strawberry puree ((about 3-4 additional strawberries))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"strawberry puree","it":"purea di fragole"}]}
-{"line":"1/4 cup unsalted dairy free butter (*)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsalted dairy-free butter","it":"burro vegetale senza sale"}]}
+{"line":"1/4 cup unsalted dairy free butter (*)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsalted dairy-free butter","it":"burro vegetale non salato"}]}
 {"line":"1/4 cup unsweetened and unflavored non-dairy milk, (plus more as needed)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsweetened and unflavored non-dairy milk","it":"latte vegetale al naturale senza zucchero"}]}
 {"line":"1/4 cup vegan butter ((58g))","language":"en","parts":[{"quantity":58,"unit":"g","en":"vegan butter","it":"burro vegetale"}]}
 {"line":"1/4 cup vegan butter (melted (or preferred oil))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso","alternatives":[{"en":"oil of choice","it":"olio a scelta"}]}]}
@@ -242,7 +242,7 @@
 {"line":"2 cups cooked green lentils","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cooked green lentils","it":"lenticchie verdi cotte"}]}
 {"line":"2 cups grated or shredded cauliflower","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cauliflower","it":"cavolfiore","preparationEn":"grated or shredded","preparationIt":"grattugiato o sminuzzato"}]}
 {"line":"2 cups soy curls","language":"en","parts":[{"quantity":2,"unit":"cup","en":"soy curls","it":"straccetti di soia"}]}
-{"line":"2 cups vegan \"beefless\" broth or mushroom broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan beefless broth","it":"brodo vegetale gusto manzo","alternatives":[{"en":"mushroom broth","it":"brodo di funghi"}]}]}
+{"line":"2 cups vegan \"beefless\" broth or mushroom broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan beefless broth","it":"brodo vegano gusto manzo","alternatives":[{"en":"mushroom broth","it":"brodo di funghi"}]}]}
 {"line":"2 cups vegan mozzarella cheese, (store-bought (shredded) or homemade (thinly sliced))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan mozzarella cheese","it":"mozzarella vegana","preparationEn":"store-bought and shredded or homemade and thinly sliced","preparationIt":"comprata e grattugiata oppure fatta in casa e affettata sottilmente"}]}
 {"line":"2 cups vegan mozzarella, (divided)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan mozzarella","it":"mozzarella vegana","preparationEn":"divided","preparationIt":"divisa"}]}
 {"line":"2 cups vegan sugar ((398g))","language":"en","parts":[{"quantity":398,"unit":"g","en":"vegan sugar","it":"zucchero vegano"}]}
@@ -264,7 +264,7 @@
 {"line":"2 tablespoons light olive oil or other neutral-flavored oil","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"light olive oil","it":"olio d'oliva delicato","alternatives":[{"en":"neutral-flavored oil","it":"olio dal sapore neutro"}]}]}
 {"line":"2 tbsp coconut oil","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"coconut oil","it":"olio di cocco"}]}
 {"line":"2 tbsp cumin seeds ((jeera))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"cumin seeds","it":"semi di cumino"}]}
-{"line":"2 tbsp non dairy yogurt (or thick coconut milk)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"dairy-free yogurt","it":"yogurt vegetale","alternatives":[{"en":"thick coconut milk","it":"latte di cocco denso"}]}]}
+{"line":"2 tbsp non dairy yogurt (or thick coconut milk)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"non-dairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"thick coconut milk","it":"latte di cocco denso"}]}]}
 {"line":"2 tbsp shiro miso / white miso","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"white miso","it":"miso bianco"}]}
 {"line":"2 tbsp. coconut oil, (divided)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"coconut oil","it":"olio di cocco","preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"2 teaspoons cornstarch (optional - I never use this, but it’ll help prevent clumping and melting. It also helps with thickening.)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"cornstarch","it":"amido di mais","optional":true}]}
@@ -281,7 +281,7 @@
 {"line":"2-3 oz Chopped spinach or baby kale (or other chopped greens )","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"oz","en":"spinach","it":"spinaci","preparationEn":"chopped","preparationIt":"tritati","alternatives":[{"en":"baby kale","it":"cavolo riccio tenero"},{"en":"other greens","it":"altre verdure a foglia"}]}]}
 {"line":"2-4 tablespoons maple syrup or agave","language":"en","parts":[{"quantity":2,"quantityMax":4,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"agave syrup","it":"sciroppo d'agave"}]}]}
 {"line":"200 g plain white flour","language":"en","parts":[{"quantity":200,"unit":"g","en":"plain white flour","it":"farina bianca"}]}
-{"line":"240 g / 2 cups all purpose wheat flour or a reliable GF flour mix (I tested this one)","language":"en","parts":[{"quantity":240,"unit":"g","en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi","alternatives":[{"en":"gluten-free flour mix","it":"miscela di farine senza glutine"}]}]}
+{"line":"240 g / 2 cups all purpose wheat flour or a reliable GF flour mix (I tested this one)","language":"en","parts":[{"quantity":240,"unit":"g","en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi","alternatives":[{"en":"gluten-free flour mix","it":"miscela di farine senza glutine"}]}]}
 {"line":"250 g / 0.5 lb raw beetroots","language":"en","parts":[{"quantity":250,"unit":"g","en":"raw beetroots","it":"barbabietole crude"}]}
 {"line":"26.5 oz white asparagus ((600 g peeled))","language":"en","parts":[{"quantity":600,"unit":"g","en":"white asparagus","it":"asparagi bianchi","preparationEn":"peeled","preparationIt":"pelati"}]}
 {"line":"270 g plain white flour (aka all purpose flour)","language":"en","parts":[{"quantity":270,"unit":"g","en":"plain white flour","it":"farina bianca"}]}
@@ -331,7 +331,7 @@
 {"line":"4 tablespoons nondairy margarine","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"non-dairy margarine","it":"margarina vegetale"}]}
 {"line":"4 tablespoons raw sugar","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"raw sugar","it":"zucchero grezzo"}]}
 {"line":"4 tablespoons white miso ((shiro miso))","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"white miso","it":"miso bianco"}]}
-{"line":"4 teaspoons pumpkin spice blend (I use and recommend MY blend, SEE NOTES below!)","language":"en","parts":[{"quantity":4,"unit":"tsp","en":"pumpkin spice blend","it":"miscela di spezie per pumpkin pie"}]}
+{"line":"4 teaspoons pumpkin spice blend (I use and recommend MY blend, SEE NOTES below!)","language":"en","parts":[{"quantity":4,"unit":"tsp","en":"pumpkin spice blend","it":"miscela di spezie per torta di zucca"}]}
 {"line":"4-5 nori sheets","language":"en","parts":[{"quantity":4,"quantityMax":5,"en":"nori sheets","it":"fogli di alga nori"}]}
 {"line":"4-5 tablespoons high quality balsamic vinegar (Grand Reserve preferred)","language":"en","parts":[{"quantity":4,"quantityMax":5,"unit":"tbsp","en":"high-quality balsamic vinegar","it":"aceto balsamico di alta qualità"}]}
 {"line":"5 cups dairy free milk","language":"en","parts":[{"quantity":5,"unit":"cup","en":"dairy-free milk","it":"latte vegetale"}]}
@@ -362,7 +362,7 @@
 {"line":"8 oz super firm tofu","language":"en","parts":[{"quantity":8,"unit":"oz","en":"super firm tofu","it":"tofu molto compatto"}]}
 {"line":"8 oz vegan chocolate, (melted)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"vegan chocolate","it":"cioccolato vegano","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"8 oz vegan mozzarella, (divided)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"vegan mozzarella","it":"mozzarella vegana","preparationEn":"divided","preparationIt":"da dividere"}]}
-{"line":"8 tablespoons salted butter (melted (I used dairy-free))","language":"en","parts":[{"quantity":8,"unit":"tbsp","en":"salted vegan butter","it":"burro vegetale salato","preparationEn":"melted","preparationIt":"fuso"}]}
+{"line":"8 tablespoons salted butter (melted (I used dairy-free))","language":"en","parts":[{"quantity":8,"unit":"tbsp","en":"salted dairy-free butter","it":"burro vegetale salato","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"8 to 10 cloves garlic chopped","language":"en","parts":[{"quantity":8,"quantityMax":10,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"8×4-inch loaf pan","language":"en","kind":"other"}
 {"line":"Almonds","language":"en","parts":[{"en":"almonds","it":"mandorle"}]}
@@ -371,7 +371,7 @@
 {"line":"Chipotle Crema","language":"en","kind":"heading"}
 {"line":"Chocolate mint: 2 tablespoons cocoa powder (15 grams + 1 Teaspoon Mint Extract (3 grams))","language":"en","parts":[{"quantity":15,"unit":"g","en":"cocoa powder","it":"cacao in polvere"},{"quantity":3,"unit":"g","en":"mint extract","it":"estratto di menta"}]}
 {"line":"Extra blackberries for topping","language":"en","parts":[{"en":"blackberries","it":"more","purposeEn":"for topping","purposeIt":"per guarnire"}]}
-{"line":"Fresh cracked pepper (to taste (*optional))","language":"en","parts":[{"en":"freshly cracked pepper","it":"pepe macinato al momento","optional":true,"toTaste":true}]}
+{"line":"Fresh cracked pepper (to taste (*optional))","language":"en","parts":[{"en":"fresh cracked pepper","it":"pepe macinato fresco","optional":true,"toTaste":true}]}
 {"line":"Fresh herbs such as oregano, basil, or thyme","language":"en","parts":[{"en":"fresh herbs","it":"erbe aromatiche fresche","alternatives":[{"en":"fresh oregano","it":"origano fresco"},{"en":"fresh basil","it":"basilico fresco"},{"en":"fresh thyme","it":"timo fresco"}]}]}
 {"line":"Fresh thyme (to garnish)","language":"en","parts":[{"en":"fresh thyme","it":"timo fresco","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"GF certified oats (such as Bob's Red Mill , for topping)","language":"en","parts":[{"en":"certified gluten-free oats","it":"fiocchi d'avena certificati senza glutine","purposeEn":"for topping","purposeIt":"per guarnire"}]}

@@ -128,7 +128,7 @@
 {"line":"1 tsp ginger ((finely grated))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"ginger","it":"zenzero","preparationEn":"finely grated","preparationIt":"grattugiato finemente"}]}
 {"line":"1 tsp matcha green tea powder","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"matcha green tea powder","it":"tè verde matcha in polvere"}]}
 {"line":"1 tsp or more lemon juice","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"lemon juice","it":"succo di limone"}]}
-{"line":"1 tsp paprika (or use 3/4 tsp smoked paprika, and 1/4 tsp cayenne)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"paprika","it":"paprika"}]}
+{"line":"1 tsp paprika (or use 3/4 tsp smoked paprika, and 1/4 tsp cayenne)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"paprika","it":"paprika","alternatives":[{"quantity":0.75,"unit":"tsp","en":"smoked paprika","it":"paprika affumicata"},{"quantity":0.25,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna"}]}]}
 {"line":"1 tsp white or yellow miso ((optional))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"white miso","it":"miso bianco","optional":true,"alternatives":[{"en":"yellow miso","it":"miso giallo"}]}]}
 {"line":"1 tsp white vinegar (or use apple cider vinegar)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"white vinegar","it":"aceto bianco","alternatives":[{"en":"apple cider vinegar","it":"aceto di mele"}]}]}
 {"line":"1 turnip, grated finely","language":"en","parts":[{"quantity":1,"en":"turnip","it":"rapa","preparationEn":"finely grated","preparationIt":"grattugiata finemente"}]}
@@ -276,7 +276,7 @@
 {"line":"2 tablespoon maple syrup","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero"}]}
 {"line":"2 tablespoons harissa paste (, see note for less spice )","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"harissa paste","it":"pasta di harissa"}]}
 {"line":"2 tablespoons hot sauce of choice, (or to taste)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"hot sauce of choice","it":"salsa piccante a scelta","toTaste":true}]}
-{"line":"2 tablespoons lemon juice (, fresh squeezed)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"lemon juice","it":"succo di limone","preparationEn":"freshly squeezed","preparationIt":"spremuto al momento"}]}
+{"line":"2 tablespoons lemon juice (, fresh squeezed)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"lemon juice","it":"succo di limone","preparationEn":"fresh squeezed","preparationIt":"spremuto fresco"}]}
 {"line":"2 tablespoons of sesame oil","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"sesame oil","it":"olio di sesamo"}]}
 {"line":"2 tablespoons orange juice","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"orange juice","it":"succo d'arancia"}]}
 {"line":"2 tablespoons vegan parmesan (grated, 10g)","language":"en","parts":[{"quantity":10,"unit":"g","en":"vegan parmesan","it":"parmigiano vegano","preparationEn":"grated","preparationIt":"grattugiato"}]}
@@ -356,7 +356,7 @@
 {"line":"4 tablespoons oil","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"oil","it":"olio"}]}
 {"line":"4 tbsp vegan butter","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"vegan butter","it":"burro vegetale"}]}
 {"line":"4 tbsp. vegan butter","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"vegan butter","it":"burro vegetale"}]}
-{"line":"4 vegan chicken patties ((or 6 vegan chicken tenders))","language":"en","parts":[{"quantity":4,"en":"vegan chicken patties","it":"burger di pollo vegetale","alternatives":[{"quantity":6,"en":"vegan chicken tenders","it":"bocconcini vegani di pollo"}]}]}
+{"line":"4 vegan chicken patties ((or 6 vegan chicken tenders))","language":"en","parts":[{"quantity":4,"en":"vegan chicken patties","it":"burger di pollo vegetale","alternatives":[{"quantity":6,"en":"vegan chicken tenders","it":"straccetti vegani gusto pollo"}]}]}
 {"line":"4-Ingredient vegan parmesan cheese","language":"en","parts":[{"en":"vegan Parmesan cheese","it":"parmigiano vegano"}]}
 {"line":"5 dried guajillo chiles, ends trimmed and de-seeded","language":"en","parts":[{"quantity":5,"en":"dried guajillo chiles","it":"peperoncini guajillo secchi","preparationEn":"ends trimmed and deseeded","preparationIt":"privati delle estremità e dei semi"}]}
 {"line":"5 green onions (cut into ½”pieces; white and green parts divided)","language":"en","parts":[{"quantity":5,"en":"green onions","it":"cipollotti","preparationEn":"cut into pieces, white and green parts divided","preparationIt":"tagliati a pezzi, separando la parte bianca da quella verde"}]}

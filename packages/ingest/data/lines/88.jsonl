@@ -8,7 +8,7 @@
 {"line":"1 1/2 cups baked or steamed sweet potatoes (flesh only*)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"sweet potatoes","it":"patate dolci","preparationEn":"baked or steamed, flesh only","preparationIt":"cotte al forno o al vapore, solo la polpa"}]}
 {"line":"1 1/2 cups large flake rolled oats","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"large-flake rolled oats","it":"fiocchi d'avena grandi"}]}
 {"line":"1 1/2 cups unsweetened, unflavored almond milk","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"unsweetened, unflavored almond milk","it":"latte di mandorla al naturale senza zucchero"}]}
-{"line":"1 1/2 cups vegan chikn flavored broth or vegetable broth*","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan chicken-flavored broth","it":"brodo vegetale al gusto di pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"1 1/2 cups vegan chikn flavored broth or vegetable broth*","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan chikn flavored broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"1 1/2 cups vegan sugar","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan sugar","it":"zucchero vegano"}]}
 {"line":"1 1/2 pounds thinly sliced cucumber ((about 3 medium cucumbers))","language":"en","parts":[{"quantity":1.5,"unit":"lb","en":"cucumber","it":"cetriolo","preparationEn":"thinly sliced","preparationIt":"tagliato a fettine sottili"}]}
 {"line":"1 1/2 tablespoons soy sauce, (plus more to taste)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"soy sauce","it":"salsa di soia","toTaste":true}]}
@@ -197,7 +197,7 @@
 {"line":"180 ml / ¾ cup vegan red wine (or veggie stock)","language":"en","parts":[{"quantity":180,"unit":"ml","en":"vegan red wine","it":"vino rosso vegano","alternatives":[{"en":"vegetable stock","it":"brodo vegetale"}]}]}
 {"line":"1½ large apples","language":"en","parts":[{"quantity":1.5,"en":"large apples","it":"mele grandi"}]}
 {"line":"2 1/4 tsp active dry yeast ((or 1 package))","language":"en","parts":[{"quantity":2.25,"unit":"tsp","en":"active dry yeast","it":"lievito di birra secco attivo","alternatives":[{"quantity":1,"unit":"package","en":"active dry yeast","it":"lievito di birra secco attivo"}]}]}
-{"line":"2 Not Chick’n bullion cubes (or equivalent that makes 4 cups of vegan chicken-flavored broth)","language":"en","parts":[{"quantity":2,"en":"vegan chicken-flavored bouillon cubes","it":"dadi vegetali al gusto di pollo","alternatives":[{"en":"vegan chicken-flavored bouillon","it":"dado vegetale al gusto di pollo"}]}]}
+{"line":"2 Not Chick’n bullion cubes (or equivalent that makes 4 cups of vegan chicken-flavored broth)","language":"en","parts":[{"quantity":2,"en":"Not Chick’n bouillon cubes","it":"dadi vegetali gusto pollo Not Chick’n","alternatives":[{"en":"vegan chicken-flavored bouillon","it":"dado vegano gusto pollo"}]}]}
 {"line":"2 Tablespoons of sugar (I used 1 tablespoon brown sugar and 1 tablespoon coconut sugar and Stevia)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"sugar","it":"zucchero"}]}
 {"line":"2 Tablespoons raw sugar (or equivalent sugar substitute)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"raw sugar","it":"zucchero grezzo","alternatives":[{"en":"sugar substitute","it":"sostituto dello zucchero"}]}]}
 {"line":"2 Tbsp almond milk","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"almond milk","it":"latte di mandorla"}]}
@@ -277,7 +277,7 @@
 {"line":"240 ml / 1 cup creamy** almond or oat milk","language":"en","parts":[{"quantity":240,"unit":"ml","en":"creamy almond milk","it":"latte di mandorla cremoso","alternatives":[{"en":"creamy oat milk","it":"latte di avena cremoso"}]}]}
 {"line":"25 g / 2 tbsp vegan butter* (no need to melt)","language":"en","parts":[{"quantity":25,"unit":"g","en":"vegan butter","it":"burro vegetale"}]}
 {"line":"25 g / 3 scant tbsp cornflour / cornstarch","language":"en","parts":[{"quantity":25,"unit":"g","en":"cornstarch","it":"amido di mais"}]}
-{"line":"250 g / 2 cups all purpose wheat flour, plus extra for dusting","language":"en","parts":[{"quantity":250,"unit":"g","en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi","purposeEn":"plus extra for dusting","purposeIt":"più altra per infarinare"}]}
+{"line":"250 g / 2 cups all purpose wheat flour, plus extra for dusting","language":"en","parts":[{"quantity":250,"unit":"g","en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi","purposeEn":"plus extra for dusting","purposeIt":"più altra per infarinare"}]}
 {"line":"3 Tablespoons (45 ml) neutral oil (canola or vegetable)","language":"en","parts":[{"quantity":45,"unit":"ml","en":"neutral oil","it":"olio dal sapore neutro","alternatives":[{"en":"canola oil","it":"olio di colza"},{"en":"vegetable oil","it":"olio vegetale"}]}]}
 {"line":"3 Tablespoons warm water","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"water","it":"acqua","preparationEn":"warm","preparationIt":"tiepida"}]}
 {"line":"3 Tbsp. soy sauce","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"soy sauce","it":"salsa di soia"}]}
@@ -311,7 +311,7 @@
 {"line":"3/4 cup chopped peppers (, red and green )","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"red and green peppers","it":"peperoni rossi e verdi","preparationEn":"chopped","preparationIt":"tagliati a pezzi"}]}
 {"line":"3/4 cup corn syrup","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"corn syrup","it":"sciroppo di mais"}]}
 {"line":"3/4 cup fresh water","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"fresh water","it":"acqua fresca"}]}
-{"line":"3/4 cup macadamia nut or cashew milk","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"macadamia nut milk","it":"latte di macadamia","alternatives":[{"en":"cashew milk","it":"latte di anacardi"}]}]}
+{"line":"3/4 cup macadamia nut or cashew milk","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"macadamia nut milk","it":"latte di noci macadamia","alternatives":[{"en":"cashew milk","it":"latte di anacardi"}]}]}
 {"line":"30 Kalamata olives, de-stoned and quartered","language":"en","parts":[{"quantity":30,"en":"Kalamata olives","it":"olive Kalamata","preparationEn":"pitted and quartered","preparationIt":"denocciolate e tagliate in quarti"}]}
 {"line":"35 g / 3 tbsp odourless coconut oil or vegan butter, softened","language":"en","parts":[{"quantity":35,"unit":"g","en":"odourless coconut oil","it":"olio di cocco deodorato","preparationEn":"softened","preparationIt":"ammorbidito","alternatives":[{"en":"vegan butter","it":"burro vegetale"}]}]}
 {"line":"350 g / 12.3 oz broccoli (1 medium head)","language":"en","parts":[{"quantity":350,"unit":"g","en":"broccoli","it":"broccoli"}]}

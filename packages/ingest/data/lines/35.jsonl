@@ -174,7 +174,7 @@
 {"line":"1/4 cup cornstarch ((or sub arrowroot powder))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cornstarch","it":"amido di mais","alternatives":[{"en":"arrowroot powder","it":"amido di arrowroot"}]}]}
 {"line":"1/4 cup extra virgin olive oil ⁣⁣","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"extra virgin olive oil","it":"olio extravergine d'oliva"}]}
 {"line":"1/4 cup low sodium soy sauce*","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"low-sodium soy sauce","it":"salsa di soia a basso contenuto di sodio"}]}
-{"line":"1/4 cup orange juice (, fresh squeezed)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"freshly squeezed orange juice","it":"succo d'arancia appena spremuto"}]}
+{"line":"1/4 cup orange juice (, fresh squeezed)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"orange juice","it":"succo d'arancia","preparationEn":"fresh squeezed","preparationIt":"spremuto fresco"}]}
 {"line":"1/4 cup quinoa (or use split red lentils(masoor dal) )","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"quinoa","it":"quinoa","alternatives":[{"en":"split red lentils","it":"lenticchie rosse decorticate"}]}]}
 {"line":"1/4 cup sauteed mushrooms or chopped mushrooms (I sauteed the mushrooms in a little oil for a few minutes)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"mushrooms","it":"funghi","preparationEn":"sautéed or chopped","preparationIt":"saltati in padella o tritati"}]}
 {"line":"1/4 cup unsalted tomato paste","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsalted tomato paste","it":"concentrato di pomodoro senza sale"}]}
@@ -230,7 +230,7 @@
 {"line":"2 cups flour ((gluten-free, regular wheat or whole wheat flour will all work))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"flour","it":"farina","alternatives":[{"en":"gluten-free flour","it":"farina senza glutine"},{"en":"wheat flour","it":"farina di frumento"},{"en":"whole wheat flour","it":"farina integrale"}]}]}
 {"line":"2 cups full-fat coconut milk","language":"en","parts":[{"quantity":2,"unit":"cup","en":"full-fat coconut milk","it":"latte di cocco intero"}]}
 {"line":"2 cups fusilli pasta (gluten-free if needed)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"fusilli pasta","it":"fusilli"}]}
-{"line":"2 cups non-dairy milk","language":"en","parts":[{"quantity":2,"unit":"cup","en":"plant-based milk","it":"latte vegetale"}]}
+{"line":"2 cups non-dairy milk","language":"en","parts":[{"quantity":2,"unit":"cup","en":"non-dairy milk","it":"latte vegetale"}]}
 {"line":"2 cups of (dry) lentils (I used green)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"dry lentils","it":"lenticchie secche"}]}
 {"line":"2 cups packed red cabbage (shredded)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"red cabbage","it":"cavolo cappuccio rosso","preparationEn":"shredded","preparationIt":"tagliato a striscioline"}]}
 {"line":"2 cups uncooked brown basmati rice, (soaked* (360g))","language":"en","parts":[{"quantity":360,"unit":"g","en":"uncooked brown basmati rice","it":"riso basmati integrale crudo","preparationEn":"soaked","preparationIt":"ammollato"}]}
@@ -305,7 +305,7 @@
 {"line":"3/4 cup (90g) all-purpose flour (for gluten-free, use white rice flour or all-purpose gluten-free flour)","language":"en","parts":[{"quantity":90,"unit":"g","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"white rice flour","it":"farina di riso bianco"},{"en":"all-purpose gluten-free flour","it":"farina senza glutine per tutti gli usi"}]}]}
 {"line":"3/4 cup BBQ sauce, divided","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"BBQ sauce","it":"salsa barbecue","preparationEn":"divided","preparationIt":"divisa"}]}
 {"line":"3/4 cup cashew milk or thick full fat coconut milk (, 1/2 to 3/4 cup based on preference)","language":"en","parts":[{"quantity":0.5,"quantityMax":0.75,"unit":"cup","en":"cashew milk","it":"latte di anacardi","alternatives":[{"en":"thick full-fat coconut milk","it":"latte di cocco denso intero"}]}]}
-{"line":"3/4 cup non dairy milk (, such as almond milk, soy milk)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"dairy-free milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"}]}]}
+{"line":"3/4 cup non dairy milk (, such as almond milk, soy milk)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"non dairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"}]}]}
 {"line":"3/4 cup raw walnuts","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"raw walnuts","it":"noci crude"}]}
 {"line":"3/4 cup vegan ale (or plain seltzer water, chilled)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan ale","it":"birra ale vegana","preparationEn":"chilled","preparationIt":"fredda","alternatives":[{"en":"plain seltzer water","it":"acqua di seltz"}]}]}
 {"line":"3/4 tsp ancho chili powder","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"ancho chili powder","it":"peperoncino ancho in polvere"}]}

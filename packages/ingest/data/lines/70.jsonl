@@ -69,6 +69,7 @@
 {"line":"1 medium potato chopped","language":"en","parts":[{"quantity":1,"en":"medium potato","it":"patata media","preparationEn":"chopped","preparationIt":"tagliata a pezzi"}]}
 {"line":"1 medium zucchini (about 1 1/2 cups)","language":"en","parts":[{"quantity":1,"en":"medium zucchini","it":"zucchina media"}]}
 {"line":"1 medium-sized carrot (grated)","language":"en","parts":[{"quantity":1,"en":"medium carrot","it":"carota media","preparationEn":"grated","preparationIt":"grattugiata"}]}
+{"line":"1 nori sheet, cut into slivers or small handful of wakame or dulse","language":"en","parts":[{"quantity":1,"unit":"sheet","en":"nori","it":"alga nori","preparationEn":"cut into slivers","preparationIt":"tagliata a striscioline","alternatives":[{"quantity":1,"unit":"handful","en":"wakame","it":"alga wakame"},{"quantity":1,"unit":"handful","en":"dulse","it":"alga dulse"}]}]}
 {"line":"1 package of super firm tofu, (cubed (optional))","language":"en","parts":[{"quantity":1,"unit":"package","en":"super firm tofu","it":"tofu molto compatto","preparationEn":"cubed","preparationIt":"tagliato a cubetti","optional":true}]}
 {"line":"1 piece of fresh ginger (about 1 inch)","language":"en","parts":[{"quantity":1,"unit":"piece","en":"fresh ginger","it":"zenzero fresco","preparationEn":"about 1 inch","preparationIt":"circa 2,5 cm"}]}
 {"line":"1 pound of yukon gold potatoes, (cut into 1-inch cubes)","language":"en","parts":[{"quantity":1,"unit":"lb","en":"Yukon Gold potatoes","it":"patate Yukon Gold","preparationEn":"cut into cubes","preparationIt":"tagliate a cubetti"}]}
@@ -92,6 +93,7 @@
 {"line":"1 tablespoon liquid aminos (tamari, or soy sauce)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"liquid aminos","it":"aminoacidi liquidi","alternatives":[{"en":"tamari","it":"tamari"},{"en":"soy sauce","it":"salsa di soia"}]}]}
 {"line":"1 tablespoon minced fresh garlic (or 1/2 tsp garlic powder)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"fresh garlic","it":"aglio fresco","preparationEn":"minced","preparationIt":"tritato","alternatives":[{"quantity":0.5,"unit":"tsp","en":"garlic powder","it":"aglio in polvere"}]}]}
 {"line":"1 tablespoon nutritional yeast ((optional) )","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"nutritional yeast","it":"lievito alimentare","optional":true}]}
+{"line":"1 tablespoon sumac, (more for finishing (optional, see Note 3))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"sumac","it":"sommacco","purposeEn":"more for finishing, optional","purposeIt":"altro per rifinire, facoltativo"}]}
 {"line":"1 tablespoon tapioca flour/starch","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"tapioca starch","it":"amido di tapioca"}]}
 {"line":"1 tablespoon vegan mayonnaise (15 milliliters)","language":"en","parts":[{"quantity":15,"unit":"ml","en":"vegan mayonnaise","it":"maionese vegana"}]}
 {"line":"1 tbsp lemon juice ((or more to taste))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"lemon juice","it":"succo di limone","toTaste":true}]}
@@ -130,7 +132,7 @@
 {"line":"1/2 cup cilantro, (roughly chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"roughly chopped","preparationIt":"tritato grossolanamente"}]}
 {"line":"1/2 cup green onions (, chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"green onions","it":"cipollotti","preparationEn":"chopped","preparationIt":"tritati"}]}
 {"line":"1/2 cup lentils (brown lentils, Sabut Masoor)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"brown lentils (Sabut Masoor)","it":"lenticchie marroni (Sabut Masoor)"}]}
-{"line":"1/2 cup non dairy yogurt or full fat coconut milk","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"nondairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"full-fat coconut milk","it":"latte di cocco intero"}]}]}
+{"line":"1/2 cup non dairy yogurt or full fat coconut milk","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"non dairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"full fat coconut milk","it":"latte di cocco intero"}]}]}
 {"line":"1/2 cup plant-based cream ((I used 31% fat cream))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"plant-based cream","it":"panna vegetale"}]}
 {"line":"1/2 cup raw cashews, soaked for 2-3 hours","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked for 2-3 hours","preparationIt":"ammollati per 2-3 ore"}]}
 {"line":"1/2 cup rolled oats ((or gluten-free))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"rolled oats","it":"fiocchi d'avena"}]}
@@ -253,7 +255,7 @@
 {"line":"2 teaspoons agave nectar (, or any sweetener)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"agave nectar","it":"sciroppo d'agave","alternatives":[{"en":"sweetener of choice","it":"dolcificante a scelta"}]}]}
 {"line":"2 teaspoons low-sodium soy sauce","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"low-sodium soy sauce","it":"salsa di soia a basso contenuto di sodio"}]}
 {"line":"2 teaspoons maple syrup or agave","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"agave syrup","it":"sciroppo d'agave"}]}]}
-{"line":"2 teaspoons pumpkin pie spice blend*","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"pumpkin pie spice blend","it":"miscela di spezie per pumpkin pie"}]}
+{"line":"2 teaspoons pumpkin pie spice blend*","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"pumpkin pie spice blend","it":"miscela di spezie per torta di zucca"}]}
 {"line":"2 teaspoons pumpkin spice (I use my homemade blend, see notes for easy quick mix)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"pumpkin spice","it":"miscela di spezie per torta di zucca"}]}
 {"line":"2 teaspoons salt (12g)","language":"en","parts":[{"quantity":12,"unit":"g","en":"salt","it":"sale"}]}
 {"line":"2 teaspoons vegetable oil","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"vegetable oil","it":"olio vegetale"}]}
@@ -276,7 +278,7 @@
 {"line":"2.5 to 3.5 cups vegetable broth ((depends on noodles used and consistency preference) )","language":"en","parts":[{"quantity":2.5,"quantityMax":3.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"2/3 cup cannellini beans (, rinsed and drained)","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"cannellini beans","it":"fagioli cannellini","preparationEn":"rinsed and drained","preparationIt":"sciacquati e scolati"}]}
 {"line":"2/3 cup light coconut milk ((see notes))","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"light coconut milk","it":"latte di cocco leggero"}]}
-{"line":"2/3 cup or more non dairy semi sweet chocolate like Enjoy Life","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"dairy-free semisweet chocolate","it":"cioccolato semidolce senza latte"}]}
+{"line":"2/3 cup or more non dairy semi sweet chocolate like Enjoy Life","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"non-dairy semi-sweet chocolate","it":"cioccolato semidolce senza latticini","preparationEn":"or more","preparationIt":"o più"}]}
 {"line":"20-30 Vegan Wonton Wrappers,* storebought or homemade","language":"en","parts":[{"quantity":20,"quantityMax":30,"en":"vegan wonton wrappers","it":"sfoglie vegane per wonton"}]}
 {"line":"200 g / 7 oz (approx. 1¾ cups) coarsely grated carrots","language":"en","parts":[{"quantity":200,"unit":"g","en":"carrots","it":"carote","preparationEn":"coarsely grated","preparationIt":"grattugiate grossolanamente"}]}
 {"line":"200 g / 7 oz linguine pasta or similar (GF if needed)","language":"en","parts":[{"quantity":200,"unit":"g","en":"linguine","it":"linguine","alternatives":[{"en":"similar pasta","it":"pasta simile"}]}]}
@@ -311,7 +313,7 @@
 {"line":"3/4 cup fresh or frozen corn","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"fresh corn","it":"mais fresco","alternatives":[{"en":"frozen corn","it":"mais surgelato"}]}]}
 {"line":"3/4 cup gluten free all purpose flour*","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"gluten-free all-purpose flour","it":"farina senza glutine per tutti gli usi"}]}
 {"line":"3/4 cup lemon lavender infused sugar (*made above)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"lemon and lavender infused sugar","it":"zucchero aromatizzato al limone e alla lavanda"}]}
-{"line":"3/4 cup non dairy yogurt","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan yogurt","it":"yogurt vegetale"}]}
+{"line":"3/4 cup non dairy yogurt","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"non-dairy yogurt","it":"yogurt vegetale"}]}
 {"line":"3/4 cup packed organic brown sugar","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"organic brown sugar","it":"zucchero di canna biologico","preparationEn":"packed","preparationIt":"pressato"}]}
 {"line":"3/4 cup toasted pine nuts ((or sub with walnuts))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"toasted pine nuts","it":"pinoli tostati","alternatives":[{"en":"walnuts","it":"noci"}]}]}
 {"line":"3/4 cup vegan butter, softened","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}

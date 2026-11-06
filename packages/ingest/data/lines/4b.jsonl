@@ -81,7 +81,7 @@
 {"line":"1 large sweet potato ((diced))","language":"en","parts":[{"quantity":1,"en":"large sweet potato","it":"patata dolce grande","preparationEn":"diced","preparationIt":"tagliata a cubetti"}]}
 {"line":"1 lb (450g) dried red kidney beans","language":"en","parts":[{"quantity":450,"unit":"g","en":"dried red kidney beans","it":"fagioli rossi kidney secchi"}]}
 {"line":"1 lb seitan ((or other meat substitute, like tofu, tempeh or beans. Use 2 14-oz cans of beans like pinto or white beans))","language":"en","parts":[{"quantity":1,"unit":"lb","en":"seitan","it":"seitan","alternatives":[{"en":"other meat substitute","it":"altro sostituto della carne"},{"en":"tofu","it":"tofu"},{"en":"tempeh","it":"tempeh"},{"quantity":28,"unit":"oz","en":"canned beans","it":"fagioli in scatola"},{"quantity":28,"unit":"oz","en":"canned pinto beans","it":"fagioli pinto in scatola"},{"quantity":28,"unit":"oz","en":"canned white beans","it":"fagioli bianchi in scatola"}]}]}
-{"line":"1 lb shelled cooked edamame ((I used frozen & thawed 365 brand))","language":"en","parts":[{"quantity":1,"unit":"lb","en":"shelled cooked edamame","it":"edamame sgusciati e cotti"}]}
+{"line":"1 lb shelled cooked edamame ((I used frozen & thawed 365 brand))","language":"en","parts":[{"quantity":1,"unit":"lb","en":"shelled edamame","it":"edamame sgusciati","preparationEn":"cooked","preparationIt":"cotti"}]}
 {"line":"1 lime, juice","language":"en","parts":[{"quantity":1,"en":"lime","it":"lime","preparationEn":"juiced","preparationIt":"spremuto"}]}
 {"line":"1 medium green bell pepper","language":"en","parts":[{"quantity":1,"en":"medium green bell pepper","it":"peperone verde medio"}]}
 {"line":"1 medium green bell pepper, (diced)","language":"en","parts":[{"quantity":1,"en":"medium green bell pepper","it":"peperone verde medio","preparationEn":"diced","preparationIt":"tagliato a cubetti"}]}
@@ -281,7 +281,7 @@
 {"line":"2 to 3 tablespoons chopped onion","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"onion","it":"cipolla","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"2 tsp fresh ginger, (grated)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"fresh ginger","it":"zenzero fresco","preparationEn":"grated","preparationIt":"grattugiato"}]}
 {"line":"2 tsp ginger root ((grated. If using powdered ginger, which can be very strong, use no more than ¼ to ½ tsp).)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"ginger root","it":"radice di zenzero","preparationEn":"grated","preparationIt":"grattugiata","alternatives":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"ground ginger","it":"zenzero in polvere"}]}]}
-{"line":"2 tsp paprika ((1 tsp sweet and 1 tsp smoked or 1.5 sweet and 1/2 tsp smoked for less heat))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"paprika","it":"paprika"}]}
+{"line":"2 tsp paprika ((1 tsp sweet and 1 tsp smoked or 1.5 sweet and 1/2 tsp smoked for less heat))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"paprika","it":"paprika","preparationEn":"use 1 tsp sweet and 1 tsp smoked, or 1.5 tsp sweet and 0.5 tsp smoked for less heat","preparationIt":"usare 1 cucchiaino di paprica dolce e 1 di affumicata, oppure 1,5 cucchiaini di dolce e 0,5 di affumicata per un gusto meno piccante"}]}
 {"line":"2 tsp smoked paprika powder","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"smoked paprika powder","it":"paprika affumicata in polvere"}]}
 {"line":"2 tsp. freshly grated ginger","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"ginger","it":"zenzero","preparationEn":"freshly grated","preparationIt":"grattugiato al momento"}]}
 {"line":"2 whole nutmeg seeds","language":"en","parts":[{"quantity":2,"en":"whole nutmeg seeds","it":"noci moscate intere"}]}
@@ -354,7 +354,7 @@
 {"line":"75 g coconut sugar ((1/2 cup))","language":"en","parts":[{"quantity":75,"unit":"g","en":"coconut sugar","it":"zucchero di cocco"}]}
 {"line":"8 apples of choice","language":"en","parts":[{"quantity":8,"en":"apples of choice","it":"mele a scelta"}]}
 {"line":"8 cloves garlic (thinly sliced)","language":"en","parts":[{"quantity":8,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"thinly sliced","preparationIt":"tagliato a fettine sottili"}]}
-{"line":"8 cups vegetable broth (, low sodium if preferred)","language":"en","parts":[{"quantity":8,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
+{"line":"8 cups vegetable broth (, low sodium if preferred)","language":"en","parts":[{"quantity":8,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio"}]}]}
 {"line":"8 ounces (225 g) super firm or pressed tofu, cut into 1/2″ cubes","language":"en","parts":[{"quantity":225,"unit":"g","en":"super-firm tofu","it":"tofu molto compatto","preparationEn":"cut into cubes","preparationIt":"tagliato a cubetti","alternatives":[{"en":"pressed tofu","it":"tofu pressato"}]}]}
 {"line":"8 ounces dried noodles (of choice (vegan lo mein, rice noodles, ramen, soba))","language":"en","parts":[{"quantity":8,"unit":"oz","en":"dried noodles of choice","it":"noodles secchi a scelta","alternatives":[{"en":"vegan lo mein noodles","it":"noodles lo mein vegani"},{"en":"rice noodles","it":"spaghetti di riso"},{"en":"ramen","it":"ramen"},{"en":"soba","it":"soba"}]}]}
 {"line":"8 ounces extra firm tofu, (drained and pressed)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"extra firm tofu","it":"tofu extra compatto","preparationEn":"drained and pressed","preparationIt":"scolato e pressato"}]}
@@ -368,14 +368,14 @@
 {"line":"Cubed bread — we like to used sourdough or french bread","language":"en","parts":[{"en":"bread","it":"pane","preparationEn":"cubed","preparationIt":"tagliato a cubetti","alternatives":[{"en":"sourdough bread","it":"pane a lievitazione naturale"},{"en":"French bread","it":"pane francese"}]}]}
 {"line":"Dill pickle slices, (optional)","language":"en","parts":[{"en":"dill pickle slices","it":"cetriolini sottaceto all'aneto a fette","optional":true}]}
 {"line":"Easy Crunchy Granola {gluten- & oil-free}","language":"en","kind":"other"}
-{"line":"Fresh ground pepper (, to taste)","language":"en","parts":[{"en":"freshly ground pepper","it":"pepe macinato fresco","toTaste":true}]}
+{"line":"Fresh ground pepper (, to taste)","language":"en","parts":[{"en":"fresh ground pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"Garnish with basil","language":"en","parts":[{"en":"basil","it":"basilico","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"Green onions, chopped","language":"en","parts":[{"en":"green onions","it":"cipollotti","preparationEn":"chopped","preparationIt":"tritati"}]}
 {"line":"Hot sauce to taste ((optional))","language":"en","parts":[{"en":"hot sauce","it":"salsa piccante","optional":true,"toTaste":true}]}
 {"line":"Juice of ½ lemon ((or lime))","language":"en","parts":[{"quantity":0.5,"en":"lemon","it":"limone","preparationEn":"juiced","preparationIt":"spremuto","alternatives":[{"en":"lime","it":"lime"}]}]}
 {"line":"Mixing bowls","language":"en","kind":"other"}
 {"line":"One 20 oz can jackfruit (in brine/salt water) drained. I buy mine from Trader Joe's","language":"en","parts":[{"quantity":20,"unit":"oz","en":"jackfruit in brine","it":"jackfruit in salamoia","preparationEn":"drained","preparationIt":"sgocciolato"}]}
-{"line":"Optional vegan parmesan cheese, shredded","language":"en","parts":[{"en":"vegan Parmesan-style cheese","it":"formaggio vegetale tipo parmigiano","preparationEn":"shredded","preparationIt":"grattugiato","optional":true}]}
+{"line":"Optional vegan parmesan cheese, shredded","language":"en","parts":[{"en":"vegan parmesan cheese","it":"parmigiano vegano","preparationEn":"shredded","preparationIt":"grattugiato","optional":true}]}
 {"line":"Salt and freshly ground black pepper to taste","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"black pepper","it":"pepe nero","preparationEn":"freshly ground","preparationIt":"macinato al momento","toTaste":true}]}
 {"line":"Vegan mozzarella or cheddar shreds","language":"en","parts":[{"en":"shredded vegan mozzarella","it":"mozzarella vegana grattugiata","alternatives":[{"en":"shredded vegan cheddar","it":"cheddar vegano grattugiato"}]}]}
 {"line":"a dash of pepper","language":"en","parts":[{"quantity":1,"unit":"dash","en":"pepper","it":"pepe"}]}

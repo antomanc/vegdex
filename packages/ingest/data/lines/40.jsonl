@@ -16,7 +16,7 @@
 {"line":"1 1/2 teaspoons garam masala, (use less or more to preference)","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"garam masala","it":"garam masala","toTaste":true}]}
 {"line":"1 1/2 teaspoons ground cumin","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"ground cumin","it":"cumino macinato"}]}
 {"line":"1 1/2 teaspoons pink Himalayan salt","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"pink Himalayan salt","it":"sale rosa dell'Himalaya"}]}
-{"line":"1 1/3 cups unflavored and unsweetened non-dairy milk","language":"en","parts":[{"quantity":1.333333,"unit":"cup","en":"unflavored unsweetened plant-based milk","it":"latte vegetale non aromatizzato e senza zuccheri"}]}
+{"line":"1 1/3 cups unflavored and unsweetened non-dairy milk","language":"en","parts":[{"quantity":1.333333,"unit":"cup","en":"unflavored and unsweetened non-dairy milk","it":"latte vegetale non aromatizzato e senza zuccheri"}]}
 {"line":"1 1/4 cups (180 g) frozen corn","language":"en","parts":[{"quantity":180,"unit":"g","en":"frozen corn","it":"mais surgelato"}]}
 {"line":"1 1/4 cups mashed banana (2 large or 3 small bananas)","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"banana","it":"banana","preparationEn":"mashed","preparationIt":"schiacciata"}]}
 {"line":"1 14 ounce can coconut milk (, full-fat)","language":"en","parts":[{"quantity":14,"unit":"oz","en":"full-fat canned coconut milk","it":"latte di cocco intero in lattina"}]}
@@ -181,7 +181,7 @@
 {"line":"1/8 tsp cardamom, (optional)","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"cardamom","it":"cardamomo","optional":true}]}
 {"line":"1/8 tsp ground cumin","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"ground cumin","it":"cumino macinato"}]}
 {"line":"1/8 tsp pepper, (more or less to taste)","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"pepper","it":"pepe","toTaste":true}]}
-{"line":"10 ice cubes ((if you're using fresh berries))","language":"en","parts":[{"quantity":10,"en":"ice cubes","it":"cubetti di ghiaccio"}]}
+{"line":"10 ice cubes ((if you're using fresh berries))","language":"en","parts":[{"quantity":10,"en":"ice cubes","it":"cubetti di ghiaccio","preparationEn":"if using fresh berries","preparationIt":"se si usano frutti di bosco freschi"}]}
 {"line":"10 ounces oyster mushrooms (283 grams)","language":"en","parts":[{"quantity":283,"unit":"g","en":"oyster mushrooms","it":"funghi pleurotus"}]}
 {"line":"10 radishes","language":"en","parts":[{"quantity":10,"en":"radishes","it":"ravanelli"}]}
 {"line":"100 g / 1 cup fresh cranberries (frozen work too)","language":"en","parts":[{"quantity":100,"unit":"g","en":"fresh cranberries","it":"mirtilli rossi freschi","alternatives":[{"en":"frozen cranberries","it":"mirtilli rossi surgelati"}]}]}
@@ -190,7 +190,7 @@
 {"line":"12 ounces uncooked short cut pasta (I used rotini)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"uncooked short pasta","it":"pasta corta cruda"}]}
 {"line":"12 oz fresh strawberries (stemmed and sliced (2 cups when sliced))","language":"en","parts":[{"quantity":12,"unit":"oz","en":"fresh strawberries","it":"fragole fresche","preparationEn":"stemmed and sliced","preparationIt":"private del picciolo e tagliate a fette"}]}
 {"line":"12 radishes","language":"en","parts":[{"quantity":12,"en":"radishes","it":"ravanelli"}]}
-{"line":"120 g / 1 cup buckwheat flour* or all purpose wheat flour","language":"en","parts":[{"quantity":120,"unit":"g","en":"buckwheat flour","it":"farina di grano saraceno","alternatives":[{"en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi"}]}]}
+{"line":"120 g / 1 cup buckwheat flour* or all purpose wheat flour","language":"en","parts":[{"quantity":120,"unit":"g","en":"buckwheat flour","it":"farina di grano saraceno","alternatives":[{"en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi"}]}]}
 {"line":"120 ml / ½ cup vegan white wine","language":"en","parts":[{"quantity":120,"unit":"ml","en":"vegan white wine","it":"vino bianco vegano"}]}
 {"line":"130 g plain white flour ((aka all purpose flour))","language":"en","parts":[{"quantity":130,"unit":"g","en":"plain white flour","it":"farina bianca"}]}
 {"line":"14 oz firm tofu (pressed for 15 mins then cubed)","language":"en","parts":[{"quantity":14,"unit":"oz","en":"firm tofu","it":"tofu compatto","preparationEn":"pressed for 15 minutes, then cubed","preparationIt":"pressato per 15 minuti, poi tagliato a cubetti"}]}
@@ -301,7 +301,7 @@
 {"line":"4 tablespoons granulated sugar (*maple syrup works as well)","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"granulated sugar","it":"zucchero semolato","alternatives":[{"en":"maple syrup","it":"sciroppo d'acero"}]}]}
 {"line":"4 tablespoons smoked paprika","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"smoked paprika","it":"paprika affumicata"}]}
 {"line":"4 tablespoons vegan butter, melted","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
-{"line":"4 tbsp club soda, (Or other neutral fizzy drink, see Notes to use aquafaba)","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"club soda","it":"soda","alternatives":[{"en":"neutral fizzy drink","it":"bevanda gassata dal sapore neutro"}]}]}
+{"line":"4 tbsp club soda, (Or other neutral fizzy drink, see Notes to use aquafaba)","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"club soda","it":"acqua gassata","alternatives":[{"en":"neutral fizzy drink","it":"bevanda gassata dal sapore neutro"}]}]}
 {"line":"4 to 6 oz mushrooms (, sliced)","language":"en","parts":[{"quantity":4,"quantityMax":6,"unit":"oz","en":"mushrooms","it":"funghi","preparationEn":"sliced","preparationIt":"a fette"}]}
 {"line":"4 ½ cups (1.1 L) vegetable broth","language":"en","parts":[{"quantity":1.1,"unit":"l","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"4-6 cloves garlic ((minced or put through a garlic press))","language":"en","parts":[{"quantity":4,"quantityMax":6,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced or put through a garlic press","preparationIt":"tritato o spremuto con uno spremiaglio"}]}
@@ -318,7 +318,7 @@
 {"line":"6 large bell peppers (any color), top cut off and seeds removed","language":"en","parts":[{"quantity":6,"en":"large bell peppers","it":"peperoni grandi","preparationEn":"tops cut off and seeds removed","preparationIt":"privati della calotta e dei semi"}]}
 {"line":"6 medium russet potatoes","language":"en","parts":[{"quantity":6,"en":"medium russet potatoes","it":"patate russet medie"}]}
 {"line":"6 stalks Chinese broccoli ((gai lan), stems and leaves separated and roughly chopped (Note 1))","language":"en","parts":[{"quantity":6,"unit":"stalk","en":"Chinese broccoli (gai lan)","it":"broccolo cinese (gai lan)","preparationEn":"stems and leaves separated and roughly chopped","preparationIt":"gambi e foglie separati e tritati grossolanamente"}]}
-{"line":"6 tablespoons melted vegan butter (salted (if using unsalted, add a pinch of sea salt))","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"salted vegan butter","it":"burro vegetale salato","preparationEn":"melted","preparationIt":"fuso"}]}
+{"line":"6 tablespoons melted vegan butter (salted (if using unsalted, add a pinch of sea salt))","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"salted vegan butter","it":"burro vegetale salato","preparationEn":"melted","preparationIt":"fuso","alternatives":[{"en":"unsalted vegan butter","it":"burro vegetale non salato"}]}]}
 {"line":"6 tbsp aquafaba","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"aquafaba","it":"acquafaba"}]}
 {"line":"6 tsp demerara sugar","language":"en","parts":[{"quantity":6,"unit":"tsp","en":"Demerara sugar","it":"zucchero Demerara"}]}
 {"line":"60 g / 2 oz assorted salad leaves","language":"en","parts":[{"quantity":60,"unit":"g","en":"assorted salad leaves","it":"insalata mista"}]}
@@ -341,7 +341,7 @@
 {"line":"Kimchi (for serving on the side)","language":"en","parts":[{"en":"kimchi","it":"kimchi","purposeEn":"for serving on the side","purposeIt":"da servire come accompagnamento"}]}
 {"line":"Mild hot sauce (or ketchup, to brush)","language":"en","parts":[{"en":"mild hot sauce","it":"salsa piccante delicata","purposeEn":"for brushing","purposeIt":"per spennellare","alternatives":[{"en":"ketchup","it":"ketchup"}]}]}
 {"line":"Oil ((for cooking))","language":"en","parts":[{"en":"oil","it":"olio","purposeEn":"for cooking","purposeIt":"per la cottura"}]}
-{"line":"Preserves or Jellies such as red pepper jelly","language":"en","parts":[{"en":"preserves","it":"confettura","alternatives":[{"en":"jellies","it":"gelatine"},{"en":"red pepper jelly","it":"gelatina di peperoni rossi"}]}]}
+{"line":"Preserves or Jellies such as red pepper jelly","language":"en","parts":[{"en":"preserves","it":"confettura","alternatives":[{"en":"jellies","it":"gelatine di frutta"},{"en":"red pepper jelly","it":"gelatina di peperoni rossi"}]}]}
 {"line":"Salt (pepper, and chili powder, to taste)","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"pepper","it":"pepe","toTaste":true},{"en":"chili powder","it":"peperoncino in polvere","toTaste":true}]}
 {"line":"Sliced tomatoes and/or onions","language":"en","parts":[{"en":"tomatoes","it":"pomodori","preparationEn":"sliced","preparationIt":"tagliati a fette"},{"en":"onions","it":"cipolle","preparationEn":"sliced","preparationIt":"tagliate a fette"}]}
 {"line":"Smoked sea salt for finishing ((optional) )","language":"en","parts":[{"en":"smoked sea salt","it":"sale marino affumicato","purposeEn":"for finishing","purposeIt":"per completare","optional":true}]}

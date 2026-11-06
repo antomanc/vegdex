@@ -2,7 +2,7 @@
 {"line":"(2) 15- ounce cans chickpeas (drained and rinsed)","language":"en","parts":[{"quantity":30,"unit":"oz","en":"chickpeas","it":"ceci","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"1 (15 oz) can chickpeas (rinsed (270 g drained weight))","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"rinsed","preparationIt":"sciacquati"}]}
 {"line":"1 (15.25-ounce) can of corn kernels, drained","language":"en","parts":[{"quantity":15.25,"unit":"oz","en":"canned corn kernels","it":"chicchi di mais in scatola","preparationEn":"drained","preparationIt":"scolato"}]}
-{"line":"1 (16 oz) package high protein tofu ( (or any vegan chicken substitute, chopped into small pieces.))","language":"en","parts":[{"quantity":16,"unit":"oz","en":"high-protein tofu","it":"tofu ad alto contenuto proteico","preparationEn":"chopped into small pieces","preparationIt":"tagliato a pezzetti","alternatives":[{"en":"vegan chicken substitute","it":"sostituto vegetale del pollo"}]}]}
+{"line":"1 (16 oz) package high protein tofu ( (or any vegan chicken substitute, chopped into small pieces.))","language":"en","parts":[{"quantity":16,"unit":"oz","en":"high protein tofu","it":"tofu ad alto contenuto proteico","preparationEn":"or chop the vegan chicken substitute into small pieces","preparationIt":"oppure tagliare il sostituto vegetale del pollo a pezzetti","alternatives":[{"en":"vegan chicken substitute","it":"sostituto vegano del pollo"}]}]}
 {"line":"1 1/2 cups (11.87oz) pitted medjool dates, finely chopped*","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"pitted medjool dates","it":"datteri medjool denocciolati","preparationEn":"finely chopped","preparationIt":"tritati finemente"}]}
 {"line":"1 1/2 cups (157.5g) rolled oats","language":"en","parts":[{"quantity":157.5,"unit":"g","en":"rolled oats","it":"fiocchi d'avena"}]}
 {"line":"1 1/2 cups (360ml / 355g) water ((hot but not boiling - about 110°F))","language":"en","parts":[{"quantity":360,"unit":"ml","en":"water","it":"acqua","preparationEn":"hot but not boiling, about 110°F","preparationIt":"calda ma non bollente, circa 43°C"}]}
@@ -102,7 +102,7 @@
 {"line":"1 teaspoon crushed red pepper flakes, (more or less to taste)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"crushed red pepper flakes","it":"peperoncino rosso in fiocchi","toTaste":true}]}
 {"line":"1 teaspoon cumin seeds**","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"cumin seeds","it":"semi di cumino"}]}
 {"line":"1 teaspoon pumpkin pie spice (, more if preferred (See note))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"pumpkin pie spice","it":"miscela di spezie per torta di zucca"}]}
-{"line":"1 teaspoon pumpkin pie spice blend","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"pumpkin pie spice blend","it":"miscela di spezie per pumpkin pie"}]}
+{"line":"1 teaspoon pumpkin pie spice blend","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"pumpkin pie spice blend","it":"miscela di spezie per torta di zucca"}]}
 {"line":"1 teaspoon virgin coconut oil or organic canola oil","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"virgin coconut oil","it":"olio di cocco vergine","alternatives":[{"en":"organic canola oil","it":"olio di colza biologico"}]}]}
 {"line":"1 to 2 oz rum (optional)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"oz","en":"rum","it":"rum","optional":true}]}
 {"line":"1 to 2 teaspoons garam masala","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"garam masala","it":"garam masala"}]}
@@ -240,7 +240,7 @@
 {"line":"2 tablespoons non-dairy milk ((30 mL))","language":"en","parts":[{"quantity":30,"unit":"ml","en":"non-dairy milk","it":"latte vegetale"}]}
 {"line":"2 tablespoons of vegan butter","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan butter","it":"burro vegetale"}]}
 {"line":"2 tablespoons olive oil (, divided)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","preparationEn":"divided","preparationIt":"diviso"}]}
-{"line":"2 tablespoons salted butter (I used dairy-free; or sub oil)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"salted vegan butter","it":"burro vegetale salato","alternatives":[{"en":"oil","it":"olio"}]}]}
+{"line":"2 tablespoons salted butter (I used dairy-free; or sub oil)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"salted dairy-free butter","it":"burro vegetale salato","alternatives":[{"en":"oil","it":"olio"}]}]}
 {"line":"2 tablespoons soy sauce (*tamari for gluten free)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"tamari","it":"tamari"}]}]}
 {"line":"2 tablespoons thick coconut yogurt","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"thick coconut yogurt","it":"yogurt di cocco denso"}]}
 {"line":"2 tablespoons white wine vinegar","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"white wine vinegar","it":"aceto di vino bianco"}]}
@@ -330,7 +330,7 @@
 {"line":"60 ml boiling water","language":"en","parts":[{"quantity":60,"unit":"ml","en":"water","it":"acqua","preparationEn":"boiling","preparationIt":"bollente"}]}
 {"line":"7 oz fresh spinach (finely chopped)","language":"en","parts":[{"quantity":7,"unit":"oz","en":"fresh spinach","it":"spinaci freschi","preparationEn":"finely chopped","preparationIt":"tritati finemente"}]}
 {"line":"75 g / 2.6 oz sundried tomatoes in oil","language":"en","parts":[{"quantity":75,"unit":"g","en":"sun-dried tomatoes in oil","it":"pomodori secchi sott'olio"}]}
-{"line":"8 cups vegan chicken broth","language":"en","parts":[{"quantity":8,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}
+{"line":"8 cups vegan chicken broth","language":"en","parts":[{"quantity":8,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}
 {"line":"8 ounces Udon noodles","language":"en","parts":[{"quantity":8,"unit":"oz","en":"udon noodles","it":"udon"}]}
 {"line":"8 oz button or cremini mushrooms (sliced)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"button mushrooms","it":"funghi champignon","preparationEn":"sliced","preparationIt":"affettati","alternatives":[{"en":"cremini mushrooms","it":"funghi cremini"}]}]}
 {"line":"8 oz. waxy potatoes ((such as red bliss, yukon gold, etc.) cut into bite-size pieces)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"waxy potatoes","it":"patate a pasta soda","preparationEn":"cut into bite-size pieces","preparationIt":"tagliate a bocconcini"}]}

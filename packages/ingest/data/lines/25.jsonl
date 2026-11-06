@@ -150,7 +150,7 @@
 {"line":"1/2 teaspoon vanilla bean paste or extract","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"vanilla bean paste","it":"pasta di vaniglia","alternatives":[{"en":"vanilla extract","it":"estratto di vaniglia"}]}]}
 {"line":"1/2 tsp fennel seeds (optional)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"fennel seeds","it":"semi di finocchio","optional":true}]}
 {"line":"1/2 tsp salt (, depends on if the spice blend already has salt or not.)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale"}]}
-{"line":"1/2-1 cup shredded parmesan (non-dairy) (I use Violife shaved parmesan)","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"cup","en":"vegan parmesan","it":"parmigiano vegano","preparationEn":"shredded","preparationIt":"grattugiato"}]}
+{"line":"1/2-1 cup shredded parmesan (non-dairy) (I use Violife shaved parmesan)","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"cup","en":"non-dairy parmesan","it":"parmigiano vegetale","preparationEn":"shredded","preparationIt":"grattugiato"}]}
 {"line":"1/2–1 teaspoon salt, to taste","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
 {"line":"1/3 cup chopped sundried tomato","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"sun-dried tomatoes","it":"pomodori secchi","preparationEn":"chopped","preparationIt":"tritati"}]}
 {"line":"1/3 cup coconut milk (full fat )","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"full-fat coconut milk","it":"latte di cocco intero"}]}
@@ -254,7 +254,7 @@
 {"line":"2 teaspoons sambal oelek, (or to taste (optional))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"sambal oelek","it":"sambal oelek","optional":true,"toTaste":true}]}
 {"line":"2 teaspoons sesame oil (10mL)","language":"en","parts":[{"quantity":10,"unit":"ml","en":"sesame oil","it":"olio di sesamo"}]}
 {"line":"2 teaspoons white vinegar or rice vinegar","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"white vinegar","it":"aceto bianco","alternatives":[{"en":"rice vinegar","it":"aceto di riso"}]}]}
-{"line":"2 thickened flax eggs*","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di lino","preparationEn":"thickened","preparationIt":"addensate"}]}
+{"line":"2 thickened flax eggs*","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di semi di lino","preparationEn":"thickened","preparationIt":"addensate"}]}
 {"line":"2 tomatoes ((sliced))","language":"en","parts":[{"quantity":2,"en":"tomatoes","it":"pomodori","preparationEn":"sliced","preparationIt":"tagliati a fette"}]}
 {"line":"2 tsp coconut oil (or organic canola oil)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"coconut oil","it":"olio di cocco","alternatives":[{"en":"organic canola oil","it":"olio di colza biologico"}]}]}
 {"line":"2 tsp ginger ((chopped or grated))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"ginger","it":"zenzero","preparationEn":"chopped or grated","preparationIt":"tritato o grattugiato"}]}
@@ -269,8 +269,9 @@
 {"line":"240 ml plant milk (unsweetened and unflavoured, at room temperature)","language":"en","parts":[{"quantity":240,"unit":"ml","en":"unsweetened unflavoured plant milk","it":"latte vegetale senza zucchero e senza aromi","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"250 g cremini mushrooms (sliced)","language":"en","parts":[{"quantity":250,"unit":"g","en":"cremini mushrooms","it":"funghi cremini","preparationEn":"sliced","preparationIt":"tagliati a fette"}]}
 {"line":"250 g green cabbage (about 2 cups) (shredded)","language":"en","parts":[{"quantity":250,"unit":"g","en":"green cabbage","it":"cavolo cappuccio verde","preparationEn":"shredded","preparationIt":"tagliato a striscioline"}]}
-{"line":"3 Bob’s Red Mill Egg Replacer egg substitutes* (or flax eggs)","language":"en","parts":[{"quantity":3,"en":"Bob's Red Mill egg replacer egg substitutes","it":"sostituti dell'uovo Bob's Red Mill","alternatives":[{"en":"flax eggs","it":"uova di lino"}]}]}
+{"line":"3 Bob’s Red Mill Egg Replacer egg substitutes* (or flax eggs)","language":"en","parts":[{"quantity":3,"en":"Bob's Red Mill egg replacer egg substitutes","it":"sostituti dell'uovo Bob's Red Mill","alternatives":[{"en":"flax eggs","it":"uova di semi di lino"}]}]}
 {"line":"3 cloves of garlic, finely chopped or minced","language":"en","parts":[{"quantity":3,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"finely chopped or minced","preparationIt":"tritato finemente"}]}
+{"line":"3 cups all-purpose flour, (divided (plus up to 1/2 cup for kneading))","language":"en","parts":[{"quantity":3,"unit":"cup","en":"all-purpose flour","it":"farina 00","preparationEn":"divided; plus up to 1/2 cup for kneading","preparationIt":"da dividere; aggiungere fino a 1/2 tazza per impastare"}]}
 {"line":"3 cups baby spinach","language":"en","parts":[{"quantity":3,"unit":"cup","en":"baby spinach","it":"spinacini"}]}
 {"line":"3 cups cooked brown lentils (I usually cook them the night before. Or if you like you can also use canned lentils. )","language":"en","parts":[{"quantity":3,"unit":"cup","en":"cooked brown lentils","it":"lenticchie marroni cotte","alternatives":[{"en":"canned lentils","it":"lenticchie in scatola"}]}]}
 {"line":"3 cups rolled oats ((certified gluten-free if needed))","language":"en","parts":[{"quantity":3,"unit":"cup","en":"rolled oats","it":"fiocchi d'avena"}]}
@@ -330,7 +331,7 @@
 {"line":"500 g new potatoes","language":"en","parts":[{"quantity":500,"unit":"g","en":"new potatoes","it":"patate novelle"}]}
 {"line":"6 cloves of garlic, finely minced","language":"en","parts":[{"quantity":6,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"finely minced","preparationIt":"tritato finemente"}]}
 {"line":"6 corn tortillas (or sub flour)","language":"en","parts":[{"quantity":6,"en":"corn tortillas","it":"tortillas di mais","alternatives":[{"en":"flour tortillas","it":"tortillas di farina"}]}]}
-{"line":"6 cups vegan beefless broth, mushroom broth, or vegetable broth (plus more if needed)","language":"en","parts":[{"quantity":6,"unit":"cup","en":"vegan beefless broth","it":"brodo vegetale gusto manzo","alternatives":[{"en":"mushroom broth","it":"brodo di funghi"},{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"6 cups vegan beefless broth, mushroom broth, or vegetable broth (plus more if needed)","language":"en","parts":[{"quantity":6,"unit":"cup","en":"vegan beefless broth","it":"brodo vegano gusto manzo","preparationEn":"plus more if needed","preparationIt":"aggiungerne altro se necessario","alternatives":[{"en":"mushroom broth","it":"brodo di funghi"},{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"6 heaping tablespoons (95g) dairy-free semi-sweet chocolate chips + 3 tablespoons for top (135g total)","language":"en","parts":[{"quantity":135,"unit":"g","en":"dairy-free semi-sweet chocolate chips","it":"gocce di cioccolato semidolce senza latte"}]}
 {"line":"6 ice cubes","language":"en","parts":[{"quantity":6,"unit":"cube","en":"ice","it":"ghiaccio"}]}
 {"line":"6 medium russet potatoes (or use frozen french fries)","language":"en","parts":[{"quantity":6,"en":"medium russet potatoes","it":"patate russet medie","alternatives":[{"en":"frozen french fries","it":"patatine fritte surgelate"}]}]}

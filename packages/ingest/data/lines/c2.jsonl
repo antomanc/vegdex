@@ -6,7 +6,7 @@
 {"line":"1 1/2 cups raw cashews, (soaked in water 4-8 hours, rinsed and drained)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked in water for 4–8 hours, rinsed and drained","preparationIt":"ammollati in acqua per 4–8 ore, sciacquati e scolati"}]}
 {"line":"1 1/2 tablespoons (22g) fresh lime juice","language":"en","parts":[{"quantity":22,"unit":"g","en":"fresh lime juice","it":"succo di lime fresco"}]}
 {"line":"1 1/2 tablespoons vegan chocolate chips","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"vegan chocolate chips","it":"gocce di cioccolato vegano"}]}
-{"line":"1 1/2 teaspoons vegan chicken (poultry) seasoning ((or all purpose seasoning))","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"vegan chicken seasoning","it":"condimento vegano al gusto di pollo","alternatives":[{"en":"all-purpose seasoning","it":"condimento multiuso"}]}]}
+{"line":"1 1/2 teaspoons vegan chicken (poultry) seasoning ((or all purpose seasoning))","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"vegan chicken (poultry) seasoning","it":"condimento vegano gusto pollo","alternatives":[{"en":"all purpose seasoning","it":"condimento multiuso"}]}]}
 {"line":"1 1/2-inch [1cm] knob fresh ginger, peeled and coarsely chopped","language":"en","parts":[{"quantity":1,"unit":"knob","en":"fresh ginger","it":"zenzero fresco","preparationEn":"peeled and coarsely chopped","preparationIt":"sbucciato e tritato grossolanamente"}]}
 {"line":"1 15oz can pumpkin puree","language":"en","parts":[{"quantity":15,"unit":"oz","en":"pumpkin puree","it":"purea di zucca"}]}
 {"line":"1 bunch fresh basil (chopped (use as much or as little as you like, but don’t go over like 1/4 cup))","language":"en","parts":[{"quantity":1,"unit":"bunch","en":"fresh basil","it":"basilico fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
@@ -255,7 +255,7 @@
 {"line":"3 tbsp beetroot juice ((from vacuum packet of beetroot))","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"beetroot juice","it":"succo di barbabietola"}]}
 {"line":"3 tbsp cashews or other nuts such as walnuts (pine nuts)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"cashews","it":"anacardi","alternatives":[{"en":"other nuts","it":"altra frutta secca"},{"en":"walnuts","it":"noci"},{"en":"pine nuts","it":"pinoli"}]}]}
 {"line":"3 tbsp chopped fresh parsley","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
-{"line":"3 tbsp non dairy milk","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"nondairy milk","it":"latte vegetale"}]}
+{"line":"3 tbsp non dairy milk","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"non dairy milk","it":"latte vegetale"}]}
 {"line":"3 tbsp olive oil","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"3 tbsp olive oil (divided)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"3 teaspoons of caper brine","language":"en","parts":[{"quantity":3,"unit":"tsp","en":"caper brine","it":"salamoia dei capperi"}]}
@@ -283,7 +283,7 @@
 {"line":"420 g plain white flour (all purpose flour)","language":"en","parts":[{"quantity":420,"unit":"g","en":"plain white flour","it":"farina bianca"}]}
 {"line":"45 g / 3 tbsp vegan butter or coconut oil","language":"en","parts":[{"quantity":45,"unit":"g","en":"vegan butter","it":"burro vegetale","alternatives":[{"en":"coconut oil","it":"olio di cocco"}]}]}
 {"line":"450 g / 16 oz fresh spinach","language":"en","parts":[{"quantity":450,"unit":"g","en":"fresh spinach","it":"spinaci freschi"}]}
-{"line":"5 tablespoons unsweetened and unflavored non-dairy milk, (at room temperature)","language":"en","parts":[{"quantity":5,"unit":"tbsp","en":"unsweetened unflavored plant-based milk","it":"latte vegetale senza zucchero e senza aromi","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
+{"line":"5 tablespoons unsweetened and unflavored non-dairy milk, (at room temperature)","language":"en","parts":[{"quantity":5,"unit":"tbsp","en":"unsweetened and unflavored non-dairy milk","it":"latte vegetale al naturale senza zucchero","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"50 g / ½ cup ground flax seeds","language":"en","parts":[{"quantity":50,"unit":"g","en":"ground flax seeds","it":"semi di lino macinati"}]}
 {"line":"6 cos lettuce leaves, chopped","language":"en","parts":[{"quantity":6,"unit":"leaf","en":"cos lettuce","it":"lattuga romana","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"6 cups vegetables of choice","language":"en","parts":[{"quantity":6,"unit":"cup","en":"vegetables of choice","it":"verdure a scelta"}]}
@@ -331,7 +331,7 @@
 {"line":"Sweet potatoes","language":"en","parts":[{"en":"sweet potatoes","it":"patate dolci"}]}
 {"line":"Toasted Sesame Seeds","language":"en","parts":[{"en":"toasted sesame seeds","it":"semi di sesamo tostati"}]}
 {"line":"Toppings of choice, (such as chopped peanuts and cilantro)","language":"en","parts":[{"en":"toppings of choice","it":"guarnizioni a scelta","alternatives":[{"en":"chopped peanuts","it":"arachidi tritate"},{"en":"cilantro","it":"coriandolo fresco"}]}]}
-{"line":"Vegan Grilled Cheese, crackers or toasted bread","language":"en","parts":[{"en":"vegan grilled cheese","it":"toast al formaggio vegetale","alternatives":[{"en":"crackers","it":"cracker"},{"en":"toasted bread","it":"pane tostato"}]}]}
+{"line":"Vegan Grilled Cheese, crackers or toasted bread","language":"en","parts":[{"en":"vegan grilled cheese","it":"panino tostato al formaggio vegano","alternatives":[{"en":"crackers","it":"cracker"},{"en":"toasted bread","it":"pane tostato"}]}]}
 {"line":"Vegan Mozzarella (at room temperature)","language":"en","parts":[{"en":"vegan mozzarella","it":"mozzarella vegana","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"about 1 cup fresh basil leaves, roughly chopped","language":"en","parts":[{"quantity":1,"unit":"cup","en":"fresh basil leaves","it":"foglie di basilico fresco","preparationEn":"roughly chopped","preparationIt":"tritate grossolanamente"}]}
 {"line":"about a cup of water","language":"en","parts":[{"quantity":1,"unit":"cup","en":"water","it":"acqua"}]}
@@ -348,7 +348,7 @@
 {"line":"graham cracker crust ((or use your own favorite crust recipe))","language":"en","parts":[{"en":"graham cracker crust","it":"base di biscotti graham"}]}
 {"line":"grated beets","language":"en","parts":[{"en":"beets","it":"barbabietole","preparationEn":"grated","preparationIt":"grattugiate"}]}
 {"line":"juice of ½ lime & zest","language":"en","parts":[{"quantity":0.5,"en":"lime","it":"lime","preparationEn":"juiced and zested","preparationIt":"succo e scorza grattugiata"}]}
-{"line":"mineral salt & fresh cracked pepper, to taste","language":"en","parts":[{"en":"mineral salt","it":"sale minerale","toTaste":true},{"en":"freshly cracked pepper","it":"pepe macinato al momento","toTaste":true}]}
+{"line":"mineral salt & fresh cracked pepper, to taste","language":"en","parts":[{"en":"mineral salt","it":"sale minerale","toTaste":true},{"en":"fresh cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"pinch of mineral salt","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"mineral salt","it":"sale minerale"}]}
 {"line":"raspberries","language":"en","parts":[{"en":"raspberries","it":"lamponi"}]}
 {"line":"red food coloring","language":"en","parts":[{"en":"red food coloring","it":"colorante alimentare rosso"}]}
@@ -369,7 +369,7 @@
 {"line":"¼ cup white wine ((optional))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"white wine","it":"vino bianco","optional":true}]}
 {"line":"½ cup (70g) raw cashews, soaked in boiling water for 1 hour (if your blender isn’t high-powered, I recommend soaking in cool water overnight or for 8 hours)","language":"en","parts":[{"quantity":70,"unit":"g","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked in boiling water for 1 hour","preparationIt":"ammollati in acqua bollente per 1 ora"}]}
 {"line":"½ cup OR 120 ml coconut cream, chilled","language":"en","parts":[{"quantity":120,"unit":"ml","en":"coconut cream","it":"crema di cocco","preparationEn":"chilled","preparationIt":"fredda"}]}
-{"line":"½ cup diced vegan ham (or diced seasoned seitan or tempeh bacon)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan ham","it":"prosciutto vegano","preparationEn":"diced","preparationIt":"tagliato a cubetti","alternatives":[{"en":"seasoned seitan","it":"seitan insaporito"},{"en":"tempeh bacon","it":"bacon di tempeh"}]}]}
+{"line":"½ cup diced vegan ham (or diced seasoned seitan or tempeh bacon)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan ham","it":"prosciutto vegano","preparationEn":"diced","preparationIt":"a dadini","alternatives":[{"en":"seasoned seitan","it":"seitan condito"},{"en":"tempeh bacon","it":"bacon di tempeh"}]}]}
 {"line":"½ cup fuji apple, (grated (60g))","language":"en","parts":[{"quantity":60,"unit":"g","en":"Fuji apple","it":"mela Fuji","preparationEn":"grated","preparationIt":"grattugiata"}]}
 {"line":"½ cup mini vegan chocolate chips (optional for richness)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"mini vegan chocolate chips","it":"gocce di cioccolato vegano mini","optional":true}]}
 {"line":"½ cup of chopped walnuts","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"walnuts","it":"noci","preparationEn":"chopped","preparationIt":"tritate"}]}

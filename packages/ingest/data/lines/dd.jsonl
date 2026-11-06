@@ -18,7 +18,7 @@
 {"line":"1 1/2 teaspoons flaxseed oil","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"flaxseed oil","it":"olio di semi di lino"}]}
 {"line":"1 1/3 cup rolled oats (gluten-free if needed (or instant oats))","language":"en","parts":[{"quantity":1.333333,"unit":"cup","en":"rolled oats","it":"fiocchi d'avena","alternatives":[{"en":"instant oats","it":"fiocchi d'avena istantanei"}]}]}
 {"line":"1 1/4 cup oat milk (or any other plain flavored vegan milk)","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"oat milk","it":"latte d'avena","alternatives":[{"en":"plain vegan milk","it":"latte vegetale al naturale"}]}]}
-{"line":"1 1/4 cups non-dairy chocolate chips","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"dairy-free chocolate chips","it":"gocce di cioccolato senza latte"}]}
+{"line":"1 1/4 cups non-dairy chocolate chips","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"non-dairy chocolate chips","it":"gocce di cioccolato senza latte"}]}
 {"line":"1 1/4 cups water, (divided)","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"water","it":"acqua","preparationEn":"divided","preparationIt":"divisa"}]}
 {"line":"1 13.5 oz can \"lite\" coconut milk (See Note)","language":"en","parts":[{"quantity":13.5,"unit":"oz","en":"light coconut milk","it":"latte di cocco leggero"}]}
 {"line":"1 14, 5 oz can diced tomatoes","language":"en","parts":[{"quantity":14.5,"unit":"oz","en":"diced tomatoes","it":"pomodori a cubetti"}]}
@@ -146,7 +146,7 @@
 {"line":"1/2 teaspoon coconut extract ((optional))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"coconut extract","it":"estratto di cocco","optional":true}]}
 {"line":"1/2 teaspoon dried ginger powder","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"dried ginger powder","it":"zenzero essiccato in polvere"}]}
 {"line":"1/2 teaspoon salt (, more if needed )","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale"}]}
-{"line":"1/2 teaspoon salt (or 3/4 tsp if using unsalted butter)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale"}]}
+{"line":"1/2 teaspoon salt (or 3/4 tsp if using unsalted butter)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale","preparationEn":"use 3/4 tsp if using unsalted butter","preparationIt":"usare 3/4 di cucchiaino se si usa burro non salato"}]}
 {"line":"1/2 teaspoon salt (or more or less based on your taste preference)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
 {"line":"1/2 teaspoon salt, (more or less to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
 {"line":"1/2 teaspoon tomato paste","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"tomato paste","it":"concentrato di pomodoro"}]}

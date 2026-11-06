@@ -169,7 +169,7 @@
 {"line":"1/3 cup vegan semi-sweet chocolate chips","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"vegan semi-sweet chocolate chips","it":"gocce di cioccolato semidolce vegane"}]}
 {"line":"1/3 to 1/2 cup raw peanuts or peanut butter or almond butter","language":"en","parts":[{"quantity":0.33,"quantityMax":0.5,"unit":"cup","en":"raw peanuts","it":"arachidi crude","alternatives":[{"en":"peanut butter","it":"burro di arachidi"},{"en":"almond butter","it":"burro di mandorle"}]}]}
 {"line":"1/4 cup (55g) granulated sugar, divided","language":"en","parts":[{"quantity":55,"unit":"g","en":"granulated sugar","it":"zucchero semolato","preparationEn":"divided","preparationIt":"diviso"}]}
-{"line":"1/4 cup (60g) pumpkin puree (I used canned, make sure it is plain pumpkin and not pumpkin pie)","language":"en","parts":[{"quantity":60,"unit":"g","en":"plain pumpkin puree","it":"purea di zucca al naturale"}]}
+{"line":"1/4 cup (60g) pumpkin puree (I used canned, make sure it is plain pumpkin and not pumpkin pie)","language":"en","parts":[{"quantity":60,"unit":"g","en":"plain pumpkin puree","it":"purea di zucca al naturale","preparationEn":"canned puree was used","preparationIt":"è stata usata purea in scatola"}]}
 {"line":"1/4 cup Almond flour (or cashew flour or light/medium GF flour)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"almond flour","it":"farina di mandorle","alternatives":[{"en":"cashew flour","it":"farina di anacardi"},{"en":"light or medium gluten-free flour","it":"farina senza glutine leggera o media"}]}]}
 {"line":"1/4 cup chopped onion (chopped into 3/4” squares)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"onion","it":"cipolla","preparationEn":"chopped into squares","preparationIt":"tagliata a quadrati"}]}
 {"line":"1/4 cup cooked corn kernels","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"corn kernels","it":"chicchi di mais","preparationEn":"cooked","preparationIt":"cotti"}]}
@@ -334,7 +334,7 @@
 {"line":"4 cloves of garlic (minced)","language":"en","parts":[{"quantity":4,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}
 {"line":"4 cups low-sodium vegetable broth ((960g))","language":"en","parts":[{"quantity":960,"unit":"g","en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio"}]}
 {"line":"4 cups marinara sauce, (plus up to 1 extra cup, if needed)","language":"en","parts":[{"quantity":4,"unit":"cup","en":"marinara sauce","it":"salsa marinara"}]}
-{"line":"4 cups vegan beef-style broth, mushroom broth, or vegetable broth","language":"en","parts":[{"quantity":4,"unit":"cup","en":"vegan beef-style broth","it":"brodo vegetale gusto manzo","alternatives":[{"en":"mushroom broth","it":"brodo di funghi"},{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"4 cups vegan beef-style broth, mushroom broth, or vegetable broth","language":"en","parts":[{"quantity":4,"unit":"cup","en":"vegan beef-style broth","it":"brodo vegano gusto manzo","alternatives":[{"en":"mushroom broth","it":"brodo di funghi"},{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"4 drops of almond extract","language":"en","parts":[{"quantity":4,"unit":"drop","en":"almond extract","it":"estratto di mandorla"}]}
 {"line":"4 large soft flour tortilla","language":"en","parts":[{"quantity":4,"en":"large soft flour tortillas","it":"tortillas grandi e morbide di farina"}]}
 {"line":"4 ounces dehydrated soy curls","language":"en","parts":[{"quantity":4,"unit":"oz","en":"dehydrated soy curls","it":"bocconcini di soia disidratati"}]}
@@ -457,6 +457,6 @@
 {"line":"½ tsp mustard seeds","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"mustard seeds","it":"semi di senape"}]}
 {"line":"¾ cup of applesauce","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"applesauce","it":"purea di mele"}]}
 {"line":"¾ cup vegan ricotta (180g)","language":"en","parts":[{"quantity":180,"unit":"g","en":"vegan ricotta","it":"ricotta vegetale"}]}
-{"line":"⅓ cup gluten-free all purpose flour ((can use regular all purpose wheat flour if not gluten-free))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"gluten-free all-purpose flour","it":"farina senza glutine per tutti gli usi","alternatives":[{"en":"all-purpose wheat flour","it":"farina di frumento per tutti gli usi"}]}]}
+{"line":"⅓ cup gluten-free all purpose flour ((can use regular all purpose wheat flour if not gluten-free))","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"gluten-free all-purpose flour","it":"farina senza glutine per tutti gli usi","alternatives":[{"en":"all-purpose wheat flour","it":"farina di grano tenero per tutti gli usi"}]}]}
 {"line":"1 cespo di radicchio (foglie grandi e intere)","language":"it","parts":[{"quantity":1,"unit":"head","en":"radicchio","it":"radicchio","preparationEn":"large whole leaves","preparationIt":"foglie grandi e intere"}]}
 {"line":"50 g farina di riso","language":"it","parts":[{"quantity":50,"unit":"g","en":"rice flour","it":"farina di riso"}]}

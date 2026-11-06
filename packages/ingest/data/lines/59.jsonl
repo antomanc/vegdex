@@ -168,7 +168,7 @@
 {"line":"1/8 cup vegan Parmesan cheese","language":"en","parts":[{"quantity":0.125,"unit":"cup","en":"vegan Parmesan cheese","it":"parmigiano vegano"}]}
 {"line":"10 g / 0.35 oz fresh parsley (about 2 tbsp chopped finely)","language":"en","parts":[{"quantity":10,"unit":"g","en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"10 ml / 2 tsp thick balsamic","language":"en","parts":[{"quantity":10,"unit":"ml","en":"thick balsamic vinegar","it":"aceto balsamico denso"}]}
-{"line":"10 tbsp. non-dairy butter","language":"en","parts":[{"quantity":10,"unit":"tbsp","en":"vegan butter","it":"burro vegetale"}]}
+{"line":"10 tbsp. non-dairy butter","language":"en","parts":[{"quantity":10,"unit":"tbsp","en":"non-dairy butter","it":"burro vegetale"}]}
 {"line":"110 g coconut oil (melted)","language":"en","parts":[{"quantity":110,"unit":"g","en":"coconut oil","it":"olio di cocco","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"12 ounces vegan ground beef (I used Beyond, see Notes)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"vegan ground beef","it":"macinato vegetale tipo manzo"}]}
 {"line":"12 small corn tortillas","language":"en","parts":[{"quantity":12,"en":"small corn tortillas","it":"tortillas di mais piccole"}]}
@@ -186,7 +186,7 @@
 {"line":"16 pepperoncini","language":"en","parts":[{"quantity":16,"en":"pepperoncini peppers","it":"peperoncini"}]}
 {"line":"195 ml / ¾ cup + 1 tbsp plant milk (I used almond milk)","language":"en","parts":[{"quantity":195,"unit":"ml","en":"plant milk","it":"latte vegetale"}]}
 {"line":"1¼ tsp food grade matcha powder, more to taste","language":"en","parts":[{"quantity":1.25,"unit":"tsp","en":"food grade matcha powder","it":"matcha in polvere per uso alimentare","toTaste":true}]}
-{"line":"1½ cups veggie grounds, (chopped vegan sausage, or other vegan meat substitute. Chopped soy curls, TVP, etc. also work.)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"veggie grounds","it":"macinato vegetale","alternatives":[{"en":"vegan sausage","it":"salsiccia vegana"},{"en":"other vegan meat substitute","it":"altro sostituto vegetale della carne"},{"en":"soy curls","it":"straccetti di soia"},{"en":"textured vegetable protein","it":"proteine vegetali testurizzate"}]}]}
+{"line":"1½ cups veggie grounds, (chopped vegan sausage, or other vegan meat substitute. Chopped soy curls, TVP, etc. also work.)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"veggie grounds","it":"macinato vegetale","alternatives":[{"en":"chopped vegan sausage","it":"salsiccia vegetale tritata"},{"en":"vegan meat substitute","it":"sostituto vegetale della carne"},{"en":"chopped soy curls","it":"straccetti di soia tritati"},{"en":"textured vegetable protein","it":"proteine vegetali testurizzate"}]}]}
 {"line":"1½ tbsp oil ((use a high smoking point oil, like avocado oil or sunflower oil))","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"high smoke point oil","it":"olio con alto punto di fumo","alternatives":[{"en":"avocado oil","it":"olio di avocado"},{"en":"sunflower oil","it":"olio di semi di girasole"}]}]}
 {"line":"1½ teaspoons vanilla extract","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia"}]}
 {"line":"1½ tsp fresh garlic (minced)","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"fresh garlic","it":"aglio fresco","preparationEn":"minced","preparationIt":"tritato"}]}
@@ -211,8 +211,8 @@
 {"line":"2 cups plant-based milk (plain flavored (or 1 can coconut milk plus 1/2 cup water).)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"plain plant-based milk","it":"latte vegetale al naturale","alternatives":[{"quantity":1,"unit":"can","en":"coconut milk","it":"latte di cocco"}]},{"quantity":0.5,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"2 cups portobello mushrooms ((2 portobellos sliced))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"portobello mushrooms","it":"funghi portobello","preparationEn":"sliced","preparationIt":"affettati"}]}
 {"line":"2 cups raw cashews (softened (see step 1))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"raw cashews","it":"anacardi crudi","preparationEn":"softened","preparationIt":"ammorbiditi"}]}
-{"line":"2 cups vegan chicken broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}
-{"line":"2 cups vegan chicken broth (we used this one)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}
+{"line":"2 cups vegan chicken broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}
+{"line":"2 cups vegan chicken broth (we used this one)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}
 {"line":"2 cups vegan ricotta cheese","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan ricotta cheese","it":"ricotta vegetale"}]}
 {"line":"2 honeynut squashes ((approximately 2 pounds))","language":"en","parts":[{"quantity":2,"en":"honeynut squashes","it":"zucche honeynut"}]}
 {"line":"2 loaded cups frozen sweet corn (thawed, or fresh corn off the cob)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"frozen sweet corn","it":"mais dolce surgelato","preparationEn":"thawed","preparationIt":"scongelato","alternatives":[{"en":"fresh corn off the cob","it":"chicchi di mais fresco"}]}]}
@@ -350,7 +350,7 @@
 {"line":"Optional: Vegan caramel sauce","language":"en","parts":[{"en":"vegan caramel sauce","it":"salsa al caramello vegana","optional":true}]}
 {"line":"Pinch of salt and vanilla extract","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"salt","it":"sale"},{"en":"vanilla extract","it":"estratto di vaniglia"}]}
 {"line":"Plant-based protein powder, (to taste (optional))","language":"en","parts":[{"en":"plant-based protein powder","it":"proteine vegetali in polvere","optional":true,"toTaste":true}]}
-{"line":"Salt & fresh cracked pepper (to taste (note the sodium in Old Bay))","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"freshly cracked pepper","it":"pepe macinato al momento","toTaste":true}]}
+{"line":"Salt & fresh cracked pepper (to taste (note the sodium in Old Bay))","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"fresh cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"Sliced cucumbers","language":"en","parts":[{"en":"cucumbers","it":"cetrioli","preparationEn":"sliced","preparationIt":"tagliati a fette"}]}
 {"line":"Smoky Cashew Crema, (recipe below)","language":"en","parts":[{"en":"smoky cashew crema","it":"crema affumicata di anacardi"}]}
 {"line":"Sprinkles for topping","language":"en","parts":[{"en":"sprinkles","it":"codette di zucchero","purposeEn":"for topping","purposeIt":"per guarnire"}]}

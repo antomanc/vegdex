@@ -34,7 +34,7 @@
 {"line":"1 cup cubed butternut squash (, heaping cup)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"butternut squash","it":"zucca butternut","preparationEn":"cubed","preparationIt":"tagliata a cubetti"}]}
 {"line":"1 cup dry Marsala wine","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dry Marsala wine","it":"Marsala secco"}]}
 {"line":"1 cup gluten-free all purpose flour","language":"en","parts":[{"quantity":1,"unit":"cup","en":"gluten-free all-purpose flour","it":"farina senza glutine per tutti gli usi"}]}
-{"line":"1 cup non-dairy cheese (optional)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dairy-free cheese","it":"formaggio vegetale","optional":true}]}
+{"line":"1 cup non-dairy cheese (optional)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy cheese","it":"formaggio vegetale","optional":true}]}
 {"line":"1 cup non-dairy milk, (warmed to 105-110˚F (240g))","language":"en","parts":[{"quantity":240,"unit":"g","en":"non-dairy milk","it":"latte vegetale","preparationEn":"warmed to 105–110°F","preparationIt":"scaldato a 105–110°F"}]}
 {"line":"1 cup oat/almond milk (or other plant-based milk alternative)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"oat milk","it":"latte d'avena","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"plant-based milk of choice","it":"latte vegetale a scelta"}]}]}
 {"line":"1 cup of fresh or frozen blueberries","language":"en","parts":[{"quantity":1,"unit":"cup","en":"fresh blueberries","it":"mirtilli freschi","alternatives":[{"en":"frozen blueberries","it":"mirtilli surgelati"}]}]}
@@ -162,7 +162,7 @@
 {"line":"1/4 cup dry white wine (optional (use less broth if using wine))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"dry white wine","it":"vino bianco secco","optional":true}]}
 {"line":"1/4 cup finely chopped onion","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"onion","it":"cipolla","preparationEn":"finely chopped","preparationIt":"tritata finemente"}]}
 {"line":"1/4 cup low-sodium soy sauce use tamari to make gluten-free","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"low-sodium soy sauce","it":"salsa di soia a basso contenuto di sodio"}]}
-{"line":"1/4 cup nondairy yogurt (or non-dairy cream)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"nondairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"nondairy cream","it":"panna vegetale"}]}]}
+{"line":"1/4 cup nondairy yogurt (or non-dairy cream)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"nondairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"non-dairy cream","it":"panna vegetale"}]}]}
 {"line":"1/4 cup oat milk (or other thick non dairy milk )","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"oat milk","it":"latte d'avena","alternatives":[{"en":"thick non-dairy milk","it":"latte vegetale denso"}]}]}
 {"line":"1/4 cup of cilantro (minced)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"minced","preparationIt":"tritato finemente"}]}
 {"line":"1/4 cup olive oil, (divided)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"olive oil","it":"olio d'oliva","preparationEn":"divided","preparationIt":"da usare in più riprese"}]}
@@ -170,7 +170,7 @@
 {"line":"1/4 cup pitted green olives, (diced)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"pitted green olives","it":"olive verdi denocciolate","preparationEn":"diced","preparationIt":"tagliate a dadini"}]}
 {"line":"1/4 cup raw cacao chocolate powder (a more authentic chocolate taste)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"raw cacao powder","it":"cacao crudo in polvere"}]}
 {"line":"1/4 cup red wine (OR more veggie stock)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"red wine","it":"vino rosso","alternatives":[{"en":"vegetable stock","it":"brodo vegetale"}]}]}
-{"line":"1/4 cup soy sauce (or tamari (low-sodium if preferred))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"tamari","it":"tamari"}]}]}
+{"line":"1/4 cup soy sauce (or tamari (low-sodium if preferred))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"soy sauce","it":"salsa di soia","preparationEn":"low-sodium if preferred","preparationIt":"a basso contenuto di sodio se si preferisce","alternatives":[{"en":"tamari","it":"tamari"}]}]}
 {"line":"1/4 cup thin cashew cream (or coconut milk or other non dairy cream or milk)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"thin cashew cream","it":"crema di anacardi liquida","alternatives":[{"en":"coconut milk","it":"latte di cocco"},{"en":"non-dairy cream","it":"panna vegetale"},{"en":"non-dairy milk","it":"latte vegetale"}]}]}
 {"line":"1/4 cup toasted walnuts or pecans","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"toasted walnuts","it":"noci tostate","alternatives":[{"en":"pecans","it":"noci pecan"}]}]}
 {"line":"1/4 cup vegan mozzarella cheese shreds","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"shredded vegan mozzarella","it":"mozzarella vegana grattugiata"}]}
@@ -275,7 +275,7 @@
 {"line":"2 teaspoons refined coconut oil, (melted (optional; omit to keep oil-free))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"refined coconut oil","it":"olio di cocco raffinato","preparationEn":"melted","preparationIt":"sciolto","optional":true}]}
 {"line":"2 teaspoons soy sauce (or tamari for gluten-free or coconut aminos for soy-free)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"tamari","it":"tamari"},{"en":"coconut aminos","it":"salsa di cocco aminos"}]}]}
 {"line":"2 teaspoons vanilla extract or vanilla paste","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia","alternatives":[{"en":"vanilla paste","it":"pasta di vaniglia"}]}]}
-{"line":"2 to 3 tablespoons non-dairy milk (or use club soda)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"non-dairy milk","it":"latte vegetale","alternatives":[{"en":"club soda","it":"soda"}]}]}
+{"line":"2 to 3 tablespoons non-dairy milk (or use club soda)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"non-dairy milk","it":"latte vegetale","alternatives":[{"en":"club soda","it":"acqua gassata"}]}]}
 {"line":"2 tsp Cajun seasoning ((divided. Can sub Creole seasoning or Old Bay seasoning))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"Cajun seasoning","it":"miscela di spezie Cajun","preparationEn":"divided","preparationIt":"divisa","alternatives":[{"en":"Creole seasoning","it":"miscela di spezie creola"},{"en":"Old Bay seasoning","it":"miscela di spezie Old Bay"}]}]}
 {"line":"2-3 large garlic cloves (, peeled (I used 3))","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"clove","en":"large garlic cloves","it":"spicchi d'aglio grandi","preparationEn":"peeled","preparationIt":"sbucciati"}]}
 {"line":"2-3 tablespoons soy milk (or other milk)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"soy milk","it":"latte di soia","alternatives":[{"en":"milk of choice","it":"latte a scelta"}]}]}
@@ -325,7 +325,7 @@
 {"line":"4 cups frozen bananas","language":"en","parts":[{"quantity":4,"unit":"cup","en":"frozen bananas","it":"banane congelate"}]}
 {"line":"4 cups vegetable broth (or water)","language":"en","parts":[{"quantity":4,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
 {"line":"4 cups water (960mL)","language":"en","parts":[{"quantity":960,"unit":"ml","en":"water","it":"acqua"}]}
-{"line":"4 flax eggs","language":"en","parts":[{"quantity":4,"en":"flax eggs","it":"uova di lino"}]}
+{"line":"4 flax eggs","language":"en","parts":[{"quantity":4,"en":"flax eggs","it":"uova di semi di lino"}]}
 {"line":"4 green tea (bags)","language":"en","parts":[{"quantity":4,"unit":"bag","en":"green tea","it":"tè verde"}]}
 {"line":"4 portobello mushroom caps","language":"en","parts":[{"quantity":4,"en":"portobello mushroom caps","it":"cappelle di funghi portobello"}]}
 {"line":"4 russet potatoes (peeled and diced)","language":"en","parts":[{"quantity":4,"en":"russet potatoes","it":"patate russet","preparationEn":"peeled and diced","preparationIt":"sbucciate e tagliate a dadini"}]}
@@ -408,6 +408,7 @@
 {"line":"½ cup chopped fresh cilantro (20g)","language":"en","parts":[{"quantity":20,"unit":"g","en":"fresh cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"½ cup cocoa powder ((Dutch-process for best flavor))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"Dutch-process cocoa powder","it":"cacao alcalinizzato in polvere"}]}
 {"line":"½ cup of all-purpose flour (or a GF flour, chickpea flour, or matzo meal (to ensure they're kosher))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"gluten-free flour","it":"farina senza glutine"},{"en":"chickpea flour","it":"farina di ceci"},{"en":"matzo meal","it":"farina di matzah"}]}]}
+{"line":"½ cup of brown sugar, (plus more for topping)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"brown sugar","it":"zucchero di canna","purposeEn":"plus more for topping","purposeIt":"più una quantità aggiuntiva per guarnire"}]}
 {"line":"½ hot green chili (such as Serrano , finely chopped)","language":"en","parts":[{"quantity":0.5,"en":"hot green chili","it":"peperoncino verde piccante","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"½ large head cauliflower ((about 3 cups grated. You can use cauliflower rice as well))","language":"en","parts":[{"quantity":0.5,"unit":"head","en":"large cauliflower","it":"cavolfiore grande","preparationEn":"grated","preparationIt":"grattugiato","alternatives":[{"en":"cauliflower rice","it":"riso di cavolfiore"}]}]}
 {"line":"½ red chilli, thinly sliced","language":"en","parts":[{"quantity":0.5,"en":"red chili","it":"peperoncino rosso","preparationEn":"thinly sliced","preparationIt":"tagliato a fettine sottili"}]}

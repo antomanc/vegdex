@@ -41,7 +41,7 @@
 {"line":"1 carrot (thinly sliced)","language":"en","parts":[{"quantity":1,"en":"carrot","it":"carota","preparationEn":"thinly sliced","preparationIt":"tagliata a fettine sottili"}]}
 {"line":"1 cup (~180g) wild rice (I used a wild rice + brown rice blend)","language":"en","parts":[{"quantity":180,"unit":"g","en":"wild rice","it":"riso selvatico"}]}
 {"line":"1 cup + 2 tablespoons (144g) superfine oat flour (I use Bob's Red Mill. Superfine is very important here so the dough comes together)","language":"en","parts":[{"quantity":144,"unit":"g","en":"superfine oat flour","it":"farina d'avena finissima"}]}
-{"line":"1 cup Better Than Bouillon Vegan Beef Flavored Broth","language":"en","parts":[{"quantity":1,"unit":"cup","en":"Better Than Bouillon vegan beef-flavored broth","it":"brodo vegetale gusto manzo Better Than Bouillon"}]}
+{"line":"1 cup Better Than Bouillon Vegan Beef Flavored Broth","language":"en","parts":[{"quantity":1,"unit":"cup","en":"Better Than Bouillon vegan beef flavored broth","it":"brodo vegano gusto manzo Better Than Bouillon"}]}
 {"line":"1 cup Guinness draught stout","language":"en","parts":[{"quantity":1,"unit":"cup","en":"Guinness Draught stout","it":"birra stout Guinness Draught"}]}
 {"line":"1 cup White Beans + 2 tbsp Water","language":"en","parts":[{"quantity":1,"unit":"cup","en":"white beans","it":"fagioli bianchi"},{"quantity":2,"unit":"tbsp","en":"water","it":"acqua"}]}
 {"line":"1 cup broth ((to mix with the dry ingredients to form a dough))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"broth","it":"brodo"}]}
@@ -205,7 +205,7 @@
 {"line":"2 Tbsp dried basil","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"dried basil","it":"basilico essiccato"}]}
 {"line":"2 Tbsp or more sugar","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"sugar","it":"zucchero"}]}
 {"line":"2 cup fresh pineapple","language":"en","parts":[{"quantity":2,"unit":"cup","en":"fresh pineapple","it":"ananas fresco"}]}
-{"line":"2 cup vegan beef-flavored vegetable broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan beef-flavored vegetable broth","it":"brodo vegetale vegano al gusto di manzo"}]}
+{"line":"2 cup vegan beef-flavored vegetable broth","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan beef-flavored vegetable broth","it":"brodo vegetale vegano gusto manzo"}]}
 {"line":"2 cups (380 g) Arborio rice","language":"en","parts":[{"quantity":380,"unit":"g","en":"Arborio rice","it":"riso Arborio"}]}
 {"line":"2 cups almond milk (or soy milk)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"almond milk","it":"latte di mandorla","alternatives":[{"en":"soy milk","it":"latte di soia"}]}]}
 {"line":"2 cups cooked or canned black-eyed peas","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cooked black-eyed peas","it":"fagioli dall'occhio cotti","alternatives":[{"en":"canned black-eyed peas","it":"fagioli dall'occhio in scatola"}]}]}
@@ -227,7 +227,7 @@
 {"line":"2 tablespoons olive oil, (or as needed)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"2 tablespoons pickled jalapeño brine","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"pickled jalapeño brine","it":"salamoia dei jalapeño sottaceto"}]}
 {"line":"2 tablespoons softened vegan butter","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}
-{"line":"2 tablespoons vegan sour cream (or non-dairy yogurt or non-dairy cream. Choose soy- and/or nut-free, if needed.)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan sour cream","it":"panna acida vegetale","alternatives":[{"en":"dairy-free yogurt","it":"yogurt vegetale"},{"en":"dairy-free cream","it":"panna vegetale"}]}]}
+{"line":"2 tablespoons vegan sour cream (or non-dairy yogurt or non-dairy cream. Choose soy- and/or nut-free, if needed.)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan sour cream","it":"panna acida vegetale","alternatives":[{"en":"non-dairy yogurt","it":"yogurt vegetale"},{"en":"non-dairy cream","it":"panna vegetale"}]}]}
 {"line":"2 tbsp agave syrup (or maple syrup)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"agave syrup","it":"sciroppo d'agave","alternatives":[{"en":"maple syrup","it":"sciroppo d'acero"}]}]}
 {"line":"2 tbsp chopped fresh mint","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh mint","it":"menta fresca","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"2 tbsp cilantro ((optional))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"cilantro","it":"coriandolo fresco","optional":true}]}
@@ -290,7 +290,7 @@
 {"line":"30 g / 1 oz fresh herbs (I used parsley and cilantro)","language":"en","parts":[{"quantity":30,"unit":"g","en":"fresh herbs","it":"erbe aromatiche fresche"}]}
 {"line":"30 g chia seeds","language":"en","parts":[{"quantity":30,"unit":"g","en":"chia seeds","it":"semi di chia"}]}
 {"line":"30 ml / 2 tbsp all purpose soy sauce (or tamari for GF version)","language":"en","parts":[{"quantity":30,"unit":"ml","en":"all-purpose soy sauce","it":"salsa di soia per tutti gli usi","alternatives":[{"en":"tamari","it":"tamari"}]}]}
-{"line":"30 ounces black-eyed peas, (cooked (canned or made from scratch))","language":"en","parts":[{"quantity":30,"unit":"oz","en":"black-eyed peas","it":"fagioli dall'occhio","preparationEn":"cooked","preparationIt":"cotti"}]}
+{"line":"30 ounces black-eyed peas, (cooked (canned or made from scratch))","language":"en","parts":[{"quantity":30,"unit":"oz","en":"black-eyed peas","it":"fagioli dall'occhio","preparationEn":"cooked, canned or made from scratch","preparationIt":"cotti, in scatola o preparati da secchi"}]}
 {"line":"35.273 oz apple","language":"en","parts":[{"quantity":35.273,"unit":"oz","en":"apple","it":"mela"}]}
 {"line":"4 cups (680 g) cooked rice*","language":"en","parts":[{"quantity":680,"unit":"g","en":"rice","it":"riso","preparationEn":"cooked","preparationIt":"cotto"}]}
 {"line":"4 cups 570g peeled and roughly diced orange-flesh sweet potatoes","language":"en","parts":[{"quantity":570,"unit":"g","en":"orange-flesh sweet potatoes","it":"patate dolci a polpa arancione","preparationEn":"peeled and roughly diced","preparationIt":"sbucciate e tagliate a dadini grossolani"}]}
@@ -372,7 +372,7 @@
 {"line":"homemade garlic bread.","language":"en","parts":[{"en":"garlic bread","it":"pane all'aglio","preparationEn":"homemade","preparationIt":"fatto in casa"}]}
 {"line":"juice of 1 – 2 medium lemons or 2 – 3 small limes","language":"en","parts":[{"quantity":1,"quantityMax":2,"en":"medium lemons","it":"limoni medi","preparationEn":"juiced","preparationIt":"spremuti","alternatives":[{"quantity":2,"quantityMax":3,"en":"small limes","it":"lime piccoli"}]}]}
 {"line":"juice of 1½ lemons (about 90 ml / 6 tbsp juice)","language":"en","parts":[{"quantity":90,"unit":"ml","en":"lemon juice","it":"succo di limone"}]}
-{"line":"mineral salt & fresh cracked pepper to taste","language":"en","parts":[{"en":"mineral salt","it":"sale minerale","toTaste":true},{"en":"freshly cracked pepper","it":"pepe macinato al momento","toTaste":true}]}
+{"line":"mineral salt & fresh cracked pepper to taste","language":"en","parts":[{"en":"mineral salt","it":"sale minerale","toTaste":true},{"en":"fresh cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"pinch ground nutmeg","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"ground nutmeg","it":"noce moscata macinata"}]}
 {"line":"salad leaves, I used pea shoots","language":"en","parts":[{"en":"salad leaves","it":"foglie di insalata"}]}
 {"line":"sprinkles","language":"en","parts":[{"en":"sprinkles","it":"codette di zucchero"}]}

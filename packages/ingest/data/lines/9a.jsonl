@@ -23,7 +23,7 @@
 {"line":"1 14 ounce can chickpeas, drained and rinsed","language":"en","parts":[{"quantity":14,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"1 14- ounce can crushed tomatoes","language":"en","parts":[{"quantity":14,"unit":"oz","en":"crushed tomatoes","it":"polpa di pomodoro"}]}
 {"line":"1 16-ounce (450 g) block silken tofu","language":"en","parts":[{"quantity":450,"unit":"g","en":"silken tofu","it":"tofu vellutato"}]}
-{"line":"1 9\" pie crust of choice ((many store-bought pie crusts are accidentally vegan; check the label))","language":"en","parts":[{"quantity":1,"en":"9-inch pie crust of choice","it":"base per torta da 9 pollici a scelta"}]}
+{"line":"1 9\" pie crust of choice ((many store-bought pie crusts are accidentally vegan; check the label))","language":"en","parts":[{"quantity":1,"en":"pie crust of choice","it":"base per torta a scelta"}]}
 {"line":"1 English cucumber (quartered and sliced)","language":"en","parts":[{"quantity":1,"en":"English cucumber","it":"cetriolo inglese","preparationEn":"quartered and sliced","preparationIt":"tagliato in quarti e affettato"}]}
 {"line":"1 Tablespoon ground cinnamon","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"ground cinnamon","it":"cannella in polvere"}]}
 {"line":"1 Tablespoon of olive oil","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}
@@ -41,7 +41,7 @@
 {"line":"1 cup dry lentils ((*see recipe notes))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dry lentils","it":"lenticchie secche"}]}
 {"line":"1 cup dry-roasted pecans or hazelnuts","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dry-roasted pecans","it":"noci pecan tostate a secco","alternatives":[{"en":"dry-roasted hazelnuts","it":"nocciole tostate a secco"}]}]}
 {"line":"1 cup flour (148g or All Purpose Gluten Free Flour Mix)","language":"en","parts":[{"quantity":148,"unit":"g","en":"flour","it":"farina","alternatives":[{"en":"all-purpose gluten-free flour mix","it":"miscela di farine senza glutine per tutti gli usi"}]}]}
-{"line":"1 cup grated parmesan (divided; I used dairy-free (optional))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dairy-free Parmesan","it":"parmigiano senza latticini","preparationEn":"grated and divided","preparationIt":"grattugiato e diviso","optional":true}]}
+{"line":"1 cup grated parmesan (divided; I used dairy-free (optional))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"dairy-free parmesan","it":"parmigiano vegetale","preparationEn":"grated and divided","preparationIt":"grattugiato e diviso","optional":true}]}
 {"line":"1 cup of packed brown sugar","language":"en","parts":[{"quantity":1,"unit":"cup","en":"brown sugar","it":"zucchero di canna","preparationEn":"packed","preparationIt":"ben pressato"}]}
 {"line":"1 cup of plain soymilk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"plain soy milk","it":"latte di soia al naturale"}]}
 {"line":"1 cup poppy seeds","language":"en","parts":[{"quantity":1,"unit":"cup","en":"poppy seeds","it":"semi di papavero"}]}
@@ -66,7 +66,7 @@
 {"line":"1 medium onion","language":"en","parts":[{"quantity":1,"en":"medium onion","it":"cipolla media"}]}
 {"line":"1 medium red bell pepper (, deseeded, cored and rough chopped (sub green))","language":"en","parts":[{"quantity":1,"en":"medium red bell pepper","it":"peperone rosso medio","preparationEn":"deseeded, cored and roughly chopped","preparationIt":"privato dei semi e del torsolo e tagliato grossolanamente","alternatives":[{"en":"green bell pepper","it":"peperone verde"}]}]}
 {"line":"1 orange, juice and zest","language":"en","parts":[{"quantity":1,"en":"orange","it":"arancia","preparationEn":"juice and zest","preparationIt":"succo e scorza"}]}
-{"line":"1 pandan leaf (I used dried)","language":"en","parts":[{"quantity":1,"en":"pandan leaf","it":"foglia di pandan"}]}
+{"line":"1 pandan leaf (I used dried)","language":"en","parts":[{"quantity":1,"en":"pandan leaf","it":"foglia di pandano"}]}
 {"line":"1 pinch sea salt (about 0.3g)","language":"en","parts":[{"quantity":0.3,"unit":"g","en":"sea salt","it":"sale marino"}]}
 {"line":"1 pound jicama","language":"en","parts":[{"quantity":1,"unit":"lb","en":"jicama","it":"jicama"}]}
 {"line":"1 pound of carrots (washed and dried)","language":"en","parts":[{"quantity":1,"unit":"lb","en":"carrots","it":"carote","preparationEn":"washed and dried","preparationIt":"lavate e asciugate"}]}
@@ -243,7 +243,7 @@
 {"line":"2 tablespoons ground chia or ground flax","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"ground chia seeds","it":"semi di chia macinati","alternatives":[{"en":"ground flax seeds","it":"semi di lino macinati"}]}]}
 {"line":"2 tablespoons ground flax seed (or sub chia seed)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"ground flaxseed","it":"semi di lino macinati","alternatives":[{"en":"chia seeds","it":"semi di chia"}]}]}
 {"line":"2 tablespoons of red wine vinegar","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"red wine vinegar","it":"aceto di vino rosso"}]}
-{"line":"2 tablespoons of the butter chicken sauce from above","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"butter chicken sauce","it":"salsa per butter chicken"}]}
+{"line":"2 tablespoons of the butter chicken sauce from above","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"butter chicken sauce","it":"salsa per pollo al burro vegetale"}]}
 {"line":"2 tablespoons oil (for frying – 30mL, high heat is best, like avocado oil)","language":"en","parts":[{"quantity":30,"unit":"ml","en":"oil","it":"olio","purposeEn":"for frying","purposeIt":"per friggere"}]}
 {"line":"2 tbsp Rice Vinegar","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"rice vinegar","it":"aceto di riso"}]}
 {"line":"2 tbsp almond flour (or use more flour)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"almond flour","it":"farina di mandorle","alternatives":[{"en":"flour","it":"farina"}]}]}
@@ -264,7 +264,7 @@
 {"line":"2 ½ teaspoons baking powder","language":"en","parts":[{"quantity":2.5,"unit":"tsp","en":"baking powder","it":"lievito per dolci"}]}
 {"line":"2-3 tablespoons gochujang (Korean red pepper paste)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"gochujang","it":"gochujang"}]}
 {"line":"2.5 cups chopped Okra","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"okra","it":"okra","preparationEn":"chopped","preparationIt":"tagliata a pezzi"}]}
-{"line":"2.5 tbsp non dairy milk","language":"en","parts":[{"quantity":2.5,"unit":"tbsp","en":"dairy-free milk","it":"latte vegetale"}]}
+{"line":"2.5 tbsp non dairy milk","language":"en","parts":[{"quantity":2.5,"unit":"tbsp","en":"non-dairy milk","it":"latte vegetale"}]}
 {"line":"20 g dried mushrooms (I use porcini)","language":"en","parts":[{"quantity":20,"unit":"g","en":"dried mushrooms","it":"funghi secchi"}]}
 {"line":"200 g / 7 oz dark chocolate 70-74% cacao, broken up","language":"en","parts":[{"quantity":200,"unit":"g","en":"dark chocolate with 70–74% cacao","it":"cioccolato fondente al 70–74% di cacao","preparationEn":"broken up","preparationIt":"spezzettato"}]}
 {"line":"240 g applesauce","language":"en","parts":[{"quantity":240,"unit":"g","en":"applesauce","it":"purea di mele"}]}
@@ -295,7 +295,7 @@
 {"line":"3 – 4 radishes, sliced","language":"en","parts":[{"quantity":3,"quantityMax":4,"en":"radishes","it":"ravanelli","preparationEn":"sliced","preparationIt":"a fette"}]}
 {"line":"3-4 Black peppercorns ((less or more depending on required spice))","language":"en","parts":[{"quantity":3,"quantityMax":4,"en":"black peppercorns","it":"grani di pepe nero"}]}
 {"line":"3-4 tbsp tamari (or soy sauce, (GF) or coconut aminos)","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"tbsp","en":"tamari","it":"tamari","alternatives":[{"en":"soy sauce","it":"salsa di soia"},{"en":"coconut aminos","it":"salsa di cocco aminos"}]}]}
-{"line":"3-5 tablespoons Hungarian Paprika (make sure it's not smoked (I used 5, but that may be too strong for some, so start with 3 and add more if desired. It's important to use Hungarian for the best flavor)","language":"en","parts":[{"quantity":3,"quantityMax":5,"unit":"tbsp","en":"unsmoked Hungarian paprika","it":"paprika ungherese non affumicata"}]}
+{"line":"3-5 tablespoons Hungarian Paprika (make sure it's not smoked (I used 5, but that may be too strong for some, so start with 3 and add more if desired. It's important to use Hungarian for the best flavor)","language":"en","parts":[{"quantity":3,"quantityMax":5,"unit":"tbsp","en":"Hungarian paprika","it":"paprica ungherese","preparationEn":"not smoked","preparationIt":"non affumicata"}]}
 {"line":"3.5 oz textured soy stripes/chunks ((also known as textured vegetable protein))","language":"en","parts":[{"quantity":3.5,"unit":"oz","en":"textured soy strips or chunks","it":"straccetti o bocconcini di soia testurizzata"}]}
 {"line":"3/4 cup (72g) unsweetened cocoa powder","language":"en","parts":[{"quantity":72,"unit":"g","en":"unsweetened cocoa powder","it":"cacao amaro in polvere"}]}
 {"line":"3/4 cup dried kidney beans, (soaked overnight, then drained (or 1 15oz can drained and rinsed) (133g))","language":"en","parts":[{"quantity":133,"unit":"g","en":"dried kidney beans","it":"fagioli rossi secchi","preparationEn":"soaked overnight, then drained","preparationIt":"ammollati per una notte, poi scolati","alternatives":[{"quantity":15,"unit":"oz","en":"canned kidney beans","it":"fagioli rossi in scatola"}]}]}
@@ -382,7 +382,7 @@
 {"line":"Tapioca flour (or cornstarch for dusting)","language":"en","parts":[{"en":"tapioca flour","it":"farina di tapioca","alternatives":[{"en":"cornstarch","it":"amido di mais"}]}]}
 {"line":"Thinly sliced red onion (or pickled red onions)","language":"en","parts":[{"en":"red onion","it":"cipolla rossa","preparationEn":"thinly sliced","preparationIt":"tagliata a fettine sottili","alternatives":[{"en":"pickled red onions","it":"cipolle rosse sottaceto"}]}]}
 {"line":"Traditional Vegan BBQ Sauce","language":"en","parts":[{"en":"traditional vegan BBQ sauce","it":"salsa barbecue vegana tradizionale"}]}
-{"line":"Vegan chicken bouillon cube (low sodium if you need it to be)","language":"en","parts":[{"quantity":1,"en":"vegan chicken bouillon cube","it":"dado vegetale gusto pollo"}]}
+{"line":"Vegan chicken bouillon cube (low sodium if you need it to be)","language":"en","parts":[{"en":"vegan chicken bouillon cube","it":"dado vegano gusto pollo"}]}
 {"line":"a generous dash of black pepper or cayenne or both","language":"en","parts":[{"quantity":1,"unit":"dash","en":"black pepper","it":"pepe nero","alternatives":[{"en":"cayenne pepper","it":"peperoncino di Cayenna"}]}]}
 {"line":"a generous pinch of chilli flakes (optional)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"chilli flakes","it":"peperoncino in fiocchi","optional":true}]}
 {"line":"a mix of seeds, for topping","language":"en","parts":[{"en":"mix of seeds","it":"mix di semi","purposeEn":"for topping","purposeIt":"per guarnire"}]}

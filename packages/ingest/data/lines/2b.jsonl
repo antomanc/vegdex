@@ -3,7 +3,7 @@
 {"line":"1 (13.5 oz) can coconut milk (or coconut cream)","language":"en","parts":[{"quantity":13.5,"unit":"oz","en":"coconut milk","it":"latte di cocco","alternatives":[{"en":"coconut cream","it":"crema di cocco"}]}]}
 {"line":"1 (14-ounce/400g) block of extra-firm tofu","language":"en","parts":[{"quantity":400,"unit":"g","en":"extra-firm tofu","it":"tofu extra compatto"}]}
 {"line":"1 (15-ounce/425g ) can chickpeas, drained and rinsed","language":"en","parts":[{"quantity":425,"unit":"g","en":"chickpeas","it":"ceci","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
-{"line":"1 (398 ml/ 14 fl oz) can sliced pineapple in juice (juice and slices separated (see notes if using fresh pineapple))","language":"en","parts":[{"quantity":398,"unit":"ml","en":"sliced pineapple in juice","it":"ananas a fette nel suo succo","preparationEn":"juice and slices separated","preparationIt":"succo e fette separati"}]}
+{"line":"1 (398 ml/ 14 fl oz) can sliced pineapple in juice (juice and slices separated (see notes if using fresh pineapple))","language":"en","parts":[{"quantity":398,"unit":"ml","en":"sliced pineapple in juice","it":"ananas a fette nel proprio succo","preparationEn":"juice and slices separated","preparationIt":"succo e fette separati"}]}
 {"line":"1 - 2 teaspoon garam masala (or curry powder or biryani masala)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"garam masala","it":"garam masala","alternatives":[{"en":"curry powder","it":"curry in polvere"},{"en":"biryani masala","it":"biryani masala"}]}]}
 {"line":"1 1/2 cups (170g) superfine oat flour","language":"en","parts":[{"quantity":170,"unit":"g","en":"superfine oat flour","it":"farina d'avena finissima"}]}
 {"line":"1 1/2 cups chopped tomato","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"tomato","it":"pomodoro","preparationEn":"chopped","preparationIt":"tritato"}]}
@@ -41,7 +41,7 @@
 {"line":"1 cup carrots","language":"en","parts":[{"quantity":1,"unit":"cup","en":"carrots","it":"carote"}]}
 {"line":"1 cup cooking oil ((or enough to allow the rice paper to float while it cooks))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cooking oil","it":"olio da cucina"}]}
 {"line":"1 cup creamy peanut butter","language":"en","parts":[{"quantity":1,"unit":"cup","en":"creamy peanut butter","it":"burro di arachidi cremoso"}]}
-{"line":"1 cup frozen peas (if fresh grams will vary)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"frozen peas","it":"piselli surgelati"}]}
+{"line":"1 cup frozen peas (if fresh grams will vary)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"frozen peas","it":"piselli surgelati","alternatives":[{"en":"fresh peas","it":"piselli freschi"}]}]}
 {"line":"1 cup non-dairy milk (such as almond, soy, cashew, oat milk )","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy milk","it":"latte vegetale"}]}
 {"line":"1 cup of basil, (chopped (optional))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"basil","it":"basilico","preparationEn":"chopped","preparationIt":"tritato","optional":true}]}
 {"line":"1 cup pearled or semi-pearled farro","language":"en","parts":[{"quantity":1,"unit":"cup","en":"pearled farro","it":"farro perlato","alternatives":[{"en":"semi-pearled farro","it":"farro semiperlato"}]}]}
@@ -154,7 +154,7 @@
 {"line":"1/2 tsp paprika ((or cayenne for more heat. You can adjust this quantity up or down per your taste))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"paprika","it":"paprika","alternatives":[{"en":"cayenne pepper","it":"peperoncino di Cayenna"}]}]}
 {"line":"1/2 tsp red pepper flakes or use more smoked paprika","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi","alternatives":[{"en":"smoked paprika","it":"paprika affumicata"}]}]}
 {"line":"1/3 cup (11 g) freeze-dried blueberries (optional; see notes)","language":"en","parts":[{"quantity":11,"unit":"g","en":"freeze-dried blueberries","it":"mirtilli liofilizzati","optional":true}]}
-{"line":"1/3 cup lemon juice (fresh-squeezed )","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"freshly squeezed lemon juice","it":"succo di limone appena spremuto"}]}
+{"line":"1/3 cup lemon juice (fresh-squeezed )","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"lemon juice","it":"succo di limone","preparationEn":"fresh-squeezed","preparationIt":"spremuto fresco"}]}
 {"line":"1/3 cup nutritional yeast (15 grams )","language":"en","parts":[{"quantity":15,"unit":"g","en":"nutritional yeast","it":"lievito alimentare"}]}
 {"line":"1/3 cup or more maple syrup","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero"}]}
 {"line":"1/3 to 1/2 cup vegan chocolate chunks","language":"en","parts":[{"quantity":0.333333,"quantityMax":0.5,"unit":"cup","en":"vegan chocolate chunks","it":"pezzi di cioccolato vegano"}]}
@@ -211,7 +211,7 @@
 {"line":"2 cups ketchup","language":"en","parts":[{"quantity":2,"unit":"cup","en":"ketchup","it":"ketchup"}]}
 {"line":"2 cups loosely packed baby spinach (chopped)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"baby spinach","it":"spinacini","preparationEn":"loosely packed and chopped","preparationIt":"non pressati e tritati"}]}
 {"line":"2 cups uncooked small pasta shells","language":"en","parts":[{"quantity":2,"unit":"cup","en":"small pasta shells","it":"conchigliette","preparationEn":"uncooked","preparationIt":"crude"}]}
-{"line":"2 cups vegan ricotta (Cashew Ricotta or Tofu Ricotta)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan ricotta","it":"ricotta vegetale","alternatives":[{"en":"cashew ricotta","it":"ricotta di anacardi"},{"en":"tofu ricotta","it":"ricotta di tofu"}]}]}
+{"line":"2 cups vegan ricotta (Cashew Ricotta or Tofu Ricotta)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan ricotta","it":"ricotta vegetale","alternatives":[{"en":"cashew ricotta","it":"ricotta di anacardi"},{"en":"tofu ricotta","it":"ricotta vegetale di tofu"}]}]}
 {"line":"2 dried red chilies (broken into half (cayenne or california red))","language":"en","parts":[{"quantity":2,"en":"dried red chilies","it":"peperoncini rossi secchi","preparationEn":"broken in half","preparationIt":"spezzati a metà","alternatives":[{"en":"dried cayenne chilies","it":"peperoncini di Cayenna secchi"},{"en":"dried California red chilies","it":"peperoncini rossi California secchi"}]}]}
 {"line":"2 dry red chili peppers ((use only one if sensitive to heat))","language":"en","parts":[{"quantity":2,"en":"dried red chili peppers","it":"peperoncini rossi secchi"}]}
 {"line":"2 garlic cloves, or 1/4 teaspoon garlic powder","language":"en","parts":[{"quantity":2,"unit":"clove","en":"garlic","it":"aglio","alternatives":[{"quantity":0.25,"unit":"tsp","en":"garlic powder","it":"aglio in polvere"}]}]}

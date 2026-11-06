@@ -54,7 +54,7 @@
 {"line":"1 cup sourdough starter ((fed at least 12 hours before making dough))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"sourdough starter","it":"lievito madre","preparationEn":"fed at least 12 hours before making dough","preparationIt":"rinfrescata almeno 12 ore prima di preparare l'impasto"}]}
 {"line":"1 cup tomatoes (, diced)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"tomatoes","it":"pomodori","preparationEn":"diced","preparationIt":"tagliati a dadini"}]}
 {"line":"1 cup vanilla-flavored coconut or soy yogurt","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vanilla-flavored coconut yogurt","it":"yogurt di cocco alla vaniglia","alternatives":[{"en":"vanilla-flavored soy yogurt","it":"yogurt di soia alla vaniglia"}]}]}
-{"line":"1 cups non dairy milk such as almond (soy, coconut or cashew.)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"nondairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"},{"en":"coconut milk","it":"latte di cocco"},{"en":"cashew milk","it":"latte di anacardi"}]}]}
+{"line":"1 cups non dairy milk such as almond (soy, coconut or cashew.)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non dairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"soy milk","it":"latte di soia"},{"en":"coconut milk","it":"latte di cocco"},{"en":"cashew milk","it":"latte di anacardi"}]}]}
 {"line":"1 green bell pepper (thinly sliced (approximately 1 1⁄2 cups or 140 grams))","language":"en","parts":[{"quantity":1,"en":"green bell pepper","it":"peperone verde","preparationEn":"thinly sliced","preparationIt":"tagliato a fettine sottili"}]}
 {"line":"1 green onion (, root chopped and discarded )","language":"en","parts":[{"quantity":1,"en":"green onion","it":"cipollotto","preparationEn":"root chopped off and discarded","preparationIt":"radice tagliata ed eliminata"}]}
 {"line":"1 handful cilantro (roughly chopped)","language":"en","parts":[{"quantity":1,"unit":"handful","en":"cilantro","it":"coriandolo fresco","preparationEn":"roughly chopped","preparationIt":"tritato grossolanamente"}]}
@@ -166,7 +166,7 @@
 {"line":"1/4 cup neutral oil ((60g))","language":"en","parts":[{"quantity":60,"unit":"g","en":"neutral oil","it":"olio dal sapore neutro"}]}
 {"line":"1/4 cup nutritional yeast ((optional for cheesy flavor))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"nutritional yeast","it":"lievito alimentare","optional":true}]}
 {"line":"1/4 cup onion (diced)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"onion","it":"cipolla","preparationEn":"diced","preparationIt":"tagliata a dadini"}]}
-{"line":"1/4 cup vegan milk (any kind works)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"plant milk","it":"latte vegetale"}]}
+{"line":"1/4 cup vegan milk (any kind works)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan milk","it":"latte vegetale"}]}
 {"line":"1/4 cup vegan oyster sauce (omit if you don't have it)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan oyster sauce","it":"salsa di ostriche vegana","optional":true}]}
 {"line":"1/4 cup. lime juice","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"lime juice","it":"succo di lime"}]}
 {"line":"1/4 teaspoon allspice or nutmeg","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"allspice","it":"pimento","alternatives":[{"en":"nutmeg","it":"noce moscata"}]}]}
@@ -287,7 +287,7 @@
 {"line":"3 tablespoons (35 g) brown sugar or coconut sugar","language":"en","parts":[{"quantity":35,"unit":"g","en":"brown sugar","it":"zucchero di canna","alternatives":[{"en":"coconut sugar","it":"zucchero di cocco"}]}]}
 {"line":"3 tablespoons of natural peanut butter","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"natural peanut butter","it":"burro di arachidi naturale"}]}
 {"line":"3 tablespoons organic cane sugar","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"organic cane sugar","it":"zucchero di canna biologico"}]}
-{"line":"3 tablespoons unsalted dairy-free butter","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"unsalted dairy-free butter","it":"burro vegetale senza sale"}]}
+{"line":"3 tablespoons unsalted dairy-free butter","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"unsalted dairy-free butter","it":"burro vegetale non salato"}]}
 {"line":"3 tablespoons vegan Parmesan cheese (homemade or store-bought plus more for garnish)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"vegan Parmesan cheese","it":"parmigiano vegano","purposeEn":"plus more for garnish","purposeIt":"più altro per guarnire"}]}
 {"line":"3 tbsp unsweetened applesauce","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"unsweetened applesauce","it":"purea di mele senza zucchero"}]}
 {"line":"3 teaspoons nutritional yeast","language":"en","parts":[{"quantity":3,"unit":"tsp","en":"nutritional yeast","it":"lievito alimentare"}]}
@@ -376,7 +376,7 @@
 {"line":"chopped parsley, optional for garnish","language":"en","parts":[{"en":"parsley","it":"prezzemolo","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true}]}
 {"line":"cilantro sprigs, to serve","language":"en","parts":[{"en":"cilantro sprigs","it":"rametti di coriandolo","purposeEn":"for serving","purposeIt":"per servire"}]}
 {"line":"favourite hot sauce (I use this one)","language":"en","parts":[{"en":"hot sauce of choice","it":"salsa piccante a scelta"}]}
-{"line":"fresh cracked pepper (to taste)","language":"en","parts":[{"en":"freshly cracked pepper","it":"pepe macinato al momento","toTaste":true}]}
+{"line":"fresh cracked pepper (to taste)","language":"en","parts":[{"en":"fresh cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"fresh parsley (chopped)","language":"en","parts":[{"en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"fresh spinach or baby greens as needed","language":"en","parts":[{"en":"fresh spinach","it":"spinaci freschi","alternatives":[{"en":"baby greens","it":"insalatine tenere"}]}]}
 {"line":"good grind of white pepper","language":"en","parts":[{"en":"white pepper","it":"pepe bianco","preparationEn":"ground","preparationIt":"macinato"}]}

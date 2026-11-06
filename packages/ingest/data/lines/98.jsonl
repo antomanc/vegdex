@@ -2,7 +2,7 @@
 {"line":"1 (10 oz. bag) vegan marshmallows","language":"en","parts":[{"quantity":10,"unit":"oz","en":"vegan marshmallows","it":"marshmallow vegani"}]}
 {"line":"1 (12) ounce bag fresh cranberries","language":"en","parts":[{"quantity":12,"unit":"oz","en":"fresh cranberries","it":"mirtilli rossi freschi"}]}
 {"line":"1 (15 oz) can chickpeas (drained and rinsed)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
-{"line":"1 1/2 cups (234g) medium grind coarse cornmeal (I use this one) THIS IS CRUCIAL TO THE TEXTURE","language":"en","parts":[{"quantity":234,"unit":"g","en":"medium-grind coarse cornmeal","it":"farina di mais a grana medio-grossa"}]}
+{"line":"1 1/2 cups (234g) medium grind coarse cornmeal (I use this one) THIS IS CRUCIAL TO THE TEXTURE","language":"en","parts":[{"quantity":234,"unit":"g","en":"medium-grind coarse cornmeal","it":"farina di mais a grana media"}]}
 {"line":"1 1/2 cups unsweetened dairy free milk, (warmed to 105˚F-115˚F (340g))","language":"en","parts":[{"quantity":340,"unit":"g","en":"unsweetened dairy-free milk","it":"latte vegetale senza zucchero","preparationEn":"warmed to 105–115°F","preparationIt":"scaldato a 40–46°C"}]}
 {"line":"1 1/2 pounds russet potatoes, ((about 2 medium potatoes) scrubbed and diced (1/2-inch))","language":"en","parts":[{"quantity":1.5,"unit":"lb","en":"russet potatoes","it":"patate russet","preparationEn":"scrubbed and diced","preparationIt":"strofinate e tagliate a dadini"}]}
 {"line":"1 1/2 tablespoons apple cider vinegar","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"apple cider vinegar","it":"aceto di mele"}]}
@@ -28,8 +28,8 @@
 {"line":"1 can (14oz.) artichoke hearts in brine, drained and finely chopped","language":"en","parts":[{"quantity":14,"unit":"oz","en":"artichoke hearts in brine","it":"cuori di carciofo in salamoia","preparationEn":"drained and finely chopped","preparationIt":"scolati e tritati finemente"}]}
 {"line":"1 can (15 ounces) of chickpeas, (drained and rinsed)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"1 can (15 oz.) great northern or cannellini beans, drained and rinsed","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned great northern beans","it":"fagioli Great Northern in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati","alternatives":[{"en":"canned cannellini beans","it":"fagioli cannellini in scatola"}]}]}
-{"line":"1 can (15oz) chickpeas (garbanzo beans) or 1 1/2 cups fresh cooked","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","alternatives":[{"quantity":1.5,"unit":"cup","en":"freshly cooked chickpeas","it":"ceci appena cotti"}]}]}
-{"line":"1 cube of Vegan Chicken-Flavored Bouillon","language":"en","parts":[{"quantity":1,"unit":"cube","en":"vegan chicken-flavored bouillon","it":"dado vegetale al gusto di pollo"}]}
+{"line":"1 can (15oz) chickpeas (garbanzo beans) or 1 1/2 cups fresh cooked","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","alternatives":[{"quantity":1.5,"unit":"cup","en":"fresh cooked chickpeas","it":"ceci cotti freschi"}]}]}
+{"line":"1 cube of Vegan Chicken-Flavored Bouillon","language":"en","parts":[{"quantity":1,"unit":"cube","en":"vegan chicken-flavored bouillon","it":"dado vegano gusto pollo"}]}
 {"line":"1 cup (175 g) dry quinoa","language":"en","parts":[{"quantity":175,"unit":"g","en":"dry quinoa","it":"quinoa secca"}]}
 {"line":"1 cup (192g) coconut sugar","language":"en","parts":[{"quantity":192,"unit":"g","en":"coconut sugar","it":"zucchero di cocco"}]}
 {"line":"1 cup brown lentils ((use French puy lentils or masoor for a variation))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"brown lentils","it":"lenticchie marroni","alternatives":[{"en":"French Puy lentils","it":"lenticchie francesi di Le Puy"},{"en":"masoor lentils","it":"lenticchie masoor"}]}]}
@@ -172,7 +172,7 @@
 {"line":"1/4 cup ground cashew or thick cashew cream","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"ground cashews","it":"anacardi macinati","alternatives":[{"en":"thick cashew cream","it":"crema densa di anacardi"}]}]}
 {"line":"1/4 cup mini semi-sweet chocolate chips (we love Enjoy Life)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"mini semi-sweet chocolate chips","it":"gocce di cioccolato semidolce piccole"}]}
 {"line":"1/4 cup rice wine","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"rice wine","it":"vino di riso"}]}
-{"line":"1/4 cup unsweetened vegan yogurt","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsweetened vegan yogurt","it":"yogurt vegetale senza zucchero"}]}
+{"line":"1/4 cup unsweetened vegan yogurt","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"unsweetened vegan yogurt","it":"yogurt vegetale non zuccherato"}]}
 {"line":"1/4 cup vegan yellow curry paste","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan yellow curry paste","it":"pasta di curry giallo vegana"}]}
 {"line":"1/4 cup vegetable oil, (plus more as needed)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegetable oil","it":"olio vegetale"}]}
 {"line":"1/4 teaspoon freshly ground black pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"black pepper","it":"pepe nero","preparationEn":"freshly ground","preparationIt":"macinato al momento"}]}
@@ -187,7 +187,7 @@
 {"line":"1/4-1/2 cup almond flour (I use 1/2 cup)","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"cup","en":"almond flour","it":"farina di mandorle"}]}
 {"line":"1/8 teaspoon ground roasted ginger","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"ground roasted ginger","it":"zenzero tostato macinato"}]}
 {"line":"1/8 teaspoons turmeric ((optional for color))","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"turmeric","it":"curcuma","optional":true}]}
-{"line":"1/8 tsp salt ((add if nuts are unsalted))","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"salt","it":"sale","optional":true}]}
+{"line":"1/8 tsp salt ((add if nuts are unsalted))","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"10 flour taco tortilla","language":"en","parts":[{"quantity":10,"en":"flour taco tortillas","it":"tortillas di farina per tacos"}]}
 {"line":"10 ml / 2 tsp lemon juice, adjust to taste","language":"en","parts":[{"quantity":10,"unit":"ml","en":"lemon juice","it":"succo di limone","toTaste":true}]}
 {"line":"10 ounces vegan crumbles (cooked according to package)","language":"en","parts":[{"quantity":10,"unit":"oz","en":"vegan crumbles","it":"macinato vegetale","preparationEn":"cooked according to package directions","preparationIt":"cotto secondo le indicazioni sulla confezione"}]}
@@ -200,10 +200,10 @@
 {"line":"12 ounces baby portobello mushrooms (stemmed, cleaned and sliced)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"baby portobello mushrooms","it":"funghi portobello piccoli","preparationEn":"stemmed, cleaned and sliced","preparationIt":"privati dei gambi, puliti e affettati"}]}
 {"line":"12 ounces dried orzo pasta","language":"en","parts":[{"quantity":12,"unit":"oz","en":"dried orzo pasta","it":"pasta orzo secca"}]}
 {"line":"12 oz butternut squash ((or pumpkin) raw, peeled and cubed or frozen)","language":"en","parts":[{"quantity":12,"unit":"oz","en":"raw butternut squash","it":"zucca butternut cruda","preparationEn":"peeled and cubed","preparationIt":"sbucciata e tagliata a cubetti","alternatives":[{"en":"raw pumpkin","it":"zucca cruda"},{"en":"frozen butternut squash","it":"zucca butternut surgelata"},{"en":"frozen pumpkin","it":"zucca surgelata"}]}]}
-{"line":"12 oz frozen vegan meatless crumbles","language":"en","parts":[{"quantity":12,"unit":"oz","en":"frozen vegan meatless crumbles","it":"macinato vegetale vegano surgelato"}]}
+{"line":"12 oz frozen vegan meatless crumbles","language":"en","parts":[{"quantity":12,"unit":"oz","en":"frozen vegan meatless crumbles","it":"macinato vegetale surgelato"}]}
 {"line":"12 tablespoons (168g) vegan butter, (sliced into thick pats (see Note 1))","language":"en","parts":[{"quantity":168,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"sliced into thick pats","preparationIt":"tagliato a fette spesse"}]}
 {"line":"120 ml / ½ cup all natural almond butter (or peanut if you prefer)","language":"en","parts":[{"quantity":120,"unit":"ml","en":"all-natural almond butter","it":"burro di mandorle naturale","alternatives":[{"en":"peanut butter","it":"burro di arachidi"}]}]}
-{"line":"14 oz coconut milk ((canned or freshly made are both fine))","language":"en","parts":[{"quantity":14,"unit":"oz","en":"coconut milk","it":"latte di cocco"}]}
+{"line":"14 oz coconut milk ((canned or freshly made are both fine))","language":"en","parts":[{"quantity":14,"unit":"oz","en":"coconut milk","it":"latte di cocco","preparationEn":"canned or freshly made","preparationIt":"in lattina o preparato fresco"}]}
 {"line":"15 oz fire roasted tomatoes, (not drained)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"fire-roasted tomatoes","it":"pomodori arrostiti alla fiamma","preparationEn":"not drained","preparationIt":"non scolati"}]}
 {"line":"150 g / 1½ cups almond meal OR finely ground almonds","language":"en","parts":[{"quantity":150,"unit":"g","en":"almond meal","it":"farina di mandorle","alternatives":[{"en":"finely ground almonds","it":"mandorle macinate finemente"}]}]}
 {"line":"16 ounce super firm tofu (*or extra-firm, pressed well)","language":"en","parts":[{"quantity":16,"unit":"oz","en":"super-firm tofu","it":"tofu molto compatto","preparationEn":"pressed well","preparationIt":"ben pressato","alternatives":[{"en":"extra-firm tofu","it":"tofu extra compatto"}]}]}

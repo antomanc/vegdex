@@ -10,7 +10,7 @@
 {"line":"1 1/2 cup non-dairy milk, (I use almond)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"non-dairy milk","it":"latte vegetale"}]}
 {"line":"1 1/2 cup whole wheat pastry flour ((can sub with half all purpose and half whole-wheat flour))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"whole wheat pastry flour","it":"farina integrale per dolci"}]}
 {"line":"1 1/2 cups (194 g) all-purpose flour","language":"en","parts":[{"quantity":194,"unit":"g","en":"all-purpose flour","it":"farina 00"}]}
-{"line":"1 1/2 cups non-dairy butter, (softened (340g))","language":"en","parts":[{"quantity":340,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}
+{"line":"1 1/2 cups non-dairy butter, (softened (340g))","language":"en","parts":[{"quantity":340,"unit":"g","en":"non-dairy butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}
 {"line":"1 1/2 cups raw cashews","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"raw cashews","it":"anacardi crudi"}]}
 {"line":"1 1/2 cups unsweetened dairy free milk","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"unsweetened dairy-free milk","it":"latte vegetale senza zucchero"}]}
 {"line":"1 1/2 tablespoons vegan butter or high-heat oil","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","alternatives":[{"en":"high-heat oil","it":"olio adatto alle alte temperature"}]}]}
@@ -19,7 +19,7 @@
 {"line":"1 1/4 cup X ml vegetable broth or imitation chicken broth","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"imitation chicken broth","it":"brodo vegetale gusto pollo"}]}]}
 {"line":"1 1/4 cup all purpose flour (spooned and leveled)","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"all-purpose flour","it":"farina 00","preparationEn":"spooned and leveled","preparationIt":"versata a cucchiaiate e livellata"}]}
 {"line":"1 1/4 cups (160g) superfine oat flour","language":"en","parts":[{"quantity":160,"unit":"g","en":"superfine oat flour","it":"farina d'avena finissima"}]}
-{"line":"1 1/4 cups dairy free milk ((300ml))","language":"en","parts":[{"quantity":300,"unit":"ml","en":"plant milk","it":"latte vegetale"}]}
+{"line":"1 1/4 cups dairy free milk ((300ml))","language":"en","parts":[{"quantity":300,"unit":"ml","en":"dairy free milk","it":"latte vegetale"}]}
 {"line":"1 10 oz can Rotel, (drained (Rotel = canned diced tomatoes and chillies) )","language":"en","parts":[{"quantity":10,"unit":"oz","en":"canned diced tomatoes and chilies","it":"pomodori a dadini e peperoncini in scatola","preparationEn":"drained","preparationIt":"scolati"}]}
 {"line":"1 Chipotle Pepper in Adobo* (from a can)","language":"en","parts":[{"quantity":1,"en":"canned chipotle pepper in adobo","it":"peperoncino chipotle in salsa adobo in scatola"}]}
 {"line":"1 Tablespoon agave (optional, add for a sweeter cocktail)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"agave syrup","it":"sciroppo d'agave","optional":true}]}
@@ -48,7 +48,7 @@
 {"line":"1 cup vegan brown sugar (1)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan brown sugar","it":"zucchero di canna vegano"}]}
 {"line":"1 cup vegan heavy cream, cold","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan heavy cream","it":"panna vegetale da montare","preparationEn":"cold","preparationIt":"fredda"}]}
 {"line":"1 cup vegetable broth (240 ml)","language":"en","parts":[{"quantity":240,"unit":"ml","en":"vegetable broth","it":"brodo vegetale"}]}
-{"line":"1 cup vegetable broth (or 1 cup water + 1 teaspoon Vegan Chicken Flavored Bouillon Paste)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"quantity":1,"unit":"cup","en":"water","it":"acqua"}]}]}
+{"line":"1 cup vegetable broth (or 1 cup water + 1 teaspoon Vegan Chicken Flavored Bouillon Paste)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"quantity":1,"unit":"cup","en":"water with 1 teaspoon vegan chicken flavored bouillon paste","it":"acqua con 1 cucchiaino di pasta per brodo vegana gusto pollo"}]}]}
 {"line":"1 cup vegetable broth or water","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
 {"line":"1 flax “egg” (1 tbsp ground flax + 2 1/2 tbsp water)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"ground flaxseed","it":"semi di lino macinati"},{"quantity":2.5,"unit":"tbsp","en":"water","it":"acqua"}]}
 {"line":"1 kg / 34 oz small tomatoes*","language":"en","parts":[{"quantity":1,"unit":"kg","en":"small tomatoes","it":"pomodori piccoli"}]}
@@ -138,7 +138,7 @@
 {"line":"1/2 cup fresh basil leaves (lightly packed)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh basil leaves","it":"foglie di basilico fresco","preparationEn":"lightly packed","preparationIt":"leggermente pressate"}]}
 {"line":"1/2 cup guacamole (or avocado (optional))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"guacamole","it":"guacamole","optional":true,"alternatives":[{"en":"avocado","it":"avocado"}]}]}
 {"line":"1/2 cup pineapple chunks (frozen)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"frozen pineapple","it":"ananas surgelato","preparationEn":"cut into chunks","preparationIt":"tagliato a pezzi"}]}
-{"line":"1/2 cup plant-based yogurt ((unsweetened soy or coconut yogurt))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened soy yogurt","it":"yogurt di soia senza zucchero","alternatives":[{"en":"unsweetened coconut yogurt","it":"yogurt di cocco senza zucchero"}]}]}
+{"line":"1/2 cup plant-based yogurt ((unsweetened soy or coconut yogurt))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unsweetened plant-based soy yogurt","it":"yogurt vegetale di soia senza zucchero","alternatives":[{"en":"unsweetened plant-based coconut yogurt","it":"yogurt vegetale al cocco senza zucchero"}]}]}
 {"line":"1/2 cup raw cashews (soaked for at least 4 hours)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked for at least 4 hours","preparationIt":"ammollati per almeno 4 ore"}]}
 {"line":"1/2 cup sliced or slivered almonds","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almonds","it":"mandorle","preparationEn":"sliced or slivered","preparationIt":"a lamelle o a filetti"}]}
 {"line":"1/2 cup sugar ((Indian sweets are sweet! Use 2 tbsp less if needed))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"sugar","it":"zucchero"}]}

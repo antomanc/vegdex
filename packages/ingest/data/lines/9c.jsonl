@@ -41,7 +41,8 @@
 {"line":"1 cup ripe fat organic Grapes","language":"en","parts":[{"quantity":1,"unit":"cup","en":"ripe large organic grapes","it":"acini d'uva biologica grandi e maturi"}]}
 {"line":"1 cup uncooked white rice ((*see notes in post about brown rice or quinoa substitute))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"uncooked white rice","it":"riso bianco crudo","alternatives":[{"en":"brown rice","it":"riso integrale"},{"en":"quinoa","it":"quinoa"}]}]}
 {"line":"1 cup vegan cheddar cheese shreads","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan cheddar cheese shreds","it":"cheddar vegano grattugiato"}]}
-{"line":"1 cup vegan cream cheese frosting","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan cream cheese frosting","it":"glassa vegana al formaggio spalmabile"}]}
+{"line":"1 cup vegan chocolate chips (we like chunks) (+ more for topping (about 1/2 cup))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan chocolate chips","it":"gocce di cioccolato vegano","purposeEn":"plus about 1/2 cup more for topping","purposeIt":"più circa 1/2 tazza per guarnire"}]}
+{"line":"1 cup vegan cream cheese frosting","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan cream cheese frosting","it":"glassa al formaggio spalmabile vegano"}]}
 {"line":"1 cup vegan milk (any vegan milk works)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan milk","it":"latte vegetale"}]}
 {"line":"1 cup veggie broth","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"1 date (or 1-2 teaspoons agave syrup for sweetness)","language":"en","parts":[{"quantity":1,"en":"date","it":"dattero","alternatives":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"agave syrup","it":"sciroppo d'agave"}]}]}
@@ -186,7 +187,7 @@
 {"line":"120 ml vegan burger sauce","language":"en","parts":[{"quantity":120,"unit":"ml","en":"vegan burger sauce","it":"salsa vegana per burger"}]}
 {"line":"14 ounces extra firm tofu (pressed for at least 15 minutes)","language":"en","parts":[{"quantity":14,"unit":"oz","en":"extra firm tofu","it":"tofu extra compatto","preparationEn":"pressed for at least 15 minutes","preparationIt":"pressato per almeno 15 minuti"}]}
 {"line":"14 oz block extra firm tofu","language":"en","parts":[{"quantity":14,"unit":"oz","en":"extra firm tofu","it":"tofu extra compatto"}]}
-{"line":"14 to 16 oz vegan sausage ((or \"beef\". Any brand is fine. It should crumble like ground meat))","language":"en","parts":[{"quantity":14,"quantityMax":16,"unit":"oz","en":"vegan sausage","it":"salsiccia vegana","alternatives":[{"en":"vegan beef","it":"manzo vegetale"}]}]}
+{"line":"14 to 16 oz vegan sausage ((or \"beef\". Any brand is fine. It should crumble like ground meat))","language":"en","parts":[{"quantity":14,"quantityMax":16,"unit":"oz","en":"vegan sausage","it":"salsiccia vegana","alternatives":[{"en":"vegan beef crumbles","it":"macinato vegetale tipo manzo"}]}]}
 {"line":"150 g dark brown soft sugar","language":"en","parts":[{"quantity":150,"unit":"g","en":"dark brown soft sugar","it":"zucchero di canna scuro morbido"}]}
 {"line":"16 oz Just Egg","language":"en","parts":[{"quantity":16,"unit":"oz","en":"Just Egg","it":"Just Egg"}]}
 {"line":"16 oz rigatoni or pasta of choice","language":"en","parts":[{"quantity":16,"unit":"oz","en":"rigatoni","it":"rigatoni","alternatives":[{"en":"pasta of choice","it":"pasta a scelta"}]}]}

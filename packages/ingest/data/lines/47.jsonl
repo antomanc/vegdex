@@ -9,7 +9,7 @@
 {"line":"1 1/2 cups (170g) pecans","language":"en","parts":[{"quantity":170,"unit":"g","en":"pecans","it":"noci pecan"}]}
 {"line":"1 1/2 cups Vegan Sour Cream","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan sour cream","it":"panna acida vegetale"}]}
 {"line":"1 1/2 cups chopped red onion","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"red onion","it":"cipolla rossa","preparationEn":"chopped","preparationIt":"tritata"}]}
-{"line":"1 1/2 cups mango puree/pulp (, I use canned purée/pulp. see notes)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"mango puree","it":"purea di mango"}]}
+{"line":"1 1/2 cups mango puree/pulp (, I use canned purée/pulp. see notes)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"mango puree or pulp","it":"purea o polpa di mango"}]}
 {"line":"1 1/2 cups unsweetened almond milk (or plant-based milk of choice)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"unsweetened almond milk","it":"latte di mandorla senza zucchero","alternatives":[{"en":"plant-based milk of choice","it":"latte vegetale a scelta"}]}]}
 {"line":"1 1/2 cups white rice, (rinsed well (or brown basmati rice) (300g))","language":"en","parts":[{"quantity":300,"unit":"g","en":"white rice","it":"riso bianco","preparationEn":"rinsed well","preparationIt":"sciacquato bene","alternatives":[{"en":"brown basmati rice","it":"riso basmati integrale"}]}]}
 {"line":"1 1/2 tablespoon cornstarch (or potato starch of 2 tbsp arrowroot )","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"cornstarch","it":"amido di mais","alternatives":[{"en":"potato starch","it":"fecola di patate"},{"quantity":2,"unit":"tbsp","en":"arrowroot starch","it":"amido di arrowroot"}]}]}
@@ -41,7 +41,7 @@
 {"line":"1 cup vegan chocolate chips","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan chocolate chips","it":"gocce di cioccolato vegano"}]}
 {"line":"1 cup water (Use scant cup)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"1 cup water or coconut milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"water","it":"acqua","alternatives":[{"en":"coconut milk","it":"latte di cocco"}]}]}
-{"line":"1 cup whipped coconut cream ((You can either use store-bought whipped coconut cream or make it yourself with canned coconut milk))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"coconut cream","it":"crema di cocco","preparationEn":"whipped","preparationIt":"montata"}]}
+{"line":"1 cup whipped coconut cream ((You can either use store-bought whipped coconut cream or make it yourself with canned coconut milk))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"whipped coconut cream","it":"crema di cocco montata","preparationEn":"store-bought or homemade with canned coconut milk","preparationIt":"confezionata o fatta in casa con latte di cocco in scatola"}]}
 {"line":"1 cup whole oats","language":"en","parts":[{"quantity":1,"unit":"cup","en":"whole oats","it":"avena integrale"}]}
 {"line":"1 full celeriac (scrubbed well but not peeled)","language":"en","parts":[{"quantity":1,"en":"whole celeriac","it":"sedano rapa intero","preparationEn":"scrubbed well but not peeled","preparationIt":"spazzolato bene ma non sbucciato"}]}
 {"line":"1 green chili such as serrano (finely chopped)","language":"en","parts":[{"quantity":1,"en":"green chili","it":"peperoncino verde","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
@@ -150,7 +150,7 @@
 {"line":"1/4 cup vegetable oil ((can use melted coconut oil if no allergies))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegetable oil","it":"olio vegetale","alternatives":[{"en":"coconut oil","it":"olio di cocco"}]}]}
 {"line":"1/4 cup water, give or take","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"1/4 teaspoon (0.8g) instant yeast","language":"en","parts":[{"quantity":0.8,"unit":"g","en":"instant yeast","it":"lievito di birra secco istantaneo"}]}
-{"line":"1/4 teaspoon fresh ground black pepper (optional)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"freshly ground black pepper","it":"pepe nero macinato al momento","optional":true}]}
+{"line":"1/4 teaspoon fresh ground black pepper (optional)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"fresh ground black pepper","it":"pepe nero macinato fresco","optional":true}]}
 {"line":"1/4 teaspoon freshly grated (or ground) nutmeg","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"nutmeg","it":"noce moscata","preparationEn":"freshly grated","preparationIt":"grattugiata al momento","alternatives":[{"en":"ground nutmeg","it":"noce moscata macinata"}]}]}
 {"line":"1/4 teaspoon ground black pepper (please see post why this is added, it does NOT make it spicy)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground black pepper","it":"pepe nero macinato"}]}
 {"line":"1/4 teaspoons salt (or to taste)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
@@ -173,7 +173,7 @@
 {"line":"100 g / 3.5 oz green beans","language":"en","parts":[{"quantity":100,"unit":"g","en":"green beans","it":"fagiolini"}]}
 {"line":"100 g vegan cheese ((my Grateable Vegan Cheese recipe works best))","language":"en","parts":[{"quantity":100,"unit":"g","en":"vegan cheese","it":"formaggio vegetale"}]}
 {"line":"12 Kalamata (or other) olives, sliced","language":"en","parts":[{"quantity":12,"en":"Kalamata olives","it":"olive Kalamata","preparationEn":"sliced","preparationIt":"tagliate a rondelle","alternatives":[{"en":"other olives","it":"altre olive"}]}]}
-{"line":"120 g vegan white or milk chocolate Easter egg pieces (roughly chopped)","language":"en","parts":[{"quantity":120,"unit":"g","en":"vegan white chocolate Easter egg","it":"uovo di Pasqua di cioccolato bianco vegano","preparationEn":"roughly chopped","preparationIt":"tritato grossolanamente","alternatives":[{"en":"vegan milk chocolate Easter egg","it":"uovo di Pasqua di cioccolato al latte vegano"}]}]}
+{"line":"120 g vegan white or milk chocolate Easter egg pieces (roughly chopped)","language":"en","parts":[{"quantity":120,"unit":"g","en":"vegan white chocolate Easter egg pieces","it":"pezzi di uovo di Pasqua al cioccolato bianco vegano","preparationEn":"roughly chopped","preparationIt":"tritati grossolanamente","alternatives":[{"en":"vegan milk chocolate Easter egg pieces","it":"pezzi di uovo di Pasqua al cioccolato al latte vegetale"}]}]}
 {"line":"120 ml / ½ cup mirin","language":"en","parts":[{"quantity":120,"unit":"ml","en":"mirin","it":"mirin"}]}
 {"line":"130 g / 1 cup cashews, soaked*","language":"en","parts":[{"quantity":130,"unit":"g","en":"cashews","it":"anacardi","preparationEn":"soaked","preparationIt":"ammollati"}]}
 {"line":"14 ounces penne ((gluten-free if preferred))","language":"en","parts":[{"quantity":14,"unit":"oz","en":"penne","it":"penne"}]}
@@ -210,7 +210,7 @@
 {"line":"2 cups old fashioned oats (,use certified gluten-free if needed, see notes for substitution)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"old-fashioned oats","it":"fiocchi d'avena tradizionali"}]}
 {"line":"2 cups peaches, (sliced (but not too thinly))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"peaches","it":"pesche","preparationEn":"sliced, but not too thinly","preparationIt":"tagliate a fette non troppo sottili"}]}
 {"line":"2 cups unflavored and unsweetened non-dairy milk ((such as nut or soy milk))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"unflavored unsweetened non-dairy milk","it":"latte vegetale non aromatizzato e senza zuccheri"}]}
-{"line":"2 cups water (or less if not using vegan cheese, see Notes)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"water","it":"acqua"}]}
+{"line":"2 cups water (or less if not using vegan cheese, see Notes)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"water","it":"acqua","preparationEn":"use less if not using vegan cheese","preparationIt":"usarne meno se non si usa formaggio vegano"}]}
 {"line":"2 flax eggs ((mix together 2 tablespoons ground flax seed + 5 tablespoons filtered water)*See note)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"ground flaxseed","it":"semi di lino macinati"},{"quantity":5,"unit":"tbsp","en":"filtered water","it":"acqua filtrata"}]}
 {"line":"2 large plantains","language":"en","parts":[{"quantity":2,"en":"large plantains","it":"platani grandi"}]}
 {"line":"2 pounds extra firm tofu (pressed (two blocks of tofu) (907g))","language":"en","parts":[{"quantity":907,"unit":"g","en":"extra-firm tofu","it":"tofu extra compatto","preparationEn":"pressed","preparationIt":"pressato"}]}
@@ -264,7 +264,7 @@
 {"line":"3 medium tomatoes ((chopped))","language":"en","parts":[{"quantity":3,"en":"medium tomatoes","it":"pomodori medi","preparationEn":"chopped","preparationIt":"tagliati a pezzetti"}]}
 {"line":"3 tablespoons canola oil","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"canola oil","it":"olio di colza"}]}
 {"line":"3 tablespoons freshly squeezed lemon juice ((about 1 medium-large lemon))","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"freshly squeezed lemon juice","it":"succo di limone appena spremuto"}]}
-{"line":"3 tablespoons non-dairy butter, (melted)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
+{"line":"3 tablespoons non-dairy butter, (melted)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"non-dairy butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"3 tablespoons of lemon juice","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"lemon juice","it":"succo di limone"}]}
 {"line":"3 tbsp chopped fresh sage","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"fresh sage","it":"salvia fresca","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"3 to 4 tablespoons soy sauce (or tamari or coconut aminos)","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"tbsp","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"tamari","it":"tamari"},{"en":"coconut aminos","it":"salsa di cocco aminos"}]}]}

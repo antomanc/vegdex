@@ -115,7 +115,7 @@
 {"line":"1- inch of ginger (chopped)","language":"en","parts":[{"quantity":1,"unit":"inch","en":"ginger","it":"zenzero","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"1-2 Tbsp maple syrup ((more to taste))","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero","toTaste":true}]}
 {"line":"1-2 cup of water (plus more to taste)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"cup","en":"water","it":"acqua","toTaste":true}]}
-{"line":"1-2 cups (235-470ml) non-dairy milk, or to taste","language":"en","parts":[{"quantity":235,"quantityMax":470,"unit":"ml","en":"plant-based milk","it":"latte vegetale","toTaste":true}]}
+{"line":"1-2 cups (235-470ml) non-dairy milk, or to taste","language":"en","parts":[{"quantity":235,"quantityMax":470,"unit":"ml","en":"non-dairy milk","it":"latte vegetale","toTaste":true}]}
 {"line":"1-2 cups spinach (firmly packed)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"cup","en":"spinach","it":"spinaci"}]}
 {"line":"1-2 tablespoons organic raw agave nectar (to desired sweetness-I only used 1 tbsp)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"organic raw agave nectar","it":"sciroppo d'agave crudo biologico"}]}
 {"line":"1-2 tablespoons unrefined coconut oil ((or a neutral oil of choice))","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"unrefined coconut oil","it":"olio di cocco non raffinato","alternatives":[{"en":"neutral oil of choice","it":"olio dal sapore neutro a scelta"}]}]}
@@ -123,7 +123,7 @@
 {"line":"1-2 teaspoons coconut milk (add more for thinner icing)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"coconut milk","it":"latte di cocco"}]}
 {"line":"1-3 teaspoons maple syrup (plus more to taste)","language":"en","parts":[{"quantity":1,"quantityMax":3,"unit":"tsp","en":"maple syrup","it":"sciroppo d'acero","toTaste":true}]}
 {"line":"1-inch piece cinnamon stick","language":"en","parts":[{"quantity":1,"unit":"inch","en":"cinnamon stick","it":"stecca di cannella"}]}
-{"line":"1.5 Tbsp non dairy yogurt (So Delicious plain coconut milk yogurt or make your own cultured Nut Milk -Cashew Yogurt)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"non-dairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"plain coconut milk yogurt","it":"yogurt al latte di cocco al naturale"},{"en":"cultured cashew yogurt","it":"yogurt di anacardi fermentato"}]}]}
+{"line":"1.5 Tbsp non dairy yogurt (So Delicious plain coconut milk yogurt or make your own cultured Nut Milk -Cashew Yogurt)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"non dairy yogurt","it":"yogurt vegetale"}]}
 {"line":"1.5 cups flour ((I use 1 cup unbleached all purpose and 1/2 cup wheat))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"flour","it":"farina"}]}
 {"line":"1.5 teaspoons dulse granules (or kelp granules (see note))","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"dulse granules","it":"granuli di alga dulse","alternatives":[{"en":"kelp granules","it":"alga kelp in granuli"}]}]}
 {"line":"1.5 to 2 tablespoons kashmiri chili powder","language":"en","parts":[{"quantity":1.5,"quantityMax":2,"unit":"tbsp","en":"Kashmiri chili powder","it":"peperoncino del Kashmir in polvere"}]}
@@ -287,7 +287,7 @@
 {"line":"3 Tablespoon coarsely ground Oats (not flour)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"oats","it":"avena","preparationEn":"coarsely ground, not into flour","preparationIt":"macinati grossolanamente, non ridotti in farina"}]}
 {"line":"3 Tbsp vanilla ice cream (or 1 small frozen banana)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"vanilla ice cream","it":"gelato alla vaniglia","alternatives":[{"quantity":1,"en":"small frozen banana","it":"banana piccola congelata"}]}]}
 {"line":"3 cloves garlic ((peeled and crushed))","language":"en","parts":[{"quantity":3,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"peeled and crushed","preparationIt":"sbucciato e schiacciato"}]}
-{"line":"3 cups stock, (preferably mushroom stock or beef flavored stock or use veggie stock)","language":"en","parts":[{"quantity":3,"unit":"cup","en":"stock","it":"brodo","alternatives":[{"en":"mushroom stock","it":"brodo di funghi"},{"en":"vegan beef-flavored stock","it":"brodo vegetale al gusto di manzo"},{"en":"vegetable stock","it":"brodo vegetale"}]}]}
+{"line":"3 cups stock, (preferably mushroom stock or beef flavored stock or use veggie stock)","language":"en","parts":[{"quantity":3,"unit":"cup","en":"stock","it":"brodo","alternatives":[{"en":"mushroom stock","it":"brodo di funghi"},{"en":"vegan beef-flavored stock","it":"brodo vegano gusto manzo"},{"en":"vegetable stock","it":"brodo vegetale"}]}]}
 {"line":"3 cups water or stock","language":"en","parts":[{"quantity":3,"unit":"cup","en":"water","it":"acqua","alternatives":[{"en":"stock","it":"brodo"}]}]}
 {"line":"3 med/large red bell peppers","language":"en","parts":[{"quantity":3,"en":"medium to large red bell peppers","it":"peperoni rossi medio-grandi"}]}
 {"line":"3 medium eggplants (Italian, Chinese, or Japanese work great)","language":"en","parts":[{"quantity":3,"en":"medium eggplants","it":"melanzane medie"}]}
@@ -375,7 +375,7 @@
 {"line":"Rosemary Garlic Cashew Cream, for serving","language":"en","parts":[{"en":"rosemary garlic cashew cream","it":"crema di anacardi al rosmarino e aglio","purposeEn":"for serving","purposeIt":"per servire"}]}
 {"line":"Salt, as needed to taste","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true}]}
 {"line":"This cake uses a lot of almond flour because it is a large cake. It is very easy to measure incorrectly with almond flour and gluten-free flours in general, so I cannot stress enough why a scale is important.","language":"en","kind":"other"}
-{"line":"Tofu Ricotta ((recipe follows))","language":"en","parts":[{"en":"tofu ricotta","it":"ricotta di tofu"}]}
+{"line":"Tofu Ricotta ((recipe follows))","language":"en","parts":[{"en":"tofu ricotta","it":"ricotta vegetale di tofu"}]}
 {"line":"Toppings of choice, such as lettuce, tomato, onion, avocado, vegan mayo, and vegan cheese","language":"en","parts":[{"en":"toppings of choice","it":"guarnizioni a scelta","alternatives":[{"en":"lettuce","it":"lattuga"},{"en":"tomato","it":"pomodoro"},{"en":"onion","it":"cipolla"},{"en":"avocado","it":"avocado"},{"en":"vegan mayo","it":"maionese vegana"},{"en":"vegan cheese","it":"formaggio vegetale"}]}]}
 {"line":"Vegan Parmesan cheese (to garnish (optional))","language":"en","parts":[{"en":"vegan Parmesan cheese","it":"parmigiano vegano","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true}]}
 {"line":"Vegan parmesan cheese, to garnish","language":"en","parts":[{"en":"vegan parmesan cheese","it":"parmigiano vegano","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
@@ -392,7 +392,7 @@
 {"line":"handful of basil leaves","language":"en","parts":[{"quantity":1,"unit":"handful","en":"basil leaves","it":"foglie di basilico"}]}
 {"line":"juice of 1/2 small lemon","language":"en","parts":[{"quantity":0.5,"en":"small lemon","it":"limone piccolo","preparationEn":"juiced","preparationIt":"spremuto"}]}
 {"line":"large sprig of basil","language":"en","parts":[{"quantity":1,"unit":"sprig","en":"large basil sprig","it":"rametto grande di basilico"}]}
-{"line":"mineral salt & fresh ground black pepper, to taste","language":"en","parts":[{"en":"mineral salt","it":"sale minerale","toTaste":true},{"en":"freshly ground black pepper","it":"pepe nero macinato al momento","toTaste":true}]}
+{"line":"mineral salt & fresh ground black pepper, to taste","language":"en","parts":[{"en":"mineral salt","it":"sale minerale","toTaste":true},{"en":"fresh ground black pepper","it":"pepe nero macinato fresco","toTaste":true}]}
 {"line":"one 9 inch pre-baked pie crust","language":"en","parts":[{"quantity":1,"en":"9-inch pre-baked pie crust","it":"base per torta precotta da 23 cm"}]}
 {"line":"pinch of fine salt","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"fine salt","it":"sale fino"}]}
 {"line":"sesame seeds, green onions, or toasted nuts of choice","language":"en","parts":[{"en":"sesame seeds","it":"semi di sesamo"},{"en":"green onions","it":"cipollotti"},{"en":"toasted nuts of choice","it":"frutta secca tostata a scelta"}]}
@@ -435,7 +435,7 @@
 {"line":"¾ cup of green or brown lentils","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"green lentils","it":"lenticchie verdi","alternatives":[{"en":"brown lentils","it":"lenticchie marroni"}]}]}
 {"line":"¾ cup sugar","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"sugar","it":"zucchero"}]}
 {"line":"¾ cup vegan butter (cold ( such as Earth Balance ))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"cold","preparationIt":"freddo"}]}
-{"line":"¾ to 1 cup roasted corn ([use frozen or corn on the cob, see recipe for roasting instructions])","language":"en","parts":[{"quantity":0.75,"quantityMax":1,"unit":"cup","en":"corn","it":"mais","preparationEn":"roasted","preparationIt":"arrostito"}]}
+{"line":"¾ to 1 cup roasted corn ([use frozen or corn on the cob, see recipe for roasting instructions])","language":"en","parts":[{"quantity":0.75,"quantityMax":1,"unit":"cup","en":"corn","it":"mais","preparationEn":"roasted; use frozen corn or corn on the cob","preparationIt":"arrostito; usare mais surgelato o pannocchie"}]}
 {"line":"⅓ cup tahini (stirred properly together first)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"tahini","it":"tahina","preparationEn":"stirred together thoroughly first","preparationIt":"mescolata bene prima dell'uso"}]}
 {"line":"⅔ cup of granulated sugar","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"granulated sugar","it":"zucchero semolato"}]}
 {"line":"⅔ cup unsweetened vegan milk (120mL)","language":"en","parts":[{"quantity":120,"unit":"ml","en":"unsweetened vegan milk","it":"latte vegetale senza zuccheri"}]}

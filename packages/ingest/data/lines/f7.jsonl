@@ -162,7 +162,7 @@
 {"line":"1/4 tsp dried sage","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"dried sage","it":"salvia essiccata"}]}
 {"line":"1/4 tsp rosemary","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"rosemary","it":"rosmarino"}]}
 {"line":"1/5 tsp pepper","language":"en","parts":[{"quantity":0.2,"unit":"tsp","en":"pepper","it":"pepe"}]}
-{"line":"10 cups vegan chicken broth (or vegetable broth)","language":"en","parts":[{"quantity":10,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
+{"line":"10 cups vegan chicken broth (or vegetable broth)","language":"en","parts":[{"quantity":10,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
 {"line":"10 ounces of tomato sauce","language":"en","parts":[{"quantity":10,"unit":"oz","en":"tomato sauce","it":"salsa di pomodoro"}]}
 {"line":"10 oz fresh spinach, (chopped)","language":"en","parts":[{"quantity":10,"unit":"oz","en":"fresh spinach","it":"spinaci freschi","preparationEn":"chopped","preparationIt":"tritati"}]}
 {"line":"10-14 oz bread loaf, (stale preferred, but not required (284-400g))","language":"en","parts":[{"quantity":284,"quantityMax":400,"unit":"g","en":"bread loaf","it":"pagnotta","preparationEn":"preferably stale","preparationIt":"preferibilmente rafferma"}]}
@@ -176,7 +176,7 @@
 {"line":"15 ounce can of lentils (drained, or 1 ½ cups cooked lentils, chickpeas, white beans, or other protein)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned lentils","it":"lenticchie in scatola","preparationEn":"drained","preparationIt":"scolate","alternatives":[{"quantity":1.5,"unit":"cup","en":"cooked lentils","it":"lenticchie cotte"},{"en":"chickpeas","it":"ceci"},{"en":"white beans","it":"fagioli bianchi"},{"en":"other protein","it":"altra fonte proteica"}]}]}
 {"line":"150 g sweetheart cabbage (finely shredded)","language":"en","parts":[{"quantity":150,"unit":"g","en":"sweetheart cabbage","it":"cavolo cappuccio a punta","preparationEn":"finely shredded","preparationIt":"tagliato finemente"}]}
 {"line":"16 sage leaves","language":"en","parts":[{"quantity":16,"en":"sage leaves","it":"foglie di salvia"}]}
-{"line":"1½ cups vegan chicken broth","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo"}]}
+{"line":"1½ cups vegan chicken broth","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo"}]}
 {"line":"1½ tbsp all purpose soy sauce or tamari (if gluten-free)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"all-purpose soy sauce","it":"salsa di soia per tutti gli usi","alternatives":[{"en":"tamari","it":"tamari"}]}]}
 {"line":"2 (15.5 ounce/439 gram) cans black beans, (drained and rinsed)","language":"en","parts":[{"quantity":878,"unit":"g","en":"canned black beans","it":"fagioli neri in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"2 1/2 cups (175g) shredded carrots","language":"en","parts":[{"quantity":175,"unit":"g","en":"carrots","it":"carote","preparationEn":"shredded","preparationIt":"grattugiate"}]}
@@ -207,7 +207,7 @@
 {"line":"2 tablespoon of potato starch (cornstarch works)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"potato starch","it":"fecola di patate","alternatives":[{"en":"cornstarch","it":"amido di mais"}]}]}
 {"line":"2 tablespoon powdered sugar (or cane sugar )","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"powdered sugar","it":"zucchero a velo","alternatives":[{"en":"cane sugar","it":"zucchero di canna"}]}]}
 {"line":"2 tablespoon water","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"water","it":"acqua"}]}
-{"line":"2 tablespoons 30g vanilla dairy-free yogurt (I used Silk brand Soy because it has real vanilla beans in it and was so good)","language":"en","parts":[{"quantity":30,"unit":"g","en":"vanilla dairy-free yogurt","it":"yogurt vegetale alla vaniglia"}]}
+{"line":"2 tablespoons 30g vanilla dairy-free yogurt (I used Silk brand Soy because it has real vanilla beans in it and was so good)","language":"en","parts":[{"quantity":30,"unit":"g","en":"vanilla dairy-free yogurt","it":"yogurt senza latticini alla vaniglia"}]}
 {"line":"2 tablespoons Rice wine vinegar","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"rice wine vinegar","it":"aceto di riso"}]}
 {"line":"2 tablespoons currants","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"currants","it":"uva di Corinto"}]}
 {"line":"2 tablespoons nutritional yeast ((*optional))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"nutritional yeast","it":"lievito alimentare","optional":true}]}
@@ -218,7 +218,7 @@
 {"line":"2 tbsp arrowroot powder (or cornstarch)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"arrowroot powder","it":"amido di arrowroot","alternatives":[{"en":"cornstarch","it":"amido di mais"}]}]}
 {"line":"2 tbsp chopped fresh oregano","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh oregano","it":"origano fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"2 tbsp maple syrup or sugar","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"sugar","it":"zucchero"}]}]}
-{"line":"2 tbsp vegan chicken seasoning ((or mushroom bouillon))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan chicken seasoning","it":"condimento vegano al gusto di pollo","alternatives":[{"en":"mushroom bouillon","it":"dado ai funghi"}]}]}
+{"line":"2 tbsp vegan chicken seasoning ((or mushroom bouillon))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan chicken seasoning","it":"condimento vegano gusto pollo","alternatives":[{"en":"mushroom bouillon","it":"dado ai funghi"}]}]}
 {"line":"2 tbsp water (or plant-based milk)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"water","it":"acqua","alternatives":[{"en":"plant-based milk","it":"latte vegetale"}]}]}
 {"line":"2 teaspoons chili powder (5g)","language":"en","parts":[{"quantity":5,"unit":"g","en":"chili powder","it":"peperoncino in polvere"}]}
 {"line":"2 teaspoons cinnamon (or 2 cinnamon sticks)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"cinnamon","it":"cannella","alternatives":[{"quantity":2,"unit":"stick","en":"cinnamon","it":"cannella"}]}]}
@@ -258,7 +258,7 @@
 {"line":"3 bay leaves","language":"en","parts":[{"quantity":3,"en":"bay leaves","it":"foglie di alloro"}]}
 {"line":"3 bell peppers ((any color), sliced)","language":"en","parts":[{"quantity":3,"en":"bell peppers","it":"peperoni","preparationEn":"sliced","preparationIt":"tagliati a fette"}]}
 {"line":"3 cloves of garlic (chopped)","language":"en","parts":[{"quantity":3,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"chopped","preparationIt":"tritato"}]}
-{"line":"3 cups + 4 tablespoons vegan chicken broth (we used this one) or vegetable broth of your choice","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegan chicken broth","it":"brodo vegetale gusto pollo","plus":{"quantity":4,"unit":"tbsp"},"alternatives":[{"en":"vegetable broth of choice","it":"brodo vegetale a scelta"}]}]}
+{"line":"3 cups + 4 tablespoons vegan chicken broth (we used this one) or vegetable broth of your choice","language":"en","parts":[{"quantity":3,"unit":"cup","en":"vegan chicken broth","it":"brodo vegano gusto pollo","plus":{"quantity":4,"unit":"tbsp"},"alternatives":[{"en":"vegetable broth of choice","it":"brodo vegetale a scelta"}]}]}
 {"line":"3 cups chopped butternut squash (1-inch squares)","language":"en","parts":[{"quantity":3,"unit":"cup","en":"butternut squash","it":"zucca butternut","preparationEn":"chopped into squares","preparationIt":"tagliata a cubetti"}]}
 {"line":"3 delicata squash","language":"en","parts":[{"quantity":3,"en":"delicata squash","it":"zucche delicata"}]}
 {"line":"3 large Yukon gold potatoes, chopped small","language":"en","parts":[{"quantity":3,"en":"large Yukon Gold potatoes","it":"patate Yukon Gold grandi","preparationEn":"chopped small","preparationIt":"tagliate a pezzetti"}]}

@@ -28,7 +28,7 @@
 {"line":"1 block (12 oz/ 350 g) extra-firm tofu (drained (no need to press it))","language":"en","parts":[{"quantity":350,"unit":"g","en":"extra-firm tofu","it":"tofu extra compatto","preparationEn":"drained","preparationIt":"scolato"}]}
 {"line":"1 can (13.5 fl oz / 400 ml) premium full-fat coconut milk (chilled overnight)","language":"en","parts":[{"quantity":400,"unit":"ml","en":"premium full-fat canned coconut milk","it":"latte di cocco intero di qualità superiore in lattina","preparationEn":"chilled overnight","preparationIt":"tenuto in frigorifero per una notte"}]}
 {"line":"1 can (14oz) chickpeas (garbanzo beans), drained and rinsed","language":"en","parts":[{"quantity":14,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
-{"line":"1 can (15 oz) coconut milk, full or low fat","language":"en","parts":[{"quantity":15,"unit":"oz","en":"full-fat coconut milk","it":"latte di cocco intero","alternatives":[{"en":"low-fat coconut milk","it":"latte di cocco a ridotto contenuto di grassi"}]}]}
+{"line":"1 can (15 oz) coconut milk, full or low fat","language":"en","parts":[{"quantity":15,"unit":"oz","en":"full-fat coconut milk","it":"latte di cocco intero","alternatives":[{"en":"low-fat coconut milk","it":"latte di cocco a basso contenuto di grassi"}]}]}
 {"line":"1 can (15oz) chickpeas, drained and rinsed (optional)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati","optional":true}]}
 {"line":"1 cinnamon stick ((2 inches))","language":"en","parts":[{"quantity":1,"unit":"stick","en":"cinnamon","it":"cannella"}]}
 {"line":"1 cup (128g) powdered sugar (sifted if lumpy)","language":"en","parts":[{"quantity":128,"unit":"g","en":"powdered sugar","it":"zucchero a velo","preparationEn":"sifted if lumpy","preparationIt":"setacciato se presenta grumi"}]}
@@ -220,7 +220,7 @@
 {"line":"2 cups vegan gnocchi (380 grams )","language":"en","parts":[{"quantity":380,"unit":"g","en":"vegan gnocchi","it":"gnocchi vegani"}]}
 {"line":"2 cups vegan ground beef","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan ground beef","it":"macinato vegetale tipo manzo"}]}
 {"line":"2 cups vegan shredded chicken (or any vegan chicken pieces cut small)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan shredded chicken","it":"pollo vegetale sfilacciato","alternatives":[{"en":"vegan chicken pieces cut small","it":"bocconcini di pollo vegetale tagliati piccoli"}]}]}
-{"line":"2 flax eggs*","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di lino"}]}
+{"line":"2 flax eggs*","language":"en","parts":[{"quantity":2,"en":"flax eggs","it":"uova di semi di lino"}]}
 {"line":"2 green chili peppers ((sliced, optional. Skip if you are sensitive to heat).)","language":"en","parts":[{"quantity":2,"en":"green chili peppers","it":"peperoncini verdi","preparationEn":"sliced","preparationIt":"tagliati a fette","optional":true}]}
 {"line":"2 heads of garlic","language":"en","parts":[{"quantity":2,"unit":"head","en":"garlic","it":"aglio"}]}
 {"line":"2 large carrots (diced – 200g)","language":"en","parts":[{"quantity":200,"unit":"g","en":"large carrots","it":"carote grandi","preparationEn":"diced","preparationIt":"tagliate a cubetti"}]}
@@ -422,6 +422,7 @@
 {"line":"½ cup chopped fresh basil (for garnish)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh basil","it":"basilico fresco","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"½ cup dry white wine (or ½ cup additional broth or water)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"dry white wine","it":"vino bianco secco","alternatives":[{"quantity":0.5,"unit":"cup","en":"broth","it":"brodo"},{"quantity":0.5,"unit":"cup","en":"water","it":"acqua"}]}]}
 {"line":"½ cup frozen peas (80g)","language":"en","parts":[{"quantity":80,"unit":"g","en":"frozen peas","it":"piselli surgelati"}]}
+{"line":"½ cup of sliced green onions, (plus more for garnish)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"green onions","it":"cipollotti","preparationEn":"sliced","preparationIt":"affettati","purposeEn":"plus more for garnish","purposeIt":"più una quantità aggiuntiva per guarnire"}]}
 {"line":"½ cup raw cashews ((see notes for nut-free option))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"raw cashews","it":"anacardi crudi"}]}
 {"line":"½ cup sauteed white onion (1½ small onions)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"white onion","it":"cipolla bianca","preparationEn":"sautéed","preparationIt":"saltata in padella"}]}
 {"line":"½ medium red (orange or yellow bell pepper, diced)","language":"en","parts":[{"quantity":0.5,"en":"medium red bell pepper","it":"peperone rosso medio","preparationEn":"diced","preparationIt":"tagliato a cubetti","alternatives":[{"en":"medium orange bell pepper","it":"peperone arancione medio"},{"en":"medium yellow bell pepper","it":"peperone giallo medio"}]}]}

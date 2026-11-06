@@ -7,7 +7,7 @@
 {"line":"1 1/2 cups corn ((canned or frozen))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"canned corn","it":"mais in scatola","alternatives":[{"en":"frozen corn","it":"mais surgelato"}]}]}
 {"line":"1 1/2 cups espresso or very strong coffee","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"espresso","it":"caffè espresso","alternatives":[{"en":"very strong coffee","it":"caffè molto forte"}]}]}
 {"line":"1 1/2 cups grated zucchini","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"zucchini","it":"zucchine","preparationEn":"grated","preparationIt":"grattugiate"}]}
-{"line":"1 1/2 cups seltzer water/club soda/sparkling water*","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"seltzer water","it":"acqua di seltz","alternatives":[{"en":"club soda","it":"soda"},{"en":"sparkling water","it":"acqua frizzante"}]}]}
+{"line":"1 1/2 cups seltzer water/club soda/sparkling water*","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"seltzer water","it":"acqua di seltz","alternatives":[{"en":"club soda","it":"acqua gassata"},{"en":"sparkling water","it":"acqua frizzante"}]}]}
 {"line":"1 1/2 tablespoon olive oil","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"1 1/2 tablespoons ground flaxseed","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"ground flaxseed","it":"semi di lino macinati"}]}
 {"line":"1 1/2 teaspoon vegetable broth powder","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"vegetable broth powder","it":"brodo vegetale in polvere"}]}
@@ -19,7 +19,7 @@
 {"line":"1 3/4 cups vegetable broth (for cooking wild rice)","language":"en","parts":[{"quantity":1.75,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"1 English Muffin (halved)","language":"en","parts":[{"quantity":1,"en":"English muffin","it":"muffin inglese","preparationEn":"halved","preparationIt":"tagliato a metà"}]}
 {"line":"1 Tbsp or more coconut sugar or other sugar (optional)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"coconut sugar","it":"zucchero di cocco","optional":true,"alternatives":[{"en":"other sugar","it":"altro zucchero"}]}]}
-{"line":"1 Tofu Ricotta Recipe","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"tofu ricotta","it":"ricotta di tofu"}]}
+{"line":"1 Tofu Ricotta Recipe","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"tofu ricotta","it":"ricotta vegetale di tofu"}]}
 {"line":"1 acorn squash (, peeled and cubed)","language":"en","parts":[{"quantity":1,"en":"acorn squash","it":"zucca acorn","preparationEn":"peeled and cubed","preparationIt":"sbucciata e tagliata a cubetti"}]}
 {"line":"1 can (28oz) diced tomatoes, with juices","language":"en","parts":[{"quantity":28,"unit":"oz","en":"canned diced tomatoes with juices","it":"pomodori a cubetti in scatola con il loro succo"}]}
 {"line":"1 can creme of coconut","language":"en","parts":[{"quantity":1,"unit":"can","en":"cream of coconut","it":"crema di cocco zuccherata"}]}
@@ -98,12 +98,12 @@
 {"line":"1 tbsp sugar (optional, adjust to taste)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"sugar","it":"zucchero","optional":true,"toTaste":true}]}
 {"line":"1 tbsp vital wheat gluten ((optional but highly recommended))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vital wheat gluten","it":"glutine di frumento","optional":true}]}
 {"line":"1 teaspoon chia seeds","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"chia seeds","it":"semi di chia"}]}
-{"line":"1 teaspoon coarsely crushed black pepper (preferably ground/crushed with a mortar pestle, or more, to taste)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"black pepper","it":"pepe nero","preparationEn":"coarsely crushed","preparationIt":"pestato grossolanamente","toTaste":true}]}
+{"line":"1 teaspoon coarsely crushed black pepper (preferably ground/crushed with a mortar pestle, or more, to taste)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"black pepper","it":"pepe nero","preparationEn":"coarsely crushed, preferably in a mortar","preparationIt":"pestato grossolanamente, preferibilmente in un mortaio","toTaste":true}]}
 {"line":"1 teaspoon non-dairy milk ((for egg wash))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"non-dairy milk","it":"latte vegetale","purposeEn":"for egg wash","purposeIt":"per spennellare"}]}
 {"line":"1 teaspoon red wine vinegar ((or apple cider vinegar))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"red wine vinegar","it":"aceto di vino rosso","alternatives":[{"en":"apple cider vinegar","it":"aceto di mele"}]}]}
 {"line":"1 teaspoon smoked paprika (optional)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"smoked paprika","it":"paprika affumicata","optional":true}]}
 {"line":"1 teaspoon vanilla extract (4 grams)","language":"en","parts":[{"quantity":4,"unit":"g","en":"vanilla extract","it":"estratto di vaniglia"}]}
-{"line":"1 teaspoon vegan “beef”-flavored bouillon","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"vegan beef-flavored bouillon","it":"dado vegetale al gusto di manzo"}]}
+{"line":"1 teaspoon vegan “beef”-flavored bouillon","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"vegan beef-flavored bouillon","it":"dado vegano gusto manzo"}]}
 {"line":"1 to mato chopped","language":"en","parts":[{"quantity":1,"en":"tomato","it":"pomodoro","preparationEn":"chopped","preparationIt":"tagliato a pezzi"}]}
 {"line":"1 tpmato chopped (optional)","language":"en","parts":[{"quantity":1,"en":"tomato","it":"pomodoro","preparationEn":"chopped","preparationIt":"tagliato a pezzetti","optional":true}]}
 {"line":"1 tsp coriander seed powder","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"ground coriander seeds","it":"semi di coriandolo macinati"}]}
@@ -151,7 +151,7 @@
 {"line":"1/2 tsp all spice","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"allspice","it":"pimento"}]}
 {"line":"1/2 tsp carom seeds ((ajwain))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"carom seeds","it":"semi di ajwain"}]}
 {"line":"1/2 tsp dry yeast","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"dry yeast","it":"lievito secco"}]}
-{"line":"1/2 tsp fresh cracked black pepper","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"black pepper","it":"pepe nero","preparationEn":"freshly cracked","preparationIt":"macinato grossolanamente al momento"}]}
+{"line":"1/2 tsp fresh cracked black pepper","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"fresh cracked black pepper","it":"pepe nero macinato fresco"}]}
 {"line":"1/2 tsp garlic powder ((can use 1 tsp fresh grated garlic))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"garlic powder","it":"aglio in polvere","alternatives":[{"quantity":1,"unit":"tsp","en":"fresh grated garlic","it":"aglio fresco grattugiato"}]}]}
 {"line":"1/2 tsp matcha powder (dissolved in 1 tbsp water)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"matcha powder","it":"matcha in polvere","preparationEn":"dissolved in 1 tbsp water","preparationIt":"sciolto in 1 cucchiaio d'acqua"}]}
 {"line":"1/2 tsp nutmeg (or to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"nutmeg","it":"noce moscata","toTaste":true}]}
@@ -275,7 +275,7 @@
 {"line":"2 teaspoons American chili powder (store-bought without salt or my homemade blend)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"American chili powder without salt","it":"miscela americana di peperoncino senza sale"}]}
 {"line":"2 teaspoons canola oil","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"canola oil","it":"olio di colza"}]}
 {"line":"2 teaspoons finely chopped fresh basil","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"fresh basil","it":"basilico fresco","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
-{"line":"2 teaspoons lemon juice (, fresh squeezed)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"lemon juice","it":"succo di limone","preparationEn":"freshly squeezed","preparationIt":"spremuto al momento"}]}
+{"line":"2 teaspoons lemon juice (, fresh squeezed)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"fresh squeezed lemon juice","it":"succo di limone appena spremuto"}]}
 {"line":"2 teaspoons peppermint extract","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"peppermint extract","it":"estratto di menta piperita"}]}
 {"line":"2 teaspoons safflower or other neutral oil","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"safflower oil","it":"olio di cartamo","alternatives":[{"en":"neutral oil","it":"olio dal sapore neutro"}]}]}
 {"line":"2 teaspoons vegetable broth powder ( vegetable instant stock mix powder or 1 vegetable bouillon cube)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"vegetable broth powder","it":"brodo vegetale in polvere","alternatives":[{"en":"instant vegetable stock powder","it":"preparato istantaneo per brodo vegetale in polvere"},{"quantity":1,"unit":"cube","en":"vegetable bouillon","it":"dado vegetale"}]}]}

@@ -12,6 +12,7 @@
 {"line":"1 - 4 tablespoons agave or maple syrup ((optional))","language":"en","parts":[{"quantity":1,"quantityMax":4,"unit":"tbsp","en":"agave syrup","it":"sciroppo d'agave","optional":true,"alternatives":[{"en":"maple syrup","it":"sciroppo d'acero"}]}]}
 {"line":"1 1/2 cups (147 g) quick-cooking or rolled oats, blended to make oat flour*","language":"en","parts":[{"quantity":147,"unit":"g","en":"quick-cooking oats","it":"fiocchi d'avena a cottura rapida","preparationEn":"blended to make oat flour","preparationIt":"frullati per ottenere farina d'avena","alternatives":[{"en":"rolled oats","it":"fiocchi d'avena"}]}]}
 {"line":"1 1/2 cups all purpose flour ((can use gluten free 1:1 blend))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"gluten-free 1:1 flour blend","it":"miscela di farine senza glutine 1:1"}]}]}
+{"line":"1 1/2 cups of strawberries, diced (plus extra for topping)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"strawberries","it":"fragole","preparationEn":"diced","preparationIt":"a dadini","purposeEn":"plus extra for topping","purposeIt":"più altre per guarnire"}]}
 {"line":"1 1/2 cups unflavored (plain) vegan yogurt","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"plain vegan yogurt","it":"yogurt vegetale bianco"}]}
 {"line":"1 1/2 oz cacao butter ((see notes))","language":"en","parts":[{"quantity":1.5,"unit":"oz","en":"cacao butter","it":"burro di cacao"}]}
 {"line":"1 1/2 pounds small Yukon gold potatoes","language":"en","parts":[{"quantity":1.5,"unit":"lb","en":"small Yukon Gold potatoes","it":"patate Yukon Gold piccole"}]}
@@ -72,7 +73,7 @@
 {"line":"1 tablespoon all purpose flour (for dusting)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"all-purpose flour","it":"farina 00","purposeEn":"for dusting","purposeIt":"per spolverare"}]}
 {"line":"1 tablespoon canola oil ((or another high-heat oil))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"canola oil","it":"olio di colza","alternatives":[{"en":"high-heat oil","it":"olio adatto alle alte temperature"}]}]}
 {"line":"1 tablespoon hot water","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"water","it":"acqua","preparationEn":"hot","preparationIt":"calda"}]}
-{"line":"1 tablespoon lemon juice (, fresh squeezed )","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"freshly squeezed lemon juice","it":"succo di limone appena spremuto"}]}
+{"line":"1 tablespoon lemon juice (, fresh squeezed )","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"lemon juice","it":"succo di limone","preparationEn":"fresh squeezed","preparationIt":"spremuto fresco"}]}
 {"line":"1 tablespoon matcha*","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"matcha","it":"matcha"}]}
 {"line":"1 tablespoon minced onion (10 grams)","language":"en","parts":[{"quantity":10,"unit":"g","en":"onion","it":"cipolla","preparationEn":"minced","preparationIt":"tritata finemente"}]}
 {"line":"1 tablespoon of agave, (brown sugar, or maple syrup)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"agave syrup","it":"sciroppo d'agave","alternatives":[{"en":"brown sugar","it":"zucchero di canna"},{"en":"maple syrup","it":"sciroppo d'acero"}]}]}
@@ -176,7 +177,7 @@
 {"line":"1/4 cup chopped red onion","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"red onion","it":"cipolla rossa","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"1/4 cup coconut milk ((cold))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"coconut milk","it":"latte di cocco","preparationEn":"cold","preparationIt":"freddo"}]}
 {"line":"1/4 cup minced fresh parsley","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"minced","preparationIt":"tritato"}]}
-{"line":"1/4 cup non dairy yogurt (or use cashew cream or coconut cream)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"dairy-free yogurt","it":"yogurt vegetale","alternatives":[{"en":"cashew cream","it":"crema di anacardi"},{"en":"coconut cream","it":"crema di cocco"}]}]}
+{"line":"1/4 cup non dairy yogurt (or use cashew cream or coconut cream)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"non dairy yogurt","it":"yogurt vegetale","alternatives":[{"en":"cashew cream","it":"crema di anacardi"},{"en":"coconut cream","it":"crema di cocco"}]}]}
 {"line":"1/4 cup pitted halved olives","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"olives","it":"olive","preparationEn":"pitted and halved","preparationIt":"denocciolate e tagliate a metà"}]}
 {"line":"1/4 cup red onion ((about 1/4 of an onion), chopped*)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"red onion","it":"cipolla rossa","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"1/4 cup slivered toasted almonds","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"toasted almonds","it":"mandorle tostate","preparationEn":"slivered","preparationIt":"tagliate a lamelle"}]}
@@ -331,9 +332,9 @@
 {"line":"8 oz water chestnuts, (drained and diced small)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"water chestnuts","it":"castagne d'acqua","preparationEn":"drained and diced small","preparationIt":"scolate e tagliate a dadini piccoli"}]}
 {"line":"8 slices of vegan cheese","language":"en","parts":[{"quantity":8,"unit":"slice","en":"vegan cheese","it":"formaggio vegetale"}]}
 {"line":"8 tablespoons almond flour (or any flour)","language":"en","parts":[{"quantity":8,"unit":"tbsp","en":"almond flour","it":"farina di mandorle","alternatives":[{"en":"any flour","it":"farina a scelta"}]}]}
-{"line":"9 oz vegan ground meat ((refrigerated or frozen))","language":"en","parts":[{"quantity":9,"unit":"oz","en":"vegan ground meat","it":"macinato vegetale"}]}
+{"line":"9 oz vegan ground meat ((refrigerated or frozen))","language":"en","parts":[{"quantity":9,"unit":"oz","en":"vegan ground meat","it":"macinato vegetale","preparationEn":"refrigerated or frozen","preparationIt":"refrigerato o surgelato"}]}
 {"line":"90 g / 1 cup rolled jumbo oats* (gluten-free certified if required)","language":"en","parts":[{"quantity":90,"unit":"g","en":"jumbo rolled oats","it":"fiocchi d'avena grandi"}]}
-{"line":"Aioli (page 208 in Fuss-Free Vegan), marinara, or tartar sauce (page 144 in Fuss-Free Vegan) (for dipping)","language":"en","parts":[{"en":"aioli","it":"aioli","purposeEn":"for dipping","purposeIt":"per intingere","alternatives":[{"en":"marinara sauce","it":"salsa marinara"},{"en":"tartar sauce","it":"salsa tartara"}]}]}
+{"line":"Aioli (page 208 in Fuss-Free Vegan), marinara, or tartar sauce (page 144 in Fuss-Free Vegan) (for dipping)","language":"en","parts":[{"en":"aioli","it":"salsa all'aglio","purposeEn":"for dipping","purposeIt":"per intingere","alternatives":[{"en":"marinara sauce","it":"salsa marinara"},{"en":"tartar sauce","it":"salsa tartara"}]}]}
 {"line":"Aluminum foil (optional)","language":"en","kind":"other"}
 {"line":"Basmati Rice","language":"en","parts":[{"en":"basmati rice","it":"riso basmati"}]}
 {"line":"Fresh basil or chives (to garnish)","language":"en","parts":[{"en":"fresh basil","it":"basilico fresco","purposeEn":"for garnish","purposeIt":"per guarnire","alternatives":[{"en":"fresh chives","it":"erba cipollina fresca"}]}]}

@@ -47,7 +47,7 @@ export function consistentNames(records: { record: LineRecord; uses: number }[],
   const report = [...changes].map(([en, changed]) => ({ en, it: choices.get(en)!, changed }));
   return report.sort((a,b) => b.changed-a.changed || a.en.localeCompare(b.en));
 }
-export async function importLines(audit: string, directory = lineStoreDirectory, rereadFile = '.data/audit/reread.json') {
+export async function importLines(audit: string, directory = lineStoreDirectory, rereadFile = join(audit, 'reread.json')) {
   const lines = JSON.parse(await readFile(join(audit, 'lines.json'), 'utf8')) as AuditLine[];
   const rows = new Map<number, AuditRow>();
   for (const file of (await readdir(join(audit, 'batches'))).filter(f => f.endsWith('.out')).sort()) {
@@ -58,6 +58,15 @@ export async function importLines(audit: string, directory = lineStoreDirectory,
     }
   }
   if (rows.size !== lines.length) throw new Error('Incomplete audit');
+  // A second reading of flagged lines replaces the first.
+  const rereads = await readdir(join(audit, 'reread')).catch(() => [] as string[]);
+  for (const file of rereads.filter(f => f.endsWith('.out')).sort()) {
+    for (const text of (await readFile(join(audit, 'reread', file), 'utf8')).split('\n').filter(s => s.trim())) {
+      const row = JSON.parse(text) as AuditRow;
+      if (!rows.has(row.i)) throw new Error('Reread of an unknown line');
+      rows.set(row.i, row);
+    }
+  }
   const records = lines.map((line, i) => ({ record: convertAudit(line, rows.get(i)!), uses: line.n, i }));
   const overrides = JSON.parse(await readFile(fileURLToPath(new URL('../data/line-names.json', import.meta.url)), 'utf8')) as Record<string, string>;
   const merged = consistentNames(records, overrides);
