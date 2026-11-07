@@ -57,3 +57,14 @@ pnpm lines:fill --answers .data/fill/lines.answers.jsonl   # apply JSONL answers
 ```
 
 `--dry-run` prints `index<TAB>language<TAB>text` rows; a worker answers them as JSON Lines with the `packages/ingest/data/line-prompt.md` rules (`{"i":id,"p":[…]}` or `{"i":id,"k":"h"|"o"}`). Rejected records are reported and skipped, so that line stays on the parser path. Records land in `packages/ingest/data/lines/`, sharded and sorted.
+
+### Running a fill
+
+Filling is a manual job an agent runs when asked; nothing schedules it.
+
+1. On a branch from `main`, get the current store: `gh release download data --pattern store.json.gz --dir .data --clobber`.
+2. Run `pnpm lines:fill --dry-run > .data/fill/lines.txt` and stop if it reports no missing lines.
+3. Answer the rows with a strong model, 100 rows per call, following `packages/ingest/data/line-prompt.md`, or set `ENRICH_*` and use `--limit`.
+4. Run `pnpm lines:fill --answers .data/fill/lines.answers.jsonl` and read what it rejected. A rejected line stays on the parser; do not relax `validateRecord` to pass it.
+5. Read the new rows in `git diff`: amounts come from the parser, so check names, Italian and that vegan qualifiers survive.
+6. Run `pnpm typecheck`, `pnpm test` and `pnpm golden` (0 changed), then open a PR with the accepted and rejected counts.
