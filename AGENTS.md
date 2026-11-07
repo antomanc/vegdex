@@ -42,6 +42,7 @@ Load only what the task needs. Skills live in `.agents/skills/` (linked into `.c
 | UI/UX design system, anti-slop review | `DESIGN.md` + `.agents/skills/impeccable` |
 | Codebase exploration & impact analysis | `trail ask "<query>" --source` / `trail skeleton <file>` (see the Trail section) |
 | Automated unit & E2E testing | `docs/agents/testing.md` |
+| Filling new ingredient lines (line records) | `docs/agents/vocabulary.md`, "Running a fill" |
 | Live UI verification (Web / Mobile) | `docs/agents/ui-verification.md` |
 | Engineering workflow & skills | `docs/agents/workflows.md` |
 | Scoping or simplifying a change | `ponytail` skill |
