@@ -257,6 +257,7 @@
 {"line":"2-3 teaspoons zest of a blood orange","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tsp","en":"blood orange zest","it":"scorza d'arancia rossa"}]}
 {"line":"2/3 cup (75 g) chopped pecans","language":"en","parts":[{"quantity":75,"unit":"g","en":"pecans","it":"noci pecan","preparationEn":"chopped","preparationIt":"tritate"}]}
 {"line":"2/3 cup homemade hummus (*made above)","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"homemade hummus","it":"hummus fatto in casa"}]}
+{"line":"20 g / ¼ cup blanched almond flakes + more for serving","language":"en","parts":[{"quantity":20,"unit":"g","en":"blanched almond flakes","it":"mandorle sbollentate a lamelle","purposeEn":"more for serving","purposeIt":"altre per servire"}]}
 {"line":"240 g / 2 cups wholemeal spelt flour","language":"en","parts":[{"quantity":240,"unit":"g","en":"wholemeal spelt flour","it":"farina integrale di farro"}]}
 {"line":"240 ml / 1 cup plant milk, lukewarm","language":"en","parts":[{"quantity":240,"unit":"ml","en":"plant milk","it":"latte vegetale","preparationEn":"lukewarm","preparationIt":"tiepido"}]}
 {"line":"250 g / 9 oz chestnut / cremini mushrooms","language":"en","parts":[{"quantity":250,"unit":"g","en":"chestnut mushrooms","it":"funghi champignon cremini","alternatives":[{"en":"cremini mushrooms","it":"funghi cremini"}]}]}
@@ -408,6 +409,7 @@
 {"line":"½ teaspoon dried oregano (0.5g)","language":"en","parts":[{"quantity":0.5,"unit":"g","en":"dried oregano","it":"origano secco"}]}
 {"line":"½ vegetable bouillon cube","language":"en","parts":[{"quantity":0.5,"unit":"cube","en":"vegetable bouillon","it":"dado vegetale"}]}
 {"line":"¾ cup nut or seed butter*","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"nut butter","it":"burro di frutta secca","alternatives":[{"en":"seed butter","it":"burro di semi"}]}]}
+{"line":"¾ cup pumpkin puree","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"pumpkin puree","it":"purea di zucca"}]}
 {"line":"⅓ cup of hot plant-based milk","language":"en","parts":[{"quantity":0.3333,"unit":"cup","en":"plant-based milk","it":"latte vegetale","preparationEn":"hot","preparationIt":"caldo"}]}
 {"line":"⅔ cup maple syrup","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero"}]}
 {"line":"1 cucchiaino di fecola di patate","language":"it","parts":[{"quantity":1,"unit":"tsp","en":"potato starch","it":"fecola di patate"}]}

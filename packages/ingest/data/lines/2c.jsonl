@@ -386,6 +386,7 @@
 {"line":"two 15 oz cans low-sodium chickpeas, drained & rinsed","language":"en","parts":[{"quantity":30,"unit":"oz","en":"canned low-sodium chickpeas","it":"ceci in scatola a ridotto contenuto di sodio","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"vegan whipped cream or vegan vanilla ice cream (optional, for serving)","language":"en","parts":[{"en":"vegan whipped cream","it":"panna montata vegetale","purposeEn":"for serving","purposeIt":"per servire","optional":true,"alternatives":[{"en":"vegan vanilla ice cream","it":"gelato vegano alla vaniglia"}]}]}
 {"line":"¼ cup + 3 tbsp Maple Syrup","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero","plus":{"quantity":3,"unit":"tbsp"}}]}
+{"line":"¼ cup chopped fruit (your choice)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fruit of choice","it":"frutta a scelta","preparationEn":"chopped","preparationIt":"tagliata a pezzetti"}]}
 {"line":"¼ teaspoon nutmeg (optional)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"nutmeg","it":"noce moscata","optional":true}]}
 {"line":"¼ to ½ cup hot sauce","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"cup","en":"hot sauce","it":"salsa piccante"}]}
 {"line":"¼ tsp ground white pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground white pepper","it":"pepe bianco macinato"}]}

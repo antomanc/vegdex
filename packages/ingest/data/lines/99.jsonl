@@ -340,6 +340,7 @@
 {"line":"Bowl of water for sealing wrapper","language":"en","parts":[{"quantity":1,"unit":"bowl","en":"water","it":"acqua","purposeEn":"for sealing wrapper","purposeIt":"per sigillare l'involucro"}]}
 {"line":"Cocowhip (from So Delicious)","language":"en","parts":[{"en":"Cocowhip","it":"Cocowhip"}]}
 {"line":"Crushed red pepper flakes, (garnish (optional))","language":"en","parts":[{"en":"crushed red pepper flakes","it":"peperoncino rosso in fiocchi","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true}]}
+{"line":"For serving: Pita triangles, crackers, crostini, tortilla chips, or fresh vegetables","language":"en","parts":[{"en":"pita triangles","it":"triangoli di pita","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"crackers","it":"cracker"},{"en":"crostini","it":"crostini"},{"en":"tortilla chips","it":"tortilla chips"},{"en":"fresh vegetables","it":"verdure fresche"}]}]}
 {"line":"Freshly cracked black pepper to taste, (for garnish)","language":"en","parts":[{"en":"freshly cracked black pepper","it":"pepe nero macinato al momento","purposeEn":"for garnish","purposeIt":"per guarnire","toTaste":true}]}
 {"line":"Guacamole","language":"en","parts":[{"en":"guacamole","it":"guacamole"}]}
 {"line":"Jalapeño Slices (amount to taste)","language":"en","parts":[{"en":"jalapeño","it":"peperoncino jalapeño","preparationEn":"sliced","preparationIt":"a fette","toTaste":true}]}

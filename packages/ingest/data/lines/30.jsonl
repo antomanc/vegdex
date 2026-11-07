@@ -65,6 +65,7 @@
 {"line":"1 heaped tsp ground cinnamon","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"ground cinnamon","it":"cannella in polvere"}]}
 {"line":"1 heaping tablespoon demerara sugar ((coarse sugar) )","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"demerara sugar","it":"zucchero demerara","preparationEn":"heaping","preparationIt":"colmo"}]}
 {"line":"1 large apple (cored and cubed)","language":"en","parts":[{"quantity":1,"en":"large apple","it":"mela grande","preparationEn":"cored and cubed","preparationIt":"privata del torsolo e tagliata a cubetti"}]}
+{"line":"1 large bay leaf (about 0.2g)","language":"en","parts":[{"quantity":1,"en":"large bay leaf","it":"foglia di alloro grande"}]}
 {"line":"1 large bunch Tuscan kale ((about 1 to 1 1/2 pounds/450 to 675 grams), stems removed and leaves roughly chopped)","language":"en","parts":[{"quantity":1,"unit":"bunch","en":"large bunch of Tuscan kale","it":"mazzo grande di cavolo nero","preparationEn":"stems removed and leaves roughly chopped","preparationIt":"gambi rimossi e foglie tritate grossolanamente"}]}
 {"line":"1 large roasted red bell pepper","language":"en","parts":[{"quantity":1,"en":"large roasted red bell pepper","it":"peperone rosso grande arrostito"}]}
 {"line":"1 large russet potato, peeled and chopped small","language":"en","parts":[{"quantity":1,"en":"large russet potato","it":"patata russet grande","preparationEn":"peeled and chopped small","preparationIt":"sbucciata e tagliata a pezzetti"}]}
@@ -205,6 +206,7 @@
 {"line":"1/4 tsp. black pepper","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"black pepper","it":"pepe nero"}]}
 {"line":"1/4 – 1/2 teaspoon chili powder, optional","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"chili powder","it":"peperoncino in polvere","optional":true}]}
 {"line":"1/8 tsp salt ((only add if nuts are unsalted))","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"salt","it":"sale"}]}
+{"line":"1/8 tsp salt (plus more to taste)","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"salt","it":"sale","purposeEn":"more to taste","purposeIt":"altro a piacere"}]}
 {"line":"10 ounces dry spaghetti (or linguini )","language":"en","parts":[{"quantity":10,"unit":"oz","en":"dry spaghetti","it":"spaghetti secchi","alternatives":[{"en":"linguine","it":"linguine"}]}]}
 {"line":"10 whole cloves ((or 1/2 tsp ground cloves))","language":"en","parts":[{"quantity":10,"en":"whole cloves","it":"chiodi di garofano interi","alternatives":[{"quantity":0.5,"unit":"tsp","en":"ground cloves","it":"chiodi di garofano macinati"}]}]}
 {"line":"10.5 ounces firm or extra firm tofu, (drained (3/4 of a 14 ounce package))","language":"en","parts":[{"quantity":10.5,"unit":"oz","en":"firm tofu","it":"tofu compatto","preparationEn":"drained","preparationIt":"scolato","alternatives":[{"en":"extra-firm tofu","it":"tofu extra compatto"}]}]}
