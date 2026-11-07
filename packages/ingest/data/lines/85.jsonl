@@ -229,9 +229,11 @@
 {"line":"2 tablespoons + 2 teaspoons nutritional yeast","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"nutritional yeast","it":"lievito alimentare","plus":{"quantity":2,"unit":"tsp"}}]}
 {"line":"2 tablespoons all-purpose flour (16g)","language":"en","parts":[{"quantity":16,"unit":"g","en":"all-purpose flour","it":"farina 00"}]}
 {"line":"2 tablespoons dark balsamic vinegar (do not sub with another vinegar)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"dark balsamic vinegar","it":"aceto balsamico scuro"}]}
+{"line":"2 tablespoons loose chai tea (or 2 tea bags)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"loose chai tea","it":"tè speziato sfuso","alternatives":[{"quantity":2,"unit":"bag","en":"chai tea bags","it":"bustine di tè speziato"}]}]}
 {"line":"2 tablespoons low-sodium soy sauce (30mL)","language":"en","parts":[{"quantity":30,"unit":"ml","en":"low-sodium soy sauce","it":"salsa di soia a basso contenuto di sodio"}]}
 {"line":"2 tablespoons miso","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"miso","it":"miso"}]}
 {"line":"2 tablespoons non-dairy milk such as almond or oat","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"non-dairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"oat milk","it":"latte d'avena"}]}]}
+{"line":"2 tablespoons oil (plus more for cooking )","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"oil","it":"olio","purposeEn":"more for cooking","purposeIt":"altro per cuocere"}]}
 {"line":"2 tablespoons sesame oil, divided","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"sesame oil","it":"olio di sesamo","preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"2 tablespoons unflavored and unsweetened non-dairy milk, (plus more as needed)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"unflavored unsweetened non-dairy milk","it":"latte vegetale non aromatizzato e senza zuccheri","preparationEn":"plus more as needed","preparationIt":"più altro quanto basta"}]}
 {"line":"2 tablespoons unsulfured molasses ((not blackstrap molasses))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"unsulfured molasses","it":"melassa non solforata"}]}

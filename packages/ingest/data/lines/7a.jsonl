@@ -202,6 +202,7 @@
 {"line":"1/8 teaspoon baking powder","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"baking powder","it":"lievito per dolci"}]}
 {"line":"1/8 teaspoon of pepper","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"pepper","it":"pepe"}]}
 {"line":"1/8 tsp pepper ((more to taste))","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"pepper","it":"pepe","toTaste":true}]}
+{"line":"100 g / 1 cup roasted pecans, chopped + 12 more for decoration","language":"en","parts":[{"quantity":100,"unit":"g","en":"roasted pecans","it":"noci pecan tostate","preparationEn":"chopped","preparationIt":"tritate","purposeEn":"12 more for decoration","purposeIt":"altre 12 per decorare"}]}
 {"line":"100 g Medjool dates (pitted and soaked in hot water for 20 minutes)","language":"en","parts":[{"quantity":100,"unit":"g","en":"Medjool dates","it":"datteri Medjool","preparationEn":"pitted and soaked in hot water for 20 minutes","preparationIt":"denocciolati e ammollati in acqua calda per 20 minuti"}]}
 {"line":"100 g dark chocolate, finely chopped","language":"en","parts":[{"quantity":100,"unit":"g","en":"dark chocolate","it":"cioccolato fondente","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"100 g dark cocoa powder","language":"en","parts":[{"quantity":100,"unit":"g","en":"dark cocoa powder","it":"cacao amaro scuro in polvere"}]}
@@ -270,6 +271,7 @@
 {"line":"2 tsp Sriracha or other chilli sauce (optional)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"Sriracha","it":"salsa Sriracha","optional":true,"alternatives":[{"en":"other chilli sauce","it":"altra salsa al peperoncino"}]}]}
 {"line":"2 tsp coconut sugar (or sub brown sugar or any other sweetener like maple syrup)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"coconut sugar","it":"zucchero di cocco","alternatives":[{"en":"brown sugar","it":"zucchero di canna"},{"en":"sweetener of choice","it":"dolcificante a scelta"},{"en":"maple syrup","it":"sciroppo d'acero"}]}]}
 {"line":"2 tsp garlic ((crushed))","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"garlic","it":"aglio","preparationEn":"crushed","preparationIt":"schiacciato"}]}
+{"line":"2 tsp psyllium husk powder (or the double amount of whole husks)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"psyllium husk powder","it":"cuticola di psillio in polvere","alternatives":[{"quantity":4,"unit":"tsp","en":"whole psyllium husks","it":"bucce intere di psillio"}]}]}
 {"line":"2 vegan pie crusts ((make your own or use store-bought crusts))","language":"en","parts":[{"quantity":2,"en":"vegan pie crusts","it":"basi vegane per torta"}]}
 {"line":"2 ¼ tsp (1 package) active dry yeast","language":"en","parts":[{"quantity":2.25,"unit":"tsp","en":"active dry yeast","it":"lievito di birra secco attivo"}]}
 {"line":"2 ½ cups vegetable broth (or water)","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}

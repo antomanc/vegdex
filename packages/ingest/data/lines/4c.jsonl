@@ -43,6 +43,7 @@
 {"line":"1 cup water, ((240mL) plus more as needed)","language":"en","parts":[{"quantity":240,"unit":"ml","en":"water","it":"acqua"}]}
 {"line":"1 few drops of liquid smoke (optional)","language":"en","parts":[{"unit":"drop","en":"liquid smoke","it":"fumo liquido","optional":true}]}
 {"line":"1 golden beet (peeled and shredded, grated, or finely chopped)","language":"en","parts":[{"quantity":1,"en":"golden beet","it":"barbabietola gialla","preparationEn":"peeled and shredded, grated, or finely chopped","preparationIt":"sbucciata e tagliata a julienne, grattugiata o tritata finemente"}]}
+{"line":"1 head of garlic + optionally extra 1-2 cloves*","language":"en","parts":[{"quantity":1,"unit":"head","en":"garlic","it":"aglio","purposeEn":"optionally 1–2 extra cloves","purposeIt":"facoltativamente 1–2 spicchi in più"}]}
 {"line":"1 heaping cup cherry tomatoes, (halved)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cherry tomatoes","it":"pomodorini ciliegino","preparationEn":"halved","preparationIt":"tagliati a metà"}]}
 {"line":"1 jalapeño (cored and diced finely)","language":"en","parts":[{"quantity":1,"en":"jalapeño","it":"peperoncino jalapeño","preparationEn":"cored and diced finely","preparationIt":"privato del torsolo e tagliato a dadini piccoli"}]}
 {"line":"1 large English cucumber (thinly sliced)","language":"en","parts":[{"quantity":1,"en":"large English cucumber","it":"cetriolo inglese grande","preparationEn":"thinly sliced","preparationIt":"tagliato a fettine sottili"}]}
@@ -395,6 +396,7 @@
 {"line":"½ cup melted vegan butter","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"½ cup non-dairy milk ((for soaking the optional saffron))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","purposeEn":"for soaking the optional saffron","purposeIt":"per ammollare lo zafferano facoltativo"}]}
 {"line":"½ cup panko breadcrumbs ((or any breadcrumbs. Use gf breadcrumbs if gluten-free))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"panko breadcrumbs","it":"pangrattato panko","alternatives":[{"en":"breadcrumbs","it":"pangrattato"}]}]}
+{"line":"½ cup plant-based coconut yogurt","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"plant-based coconut yogurt","it":"yogurt vegetale al cocco"}]}
 {"line":"½ cup unsweetened applesauce (120 g)","language":"en","parts":[{"quantity":120,"unit":"g","en":"unsweetened applesauce","it":"purea di mele senza zucchero"}]}
 {"line":"½ head of cauliflower","language":"en","parts":[{"quantity":0.5,"unit":"head","en":"cauliflower","it":"cavolfiore"}]}
 {"line":"½ pound of fresh mushrooms (destemmed and halved)","language":"en","parts":[{"quantity":0.5,"unit":"lb","en":"fresh mushrooms","it":"funghi freschi","preparationEn":"destemmed and halved","preparationIt":"privati dei gambi e tagliati a metà"}]}

@@ -358,6 +358,7 @@
 {"line":"Loaf Pan","language":"en","kind":"other"}
 {"line":"Naan and rice","language":"en","parts":[{"en":"naan","it":"naan"},{"en":"rice","it":"riso"}]}
 {"line":"Optional: 1/2 tsp red pepper flakes for heat.","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi","optional":true}]}
+{"line":"Optional: piece of orange rind and/or 2 tea bags like chamomile (earl grey, or chai tea)","language":"en","parts":[{"quantity":1,"unit":"piece","en":"orange rind","it":"scorza d'arancia","optional":true},{"quantity":2,"unit":"bag","en":"chamomile tea","it":"camomilla","optional":true,"alternatives":[{"en":"earl grey tea","it":"tè nero al bergamotto"},{"en":"chai tea","it":"tè speziato"}]}]}
 {"line":"Oregano, thyme, salt & pepper (to taste)","language":"en","parts":[{"en":"oregano","it":"origano","toTaste":true},{"en":"thyme","it":"timo","toTaste":true},{"en":"salt","it":"sale","toTaste":true},{"en":"pepper","it":"pepe","toTaste":true}]}
 {"line":"Pink Himalayan salt to rim each glass (optional)","language":"en","parts":[{"en":"pink Himalayan salt","it":"sale rosa dell'Himalaya","optional":true}]}
 {"line":"Roasted garlic, (from above)","language":"en","parts":[{"en":"roasted garlic","it":"aglio arrostito"}]}

@@ -189,6 +189,7 @@
 {"line":"1/4 teaspoon cardamom powder ((substitute with fave spice if you don't like cardamom))","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"cardamom powder","it":"cardamomo in polvere","alternatives":[{"en":"spice of choice","it":"spezia a scelta"}]}]}
 {"line":"1/4 teaspoon dried basil or rosemary","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"dried basil","it":"basilico essiccato","alternatives":[{"en":"dried rosemary","it":"rosmarino essiccato"}]}]}
 {"line":"1/4 tsp 1/2 tsp salt depending on if the chickpeas were salted","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"salt","it":"sale"}]}
+{"line":"1/4 tsp paprika + more for garnish","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"paprika","it":"paprika","purposeEn":"more for garnish","purposeIt":"altra per guarnire"}]}
 {"line":"1/4 tsp salt (more to taste)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
 {"line":"100 grams panko breadcrumbs","language":"en","parts":[{"quantity":100,"unit":"g","en":"panko breadcrumbs","it":"pangrattato panko"}]}
 {"line":"12.346 oz pre-seasoned tofu strips","language":"en","parts":[{"quantity":12.346,"unit":"oz","en":"pre-seasoned tofu strips","it":"strisce di tofu già condite"}]}

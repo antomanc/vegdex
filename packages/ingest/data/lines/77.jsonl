@@ -74,6 +74,7 @@
 {"line":"1 tablespoon chopped fresh mint (or 1 tablespoon cilantro or any herb of choice)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"fresh mint","it":"menta fresca","preparationEn":"chopped","preparationIt":"tritata","alternatives":[{"quantity":1,"unit":"tbsp","en":"cilantro","it":"coriandolo fresco"},{"en":"herb of choice","it":"erba aromatica a scelta"}]}]}
 {"line":"1 tablespoon cornstarch ((+1 teaspoon for extra thick curd, optional—reader tip!))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"cornstarch","it":"amido di mais","plus":{"quantity":1,"unit":"tsp"}}]}
 {"line":"1 tablespoon fresh parsley (minced (4 grams))","language":"en","parts":[{"quantity":4,"unit":"g","en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"minced","preparationIt":"tritato"}]}
+{"line":"1 tablespoon lemon juice (plus more for garnish)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"lemon juice","it":"succo di limone","purposeEn":"more for garnish","purposeIt":"altro per guarnire"}]}
 {"line":"1 tablespoon nutritional yeast ((optional, adds a cheesy taste))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"nutritional yeast","it":"lievito alimentare","optional":true}]}
 {"line":"1 tablespoon oil (any neutral flavored oil will work or omit completely for reduced fat)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"neutral-flavored oil","it":"olio dal sapore neutro","optional":true}]}
 {"line":"1 tablespoon olive oil (or avocado/vegetable oil)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","alternatives":[{"en":"avocado oil","it":"olio di avocado"},{"en":"vegetable oil","it":"olio vegetale"}]}]}
@@ -149,6 +150,7 @@
 {"line":"1/2 cup vegan cheddar shreds (or vegan shreds of choice, optional)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan cheddar shreds","it":"cheddar vegano grattugiato","optional":true,"alternatives":[{"en":"vegan shreds of choice","it":"formaggio vegetale grattugiato a scelta"}]}]}
 {"line":"1/2 cup vegan feta ((see note for sub))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan feta","it":"feta vegana"}]}
 {"line":"1/2 cup vegan heavy cream ((or sub cashew cream or full-fat coconut milk))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan heavy cream","it":"panna vegetale da montare","alternatives":[{"en":"cashew cream","it":"crema di anacardi"},{"en":"full-fat coconut milk","it":"latte di cocco intero"}]}]}
+{"line":"1/2 cup vegan parmesan, finely grated","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan parmesan","it":"parmigiano vegano","preparationEn":"finely grated","preparationIt":"grattugiato finemente"}]}
 {"line":"1/2 cup water (divided)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"water","it":"acqua","preparationEn":"divided","preparationIt":"da usare in più riprese"}]}
 {"line":"1/2 red bell pepper (sliced into 1-inch pieces)","language":"en","parts":[{"quantity":0.5,"en":"red bell pepper","it":"peperone rosso","preparationEn":"sliced into 1-inch pieces","preparationIt":"tagliato a pezzi di circa 2,5 cm"}]}
 {"line":"1/2 red bell pepper (sliced)","language":"en","parts":[{"quantity":0.5,"en":"red bell pepper","it":"peperone rosso","preparationEn":"sliced","preparationIt":"affettato"}]}
@@ -230,6 +232,7 @@
 {"line":"2 cups frozen raspberries","language":"en","parts":[{"quantity":2,"unit":"cup","en":"frozen raspberries","it":"lamponi surgelati"}]}
 {"line":"2 cups long-grain white rice","language":"en","parts":[{"quantity":2,"unit":"cup","en":"long-grain white rice","it":"riso bianco a chicco lungo"}]}
 {"line":"2 cups shredded vegan mozzarella cheese","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vegan mozzarella cheese","it":"mozzarella vegana","preparationEn":"shredded","preparationIt":"grattugiata"}]}
+{"line":"2 cups vegetable broth (480ml)","language":"en","parts":[{"quantity":480,"unit":"ml","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"2 cups vital wheat gluten","language":"en","parts":[{"quantity":2,"unit":"cup","en":"vital wheat gluten","it":"glutine di frumento"}]}
 {"line":"2 cups zucchini ((about 1 small zucchini))","language":"en","parts":[{"quantity":2,"unit":"cup","en":"zucchini","it":"zucchine"}]}
 {"line":"2 finely chopped scallions, white and light green parts","language":"en","parts":[{"quantity":2,"en":"scallions","it":"cipollotti","preparationEn":"white and light green parts, finely chopped","preparationIt":"parti bianche e verde chiaro, tritate finemente"}]}

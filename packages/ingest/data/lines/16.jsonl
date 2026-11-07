@@ -38,6 +38,7 @@
 {"line":"1 cup (240g) room temp canned lite coconut milk, shaken (SEE NOTES below)","language":"en","parts":[{"quantity":240,"unit":"g","en":"canned light coconut milk","it":"latte di cocco light in lattina","preparationEn":"at room temperature, shaken","preparationIt":"a temperatura ambiente, agitato"}]}
 {"line":"1 cup Berries (I used Blueberries)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"berries","it":"frutti di bosco"}]}
 {"line":"1 cup bamboo shoots","language":"en","parts":[{"quantity":1,"unit":"cup","en":"bamboo shoots","it":"germogli di bambù"}]}
+{"line":"1 cup chopped walnuts (or pecans) ((*Omit for nut allergy), Plus more for topping, optional)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"walnuts","it":"noci","preparationEn":"chopped","preparationIt":"tritate","purposeEn":"more for topping, optional","purposeIt":"altre per guarnire, facoltative","alternatives":[{"en":"pecans","it":"noci pecan"}]}]}
 {"line":"1 cup cocoa powder ((Dutch-process))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"Dutch-process cocoa powder","it":"cacao alcalinizzato in polvere"}]}
 {"line":"1 cup crispy gluten free panko bread crumbs","language":"en","parts":[{"quantity":1,"unit":"cup","en":"crispy gluten-free panko breadcrumbs","it":"panko croccante senza glutine"}]}
 {"line":"1 cup frozen peas (thawed)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"frozen peas","it":"piselli surgelati","preparationEn":"thawed","preparationIt":"scongelati"}]}
@@ -186,6 +187,7 @@
 {"line":"1/4 teaspoon active yeast","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"active yeast","it":"lievito attivo"}]}
 {"line":"1/4 teaspoon sea salt (or to taste)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"sea salt","it":"sale marino","toTaste":true}]}
 {"line":"1/4 tsp black pepper (or less/more to taste)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"black pepper","it":"pepe nero","toTaste":true}]}
+{"line":"1/4 tsp smoked paprika + more for garnish","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"smoked paprika","it":"paprika affumicata","purposeEn":"more for garnish","purposeIt":"altra per guarnire"}]}
 {"line":"1/4-1/2 cup red wine vinegar (as desired)","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"cup","en":"red wine vinegar","it":"aceto di vino rosso"}]}
 {"line":"1/8 tsp liquid smoke","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"liquid smoke","it":"fumo liquido"}]}
 {"line":"1/8 tsp to 1/4 tsp salt (depending on if the brine was salted)","language":"en","parts":[{"quantity":0.125,"quantityMax":0.25,"unit":"tsp","en":"salt","it":"sale"}]}
@@ -306,6 +308,7 @@
 {"line":"4 cups (580 g) sweet potato, peeled & diced (about 2 medium)","language":"en","parts":[{"quantity":580,"unit":"g","en":"sweet potato","it":"patata dolce","preparationEn":"peeled and diced","preparationIt":"sbucciata e tagliata a dadini"}]}
 {"line":"4 cups Bob's Red Mill Organic Tri-Color Quinoa (cooked*)","language":"en","parts":[{"quantity":4,"unit":"cup","en":"organic tri-color quinoa","it":"quinoa tricolore biologica","preparationEn":"cooked","preparationIt":"cotta"}]}
 {"line":"4 cups canola oil","language":"en","parts":[{"quantity":4,"unit":"cup","en":"canola oil","it":"olio di colza"}]}
+{"line":"4 cups water (+ water for soaking)","language":"en","parts":[{"quantity":4,"unit":"cup","en":"water","it":"acqua","purposeEn":"more for soaking","purposeIt":"altra per l'ammollo"}]}
 {"line":"4 king trumpet mushroom","language":"en","parts":[{"quantity":4,"en":"king trumpet mushrooms","it":"funghi cardoncelli"}]}
 {"line":"4 oz shiitake mushrooms, (thinly sliced)","language":"en","parts":[{"quantity":4,"unit":"oz","en":"shiitake mushrooms","it":"funghi shiitake","preparationEn":"thinly sliced","preparationIt":"tagliati a fettine sottili"}]}
 {"line":"4 tablespoons chopped fresh basil, optional","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"fresh basil","it":"basilico fresco","preparationEn":"chopped","preparationIt":"tritato","optional":true}]}

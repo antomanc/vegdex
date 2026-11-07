@@ -23,6 +23,7 @@ A part is one ingredient to buy:
 - alt: same-role alternatives the cook can really use, as a list of {"q","m","u","en","it"}; give amounts only when the alternative has its own amount. Include "or X" when X is a real short alternative. Leave out brand tips, "see notes", "gluten-free if needed", and commentary such as "I used...". "soy or almond milk" is one part with en "soy milk" and alt [{"en":"almond milk","it":"latte di mandorla"}].
 - A list of different ingredients ("sesame seeds, hemp seeds, lime juice") is one part each. "Toppings of choice such as a, b, c": one part "toppings of choice", with a, b, c in alt.
 - "or spice of choice" stays as an alt.
+- "plus more for topping", "+ extra for greasing" and "more to taste" are the same ingredient: one part, with the purpose in s and si. Never write the same ingredient as two parts.
 
 Example rows (invented):
 7	en	1 1/2 cups (200g) raw almonds, soaked overnight (or use cashews)
