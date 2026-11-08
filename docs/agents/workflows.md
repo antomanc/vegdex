@@ -7,7 +7,6 @@ Skills live in `.agents/skills/` (linked into `.claude/skills/` for Claude Code)
 Before implementation, run `pnpm preflight`. For browser work, run `pnpm preflight --ui`;
 set `AGENT_BROWSER_BIN` to an existing CLI path when it is outside `PATH`.
 Preflight checks availability and launches/closes Chromium for UI work; it installs nothing.
-If Trail is unavailable, follow the cache paths it prints and verify spans against source.
 Read `gh ... --help` for available JSON fields and select the fields the task needs.
 
 ## Methodology: Matt Pocock skills
