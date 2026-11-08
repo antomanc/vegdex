@@ -28,3 +28,25 @@ test('after one visit the grid and an opened recipe work offline', async ({ page
   await expect(page.getByTestId('recipe-card')).toHaveCount(6);
   expect(errors).toEqual([]);
 });
+
+test('an opened recipe shows its current lines, not a shard cached by an older visit', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('searchbox').fill('pancake');
+  await page.getByRole('button', { name: 'Fluffy Vegan Pancakes', exact: true }).click();
+  const sheet = page.getByRole('dialog');
+  await expect(sheet.getByTestId('ingredients').getByRole('listitem').first()).toBeVisible();
+  const shard = await page.evaluate(() => performance.getEntriesByType('resource').map((e) => e.name).find((url) => url.includes('/data/details/')));
+  // A visit weeks ago left this shard in the cache with lines the dataset no longer has.
+  await expect.poll(() => page.evaluate(async (url) => {
+    const cache = await caches.open('vegdex-data');
+    const cached = await cache.match(url!);
+    if (!cached) return false;
+    const old = Object.fromEntries(Object.keys(await cached.json()).map((id) => [id, ['1 cup stale line']]));
+    await cache.put(url!, new Response(JSON.stringify(old), { headers: { 'content-type': 'application/json' } }));
+    return true;
+  }, shard)).toBe(true);
+
+  await page.reload();
+  await expect(sheet.getByTestId('ingredients').getByRole('listitem').first()).toBeVisible();
+  await expect(sheet.getByTestId('ingredients')).not.toContainText('stale line');
+});
