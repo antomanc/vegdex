@@ -238,6 +238,8 @@ input { caret-color: var(--sign-red); }
 .seg { flex: 1; border: 0; background: transparent; min-height: 44px; padding: 0 10px; font-size: 0.88rem; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .seg + .seg { border-left: 2px solid var(--rule); }
 .seg:focus-visible { outline: 3px solid var(--green); outline-offset: -6px; }
+/* Unit labels differ in length ("USA" / "Metrico"): each segment sizes to its own text. */
+.units .seg { flex: 1 1 auto; }
 .seg.on:focus-visible { outline-color: var(--on-green); }
 .pills .seg.on:focus-visible { outline-color: var(--on-tag); }
 .seg.on { background: var(--green); color: var(--on-green); }
