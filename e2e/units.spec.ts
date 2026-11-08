@@ -77,3 +77,12 @@ for (const { path, other, choice, amount } of [
     }
   });
 }
+
+test('the longer Italian unit label fits its segment', async ({ page }) => {
+  await page.goto('/it/');
+  await page.getByRole('button', { name: 'Zuppa di lenticchie rosse', exact: true }).click();
+  const metric = page.getByRole('dialog').getByRole('button', { name: 'Metrico' });
+  await expect(metric).toBeVisible();
+  const { scroll, client } = await metric.evaluate((el) => ({ scroll: el.scrollWidth, client: el.clientWidth }));
+  expect(scroll).toBeLessThanOrEqual(client);
+});
