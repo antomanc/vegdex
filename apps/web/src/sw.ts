@@ -4,7 +4,7 @@ import { clientsClaim } from 'workbox-core'
 import { ExpirationPlugin } from 'workbox-expiration'
 import { cleanupOutdatedCaches, createHandlerBoundToURL, precacheAndRoute, type PrecacheEntry } from 'workbox-precaching'
 import { NavigationRoute, registerRoute } from 'workbox-routing'
-import { CacheFirst, StaleWhileRevalidate } from 'workbox-strategies'
+import { CacheFirst, NetworkFirst, StaleWhileRevalidate } from 'workbox-strategies'
 import { BASE_LOCALE, LOCALES } from './lib/locales'
 
 declare const self: ServiceWorkerGlobalScope & { __WB_MANIFEST: PrecacheEntry[] }
@@ -20,7 +20,14 @@ registerRoute(new NavigationRoute((options) => {
   return createHandlerBoundToURL(`${base}${locale.prefix ? `${locale.prefix}/` : ''}index.html`)(options)
 }, { denylist: [/\/data\//, /\/(recipes|ricette)\//, /\/(robots\.txt|sitemap\.xml)$/, /\.webmanifest$/] }))
 
-// The dataset changes once a day: serve the cached copy, refresh in the background.
+// A detail shard is fetched only when one of its recipes opens, so a cached copy can be weeks older
+// than the catalog beside it, from before its lines were translated. Ask the network; the cache is for offline.
+registerRoute(({ url }) => url.pathname.includes('/data/details/'), new NetworkFirst({
+  cacheName: 'vegdex-data',
+  networkTimeoutSeconds: 4
+}))
+
+// The rest of the dataset loads on every visit and changes once a day: serve the cached copy, refresh in the background.
 registerRoute(({ url }) => url.pathname.includes('/data/'), new StaleWhileRevalidate({
   cacheName: 'vegdex-data',
   plugins: [new ExpirationPlugin({ maxEntries: 80 })]
