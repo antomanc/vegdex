@@ -20,10 +20,10 @@ test('a portrait photo stays inside its square, so the row keeps its height', as
   }));
   await page.goto('/');
   const thumbs = page.getByTestId('recipe-card').locator('.thumb');
-  await expect(thumbs.locator('img').first()).toBeVisible();
-  await expect.poll(() => thumbs.evaluateAll((all) => all.filter((t) => {
+  // A portrait has to have loaded, or a square crate proves nothing.
+  await expect.poll(() => thumbs.evaluateAll((all) => all.some((t) => {
     const img = t.querySelector('img');
-    return img?.complete && img.naturalHeight > img.naturalWidth && Math.abs(t.clientHeight - t.clientWidth) > 1;
-  }).length)).toBe(0);
-  expect(await thumbs.evaluateAll((all) => all.filter((t) => (t.querySelector('img')?.naturalHeight ?? 0) > 700).length)).toBeGreaterThan(0);
+    return !!img?.complete && img.naturalHeight > img.naturalWidth;
+  }))).toBe(true);
+  expect(await thumbs.evaluateAll((all) => all.filter((t) => Math.abs(t.clientHeight - t.clientWidth) > 1).length)).toBe(0);
 });
