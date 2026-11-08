@@ -8,7 +8,7 @@ const run = promisify(execFile);
 const sourceScript = path.resolve('scripts/preflight.mjs');
 const dirs: string[] = [];
 afterEach(() => dirs.splice(0).forEach((dir) => fs.rmSync(dir, { recursive: true, force: true })));
-function environment(tools: string[], cached = false) {
+function environment(tools: string[]) {
   fs.mkdirSync('.data', { recursive: true });
   const dir = fs.mkdtempSync(path.resolve('.data/preflight-'));
   dirs.push(dir);
@@ -21,21 +21,15 @@ function environment(tools: string[], cached = false) {
   fs.copyFileSync('package.json', path.join(dir, 'package.json'));
   fs.mkdirSync(path.join(dir, 'node_modules/.bin'), { recursive: true });
   fs.writeFileSync(path.join(dir, 'node_modules/.bin/tsc'), '');
-  if (cached) {
-    fs.mkdirSync(path.join(dir, '.trail/cache'), { recursive: true });
-    fs.writeFileSync(path.join(dir, '.trail/cache/INDEX.md'), 'Fixture cache');
-  }
   return { script, cwd: dir, env: { ...process.env, PATH: bin, PLAYWRIGHT_BROWSERS_PATH: path.join(dir, 'no-browsers'), AGENT_BROWSER_BIN: path.join(bin, 'agent-browser') } };
 }
 
-it.each([true, false])('checks required tools from any directory with cached navigation: %s', async (cached) => {
-  const { script, ...options } = environment(['pnpm', 'gh'], cached);
+it('checks required tools from any directory', async () => {
+  const { script, ...options } = environment(['pnpm', 'gh']);
   const before = fs.readdirSync(options.cwd);
   const result = await run(process.execPath, [script], { ...options, cwd: path.join(options.cwd, 'bin') });
   expect(result.stdout).toContain('pnpm: fixture-version');
   expect(result.stdout).toContain('gh: fixture-version');
-  expect(result.stdout).toContain(cached ? 'Navigation: use .trail/cache/' : 'Navigation: no cached graph; use rg --files');
-  expect(result.stdout).not.toContain('graft/');
   expect(fs.readdirSync(options.cwd)).toEqual(before);
 });
 

@@ -6,7 +6,7 @@ import { spawnSync } from 'node:child_process';
 
 const { values } = parseArgs({ options: { ui: { type: 'boolean' }, help: { type: 'boolean' } } });
 if (values.help) {
-  console.log('pnpm preflight [--ui]\nChecks Node, dependencies, pnpm, gh and optional Trail navigation. --ui also checks agent-browser (AGENT_BROWSER_BIN overrides its path) and launches/closes Chromium. Installs nothing.');
+  console.log('pnpm preflight [--ui]\nChecks Node, dependencies, pnpm and gh. --ui also checks agent-browser (AGENT_BROWSER_BIN overrides its path) and launches/closes Chromium. Installs nothing.');
   process.exit(0);
 }
 
@@ -32,11 +32,6 @@ function command(name, executable, required = true) {
 
 command('pnpm', 'pnpm');
 command('gh', 'gh');
-if (!command('trail', 'trail', false)) {
-  console.log(fs.existsSync(path.join(root, '.trail/cache/INDEX.md'))
-    ? 'Navigation: use .trail/cache/INDEX.md and rg --files --hidden .trail/cache; verify cached spans against source.'
-    : 'Navigation: no cached graph; use rg --files and scoped source searches.');
-}
 
 if (values.ui) {
   command('agent-browser', process.env.AGENT_BROWSER_BIN || 'agent-browser');

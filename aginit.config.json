@@ -78,7 +78,7 @@
     ]
   },
   "codebase": {
-    "trail": true
+    "trail": false
   },
   "browser": {
     "visualAgent": true,
@@ -91,7 +91,6 @@
     "ci": true
   },
   "capabilities": [
-    "trail",
     "pocock",
     "ponytail",
     "karpathy-guidelines",
@@ -100,5 +99,8 @@
     "agent-browser",
     "vitest",
     "playwright"
+  ],
+  "disabledCapabilities": [
+    "trail"
   ]
 }
