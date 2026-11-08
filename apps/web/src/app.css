@@ -371,7 +371,8 @@ main:has(~ .dock) { padding-bottom: 96px; }
   content: ''; position: absolute; inset: 30%; background: var(--green); opacity: 0.3;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M18 44c0-16 10-26 28-28-1 18-10 28-26 28h-2z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
-.thumb img { position: relative; }
+/* Out of flow, so a portrait photo cannot stretch its square crate and the row with it. */
+.thumb img { position: absolute; inset: 0; }
 .thumb:has(.placeholder)::before { content: none; }
 .placeholder { display: block; width: 40%; height: 100%; margin: 0 auto; color: var(--green); opacity: 0.35; }
 /* The time is a red price tag hung off the crate's edge, never quite straight. */
