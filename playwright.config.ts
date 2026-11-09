@@ -10,7 +10,8 @@ export default defineConfig({
   reporter: [[process.env.CI ? 'github' : 'list'], ['json', { outputFile: 'test-results/e2e.json' }]],
   use: {
     baseURL: 'http://localhost:4174',
-    trace: 'on-first-retry',
+    // Locally there are no retries, so a rare failure keeps its trace instead (#90); about 13% slower.
+    trace: process.env.CI ? 'on-first-retry' : 'retain-on-failure',
     screenshot: 'only-on-failure',
     // Tests serve the dataset from e2e/fixtures; a service worker would bypass page.route.
     serviceWorkers: 'block'

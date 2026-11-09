@@ -30,4 +30,5 @@ Commands:
 ## Browser E2E: Playwright
 - Run: `pnpm test:e2e` (specs in `e2e/`, config in `playwright.config.ts`).
 - Results: `test-results/e2e.json` (Playwright's JSON report) has every test's status and errors, for agents and scripts.
+- A local failure keeps its trace in `test-results/<test>/trace.zip`; open it with `pnpm exec playwright show-trace <path>`. To hunt a rare failure, loop `playwright test` after one `pnpm fixtures`: the committed fixtures can lag the line records.
 - Replace the skipped starter spec with a real flow as soon as the first screen exists.
