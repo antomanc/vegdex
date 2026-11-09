@@ -32,7 +32,8 @@ test('a recipe contains scrolling at both edges and preserves the underlying gri
 
   // The ingredients must still scroll, without handing the gesture to the page at the end.
   await page.mouse.wheel(0, 400);
-  await expect.poll(() => dialog.evaluate((node) => node.scrollTop)).toBeGreaterThan(0);
+  // The compositor applies the wheel on its next frame; reading inside rAF asks for one (#105).
+  await expect.poll(() => dialog.evaluate((node) => new Promise<number>((done) => requestAnimationFrame(() => done(node.scrollTop))))).toBeGreaterThan(0);
   await dialog.evaluate((node) => { node.scrollTop = node.scrollHeight; });
   await page.mouse.wheel(0, 800);
   await page.waitForTimeout(200);
