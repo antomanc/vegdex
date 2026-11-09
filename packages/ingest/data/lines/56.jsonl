@@ -209,6 +209,7 @@
 {"line":"180 ml / ¾ cup soy milk (or any other thin plant milk)","language":"en","parts":[{"quantity":180,"unit":"ml","en":"soy milk","it":"latte di soia","alternatives":[{"en":"other thin plant milk","it":"altro latte vegetale poco denso"}]}]}
 {"line":"2 (15-ounce) cans of chickpeas","language":"en","parts":[{"quantity":30,"unit":"oz","en":"canned chickpeas","it":"ceci in scatola"}]}
 {"line":"2 (8-ounce) packages of soba noodles","language":"en","parts":[{"quantity":16,"unit":"oz","en":"soba noodles","it":"soba"}]}
+{"line":"2 - 3 types of crackers or bread ((gluten-free if needed))","language":"en","parts":[{"quantity":2,"quantityMax":3,"en":"types of crackers","it":"tipi di cracker","alternatives":[{"en":"bread","it":"pane"}]}]}
 {"line":"2 - 6 teaspoons maple syrup or sweetener of choice","language":"en","parts":[{"quantity":2,"quantityMax":6,"unit":"tsp","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"sweetener of choice","it":"dolcificante a scelta"}]}]}
 {"line":"2 1/2 cups all-purpose flour* (see notes for gluten-free option)","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"all-purpose flour","it":"farina 00"}]}
 {"line":"2 1/4 cup water or stock (heated until boiling)","language":"en","parts":[{"quantity":2.25,"unit":"cup","en":"water","it":"acqua","preparationEn":"heated until boiling","preparationIt":"scaldata fino a ebollizione","alternatives":[{"en":"stock","it":"brodo"}]}]}

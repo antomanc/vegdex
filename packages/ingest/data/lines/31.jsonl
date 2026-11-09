@@ -256,6 +256,7 @@
 {"line":"3-4 garlic cloves, (minced)","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}
 {"line":"3-4 small tomatoes (diced)","language":"en","parts":[{"quantity":3,"quantityMax":4,"en":"small tomatoes","it":"pomodori piccoli","preparationEn":"diced","preparationIt":"tagliati a dadini"}]}
 {"line":"3-4 tablespoons raw runny tahini (I used 4 or I highly recommend cashew butter for the cheesiest flavor if not allergic to nuts!)","language":"en","parts":[{"quantity":3,"quantityMax":4,"unit":"tbsp","en":"raw runny tahini","it":"tahina cruda fluida","alternatives":[{"en":"cashew butter","it":"burro di anacardi"}]}]}
+{"line":"3-6 tablespoons ice water","language":"en","parts":[{"quantity":3,"quantityMax":6,"unit":"tbsp","en":"ice water","it":"acqua ghiacciata"}]}
 {"line":"3/4 cup diced pineapple (thawed if frozen)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"pineapple","it":"ananas","preparationEn":"diced, thawed if frozen","preparationIt":"tagliato a dadini, scongelato se surgelato"}]}
 {"line":"3/4 cup powdered brown sugar","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"powdered brown sugar","it":"zucchero bruno a velo"}]}
 {"line":"3/4 cup raw unrefined sugar","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"raw unrefined sugar","it":"zucchero grezzo non raffinato"}]}

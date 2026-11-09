@@ -96,6 +96,7 @@
 {"line":"1 tbsp unsweetened dairy free milk","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"unsweetened dairy-free milk","it":"latte vegetale senza zucchero"}]}
 {"line":"1 tbsp vegan butter (or use oil)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","alternatives":[{"en":"oil","it":"olio"}]}]}
 {"line":"1 teaspoon dried thyme ((or 1 tablespoon fresh))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"dried thyme","it":"timo essiccato","alternatives":[{"quantity":1,"unit":"tbsp","en":"fresh thyme","it":"timo fresco"}]}]}
+{"line":"1 teaspoon of sesame oil ((optional))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"sesame oil","it":"olio di sesamo","optional":true}]}
 {"line":"1 teaspoon regular paprika powder","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"regular paprika powder","it":"paprika classica in polvere"}]}
 {"line":"1 teaspoon salt ((or more if not using broth))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"salt","it":"sale"}]}
 {"line":"1 teaspoon salt, (plus more to taste (I use 1 1/2 teaspoons))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}

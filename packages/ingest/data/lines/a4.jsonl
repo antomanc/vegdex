@@ -213,6 +213,7 @@
 {"line":"2 -3 Tablespoons Rum or fruit juice of choice","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"rum","it":"rum","alternatives":[{"en":"fruit juice of choice","it":"succo di frutta a scelta"}]}]}
 {"line":"2 1/2 tablespoons (38g) unsweetened applesauce","language":"en","parts":[{"quantity":38,"unit":"g","en":"unsweetened applesauce","it":"purea di mele senza zucchero"}]}
 {"line":"2 1/4 cups almond milk*","language":"en","parts":[{"quantity":2.25,"unit":"cup","en":"almond milk","it":"latte di mandorla"}]}
+{"line":"2 TBSP (14g) ground flaxseed meal","language":"en","parts":[{"quantity":14,"unit":"g","en":"ground flaxseed meal","it":"farina di semi di lino macinati"}]}
 {"line":"2 Tablespoon Raw sugar or equivalent jaggery or packed brown sugar or other sweetener. (adjust to taste less or more)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"raw sugar","it":"zucchero grezzo","toTaste":true,"alternatives":[{"en":"jaggery","it":"jaggery"},{"en":"packed brown sugar","it":"zucchero di canna pressato"},{"en":"sweetener of choice","it":"dolcificante a scelta"}]}]}
 {"line":"2 Tablespoons Barley flour","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"barley flour","it":"farina d'orzo"}]}
 {"line":"2 Tablespoons all purpose flour or Spelt flour (Skip for gf)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"spelt flour","it":"farina di farro"}]}]}

@@ -157,6 +157,7 @@
 {"line":"1/4 cup red and green sugar sprinkles","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"red and green sugar sprinkles","it":"codette di zucchero rosse e verdi"}]}
 {"line":"1/4 cup sun dried tomatoes (plus more if desired)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"sun-dried tomatoes","it":"pomodori secchi"}]}
 {"line":"1/4 cup tomato paste ((Instant Pot only, optional))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"tomato paste","it":"concentrato di pomodoro","optional":true}]}
+{"line":"1/4 cup vegan cheese shreds (such as vegan mozzarella or Parmesan)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan cheese shreds","it":"formaggio vegano grattugiato","alternatives":[{"en":"vegan mozzarella","it":"mozzarella vegana"},{"en":"vegan Parmesan","it":"parmigiano vegano"}]}]}
 {"line":"1/4 teaspoon cinnamon powder or spice of choice","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground cinnamon","it":"cannella in polvere","alternatives":[{"en":"spice of choice","it":"spezia a scelta"}]}]}
 {"line":"1/4 teaspoon dried dill","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"dried dill","it":"aneto essiccato"}]}
 {"line":"1/4 tsp citric acid ((optional))","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"citric acid","it":"acido citrico","optional":true}]}

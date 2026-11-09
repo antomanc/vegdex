@@ -134,6 +134,7 @@
 {"line":"1/2 inch ginger, minced","language":"en","parts":[{"quantity":0.5,"unit":"inch","en":"ginger","it":"zenzero","preparationEn":"minced","preparationIt":"tritato finemente"}]}
 {"line":"1/2 jalapeno, (optional, diced (more or less to taste))","language":"en","parts":[{"quantity":0.5,"en":"jalapeño","it":"peperoncino jalapeño","preparationEn":"diced","preparationIt":"tagliato a dadini","optional":true,"toTaste":true}]}
 {"line":"1/2 medium red onion, (sliced into strips (about 1/2 inch wide))","language":"en","parts":[{"quantity":0.5,"en":"medium red onion","it":"cipolla rossa media","preparationEn":"sliced into strips","preparationIt":"tagliata a strisce"}]}
+{"line":"1/2 teaspoon Aleppo pepper flakes (or regular pepper flakes)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"Aleppo pepper flakes","it":"peperoncino di Aleppo in fiocchi","alternatives":[{"en":"red pepper flakes","it":"peperoncino in fiocchi"}]}]}
 {"line":"1/2 teaspoon almond extract or lemon zest, (optional )","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"almond extract","it":"estratto di mandorla","optional":true,"alternatives":[{"en":"lemon zest","it":"scorza di limone"}]}]}
 {"line":"1/2 teaspoon cayenne pepper ((more to taste))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna"}]}
 {"line":"1/2 teaspoon lemon juice/vinegar","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"lemon juice","it":"succo di limone","alternatives":[{"en":"vinegar","it":"aceto"}]}]}

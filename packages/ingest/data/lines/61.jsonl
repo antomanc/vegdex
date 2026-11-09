@@ -51,6 +51,7 @@
 {"line":"1 cup powdered sugar (sifted, 120g)","language":"en","parts":[{"quantity":120,"unit":"g","en":"powdered sugar","it":"zucchero a velo","preparationEn":"sifted","preparationIt":"setacciato"}]}
 {"line":"1 cup raw cashews (soaked 2–4 hours (or 10 min in hot water))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"raw cashews","it":"anacardi crudi","preparationEn":"soaked for 2–4 hours or for 10 minutes in hot water","preparationIt":"ammollati per 2–4 ore o per 10 minuti in acqua calda"}]}
 {"line":"1 cup vegan chocolate chips, tossed in a bowl with a tablespoon of flour","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan chocolate chips","it":"gocce di cioccolato vegano","preparationEn":"tossed in a bowl with a tablespoon of flour","preparationIt":"mescolate in una ciotola con un cucchiaio di farina"},{"quantity":1,"unit":"tbsp","en":"flour","it":"farina"}]}
+{"line":"1 cup vegan peanut butter chocolate cups","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan peanut butter chocolate cups","it":"cioccolatini vegani al burro di arachidi"}]}
 {"line":"1 cup vegan queso ((or 1 cup vegan cheese shreds*))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan queso","it":"salsa queso vegana","alternatives":[{"quantity":1,"unit":"cup","en":"vegan cheese shreds","it":"formaggio vegano grattugiato"}]}]}
 {"line":"1 cup vegan shredded cheese","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan shredded cheese","it":"formaggio vegetale grattugiato"}]}
 {"line":"1 cup vegetable stock (or vegetable broth)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegetable stock","it":"brodo vegetale","alternatives":[{"en":"vegetable broth","it":"brodo vegetale"}]}]}
@@ -389,6 +390,7 @@
 {"line":"½ cup (100 g) brown sugar (packed)","language":"en","parts":[{"quantity":100,"unit":"g","en":"brown sugar","it":"zucchero di canna","preparationEn":"packed","preparationIt":"pressato"}]}
 {"line":"½ cup black olives","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"black olives","it":"olive nere"}]}
 {"line":"½ cup brown sugar (100 g)","language":"en","parts":[{"quantity":100,"unit":"g","en":"brown sugar","it":"zucchero di canna"}]}
+{"line":"½ cup chopped haricots verts or green beans","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"haricots verts","it":"fagiolini sottili","preparationEn":"chopped","preparationIt":"tritati","alternatives":[{"en":"green beans","it":"fagiolini"}]}]}
 {"line":"½ cup of vegan butter, (frozen and diced)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"frozen and diced","preparationIt":"congelato e tagliato a cubetti"}]}
 {"line":"½ tablespoon cornstarch + 1 tablespoon cold water","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"cornstarch","it":"amido di mais"},{"quantity":1,"unit":"tbsp","en":"cold water","it":"acqua fredda"}]}
 {"line":"½ tbsp vanilla extract","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"vanilla extract","it":"estratto di vaniglia"}]}

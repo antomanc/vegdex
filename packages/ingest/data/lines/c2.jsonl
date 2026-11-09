@@ -319,6 +319,7 @@
 {"line":"Extra virgin olive oil","language":"en","parts":[{"en":"extra virgin olive oil","it":"olio extravergine d'oliva"}]}
 {"line":"Flaky salt (or to taste)","language":"en","parts":[{"en":"flaky salt","it":"sale in fiocchi","toTaste":true}]}
 {"line":"French fries (cooked (optional))","language":"en","parts":[{"en":"French fries","it":"patatine fritte","preparationEn":"cooked","preparationIt":"cotte","optional":true}]}
+{"line":"Fresh thyme (or other fresh herbs of choice)","language":"en","parts":[{"en":"fresh thyme","it":"timo fresco","alternatives":[{"en":"other fresh herbs","it":"altre erbe aromatiche fresche"}]}]}
 {"line":"Juice of 1/2 Lemon","language":"en","parts":[{"quantity":0.5,"en":"lemon","it":"limone","preparationEn":"juiced","preparationIt":"spremuto"}]}
 {"line":"Neutral flavored cooking oil for pan frying, (optional)","language":"en","parts":[{"en":"neutral flavored cooking oil","it":"olio da cucina dal sapore neutro","purposeEn":"for pan frying","purposeIt":"per friggere in padella","optional":true}]}
 {"line":"Optional: 1/2 cup granulated sugar for coating","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"granulated sugar","it":"zucchero semolato","purposeEn":"for coating","purposeIt":"per ricoprire","optional":true}]}
