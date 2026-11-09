@@ -7,7 +7,7 @@
     activeCount, activeFilters, browseMode, clearFilters, defaultSort, filters, forgetUnsavedAmounts, isLanding, readUrl, removeFilter, saved, showCatalog, showSaved, showShelf, sourceNames, toQuery, writeUrl,
     type Sort
   } from './lib/state.svelte'
-  import { m, countArgs, formatNumber, pageLocale } from './lib/i18n'
+  import { m, countArgs, formatNumber, pageLocale, rememberLanguage } from './lib/i18n'
   import { BASE_LOCALE, LOCALES } from './lib/locales'
   import { display, loadTranslations } from './lib/translations.svelte'
   import { isLocale } from './paraglide/runtime'
@@ -275,7 +275,7 @@
     <div class="top-actions">
       {#each LOCALES.filter((locale) => locale.code !== pageLocale.code) as locale (locale.code)}
         {#if isLocale(locale.code)}
-          <a class="language-switch" href="{import.meta.env.BASE_URL}{locale.prefix ? `${locale.prefix}/` : ''}{queryString}" hreflang={locale.hreflang}><span aria-hidden="true" lang={locale.code}>{locale.code.toUpperCase()}</span><span class="visually-hidden">{m.switch_language({ language: m.language_name({}, { locale: locale.code }) })}</span></a>
+          <a class="language-switch" href="{import.meta.env.BASE_URL}{locale.prefix ? `${locale.prefix}/` : ''}{queryString}" hreflang={locale.hreflang} onclick={() => rememberLanguage(locale.code)}><span aria-hidden="true" lang={locale.code}>{locale.code.toUpperCase()}</span><span class="visually-hidden">{m.switch_language({ language: m.language_name({}, { locale: locale.code }) })}</span></a>
         {/if}
       {/each}
       <button class="night" aria-pressed={theme.dark} aria-label={m.night_mode()} title={m.night_mode()} onclick={toggleTheme}>
@@ -426,7 +426,7 @@
       <div class="row center">
         {#each LOCALES.filter((locale) => locale.code !== pageLocale.code) as locale (locale.code)}
           {#if isLocale(locale.code)}
-            <a href="{import.meta.env.BASE_URL}{locale.prefix ? `${locale.prefix}/` : ''}{queryString}" lang={locale.code} hreflang={locale.hreflang}>{m.language_name({}, { locale: locale.code })}</a>
+            <a href="{import.meta.env.BASE_URL}{locale.prefix ? `${locale.prefix}/` : ''}{queryString}" lang={locale.code} hreflang={locale.hreflang} onclick={() => rememberLanguage(locale.code)}>{m.language_name({}, { locale: locale.code })}</a>
           {/if}
         {/each}
       </div>

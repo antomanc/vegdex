@@ -37,6 +37,14 @@
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121211" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
     <script>
+      // A page's bare address opens the language the cook last picked; links with filters or a recipe open as written (ADR 0002).
+      try {
+        var lang = localStorage.getItem('vegdex:language'), paths = %LOCALE_PATHS%
+        if (lang && paths[lang] && lang !== document.documentElement.lang && !location.search && location.pathname === paths[document.documentElement.lang])
+          location.replace(paths[lang] + location.hash)
+      } catch (e) {}
+    </script>
+    <script>
       // Before first paint, so a night-mode choice never flashes light. Mirrors lib/theme.svelte.ts.
       try {
         var t = localStorage.getItem('vegdex:theme')

@@ -14,4 +14,12 @@ const quantity = new Intl.NumberFormat(pageLocale.intl, { useGrouping: false, ma
 export const formatQuantity = (text: string) => text.replace(/\d+(?:\.\d+)?/g, (n) => quantity.format(Number(n)))
 export const formatRating = (n: number) => n.toLocaleString(pageLocale.intl, { minimumFractionDigits: 1, maximumFractionDigits: 1 })
 
+/** Read before first paint by index.html, which opens the cook's chosen language at a page's bare address (ADR 0002). */
+export const LANGUAGE_KEY = 'vegdex:language'
+export function rememberLanguage(code: string) {
+  try {
+    localStorage.setItem(LANGUAGE_KEY, code)
+  } catch {}
+}
+
 export { m } from '../paraglide/messages.js'

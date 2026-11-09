@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { m, pageLocale } from './i18n'
+  import { LANGUAGE_KEY, m, pageLocale, rememberLanguage } from './i18n'
   import { BASE_LOCALE, LOCALES } from './locales'
   import { isLocale } from '../paraglide/runtime'
   import Icon from './Icon.svelte'
@@ -10,7 +10,7 @@
   const key = `vegdex:language-suggestion-dismissed:${suggestion?.code}`
   let dismissed = $state(false)
   try {
-    dismissed = localStorage.getItem(key) === '1'
+    dismissed = localStorage.getItem(key) === '1' || localStorage.getItem(LANGUAGE_KEY) !== null
   } catch {}
 
   function dismiss() {
@@ -23,7 +23,7 @@
 
 {#if suggestion && isLocale(suggestion.code) && !dismissed}
   <div class="language-suggestion">
-    <a href="{import.meta.env.BASE_URL}{suggestion.prefix}/{queryString}" lang={suggestion.code} hreflang={suggestion.hreflang} onclick={dismiss}>{m.language_available({}, { locale: suggestion.code })}</a>
+    <a href="{import.meta.env.BASE_URL}{suggestion.prefix}/{queryString}" lang={suggestion.code} hreflang={suggestion.hreflang} onclick={() => { dismiss(); rememberLanguage(suggestion.code) }}>{m.language_available({}, { locale: suggestion.code })}</a>
     <button class="text-btn" aria-label={m.dismiss_language_suggestion()} onclick={dismiss}><Icon name="close" size={16} /></button>
   </div>
 {/if}
