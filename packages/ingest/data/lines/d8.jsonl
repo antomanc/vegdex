@@ -388,6 +388,7 @@
 {"line":"a handful of pistachios, chopped","language":"en","parts":[{"quantity":1,"unit":"handful","en":"pistachios","it":"pistacchi","preparationEn":"chopped","preparationIt":"tritati"}]}
 {"line":"a small turnip","language":"en","parts":[{"quantity":1,"en":"small turnip","it":"rapa piccola"}]}
 {"line":"avocado oil (for drizzling (or preferred oil))","language":"en","parts":[{"en":"avocado oil","it":"olio di avocado","purposeEn":"for drizzling","purposeIt":"da versare a filo","alternatives":[{"en":"oil of choice","it":"olio a scelta"}]}]}
+{"line":"beans (optional, to make it more filling (I like pinto))","language":"en","parts":[{"en":"beans","it":"fagioli","optional":true,"alternatives":[{"en":"pinto beans","it":"fagioli pinto"}]}]}
 {"line":"cayenne as needed","language":"en","parts":[{"en":"cayenne pepper","it":"peperoncino di Cayenna","toTaste":true}]}
 {"line":"coarse salt (optional)","language":"en","parts":[{"en":"coarse salt","it":"sale grosso","optional":true}]}
 {"line":"cooked grain of choice to serve (quinoa, brown, basmati or jasmine rice – soba noodles would be great too)","language":"en","parts":[{"en":"grain of choice","it":"cereale a scelta","preparationEn":"cooked","preparationIt":"cotto","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"quinoa","it":"quinoa"},{"en":"brown rice","it":"riso integrale"},{"en":"basmati rice","it":"riso basmati"},{"en":"jasmine rice","it":"riso jasmine"},{"en":"soba noodles","it":"soba"}]}]}

@@ -410,6 +410,7 @@
 {"line":"optional veggies: I added sweet red bell peppers, green onions, baby bok choy and smoked tofu. SO GOOD","language":"en","parts":[{"en":"sweet red bell peppers","it":"peperoni rossi dolci","optional":true},{"en":"green onions","it":"cipollotti","optional":true},{"en":"baby bok choy","it":"bok choy piccoli","optional":true},{"en":"smoked tofu","it":"tofu affumicato","optional":true}]}
 {"line":"optional: 1/4 cup parmesan cheese (I used dairy free Violife)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"dairy-free parmesan cheese","it":"parmigiano vegetale","optional":true}]}
 {"line":"pinch of saffron crushed","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"saffron","it":"zafferano","preparationEn":"crushed","preparationIt":"sbriciolato"}]}
+{"line":"pinch sea salt (optional)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"sea salt","it":"sale marino","optional":true}]}
 {"line":"salt (a dash)","language":"en","parts":[{"quantity":1,"unit":"dash","en":"salt","it":"sale"}]}
 {"line":"salt (approx. ½ tsp) and pepper, to taste","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale","toTaste":true},{"en":"pepper","it":"pepe","toTaste":true}]}
 {"line":"scallions and sesame seeds (optional, for serving)","language":"en","parts":[{"en":"scallions","it":"cipollotti","purposeEn":"for serving","purposeIt":"per servire","optional":true},{"en":"sesame seeds","it":"semi di sesamo","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}

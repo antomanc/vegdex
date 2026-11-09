@@ -308,6 +308,7 @@
 {"line":"5 cups (575g) frozen mixed veggies (I bought bags containing a mix of corn, peas, green beans and carrots)","language":"en","parts":[{"quantity":575,"unit":"g","en":"frozen mixed vegetables","it":"verdure miste surgelate"}]}
 {"line":"5-6 tbsp sugar ( I used half cane and half powdered sugar so that it doesn't add color to the sauce.)","language":"en","parts":[{"quantity":5,"quantityMax":6,"unit":"tbsp","en":"sugar","it":"zucchero"}]}
 {"line":"50 g / ¼ cup caster (superfine) sugar","language":"en","parts":[{"quantity":50,"unit":"g","en":"caster sugar","it":"zucchero semolato fine"}]}
+{"line":"6 Medjool dates","language":"en","parts":[{"quantity":6,"en":"Medjool dates","it":"datteri Medjool"}]}
 {"line":"6 cloves garlic ((minced or put through a garlic press))","language":"en","parts":[{"quantity":6,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced or put through a garlic press","preparationIt":"tritato o passato nello spremiaglio"}]}
 {"line":"6 cloves garlic (minced or grated)","language":"en","parts":[{"quantity":6,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced or grated","preparationIt":"tritato o grattugiato"}]}
 {"line":"6 garlic cloves","language":"en","parts":[{"quantity":6,"unit":"clove","en":"garlic","it":"aglio"}]}
@@ -354,6 +355,7 @@
 {"line":"So Delicious CocoWhip","language":"en","parts":[{"en":"So Delicious CocoWhip","it":"CocoWhip So Delicious"}]}
 {"line":"Vegan scrambled eggs","language":"en","parts":[{"en":"vegan scrambled eggs","it":"uova strapazzate vegane"}]}
 {"line":"Vegan sour cream or cashew cream","language":"en","parts":[{"en":"vegan sour cream","it":"panna acida vegetale","alternatives":[{"en":"cashew cream","it":"crema di anacardi"}]}]}
+{"line":"Walnut halves, (optional)","language":"en","parts":[{"en":"walnut halves","it":"gherigli di noce a metà","optional":true}]}
 {"line":"a few dashes of salt","language":"en","parts":[{"unit":"dash","en":"salt","it":"sale"}]}
 {"line":"a few large basil leaves, julienned","language":"en","parts":[{"en":"large basil leaves","it":"foglie grandi di basilico","preparationEn":"julienned","preparationIt":"tagliate a julienne"}]}
 {"line":"a good pinch of ground cloves","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"ground cloves","it":"chiodi di garofano macinati"}]}

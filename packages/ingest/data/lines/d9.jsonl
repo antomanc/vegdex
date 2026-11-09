@@ -415,6 +415,7 @@
 {"line":"½ to 1 tablespoon maple syrup or agave ((optional))","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero","optional":true,"alternatives":[{"en":"agave syrup","it":"sciroppo d'agave"}]}]}
 {"line":"½ to 1 tsp ground black pepper","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"ground black pepper","it":"pepe nero macinato"}]}
 {"line":"¾ cup cocoa powder","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"cocoa powder","it":"cacao in polvere"}]}
+{"line":"¾ cup vegan butter (softened)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"softened","preparationIt":"ammorbidito"}]}
 {"line":"¾ cup vegetable broth","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"¾ cups water ((warm))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"water","it":"acqua","preparationEn":"warm","preparationIt":"tiepida"}]}
 {"line":"¾ teaspoon salt (plus more to taste)","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}

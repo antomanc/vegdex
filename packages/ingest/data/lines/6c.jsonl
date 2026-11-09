@@ -34,6 +34,7 @@
 {"line":"1 cup oat flour","language":"en","parts":[{"quantity":1,"unit":"cup","en":"oat flour","it":"farina d'avena"}]}
 {"line":"1 cup plus 2 tablespoons non-dairy milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","plus":{"quantity":2,"unit":"tbsp"}}]}
 {"line":"1 cup rava or sooji","language":"en","parts":[{"quantity":1,"unit":"cup","en":"rava","it":"rava"}]}
+{"line":"1 cup red or green grapes","language":"en","parts":[{"quantity":1,"unit":"cup","en":"red grapes","it":"uva rossa","alternatives":[{"en":"green grapes","it":"uva bianca"}]}]}
 {"line":"1 cup shredded cucumber ((about 1 medium-large cucumber))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cucumber","it":"cetriolo","preparationEn":"shredded","preparationIt":"grattugiato"}]}
 {"line":"1 cup spinach, ((30g))","language":"en","parts":[{"quantity":30,"unit":"g","en":"spinach","it":"spinaci"}]}
 {"line":"1 cup unsweetened oat milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"unsweetened oat milk","it":"latte d'avena senza zucchero"}]}
