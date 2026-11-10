@@ -124,3 +124,26 @@ test('saved recipes, shopping amounts and check-offs survive switching languages
   await page.reload();
   await expect(groceries.locator('li', { hasText: 'aglio' })).toContainText('9 spicchi');
 });
+
+test('a bare address opens the language last picked, while links with filters open as written', async ({ page }) => {
+  await page.goto('/');
+  // Nothing picked yet: the root stays English.
+  await expect(page.getByRole('searchbox', { name: 'Search recipes' })).toBeVisible();
+  await page.getByRole('link', { name: 'Switch to Italiano' }).click();
+  await expect(page).toHaveURL('/it/');
+
+  await page.goto('/');
+  await expect(page).toHaveURL('/it/');
+  await expect(page.getByRole('searchbox', { name: 'Cerca ricette' })).toBeVisible();
+  // A shared link with filters is not rewritten.
+  await page.goto('/?meal=soup');
+  await expect(page).toHaveURL('/?meal=soup');
+  await expect(page.getByTestId('result-count')).toHaveText('1 recipe');
+
+  // Picking English sticks the same way.
+  await page.goto('/it/?meal=soup');
+  await page.locator('footer').getByRole('link', { name: 'English', exact: true }).click();
+  await expect(page).toHaveURL('/?meal=soup');
+  await page.goto('/it/');
+  await expect(page).toHaveURL('/');
+});
