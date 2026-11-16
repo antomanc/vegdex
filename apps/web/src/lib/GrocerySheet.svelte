@@ -1,5 +1,6 @@
 <script lang="ts">
   import { flip } from 'svelte/animate'
+  import { flash } from './reactive/timing.svelte'
   import { cubicOut } from 'svelte/easing'
   import { display, recipeTitle } from './translations.svelte'
   import { groceryListText } from './grocery-text'
@@ -106,8 +107,7 @@
   const itemAmount = (item: GroceryItem) => item.toTaste ? m.to_taste() : item.amounts.map((a) => formatGroceryAmount(a, display.overlay)).join(' + ')
 
   const canShare = typeof navigator.share === 'function'
-  let copied = $state(false)
-  let copiedTimer: ReturnType<typeof setTimeout> | undefined
+  const copied = flash(2000)
   /** The list to copy by hand, when the clipboard refused it. */
   let manualText = $state('')
 
@@ -131,9 +131,7 @@
     }
     try {
       await navigator.clipboard.writeText(text)
-      copied = true
-      clearTimeout(copiedTimer)
-      copiedTimer = setTimeout(() => (copied = false), 2000)
+      copied.show()
     } catch {
       manualText = text
     }
@@ -193,12 +191,12 @@
           </label>
         {/if}
         <div class="sheet-footer">
-          <button class="save share" class:copied onclick={shareList}>
+          <button class="save share" class:copied={copied.on} onclick={shareList}>
             <span class="swap"><Icon name="share" size={18} /><Icon name="check" size={18} /></span>
             {canShare ? m.share_list() : m.copy_list()}
             <span class="bubble" aria-hidden="true">{m.list_copied()}</span>
           </button>
-          <span class="visually-hidden" role="status">{copied ? m.list_copied() : ''}</span>
+          <span class="visually-hidden" role="status">{copied.on ? m.list_copied() : ''}</span>
         </div>
       {/if}
     {:catch}
