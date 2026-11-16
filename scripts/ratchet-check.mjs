@@ -19,7 +19,7 @@ export function globToRegExp(glob) {
       i += slash ? 2 : 1
     } else if (c === '*') re += '[^/]*'
     else if (c === '?') re += '[^/]'
-    else re += /[.+^$\{\}()|[\]\\]/.test(c) ? '\\' + c : c
+    else re += /[.+^${}()|[\]\\]/.test(c) ? '\\' + c : c
   }
   return new RegExp('^' + re + '$')
 }

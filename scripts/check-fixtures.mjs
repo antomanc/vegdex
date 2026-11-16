@@ -5,10 +5,8 @@ execSync('pnpm fixtures', { stdio: 'ignore' })
 const stale = execSync('git status --porcelain -- e2e/fixtures', { encoding: 'utf8' })
   .split('\n')
   .filter((line) => line && line[1] !== ' ')
-  .join('\n')
-if (stale) {
-  console.error(stale)
-  console.error('The e2e fixtures are out of date with the parser and vocabulary: commit what pnpm fixtures just wrote to e2e/fixtures.')
+if (stale.length) {
+  for (const line of stale) console.error(line.slice(3) + ': out of date with the parser and vocabulary; commit what pnpm fixtures just wrote')
   process.exit(1)
 }
 console.log('e2e fixtures are current')

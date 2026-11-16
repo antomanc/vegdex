@@ -17,7 +17,8 @@
       },
       "canary": {
         "path": "apps/web/src/lib/RatchetCanary.svelte",
-        "content": "<script lang=\"ts\">\n  $effect(() => {})\n</script>\n"
+        "content": "<script lang=\"ts\">\n  $effect(() => {})\n</script>\n",
+        "expect": "[effects-in-reactive-only]"
       },
       "added": "2026-11-16",
       "baseline": {
@@ -57,7 +58,8 @@
       },
       "canary": {
         "path": "apps/web/src/lib/ratchet-canary.ts",
-        "content": "export const ratchetCanary = () => setTimeout(() => {}, 300)\n"
+        "content": "export const ratchetCanary = () => setTimeout(() => {}, 300)\n",
+        "expect": "[timers-in-reactive-only]"
       },
       "added": "2026-11-16",
       "baseline": {
@@ -94,7 +96,8 @@
       },
       "canary": {
         "path": "apps/web/src/lib/ratchet-canary.ts",
-        "content": "// @ts-ignore\nexport const ratchetCanary = 1\n"
+        "content": "// @ts-ignore\nexport const ratchetCanary = 1\n",
+        "expect": "[ts-escape-hatches]"
       },
       "added": "2026-11-16",
       "baseline": {
@@ -110,7 +113,8 @@
       "check": "node scripts/check-fixtures.mjs",
       "canary": {
         "path": "e2e/fixtures/data/ratchet-canary.json",
-        "content": "{}\n"
+        "content": "{}\n",
+        "expect": "out of date"
       },
       "added": "2026-11-16"
     }
