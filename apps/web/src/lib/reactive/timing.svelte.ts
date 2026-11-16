@@ -2,6 +2,7 @@
 export function flash(ms: number) {
   let on = $state(false)
   let timer: ReturnType<typeof setTimeout> | undefined
+  $effect(() => () => clearTimeout(timer))
   return {
     get on() {
       return on
