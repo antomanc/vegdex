@@ -4,7 +4,7 @@
     {
       "id": "effects-in-reactive-only",
       "kind": "api",
-      "message": "Use $derived for values, latest() for worker questions, intersect() for observers and flash()/settled() for timed state (lib/reactive). A new helper there, named for what it does, needs its baseline raised in review.",
+      "message": "Use $derived for values, latest() for worker questions, intersect() for observers and flash()/settled() for timed state (apps/web/src/lib/reactive); when none fits, add a helper there named for its job, with a test beside it.",
       "source": "wellkept audit: 12 effects in App.svelte, latest-answer guard written three times",
       "enforcedBy": "wellkept-check probe",
       "check": "node scripts/wellkept-check.mjs",
@@ -13,6 +13,9 @@
         "include": [
           "apps/web/src/**/*.svelte",
           "apps/web/src/**/*.ts"
+        ],
+        "exclude": [
+          "apps/web/src/lib/reactive/*.svelte.ts"
         ]
       },
       "canary": {
@@ -25,10 +28,7 @@
         "apps/web/src/App.svelte": 4,
         "apps/web/src/lib/FilterBar.svelte": 1,
         "apps/web/src/lib/GrocerySheet.svelte": 2,
-        "apps/web/src/lib/RecipeSheet.svelte": 1,
-        "apps/web/src/lib/reactive/intersect.svelte.ts": 1,
-        "apps/web/src/lib/reactive/latest.svelte.ts": 1,
-        "apps/web/src/lib/reactive/timing.svelte.ts": 1
+        "apps/web/src/lib/RecipeSheet.svelte": 1
       },
       "raised": [
         {
@@ -42,7 +42,7 @@
     {
       "id": "timers-in-reactive-only",
       "kind": "api",
-      "message": "Wait for the event itself (transitionend, a promise, tick(), an observer) or use flash()/settled() from lib/reactive; a timer that patches over ordering spreads. A new helper in lib/reactive needs its baseline raised in review.",
+      "message": "Wait for the event itself (transitionend, a promise, tick(), an observer) or use flash()/settled() from apps/web/src/lib/reactive; a timer that patches over ordering spreads. When none fits, add a helper there named for its job, with a test beside it.",
       "source": "wellkept audit",
       "enforcedBy": "wellkept-check probe",
       "check": "node scripts/wellkept-check.mjs",
@@ -53,7 +53,7 @@
           "apps/web/src/**/*.ts"
         ],
         "exclude": [
-          "apps/web/src/paraglide/**"
+          "apps/web/src/lib/reactive/*.svelte.ts"
         ]
       },
       "canary": {
@@ -64,8 +64,7 @@
       "added": "2026-11-16",
       "baseline": {
         "apps/web/src/App.svelte": 1,
-        "apps/web/src/lib/IngredientField.svelte": 2,
-        "apps/web/src/lib/reactive/timing.svelte.ts": 2
+        "apps/web/src/lib/IngredientField.svelte": 2
       },
       "raised": [
         {
@@ -75,6 +74,26 @@
           "reason": "lib/reactive now has its own ceiling: flash and settled each hold one timer"
         }
       ]
+    },
+    {
+      "id": "no-passthrough-helpers",
+      "kind": "pattern",
+      "message": "A helper in lib/reactive owns one job (the latest answer, an observer, a timed flag); it must not hand a caller's callback straight to $effect or a timer. Write the helper named for that job instead.",
+      "source": "wellkept re-run: lib/reactive is exempt from the effect and timer rules, so a generic effect() or sleep() there would smuggle them out",
+      "enforcedBy": "wellkept-check probe",
+      "check": "node scripts/wellkept-check.mjs",
+      "probe": {
+        "pattern": "(\\$effect(\\.pre)?|\\b(setTimeout|setInterval|requestAnimationFrame|requestIdleCallback))\\s*\\(\\s*(\\(\\s*\\)\\s*=>\\s*)?[A-Za-z_$][\\w$.]*(\\(\\s*\\))?\\s*[,)]",
+        "include": [
+          "apps/web/src/lib/reactive/**"
+        ]
+      },
+      "canary": {
+        "path": "apps/web/src/lib/reactive/wellkept-smuggle.svelte.ts",
+        "content": "export const later = (run: () => void, ms: number) => setTimeout(run, ms)\n",
+        "expect": "[no-passthrough-helpers]"
+      },
+      "added": "2026-11-16"
     },
     {
       "id": "ts-escape-hatches",
@@ -89,9 +108,6 @@
           "apps/web/src/**/*.svelte",
           "apps/web/src/**/*.ts",
           "packages/*/src/**/*.ts"
-        ],
-        "exclude": [
-          "apps/web/src/paraglide/**"
         ]
       },
       "canary": {
