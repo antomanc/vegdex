@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 // Ratchet for the rules in .ratchet/state.json, vendored into a project by the ratchet skill.
-// A file may keep the matches it had when the rule landed (its baseline) but never gain one;
-// a file missing from the baseline may have none. Exit 1 on any violation.
+// A per-file ceiling: a file may keep as many matches as it had when the rule landed (its
+// baseline), counted per occurrence, never more; a file missing from the baseline may have none.
+// It is not a guarantee that no new code matches: swapping an old match for a new one in the
+// same file stays under the ceiling. Use a parser-based rule where that matters. Exit 1 on any violation.
 import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -50,18 +52,23 @@ export function readText(root, file) {
   return textCache.get(key)
 }
 
-/** { file: [line numbers] } for every line the probe's pattern matches in the files it covers. */
+/** { file: [line number per occurrence] } for every match of the probe's pattern in the files it covers. */
 export function matchProbe(root, files, probe) {
   const include = (probe.include ?? ['**']).map(globToRegExp)
   const exclude = (probe.exclude ?? []).map(globToRegExp)
-  const re = new RegExp(probe.pattern, (probe.flags ?? '').replace('g', ''))
+  const re = new RegExp(probe.pattern, (probe.flags ?? '').replace('g', '') + 'g')
   const hits = {}
   for (const f of files) {
     if (!include.some((r) => r.test(f)) || exclude.some((r) => r.test(f))) continue
     const text = readText(root, f)
     if (text == null) continue
     const lines = text.split('\n')
-    for (let i = 0; i < lines.length; i++) if (re.test(lines[i])) (hits[f] ??= []).push(i + 1)
+    for (let i = 0; i < lines.length; i++) {
+      for (const m of lines[i].matchAll(re)) {
+        (hits[f] ??= []).push(i + 1)
+        if (!m[0]) break
+      }
+    }
   }
   return hits
 }
