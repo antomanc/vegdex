@@ -17,11 +17,6 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm preflight
-      - run: pnpm typecheck
-      - run: pnpm knip
-      - run: pnpm wellkept
-      - run: pnpm helpers:check
-      - run: pnpm fixtures:check
-      - run: pnpm test
+      - run: node scripts/verify.mjs
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e

@@ -5,6 +5,7 @@
   "description": "Vegan recipe search by ingredient, meal and cooking time, with saved recipes, shopping lists and offline access.",
   "scripts": {
     "preflight": "node scripts/preflight.mjs",
+    "verify": "node scripts/verify.mjs",
     "dev": "pnpm --filter @vegdex/web dev",
     "build": "pnpm --filter @vegdex/web build",
     "preview:start": "node scripts/preview.mjs start",
