@@ -15,6 +15,7 @@ AI-first web project configured with `aginit` (Web, node).
 - Build: `pnpm build`
 - Typecheck: `pnpm typecheck`
 - Unused files, exports and dependencies: `pnpm knip` (config in `knip.json`; runs in CI)
+- Ratchet: `pnpm ratchet` (runs in CI) fails on a new `$effect`, timer or type escape outside `apps/web/src/lib/reactive`; files keep what they had. Rules and baselines are in `.ratchet/state.json`.
 - Test: `pnpm test`
 - Test (E2E / Browser): `pnpm test:e2e` (summary in `test-results/e2e.json`)
 - Performance on a throttled phone: `pnpm perf` (build first, with real data from `pnpm ingest emit`; see `docs/adr/0007`)

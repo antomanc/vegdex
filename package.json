@@ -15,6 +15,7 @@
     "typecheck": "pnpm -r typecheck && pnpm typecheck:e2e",
     "typecheck:e2e": "tsc -p tsconfig.e2e.json",
     "knip": "knip",
+    "ratchet": "node scripts/ratchet-check.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "pnpm fixtures && playwright test",

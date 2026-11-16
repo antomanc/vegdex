@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "effects-in-reactive-only",
+      "kind": "api",
+      "message": "Use $derived for values, latest() for worker questions, intersect() for observers and flash()/settled() for timed state (all in lib/reactive); a new kind of effect goes into lib/reactive as a named helper.",
+      "source": "ratchet audit: 12 effects in App.svelte, latest-answer guard written three times",
+      "enforcedBy": "ratchet-check probe",
+      "check": "node scripts/ratchet-check.mjs",
+      "probe": {
+        "pattern": "\\$effect(\\.pre)?\\s*\\(",
+        "include": [
+          "apps/web/src/**/*.svelte",
+          "apps/web/src/**/*.ts"
+        ],
+        "exclude": [
+          "apps/web/src/lib/reactive/**"
+        ]
+      },
+      "canary": {
+        "path": "apps/web/src/lib/RatchetCanary.svelte",
+        "content": "<script lang=\"ts\">\n  $effect(() => {})\n</script>\n"
+      },
+      "added": "2026-11-16",
+      "baseline": {
+        "apps/web/src/App.svelte": 4,
+        "apps/web/src/lib/FilterBar.svelte": 1,
+        "apps/web/src/lib/GrocerySheet.svelte": 2,
+        "apps/web/src/lib/RecipeSheet.svelte": 1
+      }
+    },
+    {
+      "id": "timers-in-reactive-only",
+      "kind": "api",
+      "message": "Wait for the event itself (transitionend, a promise, tick(), an observer) or use flash()/settled() from lib/reactive; a timer that patches over ordering spreads.",
+      "source": "ratchet audit",
+      "enforcedBy": "ratchet-check probe",
+      "check": "node scripts/ratchet-check.mjs",
+      "probe": {
+        "pattern": "\\b(setTimeout|setInterval|requestAnimationFrame|requestIdleCallback)\\s*\\(",
+        "include": [
+          "apps/web/src/**/*.svelte",
+          "apps/web/src/**/*.ts"
+        ],
+        "exclude": [
+          "apps/web/src/lib/reactive/**",
+          "apps/web/src/paraglide/**"
+        ]
+      },
+      "canary": {
+        "path": "apps/web/src/lib/ratchet-canary.ts",
+        "content": "export const ratchetCanary = () => setTimeout(() => {}, 300)\n"
+      },
+      "added": "2026-11-16",
+      "baseline": {
+        "apps/web/src/App.svelte": 1,
+        "apps/web/src/lib/IngredientField.svelte": 2
+      }
+    },
+    {
+      "id": "ts-escape-hatches",
+      "kind": "pattern",
+      "message": "Fix the type or the markup instead of silencing the checker.",
+      "source": "ratchet audit",
+      "enforcedBy": "ratchet-check probe",
+      "check": "node scripts/ratchet-check.mjs",
+      "probe": {
+        "pattern": "\\bas any\\b|as unknown as|@ts-ignore|@ts-expect-error|@ts-nocheck|eslint-disable|svelte-ignore",
+        "include": [
+          "apps/web/src/**/*.svelte",
+          "apps/web/src/**/*.ts",
+          "packages/*/src/**/*.ts"
+        ],
+        "exclude": [
+          "apps/web/src/paraglide/**"
+        ]
+      },
+      "canary": {
+        "path": "apps/web/src/lib/ratchet-canary.ts",
+        "content": "// @ts-ignore\nexport const ratchetCanary = 1\n"
+      },
+      "added": "2026-11-16",
+      "baseline": {
+        "apps/web/src/lib/IngredientField.svelte": 1
+      }
+    }
+  ],
+  "declined": [
+    {
+      "id": "linter",
+      "reason": "ratchet-check carries the three rules; add oxlint or eslint-plugin-svelte when a rule needs a parser",
+      "date": "2026-11-16"
+    },
+    {
+      "id": "comment-ban",
+      "reason": "comments explain domain decisions; parser examples are covered by the golden set",
+      "date": "2026-11-16"
+    },
+    {
+      "id": "boundaries",
+      "reason": "pnpm workspace dependencies already stop web from importing ingest",
+      "date": "2026-11-16"
+    },
+    {
+      "id": "timers-outside-web",
+      "reason": "ingest sleeps between polite crawl requests; core takes its scheduler as a parameter",
+      "date": "2026-11-16"
+    }
+  ],
+  "history": []
+}
