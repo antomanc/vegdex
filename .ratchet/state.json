@@ -108,5 +108,86 @@
       "date": "2026-11-16"
     }
   ],
-  "history": []
+  "history": [
+    {
+      "commit": "10e1db6",
+      "date": "2026-11-16",
+      "metrics": {
+        "sourceFiles": 94,
+        "sourceLines": 9289,
+        "commentLines": 983,
+        "commentRatio": 0.106,
+        "testFiles": 71,
+        "probes": {
+          "timers": {
+            "total": 9,
+            "top": [
+              "apps/web/src/lib/IngredientField.svelte 2",
+              "apps/web/src/lib/reactive/timing.svelte.ts 2",
+              "apps/web/src/App.svelte 1",
+              "packages/core/src/query.ts 1",
+              "packages/ingest/src/cli.ts 1",
+              "packages/ingest/src/http.ts 1"
+            ]
+          },
+          "clock-reads": {
+            "total": 9,
+            "top": [
+              "scripts/perf.mjs 3",
+              "packages/ingest/src/http.ts 2",
+              "packages/ingest/src/cli.ts 1",
+              "packages/ingest/src/crawl.ts 1",
+              "packages/ingest/src/emit.ts 1",
+              "scripts/preview.mjs 1"
+            ]
+          },
+          "escape-hatches": {
+            "total": 1,
+            "top": [
+              "apps/web/src/lib/IngredientField.svelte 1"
+            ]
+          },
+          "effects": {
+            "total": 11,
+            "top": [
+              "apps/web/src/App.svelte 4",
+              "apps/web/src/lib/GrocerySheet.svelte 2",
+              "apps/web/src/lib/FilterBar.svelte 1",
+              "apps/web/src/lib/RecipeSheet.svelte 1",
+              "apps/web/src/lib/reactive/intersect.svelte.ts 1",
+              "apps/web/src/lib/reactive/latest.svelte.ts 1"
+            ]
+          },
+          "justification-comments": {
+            "total": 0,
+            "top": []
+          },
+          "todos": {
+            "total": 0,
+            "top": []
+          }
+        },
+        "rules": {
+          "effects-in-reactive-only": 8,
+          "timers-in-reactive-only": 3,
+          "ts-escape-hatches": 1
+        }
+      },
+      "git": {
+        "commits": 230,
+        "fixRatio": 0.183,
+        "reverts": 2,
+        "hotspots": [
+          "apps/web/src/App.svelte 42",
+          "apps/web/src/lib/RecipeSheet.svelte 28",
+          "packages/core/src/ingredients.ts 26",
+          "apps/web/src/lib/GrocerySheet.svelte 25",
+          "packages/ingest/src/emit.ts 23",
+          "apps/web/vite.config.ts 20",
+          "apps/web/src/lib/FilterBar.svelte 19",
+          "packages/core/src/grocery.ts 18"
+        ]
+      }
+    }
+  ]
 }
