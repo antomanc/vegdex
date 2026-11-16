@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Ratchet for the rules in .ratchet/state.json, vendored into a project by the ratchet skill.
+// Per-file ratchet for the rules in .wellkept/state.json, vendored into a project by the wellkept skill.
 // A per-file ceiling: a file may keep as many matches as it had when the rule landed (its
 // baseline), counted per occurrence, never more; a file missing from the baseline may have none.
 // It is not a guarantee that no new code matches: swapping an old match for a new one in the
@@ -74,7 +74,7 @@ export function matchProbe(root, files, probe) {
 }
 
 export function statePath(root) {
-  return path.join(root, '.ratchet', 'state.json')
+  return path.join(root, '.wellkept', 'state.json')
 }
 
 export function loadState(root) {
@@ -102,11 +102,62 @@ export function ratchet(root, state, files = listFiles(root)) {
   return results
 }
 
+/** Declined findings whose revisitProbe now matches: the condition that would reopen them has happened. */
+export function dueDeclines(root, state, files = listFiles(root)) {
+  const due = []
+  for (const d of state.declined ?? []) {
+    if (!d.revisitProbe) continue
+    const hits = Object.entries(matchProbe(root, files, d.revisitProbe))
+    if (hits.length) due.push({ id: d.id ?? d.intent, revisitWhen: d.revisitWhen, at: hits.slice(0, 3).map(([f, l]) => f + ':' + l[0]) })
+  }
+  return due
+}
+
+// Enforcement changes: compared with <ref> (the main branch in CI), a rule removed or loosened, a ceiling raised,
+// the verify command changed, or a protected config file edited fails unless the commit says so with a
+// "Wellkept-Change: <reason>" trailer, so weakening a guardrail is always an explicit, reviewable decision.
+export function enforcementChanges(root, ref) {
+  const git = (a) => execFileSync('git', a, { cwd: root, encoding: 'utf8' })
+  let old
+  try { old = JSON.parse(git(['show', ref + ':.wellkept/state.json'])) } catch { return [] }
+  const now = loadState(root) ?? { rules: [] }
+  const changes = []
+  if ((old.verify ?? '') !== (now.verify ?? '')) changes.push('verify command changed: "' + old.verify + '" -> "' + now.verify + '"')
+  const byId = Object.fromEntries((now.rules ?? []).map((r) => [r.id, r]))
+  for (const o of old.rules ?? []) {
+    const n = byId[o.id]
+    if (!n) { changes.push('rule removed: ' + o.id); continue }
+    for (const k of ['check', 'probe']) if (JSON.stringify(o[k]) !== JSON.stringify(n[k])) changes.push(o.id + ': ' + k + ' changed')
+    for (const [f, c] of Object.entries(n.baseline ?? {})) if (c > (o.baseline?.[f] ?? 0)) changes.push(o.id + ': ceiling raised for ' + f + ' (' + (o.baseline?.[f] ?? 0) + ' -> ' + c + ')')
+  }
+  const protectedFiles = [...new Set([...(old.protected ?? []), ...(now.protected ?? [])])]
+  if (protectedFiles.length) {
+    const diff = git(['diff', '--name-only', ref, '--', ...protectedFiles]).split('\n').filter(Boolean)
+    for (const f of diff) changes.push('protected file changed: ' + f)
+  }
+  return changes
+}
+
 function main() {
   const root = repoRoot()
+  const against = process.argv.indexOf('--against')
+  if (against !== -1) {
+    const ref = process.argv[against + 1]
+    const changes = enforcementChanges(root, ref)
+    if (changes.length) {
+      const msg = execFileSync('git', ['log', '-1', '--format=%B'], { cwd: root, encoding: 'utf8' })
+      const trailer = msg.match(/^Wellkept-Change:\s*(.+)$/m)
+      for (const c of changes) console.error('wellkept-check: enforcement change since ' + ref + ': ' + c)
+      if (!trailer) {
+        console.error('wellkept-check: these weaken or alter guardrails. If intended, say why in the commit with a "Wellkept-Change: <reason>" trailer, for review.')
+        return 1
+      }
+      console.log('wellkept-check: enforcement change declared: ' + trailer[1])
+    }
+  }
   const state = loadState(root)
   if (!state) {
-    console.log('ratchet-check: no .ratchet/state.json, nothing to check')
+    console.log('wellkept-check: no .wellkept/state.json, nothing to check')
     return 0
   }
   let failed = 0
@@ -116,9 +167,10 @@ function main() {
       const where = v.allowed ? ' (' + v.allowed + ' allowed in this file from before the rule)' : ''
       console.error(v.file + ':' + v.lines.join(',') + ': [' + r.id + '] ' + r.message + where)
     }
-    if (r.slack) console.log('ratchet-check: [' + r.id + '] ' + r.slack + ' old match(es) gone; run the ratchet skill to lower the baseline')
+    if (r.slack) console.log('wellkept-check: [' + r.id + '] ' + r.slack + ' old match(es) gone; run the wellkept skill to lower the baseline')
   }
-  if (!failed) console.log('ratchet-check: ' + (state.rules ?? []).filter((r) => r.probe).length + ' ratcheted rule(s) hold')
+  for (const d of dueDeclines(root, state)) console.log('wellkept-check: declined [' + d.id + '] is due for review, its revisitWhen now applies (' + d.at.join(', ') + '); run the wellkept skill to decide it again')
+  if (!failed) console.log('wellkept-check: ' + (state.rules ?? []).filter((r) => r.probe).length + ' ratcheted rule(s) hold')
   return failed ? 1 : 0
 }
 

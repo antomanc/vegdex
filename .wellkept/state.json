@@ -5,9 +5,9 @@
       "id": "effects-in-reactive-only",
       "kind": "api",
       "message": "Use $derived for values, latest() for worker questions, intersect() for observers and flash()/settled() for timed state (lib/reactive). A new helper there, named for what it does, needs its baseline raised in review.",
-      "source": "ratchet audit: 12 effects in App.svelte, latest-answer guard written three times",
-      "enforcedBy": "ratchet-check probe",
-      "check": "node scripts/ratchet-check.mjs",
+      "source": "wellkept audit: 12 effects in App.svelte, latest-answer guard written three times",
+      "enforcedBy": "wellkept-check probe",
+      "check": "node scripts/wellkept-check.mjs",
       "probe": {
         "pattern": "\\$effect(\\.pre)?\\s*\\(",
         "include": [
@@ -16,7 +16,7 @@
         ]
       },
       "canary": {
-        "path": "apps/web/src/lib/RatchetCanary.svelte",
+        "path": "apps/web/src/lib/WellkeptCanary.svelte",
         "content": "<script lang=\"ts\">\n  $effect(() => {})\n</script>\n",
         "expect": "[effects-in-reactive-only]"
       },
@@ -43,9 +43,9 @@
       "id": "timers-in-reactive-only",
       "kind": "api",
       "message": "Wait for the event itself (transitionend, a promise, tick(), an observer) or use flash()/settled() from lib/reactive; a timer that patches over ordering spreads. A new helper in lib/reactive needs its baseline raised in review.",
-      "source": "ratchet audit",
-      "enforcedBy": "ratchet-check probe",
-      "check": "node scripts/ratchet-check.mjs",
+      "source": "wellkept audit",
+      "enforcedBy": "wellkept-check probe",
+      "check": "node scripts/wellkept-check.mjs",
       "probe": {
         "pattern": "\\b(setTimeout|setInterval|requestAnimationFrame|requestIdleCallback)\\s*\\(",
         "include": [
@@ -57,8 +57,8 @@
         ]
       },
       "canary": {
-        "path": "apps/web/src/lib/ratchet-canary.ts",
-        "content": "export const ratchetCanary = () => setTimeout(() => {}, 300)\n",
+        "path": "apps/web/src/lib/wellkept-canary.ts",
+        "content": "export const wellkeptCanary = () => setTimeout(() => {}, 300)\n",
         "expect": "[timers-in-reactive-only]"
       },
       "added": "2026-11-16",
@@ -80,9 +80,9 @@
       "id": "ts-escape-hatches",
       "kind": "pattern",
       "message": "Fix the type or the markup instead of silencing the checker.",
-      "source": "ratchet audit",
-      "enforcedBy": "ratchet-check probe",
-      "check": "node scripts/ratchet-check.mjs",
+      "source": "wellkept audit",
+      "enforcedBy": "wellkept-check probe",
+      "check": "node scripts/wellkept-check.mjs",
       "probe": {
         "pattern": "\\bas any\\b|as unknown as|@ts-ignore|@ts-expect-error|@ts-nocheck|eslint-disable|svelte-ignore",
         "include": [
@@ -95,8 +95,8 @@
         ]
       },
       "canary": {
-        "path": "apps/web/src/lib/ratchet-canary.ts",
-        "content": "// @ts-ignore\nexport const ratchetCanary = 1\n",
+        "path": "apps/web/src/lib/wellkept-canary.ts",
+        "content": "// @ts-ignore\nexport const wellkeptCanary = 1\n",
         "expect": "[ts-escape-hatches]"
       },
       "added": "2026-11-16",
@@ -112,7 +112,7 @@
       "enforcedBy": "scripts/check-fixtures.mjs (pnpm fixtures:check)",
       "check": "node scripts/check-fixtures.mjs",
       "canary": {
-        "path": "e2e/fixtures/data/ratchet-canary.json",
+        "path": "e2e/fixtures/data/wellkept-canary.json",
         "content": "{}\n",
         "expect": "out of date"
       },
@@ -122,7 +122,7 @@
   "declined": [
     {
       "id": "linter",
-      "reason": "ratchet-check carries the three rules; add oxlint or eslint-plugin-svelte when a rule needs a parser",
+      "reason": "wellkept-check carries the three rules; add oxlint or eslint-plugin-svelte when a rule needs a parser",
       "date": "2026-11-16",
       "revisitWhen": "a rule needs a parser (imports, AST shapes) or a regex rule misfires"
     },

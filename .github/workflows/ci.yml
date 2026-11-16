@@ -19,7 +19,7 @@ jobs:
       - run: pnpm preflight
       - run: pnpm typecheck
       - run: pnpm knip
-      - run: pnpm ratchet
+      - run: pnpm wellkept
       - run: pnpm fixtures:check
       - run: pnpm test
       - run: pnpm exec playwright install --with-deps chromium
