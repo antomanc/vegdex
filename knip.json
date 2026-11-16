@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
-  "ignore": [".agents/**"],
+  "ignore": [".agents/**", "apps/web/src/lib/WellkeptAllowEffects.svelte", "apps/web/src/lib/WellkeptAllowTimers.svelte"],
   "ignoreExportsUsedInFile": true,
   "workspaces": {
     ".": {

@@ -37,7 +37,11 @@
           "to": 11,
           "reason": "lib/reactive now has its own ceiling: latest, intersect and settled each hold one effect"
         }
-      ]
+      ],
+      "allow": {
+        "path": "apps/web/src/lib/WellkeptAllowEffects.svelte",
+        "content": "<script lang=\"ts\">\n  import { latest } from './reactive/latest.svelte'\n\n  let { count }: { count: (query: string) => Promise<number> } = $props()\n  let query = $state('')\n  let found = $state(0)\n  let failed = $state(false)\n  const label = $derived(failed ? 'offline' : found + ' recipes')\n  latest(\n    () => count(query),\n    (n) => ((found = n), (failed = false)),\n    () => (failed = true)\n  )\n</script>\n\n<input bind:value={query} />\n<p>{label}</p>\n"
+      }
     },
     {
       "id": "timers-in-reactive-only",
@@ -73,7 +77,11 @@
           "to": 5,
           "reason": "lib/reactive now has its own ceiling: flash and settled each hold one timer"
         }
-      ]
+      ],
+      "allow": {
+        "path": "apps/web/src/lib/WellkeptAllowTimers.svelte",
+        "content": "<script lang=\"ts\">\n  import { flash, settled } from './reactive/timing.svelte'\n\n  let text = $state('')\n  const copied = flash(2000)\n  const typed = settled(() => text, 300, '')\n</script>\n\n<input bind:value={text} />\n<button onclick={() => copied.show()}>{copied.on ? 'Copied' : typed.current}</button>\n"
+      }
     },
     {
       "id": "no-passthrough-helpers",
