@@ -160,27 +160,65 @@
   "declined": [
     {
       "id": "linter",
-      "reason": "wellkept-check carries the three rules; add oxlint or eslint-plugin-svelte when a rule needs a parser",
+      "reason": "wellkept-check carries the regex rules. no-passthrough-helpers reads a call shape with a regex, which catches the passthroughs tried (a callback handed to $effect or a timer, directly or as () => fn()); a parser is not yet worth a new tool for it",
       "date": "2026-11-16",
-      "revisitWhen": "a rule needs a parser (imports, AST shapes) or a regex rule misfires"
+      "revisitWhen": "a passthrough slips past no-passthrough-helpers, a regex rule misfires (a raised ceiling that is a false positive), or a rule needs imports"
     },
     {
       "id": "comment-ban",
       "reason": "comments explain domain decisions; parser examples are covered by the golden set",
       "date": "2026-11-16",
-      "revisitWhen": "comments start defending shortcuts (the justification-comments probe goes above 0)"
+      "revisitWhen": "comments start defending shortcuts (a workaround, hack, temporary fix or kludge comment in source or tests)",
+      "revisitProbe": {
+        "pattern": "^\\s*(\\/\\/|#|\\*|\\/\\*).*\\b(workaround|hack|for now|temporar(y|ily) (fix|hack|workaround|patch)|quick fix|band-?aid|not ideal|ugly|kludge|needed because|otherwise .* (breaks|fails))",
+        "flags": "i",
+        "include": [
+          "apps/web/src/**/*.ts",
+          "apps/web/src/**/*.svelte",
+          "apps/web/*.ts",
+          "packages/*/src/**/*.ts",
+          "packages/*/scripts/**/*.ts",
+          "packages/*/test/**/*.ts",
+          "e2e/**/*.ts",
+          "tests/**/*.ts",
+          "scripts/**/*.mjs"
+        ],
+        "exclude": [
+          "scripts/wellkept-check.mjs"
+        ]
+      }
     },
     {
       "id": "boundaries",
       "reason": "pnpm workspace dependencies already stop web from importing ingest",
       "date": "2026-11-16",
-      "revisitWhen": "a package gains a dependency that crosses web, core and ingest"
+      "revisitWhen": "a package gains a dependency that crosses web, core and ingest",
+      "revisitProbe": {
+        "pattern": "\"@vegdex/(web|ingest)\"\\s*:|\\bfrom\\s+[\"']@vegdex/(web|ingest)\\b|\\bimport\\(\\s*[\"']@vegdex/(web|ingest)\\b|[\"'](\\.\\./)+(packages/ingest|ingest|apps/web|web)/",
+        "include": [
+          "apps/web/package.json",
+          "packages/core/package.json",
+          "packages/ingest/package.json",
+          "apps/web/src/**",
+          "apps/web/*.ts",
+          "packages/core/src/**",
+          "packages/ingest/src/**"
+        ]
+      }
     },
     {
       "id": "timers-outside-web",
       "reason": "ingest sleeps between polite crawl requests; core takes its scheduler as a parameter",
       "date": "2026-11-16",
-      "revisitWhen": "a timer appears in core or ingest outside the crawler"
+      "revisitWhen": "a timer appears in core or ingest outside the crawler",
+      "revisitProbe": {
+        "pattern": "\\b(setTimeout|setInterval|requestAnimationFrame|requestIdleCallback)\\s*\\((?!next\\)|resolve, ms\\)|\\(\\) => saveStore\\()",
+        "include": [
+          "packages/core/src/**",
+          "packages/ingest/src/**",
+          "packages/ingest/scripts/**"
+        ]
+      }
     }
   ],
   "history": [
