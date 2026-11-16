@@ -84,6 +84,19 @@
       "baseline": {
         "apps/web/src/lib/IngredientField.svelte": 1
       }
+    },
+    {
+      "id": "fixtures-current",
+      "kind": "behavior",
+      "message": "The e2e fixtures are out of date with the parser and vocabulary: commit what pnpm fixtures writes to e2e/fixtures.",
+      "source": "docs/agents/testing.md (\"the committed fixtures can lag the line records\"), replaced there",
+      "enforcedBy": "scripts/check-fixtures.mjs (pnpm fixtures:check)",
+      "check": "node scripts/check-fixtures.mjs",
+      "canary": {
+        "path": "e2e/fixtures/data/ratchet-canary.json",
+        "content": "{}\n"
+      },
+      "added": "2026-11-16"
     }
   ],
   "declined": [
