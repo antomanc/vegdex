@@ -569,5 +569,23 @@
       }
     }
   ],
-  "verify": "node scripts/verify.mjs"
+  "verify": "node scripts/verify.mjs",
+  "protected": [
+    ".github/workflows/ci.yml",
+    "scripts/verify.mjs",
+    "scripts/wellkept-check.mjs",
+    "scripts/check-helper-tests.mjs",
+    "scripts/check-fixtures.mjs",
+    "knip.json",
+    "tsconfig.base.json",
+    "tsconfig.e2e.json",
+    "apps/web/tsconfig.json",
+    "apps/web/tsconfig.app.json",
+    "apps/web/tsconfig.node.json",
+    "apps/web/svelte.config.js",
+    "packages/core/tsconfig.json",
+    "packages/ingest/tsconfig.json",
+    "vitest.config.mts",
+    "apps/web/vitest.config.ts"
+  ]
 }
