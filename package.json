@@ -21,6 +21,7 @@
     "test:e2e": "pnpm fixtures && playwright test",
     "fixtures": "pnpm --filter @vegdex/ingest exec tsx ../../e2e/emit-fixtures.ts",
     "fixtures:check": "node scripts/check-fixtures.mjs",
+    "helpers:check": "node scripts/check-helper-tests.mjs",
     "seed:concepts": "pnpm --filter @vegdex/ingest exec tsx scripts/seed-concepts.ts",
     "nightly:backlog": "pnpm --filter @vegdex/ingest exec tsx src/nightly-cli.ts",
     "coverage": "pnpm --filter @vegdex/ingest vocab coverage",

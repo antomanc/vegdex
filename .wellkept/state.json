@@ -96,6 +96,20 @@
       "added": "2026-11-16"
     },
     {
+      "id": "reactive-helpers-tested",
+      "kind": "pattern",
+      "message": "A helper in lib/reactive needs a test beside it that covers teardown, changing inputs and separate instances; the folder is exempt from the effect and timer rules, so its tests are what keep its lifecycle right.",
+      "source": "wellkept re-run: every helper has a test; flash() leaked its timer until it had one",
+      "enforcedBy": "scripts/check-helper-tests.mjs",
+      "check": "node scripts/check-helper-tests.mjs",
+      "canary": {
+        "path": "apps/web/src/lib/reactive/wellkept-canary.svelte.ts",
+        "content": "export const wellkeptCanary = () => 1\n",
+        "expect": "[reactive-helpers-tested]"
+      },
+      "added": "2026-11-16"
+    },
+    {
       "id": "ts-escape-hatches",
       "kind": "pattern",
       "message": "Fix the type or the markup instead of silencing the checker.",
