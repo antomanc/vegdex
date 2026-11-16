@@ -44,6 +44,7 @@ Load only what the task needs. Skills live in `.agents/skills/` (linked into `.c
 | Automated unit & E2E testing | `docs/agents/testing.md` |
 | Filling new ingredient lines (line records) | `docs/agents/vocabulary.md`, "Running a fill" |
 | Live UI verification (Web / Mobile) | `docs/agents/ui-verification.md` |
+| Names of views, controls and sheets, and the code behind them | `docs/agents/feature-map.md` |
 | Engineering workflow & skills | `docs/agents/workflows.md` |
 | Scoping or simplifying a change | `ponytail` skill |
 | Prose & Copy (docs, README, UI text) | `humanizer` skill |
