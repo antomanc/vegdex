@@ -21,6 +21,9 @@
   import RecipeSheet from './lib/RecipeSheet.svelte'
   import GrocerySheet from './lib/GrocerySheet.svelte'
   import LanguageSuggestion from './lib/LanguageSuggestion.svelte'
+  import { latest } from './lib/reactive/latest.svelte'
+  import { intersect } from './lib/reactive/intersect.svelte'
+  import { settled } from './lib/reactive/timing.svelte'
 
   const PAGE = 48
   const REMOVAL_URL = `mailto:hello@antomanc.com?subject=${encodeURIComponent('vegdex removal request')}&body=${encodeURIComponent('Blog or recipe links:\n\nWhat should go (a photo, a recipe or the whole blog):\n')}`
@@ -86,28 +89,31 @@
   load()
 
   // The worker searches display titles too; it gets the page language's titles once they load.
-  $effect(() => {
-    const titles = display.overlay?.titles ?? null
-    if (!loaded) return
-    catalog.titles(titles).then(() => titlesVersion++, failed)
-  })
+  latest(
+    () => {
+      const titles = display.overlay?.titles ?? null
+      if (loaded) return catalog.titles(titles)
+    },
+    () => titlesVersion++,
+    failed
+  )
 
   const mode = $derived(browseMode(filters))
   const kitchen = $derived(mode === 'shelf' ? loaded?.sources.find((s) => s.id === filters.from) ?? null : null)
   // Recipes unsaved in this visit to the saved view stay listed, so a mis-tap on the heart can be undone.
   const listedIds = $derived([...saved.ids, ...saved.unsaved])
 
-  // Each change asks the worker; an answer that a newer question overtook is dropped.
-  let asked = 0
-  $effect(() => {
-    if (!loaded) return
-    const query = $state.snapshot(toQuery(listedIds))
-    const countIds = mode === 'saved' ? $state.snapshot(saved.ids) : undefined
-    const n = limit
-    void titlesVersion
-    const id = ++asked
-    catalog.search(query, n, countIds).then((f) => { if (id === asked) found = f }, failed)
-  })
+  latest(
+    () => {
+      if (!loaded) return
+      const query = $state.snapshot(toQuery(listedIds))
+      const countIds = mode === 'saved' ? $state.snapshot(saved.ids) : undefined
+      void titlesVersion
+      return catalog.search(query, limit, countIds)
+    },
+    (f) => (found = f),
+    failed
+  )
   const results = $derived(found?.recipes ?? [])
   const total = $derived(found?.total ?? 0)
   const resultCount = $derived(found?.counted ?? 0)
@@ -126,17 +132,24 @@
     if (openRow?.id === openId) return openRow
     return [...results, ...(found?.top ?? []), ...(early ?? []), ...(savedRecipes ?? [])].find((r) => r.id === openId) ?? null
   })
-  $effect(() => {
-    const id = openId
-    if (!id || !loaded || untrack(() => open)) return
-    catalog.rows([id]).then(([row]) => { if (openId === id && row) openRow = row }, failed)
-  })
+  latest(
+    () => {
+      if (openId && loaded && !untrack(() => open)) return catalog.rows([openId])
+    },
+    ([row]) => {
+      if (row) openRow = row
+    },
+    failed
+  )
 
-  $effect(() => {
-    const ids = $state.snapshot(saved.ids)
-    if (!loaded) return
-    catalog.rows(ids).then((rows) => (savedRecipes = rows), failed)
-  })
+  latest(
+    () => {
+      const ids = $state.snapshot(saved.ids)
+      if (loaded) return catalog.rows(ids)
+    },
+    (rows) => (savedRecipes = rows),
+    failed
+  )
 
   const countText = $derived(mode === 'saved' ? m.saved_count(countArgs(resultCount)) : m.recipe_count(countArgs(resultCount)))
   const blogCount = $derived(found?.blogs ?? 0)
@@ -144,30 +157,27 @@
 
   /** At zero results, the one filter whose removal brings back the most recipes; the search goes only when no filter can. */
   let loosen = $state.raw<{ label: string; apply: () => void; n: number; isSearch: boolean } | null>(null)
-  let loosenAsked = 0
-  $effect(() => {
-    const id = ++loosenAsked
-    if (!found || found.total || mode === 'saved') return void (loosen = null)
-    const active = activeFilters()
-    const options = active.map((f) => ({ label: m.remove_suggestion({ label: f.label }), apply: () => removeFilter(f), patch: f.patch, isSearch: false }))
-    if (filters.text.trim()) options.push({ label: m.clear_the_search(), apply: () => (filters.text = ''), patch: { text: '' }, isSearch: true })
-    const queries = options.map((o) => $state.snapshot(toQuery([], { ...filters, ...o.patch })))
-    catalog.counts(queries).then((counts) => {
-      if (id !== loosenAsked) return
-      let best: typeof loosen = null
-      // The search is listed last, so it is offered only when no filter brings recipes back.
-      options.forEach((o, i) => { if (counts[i] && (!best || (!o.isSearch && counts[i]! > best.n))) best = { ...o, n: counts[i]! } })
-      loosen = best
-    }, failed)
-  })
+  latest(
+    () => {
+      if (!found || found.total || mode === 'saved') return void (loosen = null)
+      const active = activeFilters()
+      const options = active.map((f) => ({ label: m.remove_suggestion({ label: f.label }), apply: () => removeFilter(f), patch: f.patch, isSearch: false }))
+      if (filters.text.trim()) options.push({ label: m.clear_the_search(), apply: () => (filters.text = ''), patch: { text: '' }, isSearch: true })
+      const queries = options.map((o) => $state.snapshot(toQuery([], { ...filters, ...o.patch })))
+      return catalog.counts(queries).then((counts) => {
+        let best: typeof loosen = null
+        // The search is listed last, so it is offered only when no filter brings recipes back.
+        options.forEach((o, i) => { if (counts[i] && (!best || (!o.isSearch && counts[i]! > best.n))) best = { ...o, n: counts[i]! } })
+        return best
+      })
+    },
+    (best) => (loosen = best),
+    failed
+  )
 
   // Screen readers hear the count once typing settles, not on every keystroke.
-  let announced = $state('')
-  $effect(() => {
-    const text = countText
-    const t = setTimeout(() => (announced = found ? text : ''), 700)
-    return () => clearTimeout(t)
-  })
+  const settledCount = settled<string>(() => countText, 700, '')
+  const announced = $derived(found ? settledCount.current : '')
 
   // New filters start from the top of the list.
   $effect(() => {
@@ -202,26 +212,19 @@
     document.documentElement.style.setProperty('--header-h', `${headerHeight}px`)
   })
 
-  $effect(() => {
-    if (!filterBox) return
-    const io = new IntersectionObserver(([e]) => (filtersOutOfView = !e!.isIntersecting && e!.boundingClientRect.top < 0), {
-      rootMargin: `-${headerHeight}px 0px 0px 0px`
-    })
-    io.observe(filterBox)
-    return () => io.disconnect()
-  })
+  intersect(
+    () => filterBox,
+    ([e]) => (filtersOutOfView = !e!.isIntersecting && e!.boundingClientRect.top < 0),
+    () => ({ rootMargin: `-${headerHeight}px 0px 0px 0px` })
+  )
 
-  $effect(() => {
-    if (!sentinel) return
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) limit += PAGE
-      },
-      { rootMargin: '800px' }
-    )
-    io.observe(sentinel)
-    return () => io.disconnect()
-  })
+  intersect(
+    () => sentinel,
+    (entries) => {
+      if (entries.some((e) => e.isIntersecting)) limit += PAGE
+    },
+    () => ({ rootMargin: '800px' })
+  )
 
   const showPick = $derived(!!found && total > 0 && mode !== 'saved')
   const showReturn = $derived(mode === 'saved' ? scrollY > 600 : filtersOutOfView)

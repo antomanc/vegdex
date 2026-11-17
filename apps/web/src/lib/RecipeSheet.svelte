@@ -1,5 +1,6 @@
 <script lang="ts">
   import { saveFeedback } from './save-feedback'
+  import { flash } from './reactive/timing.svelte'
   import { untrack } from 'svelte'
   import { countCook } from './analytics'
   import { display, recipeTitle, titleLang } from './translations.svelte'
@@ -31,8 +32,7 @@
   const steps = $derived(chosen?.id === recipe.id ? chosen.steps : perBatch(recipe))
   const setSteps = (n: number) => (chosen = { id: recipe.id, steps: Math.min(Math.max(n, 1), MAX_BATCHES * perBatch(recipe)) })
   const factor = $derived(steps / perBatch(recipe))
-  let copied = $state(false)
-  let copiedTimer: ReturnType<typeof setTimeout> | undefined
+  const copied = flash(2000)
   /** The link to copy by hand, when the clipboard refused it. */
   let manualLink = $state('')
   let shownId: string | undefined
@@ -52,7 +52,7 @@
     }
     shownId = id
     broken = false
-    copied = false
+    copied.hide()
     manualLink = ''
     if (dialog) dialog.scrollTop = 0
   })
@@ -77,9 +77,7 @@
     }
     try {
       await navigator.clipboard.writeText(url.href)
-      copied = true
-      clearTimeout(copiedTimer)
-      copiedTimer = setTimeout(() => (copied = false), 2000)
+      copied.show()
     } catch {
       manualLink = url.href
     }
@@ -223,11 +221,11 @@
         {#if ondraw}
           <button class="save" onclick={ondraw}><Icon name="shuffle" size={18} /> {m.another()}</button>
         {/if}
-        <button class="save share" class:copied onclick={share} aria-label={m.share()} title={m.share()}>
+        <button class="save share" class:copied={copied.on} onclick={share} aria-label={m.share()} title={m.share()}>
           <span class="swap"><Icon name="share" size={18} /><Icon name="check" size={18} /></span>
           <span class="bubble" aria-hidden="true">{m.link_copied()}</span>
         </button>
-        <span class="visually-hidden" role="status">{copied ? m.link_copied() : ''}</span>
+        <span class="visually-hidden" role="status">{copied.on ? m.link_copied() : ''}</span>
       </div>
       <a class="cta" href={recipe.url} target="_blank" rel="noopener" onclick={() => countCook(recipe.source)} onauxclick={(e) => e.button === 1 && countCook(recipe.source)}>
         <span>{m.cook_on({ source: sourceName })}&nbsp;<Icon name="external" size={16} /></span>
