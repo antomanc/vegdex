@@ -7,7 +7,7 @@ const POOL_VOTES = 10;
 /** At most this many recipes from one blog in any run of this many cards. */
 const SOURCE_CAP = 2;
 const SOURCE_WINDOW = 12;
-/** Savoury cards lead three slots of every four on the default screen. */
+/** Savoury dishes lead three slots of every four on the default screen. */
 const SAVOURY_SLOTS = 4;
 
 /**
@@ -62,7 +62,8 @@ export interface MixOptions {
   savouryLead?: boolean;
 }
 
-const savoury = (r: CatalogRecipe) => r.tags.includes('flavor:savory');
+/** A savoury dish leads; a dressing or a drink is savoury too, but nobody's dinner, so it takes the fourth slot. */
+const savoury = (r: CatalogRecipe) => r.tags.includes('flavor:savory') && !r.tags.includes('meal:sauce') && !r.tags.includes('meal:drink');
 
 /**
  * Arrange a filtered list (already in Today's picks order) for the grid: no blog fills a screen — at most

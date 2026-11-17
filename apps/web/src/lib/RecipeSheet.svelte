@@ -132,7 +132,8 @@
 
 <dialog use:sheet bind:this={dialog} class="sheet recipe-sheet" class:sweet={recipe.tags.includes('flavor:sweet')} {onclose} aria-labelledby="sheet-title">
   <div class="sheet-body">
-    <div class="sheet-top"><button class="close" onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
+    <!-- Scrolled past the photo, the bar keeps the title in sight. -->
+    <div class="sheet-top"><span class="bar-title" aria-hidden="true" lang={titleLang(recipe)}>{recipeTitle(recipe)}</span><button class="close" onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
     <div class="recipe-head">
     {#if recipe.image && !broken}
       <img class="hero" src={recipe.image} alt="" onerror={() => (broken = true)} />

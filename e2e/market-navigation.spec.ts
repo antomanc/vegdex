@@ -32,3 +32,26 @@ test('the docked Back to top button returns to the header without changing the r
   await expect(page.getByRole('button', { name: 'vegdex, all recipes', exact: true })).toBeFocused();
   await expect(page.getByTestId('recipe-card')).toHaveCount(6);
 });
+
+test('the dock keeps Back to top, the shopping list and Pick for me on a phone screen', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Save Red Lentil Soup', exact: true }).click();
+  for (const width of [320, 390]) {
+    await page.setViewportSize({ width, height: 700 });
+    await page.goto('/');
+    await expect(page.getByTestId('recipe-card')).toHaveCount(6);
+    await page.evaluate(() => window.scrollTo(0, 850));
+    const keys = [
+      page.getByRole('button', { name: 'Back to top', exact: true }),
+      page.getByRole('button', { name: 'Shopping list', exact: true }),
+      page.getByRole('button', { name: 'Pick for me', exact: true })
+    ];
+    for (const key of keys) {
+      await expect(key).toBeVisible();
+      const box = (await key.boundingBox())!;
+      expect(box.x).toBeGreaterThanOrEqual(0);
+      expect(box.x + box.width).toBeLessThanOrEqual(width);
+    }
+    await expect(keys[1]!).toContainText('1');
+  }
+});

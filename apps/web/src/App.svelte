@@ -493,7 +493,7 @@
         <a href={REMOVAL_URL}>{m.request_removal()}</a>
       </div>
       <p class="fine">
-        {m.credits_updated({ date: new Date(loaded!.generatedAt).toLocaleDateString(pageLocale.intl) })}
+        {m.credits_updated({ date: new Date(loaded!.generatedAt).toLocaleDateString(pageLocale.intl, { dateStyle: 'medium' }) })}
         {m.dictionary_credit()} <a href="https://world.openfoodfacts.org/">Open Food Facts</a> (<a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a>) · <a href="{import.meta.env.BASE_URL}data/dictionary.json">{m.dictionary_tables()}</a>
       </p>
     </footer>
@@ -504,11 +504,12 @@
 {#if showDock}
   <div class="dock">
     {#if showReturn}
-      <button class="dock-return" onclick={backUp}><Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span></button>
+      <button class="dock-return dock-up" onclick={backUp} aria-label={m.back_to_top()}><Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span></button>
     {/if}
     {#if showList}
-      <button class="dock-return dock-list" type="button" aria-label={m.shopping_list()} onclick={() => (groceryOpen = true)}>
+      <button class="dock-return dock-list" type="button" aria-label={m.shopping_list()} title={m.shopping_list()} onclick={() => (groceryOpen = true)}>
         <Icon name="list" size={18} />
+        <span class="dock-count" aria-hidden="true">{formatNumber(saved.ids.length)}</span>
       </button>
     {/if}
     {#if showPick}<button class="pick" onclick={pick}><Icon name="shuffle" size={18} /> {m.pick()}</button>{/if}

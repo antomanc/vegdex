@@ -131,6 +131,17 @@ test('ingredients typed but not added still apply when More filters closes', asy
   await expect(active.getByRole('button', { name: 'Remove with spinach' })).toBeVisible();
 });
 
+test('a word cut short in an ingredient field becomes the name it starts when More filters closes', async ({ page }) => {
+  await page.getByRole('button', { name: /More filters/ }).click();
+  const have = page.getByRole('combobox', { name: 'Must include' });
+  await have.fill('tof');
+  await expect(page.getByRole('dialog').getByRole('option', { name: 'tofu', exact: true })).toBeVisible();
+  await page.getByRole('dialog').getByRole('button', { name: 'Close' }).click();
+  const active = page.getByRole('list', { name: 'Active filters' });
+  await expect(active.getByRole('button', { name: 'Remove with tofu' })).toBeVisible();
+  await expect(cards(page)).not.toHaveCount(0);
+});
+
 test('Clear all also drops text still in the ingredient fields', async ({ page }) => {
   await page.getByRole('button', { name: /More filters/ }).click();
   const have = page.getByRole('combobox', { name: 'Must include' });

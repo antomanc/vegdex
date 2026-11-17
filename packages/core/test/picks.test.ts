@@ -110,6 +110,23 @@ describe('mixPicks', () => {
     }
   });
 
+  it('leads with dishes: a savoury dressing or drink waits for the fourth slot', () => {
+    const recipes = Array.from({ length: 40 }, (_, i) =>
+      pictured(`r-${i}`, {
+        source: `blog-${i}`,
+        tags: i % 2 ? ['meal:sauce', 'flavor:savory'] : i % 3 ? ['meal:drink', 'flavor:savory'] : ['meal:main', 'flavor:savory']
+      })
+    );
+    const mixed = mixPicks(picksOrder(recipes, '2026-11-05'), { savouryLead: true });
+    const dish = (x: CatalogRecipe) => x.tags.includes('meal:main');
+    const dishes = recipes.filter(dish).length;
+    expect(ids(mixed).sort()).toEqual(ids(recipes).sort());
+    // While dishes last, none of the three lead slots of a block goes to a dressing or a drink.
+    for (let at = 0; at < mixed.length && mixed.slice(0, at).filter(dish).length < dishes; at++) {
+      if (at % 4 !== 3) expect(dish(mixed[at]!)).toBe(true);
+    }
+  });
+
   it('does not force savoury when the cook chose a filter', () => {
     const recipes = Array.from({ length: 20 }, (_, i) =>
       pictured(`r-${i}`, { source: 'only', tags: [i % 4 === 0 ? 'flavor:sweet' : 'flavor:savory'] })
