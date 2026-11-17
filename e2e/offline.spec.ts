@@ -50,3 +50,33 @@ test('an opened recipe shows its current lines, not a shard cached by an older v
   await expect(sheet.getByTestId('ingredients').getByRole('listitem').first()).toBeVisible();
   await expect(sheet.getByTestId('ingredients')).not.toContainText('stale line');
 });
+
+test('a version that takes over while the installed app waits in the background loads when the cook comes back, never over an open sheet', async ({ page }) => {
+  await page.goto('/');
+  // The app checks for updates only once a worker already controls the page, as on an installed app.
+  await page.waitForFunction(() => !!navigator.serviceWorker.controller);
+  await page.reload();
+  await expect(page.getByTestId('result-count')).toHaveText('6 recipes');
+  const comeBack = () => page.evaluate(() => {
+    for (const state of ['hidden', 'visible']) {
+      Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => state });
+      document.dispatchEvent(new Event('visibilitychange'));
+    }
+  });
+  const marked = () => page.evaluate(() => (window as unknown as { oldPage?: boolean }).oldPage === true);
+  await page.evaluate(() => {
+    (window as unknown as { oldPage?: boolean }).oldPage = true;
+    navigator.serviceWorker.dispatchEvent(new Event('controllerchange'));
+  });
+
+  await page.getByRole('button', { name: 'Red Lentil Soup', exact: true }).click();
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await comeBack();
+  expect(await marked()).toBe(true);
+  await page.getByRole('dialog').getByRole('button', { name: 'Close', exact: true }).click();
+  await expect(page.getByRole('dialog')).toBeHidden();
+
+  await Promise.all([page.waitForEvent('load'), comeBack()]);
+  expect(await marked()).toBe(false);
+  await expect(page.getByTestId('result-count')).toHaveText('6 recipes');
+});

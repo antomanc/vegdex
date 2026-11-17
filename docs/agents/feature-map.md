@@ -52,7 +52,7 @@ Back closes a sheet instead of leaving the app (`lib/sheet.ts`).
 | Ingredient parsing, concepts, translations | `packages/core/src/ingredients.ts`, `concepts.ts`; vocabulary in `packages/ingest/data/vocab/` (ADR 0003, 0005, 0006) |
 | Vegan guarantee | `findNonVegan` in `packages/core/src/vegan.ts`; nothing it flags is published |
 | Crawl and emit | `packages/ingest` (`pnpm ingest`), daily workflow |
-| Offline | Service worker `sw.ts` |
+| Offline and updates | Service worker `sw.ts`; a new version that takes over while the app is open loads the next time the cook comes back to it, never over an open sheet (`lib/app-update.ts`) |
 | Creator-link analytics | `lib/analytics.ts` (GoatCounter, only when configured) |
 | Kitchen: which ingredient stands in for which, staples, the cupboard aisles | `packages/core/src/kitchen.ts`; the worker stocks the cupboard from `lookup/en.json` the first time the fridge or the week asks |
 
