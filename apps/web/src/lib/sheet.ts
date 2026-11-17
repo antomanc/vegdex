@@ -4,6 +4,7 @@
  */
 
 import { haptic } from './haptic'
+import { startVt } from './view-transition'
 
 const closers: (() => void)[] = []
 let ownBacks = 0
@@ -103,15 +104,21 @@ export function closeSheet(dialog: HTMLDialogElement | null) {
   const hero = dialog.querySelector<HTMLElement>('.hero')
   const thumb = openThumb
   // Shared-element return: the crate photo flies back onto the stall when the browser can.
-  if (dialog.matches('.recipe-sheet') && document.startViewTransition && hero && thumb?.isConnected) {
+  if (dialog.matches('.recipe-sheet') && hero && thumb?.isConnected) {
     dialog.classList.add('closing', 'vt-photo')
     document.documentElement.classList.add('vt-crate')
     hero.style.viewTransitionName = VT
-    const run = document.startViewTransition(() => {
+    const run = startVt(() => {
       hero.style.viewTransitionName = ''
       thumb.style.viewTransitionName = VT
       dialog.close()
     })
+    if (!run) {
+      document.documentElement.classList.remove('vt-crate')
+      dialog.classList.remove('vt-photo')
+      openThumb = undefined
+      return
+    }
     void run.finished.finally(() => {
       thumb.style.viewTransitionName = ''
       document.documentElement.classList.remove('vt-crate')
@@ -153,17 +160,24 @@ export function sheet(dialog: HTMLDialogElement) {
   }
 
   // Shared-element open: only the crate photo morphs; sheet chrome stays hidden until it lands.
-  if (dialog.matches('.recipe-sheet') && !still() && document.startViewTransition && thumb?.isConnected) {
-    try {
-      dialog.classList.add('vt-photo')
-      document.documentElement.classList.add('vt-crate')
-      thumb.style.viewTransitionName = VT
-      const run = document.startViewTransition(() => {
-        thumb.style.viewTransitionName = ''
-        dialog.showModal()
-        const hero = dialog.querySelector<HTMLElement>('.hero')
-        if (hero) hero.style.viewTransitionName = VT
-      })
+  if (dialog.matches('.recipe-sheet') && !still() && thumb?.isConnected) {
+    dialog.classList.add('vt-photo')
+    document.documentElement.classList.add('vt-crate')
+    thumb.style.viewTransitionName = VT
+    const run = startVt(() => {
+      thumb.style.viewTransitionName = ''
+      dialog.showModal()
+      const hero = dialog.querySelector<HTMLElement>('.hero')
+      if (hero) hero.style.viewTransitionName = VT
+    })
+    if (!run) {
+      // startVt already ran the update (plain): dialog is open, no morph layer to clean beyond flags.
+      thumb.style.viewTransitionName = ''
+      document.documentElement.classList.remove('vt-crate')
+      dialog.classList.remove('vt-photo')
+      if (!dialog.open) openPlain()
+      else if (!still()) settleContents(dialog)
+    } else {
       // Reveal chrome as soon as the morph is underway — waiting for finished felt too slow.
       void run.ready.then(() => {
         if (!dialog.open || still()) return
@@ -176,11 +190,6 @@ export function sheet(dialog: HTMLDialogElement) {
         document.documentElement.classList.remove('vt-crate')
         dialog.classList.remove('vt-photo')
       })
-    } catch {
-      thumb.style.viewTransitionName = ''
-      document.documentElement.classList.remove('vt-crate')
-      dialog.classList.remove('vt-photo')
-      openPlain()
     }
   } else {
     openPlain()

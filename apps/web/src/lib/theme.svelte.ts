@@ -1,4 +1,6 @@
 /** Night mode: follows the system until the cook picks, then remembers the pick on this device. */
+import { startVt } from './view-transition'
+
 const KEY = 'vegdex:theme'
 const system = matchMedia('(prefers-color-scheme: dark)')
 
@@ -30,10 +32,8 @@ export function toggleTheme() {
     localStorage.setItem(KEY, theme.dark ? 'dark' : 'light')
   } catch {}
   // Night drops like the market awning; day lifts it. Instant when motion is reduced or unsupported.
-  const still = matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (!still && document.startViewTransition) {
-    document.documentElement.classList.add('theme-awning')
-    const run = document.startViewTransition(apply)
-    void run.finished.finally(() => document.documentElement.classList.remove('theme-awning'))
-  } else apply()
+  document.documentElement.classList.add('theme-awning')
+  const run = startVt(apply)
+  if (run) void run.finished.finally(() => document.documentElement.classList.remove('theme-awning'))
+  else document.documentElement.classList.remove('theme-awning')
 }

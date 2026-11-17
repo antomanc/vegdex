@@ -27,6 +27,7 @@
   import { settled } from './lib/reactive/timing.svelte'
   import { haptic } from './lib/haptic'
   import { shuffleVisibleCrates } from './lib/stall-motion'
+  import { startVt } from './lib/view-transition'
 
   const PAGE = 48
   const REMOVAL_URL = `mailto:hello@antomanc.com?subject=${encodeURIComponent('vegdex removal request')}&body=${encodeURIComponent('Blog or recipe links:\n\nWhat should go (a photo, a recipe or the whole blog):\n')}`
@@ -133,18 +134,14 @@
       const hadShelf = found !== null
       shelfSig = sig
       const apply = () => { found = f }
-      if (
-        hadShelf &&
-        queryChanged &&
-        !matchMedia('(prefers-reduced-motion: reduce)').matches &&
-        document.startViewTransition
-      ) {
+      if (hadShelf && queryChanged) {
         document.documentElement.classList.add('vt-shelf')
-        const run = document.startViewTransition(async () => {
+        const run = startVt(async () => {
           apply()
           await tick()
         })
-        void run.finished.finally(() => document.documentElement.classList.remove('vt-shelf'))
+        if (run) void run.finished.finally(() => document.documentElement.classList.remove('vt-shelf'))
+        else document.documentElement.classList.remove('vt-shelf')
       } else {
         apply()
       }
@@ -266,8 +263,8 @@
 
   const showPick = $derived(!!found && total > 0 && mode !== 'saved')
   const showReturn = $derived(mode === 'saved' ? scrollY > 600 : filtersOutOfView)
-  // Icon-only list key: opens the shopping list from the catalog without hunting through Saved.
-  const showList = $derived(!!savedRecipes && saved.ids.length > 0 && !groceryOpen)
+  // Icon-only list key on the catalog; Saved already has the labeled grocery button.
+  const showList = $derived(!!savedRecipes && saved.ids.length > 0 && !groceryOpen && mode !== 'saved')
   const showDock = $derived(showReturn || showPick || showList)
   const showStallTip = $derived(stallTip && mode !== 'saved' && isLanding() && !!found && total > 0)
 
