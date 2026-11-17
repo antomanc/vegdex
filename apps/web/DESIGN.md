@@ -235,7 +235,7 @@ Flat. No card shadows: photos sit straight on the paper. Shadows appear only whe
 - The chosen time filter uses the same red tag ink as the crate labels, upright in the segment.
 - Opening a recipe morphs the crate photo into the sheet hero with the View Transitions API when available (`crate-photo`); otherwise a WAAPI morph. Sheet chrome fades in as soon as the morph is underway (not after it ends). Closing flies the photo back.
 - Changing filters or search crossfades the shelf (`vt-shelf`). Title/overlay reloads and language navigations do not — a document crossfade flashed the wrong crates. Infinite scroll does not re-animate.
-- Pick for me swaps a few visible crates (FLIP) then opens the draw; “Another” only slides sheet content.
+- Pick for me swaps a few visible crates (FLIP) then deals the deck.
 - Night mode drops or lifts like the market awning (clip-path view transition on `html.theme-awning`).
 - An explicit save pulses the heart, flies a ♥ to the Saved key, and pops that key. Restored favorites stay still.
 - Filter chips drop onto the board from above. Shopping checks land like an ink stamp.
@@ -261,7 +261,8 @@ Square-ish and painted. Radii come only from the scale: 2px (signs, tags, rating
 ### Open recipe
 - Photo, title, the original title when translated, "From the kitchen of <blog>" (an underlined button that opens the blog's shelf), the rating label. Then a 3px rule and the facts in cells split by hairlines: field labels above, values below, the time on its red tag.
 - Ingredients on hairlines, no bullets, the amount first in bold.
-- Footer on phones: Save as a heart key (its label stays for screen readers), Share, and the creator link filling the row. With Another, the creator link takes its own row.
+- Footer on phones: Save as a heart key (its label stays for screen readers), Share, and the creator link filling the row.
+- Scrolled past the heading, the bar at the top shows the title next to Close.
 
 ### Signs, pills and segments
 - **Sign:** outlined board, 44px, crate green when on. Toggles with `aria-pressed`, not an ARIA tablist.
@@ -284,6 +285,15 @@ Square-ish and painted. Radii come only from the scale: 2px (signs, tags, rating
 ### Inputs
 - **Search:** 2px outline, 8px radius, red caret, and a real 44px clear button that stays after the keyboard closes.
 - **Sheet fields:** 44px; Add appears once there is text. Typing suggests up to five names in the sheet's flow, prefix matches first with the typed part in green (`IngredientField`, a combobox: arrows, Enter, Escape), never a native datalist, which rebuilds on every keystroke and lags on phones. Comma-separated entries split into chips. Text left in a field applies when the sheet closes, and the footer then says "Add and show recipes" rather than a stale count.
+
+### Fridge and week boards
+- Two outlined boards under the signs, lettered like signs (Bowlby 0.9rem), 48px. My fridge turns crate green while the catalog cooks from the fridge and carries a red count of what is in it.
+- A card from the fridge adds one line under its rating: **You have everything** in green with a check, or **To buy: …** in ink.
+- The week sheet lists dinners as numbered rows (64px photo, title, time in Sign Red, blog) with a round Swap key; the line above them is the point: "N things to buy for the week" in Bowlby, "instead of M" muted, and green-outlined chips for what is shared.
+
+### Pick for me deck
+- The matches as a stack of cards: the top card is the crate photo (1:1) with its red tag, title and rating; two cards peek under it, smaller and lower.
+- Dragging tilts the card with the finger; past a quarter of its width a stamp appears (SAVE in green, SKIP in Sign Red, Bowlby, outlined), and letting go sends it off. Round 64px keys below do the same: ✕ in ink, ♥ in Sign Red. Reduced motion keeps the decisions and drops the flight.
 
 ### Shopping list
 - Aisles in store-walk order under Bowlby headings. Rows are 52px labels on hairlines with a 24px drawn checkbox. Checked rows sink to the bottom of their aisle: the name strikes through and dims, the amount keeps its contrast. Copy list is the sheet's solid action.

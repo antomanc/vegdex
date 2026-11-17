@@ -20,7 +20,9 @@ export const filters = $state({
   /** One blog's recipes only ("From the kitchen of …"): a source id. */
   from: null as string | null,
   sort: null as Sort | null,
-  saved: false
+  saved: false,
+  /** Only what the cook can make from their fridge, closest to ready first. */
+  fromFridge: false
 })
 
 export type Filters = typeof filters
@@ -84,6 +86,25 @@ interface BrowseFilter {
   query(f: Filters): Partial<RecipeQuery>
   read?(p: URLSearchParams): Partial<Filters>
   write?(f: Filters, p: URLSearchParams): void
+}
+
+const FRIDGE_KEY = 'vegdex:fridge'
+
+function loadFridge(): string[] {
+  try {
+    const v = JSON.parse(localStorage.getItem(FRIDGE_KEY) ?? '[]')
+    return Array.isArray(v) ? v.filter((x) => typeof x === 'string') : []
+  } catch {
+    return []
+  }
+}
+
+/** What the cook has, kept on this device: the fridge filter reads it. */
+export const fridge = $state({ items: loadFridge() })
+
+export function setFridge(items: string[]) {
+  fridge.items = [...new Set(items.map((v) => v.trim().toLowerCase()).filter(Boolean))]
+  try { localStorage.setItem(FRIDGE_KEY, JSON.stringify(fridge.items)) } catch { /* kept for this visit */ }
 }
 
 const FILTERS: BrowseFilter[] = [
@@ -179,6 +200,17 @@ const FILTERS: BrowseFilter[] = [
     query: (f) => ({ exclude: f.exclude }),
     read: (p) => ({ exclude: list(p.get('avoid')) }),
     write: (f, p) => { if (f.exclude.length) p.set('avoid', f.exclude.join(',')) }
+  },
+  {
+    param: 'fridge',
+    urlAt: 75,
+    count: (f) => (f.fromFridge ? 1 : 0),
+    chips: (f) => (f.fromFridge ? [{ label: m.fridge_chip(), patch: { fromFridge: false } }] : []),
+    clear: { fromFridge: false },
+    // The link says "from my fridge"; what is in it stays on the cook's device.
+    query: (f) => ({ fridge: f.fromFridge && fridge.items.length ? [...fridge.items] : undefined }),
+    read: (p) => ({ fromFridge: p.get('fridge') === '1' }),
+    write: (f, p) => { if (f.fromFridge) p.set('fridge', '1') }
   }
 ]
 
@@ -281,6 +313,23 @@ export function toggleSaved(id: string) {
   localStorage.setItem(SAVED_KEY, JSON.stringify(saved.ids))
   // Only the saved view offers an undo; anywhere else an unsave is final straight away.
   if (was && !inSaved) forgetUnsavedAmounts()
+}
+
+/** Saved recipes left off the shopping list. */
+export const EXCLUDED_KEY = 'vegdex:grocery-excluded'
+
+/** The shopping list covers only these saved recipes (a planned week), until the cook chooses again. */
+export function shopOnly(ids: string[]) {
+  try { localStorage.setItem(EXCLUDED_KEY, JSON.stringify(saved.ids.filter((id) => !ids.includes(id)))) } catch { /* the list keeps its choice */ }
+}
+
+/** Saves every one of these recipes that is not saved yet, newest first in their order. */
+export function saveAll(ids: string[]) {
+  const fresh = ids.filter((id) => !saved.ids.includes(id))
+  if (!fresh.length) return
+  saved.ids = [...fresh, ...saved.ids]
+  saved.unsaved = saved.unsaved.filter((id) => !fresh.includes(id))
+  localStorage.setItem(SAVED_KEY, JSON.stringify(saved.ids))
 }
 
 const AMOUNTS_KEY = 'vegdex:grocery-amounts'

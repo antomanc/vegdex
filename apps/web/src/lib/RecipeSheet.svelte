@@ -14,15 +14,13 @@
   import UnitsToggle from './UnitsToggle.svelte'
 
   let {
-    recipe, sourceName, onclose, onkitchen, ondraw
+    recipe, sourceName, onclose, onkitchen
   }: {
     recipe: CatalogRecipe
     sourceName: string
     onclose: () => void
     /** Show every recipe from this recipe's blog. */
     onkitchen: () => void
-    /** Present when the card was drawn at random: draw another. */
-    ondraw?: () => void
   } = $props()
 
   let broken = $state(false)
@@ -220,9 +218,6 @@
         <button use:saveFeedback class="save" class:on={isSaved} aria-pressed={isSaved} onclick={() => toggleSaved(recipe.id)}>
           <Icon name="heart" size={18} filled={isSaved} /> <span class="save-label">{isSaved ? m.saved_recipe() : m.save()}</span>
         </button>
-        {#if ondraw}
-          <button class="save" onclick={ondraw}><Icon name="shuffle" size={18} /> {m.another()}</button>
-        {/if}
         <button class="save share" class:copied={copied.on} onclick={share} aria-label={m.share()} title={m.share()}>
           <span class="swap"><Icon name="share" size={18} /><Icon name="check" size={18} /></span>
           <span class="bubble" aria-hidden="true">{m.link_copied()}</span>

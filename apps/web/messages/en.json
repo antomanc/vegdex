@@ -196,7 +196,6 @@
   "save": "Save",
   "save_recipe": "Save {title}",
   "unsave_recipe": "Unsave {title}",
-  "another": "Another",
   "cook_on": "Cook it on {source}",
   "units": "Units",
   "units_us": "US",
@@ -333,5 +332,144 @@
   "copy_list": "Copy list",
   "list_copied": "List copied",
   "list_for": "For these recipes:",
-  "list_by_hand": "Copy the list from here"
+  "list_by_hand": "Copy the list from here",
+  "fridge_button": "My fridge",
+  "fridge_title": "What’s in your fridge?",
+  "fridge_hint": "Add what you have. Recipes that use most of it come first, with at most three things to buy. Salt, pepper, water and the cupboard (spices, oils, sauces) are always in.",
+  "fridge_add_label": "Add an ingredient you have",
+  "fridge_quick": "Tap what you have",
+  "fridge_empty": "Empty the fridge",
+  "fridge_cook": "Show what I can cook",
+  "fridge_cook_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "Cook from it: {count} recipe",
+        "plural=*": "Cook from it: {count} recipes"
+      }
+    }
+  ],
+  "fridge_chip": "From my fridge",
+  "fridge_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} recipe from your fridge",
+        "plural=*": "{count} recipes from your fridge"
+      }
+    }
+  ],
+  "fridge_ready": "You have everything",
+  "fridge_buy": "To buy: {names}",
+  "fridge_missing": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} thing to buy",
+        "plural=*": "{count} things to buy"
+      }
+    }
+  ],
+  "week_button": "My week",
+  "week_title": "Your week",
+  "week_hint": "Dinners that share their shopping, from your filters. Swap any you don’t fancy.",
+  "week_dinners_label": "Dinners",
+  "week_dinners": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} dinner",
+        "plural=*": "{count} dinners"
+      }
+    }
+  ],
+  "week_fewer": "Fewer dinners",
+  "week_more": "More dinners",
+  "week_planning": "Planning your week…",
+  "week_none": "No dinners match these filters. Remove one and plan again.",
+  "week_items": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} thing to buy for the week",
+        "plural=*": "{count} things to buy for the week"
+      }
+    }
+  ],
+  "week_instead": "instead of {count} picked one by one",
+  "week_shared": "Used more than once",
+  "week_swap": "Swap {title}",
+  "week_new": "New week",
+  "week_shop": "Save and make the list",
+  "deck_title": "Pick for me",
+  "deck_hint": "Swipe right to save, left to skip. Tap a card for the recipe.",
+  "deck_card": "recipe card",
+  "deck_open": "Open {title}",
+  "deck_stamp_save": "Save",
+  "deck_stamp_skip": "Skip",
+  "deck_skip": "Skip",
+  "deck_save": "Save and next",
+  "deck_end_title": "That’s the stall",
+  "deck_end": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "You’ve seen the {count} best match for these filters.",
+        "plural=*": "You’ve seen the {count} best matches for these filters."
+      }
+    }
+  ],
+  "deck_again": "Shuffle again",
+  "deck_kept": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} saved",
+        "plural=*": "{count} saved"
+      }
+    }
+  ],
+  "fridge_also": "Also in your fridge"
 }

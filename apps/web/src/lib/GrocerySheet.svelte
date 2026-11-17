@@ -11,12 +11,11 @@
   import { AISLE_LABELS, MAX_BATCHES, formatGroceryAmount, perBatch, stepsLabel } from './labels'
   import Icon from './Icon.svelte'
   import { closeSheet, sheet } from './sheet'
-  import { amounts, prefs, saved, setAmount } from './state.svelte'
+  import { EXCLUDED_KEY, amounts, prefs, saved, setAmount } from './state.svelte'
   import UnitsToggle from './UnitsToggle.svelte'
 
   let { recipes, onclose }: { recipes: CatalogRecipe[]; onclose: () => void } = $props()
 
-  const EXCLUDED_KEY = 'vegdex:grocery-excluded'
   function loadExcluded(): string[] {
     try { const value = JSON.parse(localStorage.getItem(EXCLUDED_KEY) ?? '[]'); return Array.isArray(value) ? value.filter((id) => typeof id === 'string' && saved.ids.includes(id)) : [] }
     catch { return [] }

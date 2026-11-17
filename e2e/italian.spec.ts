@@ -115,9 +115,10 @@ test('counts, compact ratings and times use Italian despite the browser language
 test('empty states and the random pick flow read in Italian', async ({ page }) => {
   await page.getByRole('button', { name: 'Scegli per me', exact: true }).click();
   const sheet = page.getByRole('dialog');
-  const firstTitle = await sheet.getByRole('heading', { level: 2 }).textContent();
-  await sheet.getByRole('button', { name: 'Un’altra', exact: true }).click();
-  await expect(sheet.getByRole('heading', { level: 2 })).not.toHaveText(firstTitle!);
+  await expect(sheet.getByRole('heading', { name: 'Scegli per me', level: 2 })).toBeVisible();
+  const firstTitle = await sheet.getByRole('heading', { level: 3 }).textContent();
+  await sheet.getByRole('button', { name: 'Salta', exact: true }).click();
+  await expect(sheet.getByRole('heading', { level: 3 })).not.toHaveText(firstTitle!);
   await sheet.getByRole('button', { name: 'Chiudi', exact: true }).click();
   await expect(page.getByRole('dialog')).toBeHidden();
   await page.getByRole('searchbox', { name: 'Cerca ricette', exact: true }).fill('zzzz');
