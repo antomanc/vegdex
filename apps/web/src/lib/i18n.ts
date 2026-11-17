@@ -16,10 +16,25 @@ export const formatRating = (n: number) => n.toLocaleString(pageLocale.intl, { m
 
 /** Read before first paint by index.html, which opens the cook's chosen language at a page's bare address (ADR 0002). */
 export const LANGUAGE_KEY = 'vegdex:language'
+const SKIP_EARLY_KEY = 'vegdex:skip-early'
+
 export function rememberLanguage(code: string) {
   try {
     localStorage.setItem(LANGUAGE_KEY, code)
+    // The next page must not paint first.json: that flash looked like the wrong recipes.
+    sessionStorage.setItem(SKIP_EARLY_KEY, '1')
   } catch {}
+}
+
+/** Once per load after a language switch: skip the early shelf until the catalog answers. */
+export function takeSkipEarly(): boolean {
+  try {
+    if (sessionStorage.getItem(SKIP_EARLY_KEY) !== '1') return false
+    sessionStorage.removeItem(SKIP_EARLY_KEY)
+    return true
+  } catch {
+    return false
+  }
 }
 
 export { m } from '../paraglide/messages.js'

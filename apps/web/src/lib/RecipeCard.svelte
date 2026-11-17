@@ -1,5 +1,6 @@
 <script lang="ts">
   import { saveFeedback } from './save-feedback'
+  import { tagPendulum } from './tag-pendulum'
   import { recipeTitle, titleLang } from './translations.svelte'
   import type { CatalogRecipe } from '@vegdex/core'
   import { m, countArgs, formatRating } from './i18n'
@@ -23,7 +24,7 @@
     {:else}
       <svg class="placeholder" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 44c0-16 10-26 28-28-1 18-10 28-26 28h-2z" fill="currentColor" /></svg>
     {/if}
-    {#if recipe.minutes}<span class="time" aria-hidden="true">{formatMinutes(recipe.minutes)}</span>{/if}
+    {#if recipe.minutes}<span class="time" use:tagPendulum aria-hidden="true">{formatMinutes(recipe.minutes)}</span>{/if}
   </div>
   {#if justUnsaved}<span class="removed">{m.removed()}</span>{/if}
   <!-- The title is the card's heading; its button stretches over the whole card. -->
