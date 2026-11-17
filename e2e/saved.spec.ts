@@ -16,6 +16,14 @@ test('saved recipes persist and build a combined shopping list', async ({ page }
   await expect(list.locator('li', { hasText: 'garlic' })).toContainText('5 cloves');
 });
 
+test('the dock list key opens the shopping list from the catalog', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();
+  // Icon-only dock control: reachable without opening Saved first.
+  await page.locator('.dock-list').click();
+  await expect(page.getByRole('dialog')).toContainText(/spinach|tofu|garlic/i);
+});
+
 test('each saved recipe has its own amount on the shopping list', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Save Spinach Tofu Curry' }).click();

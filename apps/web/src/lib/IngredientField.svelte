@@ -1,5 +1,6 @@
 <script lang="ts">
   import { tick } from 'svelte'
+  import { suggestNames } from './suggest'
 
   // Native datalists rebuild their popup on every keystroke, which lags on phones: this list stays a few rows of plain DOM.
   const SHOWN = 5
@@ -30,20 +31,7 @@
   // "tofu, spin" suggests for what is being typed now, after the last comma.
   const before = $derived(value.slice(0, value.lastIndexOf(',') + 1))
   const term = $derived(value.slice(before.length).trim().toLowerCase())
-  const matches = $derived.by(() => {
-    if (!term) return []
-    const first: { name: string; at: number }[] = []
-    const inside: { name: string; at: number }[] = []
-    for (const { name, lower } of names) {
-      const at = lower.indexOf(term)
-      if (at < 0 || chosen.has(lower)) continue
-      if (at === 0) {
-        first.push({ name, at })
-        if (first.length === SHOWN) break
-      } else if (inside.length < SHOWN) inside.push({ name, at })
-    }
-    return [...first, ...inside].slice(0, SHOWN)
-  })
+  const matches = $derived(suggestNames(names, term, chosen, SHOWN))
   const showing = $derived(open && matches.length > 0)
 
   function pick(name: string) {
@@ -111,11 +99,11 @@
 </div>
 <ul class="suggestions" id="{id}-list" role="listbox" aria-label={placeholder} hidden={!showing}>
   {#if showing}
-    {#each matches as { name, at }, i (name)}
+    {#each matches as { name, at, len }, i (name)}
       <!-- Pressing keeps focus in the field, so the keyboard stays up for the next ingredient. -->
       <!-- svelte-ignore a11y_click_events_have_key_events -->
       <li id="{id}-option-{i}" role="option" aria-selected={i === active} class:active={i === active}
-        onpointerdown={(e) => e.preventDefault()} onclick={() => pick(name)}>{name.slice(0, at)}<b>{name.slice(at, at + term.length)}</b>{name.slice(at + term.length)}</li>
+        onpointerdown={(e) => e.preventDefault()} onclick={() => pick(name)}>{name.slice(0, at)}<b>{name.slice(at, at + len)}</b>{name.slice(at + len)}</li>
     {/each}
   {/if}
 </ul>

@@ -23,8 +23,8 @@ colors:
   dark-paper: "#121211"
   dark-surface: "#1c1c1a"
   dark-ink: "#f4f2ea"
-  dark-muted: "#aaa89f"
-  dark-line: "#34332f"
+  dark-muted: "#b7b5ab"
+  dark-line: "#45433c"
   dark-rule: "#e9e7df"
   dark-crate-green: "#79c58a"
   dark-on-green: "#0e1a11"
@@ -171,9 +171,9 @@ White ground, black ink and outlines. Three signal colors, each with one job.
 - **Paper / Surface** (#ffffff; night #121211 / #1c1c1a): page and sheets.
 - **Ink** (#151515; night #f4f2ea): text.
 - **Rule** (#151515; night #e9e7df): control outlines and heavy rules.
-- **Muted** (#5c5c55; night #aaa89f): metadata, counts, hints, placeholders. 4.5:1 or better on paper and surface.
-- **Line** (#dedcd4; night #34332f): hairlines between rows.
-- **Green Wash** (#e6efe5; night #1f3324): image and skeleton placeholders and hover washes only. Never a control's resting ground.
+- **Muted** (#5c5c55; night #b7b5ab): metadata, counts, hints, placeholders. 4.5:1 or better on paper and surface.
+- **Line** (#dedcd4; night #45433c): hairlines between rows.
+- **Green Wash** (#e6efe5; night #243d2a): image and skeleton placeholders and hover washes only. Never a control's resting ground.
 
 ### Named Rules
 **The Green Means Act Rule.** Solid green marks what you can act on or what you chose. On the browse screen, Pick for me is the one solid action at rest.
@@ -213,8 +213,8 @@ Mobile first, with a 1200px content width. Header and content share one left edg
 - **Header:** brand row and search, closed by a 3px rule. On phones, scrolling leaves only the search pinned and the brand row scrolls away; Back to top in the dock brings it back. From 900px, brand, search and keys share one row and the whole header stays.
 - **Signs:** dinner courses first (Mains, Soups, Salads, Sides, Breakfast, Snacks, Desserts), then Savory, Sweet and the rest. On phones they are one scrolling row that fades over its last 44px; the fade lets go at the end of the row and a chosen sign slides into view. From 700px they sit in two lines that wrap, and nothing scrolls.
 - **Filters:** one row: Tonight, the four times and More filters. On phones More filters is a round key with a count badge, and only the last time spells out its unit (none under 380px); labels stay for screen readers. Every time stays at least 44px wide, so under 360px the times take their own line. Each filter has one home: time lives only in the row, High protein only in More filters.
-- **Grid:** `repeat(auto-fill, minmax(160px, 1fr))`, 22px row and 10px column gaps. Under 380px, two fixed columns. From 700px, `minmax(220px, 1fr)` with 30px and 20px gaps.
-- **Dock:** Pick for me and Back to top. On phones it sits at the bottom centre over a fade of paper. From 900px Pick ends the filter row, so it never covers a photo, and the dock keeps only Back to top in the bottom-right corner. `scroll-padding-bottom` keeps keyboard focus clear of it. It always says "Back to top", never "Filters", so nobody taps it expecting to keep their place.
+- **Grid:** `repeat(auto-fill, minmax(160px, 1fr))`, 22px row and 10px column gaps. Under 380px, two fixed columns. From 700px, `minmax(200px, 1fr)` with 26px and 16px gaps; from 1100px, `minmax(210px, 1fr)` with 28px and 18px gaps.
+- **Dock:** Pick for me, Back to top, and an icon-only shopping-list key when anything is saved. On phones it sits at the bottom centre over a fade of paper; the list key is 52px so three controls still fit at 320px. From 900px Pick ends the filter row, so it never covers a photo, and the dock keeps Back to top and the list key in the bottom-right corner. `scroll-padding-bottom` keeps keyboard focus clear of it. It always says "Back to top", never "Filters", so nobody taps it expecting to keep their place.
 - **Sheets:** bottom sheets on phones (640px at most, up to the full height). Centred dialogs from 700px (92dvh). The recipe sheet becomes two columns at 900px: photo and facts stick on the left, ingredients scroll on the right.
 - **Sheet scrolling:** opening a modal fixes the background at its scroll position until the last sheet is removed. The dialog owns vertical scrolling, and gestures stay within it at both edges. Closing restores the grid position; opening a source shelf starts at its heading.
 - **Sheet bar:** Close sits in a sticky bar that is clear at the top and turns solid with a rule once the sheet scrolls, so content passes under the bar and never under the button. Without scroll-driven animation the bar is solid from the start and takes its own space.
@@ -230,14 +230,21 @@ Flat. No card shadows: photos sit straight on the paper. Shadows appear only whe
 
 ## Interaction feedback
 
-- Controls compress to 97% on press; selection colors transition in 160ms.
-- A recipe expands from the tapped card into its sheet in 460ms. A random pick rises from below; drawing another slides new content into place in 320ms while the controls stay still. Other sheets enter with a 40px slide in 320ms and close in 180ms.
-- An explicit save compresses the heart, expands it to 140% and settles it in 440ms, with a fading ring around the grid heart. Restored favorites stay still.
-- On hover a card's photo brightens a little and its tag swings on its string (hover devices only).
+- Controls compress to 95% on press (Pick for me to 92%); selection colors transition in 160ms. Pills and Saved settle in 200ms (scale only, no bounce). Course signs knock forward on a hinge (`rotateX`) when chosen.
+- Time tags stay upright at rest. A finger brush or tap swings them on a damped string (`lib/tag-pendulum.ts`).
+- The chosen time filter uses the same red tag ink as the crate labels, upright in the segment.
+- Opening a recipe morphs the crate photo into the sheet hero with the View Transitions API when available (`crate-photo`); otherwise a WAAPI morph. Sheet chrome fades in as soon as the morph is underway (not after it ends). Closing flies the photo back.
+- Changing filters or search crossfades the shelf (`vt-shelf`). Title/overlay reloads and language navigations do not — a document crossfade flashed the wrong crates. Infinite scroll does not re-animate.
+- Pick for me swaps a few visible crates (FLIP) then opens the draw; “Another” only slides sheet content.
+- Night mode drops or lifts like the market awning (clip-path view transition on `html.theme-awning`).
+- An explicit save pulses the heart, flies a ♥ to the Saved key, and pops that key. Restored favorites stay still.
+- Filter chips drop onto the board from above. Shopping checks land like an ink stamp.
+- A one-time tip below the recipe grid points at Tonight and Pick for me on the plain landing (below the cards so the early shelf does not jump); dismiss stores `vegdex:stall-tip-dismissed`.
+- Phones that support `navigator.vibrate` get short haptic taps on select, save, open and pick (`lib/haptic.ts`). Reduced motion skips the buzz and the spatial pieces above.
 - Unsaving in the Saved view greys the photo and says how to undo; the text stays readable.
 - Checked shopping rows strike through and move to the end of their aisle in 180ms.
 - Page zoom by double-tap or pinch is disabled on the page and sheets, on purpose.
-- Search results appear immediately. No grid entrance choreography or scroll reveals.
+- No per-card entrance stagger and no full-grid parallax; the shelf crossfades as a whole when the query changes.
 - Reduced motion keeps color and opacity feedback and removes spatial movement.
 
 ## Shapes
@@ -247,7 +254,7 @@ Square-ish and painted. Radii come only from the scale: 2px (signs, tags, rating
 ## Components
 
 ### Recipe card
-- No card stock: the photo, the tag hanging 11px off its bottom-left edge (-4°, -2° on even cards), then title, source (up to two lines, the creator is never cut to an ellipsis) and rating. Meta sits at the same height on every card in a row.
+- No card stock: the photo, the upright tag hanging 11px off its bottom-left edge, then title, source (up to two lines, the creator is never cut to an ellipsis) and rating. Meta sits at the same height on every card in a row.
 - The title is the card's heading. Its button stretches over the whole card; the heart sits above it. A photo still loading shows a faint leaf.
 - Most recipes average 5.0, so the label leads with the count; the average shows only below 4.5 ("★ 4.3 · 12 ratings"), and the sheet always shows both.
 
