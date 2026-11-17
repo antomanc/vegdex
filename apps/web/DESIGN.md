@@ -239,7 +239,7 @@ Flat. No card shadows: photos sit straight on the paper. Shadows appear only whe
 - Night mode drops or lifts like the market awning (clip-path view transition on `html.theme-awning`).
 - An explicit save pulses the heart, flies a ♥ to the Saved key, and pops that key. Restored favorites stay still.
 - Filter chips drop onto the board from above. Shopping checks land like an ink stamp.
-- A one-time tip under the filters points at Tonight and Pick for me on the plain landing; dismiss stores `vegdex:stall-tip-dismissed`.
+- A one-time tip above the dock points at Tonight and Pick for me on the plain landing (fixed, so the early shelf does not jump); dismiss stores `vegdex:stall-tip-dismissed`.
 - Phones that support `navigator.vibrate` get short haptic taps on select, save, open and pick (`lib/haptic.ts`). Reduced motion skips the buzz and the spatial pieces above.
 - Unsaving in the Saved view greys the photo and says how to undo; the text stays readable.
 - Checked shopping rows strike through and move to the end of their aisle in 180ms.

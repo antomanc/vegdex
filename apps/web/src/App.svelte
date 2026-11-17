@@ -266,6 +266,7 @@
   // Icon-only list key on the catalog; Saved already has the labeled grocery button.
   const showList = $derived(!!savedRecipes && saved.ids.length > 0 && !groceryOpen && mode !== 'saved')
   const showDock = $derived(showReturn || showPick || showList)
+  // Dock-anchored: must not sit in document flow or the early shelf cards jump when the catalog arrives.
   const showStallTip = $derived(stallTip && mode !== 'saved' && isLanding() && !!found && total > 0)
 
   // Back up to the header and filters; focus lands on the brand without opening the phone keyboard.
@@ -372,12 +373,6 @@
   {/if}
   {#if mode !== 'saved'}
     <div class="filters" bind:this={filterBox}><FilterBar count={found ? total : null} onpick={showPick ? pick : undefined} /></div>
-    {#if showStallTip}
-      <div class="stall-tip">
-        <p>{m.stall_tip()}</p>
-        <button class="text-btn" type="button" aria-label={m.dismiss_stall_tip()} onclick={dismissStallTip}><Icon name="close" size={16} /></button>
-      </div>
-    {/if}
   {/if}
 
   {#if error}
@@ -386,17 +381,17 @@
       <button class="text-btn" onclick={load}>{m.try_again()}</button>
     </div>
   {:else if !found}
-    <p class="visually-hidden" role="status">{m.loading_recipes()}</p>
     {#if early}
+      <p class="visually-hidden" role="status">{m.loading_recipes()}</p>
       <!-- Holds the count line's place, so the cards stay put when the catalog arrives. -->
-      <div class="summary" aria-hidden="true"><p>{m.loading_recipes()}</p></div>
+      <div class="summary" aria-hidden="true"><p>&nbsp;</p></div>
       <ul class="grid" data-testid="first-page">
         {#each early as recipe, i (recipe.id)}
           <li><RecipeCard {recipe} sourceName={sourceNames.get(recipe.source) ?? recipe.source} onopen={() => (openId = recipe.id)} eager={i < EAGER} /></li>
         {/each}
       </ul>
     {:else}
-      <p class="skeleton-label" aria-hidden="true">{m.loading_recipes()}</p>
+      <p class="skeleton-label" role="status">{m.loading_recipes()}</p>
       <ul class="grid skeleton" aria-hidden="true">
         {#each Array(6) as _, i (i)}<li><div class="thumb"></div><div class="bar"></div><div class="bar short"></div></li>{/each}
       </ul>
@@ -496,17 +491,25 @@
 </main>
 
 <!-- Dock within thumb reach: back up, shopping list (icon), and Pick. "Back to top" never means "filters". -->
-{#if showDock}
+{#if showDock || showStallTip}
   <div class="dock">
-    {#if showReturn}
-      <button class="dock-return" onclick={backUp}><Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span></button>
+    {#if showStallTip}
+      <div class="stall-tip">
+        <p>{m.stall_tip()}</p>
+        <button class="text-btn" type="button" aria-label={m.dismiss_stall_tip()} onclick={dismissStallTip}><Icon name="close" size={16} /></button>
+      </div>
     {/if}
-    {#if showList}
-      <button class="dock-return dock-list" type="button" aria-label={m.shopping_list()} onclick={() => (groceryOpen = true)}>
-        <Icon name="list" size={18} />
-      </button>
-    {/if}
-    {#if showPick}<button class="pick" onclick={pick}><Icon name="shuffle" size={18} /> {m.pick()}</button>{/if}
+    <div class="dock-actions">
+      {#if showReturn}
+        <button class="dock-return" onclick={backUp}><Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span></button>
+      {/if}
+      {#if showList}
+        <button class="dock-return dock-list" type="button" aria-label={m.shopping_list()} onclick={() => (groceryOpen = true)}>
+          <Icon name="list" size={18} />
+        </button>
+      {/if}
+      {#if showPick}<button class="pick" onclick={pick}><Icon name="shuffle" size={18} /> {m.pick()}</button>{/if}
+    </div>
   </div>
 {/if}
 

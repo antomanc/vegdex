@@ -101,32 +101,8 @@ export function closeSheet(dialog: HTMLDialogElement | null) {
     return
   }
 
-  const hero = dialog.querySelector<HTMLElement>('.hero')
-  const thumb = openThumb
-  // Shared-element return: the crate photo flies back onto the stall when the browser can.
-  if (dialog.matches('.recipe-sheet') && hero && thumb?.isConnected) {
-    dialog.classList.add('closing', 'vt-photo')
-    document.documentElement.classList.add('vt-crate')
-    hero.style.viewTransitionName = VT
-    const run = startVt(() => {
-      hero.style.viewTransitionName = ''
-      thumb.style.viewTransitionName = VT
-      dialog.close()
-    })
-    if (!run) {
-      document.documentElement.classList.remove('vt-crate')
-      dialog.classList.remove('vt-photo')
-      openThumb = undefined
-      return
-    }
-    void run.finished.finally(() => {
-      thumb.style.viewTransitionName = ''
-      document.documentElement.classList.remove('vt-crate')
-      openThumb = undefined
-    })
-    return
-  }
-
+  // Exit stays WAAPI so the dialog remains modal through `closing` (Esc/back tests, no VT race).
+  openThumb = undefined
   dialog.classList.add('closing')
   const style = getComputedStyle(dialog)
   const exit = dialog.animate([
@@ -138,7 +114,6 @@ export function closeSheet(dialog: HTMLDialogElement | null) {
   } catch { /* optional */ }
   void exit.finished.then(() => {
     if (dialog.isConnected) dialog.close()
-    openThumb = undefined
   }, () => {})
 }
 
