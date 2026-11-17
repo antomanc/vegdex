@@ -346,10 +346,8 @@ main {
   background: var(--surface); color: var(--ink); font-size: 0.88rem; line-height: 1.4; text-wrap: balance;
 }
 .stall-tip {
-  pointer-events: auto; display: flex; align-items: flex-start; gap: 8px; width: min(100%, 28rem);
-  margin: 0; padding: 10px 8px 10px 12px;
+  display: flex; align-items: flex-start; gap: 8px; margin: 18px 0 14px; padding: 10px 8px 10px 12px;
   border: 2px solid var(--rule); border-radius: 6px; background: var(--surface);
-  box-shadow: 0 2px 6px var(--shadow), 0 8px 24px var(--card-shadow);
 }
 .stall-tip p {
   flex: 1; margin: 0; min-height: 44px; display: flex; align-items: center;
@@ -373,16 +371,12 @@ main {
 
 /* The browse screen's one solid action, floating within thumb reach: let the stall pick. */
 .dock {
-  position: fixed; inset: auto 0 0; z-index: 4; display: flex; flex-direction: column; align-items: center; gap: 10px; pointer-events: none;
+  position: fixed; inset: auto 0 0; z-index: 4; display: flex; justify-content: center; gap: 10px; pointer-events: none;
   padding: 28px 16px calc(16px + env(safe-area-inset-bottom));
   background: linear-gradient(to top, var(--paper) 45%, transparent);
 }
-.dock-actions { display: flex; justify-content: center; gap: 10px; }
 /* Wider screens: the dock floats in the corner, off the middle of the photos. */
-@media (min-width: 700px) {
-  .dock { background: none; padding: 0 max(var(--edge), (100% - 1200px) / 2) 20px; align-items: flex-end; }
-  .dock-actions { justify-content: flex-end; }
-}
+@media (min-width: 700px) { .dock { background: none; padding: 0 max(var(--edge), (100% - 1200px) / 2) 20px; justify-content: flex-end; } }
 .pick, .dock-return {
   pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 24px;
   border: 0; border-radius: 8px; background: var(--green); color: var(--on-green);
@@ -402,13 +396,11 @@ main {
 /* Both labels on one line down to a 320px phone, in English and Italian. */
 @media (max-width: 359px) {
   .dock { gap: 6px; padding-inline: 8px; }
-  .dock-actions { gap: 6px; }
   .pick { padding: 0 12px; font-size: 0.9rem; gap: 6px; }
   .dock-return { padding: 0 10px; font-size: 0.85rem; gap: 4px; }
 }
 /* Room under the last cards and the credits, so the dock never covers them. */
 main:has(~ .dock) { padding-bottom: 96px; }
-main:has(~ .dock .stall-tip) { padding-bottom: 168px; }
 
 /* A crate on the stall: the publisher's photo, its price tag, the facts under it. No card stock. */
 .card, .skeleton li { position: relative; height: 100%; }

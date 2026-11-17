@@ -226,6 +226,10 @@
   })
   let kitchenScrollPending = false
   onSheetPop(() => {
+    // A back gesture can win the race before the sheet action pushes its history entry and
+    // registers a closer. Drop a pending open so writeUrl does not put `r=` back and reopen.
+    if (openId && !document.querySelector('dialog.sheet[open]')) openId = null
+    if (groceryOpen && !document.querySelector('dialog.grocery-sheet[open]')) groceryOpen = false
     writeUrl(openId, groceryOpen)
     if (kitchenScrollPending) {
       kitchenScrollPending = false
@@ -266,7 +270,7 @@
   // Icon-only list key on the catalog; Saved already has the labeled grocery button.
   const showList = $derived(!!savedRecipes && saved.ids.length > 0 && !groceryOpen && mode !== 'saved')
   const showDock = $derived(showReturn || showPick || showList)
-  // Dock-anchored: must not sit in document flow or the early shelf cards jump when the catalog arrives.
+  // Below the grid (not under the filters): first cards keep their place when the tip appears.
   const showStallTip = $derived(stallTip && mode !== 'saved' && isLanding() && !!found && total > 0)
 
   // Back up to the header and filters; focus lands on the brand without opening the phone keyboard.
@@ -465,6 +469,12 @@
         </li>
       {/each}
     </ul>
+    {#if showStallTip}
+      <div class="stall-tip">
+        <p>{m.stall_tip()}</p>
+        <button class="text-btn" type="button" aria-label={m.dismiss_stall_tip()} onclick={dismissStallTip}><Icon name="close" size={16} /></button>
+      </div>
+    {/if}
     {#if visible.length < total}
       {#if limit < AUTO_LIMIT}
         <div bind:this={sentinel} class="sentinel" aria-hidden="true"></div>
@@ -491,25 +501,17 @@
 </main>
 
 <!-- Dock within thumb reach: back up, shopping list (icon), and Pick. "Back to top" never means "filters". -->
-{#if showDock || showStallTip}
+{#if showDock}
   <div class="dock">
-    {#if showStallTip}
-      <div class="stall-tip">
-        <p>{m.stall_tip()}</p>
-        <button class="text-btn" type="button" aria-label={m.dismiss_stall_tip()} onclick={dismissStallTip}><Icon name="close" size={16} /></button>
-      </div>
+    {#if showReturn}
+      <button class="dock-return" onclick={backUp}><Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span></button>
     {/if}
-    <div class="dock-actions">
-      {#if showReturn}
-        <button class="dock-return" onclick={backUp}><Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span></button>
-      {/if}
-      {#if showList}
-        <button class="dock-return dock-list" type="button" aria-label={m.shopping_list()} onclick={() => (groceryOpen = true)}>
-          <Icon name="list" size={18} />
-        </button>
-      {/if}
-      {#if showPick}<button class="pick" onclick={pick}><Icon name="shuffle" size={18} /> {m.pick()}</button>{/if}
-    </div>
+    {#if showList}
+      <button class="dock-return dock-list" type="button" aria-label={m.shopping_list()} onclick={() => (groceryOpen = true)}>
+        <Icon name="list" size={18} />
+      </button>
+    {/if}
+    {#if showPick}<button class="pick" onclick={pick}><Icon name="shuffle" size={18} /> {m.pick()}</button>{/if}
   </div>
 {/if}
 
