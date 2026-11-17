@@ -398,7 +398,6 @@ main {
   .dock { gap: 6px; padding-inline: 8px; }
   .pick { padding: 0 12px; font-size: 0.9rem; gap: 6px; }
   .dock-return { padding: 0 10px; font-size: 0.85rem; gap: 4px; }
-  .dock-list { width: 48px; }
 }
 /* Room under the last cards and the credits, so the dock never covers them. */
 main:has(~ .dock) { padding-bottom: 96px; }
