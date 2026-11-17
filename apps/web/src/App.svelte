@@ -23,6 +23,7 @@
   import LanguageSuggestion from './lib/LanguageSuggestion.svelte'
   import { latest } from './lib/reactive/latest.svelte'
   import { intersect } from './lib/reactive/intersect.svelte'
+  import { onlineStatus } from './lib/reactive/online.svelte'
   import { settled } from './lib/reactive/timing.svelte'
   import { haptic } from './lib/haptic'
   import { shuffleVisibleCrates } from './lib/stall-motion'
@@ -59,16 +60,7 @@
   let scrollY = $state(0)
   let homeButton = $state<HTMLButtonElement>()
   let queryString = $state(location.search)
-  let online = $state(navigator.onLine)
-  $effect(() => {
-    const sync = () => (online = navigator.onLine)
-    addEventListener('online', sync)
-    addEventListener('offline', sync)
-    return () => {
-      removeEventListener('online', sync)
-      removeEventListener('offline', sync)
-    }
-  })
+  const net = onlineStatus()
 
   // First landings: point at Tonight and Pick, then stay out of the way.
   const STALL_TIP_KEY = 'vegdex:stall-tip-dismissed'
@@ -378,7 +370,7 @@
 
 <main>
   <LanguageSuggestion {queryString} />
-  {#if !online}
+  {#if !net.online}
     <p class="offline-banner" role="status">{m.offline_banner()}</p>
   {/if}
   {#if mode !== 'saved'}
