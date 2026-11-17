@@ -293,7 +293,7 @@ Square-ish and painted. Radii come only from the scale: 2px (signs, tags, rating
 
 ### Pick for me deck
 - The matches as a stack of cards: the top card is the crate photo (1:1) with its red tag, title and rating; two cards peek under it, smaller and lower.
-- Dragging tilts the card with the finger; past a quarter of its width a stamp appears (SAVE in green, SKIP in Sign Red, Bowlby, outlined), and letting go sends it off. Round 64px keys below do the same: ✕ in ink, ♥ in Sign Red. Reduced motion keeps the decisions and drops the flight.
+- Dragging tilts the card with the finger; past a quarter of its width a stamp appears (SAVE in green, SKIP in Sign Red, Bowlby, outlined), and letting go sends it off. Round 64px keys below do the same: ✕ in ink, ♥ in Sign Red; between them, how far in, or once something is saved, a green pill to the shopping list. The photo shrinks with the screen height so the keys never scroll away. Reduced motion keeps the decisions and drops the flight.
 
 ### Shopping list
 - Aisles in store-walk order under Bowlby headings. Rows are 52px labels on hairlines with a 24px drawn checkbox. Checked rows sink to the bottom of their aisle: the name strikes through and dims, the amount keeps its contrast. Copy list is the sheet's solid action.

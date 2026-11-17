@@ -178,17 +178,17 @@
       <p class="visually-hidden" role="status">{recipeTitle(current)}</p>
     {/if}
 
+    <!-- One row under the deck: skip, the way to the list once something is saved (else how far in), keep. -->
     <div class="deck-keys">
       <button class="deck-key skip" onclick={() => decide(false)} disabled={!current} aria-label={m.deck_skip()} title={m.deck_skip()}><Icon name="close" size={26} /></button>
-      <span class="deck-progress" aria-hidden="true">{current ? `${formatNumber(at + 1)} / ${formatNumber(deck.length)}` : ''}</span>
+      {#if kept.length}
+        <button class="deck-list" onclick={(e) => { closeSheet(e.currentTarget.closest('dialog')); onlist() }} aria-label="{m.shopping_list()} · {m.deck_kept(countArgs(kept.length))}">
+          <Icon name="list" size={18} /> <span aria-hidden="true">{m.deck_kept(countArgs(kept.length))}</span>
+        </button>
+      {:else}
+        <span class="deck-progress" aria-hidden="true">{current ? `${formatNumber(at + 1)} / ${formatNumber(deck.length)}` : ''}</span>
+      {/if}
       <button class="deck-key keep" onclick={() => decide(true)} disabled={!current} aria-label={m.deck_save()} title={m.deck_save()}><Icon name="heart" size={26} filled /></button>
     </div>
-
-    {#if kept.length}
-      <div class="sheet-footer">
-        <span class="deck-kept">{m.deck_kept(countArgs(kept.length))}</span>
-        <button class="cta" onclick={(e) => { closeSheet(e.currentTarget.closest('dialog')); onlist() }}><Icon name="list" size={18} /> {m.shopping_list()}</button>
-      </div>
-    {/if}
   </div>
 </dialog>
