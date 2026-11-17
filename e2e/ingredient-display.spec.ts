@@ -52,7 +52,7 @@ test('Italian shopping names retain merged totals, scaling and ticks across lang
   let sheet = page.getByRole('dialog');
   await sheet.getByRole('checkbox', { name: /cornstarch/ }).check();
   await sheet.getByRole('button', { name: 'Close', exact: true }).click();
-  await page.locator('footer').getByRole('link', { name: 'Italiano', exact: true }).click();
+  await page.getByRole('link', { name: 'Switch to Italiano', exact: true }).click();
   await page.getByRole('button', { name: 'Lista della spesa', exact: true }).click();
   sheet = page.getByRole('dialog');
   const groceries = sheet.getByTestId('grocery-list');
