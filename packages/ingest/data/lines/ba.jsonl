@@ -32,6 +32,7 @@
 {"line":"1 carrot (grated or finely sliced)","language":"en","parts":[{"quantity":1,"en":"carrot","it":"carota","preparationEn":"grated or finely sliced","preparationIt":"grattugiata o tagliata a fettine sottili"}]}
 {"line":"1 cup (105g) rolled oats⁣","language":"en","parts":[{"quantity":105,"unit":"g","en":"rolled oats","it":"fiocchi d'avena"}]}
 {"line":"1 cup (129 g) coconut sugar","language":"en","parts":[{"quantity":129,"unit":"g","en":"coconut sugar","it":"zucchero di cocco"}]}
+{"line":"1 cup (227 g) vegan butter (cold, cubed)","language":"en","parts":[{"quantity":227,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"cold, cubed","preparationIt":"freddo, a cubetti"}]}
 {"line":"1 cup 240g water","language":"en","parts":[{"quantity":240,"unit":"g","en":"water","it":"acqua"}]}
 {"line":"1 cup Coco Whip (or whipped coconut cream)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"Coco Whip","it":"Coco Whip","alternatives":[{"en":"whipped coconut cream","it":"crema di cocco montata"}]}]}
 {"line":"1 cup all-purpose flour, (plus more for dusting)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"all-purpose flour","it":"farina 00","purposeEn":"plus more for dusting","purposeIt":"più altra per infarinare"}]}
@@ -200,6 +201,7 @@
 {"line":"150 g / 5.3 oz silken tofu (I use Clearspring)","language":"en","parts":[{"quantity":150,"unit":"g","en":"silken tofu","it":"tofu vellutato"}]}
 {"line":"16 ounces (450 g) grape or cherry tomatoes","language":"en","parts":[{"quantity":450,"unit":"g","en":"grape tomatoes","it":"pomodorini datterini","alternatives":[{"en":"cherry tomatoes","it":"pomodorini ciliegino"}]}]}
 {"line":"16 oz penne pasta (I used whole grain)","language":"en","parts":[{"quantity":16,"unit":"oz","en":"penne pasta","it":"penne"}]}
+{"line":"1½ teaspoons fine sea salt","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"fine sea salt","it":"sale marino fino"}]}
 {"line":"2 (14 ounce or 400 gram) packages extra firm tofu, (drained and pressed)","language":"en","parts":[{"quantity":800,"unit":"g","en":"extra-firm tofu","it":"tofu extra compatto","preparationEn":"drained and pressed","preparationIt":"scolato e pressato"}]}
 {"line":"2 (8 oz) packs button mushrooms (or crimini mushrooms (1 pound loose mushrooms))","language":"en","parts":[{"quantity":16,"unit":"oz","en":"button mushrooms","it":"funghi champignon","alternatives":[{"quantity":1,"unit":"lb","en":"loose cremini mushrooms","it":"funghi cremini sfusi"}]}]}
 {"line":"2 1/2 cups low-sodium vegetable broth","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"low-sodium vegetable broth","it":"brodo vegetale a basso contenuto di sodio"}]}
@@ -405,6 +407,7 @@
 {"line":"¼ cup cooked and diced vegan bacon","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan bacon","it":"bacon vegano","preparationEn":"cooked and diced","preparationIt":"cotta e tagliata a dadini"}]}
 {"line":"¼ cup maple syrup","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero"}]}
 {"line":"¼ cup vegan green pesto","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan green pesto","it":"pesto verde vegano"}]}
+{"line":"¼ cup water ((adding more only if needed))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"¼ medium carrot","language":"en","parts":[{"quantity":0.25,"en":"medium carrot","it":"carota media"}]}
 {"line":"¼ teaspoon fine sea salt, (more as needed)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"fine sea salt","it":"sale marino fino"}]}
 {"line":"¼ teaspoon ground cardamom (Optional)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground cardamom","it":"cardamomo macinato","optional":true}]}

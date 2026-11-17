@@ -108,6 +108,7 @@
 {"line":"1 tsp or more garam masala","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"garam masala","it":"garam masala"}]}
 {"line":"1 tsp psyllium husk powder (or 1 tbsp ground flax seeds)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"psyllium husk powder","it":"cuticola di psillio in polvere","alternatives":[{"quantity":1,"unit":"tbsp","en":"ground flax seeds","it":"semi di lino macinati"}]}]}
 {"line":"1 tsp salt ((adjust to your taste))","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"salt","it":"sale"}]}
+{"line":"1 unbaked (9-inch) vegan pie crust","language":"en","parts":[{"quantity":1,"en":"unbaked 9-inch vegan pie crust","it":"base per crostata vegana da 9 pollici non cotta"}]}
 {"line":"1 ¼ cups oat flour (or oats ground in a food processor or in a coffee grinder OR regular flour if not gluten free)","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"oat flour","it":"farina d'avena","alternatives":[{"en":"oats ground in a food processor or coffee grinder","it":"avena macinata nel robot da cucina o nel macinacaffè"},{"en":"regular flour","it":"farina comune"}]}]}
 {"line":"1 ½ cups of flour","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"flour","it":"farina"}]}
 {"line":"1 ½ tablespoon solid refined coconut oil","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"solid refined coconut oil","it":"olio di cocco raffinato solido"}]}
@@ -267,6 +268,7 @@
 {"line":"3 cups all-purpose flour + up to 2 tablespoons more for kneading (360g)","language":"en","parts":[{"quantity":360,"unit":"g","en":"all-purpose flour","it":"farina 00","plus":{"quantity":2,"unit":"tbsp"},"purposeEn":"additional flour for kneading","purposeIt":"farina aggiuntiva per impastare"}]}
 {"line":"3 cups frozen mixed veggies (or fresh veggies of choice)","language":"en","parts":[{"quantity":3,"unit":"cup","en":"frozen mixed vegetables","it":"verdure miste surgelate","alternatives":[{"en":"fresh vegetables of choice","it":"verdure fresche a scelta"}]}]}
 {"line":"3 cups powdered sugar (sifted - 360 g)","language":"en","parts":[{"quantity":360,"unit":"g","en":"powdered sugar","it":"zucchero a velo","preparationEn":"sifted","preparationIt":"setacciato"}]}
+{"line":"3 cups unsweetened, unflavored soy milk ((720ml))","language":"en","parts":[{"quantity":720,"unit":"ml","en":"unsweetened unflavored soy milk","it":"latte di soia non zuccherato e non aromatizzato"}]}
 {"line":"3 green onions (white and green parts), sliced","language":"en","parts":[{"quantity":3,"en":"green onions","it":"cipollotti","preparationEn":"white and green parts sliced","preparationIt":"parte bianca e verde affettate"}]}
 {"line":"3 heaping tablespoons vegan mayo","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"vegan mayo","it":"maionese vegana"}]}
 {"line":"3 large sweet potatoes, (chopped into bite-size cubes)","language":"en","parts":[{"quantity":3,"en":"large sweet potatoes","it":"patate dolci grandi","preparationEn":"chopped into bite-size cubes","preparationIt":"tagliate a cubetti grandi come un boccone"}]}

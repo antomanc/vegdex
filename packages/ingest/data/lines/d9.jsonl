@@ -83,6 +83,7 @@
 {"line":"1 tablespoon of sesame seeds ((raw or toasted))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"raw sesame seeds","it":"semi di sesamo crudi","alternatives":[{"en":"toasted sesame seeds","it":"semi di sesamo tostati"}]}]}
 {"line":"1 tablespoon olive oil ((or preferred oil))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","alternatives":[{"en":"preferred oil","it":"olio a scelta"}]}]}
 {"line":"1 tablespoon tomato paste (, use a bit more for darker color )","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"tomato paste","it":"concentrato di pomodoro"}]}
+{"line":"1 tablespoon white miso (or use chickpea miso for soyfree )","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"white miso","it":"miso bianco","alternatives":[{"en":"chickpea miso","it":"miso di ceci"}]}]}
 {"line":"1 tbsp coconut oil ((or cooking spray))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"coconut oil","it":"olio di cocco","alternatives":[{"en":"cooking spray","it":"olio spray da cucina"}]}]}
 {"line":"1 tbsp extra virgin olive oil (+ 1 tsp for drizzling on the garlic)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"extra virgin olive oil","it":"olio extravergine d'oliva","plus":{"quantity":1,"unit":"tsp"},"purposeEn":"for drizzling on the garlic","purposeIt":"per condire l'aglio"}]}
 {"line":"1 tbsp finely chopped ginger","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"ginger","it":"zenzero","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
@@ -164,6 +165,7 @@
 {"line":"1/4 cup Cacao Powder (Or Cocoa, Carob)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cacao powder","it":"cacao in polvere","alternatives":[{"en":"cocoa powder","it":"cacao in polvere"},{"en":"carob powder","it":"farina di carrube"}]}]}
 {"line":"1/4 cup broth (or use 1 tsp oil to saute)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"broth","it":"brodo","alternatives":[{"quantity":1,"unit":"tsp","en":"oil","it":"olio"}]}]}
 {"line":"1/4 cup chocolate (chips, chopped bar, dark. I use enjoy life semi sweet or whole foods vegan)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"chocolate","it":"cioccolato","preparationEn":"chips, chopped bar, or dark","preparationIt":"in gocce, in tavoletta tritata o fondente"}]}
+{"line":"1/4 cup chopped fresh dill, (plus more for garnish)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh dill","it":"aneto fresco","preparationEn":"chopped","preparationIt":"tritato","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"1/4 cup chopped onions","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"onions","it":"cipolle","preparationEn":"chopped","preparationIt":"tritate"}]}
 {"line":"1/4 cup chopped small red onion","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"small red onion","it":"cipolla rossa piccola","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"1/4 cup cornmeal, (or as needed)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cornmeal","it":"farina di mais"}]}

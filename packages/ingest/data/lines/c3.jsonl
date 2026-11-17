@@ -163,6 +163,7 @@
 {"line":"1/4 cup vegan mayonnaise ((see notes for oil-free option))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan mayonnaise","it":"maionese vegana"}]}
 {"line":"1/4 cup vegan-friendly BBQ sauce","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan barbecue sauce","it":"salsa barbecue vegana"}]}
 {"line":"1/4 cup water, (plus more as needed to thin the sauce)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"water","it":"acqua"}]}
+{"line":"1/4 head of cabbage (about 2 cups), finely shredded or chopped","language":"en","parts":[{"quantity":0.25,"unit":"head","en":"cabbage","it":"cavolo cappuccio","preparationEn":"finely shredded or chopped","preparationIt":"sminuzzato o tritato finemente"}]}
 {"line":"1/4 of a large onion ((or 1 shallot), thinly sliced)","language":"en","parts":[{"quantity":0.25,"en":"large onion","it":"cipolla grande","preparationEn":"thinly sliced","preparationIt":"tagliata a fettine sottili","alternatives":[{"quantity":1,"en":"shallot","it":"scalogno"}]}]}
 {"line":"1/4 of a red onion (thinly sliced (see notes))","language":"en","parts":[{"quantity":0.25,"en":"red onion","it":"cipolla rossa","preparationEn":"thinly sliced","preparationIt":"tagliata a fettine sottili"}]}
 {"line":"1/4 teaspoon allspice","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"allspice","it":"pimento"}]}
@@ -370,6 +371,7 @@
 {"line":"Fresh cracked pepper (to taste)","language":"en","parts":[{"en":"fresh cracked pepper","it":"pepe macinato fresco","toTaste":true}]}
 {"line":"Fresh-cut parsley","language":"en","parts":[{"en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"freshly cut","preparationIt":"appena tagliato"}]}
 {"line":"Garlic chutney ((recipe follows))","language":"en","parts":[{"en":"garlic chutney","it":"chutney all'aglio"}]}
+{"line":"Grape tomatoes (halved (optional))","language":"en","parts":[{"en":"grape tomatoes","it":"pomodorini datterini","preparationEn":"halved","preparationIt":"tagliati a metà","optional":true}]}
 {"line":"Green onions, thinly sliced","language":"en","parts":[{"en":"green onions","it":"cipollotti","preparationEn":"thinly sliced","preparationIt":"tagliati a fettine sottili"}]}
 {"line":"Hamburger buns or vegan pandesal","language":"en","parts":[{"en":"hamburger buns","it":"panini per hamburger","alternatives":[{"en":"vegan pandesal","it":"pandesal vegani"}]}]}
 {"line":"Leaves from 1 sprig of mint, chopped or torn into bits","language":"en","parts":[{"quantity":1,"unit":"sprig","en":"mint leaves","it":"foglie di menta","preparationEn":"chopped or torn into bits","preparationIt":"tritate o spezzettate"}]}

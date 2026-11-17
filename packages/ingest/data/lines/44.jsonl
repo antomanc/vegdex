@@ -96,6 +96,7 @@
 {"line":"1 tablespoon onion flakes","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"onion flakes","it":"cipolla in fiocchi"}]}
 {"line":"1 tablespoon red or white wine vinegar","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"red wine vinegar","it":"aceto di vino rosso","alternatives":[{"en":"white wine vinegar","it":"aceto di vino bianco"}]}]}
 {"line":"1 tablespoon soy sauce, (plus more to taste)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"soy sauce","it":"salsa di soia","toTaste":true}]}
+{"line":"1 tablespoon vegan margarine (or coconut oil)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegan margarine","it":"margarina vegana","alternatives":[{"en":"coconut oil","it":"olio di cocco"}]}]}
 {"line":"1 tbsp finely chopped lemon zest ((from 2 lemons))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"lemon zest","it":"scorza di limone","preparationEn":"finely chopped","preparationIt":"tritata finemente"}]}
 {"line":"1 tbsp peanut butter ((*see notes))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"peanut butter","it":"burro di arachidi"}]}
 {"line":"1 tbsp pickled jalapeno","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"pickled jalapeño","it":"jalapeño sottaceto"}]}
@@ -122,6 +123,7 @@
 {"line":"1 x 200 g firm tofu","language":"en","parts":[{"quantity":200,"unit":"g","en":"firm tofu","it":"tofu compatto"}]}
 {"line":"1 yellow onions (thinly sliced (225 grams))","language":"en","parts":[{"quantity":225,"unit":"g","en":"yellow onion","it":"cipolla dorata","preparationEn":"thinly sliced","preparationIt":"affettata sottilmente"}]}
 {"line":"1 ¼ cups of vegan chocolate chips","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"vegan chocolate chips","it":"gocce di cioccolato vegano"}]}
+{"line":"1 ½ Tablespoons curry powder or curry paste","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"curry powder","it":"curry in polvere","alternatives":[{"en":"curry paste","it":"pasta di curry"}]}]}
 {"line":"1 ½ tbsp finely chopped fresh ginger","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"fresh ginger","it":"zenzero fresco","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"1 – 2 tablespoons pure maple syrup, coconut sugar or other sweetener of choice","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"pure maple syrup","it":"sciroppo d'acero puro","alternatives":[{"en":"coconut sugar","it":"zucchero di cocco"},{"en":"sweetener of choice","it":"dolcificante a scelta"}]}]}
 {"line":"1\" ginger (minced, or about 2 teaspoons minced)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"ginger","it":"zenzero","preparationEn":"minced","preparationIt":"tritato finemente"}]}
@@ -418,6 +420,7 @@
 {"line":"white sesame seeds, for garnish","language":"en","parts":[{"en":"white sesame seeds","it":"semi di sesamo bianchi","purposeEn":"for garnish","purposeIt":"per guarnire"}]}
 {"line":"¼ cup Tomato Paste","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"tomato paste","it":"concentrato di pomodoro"}]}
 {"line":"¼ cup of tamarind concentrate","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"tamarind concentrate","it":"concentrato di tamarindo"}]}
+{"line":"¼ garlic powder","language":"en","parts":[{"quantity":0.25,"en":"garlic powder","it":"aglio in polvere"}]}
 {"line":"¼ pound of sliced crimini or button mushrooms","language":"en","parts":[{"quantity":0.25,"unit":"lb","en":"crimini mushrooms","it":"funghi cremini","preparationEn":"sliced","preparationIt":"affettati","alternatives":[{"en":"button mushrooms","it":"funghi champignon"}]}]}
 {"line":"¼ teaspoon dried rosemary","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"dried rosemary","it":"rosmarino essiccato"}]}
 {"line":"¼ teaspoon ground black pepper (.5 gram)","language":"en","parts":[{"quantity":0.5,"unit":"g","en":"ground black pepper","it":"pepe nero macinato"}]}

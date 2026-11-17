@@ -116,6 +116,7 @@
 {"line":"1 teaspoon raw sugar or agave syrup","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"raw sugar","it":"zucchero grezzo","alternatives":[{"en":"agave syrup","it":"sciroppo d'agave"}]}]}
 {"line":"1 teaspoon vanilla bean paste (can be subbed 1:1 for vanilla extract)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"vanilla bean paste","it":"pasta di vaniglia","alternatives":[{"quantity":1,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia"}]}]}
 {"line":"1 to 2 teaspoons baking soda ((optional, see Note 3))","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"baking soda","it":"bicarbonato di sodio","optional":true}]}
+{"line":"1 to 2 teaspoons lemon juice (depending on how sour you’d like it)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"lemon juice","it":"succo di limone"}]}
 {"line":"1 to 4 tablespoons red curry paste* (see notes)","language":"en","parts":[{"quantity":1,"quantityMax":4,"unit":"tbsp","en":"red curry paste","it":"pasta di curry rosso"}]}
 {"line":"1 tsp dry rosemary (optional)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"dried rosemary","it":"rosmarino essiccato","optional":true}]}
 {"line":"1 tsp lime juice (or lemon juice)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"lime juice","it":"succo di lime","alternatives":[{"en":"lemon juice","it":"succo di limone"}]}]}
@@ -356,6 +357,7 @@
 {"line":"Optional: 1/2 to 1 teaspoon sriracha","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"sriracha","it":"salsa sriracha","optional":true}]}
 {"line":"Or Blend minced jalapeno in Veganaise/vegan mayo and non dairy milk to get a dressing consistency","language":"en","parts":[{"en":"jalapeno","it":"jalapeño","preparationEn":"minced","preparationIt":"tritato"},{"en":"vegan mayonnaise","it":"maionese vegana"},{"en":"non-dairy milk","it":"latte vegetale"}]}
 {"line":"Please weigh ingredients for accuracy, super important for baking, especially a project like this. The icing and frosting has to be precise, so the texture works properly.","language":"en","kind":"other"}
+{"line":"Powdered sugar ((for dusting before serving, optional))","language":"en","parts":[{"en":"powdered sugar","it":"zucchero a velo","purposeEn":"for dusting before serving","purposeIt":"per spolverare prima di servire","optional":true}]}
 {"line":"Salt and black pepper (to taste (I used 3/4 tsp salt))","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"black pepper","it":"pepe nero","toTaste":true}]}
 {"line":"Salt and ground black pepper to taste ((you can substitute the salt with kala namak or black salt))","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true,"alternatives":[{"en":"kala namak","it":"kala namak"}]},{"en":"ground black pepper","it":"pepe nero macinato","toTaste":true}]}
 {"line":"Sweet & Spicy: 1/2 teaspoon red chili flakes + 2 teaspoons maple syrup or agave","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"red chili flakes","it":"peperoncino rosso in fiocchi"},{"quantity":2,"unit":"tsp","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"agave syrup","it":"sciroppo d'agave"}]}]}
@@ -416,6 +418,7 @@
 {"line":"½ to 1 tsp cayenne ((use less if your garam masala already has red chili peppers added))","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna"}]}
 {"line":"½ tsp chili flakes","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"chili flakes","it":"peperoncino in fiocchi"}]}
 {"line":"½ tsp chili flakes (less/more to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"chili flakes","it":"peperoncino in fiocchi","toTaste":true}]}
+{"line":"½ tsp fresh orange zest","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"fresh orange zest","it":"scorza d'arancia fresca"}]}
 {"line":"½ whole nutmeg, finely grated or ½ tsp ground","language":"en","parts":[{"quantity":0.5,"en":"whole nutmeg","it":"noce moscata intera","preparationEn":"finely grated","preparationIt":"grattugiata finemente","alternatives":[{"quantity":0.5,"unit":"tsp","en":"ground nutmeg","it":"noce moscata macinata"}]}]}
 {"line":"½-3/4 cup low-sodium soy sauce (or tamari for gluten-free)","language":"en","parts":[{"quantity":0.5,"quantityMax":0.75,"unit":"cup","en":"low-sodium soy sauce","it":"salsa di soia a basso contenuto di sodio","alternatives":[{"en":"tamari","it":"tamari"}]}]}
 {"line":"¾ cup pumpkin purée","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"pumpkin purée","it":"purea di zucca"}]}

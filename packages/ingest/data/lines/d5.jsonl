@@ -32,6 +32,7 @@
 {"line":"1 cup coconut milk (canned (or lite coconut milk))","language":"en","parts":[{"quantity":1,"unit":"cup","en":"canned coconut milk","it":"latte di cocco in lattina","alternatives":[{"en":"light coconut milk","it":"latte di cocco leggero"}]}]}
 {"line":"1 cup cumin-roasted chickpeas (recommended) or cooked chickpeas","language":"en","parts":[{"quantity":1,"unit":"cup","en":"cumin-roasted chickpeas","it":"ceci arrostiti al cumino","alternatives":[{"en":"cooked chickpeas","it":"ceci cotti"}]}]}
 {"line":"1 cup finely chopped walnuts","language":"en","parts":[{"quantity":1,"unit":"cup","en":"walnuts","it":"noci","preparationEn":"finely chopped","preparationIt":"tritate finemente"}]}
+{"line":"1 cup masa harina","language":"en","parts":[{"quantity":1,"unit":"cup","en":"masa harina","it":"masa harina"}]}
 {"line":"1 cup natural peanut butter (creamy or chunky)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"natural peanut butter","it":"burro di arachidi naturale","alternatives":[{"en":"chunky natural peanut butter","it":"burro di arachidi naturale con pezzi"}]}]}
 {"line":"1 cup non-dairy yogurt","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy yogurt","it":"yogurt vegetale"}]}
 {"line":"1 cup of raw cashew pieces","language":"en","parts":[{"quantity":1,"unit":"cup","en":"raw cashew pieces","it":"anacardi crudi a pezzi"}]}
@@ -93,6 +94,7 @@
 {"line":"1 teaspoon sriracha sauce ((optional), or to taste)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"sriracha sauce","it":"salsa sriracha","optional":true,"toTaste":true}]}
 {"line":"1 teaspoon toasted sesame oil, (plus more to taste)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"toasted sesame oil","it":"olio di sesamo tostato","purposeEn":"plus more to taste","purposeIt":"più altro a piacere"}]}
 {"line":"1 to 2 Tbsp maple or sweetener of choice","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"sweetener of choice","it":"dolcificante a scelta"}]}]}
+{"line":"1 tsp fresh rosemary (finely chopped, divided)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"fresh rosemary","it":"rosmarino fresco","preparationEn":"finely chopped","preparationIt":"tritato finemente"}]}
 {"line":"1 tsp garlic masala","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"garlic masala","it":"masala all'aglio"}]}
 {"line":"1 tsp garlic paste","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"garlic paste","it":"pasta d'aglio"}]}
 {"line":"1 tsp vegan worcestershire sauce","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"vegan Worcestershire sauce","it":"salsa Worcestershire vegana"}]}
@@ -103,6 +105,7 @@
 {"line":"1 – 2 tablespoons almond butter or nut butter of choice","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"almond butter","it":"burro di mandorle","alternatives":[{"en":"nut butter of choice","it":"burro di frutta secca a scelta"}]}]}
 {"line":"1-2 cups water (at room temerature)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"cup","en":"water","it":"acqua","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"1-2 tablespoons gochujang","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"gochujang","it":"gochujang"}]}
+{"line":"1-2 tablespoons unsweetened, unflavored soy milk, (only if needed)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"unsweetened unflavored soy milk","it":"latte di soia non zuccherato e non aromatizzato","optional":true}]}
 {"line":"1-2 teaspoons grade A maple syrup or agave (or to taste)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"grade A maple syrup","it":"sciroppo d'acero di grado A","toTaste":true,"alternatives":[{"en":"agave syrup","it":"sciroppo d'agave"}]}]}
 {"line":"1-2 teaspoons oil (plus more for frying)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"oil","it":"olio","purposeEn":"plus more for frying","purposeIt":"più altro per friggere"}]}
 {"line":"1.5 -2 tsp gingerbread spice (or a mix of 1 tsp cinnamon, 1 tsp ginger , 1/8 tsp each ground cloves, nutmeg, allspice )","language":"en","parts":[{"quantity":1.5,"quantityMax":2,"unit":"tsp","en":"gingerbread spice","it":"miscela di spezie per pan di zenzero","alternatives":[{"en":"mix of 1 tsp cinnamon, 1 tsp ginger and 1/8 tsp each of ground cloves, nutmeg and allspice","it":"miscela di 1 cucchiaino di cannella, 1 cucchiaino di zenzero e 1/8 di cucchiaino ciascuno di chiodi di garofano macinati, noce moscata e pimento"}]}]}

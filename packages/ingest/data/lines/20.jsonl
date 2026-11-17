@@ -12,6 +12,7 @@
 {"line":"1 1/3 cup vegetable broth","language":"en","parts":[{"quantity":1.333333,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"1 1/4 cups (140g) superfine blanched almond flour (for nut-free, see NOTES at bottom)","language":"en","parts":[{"quantity":140,"unit":"g","en":"superfine blanched almond flour","it":"farina finissima di mandorle pelate"}]}
 {"line":"1 1/4 cups (160g) regular all-purpose flour","language":"en","parts":[{"quantity":160,"unit":"g","en":"all-purpose flour","it":"farina 00"}]}
+{"line":"1 15-ounce can (425 g) pumpkin purée","language":"en","parts":[{"quantity":425,"unit":"g","en":"pumpkin purée","it":"purea di zucca"}]}
 {"line":"1 15oz can fire roasted tomatoes","language":"en","parts":[{"quantity":15,"unit":"oz","en":"canned fire-roasted tomatoes","it":"pomodori arrostiti alla fiamma in scatola"}]}
 {"line":"1 3/4 cup dairy free milk ((420mL))","language":"en","parts":[{"quantity":420,"unit":"ml","en":"dairy-free milk","it":"latte vegetale"}]}
 {"line":"1 Japanese eggplant, cut into 1-inch pieces (or ½ Italian eggplant)","language":"en","parts":[{"quantity":1,"en":"Japanese eggplant","it":"melanzana giapponese","preparationEn":"cut into pieces","preparationIt":"tagliata a pezzi","alternatives":[{"quantity":0.5,"en":"Italian eggplant","it":"melanzana italiana"}]}]}
@@ -129,6 +130,7 @@
 {"line":"1/2 cup + 2 Tablespoons cane sugar (( ½ cup for dough, 2 tablespoon for rolling before baking))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cane sugar","it":"zucchero di canna","plus":{"quantity":2,"unit":"tbsp"}}]}
 {"line":"1/2 cup carrots (thinly sliced or grated)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"carrots","it":"carote","preparationEn":"thinly sliced or grated","preparationIt":"affettate sottilmente o grattugiate"}]}
 {"line":"1/2 cup nutritional yeast","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"nutritional yeast","it":"lievito alimentare"}]}
+{"line":"1/2 cup nutritional yeast (30g)","language":"en","parts":[{"quantity":30,"unit":"g","en":"nutritional yeast","it":"lievito alimentare"}]}
 {"line":"1/2 cup parsley, chopped (optional)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"parsley","it":"prezzemolo","preparationEn":"chopped","preparationIt":"tritato","optional":true}]}
 {"line":"1/2 cup pasta water (reserved before straining pasta)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"pasta water","it":"acqua di cottura della pasta","preparationEn":"reserved before straining pasta","preparationIt":"tenuta da parte prima di scolare la pasta"}]}
 {"line":"1/2 cup peas (fresh or frozen (thawed))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"fresh peas","it":"piselli freschi","preparationEn":"thawed if frozen","preparationIt":"scongelati se congelati","alternatives":[{"en":"frozen peas","it":"piselli surgelati"}]}]}
@@ -153,6 +155,7 @@
 {"line":"1/2 teaspoon baking powder, halved","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"baking powder","it":"lievito per dolci"}]}
 {"line":"1/2 teaspoon cardamom, optional","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"cardamom","it":"cardamomo","optional":true}]}
 {"line":"1/2 teaspoon cumin seeds or use ground cumin","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"cumin seeds","it":"semi di cumino","alternatives":[{"en":"ground cumin","it":"cumino macinato"}]}]}
+{"line":"1/2 teaspoon liquid smoke (or 1/2 teaspoon smoked paprika)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"liquid smoke","it":"fumo liquido","alternatives":[{"quantity":0.5,"unit":"tsp","en":"smoked paprika","it":"paprika affumicata"}]}]}
 {"line":"1/2 teaspoon salt and 1/4 teaspoon black pepper","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale"},{"quantity":0.25,"unit":"tsp","en":"black pepper","it":"pepe nero"}]}
 {"line":"1/2 teaspoon vanilla bean paste","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"vanilla bean paste","it":"pasta di vaniglia"}]}
 {"line":"1/2 teaspoon white miso paste","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"white miso paste","it":"pasta di miso bianco"}]}
@@ -258,6 +261,7 @@
 {"line":"2 tablespoons tahini (or a smooth nut butter)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"tahini","it":"tahina","alternatives":[{"en":"smooth nut butter","it":"crema liscia di frutta secca"}]}]}
 {"line":"2 tbsp + 2 tsp plain flour","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"plain flour","it":"farina 00","plus":{"quantity":2,"unit":"tsp"}}]}
 {"line":"2 tbsp Ground Flax Seed + 6 tbsp Water","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"ground flaxseed","it":"semi di lino macinati"},{"quantity":6,"unit":"tbsp","en":"water","it":"acqua"}]}
+{"line":"2 tbsp toasted pecans (finely chopped (optional))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"toasted pecans","it":"noci pecan tostate","preparationEn":"finely chopped","preparationIt":"tritate finemente","optional":true}]}
 {"line":"2 tbsp tomato puree (aka tomato paste)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"tomato paste","it":"concentrato di pomodoro"}]}
 {"line":"2 teaspoons almond milk (So Delicious unsweetened or other brand)","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"unsweetened almond milk","it":"latte di mandorla senza zucchero"}]}
 {"line":"2 teaspoons dried fenugreek leaves","language":"en","parts":[{"quantity":2,"unit":"tsp","en":"dried fenugreek leaves","it":"foglie di fieno greco essiccate"}]}
@@ -279,6 +283,7 @@
 {"line":"240 ml boiling water","language":"en","parts":[{"quantity":240,"unit":"ml","en":"water","it":"acqua","preparationEn":"boiling","preparationIt":"bollente"}]}
 {"line":"25 ounce jar pasta/marinara sauce of choice","language":"en","parts":[{"quantity":25,"unit":"oz","en":"pasta sauce of choice","it":"sugo per pasta a scelta","alternatives":[{"en":"marinara sauce","it":"salsa marinara"}]}]}
 {"line":"250 g / 8.5 oz sweet cherry tomatoes, halved","language":"en","parts":[{"quantity":250,"unit":"g","en":"sweet cherry tomatoes","it":"pomodorini ciliegini dolci","preparationEn":"halved","preparationIt":"tagliati a metà"}]}
+{"line":"2¼ cups cooked brown lentils","language":"en","parts":[{"quantity":2.25,"unit":"cup","en":"cooked brown lentils","it":"lenticchie marroni cotte"}]}
 {"line":"3 - 3 1/2 cups bread flour ((can sub all purpose))","language":"en","parts":[{"quantity":3,"quantityMax":3.5,"unit":"cup","en":"bread flour","it":"farina per pane","alternatives":[{"en":"all-purpose flour","it":"farina 00"}]}]}
 {"line":"3 Little Gem lettuces (mini Cos/Romaine lettuces)","language":"en","parts":[{"quantity":3,"en":"Little Gem lettuces","it":"lattughe Little Gem"}]}
 {"line":"3 Tablespoons of chopped roasted red pepper","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"roasted red pepper","it":"peperone rosso arrostito","preparationEn":"chopped","preparationIt":"tagliato a pezzetti"}]}

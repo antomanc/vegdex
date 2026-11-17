@@ -63,6 +63,7 @@
 {"line":"1 medium to small sweet potato (cubed)","language":"en","parts":[{"quantity":1,"en":"small to medium sweet potato","it":"patata dolce medio-piccola","preparationEn":"cubed","preparationIt":"tagliata a cubetti"}]}
 {"line":"1 recipe Mushroom Walnut Taco Meat","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"mushroom walnut taco meat","it":"ripieno per tacos di funghi e noci"}]}
 {"line":"1 serrano pepper or Fresno pepper, (diced)","language":"en","parts":[{"quantity":1,"en":"serrano pepper","it":"peperoncino serrano","preparationEn":"diced","preparationIt":"tagliato a dadini","alternatives":[{"en":"Fresno pepper","it":"peperoncino Fresno"}]}]}
+{"line":"1 sheet vegan-friendly puff pastry (thawed (about 8–9 oz))","language":"en","parts":[{"quantity":1,"unit":"sheet","en":"vegan puff pastry","it":"pasta sfoglia vegana","preparationEn":"thawed","preparationIt":"scongelata"}]}
 {"line":"1 small carrot (peeled and finely diced)","language":"en","parts":[{"quantity":1,"en":"small carrot","it":"carota piccola","preparationEn":"peeled and finely diced","preparationIt":"pelata e tagliata a dadini piccoli"}]}
 {"line":"1 small fennel bulb ((about 6 ounces / 1 1/4 cups), diced)","language":"en","parts":[{"quantity":1,"en":"small fennel bulb","it":"finocchio piccolo","preparationEn":"diced","preparationIt":"tagliato a dadini"}]}
 {"line":"1 small moderately hot green chili pepper ((optional))","language":"en","parts":[{"quantity":1,"en":"small moderately hot green chili pepper","it":"peperoncino verde piccolo mediamente piccante","optional":true}]}
@@ -177,6 +178,7 @@
 {"line":"1/4 teaspoon ground ginger (add 1/2 teaspoon for a more spicy flavor)","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground ginger","it":"zenzero in polvere"}]}
 {"line":"1/4 to 1/2 teaspoon lemon zest","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"lemon zest","it":"scorza di limone"}]}
 {"line":"1/4 – 1/2 teaspoon red pepper flakes or 1/2 – 1 teaspoon sambal oelek","language":"en","parts":[{"quantity":0.25,"quantityMax":0.5,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi","alternatives":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"sambal oelek","it":"sambal oelek"}]}]}
+{"line":"1/8 tsp butter flavoring","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"butter flavoring","it":"aroma di burro"}]}
 {"line":"10 ice cubes","language":"en","parts":[{"quantity":10,"en":"ice cubes","it":"cubetti di ghiaccio"}]}
 {"line":"100 g / 1/3 cup + 1 heaped tbsp peanut butter*","language":"en","parts":[{"quantity":100,"unit":"g","en":"peanut butter","it":"burro di arachidi"}]}
 {"line":"100 g / 3½ oz edamame beans","language":"en","parts":[{"quantity":100,"unit":"g","en":"edamame beans","it":"edamame"}]}

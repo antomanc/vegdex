@@ -192,6 +192,7 @@
 {"line":"2 avocado, cut into slices","language":"en","parts":[{"quantity":2,"en":"avocados","it":"avocado","preparationEn":"sliced","preparationIt":"tagliati a fette"}]}
 {"line":"2 cans coconut milk, (chilled (Only scoop the fatty part off the top))","language":"en","parts":[{"quantity":2,"unit":"can","en":"coconut milk","it":"latte di cocco","preparationEn":"chilled; scoop only the fatty part off the top","preparationIt":"raffreddato; prelevare solo la parte grassa in superficie"}]}
 {"line":"2 carrots (sliced)","language":"en","parts":[{"quantity":2,"en":"carrots","it":"carote","preparationEn":"sliced","preparationIt":"tagliate a fette"}]}
+{"line":"2 celery ribs (diced )","language":"en","parts":[{"quantity":2,"unit":"stalk","en":"celery","it":"sedano","preparationEn":"diced","preparationIt":"a dadini"}]}
 {"line":"2 cloves Garlic, roughly chopped","language":"en","parts":[{"quantity":2,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"roughly chopped","preparationIt":"tritato grossolanamente"}]}
 {"line":"2 cups bean sprouts ((220g))","language":"en","parts":[{"quantity":220,"unit":"g","en":"bean sprouts","it":"germogli di fagioli"}]}
 {"line":"2 cups chopped fresh spinach (or chard)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"fresh spinach","it":"spinaci freschi","preparationEn":"chopped","preparationIt":"tritati","alternatives":[{"en":"chard","it":"bietole"}]}]}
@@ -365,6 +366,7 @@
 {"line":"water to seal","language":"en","parts":[{"en":"water","it":"acqua","purposeEn":"for sealing","purposeIt":"per sigillare"}]}
 {"line":"¼ cup + 1 tablespoon of canola or vegetable oil","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"canola oil","it":"olio di colza","plus":{"quantity":1,"unit":"tbsp"},"alternatives":[{"en":"vegetable oil","it":"olio vegetale"}]}]}
 {"line":"¼ cup chopped nuts (I used a mix of almonds, walnuts, and pistachios)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"nuts","it":"frutta secca","preparationEn":"chopped","preparationIt":"tritata"}]}
+{"line":"¼ cup cilantro (chopped)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"cilantro","it":"coriandolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"¼ cup lemon juice ((use fresh-squeezed juice, not bottled))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh-squeezed lemon juice","it":"succo di limone appena spremuto"}]}
 {"line":"¼ cup vegan butter ( 57 grams )","language":"en","parts":[{"quantity":57,"unit":"g","en":"vegan butter","it":"burro vegetale"}]}
 {"line":"¼ of a small red onion (chopped)","language":"en","parts":[{"quantity":0.25,"en":"small red onion","it":"cipolla rossa piccola","preparationEn":"chopped","preparationIt":"tritata"}]}

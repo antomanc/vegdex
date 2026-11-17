@@ -416,6 +416,7 @@
 {"line":"¼ cup of olive oil","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"olive oil","it":"olio d'oliva"}]}
 {"line":"¼ cup olive oil (plus 2 Tbsp to glaze dough before and after baking)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"olive oil","it":"olio d'oliva","plus":{"quantity":2,"unit":"tbsp"},"purposeEn":"to glaze dough before and after baking","purposeIt":"per spennellare l'impasto prima e dopo la cottura"}]}
 {"line":"¼ cup raw cashew pieces (55 grams)","language":"en","parts":[{"quantity":55,"unit":"g","en":"raw cashew pieces","it":"anacardi crudi a pezzi"}]}
+{"line":"¼ cup vegan butter (at room temperature)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"¼ teaspoon Kashmiri chili powder","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"Kashmiri chili powder","it":"peperoncino del Kashmir in polvere"}]}
 {"line":"¼ tsp asafetida ((hing))","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"asafetida","it":"assafetida"}]}
 {"line":"¼ tsp turmeric","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"turmeric","it":"curcuma"}]}

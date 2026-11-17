@@ -366,6 +366,8 @@
 {"line":"Shallots/green onions","language":"en","parts":[{"en":"shallots","it":"scalogni","alternatives":[{"en":"green onions","it":"cipollotti"}]}]}
 {"line":"Tortilla chips","language":"en","parts":[{"en":"tortilla chips","it":"tortilla chips"}]}
 {"line":"Vegan chocolate chips (for topping (optional))","language":"en","parts":[{"en":"vegan chocolate chips","it":"gocce di cioccolato vegano","purposeEn":"for topping","purposeIt":"per guarnire","optional":true}]}
+{"line":"Vegan parm","language":"en","parts":[{"en":"vegan parm","it":"parmigiano vegano"}]}
+{"line":"Water ((for cooking the lentils and sealing the pastry))","language":"en","parts":[{"en":"water","it":"acqua","purposeEn":"for cooking the lentils and sealing the pastry","purposeIt":"per cuocere le lenticchie e sigillare la pasta"}]}
 {"line":"Whole wheat bread","language":"en","parts":[{"en":"whole wheat bread","it":"pane integrale"}]}
 {"line":"Zest of 1 clementine or small orange","language":"en","parts":[{"quantity":1,"en":"clementine","it":"clementina","preparationEn":"zested","preparationIt":"scorza grattugiata","alternatives":[{"en":"small orange","it":"arancia piccola"}]}]}
 {"line":"a handful of almonds, sliced thinly","language":"en","parts":[{"quantity":1,"unit":"handful","en":"almonds","it":"mandorle","preparationEn":"thinly sliced","preparationIt":"tagliate a fettine sottili"}]}

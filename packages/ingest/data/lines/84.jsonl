@@ -334,6 +334,7 @@
 {"line":"5 garlic cloves, (mined)","language":"en","parts":[{"quantity":5,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"minced","preparationIt":"tritato"}]}
 {"line":"5 tablespoons cacao powder or cocoa powder","language":"en","parts":[{"quantity":5,"unit":"tbsp","en":"cacao powder","it":"cacao in polvere","alternatives":[{"en":"cocoa powder","it":"cacao in polvere"}]}]}
 {"line":"5 tbsp dairy free milk ((can sub water), more for brushing)","language":"en","parts":[{"quantity":5,"unit":"tbsp","en":"dairy-free milk","it":"latte vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
+{"line":"5.5 ounces mushrooms (sliced into 1/4 inch (1/2 cm) thick slices)","language":"en","parts":[{"quantity":5.5,"unit":"oz","en":"mushrooms","it":"funghi","preparationEn":"sliced","preparationIt":"affettati"}]}
 {"line":"50 g / 2.65 oz mixed salad (I used lots of rocket, some red leaf and spinach)","language":"en","parts":[{"quantity":50,"unit":"g","en":"mixed salad","it":"insalata mista"}]}
 {"line":"500 ml / 2 cups vegan single cream (I used Oatly) or full fat coconut milk","language":"en","parts":[{"quantity":500,"unit":"ml","en":"vegan single cream","it":"panna vegetale liquida","alternatives":[{"en":"full-fat coconut milk","it":"latte di cocco intero"}]}]}
 {"line":"6 slices whole grain bread, or your favorite","language":"en","parts":[{"quantity":6,"unit":"slice","en":"whole grain bread","it":"pane integrale","alternatives":[{"en":"bread of choice","it":"pane a scelta"}]}]}
@@ -425,6 +426,7 @@
 {"line":"½ tsp tomato paste","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"tomato paste","it":"concentrato di pomodoro"}]}
 {"line":"¾ cup vegan mayonnaise (180 g)","language":"en","parts":[{"quantity":180,"unit":"g","en":"vegan mayonnaise","it":"maionese vegana"}]}
 {"line":"⅓ cup extra virgin olive oil (80ml)","language":"en","parts":[{"quantity":80,"unit":"ml","en":"extra virgin olive oil","it":"olio extravergine d'oliva"}]}
+{"line":"⅓ cup finely chopped scallions (mostly green parts, patted dry)","language":"en","parts":[{"quantity":0.333,"unit":"cup","en":"scallions","it":"cipollotti","preparationEn":"finely chopped, mostly green parts, patted dry","preparationIt":"tritati finemente, soprattutto parti verdi, asciugati"}]}
 {"line":"⅛ teaspoon ground cinnamon (optional)","language":"en","parts":[{"quantity":0.125,"unit":"tsp","en":"ground cinnamon","it":"cannella in polvere","optional":true}]}
 {"line":"1 spicchio d'aglio (facoltativo)","language":"it","parts":[{"quantity":1,"unit":"clove","en":"garlic","it":"aglio","optional":true}]}
 {"line":"110 g olio di semi di girasole o mais","language":"it","parts":[{"quantity":110,"unit":"g","en":"sunflower oil","it":"olio di semi di girasole","alternatives":[{"en":"corn oil","it":"olio di mais"}]}]}

@@ -424,6 +424,7 @@
 {"line":"½ cup pecans or walnuts (crushed)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"pecans","it":"noci pecan","preparationEn":"crushed","preparationIt":"tritate","alternatives":[{"en":"walnuts","it":"noci"}]}]}
 {"line":"½ cup powdered sugar (must be sifted)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"powdered sugar","it":"zucchero a velo","preparationEn":"sifted","preparationIt":"setacciato"}]}
 {"line":"½ teaspoon black pepper (or to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"black pepper","it":"pepe nero","toTaste":true}]}
+{"line":"½ to 1 Tablespoon maple syrup or agave (optional)","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tbsp","en":"maple syrup","it":"sciroppo d'acero","optional":true,"alternatives":[{"en":"agave","it":"sciroppo d'agave"}]}]}
 {"line":"½ to 1 cup of water","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"½-inch knob ginger ((grated))","language":"en","parts":[{"quantity":0.5,"unit":"inch","en":"ginger","it":"zenzero","preparationEn":"grated","preparationIt":"grattugiato"}]}
 {"line":"¾ cup vegan milk","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"vegan milk","it":"latte vegetale"}]}

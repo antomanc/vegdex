@@ -51,6 +51,7 @@
 {"line":"1 cup other veggies, chopped small (, I use quick cooking veggies as broccoli, peppers, zucchini, peas )","language":"en","parts":[{"quantity":1,"unit":"cup","en":"other vegetables","it":"altre verdure","preparationEn":"chopped small","preparationIt":"tagliate a pezzetti"}]}
 {"line":"1 cup rice flour","language":"en","parts":[{"quantity":1,"unit":"cup","en":"rice flour","it":"farina di riso"}]}
 {"line":"1 cup spinach, (roughly chopped)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"spinach","it":"spinaci","preparationEn":"roughly chopped","preparationIt":"tritati grossolanamente"}]}
+{"line":"1 cup steel-cut oats (180g)","language":"en","parts":[{"quantity":180,"unit":"g","en":"steel-cut oats","it":"avena spezzata"}]}
 {"line":"1 cup strong espresso","language":"en","parts":[{"quantity":1,"unit":"cup","en":"strong espresso","it":"caffè espresso forte"}]}
 {"line":"1 cup uncooked white rice","language":"en","parts":[{"quantity":1,"unit":"cup","en":"uncooked white rice","it":"riso bianco crudo"}]}
 {"line":"1 cup vegan butter (room temperature)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
@@ -209,6 +210,7 @@
 {"line":"16 ounces (454g) extra-firm tofu","language":"en","parts":[{"quantity":454,"unit":"g","en":"extra-firm tofu","it":"tofu extra compatto"}]}
 {"line":"16 tablespoons vegan butter","language":"en","parts":[{"quantity":16,"unit":"tbsp","en":"vegan butter","it":"burro vegetale"}]}
 {"line":"1¼ cups vegan parmesan cheese","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"vegan parmesan cheese","it":"parmigiano vegano"}]}
+{"line":"1½ to 2 cups unsweetened almond milk","language":"en","parts":[{"quantity":1.5,"quantityMax":2,"unit":"cup","en":"unsweetened almond milk","it":"latte di mandorla senza zucchero"}]}
 {"line":"1½ tsp vanilla sugar","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"vanilla sugar","it":"zucchero vanigliato"}]}
 {"line":"2 (20 ounce or 567 gram) cans young green jackfruit in brine","language":"en","parts":[{"quantity":1134,"unit":"g","en":"canned young green jackfruit in brine","it":"jackfruit verde giovane in salamoia in lattina"}]}
 {"line":"2 1/4 cups (280 g) flour, spooned and leveled*","language":"en","parts":[{"quantity":280,"unit":"g","en":"flour","it":"farina","preparationEn":"spooned and leveled","preparationIt":"versata a cucchiaiate e livellata"}]}

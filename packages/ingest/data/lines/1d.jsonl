@@ -363,6 +363,7 @@
 {"line":"Pinch asafetida (omit to make gluten-free)","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"asafetida","it":"assafetida"}]}
 {"line":"Potato masher or fork","language":"en","kind":"other"}
 {"line":"Salsa (for serving (optional))","language":"en","parts":[{"en":"salsa","it":"salsa messicana","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}
+{"line":"Salt (as needed)","language":"en","parts":[{"en":"salt","it":"sale","purposeEn":"as needed","purposeIt":"quanto basta"}]}
 {"line":"Salt and Pepper, to taste","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"pepper","it":"pepe","toTaste":true}]}
 {"line":"Vegan Cheese","language":"en","parts":[{"en":"vegan cheese","it":"formaggio vegetale"}]}
 {"line":"Vegan Raita ((recipe below or here))","language":"en","parts":[{"en":"vegan raita","it":"raita vegana"}]}
@@ -415,6 +416,7 @@
 {"line":"½ teaspoon of pumpkin pie spice, (more for garnish )","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"pumpkin pie spice","it":"miscela di spezie per torta di zucca","purposeEn":"plus more for garnish","purposeIt":"più altra per guarnire"}]}
 {"line":"½ tsp salt ((for caramelizing the onions))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"salt","it":"sale","purposeEn":"for caramelizing the onions","purposeIt":"per caramellare le cipolle"}]}
 {"line":"½-1 tsp date syrup or sugar","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"date syrup","it":"sciroppo di datteri","alternatives":[{"en":"sugar","it":"zucchero"}]}]}
+{"line":"½-3/4 tsp salt (or to taste)","language":"en","parts":[{"quantity":0.5,"quantityMax":0.75,"unit":"tsp","en":"salt","it":"sale","toTaste":true}]}
 {"line":"¾ cup of diced tomato","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"tomato","it":"pomodoro","preparationEn":"diced","preparationIt":"tagliato a dadini"}]}
 {"line":"¾ teaspoon of cinnamon","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"cinnamon","it":"cannella"}]}
 {"line":"⅓ cup + 2 tablespoons of rice wine vinegar","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"rice wine vinegar","it":"aceto di riso","plus":{"quantity":2,"unit":"tbsp"}}]}

@@ -30,6 +30,7 @@
 {"line":"1 Tbsp white vinegar (or apple cider vinegar or more to taste)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"white vinegar","it":"aceto bianco","toTaste":true,"alternatives":[{"en":"apple cider vinegar","it":"aceto di mele"}]}]}
 {"line":"1 and 1/2 cup unsweetened plant-based milk (such as almond, soy, or oat milk)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"unsweetened plant-based milk","it":"latte vegetale senza zucchero","alternatives":[{"en":"unsweetened almond milk","it":"latte di mandorla senza zucchero"},{"en":"unsweetened soy milk","it":"latte di soia senza zucchero"},{"en":"unsweetened oat milk","it":"latte d'avena senza zucchero"}]}]}
 {"line":"1 and 1/2 tbsp white rice flour","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"white rice flour","it":"farina di riso bianco"}]}
+{"line":"1 and 1/2 tsp sunflower lecithin powder ((or soy lecithin))","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"sunflower lecithin powder","it":"lecitina di girasole in polvere","alternatives":[{"en":"soy lecithin","it":"lecitina di soia"}]}]}
 {"line":"1 bell pepper (cut into strips)","language":"en","parts":[{"quantity":1,"en":"bell pepper","it":"peperone","preparationEn":"cut into strips","preparationIt":"tagliato a strisce"}]}
 {"line":"1 black tea bag (or 1 tablespoon loose-leaf black tea – 1 tea bag or 15 g)","language":"en","parts":[{"quantity":1,"unit":"bag","en":"black tea","it":"tè nero","alternatives":[{"quantity":15,"unit":"g","en":"loose-leaf black tea","it":"tè nero sfuso"}]}]}
 {"line":"1 cup (170 g) dairy-free semi-sweet chocolate chips (optional)","language":"en","parts":[{"quantity":170,"unit":"g","en":"dairy-free semi-sweet chocolate chips","it":"gocce di cioccolato semidolce senza latte","optional":true}]}
@@ -349,6 +350,7 @@
 {"line":"9 ounce package Coco Whip (I used So Delicious brand)","language":"en","parts":[{"quantity":9,"unit":"oz","en":"Coco Whip vegan whipped topping","it":"panna montata vegetale Coco Whip"}]}
 {"line":"A pinch of smoked paprika","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"smoked paprika","it":"paprika affumicata"}]}
 {"line":"About 2 tbsp vegan mayo","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"vegan mayo","it":"maionese vegana"}]}
+{"line":"Avocado, grapeseed, or sunflower oil (for roasting and cooking)","language":"en","parts":[{"en":"avocado oil","it":"olio di avocado","purposeEn":"for roasting and cooking","purposeIt":"per arrostire e cucinare","alternatives":[{"en":"grapeseed oil","it":"olio di vinaccioli"},{"en":"sunflower oil","it":"olio di semi di girasole"}]}]}
 {"line":"Cutting Board","language":"en","kind":"other"}
 {"line":"Diamond Crystal kosher salt ((see Note 4))","language":"en","parts":[{"en":"kosher salt","it":"sale kosher"}]}
 {"line":"Heaping 1/4 teaspoon ground cloves","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"ground cloves","it":"chiodi di garofano macinati","preparationEn":"heaping measure","preparationIt":"misura colma"}]}

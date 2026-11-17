@@ -75,6 +75,7 @@
 {"line":"1 red bell pepper, (thinly sliced)","language":"en","parts":[{"quantity":1,"en":"red bell pepper","it":"peperone rosso","preparationEn":"thinly sliced","preparationIt":"tagliato a fettine sottili"}]}
 {"line":"1 ripe mango","language":"en","parts":[{"quantity":1,"en":"ripe mango","it":"mango maturo"}]}
 {"line":"1 small garlic clove (grated (or 1 tsp garlic powder))","language":"en","parts":[{"quantity":1,"unit":"clove","en":"small garlic","it":"aglio piccolo","preparationEn":"grated","preparationIt":"grattugiato","alternatives":[{"quantity":1,"unit":"tsp","en":"garlic powder","it":"aglio in polvere"}]}]}
+{"line":"1 small yellow or red onion (thinly sliced)","language":"en","parts":[{"quantity":1,"en":"small yellow onion","it":"cipolla dorata piccola","preparationEn":"thinly sliced","preparationIt":"affettata sottile","alternatives":[{"en":"small red onion","it":"cipolla rossa piccola"}]}]}
 {"line":"1 stick (1/2 cup) vegan butter","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan butter","it":"burro vegetale"}]}
 {"line":"1 tablespoon (15g) sambal oelek or chili-garlic sauce ((see Note 3))","language":"en","parts":[{"quantity":15,"unit":"g","en":"sambal oelek","it":"sambal oelek","alternatives":[{"en":"chili-garlic sauce","it":"salsa al peperoncino e aglio"}]}]}
 {"line":"1 tablespoon canola oil or vegetable oil","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"canola oil","it":"olio di colza","alternatives":[{"en":"vegetable oil","it":"olio vegetale"}]}]}
@@ -289,6 +290,7 @@
 {"line":"3 tablespoons Thai yellow curry paste","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"Thai yellow curry paste","it":"pasta di curry giallo thailandese"}]}
 {"line":"3 tablespoons bbq sauce","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"barbecue sauce","it":"salsa barbecue"}]}
 {"line":"3 tablespoons kalamata olives (chopped or sliced)","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"Kalamata olives","it":"olive Kalamata","preparationEn":"chopped or sliced","preparationIt":"tritate o affettate"}]}
+{"line":"3 tablespoons nutritional yeast ((15g))","language":"en","parts":[{"quantity":15,"unit":"g","en":"nutritional yeast","it":"lievito alimentare"}]}
 {"line":"3 tablespoons oil (any oil you like works 44 ml)","language":"en","parts":[{"quantity":44,"unit":"ml","en":"oil","it":"olio"}]}
 {"line":"3 whole cloves","language":"en","parts":[{"quantity":3,"en":"whole cloves","it":"chiodi di garofano interi"}]}
 {"line":"3-5 cloves garlic","language":"en","parts":[{"quantity":3,"quantityMax":5,"unit":"clove","en":"garlic","it":"aglio"}]}

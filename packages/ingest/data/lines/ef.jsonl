@@ -325,6 +325,7 @@
 {"line":"Clean towel, to clean banana leaves","language":"en","kind":"other"}
 {"line":"Creamy Red Pepper Cashew Dip","language":"en","kind":"heading"}
 {"line":"For protein: 2 scoops protein powder*","language":"en","parts":[{"quantity":2,"unit":"scoop","en":"protein powder","it":"proteine in polvere"}]}
+{"line":"Fresh herbs (such as chopped fresh parsley or thyme)","language":"en","parts":[{"en":"fresh herbs","it":"erbe aromatiche fresche","alternatives":[{"en":"fresh parsley","it":"prezzemolo fresco"},{"en":"thyme","it":"timo"}]}]}
 {"line":"Fresh lemon juice (, to taste (optional))","language":"en","parts":[{"en":"fresh lemon juice","it":"succo di limone fresco","optional":true,"toTaste":true}]}
 {"line":"Jasmine rice or noodles","language":"en","parts":[{"en":"jasmine rice","it":"riso jasmine","alternatives":[{"en":"noodles","it":"noodles"}]}]}
 {"line":"Juice of 1/2 small lemon","language":"en","parts":[{"quantity":0.5,"en":"small lemon","it":"limone piccolo","preparationEn":"juiced","preparationIt":"spremuto"}]}
