@@ -1,8 +1,9 @@
 import { expect, test } from './fixtures';
 
-test('footer language links keep filters and the saved view, including changes made after load', async ({ page }) => {
+test('the language switch keeps filters and the saved view, including changes made after load', async ({ page }) => {
   await page.goto('/?meal=dessert&max=30&free=gluten&view=saved');
-  const italian = page.locator('footer').getByRole('link', { name: 'Italiano', exact: true });
+  await expect(page.locator('footer').getByRole('link', { name: 'Italiano' })).toHaveCount(0);
+  const italian = page.getByRole('link', { name: 'Switch to Italiano', exact: true });
   await expect(italian).toHaveAttribute('href', '/it/?meal=dessert&max=30&free=gluten&view=saved');
   await italian.click();
   await expect(page).toHaveURL('/it/?meal=dessert&max=30&free=gluten&view=saved');
@@ -10,7 +11,7 @@ test('footer language links keep filters and the saved view, including changes m
   await page.getByRole('button', { name: 'vegdex, tutte le ricette', exact: true }).click();
   await page.getByRole('button', { name: 'Dessert', exact: true }).click();
   await page.getByRole('searchbox').fill('soup');
-  const english = page.locator('footer').getByRole('link', { name: 'English', exact: true });
+  const english = page.getByRole('link', { name: 'Cambia lingua: English', exact: true });
   await expect(english).toHaveAttribute('href', '/?q=soup&max=30&free=gluten');
   await english.click();
   await expect(page).toHaveURL('/?q=soup&max=30&free=gluten');
@@ -32,11 +33,11 @@ test.describe('an Italian browser on the English page', () => {
     await page.reload();
     await expect(page.getByTestId('result-count')).toHaveText('1 recipe');
     await expect(suggestion).toHaveCount(0);
-    // The permanent footer link stays available after dismissal.
-    await page.locator('footer').getByRole('link', { name: 'Italiano', exact: true }).click();
+    // The header switch stays available after dismissal.
+    await page.getByRole('link', { name: 'Switch to Italiano', exact: true }).click();
     await expect(page).toHaveURL('/it/?meal=soup&max=60');
     await expect(suggestion).toHaveCount(0);
-    await page.locator('footer').getByRole('link', { name: 'English', exact: true }).click();
+    await page.getByRole('link', { name: 'Cambia lingua: English', exact: true }).click();
     await expect(page.getByTestId('result-count')).toHaveText('1 recipe');
     await expect(suggestion).toHaveCount(0);
   });
@@ -53,7 +54,7 @@ test.describe('an Italian browser on the English page', () => {
 test.describe('on a 360px phone', () => {
   test.use({ locale: 'it-IT', viewport: { width: 360, height: 800 } });
 
-  test('the one-time link and the footer link fit and leave the header row alone', async ({ page }) => {
+  test('the one-time link and the language switch fit and leave the header row alone', async ({ page }) => {
     await page.goto('/');
     const suggestion = page.getByRole('link', { name: 'Disponibile in italiano', exact: true });
     await expect(suggestion).toBeVisible();
@@ -66,9 +67,7 @@ test.describe('on a 360px phone', () => {
     expect((await header.boundingBox())!.height).toBe(withLink!.height);
     for (const path of ['/', '/it/']) {
       await page.goto(path);
-      const footerLink = page.locator('footer').getByRole('link', { name: path === '/' ? 'Italiano' : 'English', exact: true });
-      await footerLink.scrollIntoViewIfNeeded();
-      const link = await footerLink.boundingBox();
+      const link = await (path === '/' ? page.getByRole('link', { name: 'Switch to Italiano', exact: true }) : page.getByRole('link', { name: 'Cambia lingua: English', exact: true })).boundingBox();
       expect(link!.x).toBeGreaterThanOrEqual(0);
       expect(link!.x + link!.width).toBeLessThanOrEqual(360);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
@@ -109,7 +108,7 @@ test('saved recipes, shopping amounts and check-offs survive switching languages
   await expect(groceries.locator('li', { hasText: 'garlic' })).toContainText('9 cloves');
   await groceries.getByRole('checkbox', { name: /garlic/ }).check();
   await list.getByRole('button', { name: 'Close', exact: true }).click();
-  await page.locator('footer').getByRole('link', { name: 'Italiano', exact: true }).click();
+  await page.getByRole('link', { name: 'Switch to Italiano', exact: true }).click();
   await expect(page).toHaveURL('/it/?view=saved');
   await expect(page.getByTestId('result-count')).toHaveText('2 ricette salvate');
   await expect(page.getByTestId('recipe-card')).toHaveText([/Spinach Tofu Curry/, /Zuppa di lenticchie rosse/]);
@@ -142,7 +141,7 @@ test('a bare address opens the language last picked, while links with filters op
 
   // Picking English sticks the same way.
   await page.goto('/it/?meal=soup');
-  await page.locator('footer').getByRole('link', { name: 'English', exact: true }).click();
+  await page.getByRole('link', { name: 'Cambia lingua: English', exact: true }).click();
   await expect(page).toHaveURL('/?meal=soup');
   await page.goto('/it/');
   await expect(page).toHaveURL('/');

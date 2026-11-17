@@ -407,8 +407,12 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
   to { scale: 1.65; opacity: 0; }
 }
 .sentinel { height: 1px; }
-.credits { text-align: center; color: var(--muted); font-size: 0.875rem; margin-top: auto; padding-top: 40px; line-height: 1.5; text-wrap: balance; }
-.credits a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; color: var(--green); text-underline-offset: 3px; }
+.credits { display: grid; justify-items: center; gap: 4px; text-align: center; color: var(--muted); font-size: 0.875rem; margin-top: auto; padding-top: 40px; line-height: 1.5; text-wrap: balance; }
+.credits p { margin: 0; max-width: 60ch; }
+.credits a { color: var(--green); text-underline-offset: 3px; }
+.credit-links { display: flex; flex-wrap: wrap; justify-content: center; column-gap: 16px; }
+.credit-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px; }
+.credits .fine { font-size: 0.8rem; }
 
 /* Sheets */
 .sheet {

@@ -18,7 +18,7 @@ test('Italian ingredient search loads only its lookup and keeps original details
   await expect(page.getByTestId('ingredients')).toContainText('ceci');
   await expect(page.getByRole('dialog').getByRole('heading', { name: 'Insalata di quinoa al limone', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Chiudi', exact: true }).click();
-  await page.getByRole('link', { name: 'English', exact: true }).click();
+  await page.getByRole('link', { name: 'Cambia lingua: English', exact: true }).click();
   await expect(page).toHaveURL(/\/?\?q=ceci/);
   await page.getByRole('searchbox').fill('garbanzo');
   await expect(cards(page)).toHaveText([/Lemony Quinoa Salad/]);

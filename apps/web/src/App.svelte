@@ -422,17 +422,15 @@
     {/if}
 
     <footer class="credits">
-      {m.credits(countArgs(loaded!.sources.length))}
-      {m.credits_updated({ date: new Date(loaded!.generatedAt).toLocaleDateString(pageLocale.intl) })}
-      <div>{m.dictionary_credit()} <a href="https://world.openfoodfacts.org/">Open Food Facts</a> <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> <a href="{import.meta.env.BASE_URL}data/dictionary.json">{m.dictionary_tables()}</a></div>
-      <div><a href="https://github.com/antomanc/vegdex">{m.open_source()}</a> <a href={REMOVAL_URL}>{m.request_removal()}</a></div>
-      <div class="row center">
-        {#each LOCALES.filter((locale) => locale.code !== pageLocale.code) as locale (locale.code)}
-          {#if isLocale(locale.code)}
-            <a href="{import.meta.env.BASE_URL}{locale.prefix ? `${locale.prefix}/` : ''}{queryString}" lang={locale.code} hreflang={locale.hreflang} onclick={() => rememberLanguage(locale.code)}>{m.language_name({}, { locale: locale.code })}</a>
-          {/if}
-        {/each}
+      <p>{m.credits(countArgs(loaded!.sources.length))}</p>
+      <div class="credit-links">
+        <a href="https://github.com/antomanc/vegdex">{m.open_source()}</a>
+        <a href={REMOVAL_URL}>{m.request_removal()}</a>
       </div>
+      <p class="fine">
+        {m.credits_updated({ date: new Date(loaded!.generatedAt).toLocaleDateString(pageLocale.intl) })}
+        {m.dictionary_credit()} <a href="https://world.openfoodfacts.org/">Open Food Facts</a> (<a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a>) · <a href="{import.meta.env.BASE_URL}data/dictionary.json">{m.dictionary_tables()}</a>
+      </p>
     </footer>
   {/if}
 </main>
