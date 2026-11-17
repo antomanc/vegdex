@@ -2,7 +2,7 @@
 import { execSync } from 'node:child_process'
 
 const steps = [
-  'node scripts/wellkept-check.mjs',
+  'node scripts/check-conventions.mjs',
   'node scripts/check-helper-tests.mjs',
   'node scripts/check-fixtures.mjs',
   'pnpm typecheck',
