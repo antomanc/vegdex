@@ -25,7 +25,9 @@ Guaranteed vegan. Every source is an all-vegan publisher, and a second check dro
 
 ## Capabilities and Constraints
 - Search by text; quick filters for savory/sweet and meal type; time (≤15/30/45/60 min); high protein; "free from" (gluten, nut, soy, oil); "I have" and "avoid" ingredient lists; sort (Today's picks by default, top rated, newest, fastest, best match).
-- "Pick for me": a random recipe from the best current matches, with "Another" to draw again.
+- "Pick for me": the best current matches dealt as a deck of cards to swipe: right saves, left skips, a tap opens the recipe.
+- "My fridge": the cook lists what they have (kept on the device); the catalog shows what uses most of it with at most three things to buy, and each card says what is missing. Spices, oils, sauces and baking basics count as the cupboard.
+- "My week": 3–7 dinners from the current filters that share their shopping, with the count of things to buy, swaps, and one tap to save them as the shopping list.
 - Recipe sheet: photo, meta, nutrition, diet badges, ingredient list, "Cook it on <blog>" link, save. The blog name opens that blog's shelf (all its recipes, plus a link to the site).
 - Saved view with a combined shopping list built from saved recipes.
 - Filter state lives in the URL; data is a static catalog refreshed daily by GitHub Actions and deployed to GitHub Pages.

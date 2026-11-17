@@ -4,7 +4,7 @@
   import { catalog, type Found, type Loaded } from './lib/catalog-client'
   import { loadCatalogData, loadFirstPage, loadLookup } from './lib/data'
   import {
-    activeCount, activeFilters, browseMode, clearFilters, defaultSort, filters, forgetUnsavedAmounts, isLanding, readUrl, removeFilter, saved, showCatalog, showSaved, showShelf, sourceNames, toQuery, writeUrl,
+    activeCount, activeFilters, browseMode, clearFilters, defaultSort, filters, forgetUnsavedAmounts, fridge, isLanding, readUrl, removeFilter, saved, showCatalog, showSaved, showShelf, sourceNames, toQuery, writeUrl,
     type Sort
   } from './lib/state.svelte'
   import { m, countArgs, formatNumber, pageLocale, rememberLanguage, takeSkipEarly } from './lib/i18n'
@@ -20,6 +20,9 @@
   import RecipeCard from './lib/RecipeCard.svelte'
   import RecipeSheet from './lib/RecipeSheet.svelte'
   import GrocerySheet from './lib/GrocerySheet.svelte'
+  import FridgeSheet from './lib/FridgeSheet.svelte'
+  import WeekSheet from './lib/WeekSheet.svelte'
+  import DeckSheet from './lib/DeckSheet.svelte'
   import LanguageSuggestion from './lib/LanguageSuggestion.svelte'
   import { latest } from './lib/reactive/latest.svelte'
   import { intersect } from './lib/reactive/intersect.svelte'
@@ -50,9 +53,11 @@
   let openRow = $state.raw<CatalogRecipe | null>(null)
   // Null until the worker answers: the shopping list must not open on an empty list and forget its ticks.
   let savedRecipes = $state.raw<CatalogRecipe[] | null>(null)
-  // Opened by "Pick for me": the sheet offers another draw.
-  let drawn = $state(false)
   let groceryOpen = $state(initial.listOpen)
+  // The fridge, the week planner and Pick for me's deck: each a sheet over the stall.
+  let fridgeOpen = $state(false)
+  let weekOpen = $state(false)
+  let deck = $state.raw<CatalogRecipe[] | null>(null)
   let limit = $state(PAGE)
   let sentinel = $state<HTMLElement>()
   let headerHeight = $state(0)
@@ -186,7 +191,8 @@
     failed
   )
 
-  const countText = $derived(mode === 'saved' ? m.saved_count(countArgs(resultCount)) : m.recipe_count(countArgs(resultCount)))
+  const fromFridge = $derived(mode !== 'saved' && filters.fromFridge && fridge.items.length > 0)
+  const countText = $derived(mode === 'saved' ? m.saved_count(countArgs(resultCount)) : fromFridge ? m.fridge_count(countArgs(resultCount)) : m.recipe_count(countArgs(resultCount)))
   const blogCount = $derived(found?.blogs ?? 0)
   const sorts = $derived(SORTS.filter(([s]) => s !== 'relevance' || filters.text.trim()))
 
@@ -280,30 +286,37 @@
     homeButton?.focus({ preventScroll: true })
   }
 
-  // Draw from the best of the current matches, never the card already open.
-  const DRAW_POOL = 120
+  // Pick for me deals the best current matches as a deck to swipe through.
   let picking = false
   async function pick() {
     if (picking) return
-    const pool = (found?.top ?? []).slice(0, DRAW_POOL).filter((r) => r.id !== openId)
+    const pool = found?.top ?? []
     if (!pool.length) return
     picking = true
     try {
-      // First draw: rummage the stall. "Another" keeps the sheet still and only slides content.
-      if (!openId) await shuffleVisibleCrates()
-      else haptic('select')
-      openRow = pool[Math.floor(Math.random() * pool.length)]!
-      openId = openRow.id
-      drawn = true
+      // Rummage the stall, then deal.
+      await shuffleVisibleCrates()
+      deck = pool
     } finally {
       picking = false
     }
   }
 
+  /** A recipe opened from a sheet: the row is at hand, so it opens at once. */
+  function openRecipe(recipe: CatalogRecipe) {
+    openRow = recipe
+    openId = recipe.id
+  }
+  const nameOf = (id: string) => sourceNames.get(id) ?? id
+  // The week draws dinners from the cook's filters; with no course chosen, from the mains.
+  const weekQuery = $derived.by(() => {
+    const q = toQuery([])
+    return { ...q, meals: q.meals?.length ? q.meals : ['main' as const] }
+  })
+
   function showKitchen(id: string) {
     kitchenScrollPending = true
     openId = null
-    drawn = false
     showShelf(filters, id)
     scrollTo({ top: 0 })
   }
@@ -377,6 +390,15 @@
   {/if}
   {#if mode !== 'saved'}
     <div class="filters" bind:this={filterBox}><FilterBar count={found ? total : null} onpick={showPick ? pick : undefined} /></div>
+    <!-- Two ways to decide that start from the cook, not the catalog: what is in the fridge, and the whole week. -->
+    <div class="helpers">
+      <button class="helper" class:on={fromFridge} aria-pressed={fromFridge} aria-haspopup="dialog" onclick={() => (fridgeOpen = true)}>
+        <Icon name="fridge" size={18} /><span>{m.fridge_button()}</span>{#if fridge.items.length}<span class="helper-count" aria-hidden="true">{formatNumber(fridge.items.length)}</span>{/if}
+      </button>
+      <button class="helper" aria-haspopup="dialog" onclick={() => (weekOpen = true)} disabled={!loaded}>
+        <Icon name="calendar" size={18} /><span>{m.week_button()}</span>
+      </button>
+    </div>
   {/if}
 
   {#if error}
@@ -424,12 +446,12 @@
         <p>
           <span data-testid="result-count">{countText}</span>{#if mode !== 'saved' && !kitchen}<span class="from">{' '}{m.blog_count(countArgs(blogCount))}</span>{/if}
         </p>
-        <label class="sort">
+        {#if !fromFridge}<label class="sort">
           <span class="visually-hidden">{m.sort_by()}</span>
           <select value={filters.sort ?? defaultSort()} onchange={(e) => setSort(e.currentTarget.value as Sort)}>
             {#each sorts as [s, label] (s)}<option value={s}>{label}</option>{/each}
           </select>
-        </label>
+        </label>{/if}
       </div>
     {:else}
       <p class="visually-hidden" data-testid="result-count">{countText}</p>
@@ -465,7 +487,7 @@
     <ul class="grid" id="results" tabindex="-1">
       {#each visible as recipe, i (recipe.id)}
         <li>
-          <RecipeCard {recipe} sourceName={sourceNames.get(recipe.source) ?? recipe.source} onopen={() => (openId = recipe.id)} eager={i < EAGER} />
+          <RecipeCard {recipe} sourceName={sourceNames.get(recipe.source) ?? recipe.source} onopen={() => (openId = recipe.id)} eager={i < EAGER} missing={found?.missing?.[recipe.id]} />
         </li>
       {/each}
     </ul>
@@ -493,7 +515,7 @@
         <a href={REMOVAL_URL}>{m.request_removal()}</a>
       </div>
       <p class="fine">
-        {m.credits_updated({ date: new Date(loaded!.generatedAt).toLocaleDateString(pageLocale.intl) })}
+        {m.credits_updated({ date: new Date(loaded!.generatedAt).toLocaleDateString(pageLocale.intl, { dateStyle: 'medium' }) })}
         {m.dictionary_credit()} <a href="https://world.openfoodfacts.org/">Open Food Facts</a> (<a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a>) · <a href="{import.meta.env.BASE_URL}data/dictionary.json">{m.dictionary_tables()}</a>
       </p>
     </footer>
@@ -504,11 +526,12 @@
 {#if showDock}
   <div class="dock">
     {#if showReturn}
-      <button class="dock-return" onclick={backUp}><Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span></button>
+      <button class="dock-return dock-up" onclick={backUp} aria-label={m.back_to_top()}><Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span></button>
     {/if}
     {#if showList}
-      <button class="dock-return dock-list" type="button" aria-label={m.shopping_list()} onclick={() => (groceryOpen = true)}>
+      <button class="dock-return dock-list" type="button" aria-label={m.shopping_list()} title={m.shopping_list()} onclick={() => (groceryOpen = true)}>
         <Icon name="list" size={18} />
+        <span class="dock-count" aria-hidden="true">{formatNumber(saved.ids.length)}</span>
       </button>
     {/if}
     {#if showPick}<button class="pick" onclick={pick}><Icon name="shuffle" size={18} /> {m.pick()}</button>{/if}
@@ -519,10 +542,21 @@
   <RecipeSheet
     recipe={open}
     sourceName={sourceNames.get(open.source) ?? open.source}
-    onclose={() => ((openId = null), (drawn = false))}
+    onclose={() => (openId = null)}
     onkitchen={() => showKitchen(open.source)}
-    ondraw={drawn ? pick : undefined}
   />
+{/if}
+
+{#if fridgeOpen}
+  <FridgeSheet onclose={() => (fridgeOpen = false)} />
+{/if}
+
+{#if weekOpen}
+  <WeekSheet query={weekQuery} sourceName={nameOf} onopen={openRecipe} onlist={() => (groceryOpen = true)} onclose={() => (weekOpen = false)} />
+{/if}
+
+{#if deck}
+  <DeckSheet pool={deck} sourceName={nameOf} onopen={openRecipe} onlist={() => (groceryOpen = true)} onclose={() => (deck = null)} />
 {/if}
 
 {#if groceryOpen && savedRecipes}

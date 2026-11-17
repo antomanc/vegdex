@@ -7,9 +7,15 @@
   import Icon from './Icon.svelte'
   import { formatCount, formatMinutes } from './labels'
   import { saved, toggleSaved } from './state.svelte'
+  import { conceptName } from './concept-names.svelte'
 
   // The first row is on screen at once: its photos load first instead of waiting for layout.
-  let { recipe, sourceName, onopen, eager = false }: { recipe: CatalogRecipe; sourceName: string; onopen: () => void; eager?: boolean } = $props()
+  let { recipe, sourceName, onopen, eager = false, missing }: {
+    recipe: CatalogRecipe; sourceName: string; onopen: () => void; eager?: boolean
+    /** Cooking from the fridge: what this recipe still needs. */
+    missing?: string[]
+  } = $props()
+  const missingNames = $derived(missing?.map(conceptName).filter(Boolean) ?? [])
   let broken = $state(false)
   const isSaved = $derived(saved.ids.includes(recipe.id))
   const justUnsaved = $derived(saved.unsaved.includes(recipe.id))
@@ -35,6 +41,12 @@
     {#if recipe.rating && recipe.ratingCount}
       <!-- Most recipes average 5.0, so the card shows how many cooks rated it; a low average still shows. -->
       <span class="rating"><Icon name="star" size={12} filled />{' '}{#if recipe.rating < LOW_AVERAGE}{formatRating(recipe.rating)} · {/if}{m.rating_count({ ...countArgs(recipe.ratingCount), count: formatCount(recipe.ratingCount) })}<span class="visually-hidden">{m.average({ rating: formatRating(recipe.rating) })}</span></span>
+    {/if}
+    {#if missing}
+      <!-- The fridge's answer: ready to cook, or the few things still to buy. -->
+      <span class="fit" class:ready={!missing.length} data-testid="fridge-fit">
+        {#if !missing.length}<Icon name="check" size={13} /> {m.fridge_ready()}{:else if missingNames.length === missing.length}{m.fridge_buy({ names: missingNames.join(', ') })}{:else}{m.fridge_missing(countArgs(missing.length))}{/if}
+      </span>
     {/if}
   </p>
   <button

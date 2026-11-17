@@ -5,6 +5,7 @@ export * from './vegan';
 export * from './tags';
 export * from './query';
 export * from './picks';
+export * from './kitchen';
 export * from './grocery';
 export * from './weights';
 export * from './metric';

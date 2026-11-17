@@ -131,6 +131,17 @@ test('ingredients typed but not added still apply when More filters closes', asy
   await expect(active.getByRole('button', { name: 'Remove with spinach' })).toBeVisible();
 });
 
+test('a word cut short in an ingredient field becomes the name it starts when More filters closes', async ({ page }) => {
+  await page.getByRole('button', { name: /More filters/ }).click();
+  const have = page.getByRole('combobox', { name: 'Must include' });
+  await have.fill('tof');
+  await expect(page.getByRole('dialog').getByRole('option', { name: 'tofu', exact: true })).toBeVisible();
+  await page.getByRole('dialog').getByRole('button', { name: 'Close' }).click();
+  const active = page.getByRole('list', { name: 'Active filters' });
+  await expect(active.getByRole('button', { name: 'Remove with tofu' })).toBeVisible();
+  await expect(cards(page)).not.toHaveCount(0);
+});
+
 test('Clear all also drops text still in the ingredient fields', async ({ page }) => {
   await page.getByRole('button', { name: /More filters/ }).click();
   const have = page.getByRole('combobox', { name: 'Must include' });
@@ -189,20 +200,6 @@ test('the count credits the blogs and the credits stay on screen', async ({ page
   await expect(page.getByText(/^Recipes from \d+ vegan blogs/)).toBeInViewport();
 });
 
-test('Pick for me opens one of the matches, and Another draws a different one', async ({ page }) => {
-  await page.getByRole('button', { name: 'Soups', exact: true }).click();
-  await page.getByRole('button', { name: 'Pick for me' }).click();
-  const sheet = page.getByRole('dialog');
-  await expect(sheet.getByRole('heading', { name: 'Red Lentil Soup' })).toBeVisible();
-
-  await sheet.getByRole('button', { name: 'Close' }).click();
-  await page.getByRole('list', { name: 'Active filters' }).getByRole('button', { name: 'Remove Soups' }).click();
-  await page.getByRole('button', { name: 'Pick for me' }).click();
-  const first = await sheet.getByRole('heading', { level: 2 }).textContent();
-  await sheet.getByRole('button', { name: 'Another' }).click();
-  await expect(sheet.getByRole('heading', { level: 2 })).not.toHaveText(first!);
-});
-
 test("a recipe's blog opens that blog's shelf, with a way to its site", async ({ page }) => {
   await page.getByRole('button', { name: 'Red Lentil Soup', exact: true }).click();
   await page.getByRole('dialog').getByRole('button', { name: /^ElaVegan/ }).click();
@@ -224,17 +221,6 @@ test('the logo leaves a blog shelf for all recipes', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'ElaVegan' })).toBeHidden();
   await expect(page).not.toHaveURL(/from=/);
   await expect(count(page)).toHaveText(/6 recipes/);
-});
-
-test('a card opened after leaving a drawn one for its blog offers no Another', async ({ page }) => {
-  await page.getByRole('button', { name: 'Pick for me' }).click();
-  const sheet = page.getByRole('dialog');
-  await expect(sheet.getByRole('button', { name: 'Another' })).toBeVisible();
-  await sheet.locator('.kitchen-name').click();
-  await expect(sheet).toBeHidden();
-  await cards(page).first().getByRole('button').first().click();
-  await expect(sheet.getByRole('link', { name: /Cook it on/ })).toBeVisible();
-  await expect(sheet.getByRole('button', { name: 'Another' })).toHaveCount(0);
 });
 
 test('a skip link jumps from the top of the page to the recipes', async ({ page }) => {

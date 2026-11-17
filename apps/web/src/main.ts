@@ -4,6 +4,7 @@ import '@fontsource-variable/work-sans/wght.css'
 import './app.css'
 import App from './App.svelte'
 import { listenForHaptics } from './lib/haptic'
+import { reloadIntoUpdates } from './lib/app-update'
 
 const app = mount(App, {
   target: document.getElementById('app')!,
@@ -23,5 +24,8 @@ if (navigator.serviceWorker && !navigator.serviceWorker.controller) {
     }).observe({ type: 'resource', buffered: true })
   }, { once: true })
 }
+
+// A new version reaches an app that waits in the background the next time the cook comes back to it.
+if (navigator.serviceWorker) reloadIntoUpdates({ container: navigator.serviceWorker, doc: document, reload: () => location.reload(), now: () => Date.now() })
 
 export default app

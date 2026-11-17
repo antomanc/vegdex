@@ -31,6 +31,11 @@ export interface RecipeQuery {
   seed?: string;
   /** Today's picks only: savoury leads three cards of every four (the default screen, no filters). */
   savouryLead?: boolean;
+  /**
+   * What the cook has: ingredient names in any language. The catalog worker keeps the recipes they can make
+   * with at most a few more things and orders them by fit; `searchRecipes` itself leaves it alone.
+   */
+  fridge?: string[];
 }
 
 function tokenize(text: string): string[] {

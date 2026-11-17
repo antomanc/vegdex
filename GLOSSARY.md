@@ -17,8 +17,20 @@ All recipes from one source, opened from the source's name.
 _Avoid_: Blog page, source view
 
 **Today's picks**:
-The default browse order: the day's emit seeds a shuffle of the well-rated pictured recipes, a blog never fills a screen, and savoury leads. Top rated is a separate, chosen order.
+The default browse order: the day's emit seeds a shuffle of the well-rated pictured recipes, a blog never fills a screen, and savoury dishes lead (a dressing or a drink waits for the fourth slot). Top rated is a separate, chosen order.
 _Avoid_: Recommended, featured, personalized
+
+**Fridge**:
+What the cook says they have, kept on their device. Cooking from the fridge shows the recipes that use most of it with at most three things to buy.
+_Avoid_: Pantry, inventory
+
+**Cupboard**:
+Spices, oils, sauces and baking basics: the aisles a recipe never sends the cook shopping for, in the fridge and the week alike. Salt, pepper, water and ice are always in too.
+_Avoid_: Staples (those are the four always in)
+
+**Week**:
+A planned set of dinners chosen to share their shopping, saved together as the shopping list.
+_Avoid_: Meal plan, menu
 
 **Vegan check**:
 The publication gate that drops any recipe naming an animal product without a plant-based qualifier.

@@ -1,7 +1,7 @@
 import type { CatalogRecipe, IngredientLookup, RecipeQuery } from '@vegdex/core'
-import type { CatalogRequest, Found, Loaded } from './catalog.worker'
+import type { CatalogRequest, Found, Loaded, Week } from './catalog.worker'
 
-export type { Found, Loaded }
+export type { Found, Loaded, Week }
 
 let worker: Worker | null = null
 // After a crash a new worker would start without the catalog and answer every search with nothing:
@@ -48,5 +48,7 @@ export const catalog = {
   titles: (titles: Record<string, string> | null) => ask<null>({ kind: 'titles', titles }),
   search: (query: RecipeQuery, limit: number, countIds?: string[]) => ask<Found>({ kind: 'search', query, limit, countIds }),
   rows: (ids: string[]) => ask<CatalogRecipe[]>({ kind: 'rows', ids }),
-  counts: (queries: RecipeQuery[]) => ask<number[]>({ kind: 'counts', queries })
+  counts: (queries: RecipeQuery[]) => ask<number[]>({ kind: 'counts', queries }),
+  /** A week of dinners that share their shopping; `slots` keeps recipes in place, `avoid` turns some down. */
+  week: (query: RecipeQuery, count: number, slots: (string | null)[], avoid: string[]) => ask<Week>({ kind: 'week', query, count, slots, avoid })
 }

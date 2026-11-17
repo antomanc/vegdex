@@ -386,7 +386,17 @@ main {
 /* The way back sits on the same line as Pick: same height and shape, outlined and quieter. */
 .dock-return { padding: 0 18px; background: var(--surface); color: var(--ink); font-family: var(--body); font-weight: 600; box-shadow: inset 0 0 0 2px var(--rule), 0 2px 6px var(--shadow), 0 8px 24px var(--card-shadow); }
 .pick:focus-visible, .dock-return:focus-visible { outline-offset: 3px; }
-.dock-list { width: 52px; padding: 0; justify-content: center; flex: none; }
+.dock-list { position: relative; width: 52px; padding: 0; justify-content: center; flex: none; }
+/* The list key says how many recipes it holds, like More filters does on phones. */
+.dock-count {
+  position: absolute; top: -6px; right: -6px; min-width: 20px; height: 20px; padding: 0 5px; display: grid; place-items: center;
+  border-radius: 999px; background: var(--tag); color: var(--on-tag); font-family: var(--body); font-size: 0.75rem; font-weight: 700; font-variant-numeric: tabular-nums;
+}
+/* Three keys do not fit a phone with labels: Back to top keeps its arrow and its name for screen readers. */
+@media (max-width: 479px) {
+  .dock:has(.dock-list) .dock-up { width: 52px; padding: 0; justify-content: center; flex: none; }
+  .dock:has(.dock-list) .dock-up span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
 .pick-inline { display: none; }
 @media (min-width: 900px) {
   .pick-inline { display: inline-flex; flex: none; min-height: 44px; margin-left: auto; padding: 0 18px; font-size: 0.9rem; box-shadow: none; }
@@ -514,6 +524,16 @@ li:nth-child(even) > .card:has(.card-open:active) .time { rotate: 10deg; scale: 
 @supports (animation-timeline: scroll()) {
   .sheet-top { animation: sheet-bar linear both; animation-timeline: scroll(nearest); animation-range: 0 24px; }
 }
+/* The recipe's title rides in the bar once the heading has scrolled under it. */
+.bar-title { display: none; }
+@supports (animation-timeline: scroll()) {
+  .bar-title {
+    display: block; flex: 1; min-width: 0; margin: 0 12px 0 10px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+    font-weight: 700; font-size: 1rem; letter-spacing: -0.01em;
+    animation: bar-title linear both; animation-timeline: scroll(nearest); animation-range: 280px 340px;
+  }
+}
+@keyframes bar-title { from { opacity: 0; translate: 0 6px; } to { opacity: 1; translate: 0 0; } }
 @keyframes sheet-bar {
   from { background: transparent; box-shadow: none; }
   to { background: var(--surface); box-shadow: 0 2px 0 var(--rule); }
@@ -533,7 +553,7 @@ li:nth-child(even) > .card:has(.card-open:active) .time { rotate: 10deg; scale: 
 .hero { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); margin-bottom: 14px; display: block; }
 .sheet h2 { font-size: 1.75rem; line-height: 1.12; font-weight: 760; margin: 0 48px 6px 0; text-wrap: balance; letter-spacing: -0.02em; }
 #more-title { margin-bottom: 20px; }
-#more-title, #grocery-title { font-family: var(--display); font-size: 1.4rem; font-weight: 400; letter-spacing: 0; }
+#more-title, #grocery-title, #fridge-title, #week-title, #deck-title { font-family: var(--display); font-size: 1.4rem; font-weight: 400; letter-spacing: 0; }
 .sheet h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 400; margin: 26px 0 8px; }
 .sheet .meta { margin: 2px 0; font-size: 0.88rem; }
 
@@ -701,14 +721,14 @@ p.small a { display: inline-flex; align-items: center; min-height: 44px; color: 
 
 /* Keep the creator link readable beside long translated labels and publisher names. */
 .recipe-sheet .actions { flex-wrap: wrap; }
-/* Wrapped onto their own line, Save and Another share it instead of huddling right. */
+/* Wrapped onto their own line, Save and Share spread across it instead of huddling right. */
 .recipe-secondary-actions { display: flex; gap: 10px; flex: 1 1 auto; }
 .recipe-secondary-actions .save { flex: 1 1 auto; justify-content: center; }
 .recipe-sheet .actions .cta { flex: 3 1 220px; }
 @media (max-width: 379px) {
   .recipe-sheet .sheet-footer { padding-inline: 14px; margin-inline: -20px; gap: 8px; }
-  .recipe-sheet .actions:not(:has(.save + .save:not(.share))) { flex-wrap: nowrap; }
-  .recipe-sheet .actions:not(:has(.save + .save:not(.share))) .cta { flex: 1 1 0; min-width: 0; padding: 6px 10px; font-size: 0.88rem; line-height: 1.2; }
+  .recipe-sheet .actions { flex-wrap: nowrap; }
+  .recipe-sheet .actions .cta { flex: 1 1 0; min-width: 0; padding: 6px 10px; font-size: 0.88rem; line-height: 1.2; }
   .recipe-sheet .actions .recipe-secondary-actions { gap: 8px; }
 }
 /* Long Italian “Cucina su …” needs its own row under 360px so the creator link stays tappable. */
@@ -725,8 +745,6 @@ p.small a { display: inline-flex; align-items: center; min-height: 44px; color: 
   .recipe-secondary-actions { flex: none; }
   .recipe-secondary-actions .save:first-child { flex: none; width: 48px; padding: 0; justify-content: center; }
   .recipe-secondary-actions .save:first-child .save-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-  /* With Another, the creator link takes its own full row. */
-  .recipe-secondary-actions:has(.save + .save:not(.share)) { flex: 1 1 100%; }
 }
 /* Share is an icon: the footer is full on a phone. Copied, the icon turns into a check in place and a note floats above, so nothing moves. */
 .recipe-secondary-actions .share { flex: none; position: relative; width: 48px; padding: 0; justify-content: center; }
@@ -799,3 +817,106 @@ html.theme-awning::view-transition-new(root) {
 }
 
 .heart-flyer { font-family: var(--body); }
+
+/* Fridge and week: two boards under the signs, the ways to decide that start from the cook. */
+.helpers { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 1200px; margin: 0 auto 14px; }
+.helper {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 6px 12px;
+  border: 2px solid var(--rule); border-radius: 8px; background: var(--surface); color: var(--ink);
+  font-family: var(--display); font-size: 0.9rem; font-weight: 400; line-height: 1.1; text-align: center;
+}
+.helper.on { background: var(--green); border-color: var(--green); color: var(--on-green); animation: select-slap 200ms var(--ease-out); }
+.helper:disabled { opacity: 0.5; }
+.helper-count {
+  position: absolute; top: -8px; right: -6px; min-width: 22px; height: 22px; padding: 0 6px; display: grid; place-items: center;
+  border-radius: 999px; background: var(--tag); color: var(--on-tag); font-family: var(--body); font-size: 0.78rem; font-weight: 700; font-variant-numeric: tabular-nums;
+}
+@media (min-width: 700px) { .helpers { display: flex; justify-content: flex-start; } .helper { min-width: 200px; } }
+@media (max-width: 359px) { .helper { font-size: 0.8rem; gap: 6px; padding-inline: 8px; } }
+@media (hover: hover) { .helper:not(.on):not(:disabled):hover { border-color: var(--green); color: var(--green); } }
+
+/* A card from the fridge says what it still needs, under its rating. */
+.fit { font-size: 0.82rem; font-weight: 600; color: var(--ink); line-height: 1.3; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; }
+.fit.ready { color: var(--green); display: inline-flex; align-items: center; gap: 4px; }
+
+/* The fridge sheet: what is in, and the common things to tap in. */
+.fridge-sheet .field { margin-bottom: 18px; }
+.fridge-sheet #fridge-title { margin-bottom: 6px; }
+.fridge-sheet > .sheet-body > .hint { margin-bottom: 16px; }
+.sheet .fridge-head { font-family: var(--body); font-size: 0.95rem; font-weight: 700; margin: 18px 0 8px; }
+.fridge-chips { list-style: none; margin: 0; padding: 0; }
+.quick-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.quick-grid .pill { min-height: 40px; padding: 0 14px; }
+.fridge-sheet .cta, .week-sheet .cta { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.fridge-sheet .cta:disabled, .week-sheet .cta:disabled { opacity: 0.5; }
+
+/* The week: dinners in order, each with a swap, and what the shop comes to. */
+.week-sheet #week-title { margin-bottom: 6px; }
+.week-count { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 14px 0 6px; padding-bottom: 12px; border-bottom: 3px solid var(--rule); }
+.week-count .label { color: var(--ink); font-weight: 600; }
+.week-shop { margin: 14px 0 8px; display: flex; flex-wrap: wrap; gap: 2px 8px; align-items: baseline; font-variant-numeric: tabular-nums; }
+.week-shop strong { font-family: var(--display); font-weight: 400; font-size: 1.15rem; line-height: 1.2; }
+.week-shop .muted { font-size: 0.88rem; }
+.week-shared { list-style: none; margin: 0 0 6px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.week-shared li { border: 2px solid var(--green); border-radius: 4px; padding: 3px 8px; font-size: 0.82rem; font-weight: 600; }
+.week-shared .times { color: var(--green); font-variant-numeric: tabular-nums; }
+.week-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.week-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.week-row .day { flex: none; width: 22px; font-family: var(--display); font-size: 1rem; color: var(--muted); text-align: center; font-variant-numeric: tabular-nums; }
+.week-open { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; border: 0; padding: 0; background: none; color: inherit; text-align: left; font: inherit; }
+.week-open img, .week-thumb { flex: none; width: 64px; height: 64px; border-radius: var(--radius); object-fit: cover; background: var(--green-soft); }
+.week-text { min-width: 0; display: grid; gap: 2px; }
+.week-name { font-weight: 680; line-height: 1.22; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; }
+.week-name::first-letter { text-transform: uppercase; }
+.week-time { color: var(--sign-red); font-weight: 700; }
+.week-swap { flex: none; width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--rule); background: var(--surface); color: var(--ink); display: grid; place-items: center; padding: 0; }
+@media (hover: hover) { .week-swap:hover { border-color: var(--green); color: var(--green); } .week-open:hover .week-name { text-decoration: underline; text-underline-offset: 3px; } }
+
+/* Pick for me: the best matches dealt as a deck. Right keeps, left passes. */
+.deck-sheet { max-width: 520px; }
+.deck-sheet #deck-title { margin-bottom: 4px; }
+/* The whole deck and its keys fit the screen: the photo gives way to the height, never the keys. */
+.deck { position: relative; display: grid; margin: 16px auto 0; width: min(100%, 400px, max(180px, 100dvh - 380px)); }
+.deck-card { grid-area: 1 / 1; border: 2px solid var(--rule); border-radius: 8px; background: var(--surface); overflow: hidden; }
+.deck-card img, .deck-photo { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--green-soft); user-select: none; -webkit-user-drag: none; }
+.deck-card.deck-under { align-self: start; translate: 0 calc(var(--depth) * 10px); scale: calc(1 - var(--depth) * 0.04); transform-origin: 50% 100%; opacity: calc(1 - var(--depth) * 0.25); pointer-events: none; transition: translate 280ms var(--ease-out), scale 280ms var(--ease-out); }
+.deck-card.deck-top { position: relative; z-index: 1; touch-action: pan-y; cursor: grab; box-shadow: 0 2px 6px var(--shadow), 0 8px 24px var(--card-shadow); }
+.deck-card.deck-top:active { cursor: grabbing; }
+.deck-open { position: relative; display: block; width: 100%; border: 0; padding: 0; background: none; color: inherit; }
+.deck-open .time { left: 12px; bottom: -11px; }
+.deck-facts { padding: 20px 14px 14px; }
+.sheet .deck-facts h3 { font-family: var(--body); font-size: 1.2rem; font-weight: 720; line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 6px; text-wrap: balance; }
+.deck-facts h3::first-letter { text-transform: uppercase; }
+.deck-facts .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0; }
+.stamp {
+  position: absolute; top: 18px; padding: 4px 12px 2px; border: 3px solid currentColor; border-radius: 4px; background: var(--surface);
+  font-family: var(--display); font-size: 1.4rem; text-transform: uppercase; opacity: 0; transition: opacity 120ms ease-out; pointer-events: none;
+}
+.stamp-save { left: 16px; color: var(--green); rotate: -12deg; }
+.stamp-skip { right: 16px; color: var(--sign-red); rotate: 12deg; }
+.deck-card.lean-save .stamp-save, .deck-card.lean-skip .stamp-skip { opacity: 1; }
+.deck-keys { display: flex; align-items: center; justify-content: center; gap: 28px; margin: 18px 0 8px; }
+.deck-key { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; padding: 0; border: 2px solid var(--rule); background: var(--surface); box-shadow: 0 2px 6px var(--shadow); transition: scale 140ms var(--ease-out); }
+.deck-key.skip { color: var(--ink); }
+.deck-key.keep { color: var(--sign-red); }
+.deck-key:active:not(:disabled) { scale: 0.92; }
+.deck-key:disabled { opacity: 0.4; }
+.deck-progress { min-width: 5em; text-align: center; color: var(--muted); font-size: 0.88rem; font-variant-numeric: tabular-nums; }
+.deck-end { grid-area: 1 / 1; display: grid; justify-items: center; gap: 10px; text-align: center; padding: 48px 16px; border: 2px dashed var(--line); border-radius: 8px; }
+.deck-end p { margin: 0; color: var(--muted); max-width: 30ch; text-wrap: balance; }
+.deck-end .empty-sign { font-family: var(--display); font-size: 1.4rem; color: var(--ink); }
+.deck-list {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 48px; padding: 0 16px; border-radius: 999px;
+  border: 0; background: var(--green); color: var(--on-green); font-weight: 700; font-size: 0.9rem; font-variant-numeric: tabular-nums; white-space: nowrap;
+  animation: select-slap 240ms var(--ease-out);
+}
+.deck-keys { gap: clamp(12px, 5vw, 28px); }
+/* Short screens: the stamps teach the swipe, so the hint gives its lines to the photo. */
+@media (max-height: 700px) {
+  .deck-sheet > .sheet-body > .hint { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .deck { width: min(100%, 400px, max(170px, 100dvh - 330px)); margin-top: 10px; }
+  .deck-keys { margin: 12px 0 0; }
+  .deck-key { width: 56px; height: 56px; }
+  .deck-facts { padding: 18px 12px 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .deck-card.deck-under { transition: none; } }

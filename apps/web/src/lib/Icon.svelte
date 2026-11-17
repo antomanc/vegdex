@@ -1,5 +1,5 @@
 <script lang="ts">
-  type Name = 'arrow-up' | 'heart' | 'close' | 'star' | 'external' | 'search' | 'sliders' | 'clock' | 'list' | 'shuffle' | 'moon' | 'sun' | 'share' | 'check'
+  type Name = 'arrow-up' | 'heart' | 'close' | 'star' | 'external' | 'search' | 'sliders' | 'clock' | 'list' | 'shuffle' | 'moon' | 'sun' | 'share' | 'check' | 'fridge' | 'calendar'
   let { name, size = 18, filled = false }: { name: Name; size?: number; filled?: boolean } = $props()
 </script>
 
@@ -29,6 +29,10 @@
     <path d="M3.5 7h2.8c2.6 0 4 1.6 5.2 5s2.6 5 5.2 5h3.8M3.5 17h2.8c1.3 0 2.3-.4 3.1-1.2M14.4 8.2c.8-.8 1.8-1.2 3.1-1.2h3M18 4l3 3-3 3M18 14l3 3-3 3" />
   {:else if name === 'share'}
     <circle cx="17.5" cy="5.5" r="2.5" /><circle cx="6.5" cy="12" r="2.5" /><circle cx="17.5" cy="18.5" r="2.5" /><path d="M8.7 10.7l6.6-3.9M8.7 13.3l6.6 3.9" />
+  {:else if name === 'fridge'}
+    <rect x="5.5" y="2.5" width="13" height="19" rx="2" /><path d="M5.5 10h13M9 5.5v2M9 13v3" />
+  {:else if name === 'calendar'}
+    <rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4M7.5 14h2M11 14h2M14.5 14h2M7.5 17h2M11 17h2" />
   {:else if name === 'check'}
     <path d="M5 12.5l4.5 4.5L19 7.5" />
   {:else}

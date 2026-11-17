@@ -196,7 +196,6 @@
   "save": "Salva",
   "save_recipe": "Salva {title}",
   "unsave_recipe": "Rimuovi dalle salvate: {title}",
-  "another": "Un’altra",
   "cook_on": "Cucina su {source}",
   "units": "Unità",
   "units_us": "USA",
@@ -333,5 +332,144 @@
   "copy_list": "Copia lista",
   "list_copied": "Lista copiata",
   "list_for": "Per queste ricette:",
-  "list_by_hand": "Copia la lista da qui"
+  "list_by_hand": "Copia la lista da qui",
+  "fridge_button": "Il mio frigo",
+  "fridge_title": "Cosa c’è nel frigo?",
+  "fridge_hint": "Aggiungi quello che hai. Prima vengono le ricette che ne usano di più, con al massimo tre cose da comprare. Sale, pepe, acqua e dispensa (spezie, oli, salse) ci sono sempre.",
+  "fridge_add_label": "Aggiungi un ingrediente che hai",
+  "fridge_quick": "Tocca quello che hai",
+  "fridge_empty": "Svuota il frigo",
+  "fridge_cook": "Mostra cosa posso cucinare",
+  "fridge_cook_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "Cucina col frigo: {count} ricetta",
+        "plural=*": "Cucina col frigo: {count} ricette"
+      }
+    }
+  ],
+  "fridge_chip": "Dal mio frigo",
+  "fridge_count": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} ricetta dal tuo frigo",
+        "plural=*": "{count} ricette dal tuo frigo"
+      }
+    }
+  ],
+  "fridge_ready": "Hai tutto",
+  "fridge_buy": "Da comprare: {names}",
+  "fridge_missing": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} cosa da comprare",
+        "plural=*": "{count} cose da comprare"
+      }
+    }
+  ],
+  "week_button": "La settimana",
+  "week_title": "La tua settimana",
+  "week_hint": "Cene che condividono la spesa, dai tuoi filtri. Cambia quelle che non ti vanno.",
+  "week_dinners_label": "Cene",
+  "week_dinners": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} cena",
+        "plural=*": "{count} cene"
+      }
+    }
+  ],
+  "week_fewer": "Meno cene",
+  "week_more": "Più cene",
+  "week_planning": "Preparo la tua settimana…",
+  "week_none": "Nessuna cena con questi filtri. Togline uno e riprova.",
+  "week_items": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} cosa da comprare per la settimana",
+        "plural=*": "{count} cose da comprare per la settimana"
+      }
+    }
+  ],
+  "week_instead": "invece di {count} scegliendo le cene una per una",
+  "week_shared": "Usati più volte",
+  "week_swap": "Cambia {title}",
+  "week_new": "Nuova settimana",
+  "week_shop": "Salva e fai la lista",
+  "deck_title": "Scegli per me",
+  "deck_hint": "Scorri a destra per salvare, a sinistra per saltare. Tocca una carta per la ricetta.",
+  "deck_card": "carta ricetta",
+  "deck_open": "Apri {title}",
+  "deck_stamp_save": "Salva",
+  "deck_stamp_skip": "Salta",
+  "deck_skip": "Salta",
+  "deck_save": "Salva e avanti",
+  "deck_end_title": "Banco finito",
+  "deck_end": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "Hai visto la migliore ricetta per questi filtri.",
+        "plural=*": "Hai visto le {count} migliori ricette per questi filtri."
+      }
+    }
+  ],
+  "deck_again": "Rimescola",
+  "deck_kept": [
+    {
+      "declarations": [
+        "input count",
+        "input plural"
+      ],
+      "selectors": [
+        "plural"
+      ],
+      "match": {
+        "plural=one": "{count} salvata",
+        "plural=*": "{count} salvate"
+      }
+    }
+  ],
+  "fridge_also": "Nel frigo anche"
 }

@@ -14,15 +14,13 @@
   import UnitsToggle from './UnitsToggle.svelte'
 
   let {
-    recipe, sourceName, onclose, onkitchen, ondraw
+    recipe, sourceName, onclose, onkitchen
   }: {
     recipe: CatalogRecipe
     sourceName: string
     onclose: () => void
     /** Show every recipe from this recipe's blog. */
     onkitchen: () => void
-    /** Present when the card was drawn at random: draw another. */
-    ondraw?: () => void
   } = $props()
 
   let broken = $state(false)
@@ -132,7 +130,8 @@
 
 <dialog use:sheet bind:this={dialog} class="sheet recipe-sheet" class:sweet={recipe.tags.includes('flavor:sweet')} {onclose} aria-labelledby="sheet-title">
   <div class="sheet-body">
-    <div class="sheet-top"><button class="close" onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
+    <!-- Scrolled past the photo, the bar keeps the title in sight. -->
+    <div class="sheet-top"><span class="bar-title" aria-hidden="true" lang={titleLang(recipe)}>{recipeTitle(recipe)}</span><button class="close" onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
     <div class="recipe-head">
     {#if recipe.image && !broken}
       <img class="hero" src={recipe.image} alt="" onerror={() => (broken = true)} />
@@ -219,9 +218,6 @@
         <button use:saveFeedback class="save" class:on={isSaved} aria-pressed={isSaved} onclick={() => toggleSaved(recipe.id)}>
           <Icon name="heart" size={18} filled={isSaved} /> <span class="save-label">{isSaved ? m.saved_recipe() : m.save()}</span>
         </button>
-        {#if ondraw}
-          <button class="save" onclick={ondraw}><Icon name="shuffle" size={18} /> {m.another()}</button>
-        {/if}
         <button class="save share" class:copied={copied.on} onclick={share} aria-label={m.share()} title={m.share()}>
           <span class="swap"><Icon name="share" size={18} /><Icon name="check" size={18} /></span>
           <span class="bubble" aria-hidden="true">{m.link_copied()}</span>

@@ -6,6 +6,7 @@
   import Icon from './Icon.svelte'
   import IngredientField from './IngredientField.svelte'
   import { FREE, MEAL_LABELS, TIMES } from './labels'
+  import { suggestNames } from './suggest'
   import { closeSheet, sheet } from './sheet'
   import { activeCount, clearFilters, filters, isTonight, moreCount, toggleTonight } from './state.svelte'
 
@@ -71,8 +72,22 @@
     avoid = ''
     clearFilters()
   }
+  /**
+   * Search matches a word of four letters or more as a prefix, but a shorter one only whole: a word cut short
+   * ("tof") would match nothing, so on close it becomes the first name it starts, as the list showed it.
+   */
+  function complete(text: string): string {
+    return text.split(',').map((part) => {
+      const term = part.trim().toLowerCase()
+      if (!term || term.length >= 4 || names.some((n) => n.lower === term)) return part
+      const [hit] = suggestNames(names, term, chosen, 1)
+      return hit?.at === 0 ? hit.name : part
+    }).join(',')
+  }
   // Text typed but not added still counts when the sheet closes.
   function closed() {
+    have = complete(have)
+    avoid = complete(avoid)
     commit('include')
     commit('exclude')
     more = false
