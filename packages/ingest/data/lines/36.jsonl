@@ -10,6 +10,7 @@
 {"line":"1 1/2 cups rice ((uncooked) or 3 cups cooked)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"uncooked rice","it":"riso crudo","alternatives":[{"quantity":3,"unit":"cup","en":"cooked rice","it":"riso cotto"}]}]}
 {"line":"1 1/2 tablespoon pure maple syrup","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"pure maple syrup","it":"sciroppo d'acero puro"}]}
 {"line":"1 1/2 tablespoons soy sauce (or tamari if gluten-free)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"soy sauce","it":"salsa di soia","alternatives":[{"en":"tamari","it":"tamari"}]}]}
+{"line":"1 1/2 tablespoons sweet paprika ((not smoked paprika))","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"sweet paprika","it":"paprika dolce"}]}
 {"line":"1 1/2 teaspoons fine ground sea salt","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"finely ground sea salt","it":"sale marino macinato fine"}]}
 {"line":"1 1/2 teaspoons pumpkin spice (I used my homemade blend)","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"pumpkin spice","it":"miscela di spezie per torta di zucca"}]}
 {"line":"1 1/3 cup vegan sugar","language":"en","parts":[{"quantity":1.3333333,"unit":"cup","en":"vegan sugar","it":"zucchero vegano"}]}
@@ -439,6 +440,7 @@
 {"line":"½ cup carrot (peeled and finely chopped (about 1 large carrot))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"carrot","it":"carota","preparationEn":"peeled and finely chopped","preparationIt":"pelata e tritata finemente"}]}
 {"line":"½ cup cold aquafaba (brine from about 1 can of chickpeas)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"aquafaba","it":"acquafaba","preparationEn":"cold","preparationIt":"fredda"}]}
 {"line":"½ cup of halved cherry tomatoes","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"cherry tomatoes","it":"pomodorini ciliegino","preparationEn":"halved","preparationIt":"tagliati a metà"}]}
+{"line":"½ cup room-temperature water (120ml)","language":"en","parts":[{"quantity":120,"unit":"ml","en":"water","it":"acqua","preparationEn":"room-temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"½ cup sliced almonds","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"almonds","it":"mandorle","preparationEn":"sliced","preparationIt":"a lamelle"}]}
 {"line":"½ of a zucchini (diced)","language":"en","parts":[{"quantity":0.5,"en":"zucchini","it":"zucchine","preparationEn":"diced","preparationIt":"tagliata a cubetti"}]}
 {"line":"½ onion (finely chopped)","language":"en","parts":[{"quantity":0.5,"en":"onion","it":"cipolla","preparationEn":"finely chopped","preparationIt":"tritata finemente"}]}

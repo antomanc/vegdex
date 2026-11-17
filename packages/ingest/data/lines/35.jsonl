@@ -335,6 +335,7 @@
 {"line":"5 tsp plain, unsweetened non-dairy milk ((soy is recommended) room temperature)","language":"en","parts":[{"quantity":5,"unit":"tsp","en":"plain unsweetened non-dairy milk","it":"latte vegetale al naturale senza zucchero","preparationEn":"at room temperature","preparationIt":"a temperatura ambiente"}]}
 {"line":"500 g / 1.1 lb / 17 oz medium young carrots, scrubbed clean","language":"en","parts":[{"quantity":500,"unit":"g","en":"medium young carrots","it":"carote novelle medie","preparationEn":"scrubbed clean","preparationIt":"strofinate e pulite"}]}
 {"line":"6 cups of broccoli florets","language":"en","parts":[{"quantity":6,"unit":"cup","en":"broccoli florets","it":"cimette di broccoli"}]}
+{"line":"6 tablespoons 85g vegan butter, softened but still cool","language":"en","parts":[{"quantity":85,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"softened but still cool","preparationIt":"ammorbidito ma ancora fresco"}]}
 {"line":"6 tablespoons Caesar dressing, or as desired","language":"en","parts":[{"quantity":6,"unit":"tbsp","en":"Caesar dressing","it":"salsa Caesar"}]}
 {"line":"6-8 cups vegetable broth","language":"en","parts":[{"quantity":6,"quantityMax":8,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"60 g / 2 oz fresh ginger","language":"en","parts":[{"quantity":60,"unit":"g","en":"fresh ginger","it":"zenzero fresco"}]}
@@ -437,6 +438,7 @@
 {"line":"¾ cup any nut milk (or ANY vegan milk (I used unsweetened almond milk))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"nut milk","it":"latte di frutta a guscio","alternatives":[{"en":"vegan milk","it":"latte vegetale"}]}]}
 {"line":"¾ teaspoon of ground black pepper","language":"en","parts":[{"quantity":0.75,"unit":"tsp","en":"ground black pepper","it":"pepe nero macinato"}]}
 {"line":"¾-1 cup powdered sugar, sifted","language":"en","parts":[{"quantity":0.75,"quantityMax":1,"unit":"cup","en":"powdered sugar","it":"zucchero a velo","preparationEn":"sifted","preparationIt":"setacciato"}]}
+{"line":"⅓ cup vegan butter (melted and slightly cooled, 76g)","language":"en","parts":[{"quantity":76,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"melted and slightly cooled","preparationIt":"fuso e leggermente raffreddato"}]}
 {"line":"⅛ - ¼ teaspoon of cayenne pepper ((use more or less depending on your heat preference))","language":"en","parts":[{"quantity":0.125,"quantityMax":0.25,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna"}]}
 {"line":"1 pizzico di pepe","language":"it","parts":[{"quantity":1,"unit":"pinch","en":"pepper","it":"pepe"}]}
 {"line":"150 g lenticchie rosse decorticate","language":"it","parts":[{"quantity":150,"unit":"g","en":"split red lentils","it":"lenticchie rosse decorticate"}]}

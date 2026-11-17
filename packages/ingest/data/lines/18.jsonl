@@ -124,6 +124,7 @@
 {"line":"1/2 cup Carrot, grated","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"carrot","it":"carota","preparationEn":"grated","preparationIt":"grattugiata"}]}
 {"line":"1/2 cup Non-Dairy Milk","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"non-dairy milk","it":"latte vegetale"}]}
 {"line":"1/2 cup Warm Water","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"water","it":"acqua","preparationEn":"warm","preparationIt":"tiepida"}]}
+{"line":"1/2 cup all-purpose flour (or gluten-free all-purpose)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"all-purpose flour","it":"farina 00","alternatives":[{"en":"gluten-free all-purpose flour","it":"farina senza glutine per tutti gli usi"}]}]}
 {"line":"1/2 cup bread crumbs*","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"bread crumbs","it":"pangrattato"}]}
 {"line":"1/2 cup chopped veggies like green beans (cauliflower or other veggies chopped small)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"green beans","it":"fagiolini","preparationEn":"chopped","preparationIt":"tagliati a pezzetti","alternatives":[{"en":"cauliflower","it":"cavolfiore"},{"en":"other vegetables","it":"altre verdure"}]}]}
 {"line":"1/2 cup coconut sugar (or other sugar of choice)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"coconut sugar","it":"zucchero di cocco","alternatives":[{"en":"sugar of choice","it":"zucchero a scelta"}]}]}
@@ -214,6 +215,7 @@
 {"line":"1½ Tbsp fresh lemon juice","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"fresh lemon juice","it":"succo di limone fresco"}]}
 {"line":"1½ cups coconut water","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"coconut water","it":"acqua di cocco"}]}
 {"line":"1½ pounds Brussels sprouts","language":"en","parts":[{"quantity":1.5,"unit":"lb","en":"Brussels sprouts","it":"cavoletti di Bruxelles"}]}
+{"line":"1½ tbsp tamari (or soy sauce or coconut aminos)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"tamari","it":"tamari","alternatives":[{"en":"soy sauce","it":"salsa di soia"},{"en":"coconut aminos","it":"salsa di cocco aminos"}]}]}
 {"line":"1⅓ cup granulated sugar","language":"en","parts":[{"quantity":1.3333,"unit":"cup","en":"granulated sugar","it":"zucchero semolato"}]}
 {"line":"2 1/2 cups cake flour (or all-purpose )","language":"en","parts":[{"quantity":2.5,"unit":"cup","en":"cake flour","it":"farina per dolci","alternatives":[{"en":"all-purpose flour","it":"farina 00"}]}]}
 {"line":"2 1/2 teaspoons cinnamon","language":"en","parts":[{"quantity":2.5,"unit":"tsp","en":"cinnamon","it":"cannella"}]}
@@ -261,6 +263,7 @@
 {"line":"2 tablespoons extra virgin olive oil (or oil of choice)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"extra virgin olive oil","it":"olio extravergine d'oliva","alternatives":[{"en":"oil of choice","it":"olio a scelta"}]}]}
 {"line":"2 tablespoons fresh parsley ((finely chopped, optional))","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"finely chopped","preparationIt":"tritato finemente","optional":true}]}
 {"line":"2 tablespoons lemon juice, (optional)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"lemon juice","it":"succo di limone","optional":true}]}
+{"line":"2 tablespoons olive oil (leave out for oil-free)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","optional":true}]}
 {"line":"2 tablespoons olive oil (or preferred oil)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","alternatives":[{"en":"oil of choice","it":"olio a scelta"}]}]}
 {"line":"2 tablespoons packed brown sugar","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"brown sugar","it":"zucchero di canna"}]}
 {"line":"2 tablespoons salted vegan butter or sub more oil","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"salted vegan butter","it":"burro vegetale salato","alternatives":[{"en":"oil","it":"olio"}]}]}

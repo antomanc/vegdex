@@ -277,6 +277,7 @@
 {"line":"2 teaspoons vanilla extract (10ml)","language":"en","parts":[{"quantity":10,"unit":"ml","en":"vanilla extract","it":"estratto di vaniglia"}]}
 {"line":"2 ½ Tablespoons (30 g) brown sugar or maple syrup (or to taste)","language":"en","parts":[{"quantity":30,"unit":"g","en":"brown sugar","it":"zucchero di canna","toTaste":true,"alternatives":[{"en":"maple syrup","it":"sciroppo d'acero"}]}]}
 {"line":"2-3 cups marinara sauce, (store bought or homemade)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"cup","en":"marinara sauce","it":"salsa marinara"}]}
+{"line":"2-4 tablespoons additional plant milk or water (as needed, 30ml-60ml)","language":"en","parts":[{"quantity":30,"quantityMax":60,"unit":"ml","en":"plant milk","it":"latte vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
 {"line":"2/3 cup (70 g) rolled oats, gluten-free if necessary","language":"en","parts":[{"quantity":70,"unit":"g","en":"rolled oats","it":"fiocchi d'avena"}]}
 {"line":"2/3 cup vegan butter, (melted, divided)","language":"en","parts":[{"quantity":0.6667,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"melted, divided","preparationIt":"fuso, diviso"}]}
 {"line":"20 g lemon juice","language":"en","parts":[{"quantity":20,"unit":"g","en":"lemon juice","it":"succo di limone"}]}
@@ -335,6 +336,7 @@
 {"line":"4 tablespoons sunflower tomato spread (You can also use ketchup, mustard, or any other burger sauce instead.)","language":"en","parts":[{"quantity":4,"unit":"tbsp","en":"sunflower tomato spread","it":"crema spalmabile di semi di girasole e pomodoro","alternatives":[{"en":"ketchup","it":"ketchup"},{"en":"mustard","it":"senape"},{"en":"burger sauce","it":"salsa per hamburger"}]}]}
 {"line":"4 tsp baking powder","language":"en","parts":[{"quantity":4,"unit":"tsp","en":"baking powder","it":"lievito per dolci"}]}
 {"line":"4-5 cups vegetable broth ((can sub with water))","language":"en","parts":[{"quantity":4,"quantityMax":5,"unit":"cup","en":"vegetable broth","it":"brodo vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
+{"line":"40 g / 3 tbsp vegan butter, melted","language":"en","parts":[{"quantity":40,"unit":"g","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
 {"line":"45 g sunflower oil (or any neutral oil)","language":"en","parts":[{"quantity":45,"unit":"g","en":"sunflower oil","it":"olio di semi di girasole","alternatives":[{"en":"neutral oil","it":"olio dal sapore neutro"}]}]}
 {"line":"45 ml - 60 ml / 3 tbsp - 4 tbsp ( ¼ cup) tamari (for GF version) or soy sauce","language":"en","parts":[{"quantity":45,"quantityMax":60,"unit":"ml","en":"tamari","it":"tamari","alternatives":[{"en":"soy sauce","it":"salsa di soia"}]}]}
 {"line":"45 ml / 3 tbsp lemon juice, more to taste","language":"en","parts":[{"quantity":45,"unit":"ml","en":"lemon juice","it":"succo di limone","purposeEn":"plus more to taste","purposeIt":"più altro a piacere"}]}

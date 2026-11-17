@@ -154,6 +154,7 @@
 {"line":"1/4 cup (39 g) coconut sugar*","language":"en","parts":[{"quantity":39,"unit":"g","en":"coconut sugar","it":"zucchero di cocco"}]}
 {"line":"1/4 cup coconut butter ((or any nut/seed butter of choice))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"coconut butter","it":"burro di cocco","alternatives":[{"en":"nut or seed butter of choice","it":"burro di frutta secca o semi a scelta"}]}]}
 {"line":"1/4 cup fresh basil (optional, as garnish)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh basil","it":"basilico fresco","purposeEn":"for garnish","purposeIt":"per guarnire","optional":true}]}
+{"line":"1/4 cup garlic spread dip","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"garlic spread dip","it":"crema spalmabile all'aglio"}]}
 {"line":"1/4 cup heaped cup tahini","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"tahini","it":"tahina"}]}
 {"line":"1/4 cup maple syrup ((80 g) or more to taste)","language":"en","parts":[{"quantity":80,"unit":"g","en":"maple syrup","it":"sciroppo d'acero","toTaste":true}]}
 {"line":"1/4 cup organic frozen wild blueberries","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"organic frozen wild blueberries","it":"mirtilli selvatici biologici surgelati"}]}
@@ -371,6 +372,7 @@
 {"line":"¼ cup green peas, frozen or fresh","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"frozen green peas","it":"piselli verdi surgelati","alternatives":[{"en":"fresh green peas","it":"piselli freschi"}]}]}
 {"line":"¼ cup mashed ripe banana","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"ripe banana","it":"banana matura","preparationEn":"mashed","preparationIt":"schiacciata"}]}
 {"line":"¼ cup of fresh parsley (chopped)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh parsley","it":"prezzemolo fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
+{"line":"¼ cup olive oil (plus more for drizzling)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"olive oil","it":"olio d'oliva","purposeEn":"for drizzling","purposeIt":"per irrorare"}]}
 {"line":"¼ onion (minced (½ cup))","language":"en","parts":[{"quantity":0.25,"en":"onion","it":"cipolla","preparationEn":"minced","preparationIt":"tritata"}]}
 {"line":"¼ teaspoon ground cinnamon (0.5 grams)","language":"en","parts":[{"quantity":0.5,"unit":"g","en":"ground cinnamon","it":"cannella in polvere"}]}
 {"line":"¼ teaspoon lemon juice","language":"en","parts":[{"quantity":0.25,"unit":"tsp","en":"lemon juice","it":"succo di limone"}]}

@@ -1,6 +1,7 @@
 {"model":"gpt-6.1-terra-medium","schema":1}
 {"line":"1 (13.5 oz.) can coconut milk ((full fat))","language":"en","parts":[{"quantity":13.5,"unit":"oz","en":"full-fat coconut milk","it":"latte di cocco intero"}]}
 {"line":"1 (14 ounce or 400 gram) can heart of palm, (drained)","language":"en","parts":[{"quantity":400,"unit":"g","en":"canned hearts of palm","it":"cuori di palma in scatola","preparationEn":"drained","preparationIt":"scolati"}]}
+{"line":"1 (15 ounce/425 gram) can red kidney beans, drained","language":"en","parts":[{"quantity":425,"unit":"g","en":"red kidney beans","it":"fagioli rossi kidney","preparationEn":"drained","preparationIt":"scolati"}]}
 {"line":"1 (16 oz) package pasta ((any shape that you choose) GF if needed)","language":"en","parts":[{"quantity":16,"unit":"oz","en":"pasta","it":"pasta"}]}
 {"line":"1 (4-ounce) can of diced green chiles","language":"en","parts":[{"quantity":4,"unit":"oz","en":"canned diced green chiles","it":"peperoncini verdi a cubetti in scatola"}]}
 {"line":"1 (5 - 7 ounce) package vegan bacon (or tempeh, cooked and chopped (approximately 165 grams) *see brand recommendations below)","language":"en","parts":[{"quantity":5,"quantityMax":7,"unit":"oz","en":"vegan bacon","it":"bacon vegano","alternatives":[{"en":"tempeh","it":"tempeh"}]}]}
@@ -153,6 +154,7 @@
 {"line":"1/2 recipe of chickpea pepperoni ( or 12 to 16 slices plant-based pepperoni)","language":"en","parts":[{"quantity":0.5,"unit":"recipe","en":"chickpea pepperoni","it":"salame piccante vegetale di ceci","alternatives":[{"quantity":12,"quantityMax":16,"unit":"slice","en":"plant-based pepperoni","it":"salame piccante vegetale"}]}]}
 {"line":"1/2 tbsp oil (or use water if oil-free)","language":"en","parts":[{"quantity":0.5,"unit":"tbsp","en":"oil","it":"olio","alternatives":[{"en":"water","it":"acqua"}]}]}
 {"line":"1/2 teaspoon carom seeds (ajwain) or cumin seeds","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"carom seeds","it":"semi di ajwain","alternatives":[{"en":"cumin seeds","it":"semi di cumino"}]}]}
+{"line":"1/2 teaspoon fine sea salt (plus more to taste, 3g)","language":"en","parts":[{"quantity":3,"unit":"g","en":"fine sea salt","it":"sale marino fino","purposeEn":"plus more to taste","purposeIt":"più a piacere"}]}
 {"line":"1/2 teaspoon kosher salt, (plus more to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"kosher salt","it":"sale kosher","toTaste":true}]}
 {"line":"1/2 teaspoon or more ground turmeric","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"ground turmeric","it":"curcuma in polvere"}]}
 {"line":"1/2 teaspoon red pepper flakes (1/4 teaspoon for less spice)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"red pepper flakes","it":"peperoncino in fiocchi"}]}

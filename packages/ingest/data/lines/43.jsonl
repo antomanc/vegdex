@@ -177,6 +177,7 @@
 {"line":"1/2 tsp annatto ((optional for coloring))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"annatto","it":"annatto","optional":true}]}
 {"line":"1/2 tsp cayenne","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna"}]}
 {"line":"1/2 tsp fresh ginger (grated)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"fresh ginger","it":"zenzero fresco","preparationEn":"grated","preparationIt":"grattugiato"}]}
+{"line":"1/2 tsp ground white pepper","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"ground white pepper","it":"pepe bianco macinato"}]}
 {"line":"1/2 tsp miso","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"miso","it":"miso"}]}
 {"line":"1/2 tsp turmeric","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"turmeric","it":"curcuma"}]}
 {"line":"1/2 – 3/4 cup dried cranberries","language":"en","parts":[{"quantity":0.5,"quantityMax":0.75,"unit":"cup","en":"dried cranberries","it":"mirtilli rossi essiccati"}]}
@@ -271,6 +272,7 @@
 {"line":"2 peaches, (peeled, deseeded, and diced)","language":"en","parts":[{"quantity":2,"en":"peaches","it":"pesche","preparationEn":"peeled, deseeded, and diced","preparationIt":"sbucciate, denocciolate e tagliate a dadini"}]}
 {"line":"2 pinches of ground cloves","language":"en","parts":[{"quantity":2,"unit":"pinch","en":"ground cloves","it":"chiodi di garofano macinati"}]}
 {"line":"2 pounds fresh asparagus spears, (trimmed (Note 1))","language":"en","parts":[{"quantity":2,"unit":"lb","en":"fresh asparagus spears","it":"asparagi freschi","preparationEn":"trimmed","preparationIt":"mondati"}]}
+{"line":"2 pounds parsnips (scrubbed or peeled, trimmed, and chopped into ½-inch pieces)","language":"en","parts":[{"quantity":2,"unit":"lb","en":"parsnips","it":"pastinache","preparationEn":"scrubbed or peeled, trimmed, and chopped","preparationIt":"pulite o pelate, private delle estremità e tagliate a pezzi"}]}
 {"line":"2 shots espresso","language":"en","parts":[{"quantity":2,"unit":"shot","en":"espresso","it":"caffè espresso"}]}
 {"line":"2 slices tomato","language":"en","parts":[{"quantity":2,"unit":"slice","en":"tomato","it":"pomodoro"}]}
 {"line":"2 tablespoon sriracha (or other spicy chili sauce. Or more, to taste.)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"sriracha","it":"salsa sriracha","toTaste":true,"alternatives":[{"en":"spicy chili sauce","it":"salsa piccante al peperoncino"}]}]}

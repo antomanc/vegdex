@@ -161,6 +161,7 @@
 {"line":"1/2 tsp pepper, (more or less to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"pepper","it":"pepe","toTaste":true}]}
 {"line":"1/2 white onion, cut in half","language":"en","parts":[{"quantity":0.5,"en":"white onion","it":"cipolla bianca","preparationEn":"cut in half","preparationIt":"tagliata a metà"}]}
 {"line":"1/2 – 1 teaspoon cumin, optional","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"tsp","en":"cumin","it":"cumino","optional":true}]}
+{"line":"1/2-1 cup panko breadcrumbs (vegan-friendly, more as needed)","language":"en","parts":[{"quantity":0.5,"quantityMax":1,"unit":"cup","en":"vegan panko breadcrumbs","it":"pangrattato panko vegano","purposeEn":"as needed","purposeIt":"quanto basta"}]}
 {"line":"1/2-3/4 cup water (as needed depending on how much nutritional yeast you use)","language":"en","parts":[{"quantity":0.5,"quantityMax":0.75,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"1/3 cup maple syrup or agave","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"maple syrup","it":"sciroppo d'acero","alternatives":[{"en":"agave syrup","it":"sciroppo d'agave"}]}]}
 {"line":"1/3 cup non dairy milk (such as almond or coconut or soy)","language":"en","parts":[{"quantity":0.333333,"unit":"cup","en":"non-dairy milk","it":"latte vegetale","alternatives":[{"en":"almond milk","it":"latte di mandorla"},{"en":"coconut milk","it":"latte di cocco"},{"en":"soy milk","it":"latte di soia"}]}]}
@@ -398,6 +399,7 @@
 {"line":"OPTIONAL: This is great served with any of my cornbread recipes listed below.","language":"en","kind":"other"}
 {"line":"Optional: For even extra protein, you could add tofu or chickpeas.","language":"en","kind":"other"}
 {"line":"Paprika","language":"en","parts":[{"en":"paprika","it":"paprika"}]}
+{"line":"Salt and freshly ground pepper (to taste)","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"pepper","it":"pepe","preparationEn":"freshly ground","preparationIt":"macinato fresco","toTaste":true}]}
 {"line":"Seasoned Beans","language":"en","kind":"heading"}
 {"line":"Shredded romaine lettuce","language":"en","parts":[{"en":"romaine lettuce","it":"lattuga romana","preparationEn":"shredded","preparationIt":"tagliata a striscioline"}]}
 {"line":"Soy milk ((optional, for the wash))","language":"en","parts":[{"en":"soy milk","it":"latte di soia","purposeEn":"for the wash","purposeIt":"per spennellare","optional":true}]}

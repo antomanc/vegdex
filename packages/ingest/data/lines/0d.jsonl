@@ -17,6 +17,7 @@
 {"line":"1 1/2 cups chickpea flour ((aka garbanzo bean flour))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"chickpea flour","it":"farina di ceci"}]}
 {"line":"1 1/2 cups dried black-eyed peas ((soaked and cooked until tender))","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"dried black-eyed peas","it":"fagioli dall'occhio secchi","preparationEn":"soaked and cooked until tender","preparationIt":"ammollati e cotti fino a diventare teneri"}]}
 {"line":"1 1/2 cups dry green lentils (rinsed and picked over)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"dry green lentils","it":"lenticchie verdi secche","preparationEn":"rinsed and picked over","preparationIt":"sciacquate e mondate"}]}
+{"line":"1 1/2 cups unsweetened plant milk (such as soy or oat milk, 360ml)","language":"en","parts":[{"quantity":360,"unit":"ml","en":"unsweetened plant milk","it":"latte vegetale senza zucchero","alternatives":[{"en":"soy milk","it":"latte di soia"},{"en":"oat milk","it":"latte d'avena"}]}]}
 {"line":"1 1/2 tablespoons flaxseed meal (mixed with 4 tablespoons of water)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"flaxseed meal","it":"farina di semi di lino","preparationEn":"mixed with 4 tablespoons of water","preparationIt":"mescolata con 4 cucchiai d'acqua"},{"quantity":4,"unit":"tbsp","en":"water","it":"acqua"}]}
 {"line":"1 1/2 tbsp apple cider vinegar (or lemon juice)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"apple cider vinegar","it":"aceto di mele","alternatives":[{"en":"lemon juice","it":"succo di limone"}]}]}
 {"line":"1 1/2 teaspoons of sea salt","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"sea salt","it":"sale marino"}]}
@@ -256,6 +257,7 @@
 {"line":"24 oz spinach ((I use 2 12-oz packages of chopped, frozen spinach))","language":"en","parts":[{"quantity":24,"unit":"oz","en":"spinach","it":"spinaci"}]}
 {"line":"240 ml / 1 cup fresh orange juice","language":"en","parts":[{"quantity":240,"unit":"ml","en":"fresh orange juice","it":"succo d'arancia fresco"}]}
 {"line":"250 g parsnips (peeled and cut into chunks)","language":"en","parts":[{"quantity":250,"unit":"g","en":"parsnips","it":"pastinache","preparationEn":"peeled and cut into chunks","preparationIt":"sbucciate e tagliate a pezzi"}]}
+{"line":"2¼ teaspoons 7g instant yeast","language":"en","parts":[{"quantity":7,"unit":"g","en":"instant yeast","it":"lievito di birra secco istantaneo"}]}
 {"line":"3 (14 ounce or 400 gram) cans crushed tomatoes","language":"en","parts":[{"quantity":1200,"unit":"g","en":"canned crushed tomatoes","it":"polpa di pomodoro in scatola"}]}
 {"line":"3 Tablespoons black tea leaves","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"black tea leaves","it":"foglie di tè nero"}]}
 {"line":"3 Tbsp rice flour","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"rice flour","it":"farina di riso"}]}

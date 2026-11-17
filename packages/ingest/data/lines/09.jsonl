@@ -297,6 +297,7 @@
 {"line":"3 teaspoons olive oil (divided)","language":"en","parts":[{"quantity":3,"unit":"tsp","en":"olive oil","it":"olio d'oliva","preparationEn":"divided","preparationIt":"diviso"}]}
 {"line":"3 tomatoes (cubed)","language":"en","parts":[{"quantity":3,"en":"tomatoes","it":"pomodori","preparationEn":"cubed","preparationIt":"tagliati a cubetti"}]}
 {"line":"3 tsp harissa paste**, adjust to taste (strength varies!)","language":"en","parts":[{"quantity":3,"unit":"tsp","en":"harissa paste","it":"pasta di harissa","toTaste":true}]}
+{"line":"3 tsp psyllium husk powder (or 5-6 tsp whole psyllium husk)","language":"en","parts":[{"quantity":3,"unit":"tsp","en":"psyllium husk powder","it":"cuticola di psillio in polvere","alternatives":[{"quantity":5,"quantityMax":6,"unit":"tsp","en":"whole psyllium husk","it":"cuticola di psillio intera"}]}]}
 {"line":"3 x 400 g / 14 oz tins quality plum tomatoes","language":"en","parts":[{"quantity":1200,"unit":"g","en":"canned plum tomatoes","it":"pomodori pelati in scatola"}]}
 {"line":"3/4 cup Just Egg ((this is 1/2 of the bottle))","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"Just Egg","it":"Just Egg"}]}
 {"line":"3/4 cup besan (gram flour)","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"besan","it":"farina di ceci"}]}

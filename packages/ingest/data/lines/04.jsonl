@@ -135,6 +135,7 @@
 {"line":"1/2 cup flax meal (or flour of choice)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"ground flaxseed","it":"semi di lino macinati","alternatives":[{"en":"flour of choice","it":"farina a scelta"}]}]}
 {"line":"1/2 cup mashed ripe banana (about 1 large)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"ripe banana","it":"banana matura","preparationEn":"mashed","preparationIt":"schiacciata"}]}
 {"line":"1/2 cup raw pistachios (or roasted, unsalted pistachios)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"raw pistachios","it":"pistacchi crudi","alternatives":[{"en":"roasted unsalted pistachios","it":"pistacchi tostati non salati"}]}]}
+{"line":"1/2 cup roasted hazelnuts or pecans (roughly chopped)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"roasted hazelnuts","it":"nocciole tostate","preparationEn":"roughly chopped","preparationIt":"tritate grossolanamente","alternatives":[{"en":"roasted pecans","it":"noci pecan tostate"}]}]}
 {"line":"1/2 cup tahini ((128g))","language":"en","parts":[{"quantity":128,"unit":"g","en":"tahini","it":"tahina"}]}
 {"line":"1/2 cup vegan butter ((use soy-free if needed))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan butter","it":"burro vegetale"}]}
 {"line":"1/2 cup vegan butter, (melted (cooled, not hot))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan butter","it":"burro vegetale","preparationEn":"melted and cooled, not hot","preparationIt":"fuso e lasciato raffreddare, non caldo"}]}
@@ -196,6 +197,7 @@
 {"line":"12-16 oz of pasta of choice (I used penne)","language":"en","parts":[{"quantity":12,"quantityMax":16,"unit":"oz","en":"pasta of choice","it":"pasta a scelta"}]}
 {"line":"120 g / 1 cup buckwheat flour*","language":"en","parts":[{"quantity":120,"unit":"g","en":"buckwheat flour","it":"farina di grano saraceno"}]}
 {"line":"140 g / 1 cup almonds","language":"en","parts":[{"quantity":140,"unit":"g","en":"almonds","it":"mandorle"}]}
+{"line":"15 ounce can chickpeas (or 1 1/2 cups cooked chickpeas)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"chickpeas","it":"ceci","alternatives":[{"quantity":1.5,"unit":"cup","en":"cooked chickpeas","it":"ceci cotti"}]}]}
 {"line":"150 g / 5.25 oz kale (I used cavolo nero)","language":"en","parts":[{"quantity":150,"unit":"g","en":"kale","it":"cavolo riccio"}]}
 {"line":"16 small cherry or grape tomatoes (halved)","language":"en","parts":[{"quantity":16,"en":"small cherry tomatoes","it":"pomodorini ciliegino piccoli","preparationEn":"halved","preparationIt":"tagliati a metà","alternatives":[{"en":"small grape tomatoes","it":"pomodorini datterino piccoli"}]}]}
 {"line":"180 g cake flour (see notes in blog post above)","language":"en","parts":[{"quantity":180,"unit":"g","en":"cake flour","it":"farina per dolci"}]}
@@ -363,6 +365,7 @@
 {"line":"Chocolate curls or shavings","language":"en","parts":[{"en":"chocolate","it":"cioccolato","preparationEn":"curled or shaved","preparationIt":"in riccioli o scaglie"}]}
 {"line":"Chopped juicy tomatoes or cherry tomatoes","language":"en","parts":[{"en":"juicy tomatoes","it":"pomodori succosi","preparationEn":"chopped","preparationIt":"tritati","alternatives":[{"en":"cherry tomatoes","it":"pomodorini ciliegino"}]}]}
 {"line":"Cooked basmati rice, (for (I cooked mine with a pinch of turmeric))","language":"en","parts":[{"en":"basmati rice","it":"riso basmati","preparationEn":"cooked","preparationIt":"cotto"}]}
+{"line":"Crispy garlic","language":"en","parts":[{"en":"crispy garlic","it":"aglio croccante"}]}
 {"line":"Dash vanilla extract","language":"en","parts":[{"unit":"dash","en":"vanilla extract","it":"estratto di vaniglia"}]}
 {"line":"Extra ranch or buffalo sauce (for serving (optional))","language":"en","parts":[{"en":"ranch sauce","it":"salsa ranch","purposeEn":"for serving","purposeIt":"per servire","optional":true,"alternatives":[{"en":"buffalo sauce","it":"salsa buffalo"}]}]}
 {"line":"Fresh Cilantro (optional for topping)","language":"en","parts":[{"en":"fresh cilantro","it":"coriandolo fresco","purposeEn":"for topping","purposeIt":"per guarnire","optional":true}]}

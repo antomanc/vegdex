@@ -14,6 +14,7 @@
 {"line":"1 1/4 cup all-purpose flour ((see note))","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"all-purpose flour","it":"farina 00"}]}
 {"line":"1 1/4 cups shredded zucchini (tightly packed)","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"zucchini","it":"zucchine","preparationEn":"shredded and tightly packed","preparationIt":"grattugiate e ben pressate"}]}
 {"line":"1 10.5 oz carton of organic grape tomatoes or about 2 cups","language":"en","parts":[{"quantity":10.5,"unit":"oz","en":"organic grape tomatoes","it":"pomodori datterini biologici"}]}
+{"line":"1 13.5-ounce can (400 ml) full-fat coconut milk","language":"en","parts":[{"quantity":400,"unit":"ml","en":"full-fat coconut milk","it":"latte di cocco intero"}]}
 {"line":"1 15 oz can low-sodium black beans, drained and rinsed (or 1 1/2 cups, 255g)","language":"en","parts":[{"quantity":15,"unit":"oz","en":"low-sodium black beans","it":"fagioli neri a basso contenuto di sodio","preparationEn":"drained and rinsed","preparationIt":"scolati e sciacquati"}]}
 {"line":"1 16 oz [454 g] bag frozen sliced okra (or equivalent weight of fresh okra)","language":"en","parts":[{"quantity":454,"unit":"g","en":"frozen sliced okra","it":"okra surgelata a fette","alternatives":[{"quantity":454,"unit":"g","en":"fresh okra","it":"okra fresca"}]}]}
 {"line":"1 Bay leaf","language":"en","parts":[{"quantity":1,"en":"bay leaf","it":"foglia di alloro"}]}
@@ -131,6 +132,7 @@
 {"line":"1/2 cup red lentils (or green lentils)","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"red lentils","it":"lenticchie rosse","alternatives":[{"en":"green lentils","it":"lenticchie verdi"}]}]}
 {"line":"1/2 cup rolled oats","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"rolled oats","it":"fiocchi d'avena"}]}
 {"line":"1/2 cup sliced carrots","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"carrots","it":"carote","preparationEn":"sliced","preparationIt":"affettate"}]}
+{"line":"1/2 cup vegan margarine (melted) ((1 stick))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan margarine","it":"margarina vegana","preparationEn":"melted","preparationIt":"fusa"}]}
 {"line":"1/2 cup vegan mayonnaise ((or sub plain vegan yogurt))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"vegan mayonnaise","it":"maionese vegana","alternatives":[{"en":"plain vegan yogurt","it":"yogurt vegetale bianco"}]}]}
 {"line":"1/2 cup water ((very hot))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"water","it":"acqua","preparationEn":"very hot","preparationIt":"molto calda"}]}
 {"line":"1/2 medium potato boiled ((1/3 cup))","language":"en","parts":[{"quantity":0.5,"en":"medium potato","it":"patata media","preparationEn":"boiled","preparationIt":"lessata"}]}
@@ -259,6 +261,7 @@
 {"line":"2 x 400 g tins quality chopped tomatoes","language":"en","parts":[{"quantity":800,"unit":"g","en":"canned chopped tomatoes","it":"pomodori a pezzetti in scatola"}]}
 {"line":"2 ½ cups packed fresh basil (57.5 grams)","language":"en","parts":[{"quantity":57.5,"unit":"g","en":"fresh basil","it":"basilico fresco"}]}
 {"line":"2 ⅓ cups of all-purpose flour","language":"en","parts":[{"quantity":2.333333,"unit":"cup","en":"all-purpose flour","it":"farina 00"}]}
+{"line":"2-3 medium delicata squash*","language":"en","parts":[{"quantity":2,"quantityMax":3,"en":"medium delicata squash","it":"zucca delicata media"}]}
 {"line":"2-3 tablespoons chili powder blend of choice","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"chili powder blend of choice","it":"miscela di peperoncino in polvere a scelta"}]}
 {"line":"2-3 tbsp dairy-free milk (or water)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"dairy-free milk","it":"latte vegetale","alternatives":[{"en":"water","it":"acqua"}]}]}
 {"line":"2-3 teaspoons cane sugar (to personal preference)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tsp","en":"cane sugar","it":"zucchero di canna"}]}

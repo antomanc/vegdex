@@ -54,6 +54,7 @@
 {"line":"1 heaping tbsp ginger garlic paste","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"ginger garlic paste","it":"pasta di zenzero e aglio"}]}
 {"line":"1 heaping tbsp wholegrain mustard","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"wholegrain mustard","it":"senape in grani","preparationEn":"heaping tablespoon","preparationIt":"cucchiaio colmo"}]}
 {"line":"1 jalapeño pepper ((or other hot pepper of choice) sliced)","language":"en","parts":[{"quantity":1,"en":"jalapeño pepper","it":"peperoncino jalapeño","preparationEn":"sliced","preparationIt":"affettato","alternatives":[{"en":"hot pepper of choice","it":"peperoncino piccante a scelta"}]}]}
+{"line":"1 large bunch curly kale (washed, stems removed, and completely dried (about 4 cups))","language":"en","parts":[{"quantity":1,"unit":"bunch","en":"large curly kale","it":"cavolo riccio grande","preparationEn":"washed, stems removed, and completely dried","preparationIt":"lavato, senza gambi e ben asciugato"}]}
 {"line":"1 large juicy lemon or 3 tablespoons lemon juice","language":"en","parts":[{"quantity":1,"en":"large juicy lemon","it":"limone grande e succoso","alternatives":[{"quantity":3,"unit":"tbsp","en":"lemon juice","it":"succo di limone"}]}]}
 {"line":"1 large sweet onion ((about 1 1/2 cups chopped))","language":"en","parts":[{"quantity":1,"en":"large sweet onion","it":"cipolla dolce grande"}]}
 {"line":"1 large sweet potatoes, (cut into 1/2” cubes (~200g))","language":"en","parts":[{"quantity":1,"en":"large sweet potato","it":"patata dolce grande","preparationEn":"cut into cubes","preparationIt":"tagliata a cubetti"}]}
@@ -327,6 +328,7 @@
 {"line":"Fresh parsley or basil","language":"en","parts":[{"en":"fresh parsley","it":"prezzemolo fresco","alternatives":[{"en":"fresh basil","it":"basilico fresco"}]}]}
 {"line":"Fresh thyme","language":"en","parts":[{"en":"fresh thyme","it":"timo fresco"}]}
 {"line":"Frozen corn","language":"en","parts":[{"en":"frozen corn","it":"mais surgelato"}]}
+{"line":"Juice of ½ lemon (plus more to taste)","language":"en","parts":[{"quantity":0.5,"en":"lemon","it":"limone","preparationEn":"juiced","preparationIt":"spremuto","purposeEn":"plus more to taste","purposeIt":"più a piacere"}]}
 {"line":"Large lettuce leaves ((romaine, butter lettuce, iceberg, etc.))","language":"en","parts":[{"en":"large lettuce leaves","it":"foglie grandi di lattuga","alternatives":[{"en":"romaine lettuce","it":"lattuga romana"},{"en":"butter lettuce","it":"lattuga cappuccio"},{"en":"iceberg lettuce","it":"lattuga iceberg"}]}]}
 {"line":"Lemon wedges, to serve","language":"en","parts":[{"en":"lemon","it":"limone","preparationEn":"cut into wedges","preparationIt":"tagliato a spicchi","purposeEn":"for serving","purposeIt":"per servire"}]}
 {"line":"Lettuce (tomato, and any other burger toppings of your choice)","language":"en","parts":[{"en":"lettuce","it":"lattuga"},{"en":"tomato","it":"pomodoro"},{"en":"burger toppings of choice","it":"guarnizioni per hamburger a scelta"}]}

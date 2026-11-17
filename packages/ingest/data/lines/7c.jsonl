@@ -21,6 +21,7 @@
 {"line":"1 Chinese or Japanese eggplant,","language":"en","parts":[{"quantity":1,"en":"Chinese eggplant","it":"melanzana cinese","alternatives":[{"en":"Japanese eggplant","it":"melanzana giapponese"}]}]}
 {"line":"1 Cup Roasted butternut squash ( or sweet potato)","language":"en","parts":[{"quantity":1,"unit":"cup","en":"butternut squash","it":"zucca butternut","preparationEn":"roasted","preparationIt":"arrostita","alternatives":[{"en":"sweet potato","it":"patata dolce"}]}]}
 {"line":"1 Easy Vegan Pie Crust (baked completely, see notes)","language":"en","parts":[{"quantity":1,"en":"vegan pie crust","it":"base per torta vegana","preparationEn":"baked completely","preparationIt":"cotta completamente"}]}
+{"line":"1 Tablespoon garam masala","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"garam masala","it":"garam masala"}]}
 {"line":"1 and 1/2 tbsp salted caramel (adjust to taste)","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"salted caramel","it":"caramello salato","toTaste":true}]}
 {"line":"1 apple peeled (chopped small)","language":"en","parts":[{"quantity":1,"en":"apple","it":"mela","preparationEn":"peeled and chopped small","preparationIt":"sbucciata e tagliata a pezzetti"}]}
 {"line":"1 banana, (sliced)","language":"en","parts":[{"quantity":1,"en":"banana","it":"banana","preparationEn":"sliced","preparationIt":"tagliata a fette"}]}
@@ -359,6 +360,7 @@
 {"line":"Sea salt and black pepper, to taste","language":"en","parts":[{"en":"sea salt","it":"sale marino","toTaste":true},{"en":"black pepper","it":"pepe nero","toTaste":true}]}
 {"line":"Spatula","language":"en","kind":"other"}
 {"line":"Spicy mustard (or vegan mayo)","language":"en","parts":[{"en":"spicy mustard","it":"senape piccante","alternatives":[{"en":"vegan mayo","it":"maionese vegana"}]}]}
+{"line":"Vegan whipped topping, (for serving)","language":"en","parts":[{"en":"vegan whipped topping","it":"panna montata vegetale","purposeEn":"for serving","purposeIt":"per servire"}]}
 {"line":"a few pinches of salt, adjust to taste","language":"en","parts":[{"unit":"pinch","en":"salt","it":"sale","toTaste":true}]}
 {"line":"a pinch of cinnamon or vanilla extract","language":"en","parts":[{"quantity":1,"unit":"pinch","en":"cinnamon","it":"cannella","alternatives":[{"en":"vanilla extract","it":"estratto di vaniglia"}]}]}
 {"line":"about 1 tbsp. water","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"water","it":"acqua"}]}

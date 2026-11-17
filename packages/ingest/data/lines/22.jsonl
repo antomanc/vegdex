@@ -189,6 +189,7 @@
 {"line":"2 cups mushrooms (washed and diced (a 16 oz. container))","language":"en","parts":[{"quantity":16,"unit":"oz","en":"mushrooms","it":"funghi","preparationEn":"washed and diced","preparationIt":"lavati e tagliati a dadini"}]}
 {"line":"2 cups of cauliflower","language":"en","parts":[{"quantity":2,"unit":"cup","en":"cauliflower","it":"cavolfiore"}]}
 {"line":"2 cups sliced fresh peaches","language":"en","parts":[{"quantity":2,"unit":"cup","en":"fresh peaches","it":"pesche fresche","preparationEn":"sliced","preparationIt":"affettate"}]}
+{"line":"2 cups strawberries (diced)","language":"en","parts":[{"quantity":2,"unit":"cup","en":"strawberries","it":"fragole","preparationEn":"diced","preparationIt":"a dadini"}]}
 {"line":"2 flax “eggs” (2 tbsp ground flax + 5 tbsp water)","language":"en","parts":[{"quantity":2,"unit":"tbsp","en":"ground flaxseed","it":"semi di lino macinati"},{"quantity":5,"unit":"tbsp","en":"water","it":"acqua"}]}
 {"line":"2 large handfuls baby spinach or chopped kale","language":"en","parts":[{"quantity":2,"unit":"handful","en":"baby spinach","it":"spinacini","alternatives":[{"en":"kale","it":"cavolo riccio"}]}]}
 {"line":"2 lbs apples","language":"en","parts":[{"quantity":2,"unit":"lb","en":"apples","it":"mele"}]}
@@ -227,6 +228,7 @@
 {"line":"2-3 carrots, (sliced into strips)","language":"en","parts":[{"quantity":2,"quantityMax":3,"en":"carrots","it":"carote","preparationEn":"sliced into strips","preparationIt":"tagliate a striscioline"}]}
 {"line":"2-3 medium carrots (chopped)","language":"en","parts":[{"quantity":2,"quantityMax":3,"en":"medium carrots","it":"carote medie","preparationEn":"chopped","preparationIt":"tagliate a pezzi"}]}
 {"line":"2-3 tablespoons of powdered sugar","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"powdered sugar","it":"zucchero a velo"}]}
+{"line":"2-3 tablespoons vegan chili crisp, (to taste)","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"vegan chili crisp","it":"chili crisp vegano","toTaste":true}]}
 {"line":"2-3 tablespoons water or almond milk","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"water","it":"acqua","alternatives":[{"en":"almond milk","it":"latte di mandorla"}]}]}
 {"line":"2-3 tbsp extra virgin olive oil + more to grill vegetables","language":"en","parts":[{"quantity":2,"quantityMax":3,"unit":"tbsp","en":"extra virgin olive oil","it":"olio extravergine d'oliva","purposeEn":"plus more for grilling vegetables","purposeIt":"più altro per grigliare le verdure"}]}
 {"line":"2/3 cups light oil ((such as canola or vegetable))","language":"en","parts":[{"quantity":0.666667,"unit":"cup","en":"light oil","it":"olio dal sapore delicato","alternatives":[{"en":"canola oil","it":"olio di colza"},{"en":"vegetable oil","it":"olio vegetale"}]}]}
@@ -310,6 +312,7 @@
 {"line":"7-8 oz vegan mozzarella shreds","language":"en","parts":[{"quantity":7,"quantityMax":8,"unit":"oz","en":"shredded vegan mozzarella","it":"mozzarella vegana grattugiata"}]}
 {"line":"70 g / 2.5 oz (1/3 cup) shelled pistachios","language":"en","parts":[{"quantity":70,"unit":"g","en":"shelled pistachios","it":"pistacchi sgusciati"}]}
 {"line":"75 g sugar (I used raw cane brown sugar)","language":"en","parts":[{"quantity":75,"unit":"g","en":"sugar","it":"zucchero"}]}
+{"line":"8 ounces shiitake mushrooms, (stems removed and caps sliced)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"shiitake mushrooms","it":"funghi shiitake","preparationEn":"stems removed and caps sliced","preparationIt":"senza gambi e cappelli affettati"}]}
 {"line":"8 oz Tempeh cubed to 1/2 inch cubes (or use Tofu)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"tempeh","it":"tempeh","preparationEn":"cubed","preparationIt":"tagliato a cubetti","alternatives":[{"en":"tofu","it":"tofu"}]}]}
 {"line":"8 slices vegan provolone cheese (160g)","language":"en","parts":[{"quantity":160,"unit":"g","en":"vegan provolone cheese","it":"provolone vegano","preparationEn":"sliced","preparationIt":"a fette"}]}
 {"line":"8 taco shells","language":"en","parts":[{"quantity":8,"en":"taco shells","it":"gusci per taco"}]}
@@ -388,6 +391,7 @@
 {"line":"½ teaspoon vanilla extract (or vanilla powder, or more, to taste)","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"vanilla extract","it":"estratto di vaniglia","toTaste":true,"alternatives":[{"en":"vanilla powder","it":"vaniglia in polvere"}]}]}
 {"line":"½ tsp cayenne ((or paprika for less heat))","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"cayenne pepper","it":"peperoncino di Cayenna","alternatives":[{"en":"paprika","it":"paprika"}]}]}
 {"line":"½ tsp of fine sea salt, adjust to taste","language":"en","parts":[{"quantity":0.5,"unit":"tsp","en":"fine sea salt","it":"sale marino fino","toTaste":true}]}
+{"line":"¾ cup (113 g) brown sugar","language":"en","parts":[{"quantity":113,"unit":"g","en":"brown sugar","it":"zucchero di canna"}]}
 {"line":"¾ cup Bob's Red Mill Gluten Free Old Fashioned Rolled Oats","language":"en","parts":[{"quantity":0.75,"unit":"cup","en":"gluten-free old-fashioned rolled oats","it":"fiocchi d'avena tradizionali senza glutine"}]}
 {"line":"120 g zucchero (per me integrale)","language":"it","parts":[{"quantity":120,"unit":"g","en":"sugar","it":"zucchero"}]}
 {"line":"2 cucchiai di pan grattato + qb se serve","language":"it","parts":[{"quantity":2,"unit":"tbsp","en":"breadcrumbs","it":"pangrattato","toTaste":true}]}

@@ -1,4 +1,5 @@
 {"model":"gpt-6.1-terra-medium","schema":1}
+{"line":"1 (10.8 ounce/307 gram) package silken tofu ((Note 1))","language":"en","parts":[{"quantity":307,"unit":"g","en":"silken tofu","it":"tofu vellutato"}]}
 {"line":"1 (14-ounce) block of Earth Grown Organic Extra Firm Tofu, (drained)","language":"en","parts":[{"quantity":14,"unit":"oz","en":"organic extra-firm tofu","it":"tofu biologico extra compatto","preparationEn":"drained","preparationIt":"scolato"}]}
 {"line":"1 (14oz) can corn","language":"en","parts":[{"quantity":14,"unit":"oz","en":"canned corn","it":"mais in scatola"}]}
 {"line":"1 (4 ounce/113 gram) can green chiles","language":"en","parts":[{"quantity":113,"unit":"g","en":"canned green chiles","it":"peperoncini verdi in scatola"}]}
@@ -307,6 +308,7 @@
 {"line":"3 cups full fat oat milk","language":"en","parts":[{"quantity":3,"unit":"cup","en":"full-fat oat milk","it":"latte d'avena intero"}]}
 {"line":"3 cups kale (washed, dried, stems removed and lightly massaged, 80 grams)","language":"en","parts":[{"quantity":80,"unit":"g","en":"kale","it":"cavolo riccio","preparationEn":"washed, dried, stems removed and lightly massaged","preparationIt":"lavato, asciugato, privato dei gambi e massaggiato leggermente"}]}
 {"line":"3 cups plant-based milk ((such as soy or oat))","language":"en","parts":[{"quantity":3,"unit":"cup","en":"plant-based milk","it":"latte vegetale","alternatives":[{"en":"soy milk","it":"latte di soia"},{"en":"oat milk","it":"latte d'avena"}]}]}
+{"line":"3 fresh mint leaves (optional)","language":"en","parts":[{"quantity":3,"en":"fresh mint leaves","it":"foglie di menta fresca","optional":true}]}
 {"line":"3 tablespoons (30g) potato starch (See Notes)","language":"en","parts":[{"quantity":30,"unit":"g","en":"potato starch","it":"fecola di patate"}]}
 {"line":"3 tablespoons plant-based milk ((such as soy or almond))","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"plant-based milk","it":"latte vegetale","alternatives":[{"en":"soy milk","it":"latte di soia"},{"en":"almond milk","it":"latte di mandorla"}]}]}
 {"line":"3 tablespoons powdered sugar ((add more sugar if you like the glaze sweeter))","language":"en","parts":[{"quantity":3,"unit":"tbsp","en":"powdered sugar","it":"zucchero a velo"}]}

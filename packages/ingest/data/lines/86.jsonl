@@ -17,6 +17,7 @@
 {"line":"1 1/4 cup flour","language":"en","parts":[{"quantity":1.25,"unit":"cup","en":"flour","it":"farina"}]}
 {"line":"1 Cup Non-Dairy Milk","language":"en","parts":[{"quantity":1,"unit":"cup","en":"non-dairy milk","it":"latte vegetale"}]}
 {"line":"1 Red Onion, diced","language":"en","parts":[{"quantity":1,"en":"red onion","it":"cipolla rossa","preparationEn":"diced","preparationIt":"tagliata a dadini"}]}
+{"line":"1 Tablespoon balsamic vinegar","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"balsamic vinegar","it":"aceto balsamico"}]}
 {"line":"1 Tbsp dried mint leaves","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"dried mint leaves","it":"foglie di menta essiccate"}]}
 {"line":"1 Tbsp flaxmeal","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"ground flaxseed","it":"semi di lino macinati"}]}
 {"line":"1 anise star","language":"en","parts":[{"quantity":1,"en":"star anise","it":"anice stellato"}]}
@@ -336,6 +337,7 @@
 {"line":"60 g / ½ cup candied orange or mixed peel","language":"en","parts":[{"quantity":60,"unit":"g","en":"candied orange peel","it":"scorza d'arancia candita","alternatives":[{"en":"mixed candied peel","it":"scorze miste candite"}]}]}
 {"line":"7-8 tablespoons vegan strawberry ice cream ((more for a sweeter bread))","language":"en","parts":[{"quantity":7,"quantityMax":8,"unit":"tbsp","en":"vegan strawberry ice cream","it":"gelato vegano alla fragola"}]}
 {"line":"7.055 oz Taiwanese flat noodles","language":"en","parts":[{"quantity":7.055,"unit":"oz","en":"Taiwanese flat noodles","it":"noodles piatti taiwanesi"}]}
+{"line":"75 g / 6 tbsp light muscovado sugar","language":"en","parts":[{"quantity":75,"unit":"g","en":"light muscovado sugar","it":"zucchero muscovado chiaro"}]}
 {"line":"750 g / 26.5 oz small uniform carrots*","language":"en","parts":[{"quantity":750,"unit":"g","en":"small uniform carrots","it":"carote piccole di dimensioni uniformi"}]}
 {"line":"8 ounces spaghetti or rice noodles","language":"en","parts":[{"quantity":8,"unit":"oz","en":"spaghetti","it":"spaghetti","alternatives":[{"en":"rice noodles","it":"spaghetti di riso"}]}]}
 {"line":"8 oz (1/2 block) extra firm tofu (, drained and pressed, then cubed)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"extra firm tofu","it":"tofu extra compatto","preparationEn":"drained, pressed, then cubed","preparationIt":"scolato, pressato e poi tagliato a cubetti"}]}
@@ -366,6 +368,7 @@
 {"line":"Salt & Pepper to taste","language":"en","parts":[{"en":"salt","it":"sale","toTaste":true},{"en":"pepper","it":"pepe","toTaste":true}]}
 {"line":"Sprinkle shaved chocolate or Cocoa powder (to serve)","language":"en","parts":[{"quantity":1,"unit":"sprinkle","en":"chocolate","it":"cioccolato","preparationEn":"shaved","preparationIt":"in scaglie","purposeEn":"for serving","purposeIt":"per servire","alternatives":[{"en":"cocoa powder","it":"cacao in polvere"}]}]}
 {"line":"Tahini Dressing","language":"en","parts":[{"en":"tahini dressing","it":"condimento alla tahina"}]}
+{"line":"Tahini Dressing (or Rosemary Garlic Cashew Cream, for serving (optional))","language":"en","parts":[{"en":"tahini dressing","it":"condimento alla tahina","purposeEn":"for serving","purposeIt":"per servire","optional":true,"alternatives":[{"en":"rosemary garlic cashew cream","it":"crema di anacardi al rosmarino e aglio"}]}]}
 {"line":"Topping 1 - walnuts, blueberries, almond butter, agave","language":"en","parts":[{"en":"walnuts","it":"noci"},{"en":"blueberries","it":"mirtilli"},{"en":"almond butter","it":"burro di mandorle"},{"en":"agave","it":"sciroppo d'agave"}]}
 {"line":"Unflavored and unsweetened non-dairy milk, (as needed (up to 1/2 cup))","language":"en","parts":[{"quantity":0.5,"unit":"cup","en":"unflavored unsweetened non-dairy milk","it":"latte vegetale non aromatizzato e senza zuccheri","purposeEn":"as needed, up to this amount","purposeIt":"quanto basta, fino a questa dose"}]}
 {"line":"Unsweetened cocoa powder","language":"en","parts":[{"en":"unsweetened cocoa powder","it":"cacao amaro in polvere"}]}

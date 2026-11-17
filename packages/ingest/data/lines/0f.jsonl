@@ -347,6 +347,7 @@
 {"line":"8 oz chopped artichoke hearts","language":"en","parts":[{"quantity":8,"unit":"oz","en":"artichoke hearts","it":"cuori di carciofo","preparationEn":"chopped","preparationIt":"tagliati a pezzi"}]}
 {"line":"8 oz shishito peppers (washed, dried, and left whole)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"shishito peppers","it":"peperoni shishito","preparationEn":"washed, dried, and left whole","preparationIt":"lavati, asciugati e lasciati interi"}]}
 {"line":"85 ml white wine","language":"en","parts":[{"quantity":85,"unit":"ml","en":"white wine","it":"vino bianco"}]}
+{"line":"90 g water","language":"en","parts":[{"quantity":90,"unit":"g","en":"water","it":"acqua"}]}
 {"line":"A small piece of scotch bonnet or habanero pepper","language":"en","parts":[{"en":"small piece of Scotch bonnet pepper","it":"pezzetto di peperoncino Scotch bonnet","alternatives":[{"en":"small piece of habanero pepper","it":"pezzetto di peperoncino habanero"}]}]}
 {"line":"Capers","language":"en","parts":[{"en":"capers","it":"capperi"}]}
 {"line":"Crushed red pepper flakes ((or Aleppo pepper for mild heat) )","language":"en","parts":[{"en":"crushed red pepper flakes","it":"peperoncino rosso in fiocchi","alternatives":[{"en":"Aleppo pepper","it":"peperoncino di Aleppo"}]}]}
@@ -359,6 +360,7 @@
 {"line":"Parchment paper or a silicone mat","language":"en","kind":"other"}
 {"line":"Red pepper flakes (optional for serving)","language":"en","parts":[{"en":"red pepper flakes","it":"peperoncino in fiocchi","purposeEn":"for serving","purposeIt":"per servire","optional":true}]}
 {"line":"Reserved lemon zest","language":"en","parts":[{"en":"reserved lemon zest","it":"scorza di limone tenuta da parte"}]}
+{"line":"Reserved scallion greens (from above)","language":"en","kind":"other"}
 {"line":"Spray oil (or 1-2 tsp cooking oil)","language":"en","parts":[{"en":"spray oil","it":"olio spray","alternatives":[{"quantity":1,"quantityMax":2,"unit":"tsp","en":"cooking oil","it":"olio da cucina"}]}]}
 {"line":"Topping of your choice (optional, like Vegan sprinkles, cinnamon sugar, or crushed nuts)","language":"en","parts":[{"en":"toppings of choice","it":"guarnizioni a scelta","optional":true,"alternatives":[{"en":"vegan sprinkles","it":"codette vegane"},{"en":"cinnamon sugar","it":"zucchero alla cannella"},{"en":"crushed nuts","it":"frutta secca sbriciolata"}]}]}
 {"line":"a big handful of baby spinach ( or other baby greens of choice)","language":"en","parts":[{"unit":"handful","en":"baby spinach","it":"spinacini","alternatives":[{"en":"baby greens of choice","it":"insalatine tenere a scelta"}]}]}

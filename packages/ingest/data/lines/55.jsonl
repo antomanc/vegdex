@@ -116,6 +116,7 @@
 {"line":"1-2 garlic cloves, diced finely","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"clove","en":"garlic","it":"aglio","preparationEn":"finely diced","preparationIt":"tagliato a dadini fini"}]}
 {"line":"1-2 shots espresso (or ½ cup strong coffee)","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"shot","en":"espresso","it":"caffè espresso","alternatives":[{"quantity":0.5,"unit":"cup","en":"strong coffee","it":"caffè forte"}]}]}
 {"line":"1-2 tablespoons nutritional yeast ((optional))","language":"en","parts":[{"quantity":1,"quantityMax":2,"unit":"tbsp","en":"nutritional yeast","it":"lievito alimentare","optional":true}]}
+{"line":"1-3 tablespoons water (or broth to ensure that all of the dry ingredients are hydrated)","language":"en","parts":[{"quantity":1,"quantityMax":3,"unit":"tbsp","en":"water","it":"acqua","alternatives":[{"en":"broth","it":"brodo"}]}]}
 {"line":"1.5 cups flour ((I use a mix of all purpose and wheat), see notes for Glutenfree)","language":"en","parts":[{"quantity":1.5,"unit":"cup","en":"flour","it":"farina"}]}
 {"line":"1.5 tbsp cinnamon","language":"en","parts":[{"quantity":1.5,"unit":"tbsp","en":"cinnamon","it":"cannella"}]}
 {"line":"1.5 tsp vanilla","language":"en","parts":[{"quantity":1.5,"unit":"tsp","en":"vanilla","it":"vaniglia"}]}

@@ -116,6 +116,7 @@
 {"line":"1 tbsp olive oil ((or sub vegetable stock))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","alternatives":[{"en":"vegetable stock","it":"brodo vegetale"}]}]}
 {"line":"1 tbsp olive oil (optional; for a smoother sauce)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"olive oil","it":"olio d'oliva","optional":true}]}
 {"line":"1 tbsp vegan butter (melted)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
+{"line":"1 teaspoon Aleppo pepper flakes (or gochugaru pepper flakes or a mix of the two)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"Aleppo pepper flakes","it":"peperoncino di Aleppo in fiocchi","alternatives":[{"en":"gochugaru","it":"gochugaru"}]}]}
 {"line":"1 teaspoon Chinese five spice powder***","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"Chinese five-spice powder","it":"miscela cinese cinque spezie"}]}
 {"line":"1 teaspoon EACH thyme, basil, and oregano","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"thyme","it":"timo"},{"quantity":1,"unit":"tsp","en":"basil","it":"basilico"},{"quantity":1,"unit":"tsp","en":"oregano","it":"origano"}]}
 {"line":"1 teaspoon dried basil (or more to taste)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"dried basil","it":"basilico essiccato","toTaste":true}]}
@@ -364,6 +365,7 @@
 {"line":"8 oz vegan mozzarella shreds","language":"en","parts":[{"quantity":8,"unit":"oz","en":"shredded vegan mozzarella","it":"mozzarella vegana grattugiata"}]}
 {"line":"8 oz. plain or grilled firm or extra firm tofu, cubed (optional)","language":"en","parts":[{"quantity":8,"unit":"oz","en":"plain firm tofu","it":"tofu compatto al naturale","preparationEn":"cubed","preparationIt":"tagliato a cubetti","optional":true,"alternatives":[{"en":"grilled firm tofu","it":"tofu compatto grigliato"},{"en":"plain extra firm tofu","it":"tofu extra compatto al naturale"},{"en":"grilled extra firm tofu","it":"tofu extra compatto grigliato"}]}]}
 {"line":"8 tablespoons vegan butter ((1 stick or 1/2 cup, melted))","language":"en","parts":[{"quantity":8,"unit":"tbsp","en":"vegan butter","it":"burro vegetale","preparationEn":"melted","preparationIt":"fuso"}]}
+{"line":"80 ml / 1/3 cup any plant milk","language":"en","parts":[{"quantity":80,"unit":"ml","en":"plant milk","it":"latte vegetale"}]}
 {"line":"9 oz firm tofu (drained (*see notes))","language":"en","parts":[{"quantity":9,"unit":"oz","en":"firm tofu","it":"tofu compatto","preparationEn":"drained","preparationIt":"scolato"}]}
 {"line":"Dijon mustard","language":"en","parts":[{"en":"Dijon mustard","it":"senape di Digione"}]}
 {"line":"Juice of 1 of a medium lemon","language":"en","parts":[{"quantity":1,"en":"medium lemon","it":"limone medio","preparationEn":"juiced","preparationIt":"spremuto"}]}

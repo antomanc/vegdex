@@ -101,6 +101,7 @@
 {"line":"1 teaspoon white wine vinegar","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"white wine vinegar","it":"aceto di vino bianco"}]}
 {"line":"1 to 1 ½ cups pasta water (start with 1 cup)","language":"en","parts":[{"quantity":1,"quantityMax":1.5,"unit":"cup","en":"pasta cooking water","it":"acqua di cottura della pasta"}]}
 {"line":"1 tsp dark soy sauce (optional, for color)","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"dark soy sauce","it":"salsa di soia scura","optional":true}]}
+{"line":"1 tsp each: ground coriander, smoked paprika, onion powder","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"ground coriander","it":"coriandolo macinato"},{"quantity":1,"unit":"tsp","en":"smoked paprika","it":"paprika affumicata"},{"quantity":1,"unit":"tsp","en":"onion powder","it":"cipolla in polvere"}]}
 {"line":"1 tsp flaky sea salt","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"flaky sea salt","it":"sale marino in fiocchi"}]}
 {"line":"1 tsp or more lime or lemon juice","language":"en","parts":[{"quantity":1,"unit":"tsp","en":"lime juice","it":"succo di lime","alternatives":[{"en":"lemon juice","it":"succo di limone"}]}]}
 {"line":"1 ¼ cups (~125g) rolled oats*","language":"en","parts":[{"quantity":125,"unit":"g","en":"rolled oats","it":"fiocchi d'avena"}]}

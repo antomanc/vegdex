@@ -432,6 +432,7 @@
 {"line":"¾ teaspoon sea salt (4.2g)","language":"en","parts":[{"quantity":4.2,"unit":"g","en":"sea salt","it":"sale marino"}]}
 {"line":"¾-1 tsp sea salt","language":"en","parts":[{"quantity":0.75,"quantityMax":1,"unit":"tsp","en":"sea salt","it":"sale marino"}]}
 {"line":"⅓ cup (65 to 70g) long-grain white rice ((see Note 1))","language":"en","parts":[{"quantity":65,"quantityMax":70,"unit":"g","en":"long-grain white rice","it":"riso bianco a chicco lungo"}]}
+{"line":"⅔ cup brown sugar (or coconut sugar, maple syrup, date syrup, or sugar-free brown sugar; omit if preferred)","language":"en","parts":[{"quantity":0.667,"unit":"cup","en":"brown sugar","it":"zucchero di canna","optional":true,"alternatives":[{"en":"coconut sugar","it":"zucchero di cocco"},{"en":"maple syrup","it":"sciroppo d'acero"},{"en":"date syrup","it":"sciroppo di datteri"},{"en":"sugar-free brown sugar","it":"zucchero di canna senza zuccheri"}]}]}
 {"line":"⅔ cup onion (chopped)","language":"en","parts":[{"quantity":0.6667,"unit":"cup","en":"onion","it":"cipolla","preparationEn":"chopped","preparationIt":"tritata"}]}
 {"line":"1 cucchiaino di coriandolo in grani","language":"it","parts":[{"quantity":1,"unit":"tsp","en":"whole coriander seeds","it":"semi di coriandolo interi"}]}
 {"line":"1 cucchiaino di curry in polvere","language":"it","parts":[{"quantity":1,"unit":"tsp","en":"curry powder","it":"curry in polvere"}]}

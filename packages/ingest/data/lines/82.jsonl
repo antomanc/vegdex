@@ -21,6 +21,7 @@
 {"line":"1 2/3 cups vegetable broth","language":"en","parts":[{"quantity":1.6667,"unit":"cup","en":"vegetable broth","it":"brodo vegetale"}]}
 {"line":"1 Cup Water","language":"en","parts":[{"quantity":1,"unit":"cup","en":"water","it":"acqua"}]}
 {"line":"1 Recipe Marinated Tofu","language":"en","parts":[{"quantity":1,"unit":"recipe","en":"marinated tofu","it":"tofu marinato"}]}
+{"line":"1 Tablespoon chickpea water (aquafaba)","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"chickpea water","it":"acqua di ceci"}]}
 {"line":"1 Tablespoon of apple cider vinegar ((or white vinegar))","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"apple cider vinegar","it":"aceto di mele","alternatives":[{"en":"white vinegar","it":"aceto bianco"}]}]}
 {"line":"1 Tbsp dried rosemary","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"dried rosemary","it":"rosmarino essiccato"}]}
 {"line":"1 Tbsp unsweetened soy milk","language":"en","parts":[{"quantity":1,"unit":"tbsp","en":"unsweetened soy milk","it":"latte di soia senza zucchero"}]}
@@ -395,6 +396,7 @@
 {"line":"¼ cup fresh basil, chopped","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh basil","it":"basilico fresco","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"¼ cup fresh mint ((finely chopped))","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"fresh mint","it":"menta fresca","preparationEn":"finely chopped","preparationIt":"tritata finemente"}]}
 {"line":"¼ cup of pepper of choice ((anaheim, pasilla, jalapeno, etc), chopped)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"pepper of choice","it":"peperoncino a piacere","preparationEn":"chopped","preparationIt":"tritato"}]}
+{"line":"¼ cup parsley (chopped)","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"parsley","it":"prezzemolo","preparationEn":"chopped","preparationIt":"tritato"}]}
 {"line":"¼ cup rice wine vinegar","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"rice wine vinegar","it":"aceto di riso"}]}
 {"line":"¼ cup shredded red cabbage","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"red cabbage","it":"cavolo cappuccio rosso","preparationEn":"shredded","preparationIt":"tagliato a striscioline"}]}
 {"line":"¼ cup sweetened coconut flakes or shreds","language":"en","parts":[{"quantity":0.25,"unit":"cup","en":"sweetened coconut flakes","it":"scaglie di cocco zuccherate","alternatives":[{"en":"sweetened shredded coconut","it":"cocco grattugiato zuccherato"}]}]}
