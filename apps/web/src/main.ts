@@ -3,10 +3,12 @@ import '@fontsource/bowlby-one/400.css'
 import '@fontsource-variable/work-sans/wght.css'
 import './app.css'
 import App from './App.svelte'
+import { listenForHaptics } from './lib/haptic'
 
 const app = mount(App, {
   target: document.getElementById('app')!,
 })
+listenForHaptics()
 
 // On the first visit the data loads before the service worker takes over, so none of it is cached for offline use.
 // Once the worker controls the page, fetch those files again through it; the browser's HTTP cache usually answers.

@@ -29,8 +29,11 @@ export function toggleTheme() {
   try {
     localStorage.setItem(KEY, theme.dark ? 'dark' : 'light')
   } catch {}
-  // The page cross-fades into night (or day) where the browser can; instantly otherwise.
+  // Night drops like the market awning; day lifts it. Instant when motion is reduced or unsupported.
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (!still && document.startViewTransition) document.startViewTransition(apply)
-  else apply()
+  if (!still && document.startViewTransition) {
+    document.documentElement.classList.add('theme-awning')
+    const run = document.startViewTransition(apply)
+    void run.finished.finally(() => document.documentElement.classList.remove('theme-awning'))
+  } else apply()
 }

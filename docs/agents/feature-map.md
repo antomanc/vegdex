@@ -26,7 +26,8 @@ The first page before the worker answers is **Today's picks** from `first.json` 
 | Active filters | Chips for each filter, removable one by one, and Clear all | `lib/ActiveFilters.svelte` |
 | Sort | Today's picks, Top rated, Newest, Fastest, Best match | `App.svelte`, `lib/labels.ts` |
 | Empty result | Names the one filter (or the search) whose removal brings recipes back | `App.svelte` (`loosen`) |
-| Dock | **Back to top** and **Pick for me** at the bottom | `App.svelte` |
+| Dock | **Back to top**, icon-only **Shopping list** (when anything is saved), and **Pick for me** at the bottom | `App.svelte` |
+| Stall tip | One-time hint under the filters for Tonight and Pick on the landing | `App.svelte` (`vegdex:stall-tip-dismissed`) |
 | Language suggestion and header switch | Switch between English (root) and Italian (`/it/`), keeping filters and saved recipes: the EN/IT button in the header, and a one-time suggestion for Italian browsers | `App.svelte` (`.language-switch`), `lib/LanguageSuggestion.svelte`, `lib/i18n.ts`, ADR 0002 |
 | Units toggle | US or Metric amounts | `lib/UnitsToggle.svelte` |
 

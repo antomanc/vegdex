@@ -45,9 +45,10 @@
       for (const part of current.querySelectorAll('.recipe-head, .recipe-ingredients')) {
         for (const animation of part.getAnimations()) animation.cancel()
         part.animate([
-          { transform: still ? 'none' : 'translateX(28px) rotate(0.6deg)', opacity: 0.3 },
+          { transform: still ? 'none' : 'translateX(40px) rotate(1.2deg) scale(0.97)', opacity: 0.15 },
+          { transform: still ? 'none' : 'translateX(-6px) rotate(-0.4deg)', opacity: 1, offset: 0.72 },
           { transform: 'none', opacity: 1 }
-        ], { duration: still ? 120 : 320, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' })
+        ], { duration: still ? 120 : 420, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' })
       }
     }
     shownId = id

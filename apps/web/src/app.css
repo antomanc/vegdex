@@ -45,19 +45,20 @@
   --paper: #121211;
   --surface: #1c1c1a;
   --ink: #f4f2ea;
-  --muted: #aaa89f;
-  --line: #34332f;
+  --muted: #b7b5ab;
+  --line: #45433c;
   --rule: #e9e7df;
   --green: #79c58a;
   --on-green: #0e1a11;
-  --green-soft: #1f3324;
+  --green-soft: #243d2a;
   --sign-red: #f2593f;
   --tag: #f2593f;
   --label: #e8bd2a;
   --on-tag: #151515;
   --on-tomato: #151515;
   --heart-disc: rgb(18 18 17 / 0.85);
-  --card-shadow: rgb(0 0 0 / 0.4);
+  --shadow: rgb(0 0 0 / 0.45);
+  --card-shadow: rgb(0 0 0 / 0.5);
 }
 
 * { box-sizing: border-box; }
@@ -68,12 +69,24 @@ body { margin: 0; min-height: 100dvh; }
 button, input, select { font: inherit; color: inherit; }
 button { cursor: pointer; }
 button:disabled { cursor: default; }
+/* Android paints a rectangular tap wash that ignores border-radius; kill it so pills and round keys stay clean. */
+a, button, .seg, summary { -webkit-tap-highlight-color: transparent; }
 :where(button, a.cta) {
   transition: background-color 160ms ease-out, color 160ms ease-out, border-color 160ms ease-out, scale 120ms var(--ease-out);
 }
-:where(button, a.cta):not(:disabled, [aria-disabled='true'], .brand, .card-open):active { scale: 0.97; }
+:where(button, a.cta):not(:disabled, [aria-disabled='true'], .brand, .card-open):active { scale: 0.95; }
+/* Pick is the stall's one solid action: a deeper press so the thumb feels it. */
+.pick:active:not(:disabled) { scale: 0.92; }
 :where(.heart, .save) .icon { transition: scale 200ms var(--ease-out); }
-:where(.heart, .save):active .icon { scale: 0.85; }
+:where(.heart, .save):active .icon { scale: 0.78; }
+/* A chosen sign, pill or time settles firmly — no bounce, just a confident land. */
+@keyframes select-slap {
+  0% { scale: 0.94; }
+  100% { scale: 1; }
+}
+.tab.on, .pill.on, .pills .seg.on, .saved-toggle.on, .choice-grid .pill.on {
+  animation: select-slap 200ms var(--ease-out);
+}
 :focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 ::placeholder { color: var(--muted); opacity: 1; }
 ::selection { background: var(--label); color: var(--on-label); }
@@ -192,6 +205,7 @@ input { caret-color: var(--sign-red); }
   .more-count {
     display: grid; place-items: center; position: absolute; top: -5px; right: -5px; min-width: 20px; height: 20px; padding: 0 5px;
     border-radius: 999px; background: var(--tag); color: var(--on-tag); font-size: 0.75rem; font-weight: 700;
+    animation: select-slap 240ms var(--ease-out);
   }
 }
 @media (max-width: 419px) { .pill.tonight .icon { display: none; } }
@@ -219,7 +233,7 @@ input { caret-color: var(--sign-red); }
 .pill.tonight:not(.on) { background: var(--surface); border-color: var(--rule); color: var(--ink); }
 
 /* Signs: flavor and courses lettered on boards hung over the stall. */
-.tabs { margin: 8px 0 6px; }
+.tabs { margin: 8px 0 6px; perspective: 900px; }
 .tab-row { display: flex; gap: 8px; align-items: center; overflow-x: auto; padding: 0 var(--edge); max-width: calc(1200px + 2 * var(--edge)); margin: 0 auto; scrollbar-width: none; }
 .tab-row::-webkit-scrollbar { display: none; }
 .tab {
@@ -227,11 +241,19 @@ input { caret-color: var(--sign-red); }
   font-family: var(--display); font-size: 0.9rem; letter-spacing: 0.005em;
   border: 2px solid var(--rule); border-radius: 2px;
   background: var(--surface); color: var(--ink);
+  transform-origin: 50% 0%;
 }
 /* Inset: the scrolling row would clip an outer ring. */
 .tab:focus-visible { outline-offset: -6px; }
 .tab.on:focus-visible { outline-color: var(--on-green); }
 .tab.on { background: var(--green); border-color: var(--green); color: var(--on-green); }
+/* A wooden sign knocked forward when chosen — stall board, not a bounce. */
+@keyframes sign-knock {
+  0% { transform: rotateX(0); }
+  40% { transform: rotateX(-32deg); }
+  100% { transform: rotateX(0); }
+}
+.tab.on { animation: sign-knock 300ms var(--ease-out), select-slap 200ms var(--ease-out); }
 
 /* Time is one choice: four joined segments. */
 .segmented { flex: none; display: inline-flex; border: 2px solid var(--rule); border-radius: 999px; overflow: hidden; }
@@ -243,9 +265,13 @@ input { caret-color: var(--sign-red); }
 .seg.on:focus-visible { outline-color: var(--on-green); }
 .pills .seg.on:focus-visible { outline-color: var(--on-tag); }
 .seg.on { background: var(--green); color: var(--on-green); }
-/* The time filter speaks in price tags: the chosen time turns into the red tag. */
+/* The time filter uses the same red tag ink as the crate labels, upright in the segment. */
 .pills .seg { padding-top: 2px; font-family: var(--display); font-size: 0.85rem; font-weight: 400; }
-.pills .seg.on { background: var(--tag); color: var(--on-tag); }
+.pills .seg:first-child { border-radius: 999px 0 0 999px; }
+.pills .seg:last-child { border-radius: 0 999px 999px 0; }
+.pills .seg.on {
+  background: var(--tag); color: var(--on-tag); z-index: 1;
+}
 
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .row.center { justify-content: center; }
@@ -273,8 +299,12 @@ input { caret-color: var(--sign-red); }
 .btn-sm { min-height: 44px; padding: 0 18px; border-radius: 6px; border: 2px solid var(--green); background: transparent; color: var(--green); font-size: 0.88rem; font-weight: 600; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip { display: inline-flex; align-items: center; gap: 4px; border: 2px solid var(--green); color: var(--ink); border-radius: 4px; font-weight: 600; min-height: 44px; padding: 4px 10px 4px 12px; font-size: 0.88rem; background: var(--green-soft); }
-.chip { background: var(--surface); }
+.chip { background: var(--surface); transition: scale 220ms var(--ease-out), opacity 180ms ease-out, translate 220ms var(--ease-out), border-color 160ms ease-out, color 160ms ease-out; }
 .chip.avoid { border-color: var(--sign-red); }
+/* A new chip drops onto the board from above. */
+@starting-style {
+  .chip { scale: 0.78; opacity: 0; translate: 0 -14px; }
+}
 
 /* Results */
 /* The credits sit at the bottom of the screen even when the list is short or empty. */
@@ -305,8 +335,25 @@ main {
 .grocery-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap; border: 0; background: var(--green); color: var(--on-green); border-radius: 8px; font-weight: 650; min-height: 40px; padding: 0 16px; font-size: 0.88rem; font-weight: 600; }
 .status { text-align: center; color: var(--muted); padding: 48px 16px; }
 .status p { margin: 0 0 12px; }
-.status.empty { padding-top: 32px; }
-.status.empty > p { color: var(--ink); font-size: 1rem; max-width: 34ch; margin: 0 auto 16px; text-wrap: balance; }
+.status.empty { padding-top: 28px; }
+.status.empty .empty-sign {
+  font-family: var(--display); font-size: 1.4rem; font-weight: 400; line-height: 1.15;
+  color: var(--ink); margin: 0 auto 10px; max-width: 20ch; text-wrap: balance;
+}
+.status.empty > p { color: var(--muted); font-size: 1rem; max-width: 34ch; margin: 0 auto 16px; text-wrap: balance; }
+.offline-banner {
+  margin: 0 0 12px; padding: 10px 12px; border: 2px solid var(--rule); border-radius: 6px;
+  background: var(--surface); color: var(--ink); font-size: 0.88rem; line-height: 1.4; text-wrap: balance;
+}
+.stall-tip {
+  display: flex; align-items: flex-start; gap: 8px; margin: 0 0 14px; padding: 10px 8px 10px 12px;
+  border: 2px solid var(--rule); border-radius: 6px; background: var(--surface);
+}
+.stall-tip p {
+  flex: 1; margin: 0; min-height: 44px; display: flex; align-items: center;
+  font-size: 0.88rem; line-height: 1.4; color: var(--ink); text-wrap: balance;
+}
+.stall-tip .text-btn { flex: none; text-decoration: none; padding: 0; width: 44px; min-height: 44px; display: grid; place-items: center; }
 .loosen {
   display: inline-flex; flex-direction: column; align-items: center; justify-content: center; min-height: 56px; padding: 6px 24px; margin-bottom: 6px;
   border: 0; border-radius: 8px; background: var(--green); color: var(--on-green); font-weight: 650;
@@ -319,7 +366,8 @@ main {
 .active-filters .text-btn { min-height: 44px; padding: 4px 8px; font-size: 0.88rem; }
 .grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px 10px; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 @media (max-width: 379px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .card h2 { font-size: 0.95rem; } .time { font-size: 0.85rem; left: 6px; } .card .rating { font-size: 0.75rem; padding-inline: 4px; } }
-@media (min-width: 700px) { .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 30px 20px; } }
+@media (min-width: 700px) { .grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 26px 16px; } }
+@media (min-width: 1100px) { .grid { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 28px 18px; } }
 
 /* The browse screen's one solid action, floating within thumb reach: let the stall pick. */
 .dock {
@@ -338,6 +386,7 @@ main {
 /* The way back sits on the same line as Pick: same height and shape, outlined and quieter. */
 .dock-return { padding: 0 18px; background: var(--surface); color: var(--ink); font-family: var(--body); font-weight: 600; box-shadow: inset 0 0 0 2px var(--rule), 0 2px 6px var(--shadow), 0 8px 24px var(--card-shadow); }
 .pick:focus-visible, .dock-return:focus-visible { outline-offset: 3px; }
+.dock-list { width: 52px; padding: 0; justify-content: center; flex: none; }
 .pick-inline { display: none; }
 @media (min-width: 900px) {
   .pick-inline { display: inline-flex; flex: none; min-height: 44px; margin-left: auto; padding: 0 18px; font-size: 0.9rem; box-shadow: none; }
@@ -349,6 +398,7 @@ main {
   .dock { gap: 6px; padding-inline: 8px; }
   .pick { padding: 0 12px; font-size: 0.9rem; gap: 6px; }
   .dock-return { padding: 0 10px; font-size: 0.85rem; gap: 4px; }
+  .dock-list { width: 48px; }
 }
 /* Room under the last cards and the credits, so the dock never covers them. */
 main:has(~ .dock) { padding-bottom: 96px; }
@@ -356,7 +406,14 @@ main:has(~ .dock) { padding-bottom: 96px; }
 /* A crate on the stall: the publisher's photo, its price tag, the facts under it. No card stock. */
 .card, .skeleton li { position: relative; height: 100%; }
 .card { display: flex; flex-direction: column; }
-.card { transition: opacity 0.2s ease-out; }
+.card { transition: opacity 0.2s ease-out, scale 140ms var(--ease-out); }
+/* The card-open button skips the global press scale so the title does not jump; the crate itself answers the thumb. */
+.card:has(.card-open:active) { scale: 0.95; }
+.card:has(.card-open:active) .thumb img { filter: brightness(1.1) saturate(1.12); }
+.card:has(.card-open:active) .time { rotate: -16deg; scale: 1.14; }
+li:nth-child(even) > .card:has(.card-open:active) .time { rotate: 10deg; scale: 1.14; }
+/* Pick for me: crates rummage before a recipe lands (driven by stall-motion.ts). */
+.grid.shuffling .card { will-change: transform; }
 .card.unsaved .thumb img { filter: grayscale(1); opacity: 0.45; }
 .removed { margin: 18px 2px -12px; font-size: 0.875rem; font-weight: 650; color: var(--sign-red); }
 .card-open { display: inline; text-align: left; background: none; border: 0; padding: 0; font-weight: inherit; letter-spacing: inherit; line-height: inherit; }
@@ -374,15 +431,22 @@ main:has(~ .dock) { padding-bottom: 96px; }
 /* Out of flow, so a portrait photo cannot stretch its square crate and the row with it. */
 .thumb img { position: absolute; inset: 0; }
 .thumb:has(.placeholder)::before { content: none; }
-.placeholder { display: block; width: 40%; height: 100%; margin: 0 auto; color: var(--green); opacity: 0.35; }
-/* The time is a red price tag hung off the crate's edge, never quite straight. */
+.thumb:has(.placeholder) {
+  background:
+    linear-gradient(135deg, var(--green-soft) 0 45%, transparent 45% 55%, var(--green-soft) 55%),
+    var(--green-soft);
+  background-size: 14px 14px, auto;
+  box-shadow: inset 0 0 0 2px var(--rule);
+}
+.placeholder { display: block; width: 46%; height: 100%; margin: 0 auto; color: var(--green); opacity: 0.55; }
+/* The time is a red price tag hung off the crate's edge, kept upright. */
 .time, .card-fields .tag {
   background: var(--tag); color: var(--on-tag);
   font-family: var(--display); font-weight: 400; font-variant-numeric: tabular-nums; line-height: 1.1;
   padding: 5px 9px 3px; border-radius: 2px; box-shadow: 0 2px 4px var(--shadow);
+  transition: rotate 240ms var(--ease-out), scale 240ms var(--ease-out);
 }
-.time { white-space: nowrap; position: absolute; left: 8px; bottom: -11px; font-size: 0.95rem; rotate: -4deg; }
-li:nth-child(even) > .card .time { rotate: -2deg; }
+.time { white-space: nowrap; position: absolute; left: 8px; bottom: -11px; font-size: 0.95rem; }
 .card h2 { font-size: 1.0625rem; line-height: 1.22; margin: 19px 2px 6px; font-weight: 680; letter-spacing: -0.01em; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .card h2::first-letter, .sheet h2::first-letter { text-transform: uppercase; }
 .card .meta { margin: auto 2px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
@@ -400,11 +464,11 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
 .heart.on { color: var(--sign-red); }
 .heart.saving::after {
   content: ''; position: absolute; inset: 8px; border: 2px solid var(--sign-red); border-radius: 50%;
-  pointer-events: none; animation: saved-ring 440ms var(--ease-out) both;
+  pointer-events: none; animation: saved-ring 560ms var(--ease-out) both;
 }
 @keyframes saved-ring {
-  from { scale: 0.65; opacity: 0.7; }
-  to { scale: 1.65; opacity: 0; }
+  from { scale: 0.55; opacity: 0.85; }
+  to { scale: 2.1; opacity: 0; }
 }
 .sentinel { height: 1px; }
 .credits { display: grid; justify-items: center; gap: 4px; text-align: center; color: var(--muted); font-size: 0.875rem; margin-top: auto; padding-top: 40px; line-height: 1.5; text-wrap: balance; }
@@ -424,9 +488,9 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
 .sheet::backdrop { background: var(--scrim); transition: opacity 180ms ease-out; }
 .sheet.closing::backdrop { opacity: 0; }
 /* A sheet slides up into place. */
-.sheet[open] { transition: translate 320ms var(--ease-out), rotate 320ms var(--ease-out), opacity 180ms ease-out; transform-origin: 50% 100%; }
+.sheet[open] { transition: translate 380ms var(--ease-out), rotate 380ms var(--ease-out), opacity 220ms ease-out; transform-origin: 50% 100%; }
 @starting-style {
-  .sheet[open]:not(.recipe-sheet) { translate: 0 40px; rotate: -0.7deg; opacity: 0; }
+  .sheet[open]:not(.recipe-sheet) { translate: 0 56px; rotate: -1.2deg; opacity: 0; }
   .sheet[open]::backdrop { opacity: 0; }
 }
 .recipe-sheet { transform-origin: center; }
@@ -436,6 +500,14 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
   height: 64px; margin: -20px -20px -44px; padding: 0 10px; pointer-events: none;
 }
 .sheet-top .close { pointer-events: auto; }
+/* While the crate photo morphs, only the hero is visible — chrome settles in after. */
+.recipe-sheet.vt-photo .sheet-top,
+.recipe-sheet.vt-photo .sheet-footer,
+.recipe-sheet.vt-photo .recipe-ingredients,
+.recipe-sheet.vt-photo .recipe-head > :not(.hero) {
+  opacity: 0;
+  pointer-events: none;
+}
 /* Once the sheet scrolls, the bar turns solid, so content slides under it instead of under the button. */
 @supports not (animation-timeline: scroll()) {
   .sheet-top { background: var(--surface); margin-bottom: 0; }
@@ -487,7 +559,7 @@ li:nth-child(even) > .card .time { rotate: -2deg; }
 @media (max-width: 359px) { .card-fields dt { white-space: nowrap; font-size: 0.7rem; letter-spacing: 0.03em; } .card-fields > div { padding-inline: 6px; } .units-row .label { min-width: auto; } }
 .card-fields dd { margin: 4px 0 0; font-size: 0.95rem; font-weight: 600; line-height: 1.35; font-variant-numeric: tabular-nums; }
 .recipe-head h2 { margin-right: 0; }
-.card-fields .tag { white-space: nowrap; display: inline-block; margin-top: 6px; rotate: -3deg; font-size: 0.95rem; }
+.card-fields .tag { white-space: nowrap; display: inline-block; margin-top: 6px; font-size: 0.95rem; }
 .badges { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .badges li { background: transparent; border: 1.5px solid var(--rule); border-radius: 4px; font-weight: 600; padding: 3px 10px; font-size: 0.8rem; }
 .badges li.cuisine { border-color: var(--muted); font-weight: 500; }
@@ -532,6 +604,13 @@ p.small a { display: inline-flex; align-items: center; min-height: 44px; color: 
 .grocery input:checked::before, .amounts .title input:checked::before {
   content: ''; width: 16px; height: 16px; background: var(--on-green);
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: check-pop 180ms var(--ease-out);
+}
+/* Ink stamp on the shopping list — the mark lands, then settles. */
+@keyframes check-pop {
+  from { scale: 1.85; opacity: 0; filter: blur(1.5px); }
+  55% { scale: 0.9; opacity: 1; filter: blur(0); }
+  to { scale: 1; opacity: 1; filter: blur(0); }
 }
 .grocery .name { flex: 1; }
 .grocery .name, .grocery .amount { transition: opacity 160ms ease-out; }
@@ -564,8 +643,21 @@ p.small a { display: inline-flex; align-items: center; min-height: 44px; color: 
 
 /* Loading: the shape of the grid, still, so nothing jumps when recipes arrive. */
 .skeleton li { list-style: none; }
-.skeleton .bar { height: 14px; margin: 12px 2px 0; border-radius: 2px; background: var(--green-soft); }
+.skeleton .thumb {
+  background: var(--green-soft);
+  box-shadow: inset 0 0 0 2px var(--line);
+}
+.skeleton .thumb::after {
+  content: '';
+  position: absolute; left: 8px; bottom: -8px; width: 44px; height: 22px;
+  border-radius: 2px; background: color-mix(in srgb, var(--tag) 35%, var(--green-soft));
+}
+.skeleton .bar { height: 14px; margin: 16px 2px 0; border-radius: 2px; background: var(--green-soft); }
 .skeleton .bar.short { width: 55%; margin-top: 6px; }
+.skeleton-label {
+  font-family: var(--display); font-size: 1.15rem; font-weight: 400;
+  color: var(--muted); margin: 0 0 14px; text-wrap: balance;
+}
 
 @media (hover: hover) {
   .card:has(.card-open:hover) img { filter: brightness(1.06) saturate(1.08); }
@@ -580,18 +672,32 @@ p.small a { display: inline-flex; align-items: center; min-height: 44px; color: 
   .tab:not(.on):hover { border-color: var(--green); color: var(--green); }
   .pick:hover { filter: brightness(1.12); }
   .dock-return:hover { background: var(--green-soft); }
-  /* Hovered, the tag swings a little on its string. */
-  .card:has(.card-open:hover) .time { rotate: -8deg; }
-  li:nth-child(even) > .card:has(.card-open:hover) .time { rotate: 3deg; }
+  /* Hovered, the tag swings on its string. */
+  .card:has(.card-open:hover) .time { rotate: -12deg; scale: 1.06; }
+  li:nth-child(even) > .card:has(.card-open:hover) .time { rotate: 8deg; scale: 1.06; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
-  :where(button, a.cta):active, :where(.heart, .save).on .icon, :where(.heart, .save):active .icon { scale: none; }
-  .card, .thumb img, .sheet[open] { transition-property: opacity, background-color, color, border-color, filter; }
-  .card:has(.card-open:hover) .time, li:nth-child(even) > .card:has(.card-open:hover) .time { rotate: -4deg; }
+  :where(button, a.cta):active, .pick:active:not(:disabled), :where(.heart, .save).on .icon, :where(.heart, .save):active .icon,
+  .card:has(.card-open:active) { scale: none; }
+  .tab.on, .pill.on, .pills .seg.on, .saved-toggle.on, .choice-grid .pill.on, .more-count,
+  .grocery input:checked::before, .amounts .title input:checked::before { animation: none; }
+  html.theme-awning::view-transition-old(root),
+  html.theme-awning::view-transition-new(root),
+  html.vt-shelf::view-transition-old(root),
+  html.vt-shelf::view-transition-new(root),
+  html.vt-crate::view-transition-old(root),
+  html.vt-crate::view-transition-new(root) { animation: none; }
+  .card, .thumb img, .sheet[open], .chip, .time, .card-fields .tag { transition-property: opacity, background-color, color, border-color, filter; }
+  .card:has(.card-open:hover) .time, li:nth-child(even) > .card:has(.card-open:hover) .time,
+  .card:has(.card-open:active) .time, li:nth-child(even) > .card:has(.card-open:active) .time { rotate: none; scale: none; }
+  .grid.shuffling .card { animation: none !important; transform: none !important; }
   .share .bubble { translate: none; }
-  @starting-style { .sheet[open]:not(.recipe-sheet) { translate: none; rotate: none; } }
+  @starting-style {
+    .sheet[open]:not(.recipe-sheet) { translate: none; rotate: none; }
+    .chip { scale: none; opacity: 1; }
+  }
 }
 
 /* Keep the creator link readable beside long translated labels and publisher names. */
@@ -605,6 +711,15 @@ p.small a { display: inline-flex; align-items: center; min-height: 44px; color: 
   .recipe-sheet .actions:not(:has(.save + .save:not(.share))) { flex-wrap: nowrap; }
   .recipe-sheet .actions:not(:has(.save + .save:not(.share))) .cta { flex: 1 1 0; min-width: 0; padding: 6px 10px; font-size: 0.88rem; line-height: 1.2; }
   .recipe-sheet .actions .recipe-secondary-actions { gap: 8px; }
+}
+/* Long Italian “Cucina su …” needs its own row under 360px so the creator link stays tappable. */
+@media (max-width: 359px) {
+  .recipe-sheet .actions { flex-direction: column; align-items: stretch; }
+  .recipe-sheet .actions .recipe-secondary-actions { flex: none; width: 100%; }
+  .recipe-sheet .actions .cta {
+    flex: 1 1 auto; width: 100%; min-width: 0; justify-content: center;
+    padding: 10px 12px; font-size: 0.92rem; line-height: 1.25; text-wrap: balance;
+  }
 }
 @media (max-width: 699px) {
   .recipe-sheet .actions .cta { flex-basis: 170px; }
@@ -635,3 +750,53 @@ p.small.scale-note { margin: 0 0 10px; }
 
 
 .language-switch { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border: 2px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: 0.82rem; font-weight: 700; text-decoration: none; }
+
+/* Shared-element crate: photo morphs into the sheet hero (View Transitions). */
+::view-transition-group(crate-photo) {
+  animation-duration: 360ms;
+  animation-timing-function: var(--ease-out);
+}
+::view-transition-old(crate-photo),
+::view-transition-new(crate-photo) {
+  mix-blend-mode: normal;
+  height: 100%;
+  object-fit: cover;
+  overflow: clip;
+  border-radius: var(--radius);
+}
+/* During a crate morph, skip the root crossfade so the sheet does not flash then resettle. */
+html.vt-crate::view-transition-old(root),
+html.vt-crate::view-transition-new(root) {
+  animation: none;
+}
+/* Shelf updates: soft crossfade when filters or search change the crates. */
+html.vt-shelf::view-transition-old(root) {
+  animation: shelf-out 220ms ease-out both;
+}
+html.vt-shelf::view-transition-new(root) {
+  animation: shelf-in 280ms var(--ease-out) both;
+}
+@keyframes shelf-out {
+  to { opacity: 0; }
+}
+@keyframes shelf-in {
+  from { opacity: 0; }
+}
+
+/* Night drops like the market awning; day lifts it again. */
+html.theme-awning::view-transition-old(root) {
+  animation: awning-drop 520ms ease-in both;
+}
+html.theme-awning::view-transition-new(root) {
+  animation: awning-rise 520ms var(--ease-out) both;
+}
+@keyframes awning-drop {
+  from { clip-path: inset(0 0 0 0); }
+  to { clip-path: inset(0 0 100% 0); }
+}
+@keyframes awning-rise {
+  from { clip-path: inset(100% 0 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.heart-flyer { font-family: var(--body); }

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { untrack } from 'svelte'
+  import { tick, untrack } from 'svelte'
   import { type Catalog, type CatalogRecipe } from '@vegdex/core'
   import { catalog, type Found, type Loaded } from './lib/catalog-client'
   import { loadCatalogData, loadFirstPage, loadLookup } from './lib/data'
@@ -7,7 +7,7 @@
     activeCount, activeFilters, browseMode, clearFilters, defaultSort, filters, forgetUnsavedAmounts, isLanding, readUrl, removeFilter, saved, showCatalog, showSaved, showShelf, sourceNames, toQuery, writeUrl,
     type Sort
   } from './lib/state.svelte'
-  import { m, countArgs, formatNumber, pageLocale, rememberLanguage } from './lib/i18n'
+  import { m, countArgs, formatNumber, pageLocale, rememberLanguage, takeSkipEarly } from './lib/i18n'
   import { BASE_LOCALE, LOCALES } from './lib/locales'
   import { display, loadTranslations } from './lib/translations.svelte'
   import { isLocale } from './paraglide/runtime'
@@ -24,6 +24,8 @@
   import { latest } from './lib/reactive/latest.svelte'
   import { intersect } from './lib/reactive/intersect.svelte'
   import { settled } from './lib/reactive/timing.svelte'
+  import { haptic } from './lib/haptic'
+  import { shuffleVisibleCrates } from './lib/stall-motion'
 
   const PAGE = 48
   const REMOVAL_URL = `mailto:hello@antomanc.com?subject=${encodeURIComponent('vegdex removal request')}&body=${encodeURIComponent('Blog or recipe links:\n\nWhat should go (a photo, a recipe or the whole blog):\n')}`
@@ -57,6 +59,25 @@
   let scrollY = $state(0)
   let homeButton = $state<HTMLButtonElement>()
   let queryString = $state(location.search)
+  let online = $state(navigator.onLine)
+  $effect(() => {
+    const sync = () => (online = navigator.onLine)
+    addEventListener('online', sync)
+    addEventListener('offline', sync)
+    return () => {
+      removeEventListener('online', sync)
+      removeEventListener('offline', sync)
+    }
+  })
+
+  // First landings: point at Tonight and Pick, then stay out of the way.
+  const STALL_TIP_KEY = 'vegdex:stall-tip-dismissed'
+  let stallTip = $state(false)
+  try { stallTip = localStorage.getItem(STALL_TIP_KEY) !== '1' } catch { /* tip stays off when storage is blocked */ }
+  function dismissStallTip() {
+    stallTip = false
+    try { localStorage.setItem(STALL_TIP_KEY, '1') } catch { /* dismissed for this visit */ }
+  }
 
   function failed(e: Error) {
     console.error(e)
@@ -103,24 +124,49 @@
   // Recipes unsaved in this visit to the saved view stay listed, so a mis-tap on the heart can be undone.
   const listedIds = $derived([...saved.ids, ...saved.unsaved])
 
+  // Shelf signature ignores limit so infinite scroll does not re-crossfade the grid.
+  let shelfSig = ''
   latest(
     () => {
       if (!loaded) return
       const query = $state.snapshot(toQuery(listedIds))
       const countIds = mode === 'saved' ? $state.snapshot(saved.ids) : undefined
       void titlesVersion
-      return catalog.search(query, limit, countIds)
+      // Titles reloads must not count as a shelf change: that flash looked like the wrong recipes.
+      const sig = JSON.stringify({ query, countIds })
+      return catalog.search(query, limit, countIds).then((f) => ({ f, sig }))
     },
-    (f) => (found = f),
+    ({ f, sig }) => {
+      const queryChanged = sig !== shelfSig
+      const hadShelf = found !== null
+      shelfSig = sig
+      const apply = () => { found = f }
+      if (
+        hadShelf &&
+        queryChanged &&
+        !matchMedia('(prefers-reduced-motion: reduce)').matches &&
+        document.startViewTransition
+      ) {
+        document.documentElement.classList.add('vt-shelf')
+        const run = document.startViewTransition(async () => {
+          apply()
+          await tick()
+        })
+        void run.finished.finally(() => document.documentElement.classList.remove('vt-shelf'))
+      } else {
+        apply()
+      }
+    },
     failed
   )
   const results = $derived(found?.recipes ?? [])
   const total = $derived(found?.total ?? 0)
   const resultCount = $derived(found?.counted ?? 0)
   const visible = $derived(results.slice(0, limit))
-  // first.json ships in Today's picks order, the same cards the catalog's first page will show.
+  // first.json ships in Today's picks order — skipped after a language switch so the shelf does not flash.
+  const skipEarly = takeSkipEarly()
   const early = $derived(
-    !found && firstPage && isLanding() && (pageLocale.code === BASE_LOCALE.code || display.loaded)
+    !found && !skipEarly && firstPage && isLanding() && (pageLocale.code === BASE_LOCALE.code || display.loaded)
       ? firstPage.recipes.slice(0, PAGE)
       : null
   )
@@ -228,6 +274,10 @@
 
   const showPick = $derived(!!found && total > 0 && mode !== 'saved')
   const showReturn = $derived(mode === 'saved' ? scrollY > 600 : filtersOutOfView)
+  // Icon-only list key: opens the shopping list from the catalog without hunting through Saved.
+  const showList = $derived(!!savedRecipes && saved.ids.length > 0 && !groceryOpen)
+  const showDock = $derived(showReturn || showPick || showList)
+  const showStallTip = $derived(stallTip && mode !== 'saved' && isLanding() && !!found && total > 0)
 
   // Back up to the header and filters; focus lands on the brand without opening the phone keyboard.
   function backUp() {
@@ -238,12 +288,22 @@
 
   // Draw from the best of the current matches, never the card already open.
   const DRAW_POOL = 120
-  function pick() {
+  let picking = false
+  async function pick() {
+    if (picking) return
     const pool = (found?.top ?? []).slice(0, DRAW_POOL).filter((r) => r.id !== openId)
     if (!pool.length) return
-    openRow = pool[Math.floor(Math.random() * pool.length)]!
-    openId = openRow.id
-    drawn = true
+    picking = true
+    try {
+      // First draw: rummage the stall. "Another" keeps the sheet still and only slides content.
+      if (!openId) await shuffleVisibleCrates()
+      else haptic('select')
+      openRow = pool[Math.floor(Math.random() * pool.length)]!
+      openId = openRow.id
+      drawn = true
+    } finally {
+      picking = false
+    }
   }
 
   function showKitchen(id: string) {
@@ -318,8 +378,17 @@
 
 <main>
   <LanguageSuggestion {queryString} />
+  {#if !online}
+    <p class="offline-banner" role="status">{m.offline_banner()}</p>
+  {/if}
   {#if mode !== 'saved'}
     <div class="filters" bind:this={filterBox}><FilterBar count={found ? total : null} onpick={showPick ? pick : undefined} /></div>
+    {#if showStallTip}
+      <div class="stall-tip">
+        <p>{m.stall_tip()}</p>
+        <button class="text-btn" type="button" aria-label={m.dismiss_stall_tip()} onclick={dismissStallTip}><Icon name="close" size={16} /></button>
+      </div>
+    {/if}
   {/if}
 
   {#if error}
@@ -338,6 +407,7 @@
         {/each}
       </ul>
     {:else}
+      <p class="skeleton-label" aria-hidden="true">{m.loading_recipes()}</p>
       <ul class="grid skeleton" aria-hidden="true">
         {#each Array(6) as _, i (i)}<li><div class="thumb"></div><div class="bar"></div><div class="bar short"></div></li>{/each}
       </ul>
@@ -382,6 +452,7 @@
 
     {#if results.length === 0}
       <div class="status empty">
+        <p class="empty-sign">{m.empty_shelf()}</p>
         {#if mode === 'saved' && !saved.ids.length}
           <p>{m.saved_empty()}</p>
           <button class="text-btn" onclick={() => showSaved(filters, false)}>{m.browse()}</button>
@@ -435,12 +506,16 @@
   {/if}
 </main>
 
-<!-- One dock within thumb reach: the way back up and the one primary action, side by side.
-     It always says "Back to top", so nobody taps it expecting to keep their place. -->
-{#if showReturn || showPick}
+<!-- Dock within thumb reach: back up, shopping list (icon), and Pick. "Back to top" never means "filters". -->
+{#if showDock}
   <div class="dock">
     {#if showReturn}
       <button class="dock-return" onclick={backUp}><Icon name="arrow-up" size={18} /><span>{m.back_to_top()}</span></button>
+    {/if}
+    {#if showList}
+      <button class="dock-return dock-list" type="button" aria-label={m.shopping_list()} onclick={() => (groceryOpen = true)}>
+        <Icon name="list" size={18} />
+      </button>
     {/if}
     {#if showPick}<button class="pick" onclick={pick}><Icon name="shuffle" size={18} /> {m.pick()}</button>{/if}
   </div>
