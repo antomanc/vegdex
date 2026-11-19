@@ -53,7 +53,10 @@ jobs:
       - name: Save store
         if: github.event_name == 'schedule' || inputs.crawl
         run: |
-          gh release view data >/dev/null 2>&1 || gh release create data --title "Crawl state" --notes "Ingest store used by the daily workflow. Not a software release."
+          # Recreate the release on every crawl: GitHub pins "released N ago" to the publish date,
+          # so a reused release looks stale even though its assets are fresh.
+          gh release delete data --cleanup-tag --yes || echo "no previous release, starting fresh"
+          gh release create data --title "Crawl state" --notes "Ingest store used by the daily workflow. Recreated by every crawl, so the release date is the last one. Not a software release."
           gh release upload data .data/store.json.gz .data/excluded.json .data/crawl-report.json --clobber
 
       # Coverage per language and held recipes; reporting never blocks a deploy.
