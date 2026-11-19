@@ -98,9 +98,12 @@
           {#if stats.separate > stats.items}<span class="muted">{m.week_instead({ count: formatNumber(stats.separate) })}</span>{/if}
         </p>
         {#if shared.length}
-          <ul class="week-shared" aria-label={m.week_shared()}>
-            {#each shared as s (s.concept)}<li>{s.name} <span class="times">×{formatNumber(s.recipes)}</span></li>{/each}
-          </ul>
+          <div class="week-shared-row">
+            <span class="week-shared-label">{m.week_shared()}:</span>
+            <ul class="week-shared" aria-label={m.week_shared()}>
+              {#each shared as s (s.concept)}<li>{s.name} <span class="times">×{formatNumber(s.recipes)}</span></li>{/each}
+            </ul>
+          </div>
         {/if}
       {/if}
       <ol class="week-list" data-testid="week-list">

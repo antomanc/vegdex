@@ -1,5 +1,5 @@
 <script lang="ts">
-  type Name = 'arrow-up' | 'heart' | 'close' | 'star' | 'external' | 'search' | 'sliders' | 'clock' | 'list' | 'shuffle' | 'moon' | 'sun' | 'share' | 'check' | 'fridge' | 'calendar'
+  type Name = 'arrow-up' | 'heart' | 'close' | 'star' | 'external' | 'search' | 'sliders' | 'clock' | 'list' | 'shuffle' | 'moon' | 'sun' | 'share' | 'check' | 'fridge' | 'calendar' | 'chevron-left' | 'chevron-right' | 'undo'
   let { name, size = 18, filled = false }: { name: Name; size?: number; filled?: boolean } = $props()
 </script>
 
@@ -35,6 +35,12 @@
     <rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4M7.5 14h2M11 14h2M14.5 14h2M7.5 17h2M11 17h2" />
   {:else if name === 'check'}
     <path d="M5 12.5l4.5 4.5L19 7.5" />
+  {:else if name === 'chevron-left'}
+    <path d="M15 6l-6 6 6 6" />
+  {:else if name === 'chevron-right'}
+    <path d="M9 6l6 6-6 6" />
+  {:else if name === 'undo'}
+    <path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11M8 5L4 9l4 4" />
   {:else}
     <path d="M14 5h5v5M19 5l-8 8M17 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4" />
   {/if}

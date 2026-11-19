@@ -9,21 +9,50 @@
   import { suggestNames } from './suggest'
   import { closeSheet, sheet } from './sheet'
   import { activeCount, clearFilters, filters, isTonight, moreCount, toggleTonight } from './state.svelte'
+  import { overflow } from './reactive/overflow.svelte'
 
   // null until the catalog answers: the button says what it does without a count.
-  let { count, onpick }: { count: number | null; onpick?: () => void } = $props()
+  let {
+    count, onpick, fromFridge = false, fridgeCount = 0, onfridge, onweek, weekDisabled = false
+  }: {
+    count: number | null
+    onpick?: () => void
+    fromFridge?: boolean
+    fridgeCount?: number
+    onfridge?: () => void
+    onweek?: () => void
+    weekDisabled?: boolean
+  } = $props()
 
-  /** Mains through Desserts head the first line of signs. */
+  /** Mains through Desserts lead; Savory, Sweet and the rest follow after a subtle divider on the same single row. */
   const FIRST_LINE = 7
   let more = $state(false)
   let signRow = $state<HTMLElement>()
-  /** Brings a sign fully into the scrolling row, clear of the fade at its right edge. */
+  let canPrev = $state(false)
+  let canNext = $state(false)
+
+  // The overflow helper owns the row's scroll and resize listening: the arrows show only where more signs wait.
+  overflow(
+    () => signRow,
+    (sides) => {
+      canPrev = sides.prev
+      canNext = sides.next
+    }
+  )
+
+  function stepRow(dir: -1 | 1) {
+    if (!signRow) return
+    const smooth = !matchMedia('(prefers-reduced-motion: reduce)').matches
+    signRow.scrollBy({ left: dir * Math.max(200, Math.round(signRow.clientWidth * 0.68)), behavior: smooth ? 'smooth' : 'instant' })
+  }
+
+  /** Brings a sign fully into the scrolling row, clear of the edge fades; the row's own scroll listener re-syncs the arrows. */
   function reveal(sign: HTMLElement | null | undefined) {
     if (!signRow || !sign) return
     const left = sign.offsetLeft - signRow.offsetLeft
-    const edge = 16
-    if (left < signRow.scrollLeft + edge) signRow.scrollLeft = left - edge
-    else if (left + sign.offsetWidth > signRow.scrollLeft + signRow.clientWidth - 44) signRow.scrollLeft = left + sign.offsetWidth - signRow.clientWidth + 56
+    const edge = 44
+    if (left < signRow.scrollLeft + edge) signRow.scrollLeft = Math.max(0, left - edge)
+    else if (left + sign.offsetWidth > signRow.scrollLeft + signRow.clientWidth - edge) signRow.scrollLeft = left + sign.offsetWidth - signRow.clientWidth + edge
   }
   // A chosen sign, also one set by Tonight or a shared link, slides into view.
   $effect(() => {
@@ -99,41 +128,71 @@
   {@const cut = label.lastIndexOf(' ')}
   {label.slice(0, cut)}<span class="seg-unit">{' '}{label.slice(cut + 1)}</span>
 {/snippet}
-<!-- The stall's signs, in two lines that scroll together: dinner courses lead, then flavor and the rest. -->
+<!-- The stall's signs on one compact scrolling row across phones and desktops. -->
 {#snippet meal([meal, label]: [Meal, string])}
   <button class="tab" class:on={filters.meals.includes(meal)} aria-pressed={filters.meals.includes(meal)}
     onclick={() => toggleMeal(meal)}>{label}</button>
 {/snippet}
-<nav class="tabs" aria-label={m.categories()}>
-  <div class="tab-row" bind:this={signRow} onfocusin={(e) => reveal(e.target as HTMLElement)}><div class="tab-track">
-    <div class="tab-line">
-      {#each MEAL_LABELS.slice(0, FIRST_LINE) as entry (entry[0])}{@render meal(entry)}{/each}
+<nav class="tabs" class:can-prev={canPrev} class:can-next={canNext} aria-label={m.categories()}>
+  <div class="tab-shell">
+    {#if canPrev}
+      <button class="tab-scroll prev" type="button" aria-label={m.scroll_categories_prev()} onclick={() => stepRow(-1)}>
+        <Icon name="chevron-left" size={18} />
+      </button>
+    {/if}
+    <div class="tab-row" bind:this={signRow} onfocusin={(e) => reveal(e.target as HTMLElement)}>
+      <div class="tab-track">
+        {#each MEAL_LABELS.slice(0, FIRST_LINE) as entry (entry[0])}{@render meal(entry)}{/each}
+        <span class="tab-sep" aria-hidden="true"></span>
+        <button class="tab savory" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
+          onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>{m.savory()}</button>
+        <button class="tab sweet" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
+          onclick={() => (filters.flavor = filters.flavor === 'sweet' ? null : 'sweet')}>{m.sweet()}</button>
+        {#each MEAL_LABELS.slice(FIRST_LINE) as entry (entry[0])}{@render meal(entry)}{/each}
+      </div>
     </div>
-    <div class="tab-line">
-      <button class="tab savory" class:on={filters.flavor === 'savory'} aria-pressed={filters.flavor === 'savory'}
-        onclick={() => (filters.flavor = filters.flavor === 'savory' ? null : 'savory')}>{m.savory()}</button>
-      <button class="tab sweet" class:on={filters.flavor === 'sweet'} aria-pressed={filters.flavor === 'sweet'}
-        onclick={() => (filters.flavor = filters.flavor === 'sweet' ? null : 'sweet')}>{m.sweet()}</button>
-      {#each MEAL_LABELS.slice(FIRST_LINE) as entry (entry[0])}{@render meal(entry)}{/each}
-    </div>
-  </div></div>
+    {#if canNext}
+      <button class="tab-scroll next" type="button" aria-label={m.scroll_categories_next()} onclick={() => stepRow(1)}>
+        <Icon name="chevron-right" size={18} />
+      </button>
+    {/if}
+  </div>
 </nav>
 
-<div class="pills controls">
-  <button class="pill tonight" class:on={isTonight()} aria-pressed={isTonight()} title={m.tonight_hint()} onclick={toggleTonight}>
-    <Icon name="clock" size={16} /> {m.tonight()}
-  </button>
-  <div class="segmented" role="group" aria-label={m.ready_in()}>
-    {#each TIMES as t (t)}
-      <button class="seg" class:on={filters.maxMinutes === t} aria-pressed={filters.maxMinutes === t}
-        onclick={() => (filters.maxMinutes = filters.maxMinutes === t ? null : t)}>{@render time(m.time_limit({ count: formatNumber(t) }))}</button>
-    {/each}
+<!-- Unified decision strip: Tonight, My fridge and My week alongside quick time & extra filters. -->
+<div class="pills controls controls-bar">
+  <div class="shortcuts" role="group" aria-label={m.quick_picks()}>
+    <button class="shortcut tonight" class:on={isTonight()} aria-pressed={isTonight()} title={m.tonight_hint()} onclick={toggleTonight}>
+      <Icon name="clock" size={16} /><span>{m.tonight()}</span>
+    </button>
+    {#if onfridge}
+      <button class="shortcut" class:on={fromFridge} aria-pressed={fromFridge} aria-haspopup="dialog" onclick={onfridge}>
+        <Icon name="fridge" size={16} /><span>{m.fridge_button()}</span>{#if fridgeCount}<span class="shortcut-count" aria-hidden="true">{formatNumber(fridgeCount)}</span>{/if}
+      </button>
+    {/if}
+    {#if onweek}
+      <button class="shortcut" aria-haspopup="dialog" onclick={onweek} disabled={weekDisabled}>
+        <Icon name="calendar" size={16} /><span>{m.week_button()}</span>
+      </button>
+    {/if}
   </div>
-  <!-- On phones this is a round key; its label stays for screen readers. -->
-  <button class="pill outline more-key" class:on={moreCount() > 0} aria-haspopup="dialog" onclick={() => (more = true)}>
-    <Icon name="sliders" size={16} /> <span class="more-label">{m.more_filters()}{moreCount() ? ` · ${formatNumber(moreCount())}` : ''}</span>
-    {#if moreCount()}<span class="more-count" aria-hidden="true">{formatNumber(moreCount())}</span>{/if}
-  </button>
+
+  <span class="controls-sep" aria-hidden="true"></span>
+
+  <div class="filter-controls">
+    <div class="segmented" role="group" aria-label={m.ready_in()}>
+      {#each TIMES as t (t)}
+        <button class="seg" class:on={filters.maxMinutes === t} aria-pressed={filters.maxMinutes === t}
+          onclick={() => (filters.maxMinutes = filters.maxMinutes === t ? null : t)}>{@render time(m.time_limit({ count: formatNumber(t) }))}</button>
+      {/each}
+    </div>
+    <!-- On phones this is a round key; its label stays for screen readers. -->
+    <button class="pill outline more-key" class:on={moreCount() > 0} aria-haspopup="dialog" onclick={() => (more = true)}>
+      <Icon name="sliders" size={16} /> <span class="more-label">{m.more_filters()}{moreCount() ? ` · ${formatNumber(moreCount())}` : ''}</span>
+      {#if moreCount()}<span class="more-count" aria-hidden="true">{formatNumber(moreCount())}</span>{/if}
+    </button>
+  </div>
+
   <!-- Wide screens: Pick ends this row, so it never covers a photo; the dock's copy shows on phones. -->
   {#if onpick}<button class="pick pick-inline" onclick={onpick}><Icon name="shuffle" size={16} /> {m.pick()}</button>{/if}
 </div>
@@ -144,20 +203,15 @@
       <div class="sheet-top"><button class="close" onclick={(e) => closeSheet(e.currentTarget.closest('dialog'))} aria-label={m.close()}><Icon name="close" size={20} /></button></div>
       <h2 id="more-title">{m.more_filters()}</h2>
       <fieldset class="field">
-        <legend class="visually-hidden">{m.high_protein()}</legend>
-        <div class="choice-grid"><button class="pill outline" class:on={filters.highProtein} aria-pressed={filters.highProtein} onclick={() => (filters.highProtein = !filters.highProtein)}>{m.high_protein()}</button></div>
-        <p class="hint">{m.protein_hint()}</p>
-      </fieldset>
-
-      <fieldset class="field">
-        <legend class="label">{m.free_from()}</legend>
-        <p class="hint">{m.diet_note()}</p>
+        <legend class="label">{m.diet_nutrition()}</legend>
         <div class="choice-grid">
+          <button class="pill outline" class:on={filters.highProtein} aria-pressed={filters.highProtein} title={m.protein_hint()} onclick={() => (filters.highProtein = !filters.highProtein)}>{m.high_protein()}</button>
           {#each FREE as [f, label] (f)}
             <button class="pill outline" class:on={filters.freeFrom.includes(f)} aria-pressed={filters.freeFrom.includes(f)}
               onclick={() => toggleFree(f)}>{label}</button>
           {/each}
         </div>
+        <p class="hint">{m.protein_hint()} · {m.diet_note()}</p>
       </fieldset>
 
       <form class="field" onsubmit={(e) => add('include', e)}>

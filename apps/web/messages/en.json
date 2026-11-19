@@ -471,5 +471,11 @@
       }
     }
   ],
-  "fridge_also": "Also in your fridge"
+  "fridge_also": "Also in your fridge",
+  "scroll_categories_prev": "Previous categories",
+  "scroll_categories_next": "More categories",
+  "quick_picks": "Quick ways to decide",
+  "diet_nutrition": "Diet & nutrition",
+  "deck_undo": "Undo last card",
+  "deck_keys_hint": "← Skip · → Save · Z Undo"
 }

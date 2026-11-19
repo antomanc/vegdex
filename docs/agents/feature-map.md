@@ -21,25 +21,24 @@ The first page before the worker answers is **Today's picks** from `first.json` 
 | Logo | Back to the catalog, keeping other filters | `App.svelte` `home()` |
 | Night mode toggle | Follows the system until switched | `lib/theme.svelte.ts` |
 | Search | Matches titles and ingredients; sorts by **Best match** while typed | `App.svelte` |
-| Signs (flavor and meal pills) | Savory, Sweet and meals; **Tonight** is one tap to a weeknight main | `lib/FilterBar.svelte` |
-| More filters | Time limit, high protein, free-from, **Must include** and **Avoid** ingredients with suggestions | `lib/FilterBar.svelte`, `lib/IngredientField.svelte` |
+| Signs (meal and flavor pills) | Single compact scrolling row (with desktop overflow arrows) of meals, Savory, and Sweet | `lib/FilterBar.svelte` |
+| More filters | Time limit, diet & nutrition (high protein, free-from), **Must include** and **Avoid** ingredients with suggestions | `lib/FilterBar.svelte`, `lib/IngredientField.svelte` |
 | Active filters | Chips for each filter, removable one by one, and Clear all | `lib/ActiveFilters.svelte` |
 | Sort | Today's picks, Top rated, Newest, Fastest, Best match | `App.svelte`, `lib/labels.ts` |
 | Empty result | Names the one filter (or the search) whose removal brings recipes back | `App.svelte` (`loosen`) |
 | Dock | **Back to top** (an arrow key on phones when the list key shows), icon-only **Shopping list** with the saved count (when anything is saved), and **Pick for me** at the bottom | `App.svelte` |
-| My fridge | Board under the filters; opens the fridge sheet, and turns green while the catalog shows what the fridge can make (`fridge=1`) | `App.svelte` (`.helpers`), `lib/FridgeSheet.svelte` |
-| My week | Board under the filters; opens the week planner | `App.svelte` (`.helpers`), `lib/WeekSheet.svelte` |
+| Quick shortcuts (Tonight, My fridge, My week) | Unified shortcut strip in the controls bar alongside time and filter buttons (plus desktop inline **Pick for me**); **My fridge** turns green while `fridge=1` | `lib/FilterBar.svelte`, `lib/FridgeSheet.svelte`, `lib/WeekSheet.svelte` |
 | Stall tip | One-time hint under the filters for Tonight and Pick on the landing | `App.svelte` (`vegdex:stall-tip-dismissed`) |
 | Language suggestion and header switch | Switch between English (root) and Italian (`/it/`), keeping filters and saved recipes: the EN/IT button in the header, and a one-time suggestion for Italian browsers | `App.svelte` (`.language-switch`), `lib/LanguageSuggestion.svelte`, `lib/i18n.ts`, ADR 0002 |
-| Units toggle | US or Metric amounts | `lib/UnitsToggle.svelte` |
+| Units toggle | US or Metric amounts, grouped with the servings stepper inside the recipe sheet | `lib/UnitsToggle.svelte`, `lib/RecipeSheet.svelte` |
 
 ## Sheets
 
 | Name | What it shows | Code |
 | --- | --- | --- |
-| Recipe sheet | Photo, facts (time, servings, rating, protein), ingredients in the page language with the originals one action away, servings scaling, Save, Share, "Cook it on <blog>", report a problem; the title rides in the top bar once scrolled | `lib/RecipeSheet.svelte`, `lib/RecipeCard.svelte` for the card |
+| Recipe sheet | Photo, facts (time, servings, rating, protein), ingredients in the page language with the originals one action away, compact servings + units strip, Save, Share, "Cook it on <blog>", report a problem; the title rides in the top bar once scrolled | `lib/RecipeSheet.svelte`, `lib/RecipeCard.svelte` for the card |
 | Shopping list | Saved recipes merged by aisle, per-recipe amounts, check-offs that belong to this list, share or copy | `lib/GrocerySheet.svelte`, `lib/grocery-text.ts`, `packages/core/src/grocery.ts` |
-| Pick for me (deck) | The best current matches dealt as cards: swipe or ♥ to save, ✕ or swipe left to skip, tap to open the recipe over the deck, **Shuffle again** at the end, and the shopping list (between the keys) once anything is saved | `lib/DeckSheet.svelte`, `App.svelte` (`pick`) |
+| Pick for me (deck) | The best current matches dealt as cards: swipe or ♥ to save, ✕ or swipe left to skip, **Undo** (`Z` / `Backspace`) to step back, tap to open the recipe over the deck, **Shuffle again** at the end, desktop keyboard hint, and the shopping list once anything is saved | `lib/DeckSheet.svelte`, `App.svelte` (`pick`) |
 | Fridge sheet | What the cook has (kept on the device, `vegdex:fridge`): one-tap common ingredients, a field for the rest, and **Cook from it** with the count. Cards then say **You have everything** or **To buy: …** | `lib/FridgeSheet.svelte`, `lib/RecipeCard.svelte` (`.fit`), `packages/core/src/kitchen.ts` (`fridgeOrder`) |
 | Week planner | 3–7 dinners from the cook's filters (mains when no course is chosen) that share their shopping: things to buy for the week, what is shared, **Swap** per dinner, **New week**, and **Save and make the list** (saves them and limits the list to them) | `lib/WeekSheet.svelte`, `packages/core/src/kitchen.ts` (`planWeek`, `weekStats`) |
 

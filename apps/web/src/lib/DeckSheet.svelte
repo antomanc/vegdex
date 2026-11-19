@@ -38,6 +38,8 @@
   let at = $state(0)
   /** Saved from this deck, for the count and the way to the list. */
   let kept = $state<string[]>([])
+  /** Session swipe history so the cook can undo an accidental skip or save. */
+  let history = $state<{ id: string; addedToSaved: boolean; addedToKept: boolean }[]>([])
   let busy = false
   let top = $state<HTMLElement>()
   let hint = $state<'save' | 'skip' | null>(null)
@@ -52,13 +54,22 @@
     if (!card || busy) return
     busy = true
     hint = null
+    let addedToSaved = false
+    let addedToKept = false
     if (save) {
-      if (!saved.ids.includes(card.id)) toggleSaved(card.id)
-      if (!kept.includes(card.id)) kept = [...kept, card.id]
+      if (!saved.ids.includes(card.id)) {
+        toggleSaved(card.id)
+        addedToSaved = true
+      }
+      if (!kept.includes(card.id)) {
+        kept = [...kept, card.id]
+        addedToKept = true
+      }
       haptic('save')
     } else {
       haptic('select')
     }
+    history = [...history, { id: card.id, addedToSaved, addedToKept }]
     const el = top
     if (el && !still()) {
       const width = el.offsetWidth
@@ -70,6 +81,17 @@
     }
     at += 1
     busy = false
+  }
+
+  /** Brings back the last swiped card, undoing a save only if this deck added it. */
+  function undo() {
+    if (busy || !history.length || at === 0) return
+    const last = history.at(-1)!
+    history = history.slice(0, -1)
+    at -= 1
+    if (last.addedToSaved && saved.ids.includes(last.id)) toggleSaved(last.id)
+    if (last.addedToKept) kept = kept.filter((id) => id !== last.id)
+    haptic('select')
   }
 
   // Dragging moves the card under the finger; letting go decides it, or it springs back.
@@ -124,10 +146,12 @@
     if (e.target instanceof HTMLInputElement) return
     if (e.key === 'ArrowRight') { e.preventDefault(); void decide(true) }
     else if (e.key === 'ArrowLeft') { e.preventDefault(); void decide(false) }
+    else if (e.key === 'z' || e.key === 'Z' || e.key === 'Backspace') { e.preventDefault(); undo() }
   }
   function again() {
     deck = deal()
     at = 0
+    history = []
     haptic('draw')
   }
 </script>
@@ -178,17 +202,23 @@
       <p class="visually-hidden" role="status">{recipeTitle(current)}</p>
     {/if}
 
-    <!-- One row under the deck: skip, the way to the list once something is saved (else how far in), keep. -->
+    <!-- One row under the deck: skip, undo + progress/list, keep. -->
     <div class="deck-keys">
       <button class="deck-key skip" onclick={() => decide(false)} disabled={!current} aria-label={m.deck_skip()} title={m.deck_skip()}><Icon name="close" size={26} /></button>
-      {#if kept.length}
-        <button class="deck-list" onclick={(e) => { closeSheet(e.currentTarget.closest('dialog')); onlist() }} aria-label="{m.shopping_list()} · {m.deck_kept(countArgs(kept.length))}">
-          <Icon name="list" size={18} /> <span aria-hidden="true">{m.deck_kept(countArgs(kept.length))}</span>
+      <div class="deck-mid">
+        <button class="deck-undo" type="button" onclick={undo} disabled={!history.length} aria-label={m.deck_undo()} title={m.deck_undo()}>
+          <Icon name="undo" size={18} />
         </button>
-      {:else}
-        <span class="deck-progress" aria-hidden="true">{current ? `${formatNumber(at + 1)} / ${formatNumber(deck.length)}` : ''}</span>
-      {/if}
+        {#if kept.length}
+          <button class="deck-list" onclick={(e) => { closeSheet(e.currentTarget.closest('dialog')); onlist() }} aria-label="{m.shopping_list()} · {m.deck_kept(countArgs(kept.length))}">
+            <Icon name="list" size={18} /> <span aria-hidden="true">{m.deck_kept(countArgs(kept.length))}</span>
+          </button>
+        {:else}
+          <span class="deck-progress" aria-hidden="true">{current ? `${formatNumber(at + 1)} / ${formatNumber(deck.length)}` : ''}</span>
+        {/if}
+      </div>
       <button class="deck-key keep" onclick={() => decide(true)} disabled={!current} aria-label={m.deck_save()} title={m.deck_save()}><Icon name="heart" size={26} filled /></button>
     </div>
+    <p class="deck-shortcuts" aria-hidden="true">{m.deck_keys_hint()}</p>
   </div>
 </dialog>

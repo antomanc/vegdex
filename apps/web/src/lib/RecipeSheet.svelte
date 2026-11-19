@@ -165,16 +165,19 @@
     </div>
 
     <div class="recipe-ingredients">
-    <div class="ingredients-head"><h3>{m.ingredients()}</h3><UnitsToggle /></div>
-    <div class="servings-row">
-      <span class="stepper">
-        <button aria-disabled={steps === 1} onclick={() => setSteps(steps - 1)} aria-label={m.fewer_servings_here()}>−</button>
-        <span class="value" aria-live="polite">{stepsLabel(recipe, steps)}</span>
-        <button aria-disabled={steps === MAX_BATCHES * perBatch(recipe)} onclick={() => setSteps(steps + 1)} aria-label={m.more_servings_here()}>+</button>
-      </span>
-      {#if factor !== 1}
-        <button class="text-btn" onclick={() => setSteps(perBatch(recipe))}>{m.scale_reset()}</button>
-      {/if}
+    <div class="ingredients-head"><h3>{m.ingredients()}</h3></div>
+    <div class="ingredients-controls">
+      <div class="servings-row">
+        <span class="stepper">
+          <button aria-disabled={steps === 1} onclick={() => setSteps(steps - 1)} aria-label={m.fewer_servings_here()}>−</button>
+          <span class="value" aria-live="polite">{stepsLabel(recipe, steps)}</span>
+          <button aria-disabled={steps === MAX_BATCHES * perBatch(recipe)} onclick={() => setSteps(steps + 1)} aria-label={m.more_servings_here()}>+</button>
+        </span>
+        {#if factor !== 1}
+          <button class="text-btn" onclick={() => setSteps(perBatch(recipe))}>{m.scale_reset()}</button>
+        {/if}
+      </div>
+      <UnitsToggle />
     </div>
     {#if factor !== 1}
       <p class="muted small scale-note" data-testid="scale-note">

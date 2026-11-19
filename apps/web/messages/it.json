@@ -471,5 +471,11 @@
       }
     }
   ],
-  "fridge_also": "Nel frigo anche"
+  "fridge_also": "Nel frigo anche",
+  "scroll_categories_prev": "Categorie precedenti",
+  "scroll_categories_next": "Altre categorie",
+  "quick_picks": "Scorciatoie rapide",
+  "diet_nutrition": "Dieta e nutrizione",
+  "deck_undo": "Annulla ultima carta",
+  "deck_keys_hint": "← Salta · → Salva · Z Annulla"
 }

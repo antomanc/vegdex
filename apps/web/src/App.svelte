@@ -389,15 +389,16 @@
     <p class="offline-banner" role="status">{m.offline_banner()}</p>
   {/if}
   {#if mode !== 'saved'}
-    <div class="filters" bind:this={filterBox}><FilterBar count={found ? total : null} onpick={showPick ? pick : undefined} /></div>
-    <!-- Two ways to decide that start from the cook, not the catalog: what is in the fridge, and the whole week. -->
-    <div class="helpers">
-      <button class="helper" class:on={fromFridge} aria-pressed={fromFridge} aria-haspopup="dialog" onclick={() => (fridgeOpen = true)}>
-        <Icon name="fridge" size={18} /><span>{m.fridge_button()}</span>{#if fridge.items.length}<span class="helper-count" aria-hidden="true">{formatNumber(fridge.items.length)}</span>{/if}
-      </button>
-      <button class="helper" aria-haspopup="dialog" onclick={() => (weekOpen = true)} disabled={!loaded}>
-        <Icon name="calendar" size={18} /><span>{m.week_button()}</span>
-      </button>
+    <div class="filters" bind:this={filterBox}>
+      <FilterBar
+        count={found ? total : null}
+        onpick={showPick ? pick : undefined}
+        {fromFridge}
+        fridgeCount={fridge.items.length}
+        onfridge={() => (fridgeOpen = true)}
+        onweek={() => (weekOpen = true)}
+        weekDisabled={!loaded}
+      />
     </div>
   {/if}
 
